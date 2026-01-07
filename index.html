@@ -88,6 +88,23 @@
             width: auto;
             max-height: 50px;
             object-fit: contain;
+            transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .logo-animated img {
+            animation: logoRotate 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+        }
+
+        @keyframes logoRotate {
+            0% {
+                transform: rotate(0deg) scale(1);
+            }
+            50% {
+                transform: rotate(180deg) scale(1.1);
+            }
+            100% {
+                transform: rotate(360deg) scale(1);
+            }
         }
 
         /* MODERN NAVIGATION */
@@ -263,11 +280,11 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* HERO SECTION - MAVİ AĞIRLIKLI - Roket simgesi eklendi */
+        /* HERO SECTION - YENİ BAŞLIK DÜZENİ */
         .hero {
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
             color: var(--white);
-            padding: 140px 5% 100px; /* Üst padding azaltıldı */
+            padding: 140px 5% 100px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -362,20 +379,33 @@
             margin: 0 auto;
         }
 
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.2rem);
-            font-weight: 800;
-            margin-bottom: 15px; /* Margin azaltıldı */
-            line-height: 1.2;
-            position: relative;
-            z-index: 2;
+        /* YENİ BAŞLIK DÜZENİ */
+        .hero-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 15px;
         }
 
-        .hero h1 span {
+        .hero-top, .hero-bottom {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.2;
+        }
+
+        .hero-main {
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1;
+            margin: 10px 0;
             background: linear-gradient(135deg, #60A5FA, #3B82F6);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            text-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
         }
 
         .hero p {
@@ -435,7 +465,7 @@
         /* MOBILE MENU */
         .mobile-menu {
             position: fixed;
-            top: 70px; /* Header yüksekliği ile aynı */
+            top: 70px;
             left: 0;
             right: 0;
             background: var(--white);
@@ -583,75 +613,44 @@
             line-height: 1.6;
         }
 
-        /* KATEGORİ BAŞLIKLARI - YAZIM ANİMASYONU - SİYAH RENK - TEK SATIR */
+        /* KATEGORİ BAŞLIKLARI - DÜZGÜN YAZIM ANİMASYONU */
         .category-title {
-            font-size: 1.8rem; /* Biraz büyütüldü */
+            font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 40px;
             color: var(--dark);
             padding-left: 20px;
             border-left: 4px solid var(--primary);
-            overflow: hidden;
-            white-space: nowrap;
             position: relative;
             display: inline-block;
-            max-width: 100%;
-            text-overflow: ellipsis;
-        }
-
-        /* Her başlık için farklı yazım hızı */
-        .typing-animation-1 {
             overflow: hidden;
             white-space: nowrap;
-            width: 0;
-            border-right: 2px solid var(--primary);
-            max-width: 100%;
         }
 
-        .typing-animation-2 {
+        /* Yazım animasyonu için stiller */
+        .typing-animation {
             overflow: hidden;
-            white-space: nowrap;
-            width: 0;
             border-right: 2px solid var(--primary);
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+            width: 0;
             max-width: 100%;
         }
 
-        .typing-animation-3 {
-            overflow: hidden;
-            white-space: nowrap;
-            width: 0;
-            border-right: 2px solid var(--primary);
-            max-width: 100%;
-        }
-
-        /* Animasyonlar - Z harfinden sonra cursor hemen kaybolsun */
-        @keyframes typing-1 {
-            0% { width: 0; }
-            /* Dijital Pazarlama Hizmetlerimiz */
-            94% { width: 100%; border-right: 2px solid var(--primary); }
-            95% { width: 100%; border-right: none; }
-            100% { width: 100%; border-right: none; }
-        }
-
-        @keyframes typing-2 {
-            0% { width: 0; }
-            /* Web Tasarım Hizmetlerimiz */
-            94% { width: 100%; border-right: 2px solid var(--primary); }
-            95% { width: 100%; border-right: none; }
-            100% { width: 100%; border-right: none; }
-        }
-
-        @keyframes typing-3 {
-            0% { width: 0; }
-            /* Prodüksiyon Hizmetlerimiz */
-            94% { width: 100%; border-right: 2px solid var(--primary); }
-            95% { width: 100%; border-right: none; }
-            100% { width: 100%; border-right: none; }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
         }
 
         @keyframes blink-caret {
             from, to { border-color: transparent }
             50% { border-color: var(--primary); }
+        }
+
+        /* Animasyon bitince cursor'ı kaldır */
+        .typing-complete {
+            animation: typing 3s steps(40, end) forwards, blink-caret 0.75s step-end 3;
+            border-right: none;
         }
 
         /* MODERN KART TASARIMI - TEK TIKLAMALI DÖNME */
@@ -1313,11 +1312,11 @@
 
         @media (max-width: 768px) {
             .hero {
-                padding: 120px 4% 80px; /* Üst padding daha da azaltıldı */
+                padding: 120px 4% 80px;
             }
             
             .rocket-icon {
-                display: none; /* Mobilde roketi gizle */
+                display: none;
             }
             
             .rocket-hero-1, .rocket-hero-2, .rocket-hero-3, .rocket-hero-4,
@@ -1325,38 +1324,24 @@
                 display: none;
             }
             
-            /* Kategori başlıkları mobilde - TEK SATIR ve taşmadan */
+            /* Yeni başlık düzeni mobil */
+            .hero-main {
+                font-size: clamp(2rem, 6vw, 3.5rem);
+            }
+            
+            .hero-top, .hero-bottom {
+                font-size: clamp(1.2rem, 3vw, 1.5rem);
+            }
+            
+            /* Kategori başlıkları mobilde */
             .category-title {
-                font-size: 1.4rem; /* Mobilde biraz küçültüldü ama tek satır */
+                font-size: 1.4rem;
                 padding-left: 15px;
                 margin-bottom: 30px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                max-width: 100%;
-                display: block;
             }
             
-            /* Mobilde animasyon süreleri kısalttı */
-            @keyframes typing-1 {
-                0% { width: 0; }
-                94% { width: 100%; border-right: 2px solid var(--primary); }
-                95% { width: 100%; border-right: none; }
-                100% { width: 100%; border-right: none; }
-            }
-            
-            @keyframes typing-2 {
-                0% { width: 0; }
-                94% { width: 100%; border-right: 2px solid var(--primary); }
-                95% { width: 100%; border-right: none; }
-                100% { width: 100%; border-right: none; }
-            }
-            
-            @keyframes typing-3 {
-                0% { width: 0; }
-                94% { width: 100%; border-right: 2px solid var(--primary); }
-                95% { width: 100%; border-right: none; }
-                100% { width: 100%; border-right: none; }
+            .typing-animation {
+                animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
             }
             
             .flip-card {
@@ -1397,16 +1382,16 @@
         @media (max-width: 480px) {
             .header {
                 padding: 0 20px;
-                height: 65px; /* Mobilde daha dar */
+                height: 65px;
             }
             
             .hero {
-                padding: 100px 20px 60px; /* Üst padding azaltıldı */
+                padding: 100px 20px 60px;
                 margin-top: 65px;
             }
             
             .mobile-menu {
-                top: 65px; /* Header yüksekliği ile aynı */
+                top: 65px;
             }
             
             /* Çok küçük ekranlarda kategori başlıkları */
@@ -1414,9 +1399,6 @@
                 font-size: 1.2rem;
                 padding-left: 10px;
                 margin-bottom: 25px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
             }
             
             .flip-card {
@@ -1461,7 +1443,7 @@
 <body>
     <!-- HEADER -->
     <header class="header">
-        <div class="logo">
+        <div class="logo" id="logo">
             <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x50/1E3A8A/FFFFFF?text=Web4+Medya';">
         </div>
         
@@ -1617,7 +1599,13 @@
         </div>
         
         <div class="hero-content">
-            <h1 class="fade-in-up">Dijitalde <span>Güçlü Varlık</span> Kazanın</h1>
+            <!-- YENİ BAŞLIK DÜZENİ -->
+            <div class="hero-title">
+                <div class="hero-top">Dijitalde</div>
+                <div class="hero-main">Güçlü Varlık</div>
+                <div class="hero-bottom">Kazanın</div>
+            </div>
+            
             <p class="fade-in-up delay-1">Web4 Medya olarak, dijital pazarlama, web tasarım ve prodüksiyon hizmetlerimizle işletmenizi bir sonraki seviyeye taşıyoruz. Google Ads, SEO, modern web tasarım ve profesyonel prodüksiyon çözümlerimizle markanızı dijital dünyada öne çıkarıyoruz.</p>
             <div class="hero-buttons fade-in-up delay-2">
                 <a href="tel:05422360983" class="btn btn-primary">
@@ -1640,7 +1628,7 @@
         <div class="services-container">
             <!-- DİJİTAL PAZARLAMA KATEGORİSİ -->
             <div class="service-category digital-marketing">
-                <h2 id="digital-title" class="category-title typing-animation-1">Dijital Pazarlama Hizmetlerimiz</h2>
+                <h2 id="digital-title" class="category-title typing-animation">Dijital Pazarlama Hizmetlerimiz</h2>
                 <div class="category-grid">
                     <!-- Google Ads -->
                     <div class="flip-card" data-id="google-ads">
@@ -1736,7 +1724,7 @@
             
             <!-- WEB TASARIM KATEGORİSİ -->
             <div class="service-category web-design">
-                <h2 id="web-title" class="category-title typing-animation-2">Web Tasarım Hizmetlerimiz</h2>
+                <h2 id="web-title" class="category-title typing-animation">Web Tasarım Hizmetlerimiz</h2>
                 <div class="category-grid">
                     <!-- E-Ticaret -->
                     <div class="flip-card" data-id="ecommerce">
@@ -1772,7 +1760,7 @@
             
             <!-- PRODÜKSİYON KATEGORİSİ -->
             <div class="service-category production">
-                <h2 id="production-title" class="category-title typing-animation-3">Prodüksiyon Hizmetlerimiz</h2>
+                <h2 id="production-title" class="category-title typing-animation">Prodüksiyon Hizmetlerimiz</h2>
                 <div class="category-grid">
                     <!-- Sosyal Medya Videoları -->
                     <div class="flip-card" data-id="social-videos">
@@ -1885,7 +1873,6 @@
             <h2>İşinizi Dijitalde Büyütmeye Hazır mısınız?</h2>
             <p>Web4 Medya uzmanları sizin için en uygun dijital stratejiyi belirlesin. Ücretsiz danışmanlık ve analiz hizmetimizden yararlanın.</p>
             <div class="cta-buttons">
-                <!-- "Hemen Ara:" yazısı kaldırıldı, sadece numara -->
                 <a href="tel:05422360983" class="btn btn-primary">
                     <i class="fas fa-phone-alt"></i> 0542 236 09 83
                 </a>
@@ -2001,6 +1988,48 @@
     </div>
 
     <script>
+        // SAYFA YÜKLENDİĞİNDE LOGO DÖNDÜRME
+        document.addEventListener('DOMContentLoaded', function() {
+            // Logo animasyonu - sadece bir kere
+            const logo = document.getElementById('logo');
+            if (logo && !sessionStorage.getItem('logoAnimated')) {
+                logo.classList.add('logo-animated');
+                sessionStorage.setItem('logoAnimated', 'true');
+                
+                // Animasyon bittikten sonra class'ı kaldır
+                setTimeout(() => {
+                    logo.classList.remove('logo-animated');
+                }, 800);
+            }
+            
+            // Resim fallback'leri
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.loading = 'lazy';
+                
+                if (img.src.includes('logo')) {
+                    img.onerror = function() {
+                        this.onerror = null;
+                        if (this.parentElement.classList.contains('logo')) {
+                            this.src = 'https://via.placeholder.com/200x50/1E3A8A/FFFFFF?text=Web4+Medya';
+                        } else {
+                            this.src = 'https://via.placeholder.com/150x50/1E3A8A/FFFFFF?text=Web4+Medya';
+                        }
+                    };
+                }
+            });
+            
+            // Drone icon için özel font
+            const style = document.createElement('style');
+            style.textContent = `
+                .fa-drone:before {
+                    content: "\\f0b2";
+                    font-family: "Font Awesome 5 Free";
+                }
+            `;
+            document.head.appendChild(style);
+        });
+
         // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -2035,7 +2064,7 @@
                 const targetId = this.getAttribute('data-target');
                 const target = document.getElementById(targetId);
                 
-                // Close other dropdowns
+                // Diğer dropdown'ları kapat
                 document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
                     if (dropdown.id !== targetId) {
                         dropdown.classList.remove('active');
@@ -2044,13 +2073,13 @@
                     }
                 });
                 
-                // Toggle current dropdown
+                // Mevcut dropdown'ı aç/kapat
                 this.classList.toggle('active');
                 target.classList.toggle('active');
             });
         });
 
-        // Close dropdowns when clicking outside
+        // Dışarı tıklayınca kapat
         document.addEventListener('click', function(e) {
             // Desktop dropdowns
             if (!e.target.closest('.nav-item')) {
@@ -2066,7 +2095,7 @@
             }
         });
 
-        // Close mobile dropdowns when clicking a link
+        // Mobile dropdown link'lerine tıklayınca menüyü kapat
         document.querySelectorAll('.mobile-dropdown-link').forEach(link => {
             link.addEventListener('click', function() {
                 menuToggle.classList.remove('active');
@@ -2080,7 +2109,7 @@
             });
         });
 
-        // Add active class to current page in navigation
+        // Aktif sayfayı işaretle
         const currentPage = window.location.pathname;
         const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
         
@@ -2093,53 +2122,14 @@
             }
         });
 
-        // Handle image fallback for logo
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add lazy loading to images
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                img.loading = 'lazy';
-            });
-            
-            // Handle logo fallback
-            const logo = document.querySelector('.logo img');
-            if (logo) {
-                logo.onerror = function() {
-                    this.onerror = null;
-                    this.src = 'https://via.placeholder.com/200x50/1E3A8A/FFFFFF?text=Web4+Medya';
-                    this.alt = 'Web4 Medya Logo - Placeholder';
-                };
-            }
-            
-            // Handle footer logo fallback
-            const footerLogo = document.querySelector('.footer-logo img');
-            if (footerLogo) {
-                footerLogo.onerror = function() {
-                    this.onerror = null;
-                    this.src = 'https://via.placeholder.com/150x50/1E3A8A/FFFFFF?text=Web4+Medya';
-                    this.alt = 'Web4 Medya Logo - Placeholder';
-                };
-            }
-            
-            // Add drone icon
-            const style = document.createElement('style');
-            style.textContent = `
-                .fa-drone:before {
-                    content: "\\f0b2";
-                    font-family: "Font Awesome 5 Free";
-                }
-            `;
-            document.head.appendChild(style);
-        });
-
-        // Prevent dropdown from closing when clicking inside
+        // Dropdown içine tıklayınca kapanmasın
         document.querySelectorAll('.dropdown').forEach(dropdown => {
             dropdown.addEventListener('click', function(e) {
                 e.stopPropagation();
             });
         });
 
-        // Smooth scroll for anchor links
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -2161,7 +2151,7 @@
         
         flipCards.forEach(card => {
             card.addEventListener('click', function(e) {
-                // Eğer butona tıklandıysa flip olmasın, buton çalışsın
+                // Eğer butona tıklandıysa flip olmasın
                 if (e.target.closest('a')) {
                     return;
                 }
@@ -2192,33 +2182,24 @@
             }
         });
 
-        // YAZIM ANİMASYONU - HER BAŞLIK İÇİN AYRI VE GÖRÜNÜNCE BAŞLASIN
-        const digitalTitle = document.getElementById('digital-title');
-        const webTitle = document.getElementById('web-title');
-        const productionTitle = document.getElementById('production-title');
+        // YAZIM ANİMASYONU - DÜZGÜN ÇALIŞACAK ŞEKİLDE
+        const typingTitles = document.querySelectorAll('.typing-animation');
         
-        // Her başlık için farklı animasyon süreleri (karakter sayısına göre)
-        const animationDurations = {
-            'digital-title': 3.0,    // "Dijital Pazarlama Hizmetlerimiz" - en uzun
-            'web-title': 2.5,        // "Web Tasarım Hizmetlerimiz" - orta
-            'production-title': 2.7  // "Prodüksiyon Hizmetlerimiz" - biraz daha kısa
-        };
-        
-        // Intersection Observer - her başlık ekranda görününce animasyon başlasın
+        // Intersection Observer - başlıklar görününce animasyon başlasın
         const titleObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const title = entry.target;
-                    const titleId = title.id;
-                    const duration = animationDurations[titleId] || 2.5;
                     
-                    // CSS animasyonunu dinamik olarak uygula
-                    title.style.animation = `typing-${titleId.charAt(0)} ${duration}s steps(40, end) forwards`;
+                    // Animasyonu başlat
+                    title.style.animation = 'typing 3s steps(40, end), blink-caret 0.75s step-end infinite';
                     
-                    // Animasyon bittikten sonra cursor'ı kaldır (Z harfinden sonra)
+                    // Animasyon bittikten sonra cursor'ı kaldır
                     setTimeout(() => {
                         title.style.borderRight = 'none';
-                    }, duration * 1000 - 100); // Z harfinden hemen sonra
+                        title.style.animation = 'none';
+                        title.classList.add('typing-complete');
+                    }, 3000);
                     
                     // Sadece bir kere gözlemle
                     titleObserver.unobserve(title);
@@ -2230,60 +2211,9 @@
         });
         
         // Başlıkları gözlemle
-        if (digitalTitle) titleObserver.observe(digitalTitle);
-        if (webTitle) titleObserver.observe(webTitle);
-        if (productionTitle) titleObserver.observe(productionTitle);
-        
-        // Dinamik CSS animasyonları ekle
-        const style = document.createElement('style');
-        style.textContent = `
-            /* Dinamik animasyonlar - her başlık için farklı süre */
-            @keyframes typing-digital-title {
-                0% { width: 0; }
-                94% { width: 100%; border-right: 2px solid var(--primary); }
-                95% { width: 100%; border-right: none; }
-                100% { width: 100%; border-right: none; }
-            }
-            
-            @keyframes typing-web-title {
-                0% { width: 0; }
-                94% { width: 100%; border-right: 2px solid var(--primary); }
-                95% { width: 100%; border-right: none; }
-                100% { width: 100%; border-right: none; }
-            }
-            
-            @keyframes typing-production-title {
-                0% { width: 0; }
-                94% { width: 100%; border-right: 2px solid var(--primary); }
-                95% { width: 100%; border-right: none; }
-                100% { width: 100%; border-right: none; }
-            }
-            
-            /* Mobilde daha hızlı animasyonlar */
-            @media (max-width: 768px) {
-                @keyframes typing-digital-title {
-                    0% { width: 0; }
-                    94% { width: 100%; border-right: 2px solid var(--primary); }
-                    95% { width: 100%; border-right: none; }
-                    100% { width: 100%; border-right: none; }
-                }
-                
-                @keyframes typing-web-title {
-                    0% { width: 0; }
-                    94% { width: 100%; border-right: 2px solid var(--primary); }
-                    95% { width: 100%; border-right: none; }
-                    100% { width: 100%; border-right: none; }
-                }
-                
-                @keyframes typing-production-title {
-                    0% { width: 0; }
-                    94% { width: 100%; border-right: 2px solid var(--primary); }
-                    95% { width: 100%; border-right: none; }
-                    100% { width: 100%; border-right: none; }
-                }
-            }
-        `;
-        document.head.appendChild(style);
+        typingTitles.forEach(title => {
+            titleObserver.observe(title);
+        });
     </script>
 </body>
 </html>
