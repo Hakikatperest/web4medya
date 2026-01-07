@@ -540,7 +540,7 @@
             transform: rotate(180deg);
         }
 
-        /* YENİ MODERN KART TASARIMI - FLIP EFFECT KALDIRILDI */
+        /* YENİ MODERN KART TASARIMI - TEK TIKLAMALI DÖNME */
         .services-section {
             padding: 80px 5%;
             background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
@@ -583,7 +583,39 @@
             line-height: 1.6;
         }
 
-        /* MODERN KART TASARIMI - DÖNME EFEKTİ KALDIRILDI */
+        /* KATEGORİ BAŞLIKLARI - YAZIM ANİMASYONU */
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: var(--primary-dark);
+            padding-left: 20px;
+            border-left: 4px solid var(--primary);
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Yazım animasyonu */
+        .typing-animation {
+            overflow: hidden;
+            border-right: 2px solid var(--primary);
+            white-space: nowrap;
+            animation: typing 2.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary); }
+        }
+
+        /* MODERN KART TASARIMI - TEK TIKLAMALI DÖNME */
         .services-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -599,179 +631,195 @@
             margin-bottom: 0;
         }
 
-        .category-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 40px;
-            color: var(--primary-dark);
-            padding-left: 20px;
-            border-left: 4px solid var(--primary);
-        }
-
         .category-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            perspective: 1200px;
         }
 
-        /* YENİ KART STYLES - DÖNME EFEKTİ YOK */
-        .service-card {
-            background: var(--white);
-            border-radius: var(--radius);
-            padding: 35px 30px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        /* YENİ FLIP CARD STYLES - SADECE TIKLAMADA DÖNER */
+        .flip-card {
             position: relative;
-            overflow: hidden;
+            height: 280px;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+            border-radius: var(--radius);
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            border: 2px solid transparent;
+            background: var(--white);
+        }
+
+        .flip-card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100%;
+            border-radius: var(--radius);
+            backface-visibility: hidden;
+            padding: 40px 30px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            border: 3px solid transparent;
-            background-clip: padding-box;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
         }
 
-        /* Google Logo Renkleri ile Çerçeve */
-        .google-colors-border {
-            position: relative;
+        .card-front {
+            background: var(--white);
+            justify-content: center;
         }
 
-        .google-colors-border::before {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            background: linear-gradient(45deg, #4285F4, #34A853, #FBBC05, #EA4335, #4285F4);
-            border-radius: calc(var(--radius) + 3px);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .google-colors-border:hover::before {
-            opacity: 1;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(30, 58, 138, 0.15);
-        }
-
-        .service-icon {
+        .card-front .icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            display: inline-block;
             width: 80px;
             height: 80px;
-            margin: 0 auto 25px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: linear-gradient(135deg, #F3F4F6, #E5E7EB);
-            transition: var(--transition);
-        }
-
-        .service-card:hover .service-icon {
-            transform: scale(1.1);
-            background: linear-gradient(135deg, var(--primary-light), var(--accent));
-        }
-
-        .service-icon i {
-            font-size: 2.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            transition: var(--transition);
-        }
-
-        .service-card:hover .service-icon i {
-            color: white;
-            -webkit-background-clip: unset;
-            background-clip: unset;
-        }
-
-        .service-content {
-            flex-grow: 1;
+            background: var(--light);
             margin-bottom: 25px;
         }
 
-        .service-card h3 {
+        /* RENKLİ İKONLAR */
+        .card-front .icon i {
+            font-size: 2.5rem;
+        }
+
+        /* Google icon */
+        .icon-google i {
+            color: #4285F4;
+        }
+
+        /* Instagram icon */
+        .icon-instagram i {
+            color: #E1306C;
+        }
+
+        /* Facebook icon */
+        .icon-facebook i {
+            color: #1877F2;
+        }
+
+        /* Maps icon */
+        .icon-maps i {
+            color: #34A853;
+        }
+
+        /* SEO icon */
+        .icon-seo i {
+            color: #FBBC05;
+        }
+
+        /* Social media icon */
+        .icon-social i {
+            color: #EA4335;
+        }
+
+        /* E-commerce icon */
+        .icon-ecommerce i {
+            color: #FF6B6B;
+        }
+
+        /* Corporate icon */
+        .icon-corporate i {
+            color: #4ECDC4;
+        }
+
+        /* Video icon */
+        .icon-video i {
+            color: #45B7D1;
+        }
+
+        /* Film icon */
+        .icon-film i {
+            color: #96CEB4;
+        }
+
+        /* Drone icon */
+        .icon-drone i {
+            color: #FFEAA7;
+        }
+
+        .card-front h3 {
             font-size: 1.4rem;
             font-weight: 700;
             color: var(--primary-dark);
-            margin-bottom: 15px;
-            transition: var(--transition);
+            margin: 0;
         }
 
-        .service-card:hover h3 {
-            color: var(--primary);
-        }
-
-        .service-card p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--gray);
-            margin-bottom: 0;
-        }
-
-        .service-card .btn {
+        .card-back {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: var(--white);
+            transform: rotateY(180deg);
+            justify-content: space-between;
+            padding: 35px 30px;
+        }
+
+        .card-back h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .card-back p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.95;
+            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.9);
+            flex-grow: 1;
+        }
+
+        .card-back .btn {
+            background: var(--white);
+            color: var(--primary-dark);
             padding: 12px 28px;
             font-weight: 700;
             font-size: 0.95rem;
             border-radius: 8px;
             transition: all 0.3s ease;
-            width: auto;
-            margin: 0 auto;
-            display: inline-block;
+            border: none;
         }
 
-        .service-card .btn:hover {
+        .card-back .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2);
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background: var(--light);
         }
 
         /* Google ikonu için özel stil */
-        .google-icon-wrapper {
+        .google-icon {
             width: 80px;
             height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: linear-gradient(135deg, #F3F4F6, #E5E7EB);
-            margin: 0 auto 25px;
-            transition: var(--transition);
+            background: var(--light);
+            margin-bottom: 25px;
+            position: relative;
         }
 
-        .service-card:hover .google-icon-wrapper {
-            transform: scale(1.1);
-            background: linear-gradient(135deg, #4285F4, #34A853, #FBBC05, #EA4335);
-            background-size: 400% 400%;
-            animation: gradient 3s ease infinite;
-        }
-
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .google-icon-wrapper::before {
+        .google-icon::before {
             content: '';
+            position: absolute;
             width: 48px;
             height: 48px;
             background: linear-gradient(135deg, #4285F4, #34A853, #FBBC05, #EA4335);
             -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%234285F4' d='M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z'/%3E%3Cpath fill='%2334A853' d='M46.5 24c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z'/%3E%3Cpath fill='%23FBBC05' d='M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z'/%3E%3Cpath fill='%23EA4335' d='M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z'/%3E%3Cpath fill='none' d='M0 0h48v48H0z'/%3E%3C/svg%3E");
             mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%234285F4' d='M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z'/%3E%3Cpath fill='%2334A853' d='M46.5 24c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z'/%3E%3Cpath fill='%23FBBC05' d='M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z'/%3E%3Cpath fill='%23EA4335' d='M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z'/%3E%3Cpath fill='none' d='M0 0h48v48H0z'/%3E%3C/svg%3E");
-        }
-
-        .service-card:hover .google-icon-wrapper::before {
-            background: white;
         }
 
         /* WHY US SECTION - MAVİ TEMA */
@@ -1190,6 +1238,10 @@
                 display: none;
             }
             
+            .flip-card {
+                height: 260px;
+            }
+            
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -1234,6 +1286,14 @@
             
             .mobile-menu {
                 top: 65px; /* Header yüksekliği ile aynı */
+            }
+            
+            .flip-card {
+                height: 240px;
+            }
+            
+            .card-face {
+                padding: 30px 20px;
             }
             
             .footer {
@@ -1411,7 +1471,7 @@
         </div>
     </section>
 
-    <!-- YENİ MODERN KARTLAR - DÖNME EFEKTİ YOK -->
+    <!-- MODERN FLIP KARTLAR - TEK TIKLAMALI DÖNME -->
     <section class="services-section">
         <!-- Arka plana roket simgeleri -->
         <div class="rocket-bg-1">
@@ -1429,154 +1489,189 @@
         
         <div class="section-header">
             <h2 class="section-title">Hizmetlerimiz</h2>
-            <p class="section-subtitle">İşletmeniz için kapsamlı dijital çözümler sunuyoruz. Hizmetlerimiz hakkında daha fazla bilgi için kartların üzerine gelin.</p>
+            <p class="section-subtitle">İşletmeniz için kapsamlı dijital çözümler sunuyoruz. Kartlara tıklayarak detayları görün.</p>
         </div>
         
         <div class="services-container">
             <!-- DİJİTAL PAZARLAMA KATEGORİSİ -->
             <div class="service-category digital-marketing">
-                <h2 class="category-title">Dijital Pazarlama Hizmetlerimiz</h2>
+                <h2 class="category-title typing-animation">Dijital Pazarlama Hizmetlerimiz</h2>
                 <div class="category-grid">
                     <!-- Google Ads -->
-                    <div class="service-card google-colors-border">
-                        <div class="google-icon-wrapper"></div>
-                        <div class="service-content">
+                    <div class="flip-card" data-id="google-ads">
+                        <div class="card-face card-front">
+                            <div class="icon icon-google">
+                                <i class="fab fa-google"></i>
+                            </div>
                             <h3>Google Ads Reklam Ver</h3>
-                            <p>Arama ve Display ağlarında reklamlarınızı profesyonel şekilde yönetiyor, hedef kitlenize ulaşmanızı sağlıyoruz.</p>
                         </div>
-                        <a href="/google-ads-paketleri/" class="btn">Paketleri İncele</a>
+                        <div class="card-face card-back">
+                            <h3>Google Ads</h3>
+                            <p>Arama ve Display ağlarında reklamlarınızı profesyonel şekilde yönetiyor, hedef kitlenize ulaşmanızı sağlıyoruz.</p>
+                            <a href="/google-ads-paketleri/" class="btn">Paketleri İncele</a>
+                        </div>
                     </div>
                     
                     <!-- Instagram Reklam -->
-                    <div class="service-card google-colors-border">
-                        <div class="service-icon">
-                            <i class="fab fa-instagram"></i>
-                        </div>
-                        <div class="service-content">
+                    <div class="flip-card" data-id="instagram-ads">
+                        <div class="card-face card-front">
+                            <div class="icon icon-instagram">
+                                <i class="fab fa-instagram"></i>
+                            </div>
                             <h3>İnstagram Reklam Ver</h3>
-                            <p>Instagram'da görsel ve video reklamlarla genç ve aktif kitleye ulaşmanızı sağlıyor, etkileşimlerinizi artırıyoruz.</p>
                         </div>
-                        <a href="/instagram-paketleri/" class="btn">Paketleri İncele</a>
+                        <div class="card-face card-back">
+                            <h3>Instagram Reklam</h3>
+                            <p>Instagram'da görsel ve video reklamlarla genç ve aktif kitleye ulaşmanızı sağlıyor, etkileşimlerinizi artırıyoruz.</p>
+                            <a href="/instagram-paketleri/" class="btn">Paketleri İncele</a>
+                        </div>
                     </div>
                     
                     <!-- Facebook Reklam -->
-                    <div class="service-card google-colors-border">
-                        <div class="service-icon">
-                            <i class="fab fa-facebook"></i>
-                        </div>
-                        <div class="service-content">
+                    <div class="flip-card" data-id="facebook-ads">
+                        <div class="card-face card-front">
+                            <div class="icon icon-facebook">
+                                <i class="fab fa-facebook"></i>
+                            </div>
                             <h3>Facebook Reklam Ver</h3>
-                            <p>Facebook'ta detaylı hedefleme ile doğru kitleye reklamlarınızı ulaştırıyor, dönüşüm oranlarınızı yükseltiyoruz.</p>
                         </div>
-                        <a href="/facebook-paketleri/" class="btn">Paketleri İncele</a>
+                        <div class="card-face card-back">
+                            <h3>Facebook Reklam</h3>
+                            <p>Facebook'ta detaylı hedefleme ile doğru kitleye reklamlarınızı ulaştırıyor, dönüşüm oranlarınızı yükseltiyoruz.</p>
+                            <a href="/facebook-paketleri/" class="btn">Paketleri İncele</a>
+                        </div>
                     </div>
                     
                     <!-- Google Maps -->
-                    <div class="service-card google-colors-border">
-                        <div class="service-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="service-content">
+                    <div class="flip-card" data-id="google-maps">
+                        <div class="card-face card-front">
+                            <div class="icon icon-maps">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
                             <h3>Google Harita Kaydı</h3>
-                            <p>İşletmenizi Google Haritalar'da kaydediyor, müşterilerinizin sizi kolayca bulmasını ve yön bulmasını sağlıyoruz.</p>
                         </div>
-                        <a href="/google-maps-paketleri/" class="btn">Paketleri İncele</a>
+                        <div class="card-face card-back">
+                            <h3>Google Harita</h3>
+                            <p>İşletmenizi Google Haritalar'da kaydediyor, müşterilerinizin sizi kolayca bulmasını ve yön bulmasını sağlıyoruz.</p>
+                            <a href="/google-maps-paketleri/" class="btn">Paketleri İncele</a>
+                        </div>
                     </div>
                     
                     <!-- SEO -->
-                    <div class="service-card google-colors-border">
-                        <div class="service-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="service-content">
+                    <div class="flip-card" data-id="seo">
+                        <div class="card-face card-front">
+                            <div class="icon icon-seo">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
                             <h3>SEO Hizmeti</h3>
-                            <p>Web sitenizi arama motorları için optimize ediyor, organik trafik artışı sağlıyor ve sürekli takip ediyoruz.</p>
                         </div>
-                        <a href="/seo-paketleri/" class="btn">Paketleri İncele</a>
+                        <div class="card-face card-back">
+                            <h3>SEO Optimizasyon</h3>
+                            <p>Web sitenizi arama motorları için optimize ediyor, organik trafik artışı sağlıyor ve sürekli takip ediyoruz.</p>
+                            <a href="/seo-paketleri/" class="btn">Paketleri İncele</a>
+                        </div>
                     </div>
                     
                     <!-- Sosyal Medya Yönetimi -->
-                    <div class="service-card google-colors-border">
-                        <div class="service-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="service-content">
+                    <div class="flip-card" data-id="social-media">
+                        <div class="card-face card-front">
+                            <div class="icon icon-social">
+                                <i class="fas fa-users"></i>
+                            </div>
                             <h3>Sosyal Medya Yönetimi</h3>
-                            <p>Sosyal medya hesaplarınızı profesyonelce yönetiyor, içerik üretiyor ve takipçi etkileşiminizi artırıyoruz.</p>
                         </div>
-                        <a href="/sosyal-medya-paketleri/" class="btn">Paketleri İncele</a>
+                        <div class="card-face card-back">
+                            <h3>Sosyal Medya</h3>
+                            <p>Sosyal medya hesaplarınızı profesyonelce yönetiyor, içerik üretiyor ve takipçi etkileşiminizi artırıyoruz.</p>
+                            <a href="/sosyal-medya-paketleri/" class="btn">Paketleri İncele</a>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <!-- WEB TASARIM KATEGORİSİ -->
             <div class="service-category web-design">
-                <h2 class="category-title">Web Tasarım Hizmetlerimiz</h2>
+                <h2 class="category-title typing-animation">Web Tasarım Hizmetlerimiz</h2>
                 <div class="category-grid">
                     <!-- E-Ticaret -->
-                    <div class="service-card google-colors-border">
-                        <div class="service-icon">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <div class="service-content">
+                    <div class="flip-card" data-id="ecommerce">
+                        <div class="card-face card-front">
+                            <div class="icon icon-ecommerce">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
                             <h3>E-Ticaret Sitesi</h3>
-                            <p>Mobil uyumlu, güvenli ve kullanıcı dostu e-ticaret siteleri tasarlıyor, online satışlarınızı artırıyoruz.</p>
                         </div>
-                        <a href="/e-ticaret-paketleri/" class="btn">Paketleri İncele</a>
+                        <div class="card-face card-back">
+                            <h3>E-Ticaret</h3>
+                            <p>Mobil uyumlu, güvenli ve kullanıcı dostu e-ticaret siteleri tasarlıyor, online satışlarınızı artırıyoruz.</p>
+                            <a href="/e-ticaret-paketleri/" class="btn">Paketleri İncele</a>
+                        </div>
                     </div>
                     
                     <!-- Kurumsal Web -->
-                    <div class="service-card google-colors-border">
-                        <div class="service-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <div class="service-content">
+                    <div class="flip-card" data-id="corporate-web">
+                        <div class="card-face card-front">
+                            <div class="icon icon-corporate">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
                             <h3>Kurumsal Web Sitesi</h3>
-                            <p>Kurumsal kimliğinize uygun, modern ve etkileyici web siteleri tasarlıyor, online varlığınızı güçlendiriyoruz.</p>
                         </div>
-                        <a href="/kurumsal-web-paketleri/" class="btn">Paketleri İncele</a>
+                        <div class="card-face card-back">
+                            <h3>Kurumsal Web</h3>
+                            <p>Kurumsal kimliğinize uygun, modern ve etkileyici web siteleri tasarlıyor, online varlığınızı güçlendiriyoruz.</p>
+                            <a href="/kurumsal-web-paketleri/" class="btn">Paketleri İncele</a>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <!-- PRODÜKSİYON KATEGORİSİ -->
             <div class="service-category production">
-                <h2 class="category-title">Prodüksiyon Hizmetlerimiz</h2>
+                <h2 class="category-title typing-animation">Prodüksiyon Hizmetlerimiz</h2>
                 <div class="category-grid">
                     <!-- Sosyal Medya Videoları -->
-                    <div class="service-card google-colors-border">
-                        <div class="service-icon">
-                            <i class="fas fa-video"></i>
+                    <div class="flip-card" data-id="social-videos">
+                        <div class="card-face card-front">
+                            <div class="icon icon-video">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h3>Sosyal Medya Videoları</h3>
                         </div>
-                        <div class="service-content">
+                        <div class="card-face card-back">
                             <h3>Sosyal Medya Videoları</h3>
                             <p>Sosyal medya platformları için etkileyici ve paylaşılabilir video içerikler üretiyor, marka bilinirliğinizi artırıyoruz.</p>
+                            <a href="/video-paketleri/" class="btn">Paketleri İncele</a>
                         </div>
-                        <a href="/video-paketleri/" class="btn">Paketleri İncele</a>
                     </div>
                     
                     <!-- Tanıtım Filmi -->
-                    <div class="service-card google-colors-border">
-                        <div class="service-icon">
-                            <i class="fas fa-film"></i>
+                    <div class="flip-card" data-id="promo-video">
+                        <div class="card-face card-front">
+                            <div class="icon icon-film">
+                                <i class="fas fa-film"></i>
+                            </div>
+                            <h3>Tanıtım Filmi</h3>
                         </div>
-                        <div class="service-content">
+                        <div class="card-face card-back">
                             <h3>Tanıtım Filmi</h3>
                             <p>Markanızı en iyi şekilde tanıtan profesyonel tanıtım filmleri hazırlıyor, kurumsal kimliğinizi güçlendiriyoruz.</p>
+                            <a href="/tanitim-filmi-paketleri/" class="btn">Paketleri İncele</a>
                         </div>
-                        <a href="/tanitim-filmi-paketleri/" class="btn">Paketleri İncele</a>
                     </div>
                     
                     <!-- Drone Çekimi -->
-                    <div class="service-card google-colors-border">
-                        <div class="service-icon">
-                            <i class="fas fa-drone"></i>
+                    <div class="flip-card" data-id="drone">
+                        <div class="card-face card-front">
+                            <div class="icon icon-drone">
+                                <i class="fas fa-drone"></i>
+                            </div>
+                            <h3>Drone Çekimi</h3>
                         </div>
-                        <div class="service-content">
+                        <div class="card-face card-back">
                             <h3>Drone Çekimi</h3>
                             <p>Drone ile havadan çektiğimiz görüntülerle içeriklerinize farklı bir boyut katıyor, etkiyi artırıyoruz.</p>
+                            <a href="/drone-paketleri/" class="btn">Paketleri İncele</a>
                         </div>
-                        <a href="/drone-paketleri/" class="btn">Paketleri İncele</a>
                     </div>
                 </div>
             </div>
@@ -1595,40 +1690,32 @@
                 <div class="feature-icon">
                     <i class="fas fa-trophy"></i>
                 </div>
-                <div class="service-content">
-                    <h3>Deneyimli Ekip</h3>
-                    <p>10+ yıllık sektör deneyimine sahip uzman ekibimizle çalışarak dijital dönüşümünüzü güvence altına alın.</p>
-                </div>
+                <h3>Deneyimli Ekip</h3>
+                <p>10+ yıllık sektör deneyimine sahip uzman ekibimizle çalışarak dijital dönüşümünüzü güvence altına alın.</p>
             </div>
             
             <div class="feature">
                 <div class="feature-icon">
                     <i class="fas fa-chart-bar"></i>
                 </div>
-                <div class="service-content">
-                    <h3>Ölçülebilir Sonuçlar</h3>
-                    <p>Tüm kampanyalarınızı detaylı raporlarla takip edin. Yatırımınızın geri dönüşünü net olarak görün.</p>
-                </div>
+                <h3>Ölçülebilir Sonuçlar</h3>
+                <p>Tüm kampanyalarınızı detaylı raporlarla takip edin. Yatırımınızın geri dönüşünü net olarak görün.</p>
             </div>
             
             <div class="feature">
                 <div class="feature-icon">
                     <i class="fas fa-headset"></i>
                 </div>
-                <div class="service-content">
-                    <h3>7/24 Destek</h3>
-                    <p>Size özel danışmanınızla her zaman iletişimde kalın. Sorularınıza hızlı ve profesyonel çözümler sunuyoruz.</p>
-                </div>
+                <h3>7/24 Destek</h3>
+                <p>Size özel danışmanınızla her zaman iletişimde kalın. Sorularınıza hızlı ve profesyonel çözümler sunuyoruz.</p>
             </div>
             
             <div class="feature">
                 <div class="feature-icon">
                     <i class="fas fa-handshake"></i>
                 </div>
-                <div class="service-content">
-                    <h3>Şeffaf İletişim</h3>
-                    <p>Tüm süreçlerde şeffaf ve açık iletişim politikamızla güven inşa ediyor, beklentilerinizi karşılıyoruz.</p>
-                </div>
+                <h3>Şeffaf İletişim</h3>
+                <p>Tüm süreçlerde şeffaf ve açık iletişim politikamızla güven inşa ediyor, beklentilerinizi karşılıyoruz.</p>
             </div>
         </div>
     </section>
@@ -1908,6 +1995,60 @@
                     });
                 }
             });
+        });
+
+        // FLIP CARD FUNCTIONALITY - SADECE TIKLAMADA DÖNER
+        const flipCards = document.querySelectorAll('.flip-card');
+        
+        flipCards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Eğer butona tıklandıysa flip olmasın, buton çalışsın
+                if (e.target.closest('a')) {
+                    return;
+                }
+                
+                // Sadece bir kez dönmesini sağla
+                if (!this.classList.contains('flipped')) {
+                    this.classList.add('flipped');
+                    
+                    // Diğer kartları sıfırla
+                    flipCards.forEach(otherCard => {
+                        if (otherCard !== this && otherCard.classList.contains('flipped')) {
+                            otherCard.classList.remove('flipped');
+                        }
+                    });
+                } else {
+                    // Eğer zaten dönmüşse, tekrar tıklayınca geri dönsün
+                    this.classList.remove('flipped');
+                }
+            });
+        });
+
+        // Kart dışına tıklayınca kartları sıfırla
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.flip-card')) {
+                flipCards.forEach(card => {
+                    card.classList.remove('flipped');
+                });
+            }
+        });
+
+        // Yazım animasyonu için Intersection Observer
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('typing-animation');
+                }
+            });
+        }, observerOptions);
+
+        // Kategori başlıklarını gözlemle
+        document.querySelectorAll('.category-title').forEach(title => {
+            observer.observe(title);
         });
     </script>
 </body>
