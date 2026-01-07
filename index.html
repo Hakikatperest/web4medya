@@ -97,6 +97,8 @@
             --light-color: #f8fafc;
             --gray-color: #64748b;
             --success-color: #10b981;
+            --whatsapp-color: #25D366;
+            --whatsapp-dark: #128C7E;
             
             /* Typography */
             --font-primary: 'Poppins', sans-serif;
@@ -221,19 +223,24 @@
             color: white;
         }
 
+        /* ===== WHATSAPP BUTON STYLES ===== */
         .btn-whatsapp {
-            background-color: #25D366;
+            background-color: var(--whatsapp-color);
             color: white;
+            text-decoration: none !important;
+            border: none;
         }
 
         .btn-whatsapp:hover {
-            background-color: #128C7E;
+            background-color: var(--whatsapp-dark);
             transform: translateY(-2px);
         }
 
         .btn-phone {
             background-color: var(--dark-color);
             color: white;
+            text-decoration: none !important;
+            border: none;
         }
 
         .btn-phone:hover {
@@ -259,18 +266,24 @@
             align-items: center;
         }
 
-        /* Logo Styles */
+        /* Logo Styles - ALT ÇİZGİ KALDIRILDI */
+        .logo {
+            text-decoration: none !important;
+        }
+
         .logo-text {
             font-family: var(--font-secondary);
             font-size: 1.8rem;
             font-weight: 800;
             color: var(--primary-color);
-            text-decoration: none;
+            text-decoration: none !important;
+            border-bottom: none !important;
         }
 
         .logo-sub {
             color: var(--secondary-color);
             font-weight: 600;
+            text-decoration: none !important;
         }
 
         /* Desktop Menu */
@@ -287,6 +300,7 @@
             padding: 0.5rem 0;
             position: relative;
             transition: color 0.3s ease;
+            border-bottom: none !important;
         }
 
         .nav-link:hover,
@@ -339,6 +353,7 @@
             text-decoration: none;
             color: var(--dark-color);
             transition: all 0.2s ease;
+            border-bottom: none !important;
         }
 
         .dropdown-content a:hover {
@@ -347,10 +362,19 @@
             padding-left: 2rem;
         }
 
-        /* Desktop CTA Buttons */
+        /* Desktop CTA Buttons - MODERN HALE GETİRİLDİ */
         .desktop-cta {
             display: none;
             gap: 1rem;
+        }
+
+        .desktop-cta .btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none !important;
+            border: none;
+            transition: all 0.3s ease;
         }
 
         /* Mobile Menu Button */
@@ -384,7 +408,7 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
-        /* Mobile Menu */
+        /* Mobile Menu - GÖLGELENDİRME DÜZELTİLDİ */
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -502,7 +526,7 @@
         }
 
         .btn-whatsapp-mobile {
-            background-color: #25D366;
+            background-color: var(--whatsapp-color);
             color: white;
         }
 
@@ -587,7 +611,7 @@
             }
         }
 
-        /* Hero CTA Buttons - MOBİL İÇİN ORTALI */
+        /* Hero CTA Buttons */
         .hero-cta {
             display: flex;
             flex-direction: column;
@@ -597,10 +621,18 @@
             width: 100%;
         }
 
+        /* Masaüstünde buton sırası değişti */
         @media (min-width: 768px) {
+            .hero-cta {
+                flex-direction: column-reverse; /* Masaüstünde ters sıra */
+            }
+        }
+
+        @media (min-width: 1024px) {
             .hero-cta {
                 flex-direction: row;
                 justify-content: center;
+                gap: 1.5rem;
             }
         }
 
@@ -609,13 +641,16 @@
             font-size: 1rem;
             border-radius: 12px;
             box-shadow: var(--shadow-md);
+            width: 100%;
+            max-width: 350px;
         }
 
-        /* Trust Indicators */
+        /* Trust Indicators - MASAÜSTÜNDE ORTALANDI */
         .trust-indicators {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center; /* Ortalamak için eklendi */
             gap: 1.5rem;
             margin-top: 2rem;
             padding: 1.5rem;
@@ -624,7 +659,7 @@
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: var(--shadow-sm);
-            max-width: 600px;
+            max-width: 800px; /* Masaüstü için genişlettim */
             width: 100%;
         }
 
@@ -636,9 +671,11 @@
             }
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 1024px) {
             .trust-indicators {
-                gap: 2rem;
+                gap: 3rem;
+                padding: 2rem;
+                max-width: 900px;
             }
         }
 
@@ -762,6 +799,20 @@
         .section-subtitle {
             max-width: 600px;
             margin: 0 auto;
+        }
+
+        /* Web4 Medya renkleri için özel class */
+        .web4-title {
+            color: var(--primary-color);
+        }
+
+        .section-title span:not(.highlight) {
+            color: #000000; /* Diğer yerler siyah */
+        }
+
+        /* "Web4 Medya" için özel renk */
+        .web4-brand {
+            color: var(--primary-color);
         }
 
         .services-grid {
@@ -1029,25 +1080,16 @@
             }
         }
 
-        .btn-cta-whatsapp {
+        /* Whatsapp butonları kaldırıldı, sadece telefon butonu kaldı */
+        .btn-cta-phone {
             background-color: white;
             color: var(--primary-color);
-        }
-
-        .btn-cta-whatsapp:hover {
-            background-color: #f1f5f9;
-            transform: translateY(-2px);
-        }
-
-        .btn-cta-phone {
-            background-color: transparent;
-            color: white;
-            border: 2px solid white;
+            font-weight: 600;
         }
 
         .btn-cta-phone:hover {
-            background-color: white;
-            color: var(--primary-color);
+            background-color: #f1f5f9;
+            transform: translateY(-2px);
         }
 
         /* CTA Guarantee */
@@ -1077,6 +1119,64 @@
         .cta-note {
             color: rgba(255, 255, 255, 0.8);
             font-size: 0.875rem;
+        }
+
+        /* ===== FLOATING BUTTONS - GÜNCELLENDİ ===== */
+        /* Masaüstü için floating whatsapp kaldırıldı */
+        @media (min-width: 1024px) {
+            .floating-whatsapp {
+                display: none;
+            }
+        }
+
+        /* Mobil için floating buton grubu */
+        .floating-buttons-mobile {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            display: none;
+        }
+
+        @media (max-width: 1023px) {
+            .floating-buttons-mobile {
+                display: flex;
+            }
+        }
+
+        .floating-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .floating-btn-phone {
+            background-color: var(--primary-color);
+        }
+
+        .floating-btn-phone:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        .floating-btn-whatsapp {
+            background-color: var(--whatsapp-color);
+        }
+
+        .floating-btn-whatsapp:hover {
+            background-color: var(--whatsapp-dark);
+            transform: scale(1.1);
         }
 
         /* ===== FOOTER ===== */
@@ -1227,34 +1327,6 @@
             transform: translateY(-2px);
         }
 
-        /* Floating WhatsApp Button */
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 2rem;
-            right: 1rem;
-            z-index: 999;
-        }
-
-        .whatsapp-float {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            background-color: #25D366;
-            border-radius: 50%;
-            color: white;
-            font-size: 1.75rem;
-            box-shadow: var(--shadow-lg);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-float:hover {
-            background-color: #128C7E;
-            transform: scale(1.1);
-        }
-
         .footer-bottom {
             padding-top: 2rem;
             border-top: 1px solid #334155;
@@ -1349,12 +1421,6 @@
             
             .mobile-menu-btn {
                 display: none;
-            }
-            
-            .whatsapp-float {
-                width: 70px;
-                height: 70px;
-                font-size: 2rem;
             }
         }
 
@@ -1479,13 +1545,10 @@
                     <li><a href="#" class="nav-link">Hakkımızda</a></li>
                 </ul>
                 
-                <!-- CTA Buttons Desktop -->
+                <!-- CTA Buttons Desktop - MODERN HALE GETİRİLDİ -->
                 <div class="header-cta desktop-cta">
-                    <a href="tel:05422360983" class="btn-phone">
+                    <a href="tel:05422360983" class="btn btn-phone">
                         <i class="fas fa-phone"></i> 0542 236 09 83
-                    </a>
-                    <a href="https://wa.me/905422360983" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
                 </div>
                 
@@ -1552,17 +1615,17 @@
                     <span class="highlight">%100 müşteri memnuniyeti</span> garantisi ile yanınızdayız.
                 </p>
                 
-                <!-- CTA Butonları - MOBİLDE ORTALANMIŞ -->
+                <!-- CTA Butonları -->
                 <div class="hero-cta">
-                    <a href="https://wa.me/905422360983" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-whatsapp"></i> Ücretsiz WhatsApp Danışmanlığı
-                    </a>
                     <a href="tel:05422360983" class="btn btn-secondary">
                         <i class="fas fa-phone"></i> Hemen Ara: 0542 236 09 83
                     </a>
+                    <a href="https://wa.me/905422360983" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> Ücretsiz WhatsApp Danışmanlığı
+                    </a>
                 </div>
                 
-                <!-- Trust Indicators -->
+                <!-- Trust Indicators - ORTALANDI -->
                 <div class="trust-indicators">
                     <div class="trust-item">
                         <i class="fas fa-check-circle"></i>
@@ -1613,7 +1676,8 @@
     <section class="services-section" id="services-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Web4 <span class="highlight">Ana Hizmetlerimiz</span></h2>
+                <!-- Değiştirildi: Web4 Medya Ana Hizmetlerimiz -->
+                <h2 class="section-title"><span class="web4-brand">Web4 Medya</span> <span>Ana Hizmetlerimiz</span></h2>
                 <p class="section-subtitle">
                     Dijital dünyada başarıya giden tüm yollar Web4'te birleşiyor. 
                     İhtiyacınız olan her türlü dijital çözüm için profesyonel ekibimiz yanınızda.
@@ -1720,7 +1784,8 @@
         <div class="container">
             <div class="why-us-content">
                 <div class="section-header">
-                    <h2 class="section-title">Neden <span class="highlight">Web4'ü Tercih Etmelisiniz?</span></h2>
+                    <!-- Değiştirildi: Neden Web4 Medya'yı Tercih Etmelisiniz? -->
+                    <h2 class="section-title">Neden <span class="web4-brand">Web4 Medya'yı</span> <span>Tercih Etmelisiniz?</span></h2>
                     <p class="section-subtitle">
                         Sadece hizmet değil, çözüm ortağı sunuyoruz. İşte bizi farklı kılan özellikler:
                     </p>
@@ -1835,13 +1900,10 @@
                     size özel strateji ve teklif sunsun. İlk görüşme tamamen ücretsiz!
                 </p>
                 
-                <!-- CTA Buttons - MOBİLDE ORTALANMIŞ -->
+                <!-- CTA Buttons - WHATSAPP KALDIRILDI, SADECE TELEFON -->
                 <div class="cta-buttons">
-                    <a href="https://wa.me/905422360983" class="btn btn-cta-whatsapp" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-whatsapp"></i> WhatsApp'tan Hemen Yazın
-                    </a>
                     <a href="tel:05422360983" class="btn btn-cta-phone">
-                        <i class="fas fa-phone-alt"></i> 0542 236 09 83'ü Arayın
+                        <i class="fas fa-phone-alt"></i> Hemen Ara: 0542 236 09 83
                     </a>
                 </div>
                 
@@ -1854,6 +1916,16 @@
             </div>
         </div>
     </section>
+
+    <!-- ===== FLOATING BUTTONS MOBİL ===== -->
+    <div class="floating-buttons-mobile">
+        <a href="tel:05422360983" class="floating-btn floating-btn-phone" aria-label="Telefon">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="https://wa.me/905422360983" class="floating-btn floating-btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
@@ -1953,17 +2025,10 @@
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <div class="floating-whatsapp">
-        <a href="https://wa.me/905422360983" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
-
     <script>
         // ===== DOM YÜKLENDİKTEN SONRA ÇALIŞACAK TÜM FONKSİYONLAR =====
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🚀 Web4.com yüklendi - ' + new Date().toLocaleString());
+            console.log('🚀 Web4 Medya yüklendi - ' + new Date().toLocaleString());
             
             // ===== DEĞİŞKENLER =====
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -2118,17 +2183,6 @@
             
             // ===== WHATSAPP & TELEFON TAKİP =====
             function initConversionTracking() {
-                // WhatsApp Butonları
-                const whatsappButtons = document.querySelectorAll('[href*="whatsapp"], .btn-whatsapp');
-                whatsappButtons.forEach(button => {
-                    button.addEventListener('click', function(e) {
-                        console.log('📱 WhatsApp tıklandı:', {
-                            text: this.textContent.trim(),
-                            timestamp: new Date().toISOString()
-                        });
-                    });
-                });
-                
                 // Telefon Butonları
                 const phoneButtons = document.querySelectorAll('[href^="tel:"]');
                 phoneButtons.forEach(button => {
@@ -2242,7 +2296,7 @@
             
             // ===== INITIALIZE EVERYTHING =====
             function initAll() {
-                console.log('🎬 Web4.com başlatılıyor...');
+                console.log('🎬 Web4 Medya başlatılıyor...');
                 
                 // Core functionality
                 initMobileMenu();
@@ -2253,7 +2307,7 @@
                 initStickyHeader();
                 initBackToTop();
                 
-                console.log('✅ Web4.com başarıyla başlatıldı!');
+                console.log('✅ Web4 Medya başarıyla başlatıldı!');
             }
             
             // ===== START EVERYTHING =====
