@@ -88,45 +88,40 @@
             object-fit: contain;
         }
 
-        .logo-text {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--dark);
-            letter-spacing: -0.5px;
-        }
-
-        .logo-text span {
-            color: var(--secondary);
-        }
-
-        /* MODERN NAVIGATION - İKONSUZ VE MODERN */
+        /* MODERN NAVIGATION */
         .nav-desktop {
             display: flex;
             align-items: center;
-            gap: 32px;
+            gap: 28px;
         }
 
-        .nav-desktop a {
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
             color: var(--gray-dark);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
             transition: var(--transition);
-            position: relative;
             padding: 8px 0;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .nav-desktop a:hover {
+        .nav-link:hover {
             color: var(--primary);
         }
 
-        .nav-desktop a.active {
+        .nav-link.active {
             color: var(--primary);
         }
 
-        .nav-desktop a.active::after {
+        .nav-link.active::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -135,6 +130,74 @@
             height: 2px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             border-radius: 2px;
+        }
+
+        /* DROPDOWN MENÜ */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            min-width: 220px;
+            box-shadow: var(--shadow);
+            border-radius: var(--radius-sm);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            border: 1px solid var(--gray-light);
+        }
+
+        .dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content {
+            padding: 10px 0;
+        }
+
+        .dropdown-section {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .dropdown-section:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-section h4 {
+            font-size: 0.85rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 8px 0;
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .dropdown-link:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .arrow {
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item:hover .arrow {
+            transform: rotate(180deg);
         }
 
         /* HEADER CTA BUTTON */
@@ -285,6 +348,114 @@
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: var(--shadow-hover);
+        }
+
+        /* MOBILE MENU */
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .mobile-menu.active {
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .mobile-nav {
+            padding: 20px;
+        }
+
+        .mobile-nav-item {
+            margin-bottom: 5px;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            padding: 15px;
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid var(--gray-light);
+            transition: var(--transition);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .mobile-dropdown-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 15px;
+            color: var(--gray-dark);
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--gray-light);
+            text-align: left;
+        }
+
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--light);
+            margin-left: 10px;
+        }
+
+        .mobile-dropdown-content.active {
+            max-height: 500px;
+        }
+
+        .mobile-dropdown-section {
+            padding: 10px 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .mobile-dropdown-section:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-dropdown-section h4 {
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .mobile-dropdown-link {
+            display: block;
+            padding: 8px 0;
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .mobile-dropdown-link:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .mobile-arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-dropdown-btn.active .mobile-arrow {
+            transform: rotate(180deg);
         }
 
         /* FLIP CARDS SECTION */
@@ -523,170 +694,6 @@
             min-width: 200px;
         }
 
-        /* FOOTER */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 60px 5% 30px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: white;
-            position: relative;
-            padding-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--secondary);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.9rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary);
-            transform: translateX(5px);
-        }
-
-        .footer-links i {
-            width: 16px;
-            color: var(--accent);
-            font-size: 0.8rem;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .contact-item i {
-            color: var(--secondary);
-            font-size: 1.1rem;
-            min-width: 20px;
-            margin-top: 3px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            transition: var(--transition);
-            font-size: 1rem;
-        }
-
-        .social-links a:hover {
-            background: var(--secondary);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.85rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* MODERN MOBILE MENU - İKONSUZ */
-        .mobile-menu {
-            position: fixed;
-            top: 80px;
-            left: 0;
-            right: 0;
-            background: var(--white);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            z-index: 999;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-        }
-
-        .mobile-menu.active {
-            max-height: 500px;
-        }
-
-        .mobile-nav {
-            padding: 20px;
-        }
-
-        .mobile-nav a {
-            display: block;
-            padding: 15px;
-            color: var(--gray-dark);
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px solid var(--gray-light);
-            transition: var(--transition);
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .mobile-nav a:last-child {
-            border-bottom: none;
-        }
-
-        .mobile-nav a:hover,
-        .mobile-nav a.active {
-            color: var(--primary);
-            background: rgba(42, 92, 170, 0.05);
-            padding-left: 25px;
-        }
-
         /* RESPONSIVE BREAKPOINTS */
         @media (max-width: 1200px) {
             .header {
@@ -694,58 +701,15 @@
             }
             
             .nav-desktop {
-                gap: 24px;
+                gap: 20px;
             }
             
-            .nav-desktop a {
-                font-size: 0.9rem;
+            .nav-link {
+                font-size: 0.85rem;
             }
         }
 
         @media (max-width: 1024px) {
-            .header {
-                padding: 0 3%;
-            }
-            
-            .nav-desktop {
-                gap: 20px;
-            }
-            
-            .nav-desktop a {
-                font-size: 0.85rem;
-                letter-spacing: 0.3px;
-            }
-            
-            .header-cta .btn {
-                padding: 8px 20px;
-                font-size: 0.85rem;
-            }
-            
-            .hero, 
-            .flip-cards-section,
-            .why-us,
-            .cta-section,
-            footer {
-                padding-left: 3%;
-                padding-right: 3%;
-            }
-        }
-
-        @media (max-width: 900px) {
-            .nav-desktop {
-                gap: 16px;
-            }
-            
-            .nav-desktop a {
-                font-size: 0.8rem;
-            }
-            
-            .logo-text {
-                font-size: 1.4rem;
-            }
-        }
-
-        @media (max-width: 768px) {
             .nav-desktop {
                 display: none;
             }
@@ -757,14 +721,11 @@
             .header-cta {
                 display: none;
             }
-            
+        }
+
+        @media (max-width: 768px) {
             .hero {
                 padding: 140px 4% 80px;
-            }
-            
-            .cards-container {
-                grid-template-columns: 1fr;
-                max-width: 400px;
             }
             
             .flip-card {
@@ -781,54 +742,6 @@
                 max-width: 300px;
             }
             
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header {
-                padding: 0 20px;
-            }
-            
-            .hero {
-                padding: 120px 20px 60px;
-            }
-            
-            .flip-cards-section,
-            .why-us,
-            .cta-section,
-            footer {
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-            
-            .card-face {
-                padding: 30px 20px;
-            }
-            
-            .flip-card {
-                height: 350px;
-            }
-            
-            .card-back .btn {
-                padding: 10px 24px;
-                font-size: 0.9rem;
-            }
-            
-            .contact-item {
-                font-size: 0.9rem;
-            }
-            
-            .footer-links a {
-                font-size: 0.85rem;
-            }
-            
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -841,50 +754,18 @@
             }
         }
 
-        @media (max-width: 360px) {
-            .logo-text {
-                font-size: 1.3rem;
+        @media (max-width: 480px) {
+            .header {
+                padding: 0 20px;
             }
             
-            .hero h1 {
-                font-size: 1.6rem;
+            .hero {
+                padding: 120px 20px 60px;
             }
             
-            .hero p {
-                font-size: 0.95rem;
+            .card-face {
+                padding: 30px 20px;
             }
-            
-            .flip-card {
-                height: 380px;
-            }
-            
-            .section-title {
-                font-size: 1.6rem;
-            }
-        }
-
-        /* ANIMATIONS */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .delay-1 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-2 {
-            animation-delay: 0.4s;
         }
     </style>
 </head>
@@ -895,15 +776,78 @@
             <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x50/2A5CAA/FFFFFF?text=Web4+Medya';">
         </div>
         
-        <!-- MODERN NAVIGATION - İKONSUZ -->
+        <!-- MODERN NAVIGATION -->
         <nav class="nav-desktop">
-            <a href="/" class="active">Anasayfa</a>
-            <a href="/dijital-pazarlama/">Dijital Pazarlama</a>
-            <a href="/web-tasarim/">Web Tasarım</a>
-            <a href="/produksiyon/">Prodüksiyon</a>
-            <a href="/referanslar/">Referanslar</a>
-            <a href="/blog/">Blog</a>
-            <a href="/iletisim/">İletişim</a>
+            <div class="nav-item">
+                <a href="/" class="nav-link active">Ana Sayfa</a>
+            </div>
+            
+            <!-- HİZMETLER DROPDOWN -->
+            <div class="nav-item">
+                <a href="#" class="nav-link">Hizmetler <i class="fas fa-chevron-down arrow"></i></a>
+                <div class="dropdown" id="hizmetlerDropdown">
+                    <div class="dropdown-content">
+                        <!-- Dijital Pazarlama -->
+                        <div class="dropdown-section">
+                            <h4>Dijital Pazarlama</h4>
+                            <a href="/google-ads-reklamlari/" class="dropdown-link">Google Ads Reklamları</a>
+                            <a href="/meta-reklamlari/" class="dropdown-link">Meta (Instagram & Facebook) Reklamları</a>
+                            <a href="/seo/" class="dropdown-link">SEO (Arama Motoru Optimizasyonu)</a>
+                            <a href="/sosyal-medya-yonetimi/" class="dropdown-link">Sosyal Medya Yönetimi</a>
+                        </div>
+                        
+                        <!-- Web Tasarım -->
+                        <div class="dropdown-section">
+                            <h4>Web Tasarım</h4>
+                            <a href="/kurumsal-web-sitesi/" class="dropdown-link">Kurumsal Web Sitesi</a>
+                            <a href="/landing-page/" class="dropdown-link">Landing Page (Satış Sayfası)</a>
+                            <a href="/e-ticaret-sitesi/" class="dropdown-link">E-Ticaret Sitesi</a>
+                            <a href="/seo-uyumlu-web-tasarim/" class="dropdown-link">SEO Uyumlu Web Tasarım</a>
+                            <a href="/mobil-uyumlu-tasarim/" class="dropdown-link">Mobil Uyumlu Tasarım</a>
+                            <a href="/web-site-bakim/" class="dropdown-link">Web Site Bakım & Destek</a>
+                        </div>
+                        
+                        <!-- Prodüksiyon -->
+                        <div class="dropdown-section">
+                            <h4>Prodüksiyon</h4>
+                            <a href="/reklam-filmi/" class="dropdown-link">Reklam Filmi</a>
+                            <a href="/kurumsal-tanitim-videosu/" class="dropdown-link">Kurumsal Tanıtım Videosu</a>
+                            <a href="/sosyal-medya-video/" class="dropdown-link">Sosyal Medya Video & Reels</a>
+                            <a href="/drone-cekimi/" class="dropdown-link">Drone Çekimi</a>
+                            <a href="/urun-fotograf-video/" class="dropdown-link">Ürün Fotoğraf & Video</a>
+                            <a href="/video-kurgu-montaj/" class="dropdown-link">Video Kurgu & Montaj</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PAKETLER DROPDOWN -->
+            <div class="nav-item">
+                <a href="#" class="nav-link">Paketler <i class="fas fa-chevron-down arrow"></i></a>
+                <div class="dropdown" id="paketlerDropdown">
+                    <div class="dropdown-content">
+                        <a href="/google-ads-paketleri/" class="dropdown-link">Google Ads Paketleri</a>
+                        <a href="/sosyal-medya-paketleri/" class="dropdown-link">Sosyal Medya Paketleri</a>
+                        <a href="/web-tasarim-paketleri/" class="dropdown-link">Web Tasarım Paketleri</a>
+                        <a href="/e-ticaret-paketleri/" class="dropdown-link">E-Ticaret Paketleri</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- REFERANSLAR -->
+            <div class="nav-item">
+                <a href="/referanslar/" class="nav-link">Referanslar</a>
+            </div>
+            
+            <!-- BLOG -->
+            <div class="nav-item">
+                <a href="/blog/" class="nav-link">Blog</a>
+            </div>
+            
+            <!-- İLETİŞİM -->
+            <div class="nav-item">
+                <a href="/iletisim/" class="nav-link">İletişim</a>
+            </div>
         </nav>
         
         <!-- MOBILE MENU TOGGLE -->
@@ -914,16 +858,80 @@
         </button>
     </header>
     
-    <!-- MODERN MOBILE MENU - İKONSUZ -->
+    <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobileMenu">
         <nav class="mobile-nav">
-            <a href="/" class="active">Anasayfa</a>
-            <a href="/dijital-pazarlama/">Dijital Pazarlama</a>
-            <a href="/web-tasarim/">Web Tasarım</a>
-            <a href="/produksiyon/">Prodüksiyon</a>
-            <a href="/referanslar/">Referanslar</a>
-            <a href="/blog/">Blog</a>
-            <a href="/iletisim/">İletişim</a>
+            <!-- Ana Sayfa -->
+            <div class="mobile-nav-item">
+                <a href="/" class="mobile-nav-link active">Ana Sayfa</a>
+            </div>
+            
+            <!-- Hizmetler -->
+            <div class="mobile-nav-item">
+                <button class="mobile-dropdown-btn" data-target="hizmetlerMobile">
+                    Hizmetler <i class="fas fa-chevron-down mobile-arrow"></i>
+                </button>
+                <div class="mobile-dropdown-content" id="hizmetlerMobile">
+                    <!-- Dijital Pazarlama -->
+                    <div class="mobile-dropdown-section">
+                        <h4>Dijital Pazarlama</h4>
+                        <a href="/google-ads-reklamlari/" class="mobile-dropdown-link">Google Ads Reklamları</a>
+                        <a href="/meta-reklamlari/" class="mobile-dropdown-link">Meta Reklamları</a>
+                        <a href="/seo/" class="mobile-dropdown-link">SEO Hizmeti</a>
+                        <a href="/sosyal-medya-yonetimi/" class="mobile-dropdown-link">Sosyal Medya Yönetimi</a>
+                    </div>
+                    
+                    <!-- Web Tasarım -->
+                    <div class="mobile-dropdown-section">
+                        <h4>Web Tasarım</h4>
+                        <a href="/kurumsal-web-sitesi/" class="mobile-dropdown-link">Kurumsal Web Sitesi</a>
+                        <a href="/landing-page/" class="mobile-dropdown-link">Landing Page</a>
+                        <a href="/e-ticaret-sitesi/" class="mobile-dropdown-link">E-Ticaret Sitesi</a>
+                        <a href="/seo-uyumlu-web-tasarim/" class="mobile-dropdown-link">SEO Uyumlu Tasarım</a>
+                        <a href="/mobil-uyumlu-tasarim/" class="mobile-dropdown-link">Mobil Uyumlu Tasarım</a>
+                        <a href="/web-site-bakim/" class="mobile-dropdown-link">Web Site Bakım</a>
+                    </div>
+                    
+                    <!-- Prodüksiyon -->
+                    <div class="mobile-dropdown-section">
+                        <h4>Prodüksiyon</h4>
+                        <a href="/reklam-filmi/" class="mobile-dropdown-link">Reklam Filmi</a>
+                        <a href="/kurumsal-tanitim-videosu/" class="mobile-dropdown-link">Kurumsal Tanıtım Videosu</a>
+                        <a href="/sosyal-medya-video/" class="mobile-dropdown-link">Sosyal Medya Video</a>
+                        <a href="/drone-cekimi/" class="mobile-dropdown-link">Drone Çekimi</a>
+                        <a href="/urun-fotograf-video/" class="mobile-dropdown-link">Ürün Fotoğraf & Video</a>
+                        <a href="/video-kurgu-montaj/" class="mobile-dropdown-link">Video Kurgu & Montaj</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Paketler -->
+            <div class="mobile-nav-item">
+                <button class="mobile-dropdown-btn" data-target="paketlerMobile">
+                    Paketler <i class="fas fa-chevron-down mobile-arrow"></i>
+                </button>
+                <div class="mobile-dropdown-content" id="paketlerMobile">
+                    <a href="/google-ads-paketleri/" class="mobile-dropdown-link">Google Ads Paketleri</a>
+                    <a href="/sosyal-medya-paketleri/" class="mobile-dropdown-link">Sosyal Medya Paketleri</a>
+                    <a href="/web-tasarim-paketleri/" class="mobile-dropdown-link">Web Tasarım Paketleri</a>
+                    <a href="/e-ticaret-paketleri/" class="mobile-dropdown-link">E-Ticaret Paketleri</a>
+                </div>
+            </div>
+            
+            <!-- Referanslar -->
+            <div class="mobile-nav-item">
+                <a href="/referanslar/" class="mobile-nav-link">Referanslar</a>
+            </div>
+            
+            <!-- Blog -->
+            <div class="mobile-nav-item">
+                <a href="/blog/" class="mobile-nav-link">Blog</a>
+            </div>
+            
+            <!-- İletişim -->
+            <div class="mobile-nav-item">
+                <a href="/iletisim/" class="mobile-nav-link">İletişim</a>
+            </div>
         </nav>
     </div>
 
@@ -1059,79 +1067,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>Web4 Medya</h3>
-                <p style="color: rgba(255,255,255,0.7); margin-bottom: 20px; line-height: 1.6;">Dijital pazarlama, web tasarım ve prodüksiyon alanında profesyonel çözümler sunuyoruz. Markanızı dijital dünyada güçlendiriyoruz.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Hızlı Bağlantılar</h3>
-                <ul class="footer-links">
-                    <li><a href="/">Anasayfa</a></li>
-                    <li><a href="/dijital-pazarlama/">Dijital Pazarlama</a></li>
-                    <li><a href="/web-tasarim/">Web Tasarım</a></li>
-                    <li><a href="/produksiyon/">Prodüksiyon</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Hizmetlerimiz</h3>
-                <ul class="footer-links">
-                    <li><a href="/web-tasarim/">Web Tasarım</a></li>
-                    <li><a href="/grafik-tasarim/">Grafik Tasarım</a></li>
-                    <li><a href="/seo-hizmeti/">SEO Hizmeti</a></li>
-                    <li><a href="/google-harita-kurulumu/">Google Harita Kurulumu</a></li>
-                    <li><a href="/google-ads-reklamlari/">Google (Ads) Reklamları</a></li>
-                    <li><a href="/meta-ads-reklamlari/">Meta (Ads) Reklamları</a></li>
-                    <li><a href="/video-produksiyon/">Video Prodüksiyon</a></li>
-                    <li><a href="/fotograf-cekimi/">Fotoğraf Çekimi</a></li>
-                    <li><a href="/drone-cekimi/">Drone Çekimi</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>İletişim</h3>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <strong>Telefon</strong>
-                            <p>0542 236 09 83</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <strong>E-posta</strong>
-                            <p>info@web4medya.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <strong>Çalışma Saatleri</strong>
-                            <p>Pazartesi - Cumartesi<br>09:00 - 18:00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="copyright">
-            © <span id="currentYear">2024</span> Web4 Medya. Tüm hakları saklıdır. | Dijital Pazarlama, Web Tasarım, Prodüksiyon
-            <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.5;">Google Ads Partner • Meta Business Partner</p>
-        </div>
-    </footer>
-
     <script>
         // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
@@ -1145,25 +1080,76 @@
             });
         }
 
-        // Close mobile menu when clicking outside
+        // Desktop Dropdown Hover
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            const dropdown = item.querySelector('.dropdown');
+            if (dropdown) {
+                item.addEventListener('mouseenter', () => {
+                    dropdown.classList.add('active');
+                });
+                
+                item.addEventListener('mouseleave', () => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        });
+
+        // Mobile Dropdown Toggle
+        const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
+        mobileDropdownBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const target = document.getElementById(targetId);
+                
+                // Close other dropdowns
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
+                    if (dropdown.id !== targetId) {
+                        dropdown.classList.remove('active');
+                        const otherBtn = dropdown.parentElement.querySelector('.mobile-dropdown-btn');
+                        if (otherBtn) otherBtn.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current dropdown
+                this.classList.toggle('active');
+                target.classList.toggle('active');
+            });
+        });
+
+        // Close dropdowns when clicking outside
         document.addEventListener('click', function(e) {
+            // Desktop dropdowns
+            if (!e.target.closest('.nav-item')) {
+                document.querySelectorAll('.dropdown.active').forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
+            
+            // Mobile menu
             if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
                 menuToggle.classList.remove('active');
                 mobileMenu.classList.remove('active');
             }
         });
 
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.mobile-nav a').forEach(link => {
+        // Close mobile dropdowns when clicking a link
+        document.querySelectorAll('.mobile-dropdown-link').forEach(link => {
             link.addEventListener('click', function() {
                 menuToggle.classList.remove('active');
                 mobileMenu.classList.remove('active');
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(btn => {
+                    btn.classList.remove('active');
+                });
             });
         });
 
         // Add active class to current page in navigation
         const currentPage = window.location.pathname;
-        const navLinks = document.querySelectorAll('.nav-desktop a, .mobile-nav a');
+        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
         
         navLinks.forEach(link => {
             const linkPath = link.getAttribute('href');
@@ -1174,24 +1160,8 @@
             }
         });
 
-        // Flip cards interaction for mobile
-        document.querySelectorAll('.flip-card').forEach(card => {
-            // Handle click for mobile
-            if (window.innerWidth <= 768) {
-                card.addEventListener('click', function() {
-                    this.classList.toggle('flipped');
-                });
-            }
-        });
-
         // Handle image fallback for logo
         document.addEventListener('DOMContentLoaded', function() {
-            // Update copyright year
-            const yearElement = document.getElementById('currentYear');
-            if (yearElement) {
-                yearElement.textContent = new Date().getFullYear();
-            }
-            
             // Add lazy loading to images
             const images = document.querySelectorAll('img');
             images.forEach(img => {
@@ -1209,25 +1179,22 @@
             }
         });
 
-        // Handle responsive behavior for flip cards
-        function handleFlipCards() {
-            const cards = document.querySelectorAll('.flip-card');
-            const isMobile = window.innerWidth <= 768;
-            
-            cards.forEach(card => {
-                if (isMobile) {
-                    // Remove hover effect for mobile
-                    card.style.transform = '';
-                    card.classList.remove('flipped');
-                }
+        // Prevent dropdown from closing when clicking inside
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            dropdown.addEventListener('click', function(e) {
+                e.stopPropagation();
             });
-        }
+        });
 
-        // Initial call
-        handleFlipCards();
-
-        // Update on resize
-        window.addEventListener('resize', handleFlipCards);
+        // Flip cards interaction for mobile
+        document.querySelectorAll('.flip-card').forEach(card => {
+            // Handle click for mobile
+            if (window.innerWidth <= 768) {
+                card.addEventListener('click', function() {
+                    this.classList.toggle('flipped');
+                });
+            }
+        });
     </script>
 </body>
 </html>
