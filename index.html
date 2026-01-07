@@ -314,43 +314,43 @@
             50% { transform: translateY(-15px); }
         }
 
-        /* Farklı yerlere roket simgeleri */
-        .rocket-bg-1 {
+        /* Farklı yerlere roket simgeleri - HERO */
+        .rocket-hero-1 {
             position: absolute;
             top: 15%;
             left: 5%;
             font-size: 2.5rem;
-            color: rgba(30, 58, 138, 0.05);
+            color: rgba(255, 255, 255, 0.08);
             transform: rotate(25deg);
             z-index: 0;
         }
 
-        .rocket-bg-2 {
+        .rocket-hero-2 {
             position: absolute;
             bottom: 20%;
             right: 8%;
             font-size: 3rem;
-            color: rgba(59, 130, 246, 0.04);
+            color: rgba(255, 255, 255, 0.06);
             transform: rotate(-15deg);
             z-index: 0;
         }
 
-        .rocket-bg-3 {
+        .rocket-hero-3 {
             position: absolute;
             top: 40%;
             left: 15%;
             font-size: 2rem;
-            color: rgba(96, 165, 250, 0.03);
+            color: rgba(255, 255, 255, 0.04);
             transform: rotate(45deg);
             z-index: 0;
         }
 
-        .rocket-bg-4 {
+        .rocket-hero-4 {
             position: absolute;
             bottom: 30%;
             left: 10%;
             font-size: 2.2rem;
-            color: rgba(37, 99, 235, 0.04);
+            color: rgba(255, 255, 255, 0.05);
             transform: rotate(-30deg);
             z-index: 0;
         }
@@ -583,26 +583,31 @@
             line-height: 1.6;
         }
 
-        /* KATEGORİ BAŞLIKLARI - YAZIM ANİMASYONU */
+        /* KATEGORİ BAŞLIKLARI - YAZIM ANİMASYONU - SİYAH RENK */
         .category-title {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 40px;
-            color: var(--primary-dark);
+            color: var(--dark);
             padding-left: 20px;
             border-left: 4px solid var(--primary);
             overflow: hidden;
-            white-space: nowrap;
+            white-space: normal;
             position: relative;
             display: inline-block;
+            width: 100%;
         }
 
-        /* Yazım animasyonu */
+        /* Yazım animasyonu - İyileştirilmiş */
         .typing-animation {
             overflow: hidden;
             border-right: 2px solid var(--primary);
-            white-space: nowrap;
-            animation: typing 2.5s steps(40, end), blink-caret 0.75s step-end infinite;
+            white-space: normal;
+            animation: 
+                typing 2.5s steps(40, end) forwards,
+                blink-caret 0.75s step-end 3;
+            width: 0;
+            max-width: 100%;
         }
 
         @keyframes typing {
@@ -818,11 +823,11 @@
             width: 48px;
             height: 48px;
             background: linear-gradient(135deg, #4285F4, #34A853, #FBBC05, #EA4335);
-            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%234285F4' d='M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z'/%3E%3Cpath fill='%2334A853' d='M46.5 24c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z'/%3E%3Cpath fill='%23FBBC05' d='M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z'/%3E%3Cpath fill='%23EA4335' d='M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z'/%3E%3Cpath fill='none' d='M0 0h48v48H0z'/%3E%3C/svg%3E");
-            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%234285F4' d='M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z'/%3E%3Cpath fill='%2334A853' d='M46.5 24c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z'/%3E%3Cpath fill='%23FBBC05' d='M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z'/%3E%3Cpath fill='%23EA4335' d='M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z'/%3E%3Cpath fill='none' d='M0 0h48v48H0z'/%3E%3C/svg%3E");
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%234285F4' d='M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z'/%3E%3Cpath fill='%2334A853' d='M46.5 24c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26,5.48-4.78,7.18l7.73,6c4.51-4.18,7.09-10.36,7.09-17.65z'/%3E%3Cpath fill='%23FBBC05' d='M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z'/%3E%3Cpath fill='%23EA4335' d='M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z'/%3E%3Cpath fill='none' d='M0 0h48v48H0z'/%3E%3C/svg%3E");
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%234285F4' d='M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z'/%3E%3Cpath fill='%2334A853' d='M46.5 24c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26,5.48-4.78,7.18l7.73,6c4.51-4.18,7.09-10.36,7.09-17.65z'/%3E%3Cpath fill='%23FBBC05' d='M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z'/%3E%3Cpath fill='%23EA4335' d='M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z'/%3E%3Cpath fill='none' d='M0 0h48v48H0z'/%3E%3C/svg%3E");
         }
 
-        /* WHY US SECTION - MAVİ TEMA */
+        /* WHY US SECTION - MAVİ TEMA - Roket simgeleri eklendi */
         .why-us {
             padding: 80px 5%;
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
@@ -831,8 +836,51 @@
             overflow: hidden;
         }
 
+        /* Roket simgeleri - Why Us */
+        .rocket-why-1 {
+            position: absolute;
+            top: 15%;
+            left: 5%;
+            font-size: 2.5rem;
+            color: rgba(255, 255, 255, 0.08);
+            transform: rotate(25deg);
+            z-index: 0;
+        }
+
+        .rocket-why-2 {
+            position: absolute;
+            bottom: 20%;
+            right: 8%;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.06);
+            transform: rotate(-15deg);
+            z-index: 0;
+        }
+
+        .rocket-why-3 {
+            position: absolute;
+            top: 40%;
+            right: 15%;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.04);
+            transform: rotate(45deg);
+            z-index: 0;
+        }
+
+        .rocket-why-4 {
+            position: absolute;
+            bottom: 30%;
+            left: 10%;
+            font-size: 2.2rem;
+            color: rgba(255, 255, 255, 0.05);
+            transform: rotate(-30deg);
+            z-index: 0;
+        }
+
         .why-us .section-title {
             color: white;
+            position: relative;
+            z-index: 1;
         }
 
         .why-us .section-title::after {
@@ -841,6 +889,8 @@
 
         .why-us .section-subtitle {
             color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 1;
         }
 
         .features-grid {
@@ -849,6 +899,8 @@
             gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .feature {
@@ -1149,34 +1201,34 @@
             text-decoration: underline;
         }
 
-        /* MOBİL SABİT BUTONLAR - Sağ alt köşe */
+        /* MOBİL SABİT BUTONLAR - Sağ alt köşe - BÜYÜK BOY */
         .mobile-fixed-buttons {
             position: fixed;
             bottom: 20px;
             right: 20px;
             display: none;
             flex-direction: column;
-            gap: 10px;
+            gap: 15px;
             z-index: 998;
         }
 
         .mobile-fixed-btn {
-            width: 50px;
-            height: 50px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.3rem;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            font-size: 1.8rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
             text-decoration: none;
         }
 
         .mobile-fixed-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
         }
 
         .mobile-fixed-btn.whatsapp {
@@ -1234,8 +1286,23 @@
                 display: none; /* Mobilde roketi gizle */
             }
             
-            .rocket-bg-1, .rocket-bg-2, .rocket-bg-3, .rocket-bg-4 {
+            .rocket-hero-1, .rocket-hero-2, .rocket-hero-3, .rocket-hero-4,
+            .rocket-why-1, .rocket-why-2, .rocket-why-3, .rocket-why-4 {
                 display: none;
+            }
+            
+            /* Kategori başlıkları mobilde daha küçük */
+            .category-title {
+                font-size: 1.3rem;
+                padding-left: 15px;
+                margin-bottom: 30px;
+            }
+            
+            /* Yazım animasyonu mobilde daha hızlı */
+            .typing-animation {
+                animation: 
+                    typing 2s steps(40, end) forwards,
+                    blink-caret 0.75s step-end 3;
             }
             
             .flip-card {
@@ -1288,6 +1355,13 @@
                 top: 65px; /* Header yüksekliği ile aynı */
             }
             
+            /* Kategori başlıkları çok küçük ekranlarda */
+            .category-title {
+                font-size: 1.2rem;
+                padding-left: 10px;
+                margin-bottom: 25px;
+            }
+            
             .flip-card {
                 height: 240px;
             }
@@ -1300,15 +1374,29 @@
                 padding: 50px 20px 25px;
             }
             
+            /* Mobil sabit butonlar büyük */
             .mobile-fixed-buttons {
                 bottom: 15px;
                 right: 15px;
+                gap: 12px;
             }
             
             .mobile-fixed-btn {
-                width: 45px;
-                height: 45px;
+                width: 60px;
+                height: 60px;
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .category-title {
                 font-size: 1.1rem;
+            }
+            
+            .mobile-fixed-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -1452,8 +1540,22 @@
 
     <!-- HERO SECTION -->
     <section class="hero">
-        <!-- Roket simgesi -->
+        <!-- Roket simgesi - Hero -->
         <div class="rocket-icon">
+            <i class="fas fa-rocket"></i>
+        </div>
+        
+        <!-- Hero arka plan roketleri -->
+        <div class="rocket-hero-1">
+            <i class="fas fa-rocket"></i>
+        </div>
+        <div class="rocket-hero-2">
+            <i class="fas fa-rocket"></i>
+        </div>
+        <div class="rocket-hero-3">
+            <i class="fas fa-rocket"></i>
+        </div>
+        <div class="rocket-hero-4">
             <i class="fas fa-rocket"></i>
         </div>
         
@@ -1473,20 +1575,6 @@
 
     <!-- MODERN FLIP KARTLAR - TEK TIKLAMALI DÖNME -->
     <section class="services-section">
-        <!-- Arka plana roket simgeleri -->
-        <div class="rocket-bg-1">
-            <i class="fas fa-rocket"></i>
-        </div>
-        <div class="rocket-bg-2">
-            <i class="fas fa-rocket"></i>
-        </div>
-        <div class="rocket-bg-3">
-            <i class="fas fa-rocket"></i>
-        </div>
-        <div class="rocket-bg-4">
-            <i class="fas fa-rocket"></i>
-        </div>
-        
         <div class="section-header">
             <h2 class="section-title">Hizmetlerimiz</h2>
             <p class="section-subtitle">İşletmeniz için kapsamlı dijital çözümler sunuyoruz. Kartlara tıklayarak detayları görün.</p>
@@ -1680,6 +1768,20 @@
 
     <!-- NEDEN BİZ SECTION -->
     <section class="why-us">
+        <!-- Why Us arka plan roketleri -->
+        <div class="rocket-why-1">
+            <i class="fas fa-rocket"></i>
+        </div>
+        <div class="rocket-why-2">
+            <i class="fas fa-rocket"></i>
+        </div>
+        <div class="rocket-why-3">
+            <i class="fas fa-rocket"></i>
+        </div>
+        <div class="rocket-why-4">
+            <i class="fas fa-rocket"></i>
+        </div>
+        
         <div class="section-header">
             <h2 class="section-title">Neden Web4 Medya?</h2>
             <p class="section-subtitle">Farkımızı ortaya koyan özelliklerimizle işletmenize değer katıyoruz</p>
@@ -1831,7 +1933,7 @@
         </div>
     </footer>
 
-    <!-- MOBİL SABİT BUTONLAR -->
+    <!-- MOBİL SABİT BUTONLAR - BÜYÜK BOY -->
     <div class="mobile-fixed-buttons">
         <a href="https://wa.me/905422360983" class="mobile-fixed-btn whatsapp" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-whatsapp"></i>
@@ -2035,13 +2137,22 @@
 
         // Yazım animasyonu için Intersection Observer
         const observerOptions = {
-            threshold: 0.5
+            threshold: 0.3,
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('typing-animation');
+                    const title = entry.target;
+                    // Animasyon bittikten sonra cursor'ı kaldır
+                    setTimeout(() => {
+                        title.style.borderRight = 'none';
+                    }, 2500 + 2250); // Yazım süresi + blink süresi
+                    
+                    title.classList.add('typing-animation');
+                    // Sadece bir kere gözlemle
+                    observer.unobserve(title);
                 }
             });
         }, observerOptions);
