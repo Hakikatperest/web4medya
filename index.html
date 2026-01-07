@@ -583,36 +583,70 @@
             line-height: 1.6;
         }
 
-        /* KATEGORİ BAŞLIKLARI - YAZIM ANİMASYONU - SİYAH RENK */
+        /* KATEGORİ BAŞLIKLARI - YAZIM ANİMASYONU - SİYAH RENK - TEK SATIR */
         .category-title {
-            font-size: 1.5rem;
+            font-size: 1.8rem; /* Biraz büyütüldü */
             font-weight: 700;
             margin-bottom: 40px;
             color: var(--dark);
             padding-left: 20px;
             border-left: 4px solid var(--primary);
             overflow: hidden;
-            white-space: normal;
+            white-space: nowrap;
             position: relative;
             display: inline-block;
-            width: 100%;
+            max-width: 100%;
+            text-overflow: ellipsis;
         }
 
-        /* Yazım animasyonu - İyileştirilmiş */
-        .typing-animation {
+        /* Her başlık için farklı yazım hızı */
+        .typing-animation-1 {
             overflow: hidden;
-            border-right: 2px solid var(--primary);
-            white-space: normal;
-            animation: 
-                typing 2.5s steps(40, end) forwards,
-                blink-caret 0.75s step-end 3;
+            white-space: nowrap;
             width: 0;
+            border-right: 2px solid var(--primary);
             max-width: 100%;
         }
 
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+        .typing-animation-2 {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            border-right: 2px solid var(--primary);
+            max-width: 100%;
+        }
+
+        .typing-animation-3 {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            border-right: 2px solid var(--primary);
+            max-width: 100%;
+        }
+
+        /* Animasyonlar - Z harfinden sonra cursor hemen kaybolsun */
+        @keyframes typing-1 {
+            0% { width: 0; }
+            /* Dijital Pazarlama Hizmetlerimiz */
+            94% { width: 100%; border-right: 2px solid var(--primary); }
+            95% { width: 100%; border-right: none; }
+            100% { width: 100%; border-right: none; }
+        }
+
+        @keyframes typing-2 {
+            0% { width: 0; }
+            /* Web Tasarım Hizmetlerimiz */
+            94% { width: 100%; border-right: 2px solid var(--primary); }
+            95% { width: 100%; border-right: none; }
+            100% { width: 100%; border-right: none; }
+        }
+
+        @keyframes typing-3 {
+            0% { width: 0; }
+            /* Prodüksiyon Hizmetlerimiz */
+            94% { width: 100%; border-right: 2px solid var(--primary); }
+            95% { width: 100%; border-right: none; }
+            100% { width: 100%; border-right: none; }
         }
 
         @keyframes blink-caret {
@@ -1291,18 +1325,38 @@
                 display: none;
             }
             
-            /* Kategori başlıkları mobilde daha küçük */
+            /* Kategori başlıkları mobilde - TEK SATIR ve taşmadan */
             .category-title {
-                font-size: 1.3rem;
+                font-size: 1.4rem; /* Mobilde biraz küçültüldü ama tek satır */
                 padding-left: 15px;
                 margin-bottom: 30px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 100%;
+                display: block;
             }
             
-            /* Yazım animasyonu mobilde daha hızlı */
-            .typing-animation {
-                animation: 
-                    typing 2s steps(40, end) forwards,
-                    blink-caret 0.75s step-end 3;
+            /* Mobilde animasyon süreleri kısalttı */
+            @keyframes typing-1 {
+                0% { width: 0; }
+                94% { width: 100%; border-right: 2px solid var(--primary); }
+                95% { width: 100%; border-right: none; }
+                100% { width: 100%; border-right: none; }
+            }
+            
+            @keyframes typing-2 {
+                0% { width: 0; }
+                94% { width: 100%; border-right: 2px solid var(--primary); }
+                95% { width: 100%; border-right: none; }
+                100% { width: 100%; border-right: none; }
+            }
+            
+            @keyframes typing-3 {
+                0% { width: 0; }
+                94% { width: 100%; border-right: 2px solid var(--primary); }
+                95% { width: 100%; border-right: none; }
+                100% { width: 100%; border-right: none; }
             }
             
             .flip-card {
@@ -1355,11 +1409,14 @@
                 top: 65px; /* Header yüksekliği ile aynı */
             }
             
-            /* Kategori başlıkları çok küçük ekranlarda */
+            /* Çok küçük ekranlarda kategori başlıkları */
             .category-title {
                 font-size: 1.2rem;
                 padding-left: 10px;
                 margin-bottom: 25px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
             
             .flip-card {
@@ -1583,7 +1640,7 @@
         <div class="services-container">
             <!-- DİJİTAL PAZARLAMA KATEGORİSİ -->
             <div class="service-category digital-marketing">
-                <h2 class="category-title typing-animation">Dijital Pazarlama Hizmetlerimiz</h2>
+                <h2 id="digital-title" class="category-title typing-animation-1">Dijital Pazarlama Hizmetlerimiz</h2>
                 <div class="category-grid">
                     <!-- Google Ads -->
                     <div class="flip-card" data-id="google-ads">
@@ -1679,7 +1736,7 @@
             
             <!-- WEB TASARIM KATEGORİSİ -->
             <div class="service-category web-design">
-                <h2 class="category-title typing-animation">Web Tasarım Hizmetlerimiz</h2>
+                <h2 id="web-title" class="category-title typing-animation-2">Web Tasarım Hizmetlerimiz</h2>
                 <div class="category-grid">
                     <!-- E-Ticaret -->
                     <div class="flip-card" data-id="ecommerce">
@@ -1715,7 +1772,7 @@
             
             <!-- PRODÜKSİYON KATEGORİSİ -->
             <div class="service-category production">
-                <h2 class="category-title typing-animation">Prodüksiyon Hizmetlerimiz</h2>
+                <h2 id="production-title" class="category-title typing-animation-3">Prodüksiyon Hizmetlerimiz</h2>
                 <div class="category-grid">
                     <!-- Sosyal Medya Videoları -->
                     <div class="flip-card" data-id="social-videos">
@@ -2135,32 +2192,98 @@
             }
         });
 
-        // Yazım animasyonu için Intersection Observer
-        const observerOptions = {
-            threshold: 0.3,
-            rootMargin: '0px 0px -50px 0px'
+        // YAZIM ANİMASYONU - HER BAŞLIK İÇİN AYRI VE GÖRÜNÜNCE BAŞLASIN
+        const digitalTitle = document.getElementById('digital-title');
+        const webTitle = document.getElementById('web-title');
+        const productionTitle = document.getElementById('production-title');
+        
+        // Her başlık için farklı animasyon süreleri (karakter sayısına göre)
+        const animationDurations = {
+            'digital-title': 3.0,    // "Dijital Pazarlama Hizmetlerimiz" - en uzun
+            'web-title': 2.5,        // "Web Tasarım Hizmetlerimiz" - orta
+            'production-title': 2.7  // "Prodüksiyon Hizmetlerimiz" - biraz daha kısa
         };
-
-        const observer = new IntersectionObserver(function(entries) {
+        
+        // Intersection Observer - her başlık ekranda görününce animasyon başlasın
+        const titleObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const title = entry.target;
-                    // Animasyon bittikten sonra cursor'ı kaldır
+                    const titleId = title.id;
+                    const duration = animationDurations[titleId] || 2.5;
+                    
+                    // CSS animasyonunu dinamik olarak uygula
+                    title.style.animation = `typing-${titleId.charAt(0)} ${duration}s steps(40, end) forwards`;
+                    
+                    // Animasyon bittikten sonra cursor'ı kaldır (Z harfinden sonra)
                     setTimeout(() => {
                         title.style.borderRight = 'none';
-                    }, 2500 + 2250); // Yazım süresi + blink süresi
+                    }, duration * 1000 - 100); // Z harfinden hemen sonra
                     
-                    title.classList.add('typing-animation');
                     // Sadece bir kere gözlemle
-                    observer.unobserve(title);
+                    titleObserver.unobserve(title);
                 }
             });
-        }, observerOptions);
-
-        // Kategori başlıklarını gözlemle
-        document.querySelectorAll('.category-title').forEach(title => {
-            observer.observe(title);
+        }, {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
         });
+        
+        // Başlıkları gözlemle
+        if (digitalTitle) titleObserver.observe(digitalTitle);
+        if (webTitle) titleObserver.observe(webTitle);
+        if (productionTitle) titleObserver.observe(productionTitle);
+        
+        // Dinamik CSS animasyonları ekle
+        const style = document.createElement('style');
+        style.textContent = `
+            /* Dinamik animasyonlar - her başlık için farklı süre */
+            @keyframes typing-digital-title {
+                0% { width: 0; }
+                94% { width: 100%; border-right: 2px solid var(--primary); }
+                95% { width: 100%; border-right: none; }
+                100% { width: 100%; border-right: none; }
+            }
+            
+            @keyframes typing-web-title {
+                0% { width: 0; }
+                94% { width: 100%; border-right: 2px solid var(--primary); }
+                95% { width: 100%; border-right: none; }
+                100% { width: 100%; border-right: none; }
+            }
+            
+            @keyframes typing-production-title {
+                0% { width: 0; }
+                94% { width: 100%; border-right: 2px solid var(--primary); }
+                95% { width: 100%; border-right: none; }
+                100% { width: 100%; border-right: none; }
+            }
+            
+            /* Mobilde daha hızlı animasyonlar */
+            @media (max-width: 768px) {
+                @keyframes typing-digital-title {
+                    0% { width: 0; }
+                    94% { width: 100%; border-right: 2px solid var(--primary); }
+                    95% { width: 100%; border-right: none; }
+                    100% { width: 100%; border-right: none; }
+                }
+                
+                @keyframes typing-web-title {
+                    0% { width: 0; }
+                    94% { width: 100%; border-right: 2px solid var(--primary); }
+                    95% { width: 100%; border-right: none; }
+                    100% { width: 100%; border-right: none; }
+                }
+                
+                @keyframes typing-production-title {
+                    0% { width: 0; }
+                    94% { width: 100%; border-right: 2px solid var(--primary); }
+                    95% { width: 100%; border-right: none; }
+                    100% { width: 100%; border-right: none; }
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
