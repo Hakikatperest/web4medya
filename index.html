@@ -791,9 +791,9 @@
                         <div class="dropdown-section">
                             <h4>Dijital Pazarlama</h4>
                             <a href="/google-ads-reklam-ver/" class="dropdown-link">Google Ads Reklam Ver</a>
-                            <a href="/instagram-facebook-reklam-ver/" class="dropdown-link">İnstagram & Facebook Reklam Ver</a>
+                            <a href="/instagram-reklam-ver/" class="dropdown-link">İnstagram Reklam Ver</a>
+                            <a href="/facebook-reklam-ver/" class="dropdown-link">Facebook Reklam Ver</a>
                             <a href="/google-harita-maps-kaydi/" class="dropdown-link">Google Harita(Maps) Kaydı</a>
-                            <a href="/google-harita-seo/" class="dropdown-link">Google Harita Seo</a>
                             <a href="/seo/" class="dropdown-link">SEO (Arama Motoru Optimizasyonu)</a>
                         </div>
                         
@@ -802,16 +802,14 @@
                             <h4>Web Tasarım</h4>
                             <a href="/e-ticaret-sitesi/" class="dropdown-link">E-Ticaret Sitesi</a>
                             <a href="/kurumsal-web-sitesi/" class="dropdown-link">Kurumsal Web Sitesi</a>
-                            <a href="/ucuz-web-sitesi/" class="dropdown-link">Ucuz Web Sitesi</a>
                         </div>
                         
                         <!-- Prodüksiyon -->
                         <div class="dropdown-section">
                             <h4>Prodüksiyon</h4>
-                            <a href="/reklam-filmi/" class="dropdown-link">Reklam Filmi</a>
-                            <a href="/kurumsal-tanitim-filmi/" class="dropdown-link">Kurumsal Tanıtım Filmi</a>
+                            <a href="/kurumsal-resim-cekimi/" class="dropdown-link">Kurumsal Resim Çekimi</a>
+                            <a href="/tanitim-filmi/" class="dropdown-link">Tanıtım Filmi</a>
                             <a href="/drone-cekimi/" class="dropdown-link">Drone Çekimi</a>
-                            <a href="/profesyonel-urun-cekimi/" class="dropdown-link">Profesyonel Ürün Çekimi</a>
                         </div>
                     </div>
                 </div>
@@ -822,9 +820,16 @@
                 <a href="/blog/" class="nav-link">Blog</a>
             </div>
             
-            <!-- HAKKIMIZDA -->
+            <!-- HAKKIMIZDA DROPDOWN -->
             <div class="nav-item">
-                <a href="/hakkimizda/" class="nav-link">Hakkımızda</a>
+                <a href="#" class="nav-link">Hakkımızda <i class="fas fa-chevron-down arrow"></i></a>
+                <div class="dropdown" id="hakkimizdaDropdown">
+                    <div class="dropdown-content">
+                        <a href="/biz-kimiz/" class="dropdown-link">Biz Kimiz?</a>
+                        <a href="/misyon-vizyon/" class="dropdown-link">Misyon ve Vizyon</a>
+                        <a href="/neden-biz/" class="dropdown-link">Neden Biz?</a>
+                    </div>
+                </div>
             </div>
             
             <!-- İLETİŞİM -->
@@ -859,9 +864,9 @@
                     <div class="mobile-dropdown-section">
                         <h4>Dijital Pazarlama</h4>
                         <a href="/google-ads-reklam-ver/" class="mobile-dropdown-link">Google Ads Reklam Ver</a>
-                        <a href="/instagram-facebook-reklam-ver/" class="mobile-dropdown-link">İnstagram & Facebook Reklam Ver</a>
+                        <a href="/instagram-reklam-ver/" class="mobile-dropdown-link">İnstagram Reklam Ver</a>
+                        <a href="/facebook-reklam-ver/" class="mobile-dropdown-link">Facebook Reklam Ver</a>
                         <a href="/google-harita-maps-kaydi/" class="mobile-dropdown-link">Google Harita(Maps) Kaydı</a>
-                        <a href="/google-harita-seo/" class="mobile-dropdown-link">Google Harita Seo</a>
                         <a href="/seo/" class="mobile-dropdown-link">SEO (Arama Motoru Optimizasyonu)</a>
                     </div>
                     
@@ -870,16 +875,14 @@
                         <h4>Web Tasarım</h4>
                         <a href="/e-ticaret-sitesi/" class="mobile-dropdown-link">E-Ticaret Sitesi</a>
                         <a href="/kurumsal-web-sitesi/" class="mobile-dropdown-link">Kurumsal Web Sitesi</a>
-                        <a href="/ucuz-web-sitesi/" class="mobile-dropdown-link">Ucuz Web Sitesi</a>
                     </div>
                     
                     <!-- Prodüksiyon -->
                     <div class="mobile-dropdown-section">
                         <h4>Prodüksiyon</h4>
-                        <a href="/reklam-filmi/" class="mobile-dropdown-link">Reklam Filmi</a>
-                        <a href="/kurumsal-tanitim-filmi/" class="mobile-dropdown-link">Kurumsal Tanıtım Filmi</a>
+                        <a href="/kurumsal-resim-cekimi/" class="mobile-dropdown-link">Kurumsal Resim Çekimi</a>
+                        <a href="/tanitim-filmi/" class="mobile-dropdown-link">Tanıtım Filmi</a>
                         <a href="/drone-cekimi/" class="mobile-dropdown-link">Drone Çekimi</a>
-                        <a href="/profesyonel-urun-cekimi/" class="mobile-dropdown-link">Profesyonel Ürün Çekimi</a>
                     </div>
                 </div>
             </div>
@@ -891,7 +894,14 @@
             
             <!-- Hakkımızda -->
             <div class="mobile-nav-item">
-                <a href="/hakkimizda/" class="mobile-nav-link">Hakkımızda</a>
+                <button class="mobile-dropdown-btn" data-target="hakkimizdaMobile">
+                    Hakkımızda <i class="fas fa-chevron-down mobile-arrow"></i>
+                </button>
+                <div class="mobile-dropdown-content" id="hakkimizdaMobile">
+                    <a href="/biz-kimiz/" class="mobile-dropdown-link">Biz Kimiz?</a>
+                    <a href="/misyon-vizyon/" class="mobile-dropdown-link">Misyon ve Vizyon</a>
+                    <a href="/neden-biz/" class="mobile-dropdown-link">Neden Biz?</a>
+                </div>
             </div>
             
             <!-- İletişim -->
@@ -930,12 +940,12 @@
                 <div class="card-face card-front">
                     <i class="fas fa-bullhorn"></i>
                     <h3>Dijital Pazarlama</h3>
-                    <p>Google Ads, Meta Ads, SEO ve Dijital Reklam</p>
+                    <p>Google Ads, Instagram/Facebook Reklamları, SEO</p>
                 </div>
                 <div class="card-face card-back">
                     <div>
                         <h3>Dijital Pazarlama Çözümleri</h3>
-                        <p>Google Ads reklamları, Meta (Facebook/Instagram) reklamları ve SEO çalışmalarıyla markanızın doğru kitleye ulaşmasını sağlıyoruz. Bütçenizi en verimli şekilde kullanarak ölçülebilir ve sürdürülebilir sonuçlar elde etmenize odaklanıyoruz.</p>
+                        <p>Google Ads reklamları, Instagram & Facebook reklamları ve SEO çalışmalarıyla markanızın doğru kitleye ulaşmasını sağlıyoruz. Google Harita kaydı ve optimizasyonu ile yerel müşterilere ulaşmanızı kolaylaştırıyoruz.</p>
                     </div>
                     <a href="tel:05422360983" class="btn">Ücretsiz Danışmanlık</a>
                 </div>
@@ -951,7 +961,7 @@
                 <div class="card-face card-back">
                     <div>
                         <h3>Web Tasarım & Geliştirme</h3>
-                        <p>Kullanıcı deneyimi odaklı, hızlı yüklenen, SEO uyumlu ve mobil cihazlara tam uyumlu web siteleri tasarlıyoruz. Web siteniz sadece güzel değil, aynı zamanda satış ve dönüşüm odaklı olur.</p>
+                        <p>E-ticaret ve kurumsal web siteleri tasarlıyoruz. Kullanıcı deneyimi odaklı, hızlı yüklenen, SEO uyumlu ve mobil cihazlara tam uyumlu web siteleri ile online varlığınızı güçlendiriyoruz.</p>
                     </div>
                     <a href="tel:05422360983" class="btn">Proje Başlat</a>
                 </div>
@@ -962,12 +972,12 @@
                 <div class="card-face card-front">
                     <i class="fas fa-film"></i>
                     <h3>Prodüksiyon</h3>
-                    <p>Video, Fotoğraf ve Drone Çekimleri</p>
+                    <p>Fotoğraf, Video ve Drone Çekimleri</p>
                 </div>
                 <div class="card-face card-back">
                     <div>
                         <h3>Profesyonel Prodüksiyon</h3>
-                        <p>Marka algınızı güçlendiren profesyonel video prodüksiyon, fotoğraf çekimi ve drone hizmetleri sunuyoruz. Reklamlarınızda ve sosyal medyada fark yaratacak görsel içerikler üretiyoruz.</p>
+                        <p>Kurumsal resim çekimleri, tanıtım filmleri ve drone çekimleriyle markanızı görsel olarak en iyi şekilde temsil ediyoruz. Profesyonel ekipman ve uzman kadromuzla kaliteli içerikler üretiyoruz.</p>
                     </div>
                     <a href="tel:05422360983" class="btn">Teklif Al</a>
                 </div>
