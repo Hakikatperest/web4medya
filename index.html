@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CRITICAL SEO META TAGS -->
+    <title>Web4 Dijital Ajans | Google Ads, Sosyal Medya, Web Tasarım Hizmetleri</title>
+    <meta name="description" content="Web4 ile dijital varlığınızı güçlendirin! Google Ads, Meta reklamları, sosyal medya yönetimi, drone çekimi, web tasarım ve grafik tasarım hizmetlerimizle yanınızdayız. Hemen ücretsiz danışmanlık alın!">
+    <meta name="keywords" content="dijital ajans, google ads, sosyal medya yönetimi, web tasarım, drone çekimi, grafik tasarım, dijital pazarlama, instagram reklamları">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Web4 Dijital Ajans | Profesyonel Dijital Çözümler">
+    <meta property="og:description" content="Tüm dijital ihtiyaçlarınız için tek çatı altında çözüm!">
+    <meta property="og:image" content="https://web4.com/images/web4-og-image.jpg">
+    <meta property="og:url" content="https://web4.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Schema.org Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Web4 Dijital Ajans",
+      "description": "Dijital pazarlama, sosyal medya yönetimi, web tasarım ve görsel prodüksiyon hizmetleri",
+      "telephone": "+905422360983",
+      "url": "https://web4.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "İstanbul",
+        "addressCountry": "TR"
+      },
+      "serviceType": ["Digital Marketing", "Web Design", "Social Media Management", "Video Production"]
+    }
+    </script>
+</head>
+<body>
+    <!-- ===== MOBILE MENU OVERLAY ===== -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- ===== HEADER & NAVIGATION ===== -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="index.html">
+                        <span class="logo-text">Web4 <span class="logo-sub">Medya</span></span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation Menu -->
+                <ul class="nav-menu desktop-menu">
+                    <li><a href="index.html" class="nav-link active">Ana Sayfa</a></li>
+                    <li class="dropdown">
+                        <a href="hizmetler.html" class="nav-link">Hizmetler <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="hizmetler/google-ads.html"><i class="fas fa-chart-line"></i> Google Ads</a>
+                            <a href="hizmetler/meta-ads.html"><i class="fab fa-facebook-square"></i> Meta Ads</a>
+                            <a href="hizmetler/sosyal-medya.html"><i class="fas fa-hashtag"></i> Sosyal Medya</a>
+                            <a href="hizmetler/video-prod.html"><i class="fas fa-video"></i> Video Prodüksiyon</a>
+                            <a href="hizmetler/drone-cekim.html"><i class="fas fa-drone"></i> Drone Çekim</a>
+                            <a href="hizmetler/fotograf-cekim.html"><i class="fas fa-camera"></i> Fotoğraf Çekim</a>
+                            <a href="hizmetler/web-tasarim.html"><i class="fas fa-code"></i> Web Tasarım</a>
+                            <a href="hizmetler/google-harita.html"><i class="fas fa-map-marker-alt"></i> Google Harita SEO</a>
+                            <a href="hizmetler/grafik-tasarim.html"><i class="fas fa-palette"></i> Grafik Tasarım</a>
+                        </div>
+                    </li>
+                    <li><a href="referanslar.html" class="nav-link">Referanslar</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="hakkimizda.html" class="nav-link">Hakkımızda</a></li>
+                </ul>
+                
+                <!-- CTA Buttons Desktop -->
+                <div class="header-cta desktop-cta">
+                    <a href="tel:05422360983" class="btn-phone">
+                        <i class="fas fa-phone"></i> 0542 236 09 83
+                    </a>
+                    <a href="https://wa.me/905422360983" class="btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button (Hamburger) -->
+                <div class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Mobile Navigation Menu (Hidden by default) -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <span class="logo-text">Web4 <span class="logo-sub">Medya</span></span>
+                <button class="close-menu" id="closeMenuBtn">&times;</button>
+            </div>
+            <ul class="mobile-nav">
+                <li><a href="index.html" class="mobile-nav-link active"><i class="fas fa-home"></i> Ana Sayfa</a></li>
+                <li class="mobile-dropdown">
+                    <a href="hizmetler.html" class="mobile-nav-link has-dropdown">
+                        <i class="fas fa-th"></i> Hizmetler <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="mobile-dropdown-content">
+                        <a href="hizmetler/google-ads.html">Google Ads</a>
+                        <a href="hizmetler/meta-ads.html">Meta Ads</a>
+                        <a href="hizmetler/sosyal-medya.html">Sosyal Medya</a>
+                        <a href="hizmetler/video-prod.html">Video Prodüksiyon</a>
+                        <a href="hizmetler/drone-cekim.html">Drone Çekim</a>
+                        <a href="hizmetler/fotograf-cekim.html">Fotoğraf Çekim</a>
+                        <a href="hizmetler/web-tasarim.html">Web Tasarım</a>
+                        <a href="hizmetler/google-harita.html">Google Harita SEO</a>
+                        <a href="hizmetler/grafik-tasarim.html">Grafik Tasarım</a>
+                    </div>
+                </li>
+                <li><a href="referanslar.html" class="mobile-nav-link"><i class="fas fa-star"></i> Referanslar</a></li>
+                <li><a href="blog.html" class="mobile-nav-link"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="hakkimizda.html" class="mobile-nav-link"><i class="fas fa-info-circle"></i> Hakkımızda</a></li>
+            </ul>
+            <div class="mobile-cta">
+                <a href="tel:05422360983" class="btn-phone-mobile">
+                    <i class="fas fa-phone"></i> 0542 236 09 83
+                </a>
+                <a href="https://wa.me/905422360983" class="btn-whatsapp-mobile" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Yazın
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Dijital Dünyada <span class="highlight">Fark Yaratın</span> 
+                    Web4 ile Gücünüze Güç Katın
+                </h1>
+                <p class="hero-subtitle">
+                    Google Ads'den drone çekimine, sosyal medyadan web tasarıma: 
+                    Tüm dijital ihtiyaçlarınız için <strong>tek çatı altında</strong> profesyonel çözümler.
+                </p>
+                
+                <!-- CTA Buttons Hero -->
+                <div class="hero-cta">
+                    <a href="https://wa.me/905422360983" class="btn btn-primary" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Ücretsiz WhatsApp Danışmanlığı
+                    </a>
+                    <a href="tel:05422360983" class="btn btn-secondary">
+                        <i class="fas fa-phone"></i> Hemen Ara: 0542 236 09 83
+                    </a>
+                </div>
+                
+                <!-- Trust Indicators -->
+                <div class="trust-indicators">
+                    <div class="trust-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>10+ Yıllık Deneyim</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>150+ Mutlu Müşteri</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>7/24 Destek</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hero Image/Illustration -->
+            <div class="hero-image">
+                <img src="images/hero-illustration.svg" alt="Web4 Dijital Ajans Hizmetleri" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES OVERVIEW ===== -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Web4 <span class="highlight">Ana Hizmetlerimiz</span></h2>
+                <p class="section-subtitle">
+                    Dijital dünyada başarıya giden tüm yollar Web4'te birleşiyor
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service 1 - Digital Ads -->
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="service-title">Dijital Reklam Yönetimi</h3>
+                    <p class="service-desc">
+                        Google Ads ve Meta reklamları ile hedef kitlenize ulaşın, satışlarınızı katlayın.
+                    </p>
+                    <a href="hizmetler/google-ads.html" class="service-link">
+                        Detaylı Bilgi <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+                
+                <!-- Service 2 - Social Media -->
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hashtag"></i>
+                    </div>
+                    <h3 class="service-title">Sosyal Medya Yönetimi</h3>
+                    <p class="service-desc">
+                        Markanızı sosyal medyada doğru strateji ile büyütün, etkileşiminizi artırın.
+                    </p>
+                    <a href="hizmetler/sosyal-medya.html" class="service-link">
+                        Detaylı Bilgi <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+                
+                <!-- Service 3 - Web Design -->
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="service-title">Web Tasarım & Geliştirme</h3>
+                    <p class="service-desc">
+                        Modern, hızlı ve dönüşüm odaklı web siteleri ile online varlığınızı güçlendirin.
+                    </p>
+                    <a href="hizmetler/web-tasarim.html" class="service-link">
+                        Detaylı Bilgi <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+                
+                <!-- Service 4 - Visual Production -->
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="service-title">Görsel Prodüksiyon</h3>
+                    <p class="service-desc">
+                        Profesyonel video, drone çekimi ve fotoğraf çekimleri ile markanızı görselleştirin.
+                    </p>
+                    <a href="hizmetler/drone-cekim.html" class="service-link">
+                        Detaylı Bilgi <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+            </div>
+            
+            <!-- View All Services Button -->
+            <div class="text-center">
+                <a href="hizmetler.html" class="btn btn-outline">
+                    <i class="fas fa-th-large"></i> Tüm Hizmetlerimizi Görün
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE US ===== -->
+    <section class="why-us-section">
+        <div class="container">
+            <div class="why-us-content">
+                <h2 class="section-title">Neden <span class="highlight">Web4'ü Tercih Etmelisiniz?</span></h2>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>ROI Odaklı Çalışıyoruz</h3>
+                        <p>Tüm kampanyalarınızı maksimum getiri sağlayacak şekilde optimize ediyoruz.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>7/24 Destek</h3>
+                        <p>Size özel danışmanınız ile her zaman yanınızdayız.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3>Hızlı Sonuç</h3>
+                        <p>İlk haftadan itibaren performans artışını gözlemleyebilirsiniz.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Şeffaf Raporlama</h3>
+                        <p>Detaylı analiz ve düzenli raporlarla her şey kontrolünüzde.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ücretsiz Dijital Pazarlama Analizi</h2>
+                <p class="cta-text">
+                    Web4 uzmanları markanızı ücretsiz analiz etsin, 
+                    size özel strateji ve teklif sunsun.
+                </p>
+                
+                <!-- CTA Buttons -->
+                <div class="cta-buttons">
+                    <a href="https://wa.me/905422360983" class="btn btn-cta-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp'tan Hemen Yazın
+                    </a>
+                    <a href="tel:05422360983" class="btn btn-cta-phone">
+                        <i class="fas fa-phone-alt"></i> 0542 236 09 83'ü Arayın
+                    </a>
+                </div>
+                
+                <p class="cta-note">
+                    <i class="fas fa-clock"></i> 7 gün 24 saat aktif destek
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-text">Web4 <span class="logo-sub">Medya</span></span>
+                    </div>
+                    <p class="footer-desc">
+                        Dijital dünyada başarınızı en üst seviyeye taşımak için buradayız. 
+                        Profesyonel ekibimizle tüm dijital ihtiyaçlarınız için çözüm ortağınız.
+                    </p>
+                    
+                    <!-- Social Media Links -->
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Hızlı Erişim</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="hizmetler.html">Hizmetlerimiz</a></li>
+                        <li><a href="referanslar.html">Referanslar</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="footer-col">
+                    <h3 class="footer-title">İletişim</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:05422360983">0542 236 09 83</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/905422360983" target="_blank">WhatsApp'tan Yazın</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@web4.com">info@web4.com</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Floating WhatsApp Button (Mobile) -->
+                    <div class="floating-whatsapp">
+                        <a href="https://wa.me/905422360983" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2024 Web4 Medya. Tüm hakları saklıdır.</p>
+                <div class="footer-legal">
+                    <a href="#">Gizlilik Politikası</a>
+                    <a href="#">Çerez Politikası</a>
+                    <a href="#">KVKK Aydınlatma Metni</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JavaScript Files ===== -->
+    <script src="js/script.js"></script>
+</body>
+</html>
