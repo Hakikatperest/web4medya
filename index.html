@@ -35,9 +35,6 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    
     <!-- Schema.org Structured Data for SEO -->
     <script type="application/ld+json">
     {
@@ -81,35 +78,1371 @@
       }]
     }
     </script>
+    
+    <style>
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color Palette - Professional & Modern */
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #7c3aed;
+            --accent-color: #f59e0b;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --gray-color: #64748b;
+            --success-color: #10b981;
+            
+            /* Typography */
+            --font-primary: 'Poppins', sans-serif;
+            --font-secondary: 'Montserrat', sans-serif;
+            
+            /* Spacing */
+            --section-padding: 5rem 1rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4 {
+            font-family: var(--font-secondary);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--gray-color);
+        }
+
+        .highlight {
+            color: var(--primary-color);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 0.95rem;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        @media (min-width: 768px) {
+            .btn {
+                width: auto;
+            }
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            background-size: 200% 200%;
+        }
+
+        .btn-primary:hover {
+            background-position: right center;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+        }
+
+        .btn-phone {
+            background-color: var(--dark-color);
+            color: white;
+        }
+
+        .btn-phone:hover {
+            background-color: #334155;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo Styles */
+        .logo-text {
+            font-family: var(--font-secondary);
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo-sub {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        /* Desktop Menu */
+        .desktop-menu {
+            display: none;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 250px;
+            background-color: white;
+            box-shadow: var(--shadow-lg);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            color: var(--dark-color);
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f5f9;
+            color: var(--primary-color);
+            padding-left: 2rem;
+        }
+
+        /* Desktop CTA Buttons */
+        .desktop-cta {
+            display: none;
+            gap: 1rem;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--dark-color);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 400px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: var(--shadow-lg);
+            z-index: 1002;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .close-menu {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--dark-color);
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .mobile-nav {
+            list-style: none;
+            padding: 1.5rem;
+        }
+
+        .mobile-nav-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            text-decoration: none;
+            color: var(--dark-color);
+            border-bottom: 1px solid #f1f5f9;
+            font-weight: 500;
+        }
+
+        .mobile-nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .mobile-dropdown-content {
+            padding-left: 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .mobile-dropdown-content a {
+            display: block;
+            padding: 0.75rem 0;
+            text-decoration: none;
+            color: var(--gray-color);
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .mobile-dropdown.active .mobile-dropdown-content {
+            max-height: 500px;
+        }
+
+        .mobile-cta {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn-phone-mobile,
+        .btn-whatsapp-mobile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-phone-mobile {
+            background-color: var(--dark-color);
+            color: white;
+        }
+
+        .btn-whatsapp-mobile {
+            background-color: #25D366;
+            color: white;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding: 8rem 1rem 5rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.05) 0%, transparent 30%);
+            pointer-events: none;
+        }
+
+        .hero .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        .hero-title .highlight {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-title .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            opacity: 0.3;
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            color: var(--gray-color);
+            line-height: 1.6;
+        }
+
+        @media (min-width: 768px) {
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+        }
+
+        /* Hero CTA Buttons - MOBİL İÇİN ORTALI */
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .hero-cta {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        .hero-cta .btn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Trust Indicators */
+        .trust-indicators {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: var(--shadow-sm);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        @media (min-width: 480px) {
+            .trust-indicators {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .trust-indicators {
+                gap: 2rem;
+            }
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 120px;
+        }
+
+        @media (max-width: 479px) {
+            .trust-item {
+                width: 100%;
+                flex-direction: row;
+                justify-content: flex-start;
+                min-width: auto;
+            }
+        }
+
+        .trust-item i {
+            font-size: 1.5rem;
+            color: var(--success-color);
+            background: rgba(16, 185, 129, 0.1);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .trust-item:nth-child(2) i {
+            animation-delay: 0.5s;
+        }
+
+        .trust-item:nth-child(3) i {
+            animation-delay: 1s;
+        }
+
+        .trust-item:nth-child(4) i {
+            animation-delay: 1.5s;
+        }
+
+        .trust-item span {
+            font-weight: 600;
+            color: var(--dark-color);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        @media (max-width: 479px) {
+            .trust-item span {
+                text-align: left;
+            }
+        }
+
+        /* Hizmet İkonları (Sadece Desktop'ta) */
+        .services-icons {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .services-icons {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 1rem;
+                margin-top: 3rem;
+                max-width: 800px;
+            }
+            
+            .service-icon-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 1rem;
+                background: rgba(255, 255, 255, 0.9);
+                backdrop-filter: blur(10px);
+                border-radius: 16px;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+            
+            .service-icon-item:hover {
+                transform: translateY(-5px);
+                box-shadow: var(--shadow-lg);
+                border-color: var(--primary-color);
+            }
+            
+            .service-icon-item i {
+                font-size: 1.5rem;
+                color: var(--primary-color);
+            }
+            
+            .service-icon-item span {
+                font-size: 0.75rem;
+                font-weight: 600;
+                color: var(--dark-color);
+                text-align: center;
+            }
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services-section {
+            padding: var(--section-padding);
+            background-color: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .service-title {
+            margin-bottom: 1rem;
+        }
+
+        .service-desc {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Service Features */
+        .service-features {
+            list-style: none;
+            margin: 1rem 0;
+            padding: 0;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--gray-color);
+        }
+
+        .service-features li i {
+            color: var(--success-color);
+            font-size: 0.8rem;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: gap 0.3s ease;
+        }
+
+        .service-link:hover {
+            gap: 0.75rem;
+        }
+
+        /* View All Services Button */
+        .text-center {
+            text-align: center;
+        }
+
+        /* ===== WHY US SECTION ===== */
+        .why-us-section {
+            padding: var(--section-padding);
+            background-color: #f8fafc;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--accent-color), #fbbf24);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.75rem;
+        }
+
+        /* ===== PROCESS SECTION ===== */
+        .process-section {
+            padding: var(--section-padding);
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (min-width: 768px) {
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .process-steps {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .process-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease;
+        }
+
+        @media (min-width: 1024px) {
+            .process-step {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        .process-step:hover {
+            transform: translateX(10px);
+        }
+
+        @media (min-width: 1024px) {
+            .process-step:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        .step-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.1);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .step-content p {
+            margin-bottom: 0;
+            color: var(--gray-color);
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: var(--section-padding);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+        }
+
+        .cta-title {
+            color: white;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+
+        .cta-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .cta-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        .btn-cta-whatsapp {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .btn-cta-whatsapp:hover {
+            background-color: #f1f5f9;
+            transform: translateY(-2px);
+        }
+
+        .btn-cta-phone {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-cta-phone:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        /* CTA Guarantee */
+        .cta-guarantee {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-guarantee p {
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-guarantee strong {
+            color: white;
+        }
+
+        .cta-guarantee i {
+            margin-right: 0.5rem;
+        }
+
+        .cta-note {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.875rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 1rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .footer-logo {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo .logo-text {
+            color: white;
+        }
+
+        .footer-desc {
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-title {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: #94a3b8;
+        }
+
+        .contact-info a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: white;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            margin-top: 2rem;
+        }
+
+        .newsletter h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font-primary);
+            font-size: 0.9rem;
+        }
+
+        .newsletter-form button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            width: 50px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--primary-dark);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #334155;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 2rem;
+            right: 1rem;
+            z-index: 999;
+        }
+
+        .whatsapp-float {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.75rem;
+            box-shadow: var(--shadow-lg);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            text-align: center;
+            color: #94a3b8;
+        }
+
+        .footer-legal {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-legal {
+                gap: 1.5rem;
+            }
+        }
+
+        .footer-legal a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .footer-legal a:hover {
+            color: white;
+        }
+
+        /* ===== ANİMASYONLAR ===== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .btn-primary {
+            animation: gradient 3s ease infinite;
+        }
+
+        /* ===== MEDIA QUERIES ===== */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .desktop-menu {
+                display: flex;
+            }
+            
+            .desktop-cta {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .whatsapp-float {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+        }
+
+        /* Responsive Container Düzeltmeleri */
+        @media (max-width: 767px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero {
+                padding: 6rem 1rem 3rem !important;
+            }
+            
+            .hero-cta .btn {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .service-card {
+                padding: 1.5rem;
+            }
+            
+            .cta-buttons .btn {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 374px) {
+            .hero-title {
+                font-size: 1.5rem !important;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .btn {
+                padding: 0.75rem 1rem;
+                font-size: 0.875rem;
+            }
+        }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            .hero {
+                background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            }
+            
+            .hero::before {
+                background-image: 
+                    radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.2) 0%, transparent 20%),
+                    radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.2) 0%, transparent 20%);
+            }
+            
+            .trust-indicators {
+                background: rgba(30, 41, 59, 0.8);
+                border-color: rgba(255, 255, 255, 0.1);
+            }
+            
+            .service-card {
+                background: #1e293b;
+                border-color: #334155;
+                color: #e2e8f0;
+            }
+            
+            .service-card h3,
+            .service-card p,
+            .service-features li {
+                color: #cbd5e1;
+            }
+        }
+
+        /* Performance Optimizations */
+        @media (prefers-reduced-motion: reduce) {
+            .trust-item i,
+            .btn-primary,
+            .service-icon-item {
+                animation: none;
+            }
+            
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div style="position: fixed; top: 10px; left: 10px; z-index: 9999; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-    <button onclick="toggleView()">📱 Mobil Görünüm</button>
-    <div id="screenSize" style="margin-top: 5px; font-size: 12px;"></div>
-</div>
-
-<script>
-function toggleView() {
-    const viewport = document.querySelector('meta[name="viewport"]');
-    if (viewport.content.includes('width=375')) {
-        viewport.content = 'width=device-width, initial-scale=1.0';
-        document.getElementById('screenSize').textContent = 'Masaüstü Modu';
-    } else {
-        viewport.content = 'width=375, user-scalable=no';
-        document.getElementById('screenSize').textContent = 'Mobil Modu (375px)';
-    }
-}
-
-// Ekran boyutunu göster
-function updateScreenSize() {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    document.getElementById('screenSize').textContent = `${width}px × ${height}px`;
-}
-
-window.addEventListener('resize', updateScreenSize);
-window.addEventListener('load', updateScreenSize);
-</script>
     <!-- ===== MOBILE MENU OVERLAY ===== -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
     
@@ -119,31 +1452,31 @@ window.addEventListener('load', updateScreenSize);
             <nav class="navbar">
                 <!-- Logo -->
                 <div class="logo">
-                    <a href="index.html" aria-label="Web4 Medya Ana Sayfa">
+                    <a href="#" aria-label="Web4 Medya Ana Sayfa">
                         <span class="logo-text">Web4 <span class="logo-sub">Medya</span></span>
                     </a>
                 </div>
                 
                 <!-- Desktop Navigation Menu -->
                 <ul class="nav-menu desktop-menu">
-                    <li><a href="index.html" class="nav-link active">Ana Sayfa</a></li>
+                    <li><a href="#" class="nav-link active">Ana Sayfa</a></li>
                     <li class="dropdown">
-                        <a href="hizmetler.html" class="nav-link">Hizmetler <i class="fas fa-chevron-down"></i></a>
+                        <a href="#" class="nav-link">Hizmetler <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
-                            <a href="hizmetler/google-ads.html"><i class="fas fa-chart-line"></i> Google Ads</a>
-                            <a href="hizmetler/meta-ads.html"><i class="fab fa-facebook-square"></i> Meta Ads</a>
-                            <a href="hizmetler/sosyal-medya.html"><i class="fas fa-hashtag"></i> Sosyal Medya</a>
-                            <a href="hizmetler/video-prod.html"><i class="fas fa-video"></i> Video Prodüksiyon</a>
-                            <a href="hizmetler/drone-cekim.html"><i class="fas fa-drone"></i> Drone Çekim</a>
-                            <a href="hizmetler/fotograf-cekim.html"><i class="fas fa-camera"></i> Fotoğraf Çekim</a>
-                            <a href="hizmetler/web-tasarim.html"><i class="fas fa-code"></i> Web Tasarım</a>
-                            <a href="hizmetler/google-harita.html"><i class="fas fa-map-marker-alt"></i> Google Harita SEO</a>
-                            <a href="hizmetler/grafik-tasarim.html"><i class="fas fa-palette"></i> Grafik Tasarım</a>
+                            <a href="#"><i class="fas fa-chart-line"></i> Google Ads</a>
+                            <a href="#"><i class="fab fa-facebook-square"></i> Meta Ads</a>
+                            <a href="#"><i class="fas fa-hashtag"></i> Sosyal Medya</a>
+                            <a href="#"><i class="fas fa-video"></i> Video Prodüksiyon</a>
+                            <a href="#"><i class="fas fa-drone"></i> Drone Çekim</a>
+                            <a href="#"><i class="fas fa-camera"></i> Fotoğraf Çekim</a>
+                            <a href="#"><i class="fas fa-code"></i> Web Tasarım</a>
+                            <a href="#"><i class="fas fa-map-marker-alt"></i> Google Harita SEO</a>
+                            <a href="#"><i class="fas fa-palette"></i> Grafik Tasarım</a>
                         </div>
                     </li>
-                    <li><a href="referanslar.html" class="nav-link">Referanslar</a></li>
-                    <li><a href="blog.html" class="nav-link">Blog</a></li>
-                    <li><a href="hakkimizda.html" class="nav-link">Hakkımızda</a></li>
+                    <li><a href="#" class="nav-link">Referanslar</a></li>
+                    <li><a href="#" class="nav-link">Blog</a></li>
+                    <li><a href="#" class="nav-link">Hakkımızda</a></li>
                 </ul>
                 
                 <!-- CTA Buttons Desktop -->
@@ -172,26 +1505,26 @@ window.addEventListener('load', updateScreenSize);
                 <button class="close-menu" id="closeMenuBtn" aria-label="Menüyü kapat">&times;</button>
             </div>
             <ul class="mobile-nav">
-                <li><a href="index.html" class="mobile-nav-link active"><i class="fas fa-home"></i> Ana Sayfa</a></li>
+                <li><a href="#" class="mobile-nav-link active"><i class="fas fa-home"></i> Ana Sayfa</a></li>
                 <li class="mobile-dropdown">
-                    <a href="hizmetler.html" class="mobile-nav-link has-dropdown">
+                    <a href="#" class="mobile-nav-link has-dropdown">
                         <i class="fas fa-th"></i> Hizmetler <i class="fas fa-chevron-down"></i>
                     </a>
                     <div class="mobile-dropdown-content">
-                        <a href="hizmetler/google-ads.html">Google Ads</a>
-                        <a href="hizmetler/meta-ads.html">Meta Ads</a>
-                        <a href="hizmetler/sosyal-medya.html">Sosyal Medya</a>
-                        <a href="hizmetler/video-prod.html">Video Prodüksiyon</a>
-                        <a href="hizmetler/drone-cekim.html">Drone Çekim</a>
-                        <a href="hizmetler/fotograf-cekim.html">Fotoğraf Çekim</a>
-                        <a href="hizmetler/web-tasarim.html">Web Tasarım</a>
-                        <a href="hizmetler/google-harita.html">Google Harita SEO</a>
-                        <a href="hizmetler/grafik-tasarim.html">Grafik Tasarım</a>
+                        <a href="#">Google Ads</a>
+                        <a href="#">Meta Ads</a>
+                        <a href="#">Sosyal Medya</a>
+                        <a href="#">Video Prodüksiyon</a>
+                        <a href="#">Drone Çekim</a>
+                        <a href="#">Fotoğraf Çekim</a>
+                        <a href="#">Web Tasarım</a>
+                        <a href="#">Google Harita SEO</a>
+                        <a href="#">Grafik Tasarım</a>
                     </div>
                 </li>
-                <li><a href="referanslar.html" class="mobile-nav-link"><i class="fas fa-star"></i> Referanslar</a></li>
-                <li><a href="blog.html" class="mobile-nav-link"><i class="fas fa-blog"></i> Blog</a></li>
-                <li><a href="hakkimizda.html" class="mobile-nav-link"><i class="fas fa-info-circle"></i> Hakkımızda</a></li>
+                <li><a href="#" class="mobile-nav-link"><i class="fas fa-star"></i> Referanslar</a></li>
+                <li><a href="#" class="mobile-nav-link"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="#" class="mobile-nav-link"><i class="fas fa-info-circle"></i> Hakkımızda</a></li>
             </ul>
             <div class="mobile-cta">
                 <a href="tel:05422360983" class="btn-phone-mobile">
@@ -219,7 +1552,7 @@ window.addEventListener('load', updateScreenSize);
                     <span class="highlight">%100 müşteri memnuniyeti</span> garantisi ile yanınızdayız.
                 </p>
                 
-                <!-- CTA Butonları -->
+                <!-- CTA Butonları - MOBİLDE ORTALANMIŞ -->
                 <div class="hero-cta">
                     <a href="https://wa.me/905422360983" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-whatsapp"></i> Ücretsiz WhatsApp Danışmanlığı
@@ -304,7 +1637,7 @@ window.addEventListener('load', updateScreenSize);
                         <li><i class="fas fa-check"></i> LinkedIn Reklamları</li>
                         <li><i class="fas fa-check"></i> A/B Test & Optimizasyon</li>
                     </ul>
-                    <a href="hizmetler/google-ads.html" class="service-link">
+                    <a href="#" class="service-link">
                         Detaylı Bilgi <i class="fas fa-arrow-right"></i>
                     </a>
                 </article>
@@ -325,7 +1658,7 @@ window.addEventListener('load', updateScreenSize);
                         <li><i class="fas fa-check"></i> Sosyal Medya Reklamları</li>
                         <li><i class="fas fa-check"></i> Raporlama & Analiz</li>
                     </ul>
-                    <a href="hizmetler/sosyal-medya.html" class="service-link">
+                    <a href="#" class="service-link">
                         Detaylı Bilgi <i class="fas fa-arrow-right"></i>
                     </a>
                 </article>
@@ -346,7 +1679,7 @@ window.addEventListener('load', updateScreenSize);
                         <li><i class="fas fa-check"></i> WordPress Geliştirme</li>
                         <li><i class="fas fa-check"></i> SEO Uyumlu Kodlama</li>
                     </ul>
-                    <a href="hizmetler/web-tasarim.html" class="service-link">
+                    <a href="#" class="service-link">
                         Detaylı Bilgi <i class="fas fa-arrow-right"></i>
                     </a>
                 </article>
@@ -367,7 +1700,7 @@ window.addEventListener('load', updateScreenSize);
                         <li><i class="fas fa-check"></i> Kurumsal Fotoğraf Çekimi</li>
                         <li><i class="fas fa-check"></i> Video Editing & Montaj</li>
                     </ul>
-                    <a href="hizmetler/drone-cekim.html" class="service-link">
+                    <a href="#" class="service-link">
                         Detaylı Bilgi <i class="fas fa-arrow-right"></i>
                     </a>
                 </article>
@@ -375,7 +1708,7 @@ window.addEventListener('load', updateScreenSize);
             
             <!-- View All Services Button -->
             <div class="text-center">
-                <a href="hizmetler.html" class="btn btn-outline">
+                <a href="#" class="btn btn-outline">
                     <i class="fas fa-th-large"></i> Tüm Hizmetlerimizi Görün
                 </a>
             </div>
@@ -502,7 +1835,7 @@ window.addEventListener('load', updateScreenSize);
                     size özel strateji ve teklif sunsun. İlk görüşme tamamen ücretsiz!
                 </p>
                 
-                <!-- CTA Buttons -->
+                <!-- CTA Buttons - MOBİLDE ORTALANMIŞ -->
                 <div class="cta-buttons">
                     <a href="https://wa.me/905422360983" class="btn btn-cta-whatsapp" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-whatsapp"></i> WhatsApp'tan Hemen Yazın
@@ -550,12 +1883,12 @@ window.addEventListener('load', updateScreenSize);
                 <div class="footer-col">
                     <h3 class="footer-title">Hızlı Erişim</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html">Ana Sayfa</a></li>
-                        <li><a href="hizmetler.html">Hizmetlerimiz</a></li>
-                        <li><a href="referanslar.html">Referanslar</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="hakkimizda.html">Hakkımızda</a></li>
-                        <li><a href="iletisim.html">İletişim</a></li>
+                        <li><a href="#">Ana Sayfa</a></li>
+                        <li><a href="#">Hizmetlerimiz</a></li>
+                        <li><a href="#">Referanslar</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Hakkımızda</a></li>
+                        <li><a href="#">İletişim</a></li>
                     </ul>
                 </div>
                 
@@ -563,12 +1896,12 @@ window.addEventListener('load', updateScreenSize);
                 <div class="footer-col">
                     <h3 class="footer-title">Hizmetler</h3>
                     <ul class="footer-links">
-                        <li><a href="hizmetler/google-ads.html">Google Ads</a></li>
-                        <li><a href="hizmetler/meta-ads.html">Meta Ads</a></li>
-                        <li><a href="hizmetler/sosyal-medya.html">Sosyal Medya</a></li>
-                        <li><a href="hizmetler/web-tasarim.html">Web Tasarım</a></li>
-                        <li><a href="hizmetler/drone-cekim.html">Drone Çekim</a></li>
-                        <li><a href="hizmetler/video-prod.html">Video Prodüksiyon</a></li>
+                        <li><a href="#">Google Ads</a></li>
+                        <li><a href="#">Meta Ads</a></li>
+                        <li><a href="#">Sosyal Medya</a></li>
+                        <li><a href="#">Web Tasarım</a></li>
+                        <li><a href="#">Drone Çekim</a></li>
+                        <li><a href="#">Video Prodüksiyon</a></li>
                     </ul>
                 </div>
                 
@@ -611,10 +1944,10 @@ window.addEventListener('load', updateScreenSize);
             <div class="footer-bottom">
                 <p>&copy; <span id="currentYear"></span> Web4 Medya. Tüm hakları saklıdır.</p>
                 <div class="footer-legal">
-                    <a href="gizlilik-politikasi.html">Gizlilik Politikası</a>
-                    <a href="cerez-politikasi.html">Çerez Politikası</a>
-                    <a href="kvkk.html">KVKK Aydınlatma Metni</a>
-                    <a href="kullanim-kosullari.html">Kullanım Koşulları</a>
+                    <a href="#">Gizlilik Politikası</a>
+                    <a href="#">Çerez Politikası</a>
+                    <a href="#">KVKK Aydınlatma Metni</a>
+                    <a href="#">Kullanım Koşulları</a>
                 </div>
             </div>
         </div>
@@ -627,37 +1960,304 @@ window.addEventListener('load', updateScreenSize);
         </a>
     </div>
 
-    <!-- ===== JavaScript Files ===== -->
-    <script src="js/script.js" defer></script>
-    
-    <!-- Inline Script for Critical Functionality -->
     <script>
-        // Current Year for Footer
+        // ===== DOM YÜKLENDİKTEN SONRA ÇALIŞACAK TÜM FONKSİYONLAR =====
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Web4.com yüklendi - ' + new Date().toLocaleString());
+            
+            // ===== DEĞİŞKENLER =====
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+            const closeMenuBtn = document.getElementById('closeMenuBtn');
+            const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
+            
+            // ===== CURRENT YEAR FOR FOOTER =====
             document.getElementById('currentYear').textContent = new Date().getFullYear();
-        });
-        
-        // Newsletter Form Submission
-        document.addEventListener('DOMContentLoaded', function() {
-            const newsletterForm = document.getElementById('newsletterForm');
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const email = this.querySelector('input[type="email"]').value;
+            
+            // ===== MOBİL MENÜ FONKSİYONALİTESİ =====
+            function initMobileMenu() {
+                if (!mobileMenuBtn) return;
+                
+                // Mobil Menüyü Aç/Kapat
+                function toggleMobileMenu() {
+                    const isActive = mobileMenu.classList.contains('active');
                     
-                    // Simple validation
-                    if (email && email.includes('@')) {
-                        // Here you would typically send to your backend
-                        alert('Teşekkürler! Bültenimize başarıyla abone oldunuz.');
-                        this.reset();
+                    mobileMenuBtn.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                    mobileMenuOverlay.classList.toggle('active');
+                    
+                    // Body scroll'u engelle/aktif et
+                    document.body.style.overflow = isActive ? '' : 'hidden';
+                }
+                
+                // Event Listeners
+                mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+                closeMenuBtn.addEventListener('click', toggleMobileMenu);
+                mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+                
+                // Mobil Dropdown'lar
+                mobileDropdowns.forEach(dropdown => {
+                    const link = dropdown.querySelector('.has-dropdown');
+                    if (!link) return;
+                    
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const isActive = dropdown.classList.contains('active');
                         
-                        // Analytics event
-                        if (typeof Web4 !== 'undefined') {
-                            Web4.trackEvent('subscription', 'newsletter_signup', { email: email });
+                        // Diğer dropdown'ları kapat
+                        mobileDropdowns.forEach(otherDropdown => {
+                            if (otherDropdown !== dropdown) {
+                                otherDropdown.classList.remove('active');
+                            }
+                        });
+                        
+                        // Tıklananı aç/kapat
+                        dropdown.classList.toggle('active');
+                        
+                        // İkonu döndür
+                        const icon = this.querySelector('.fa-chevron-down');
+                        if (icon) {
+                            icon.style.transform = isActive ? 'rotate(0deg)' : 'rotate(180deg)';
+                            icon.style.transition = 'transform 0.3s ease';
                         }
-                    }
+                    });
+                });
+                
+                // Mobil menüde link tıklanınca menüyü kapat
+                const mobileNavLinks = document.querySelectorAll('.mobile-nav-link:not(.has-dropdown)');
+                mobileNavLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        // Menüyü kapat
+                        mobileMenuBtn.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        mobileMenuOverlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                        
+                        // Dropdown'ları kapat
+                        mobileDropdowns.forEach(dropdown => {
+                            dropdown.classList.remove('active');
+                        });
+                    });
+                });
+                
+                console.log('✅ Mobil menü başlatıldı');
+            }
+            
+            // ===== SMOOTH SCROLL FONKSİYONU =====
+            function initSmoothScroll() {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        const href = this.getAttribute('href');
+                        
+                        if (href !== '#' && href.startsWith('#')) {
+                            e.preventDefault();
+                            smoothScrollTo(href);
+                        }
+                    });
                 });
             }
+            
+            function smoothScrollTo(targetId) {
+                const targetElement = document.querySelector(targetId);
+                if (!targetElement) return;
+                
+                const headerHeight = document.querySelector('.header')?.offsetHeight || 80;
+                const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                const duration = 800;
+                let start = null;
+                
+                function animation(currentTime) {
+                    if (start === null) start = currentTime;
+                    const timeElapsed = currentTime - start;
+                    const run = ease(timeElapsed, startPosition, distance, duration);
+                    window.scrollTo(0, run);
+                    
+                    if (timeElapsed < duration) {
+                        requestAnimationFrame(animation);
+                    }
+                }
+                
+                // Easing function
+                function ease(t, b, c, d) {
+                    t /= d / 2;
+                    if (t < 1) return c / 2 * t * t + b;
+                    t--;
+                    return -c / 2 * (t * (t - 2) - 1) + b;
+                }
+                
+                requestAnimationFrame(animation);
+            }
+            
+            // ===== FADE-IN ANİMASYONLARI =====
+            function initScrollAnimations() {
+                const fadeElements = document.querySelectorAll('.service-card, .benefit-item, .trust-item');
+                
+                function checkVisibility() {
+                    fadeElements.forEach(element => {
+                        const elementTop = element.getBoundingClientRect().top;
+                        const elementVisible = 150;
+                        
+                        if (elementTop < window.innerHeight - elementVisible) {
+                            element.classList.add('fade-in');
+                        }
+                    });
+                }
+                
+                // İlk yüklemede kontrol et
+                checkVisibility();
+                
+                // Scroll ve resize event'lerinde kontrol et
+                window.addEventListener('scroll', checkVisibility);
+                window.addEventListener('resize', checkVisibility);
+                
+                console.log('✅ Scroll animasyonları başlatıldı');
+            }
+            
+            // ===== WHATSAPP & TELEFON TAKİP =====
+            function initConversionTracking() {
+                // WhatsApp Butonları
+                const whatsappButtons = document.querySelectorAll('[href*="whatsapp"], .btn-whatsapp');
+                whatsappButtons.forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        console.log('📱 WhatsApp tıklandı:', {
+                            text: this.textContent.trim(),
+                            timestamp: new Date().toISOString()
+                        });
+                    });
+                });
+                
+                // Telefon Butonları
+                const phoneButtons = document.querySelectorAll('[href^="tel:"]');
+                phoneButtons.forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        console.log('📞 Telefon tıklandı:', {
+                            number: this.href.replace('tel:', ''),
+                            timestamp: new Date().toISOString()
+                        });
+                    });
+                });
+                
+                console.log('✅ Dönüşüm takibi başlatıldı');
+            }
+            
+            // ===== NEWSLETTER FORM =====
+            function initNewsletterForm() {
+                const newsletterForm = document.getElementById('newsletterForm');
+                if (newsletterForm) {
+                    newsletterForm.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        const emailInput = this.querySelector('input[type="email"]');
+                        const email = emailInput.value;
+                        
+                        // Simple validation
+                        if (email && email.includes('@')) {
+                            alert('Teşekkürler! Bültenimize başarıyla abone oldunuz.');
+                            emailInput.value = '';
+                        }
+                    });
+                }
+            }
+            
+            // ===== STICKY HEADER =====
+            function initStickyHeader() {
+                const header = document.querySelector('.header');
+                let lastScroll = 0;
+                
+                window.addEventListener('scroll', () => {
+                    const currentScroll = window.pageYOffset;
+                    
+                    // Aşağı kaydırılıyorsa header'ı gizle
+                    if (currentScroll > lastScroll && currentScroll > 100) {
+                        header.style.transform = 'translateY(-100%)';
+                        header.style.transition = 'transform 0.3s ease';
+                    } 
+                    // Yukarı kaydırılıyorsa header'ı göster
+                    else {
+                        header.style.transform = 'translateY(0)';
+                    }
+                    
+                    // Scrolda header'a shadow ekle
+                    if (currentScroll > 50) {
+                        header.style.boxShadow = 'var(--shadow-md)';
+                    } else {
+                        header.style.boxShadow = 'var(--shadow-sm)';
+                    }
+                    
+                    lastScroll = currentScroll;
+                });
+            }
+            
+            // ===== BACK TO TOP BUTTON =====
+            function initBackToTop() {
+                const backToTopBtn = document.createElement('button');
+                backToTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+                backToTopBtn.className = 'back-to-top';
+                backToTopBtn.setAttribute('aria-label', 'Yukarı çık');
+                backToTopBtn.style.cssText = `
+                    position: fixed;
+                    bottom: 5rem;
+                    right: 1rem;
+                    width: 50px;
+                    height: 50px;
+                    background: var(--primary-color);
+                    color: white;
+                    border: none;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    display: none;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.25rem;
+                    box-shadow: var(--shadow-lg);
+                    z-index: 998;
+                    transition: all 0.3s ease;
+                `;
+                
+                document.body.appendChild(backToTopBtn);
+                
+                // Show/hide based on scroll position
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        backToTopBtn.style.display = 'flex';
+                        backToTopBtn.style.opacity = '1';
+                    } else {
+                        backToTopBtn.style.opacity = '0';
+                        setTimeout(() => {
+                            backToTopBtn.style.display = 'none';
+                        }, 300);
+                    }
+                });
+                
+                // Scroll to top on click
+                backToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+            
+            // ===== INITIALIZE EVERYTHING =====
+            function initAll() {
+                console.log('🎬 Web4.com başlatılıyor...');
+                
+                // Core functionality
+                initMobileMenu();
+                initSmoothScroll();
+                initScrollAnimations();
+                initConversionTracking();
+                initNewsletterForm();
+                initStickyHeader();
+                initBackToTop();
+                
+                console.log('✅ Web4.com başarıyla başlatıldı!');
+            }
+            
+            // ===== START EVERYTHING =====
+            initAll();
         });
     </script>
 </body>
