@@ -35,7 +35,7 @@
             --white: #FFFFFF;
             --shadow: 0 10px 40px rgba(30, 58, 138, 0.08);
             --shadow-hover: 0 20px 60px rgba(30, 58, 138, 0.12);
-            --radius: 16px;
+            --radius: 20px;
             --radius-sm: 12px;
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
@@ -462,7 +462,7 @@
             transform: rotate(180deg);
         }
 
-        /* YENİ KART TASARIMI - DÖNMEYEN */
+        /* YENİ MODERN KART TASARIMI - FLIP EFFECT */
         .services-section {
             padding: 80px 5%;
             background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
@@ -501,7 +501,7 @@
             line-height: 1.6;
         }
 
-        /* YENİ KART TASARIMI - HOVER EFFECT */
+        /* MODERN FLIP KART TASARIMI */
         .services-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -528,87 +528,139 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
+            perspective: 1200px;
         }
 
-        /* MODERN KART TASARIMI */
-        .service-card {
-            background: var(--white);
-            border-radius: var(--radius);
-            padding: 35px 30px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid var(--gray-light);
+        /* FLIP CARD STYLES */
+        .flip-card {
             position: relative;
-            overflow: hidden;
-            z-index: 1;
+            height: 280px;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+            border-radius: var(--radius);
+            cursor: pointer;
+            box-shadow: var(--shadow);
         }
 
-        .service-card::before {
-            content: '';
+        .flip-card:hover {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--primary-light));
-            z-index: 2;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius);
+            backface-visibility: hidden;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--primary-light);
+        .card-front {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
         }
 
-        .service-card-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-light), var(--primary));
-            border-radius: 12px;
+        .card-front .icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            width: 80px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #F3F4F6, #E5E7EB);
             margin-bottom: 25px;
-            color: white;
-            font-size: 1.8rem;
         }
 
-        .service-card h3 {
-            font-size: 1.3rem;
+        .card-front .icon i {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .card-front h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 0;
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            transform: rotateY(180deg);
+            justify-content: space-between;
+            padding: 35px 30px;
+        }
+
+        .card-back h3 {
+            font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 15px;
-            color: var(--primary-dark);
-        }
-
-        .service-card p {
-            color: var(--gray);
-            line-height: 1.6;
-            margin-bottom: 25px;
-            font-size: 0.95rem;
-        }
-
-        .service-card .btn {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 10px 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
+        }
+
+        .card-back p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.95;
+            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .card-back .btn {
+            background: var(--white);
+            color: var(--primary-dark);
+            padding: 12px 28px;
+            font-weight: 700;
+            font-size: 0.95rem;
             border-radius: 8px;
-            width: 100%;
-            text-align: center;
+            transition: all 0.3s ease;
         }
 
-        /* KATEGORİ RENKLERİ - MAVİ TONLARI */
-        .digital-marketing .service-card-icon {
-            background: linear-gradient(135deg, #2563EB, #1D4ED8);
+        .card-back .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background: var(--light);
         }
 
-        .web-design .service-card-icon {
-            background: linear-gradient(135deg, #3B82F6, #2563EB);
+        /* Google ikonu için özel stil */
+        .google-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #F3F4F6, #E5E7EB);
+            margin-bottom: 25px;
+            position: relative;
         }
 
-        .production .service-card-icon {
-            background: linear-gradient(135deg, #60A5FA, #3B82F6);
+        .google-icon::before {
+            content: '';
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #4285F4, #34A853, #FBBC05, #EA4335);
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%234285F4' d='M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z'/%3E%3Cpath fill='%2334A853' d='M46.5 24c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z'/%3E%3Cpath fill='%23FBBC05' d='M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z'/%3E%3Cpath fill='%23EA4335' d='M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z'/%3E%3Cpath fill='none' d='M0 0h48v48H0z'/%3E%3C/svg%3E");
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%234285F4' d='M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z'/%3E%3Cpath fill='%2334A853' d='M46.5 24c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z'/%3E%3Cpath fill='%23FBBC05' d='M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z'/%3E%3Cpath fill='%23EA4335' d='M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z'/%3E%3Cpath fill='none' d='M0 0h48v48H0z'/%3E%3C/svg%3E");
         }
 
         /* WHY US SECTION - MAVİ TEMA */
@@ -747,6 +799,182 @@
             background: linear-gradient(135deg, #25D366, #128C7E);
         }
 
+        /* MODERN FOOTER */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 5% 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-light), var(--accent));
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .footer-logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-light);
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-links i {
+            color: var(--primary-light);
+            font-size: 0.8rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-item i {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-light);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: var(--primary-light);
+            text-decoration: none;
+        }
+
         /* RESPONSIVE BREAKPOINTS */
         @media (max-width: 1200px) {
             .header {
@@ -785,6 +1013,10 @@
                 padding: 140px 4% 80px;
             }
             
+            .flip-card {
+                height: 260px;
+            }
+            
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -810,8 +1042,13 @@
                 grid-template-columns: 1fr;
             }
             
-            .service-card {
+            .card-face {
                 padding: 30px 25px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
         }
 
@@ -824,12 +1061,20 @@
                 padding: 120px 20px 60px;
             }
             
-            .service-card {
+            .card-face {
                 padding: 25px 20px;
             }
             
-            .service-card h3 {
+            .card-front h3 {
                 font-size: 1.2rem;
+            }
+            
+            .card-back h3 {
+                font-size: 1.2rem;
+            }
+            
+            .footer {
+                padding: 50px 20px 25px;
             }
         }
     </style>
@@ -980,11 +1225,11 @@
         </div>
     </section>
 
-    <!-- YENİ HİZMETLER SECTION - DÖNMEYEN KARTLAR -->
+    <!-- YENİ MODERN FLIP KARTLAR -->
     <section class="services-section">
         <div class="section-header">
             <h2 class="section-title">Hizmetlerimiz</h2>
-            <p class="section-subtitle">İşletmeniz için kapsamlı dijital çözümler sunuyoruz. Profesyonel ekibimizle sizlere en kaliteli hizmeti sağlıyoruz.</p>
+            <p class="section-subtitle">İşletmeniz için kapsamlı dijital çözümler sunuyoruz. Hizmetlerimiz hakkında daha fazla bilgi için kartların üzerine gelin.</p>
         </div>
         
         <div class="services-container">
@@ -993,63 +1238,91 @@
                 <h2 class="category-title">Dijital Pazarlama Hizmetlerimiz</h2>
                 <div class="category-grid">
                     <!-- Google Ads -->
-                    <div class="service-card">
-                        <div class="service-card-icon">
-                            <i class="fas fa-search-dollar"></i>
+                    <div class="flip-card">
+                        <div class="card-face card-front">
+                            <div class="google-icon"></div>
+                            <h3>Google Ads Reklam Ver</h3>
                         </div>
-                        <h3>Google Ads Reklam Ver</h3>
-                        <p>Arama ve Display ağlarında reklamlarınızı profesyonel şekilde yönetiyor, hedef kitlenize ulaşmanızı sağlıyoruz.</p>
-                        <a href="tel:05422360983" class="btn">Hemen Ara</a>
+                        <div class="card-face card-back">
+                            <h3>Google Ads</h3>
+                            <p>Arama ve Display ağlarında reklamlarınızı profesyonel şekilde yönetiyor, hedef kitlenize ulaşmanızı sağlıyoruz.</p>
+                            <a href="/google-ads-paketleri/" class="btn">Paketleri İncele</a>
+                        </div>
                     </div>
                     
                     <!-- Instagram Reklam -->
-                    <div class="service-card">
-                        <div class="service-card-icon">
-                            <i class="fab fa-instagram"></i>
+                    <div class="flip-card">
+                        <div class="card-face card-front">
+                            <div class="icon">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <h3>İnstagram Reklam Ver</h3>
                         </div>
-                        <h3>İnstagram Reklam Ver</h3>
-                        <p>Instagram'da görsel ve video reklamlarla genç ve aktif kitleye ulaşmanızı sağlıyor, etkileşimlerinizi artırıyoruz.</p>
-                        <a href="tel:05422360983" class="btn">Hemen Ara</a>
+                        <div class="card-face card-back">
+                            <h3>Instagram Reklam</h3>
+                            <p>Instagram'da görsel ve video reklamlarla genç ve aktif kitleye ulaşmanızı sağlıyor, etkileşimlerinizi artırıyoruz.</p>
+                            <a href="/instagram-paketleri/" class="btn">Paketleri İncele</a>
+                        </div>
                     </div>
                     
                     <!-- Facebook Reklam -->
-                    <div class="service-card">
-                        <div class="service-card-icon">
-                            <i class="fab fa-facebook"></i>
+                    <div class="flip-card">
+                        <div class="card-face card-front">
+                            <div class="icon">
+                                <i class="fab fa-facebook"></i>
+                            </div>
+                            <h3>Facebook Reklam Ver</h3>
                         </div>
-                        <h3>Facebook Reklam Ver</h3>
-                        <p>Facebook'ta detaylı hedefleme ile doğru kitleye reklamlarınızı ulaştırıyor, dönüşüm oranlarınızı yükseltiyoruz.</p>
-                        <a href="tel:05422360983" class="btn">Hemen Ara</a>
+                        <div class="card-face card-back">
+                            <h3>Facebook Reklam</h3>
+                            <p>Facebook'ta detaylı hedefleme ile doğru kitleye reklamlarınızı ulaştırıyor, dönüşüm oranlarınızı yükseltiyoruz.</p>
+                            <a href="/facebook-paketleri/" class="btn">Paketleri İncele</a>
+                        </div>
                     </div>
                     
                     <!-- Google Maps -->
-                    <div class="service-card">
-                        <div class="service-card-icon">
-                            <i class="fas fa-map-marker-alt"></i>
+                    <div class="flip-card">
+                        <div class="card-face card-front">
+                            <div class="icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3>Google Harita Kaydı</h3>
                         </div>
-                        <h3>Google Harita Kaydı</h3>
-                        <p>İşletmenizi Google Haritalar'da kaydediyor, müşterilerinizin sizi kolayca bulmasını ve yön bulmasını sağlıyoruz.</p>
-                        <a href="tel:05422360983" class="btn">Hemen Ara</a>
+                        <div class="card-face card-back">
+                            <h3>Google Harita</h3>
+                            <p>İşletmenizi Google Haritalar'da kaydediyor, müşterilerinizin sizi kolayca bulmasını ve yön bulmasını sağlıyoruz.</p>
+                            <a href="/google-maps-paketleri/" class="btn">Paketleri İncele</a>
+                        </div>
                     </div>
                     
                     <!-- SEO -->
-                    <div class="service-card">
-                        <div class="service-card-icon">
-                            <i class="fas fa-chart-line"></i>
+                    <div class="flip-card">
+                        <div class="card-face card-front">
+                            <div class="icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>SEO Hizmeti</h3>
                         </div>
-                        <h3>SEO Hizmeti</h3>
-                        <p>Web sitenizi arama motorları için optimize ediyor, organik trafik artışı sağlıyor ve sürekli takip ediyoruz.</p>
-                        <a href="tel:05422360983" class="btn">Hemen Ara</a>
+                        <div class="card-face card-back">
+                            <h3>SEO Optimizasyon</h3>
+                            <p>Web sitenizi arama motorları için optimize ediyor, organik trafik artışı sağlıyor ve sürekli takip ediyoruz.</p>
+                            <a href="/seo-paketleri/" class="btn">Paketleri İncele</a>
+                        </div>
                     </div>
                     
                     <!-- Sosyal Medya Yönetimi -->
-                    <div class="service-card">
-                        <div class="service-card-icon">
-                            <i class="fas fa-users"></i>
+                    <div class="flip-card">
+                        <div class="card-face card-front">
+                            <div class="icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Sosyal Medya Yönetimi</h3>
                         </div>
-                        <h3>Sosyal Medya Yönetimi</h3>
-                        <p>Sosyal medya hesaplarınızı profesyonelce yönetiyor, içerik üretiyor ve takipçi etkileşiminizi artırıyoruz.</p>
-                        <a href="tel:05422360983" class="btn">Hemen Ara</a>
+                        <div class="card-face card-back">
+                            <h3>Sosyal Medya</h3>
+                            <p>Sosyal medya hesaplarınızı profesyonelce yönetiyor, içerik üretiyor ve takipçi etkileşiminizi artırıyoruz.</p>
+                            <a href="/sosyal-medya-paketleri/" class="btn">Paketleri İncele</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1059,23 +1332,33 @@
                 <h2 class="category-title">Web Tasarım Hizmetlerimiz</h2>
                 <div class="category-grid">
                     <!-- E-Ticaret -->
-                    <div class="service-card">
-                        <div class="service-card-icon">
-                            <i class="fas fa-shopping-cart"></i>
+                    <div class="flip-card">
+                        <div class="card-face card-front">
+                            <div class="icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <h3>E-Ticaret Sitesi</h3>
                         </div>
-                        <h3>E-Ticaret Sitesi</h3>
-                        <p>Mobil uyumlu, güvenli ve kullanıcı dostu e-ticaret siteleri tasarlıyor, online satışlarınızı artırıyoruz.</p>
-                        <a href="tel:05422360983" class="btn">Hemen Ara</a>
+                        <div class="card-face card-back">
+                            <h3>E-Ticaret</h3>
+                            <p>Mobil uyumlu, güvenli ve kullanıcı dostu e-ticaret siteleri tasarlıyor, online satışlarınızı artırıyoruz.</p>
+                            <a href="/e-ticaret-paketleri/" class="btn">Paketleri İncele</a>
+                        </div>
                     </div>
                     
                     <!-- Kurumsal Web -->
-                    <div class="service-card">
-                        <div class="service-card-icon">
-                            <i class="fas fa-briefcase"></i>
+                    <div class="flip-card">
+                        <div class="card-face card-front">
+                            <div class="icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3>Kurumsal Web Sitesi</h3>
                         </div>
-                        <h3>Kurumsal Web Sitesi</h3>
-                        <p>Kurumsal kimliğinize uygun, modern ve etkileyici web siteleri tasarlıyor, online varlığınızı güçlendiriyoruz.</p>
-                        <a href="tel:05422360983" class="btn">Hemen Ara</a>
+                        <div class="card-face card-back">
+                            <h3>Kurumsal Web</h3>
+                            <p>Kurumsal kimliğinize uygun, modern ve etkileyici web siteleri tasarlıyor, online varlığınızı güçlendiriyoruz.</p>
+                            <a href="/kurumsal-web-paketleri/" class="btn">Paketleri İncele</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1085,33 +1368,48 @@
                 <h2 class="category-title">Prodüksiyon Hizmetlerimiz</h2>
                 <div class="category-grid">
                     <!-- Sosyal Medya Videoları -->
-                    <div class="service-card">
-                        <div class="service-card-icon">
-                            <i class="fas fa-video"></i>
+                    <div class="flip-card">
+                        <div class="card-face card-front">
+                            <div class="icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h3>Sosyal Medya Videoları</h3>
                         </div>
-                        <h3>Sosyal Medya Videoları</h3>
-                        <p>Sosyal medya platformları için etkileyici ve paylaşılabilir video içerikler üretiyor, marka bilinirliğinizi artırıyoruz.</p>
-                        <a href="tel:05422360983" class="btn">Hemen Ara</a>
+                        <div class="card-face card-back">
+                            <h3>Sosyal Medya Videoları</h3>
+                            <p>Sosyal medya platformları için etkileyici ve paylaşılabilir video içerikler üretiyor, marka bilinirliğinizi artırıyoruz.</p>
+                            <a href="/video-paketleri/" class="btn">Paketleri İncele</a>
+                        </div>
                     </div>
                     
                     <!-- Tanıtım Filmi -->
-                    <div class="service-card">
-                        <div class="service-card-icon">
-                            <i class="fas fa-film"></i>
+                    <div class="flip-card">
+                        <div class="card-face card-front">
+                            <div class="icon">
+                                <i class="fas fa-film"></i>
+                            </div>
+                            <h3>Tanıtım Filmi</h3>
                         </div>
-                        <h3>Tanıtım Filmi</h3>
-                        <p>Markanızı en iyi şekilde tanıtan profesyonel tanıtım filmleri hazırlıyor, kurumsal kimliğinizi güçlendiriyoruz.</p>
-                        <a href="tel:05422360983" class="btn">Hemen Ara</a>
+                        <div class="card-face card-back">
+                            <h3>Tanıtım Filmi</h3>
+                            <p>Markanızı en iyi şekilde tanıtan profesyonel tanıtım filmleri hazırlıyor, kurumsal kimliğinizi güçlendiriyoruz.</p>
+                            <a href="/tanitim-filmi-paketleri/" class="btn">Paketleri İncele</a>
+                        </div>
                     </div>
                     
                     <!-- Drone Çekimi -->
-                    <div class="service-card">
-                        <div class="service-card-icon">
-                            <i class="fas fa-drone"></i>
+                    <div class="flip-card">
+                        <div class="card-face card-front">
+                            <div class="icon">
+                                <i class="fas fa-drone"></i>
+                            </div>
+                            <h3>Drone Çekimi</h3>
                         </div>
-                        <h3>Drone Çekimi</h3>
-                        <p>Drone ile havadan çektiğimiz görüntülerle içeriklerinize farklı bir boyut katıyor, etkiyi artırıyoruz.</p>
-                        <a href="tel:05422360983" class="btn">Hemen Ara</a>
+                        <div class="card-face card-back">
+                            <h3>Drone Çekimi</h3>
+                            <p>Drone ile havadan çektiğimiz görüntülerle içeriklerinize farklı bir boyut katıyor, etkiyi artırıyoruz.</p>
+                            <a href="/drone-paketleri/" class="btn">Paketleri İncele</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1175,6 +1473,100 @@
             </div>
         </div>
     </section>
+
+    <!-- MODERN FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Logo ve Açıklama -->
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x50/1E3A8A/FFFFFF?text=Web4+Medya';">
+                    <div class="footer-logo-text">Web4 Medya</div>
+                </div>
+                <p class="footer-description">
+                    Dijital pazarlama, web tasarım ve prodüksiyon alanında profesyonel çözümler sunan lider ajans. İşletmenizi dijital dünyada bir adım öne taşıyoruz.
+                </p>
+                <div class="social-links">
+                    <a href="https://instagram.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://facebook.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://wa.me/905422360983" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Hızlı Bağlantılar -->
+            <div class="footer-section">
+                <h3>Hızlı Bağlantılar</h3>
+                <ul class="footer-links">
+                    <li><a href="/"><i class="fas fa-chevron-right"></i> Ana Sayfa</a></li>
+                    <li><a href="/hakkimizda/"><i class="fas fa-chevron-right"></i> Hakkımızda</a></li>
+                    <li><a href="/blog/"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                    <li><a href="/referanslar/"><i class="fas fa-chevron-right"></i> Referanslar</a></li>
+                    <li><a href="/iletisim/"><i class="fas fa-chevron-right"></i> İletişim</a></li>
+                </ul>
+            </div>
+            
+            <!-- Hizmetler -->
+            <div class="footer-section">
+                <h3>Hizmetlerimiz</h3>
+                <ul class="footer-links">
+                    <li><a href="/google-ads-reklam-ver/"><i class="fas fa-chevron-right"></i> Google Ads Reklam</a></li>
+                    <li><a href="/instagram-reklam-ver/"><i class="fas fa-chevron-right"></i> Instagram Reklam</a></li>
+                    <li><a href="/facebook-reklam-ver/"><i class="fas fa-chevron-right"></i> Facebook Reklam</a></li>
+                    <li><a href="/seo/"><i class="fas fa-chevron-right"></i> SEO Hizmeti</a></li>
+                    <li><a href="/e-ticaret-sitesi/"><i class="fas fa-chevron-right"></i> E-Ticaret Sitesi</a></li>
+                    <li><a href="/sosyal-medya-videolari/"><i class="fas fa-chevron-right"></i> Sosyal Medya Videoları</a></li>
+                </ul>
+            </div>
+            
+            <!-- İletişim Bilgileri -->
+            <div class="footer-section">
+                <h3>İletişim Bilgileri</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <a href="tel:05422360983">0542 236 09 83</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <a href="mailto:info@web4medya.com">info@web4medya.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <span>Web4 Medya Ajansı<br>İstanbul, Türkiye</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <span>Pzt-Cum: 09:00 - 18:00<br>Cmt: 10:00 - 16:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Web4 Medya. Tüm hakları saklıdır. <a href="/gizlilik-politikasi/">Gizlilik Politikası</a> | <a href="/kullanim-kosullari/">Kullanım Koşulları</a></p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">Profesyonel dijital pazarlama ve web tasarım çözümleri</p>
+        </div>
+    </footer>
 
     <script>
         // Mobile Menu Toggle
@@ -1283,6 +1675,16 @@
                 logo.onerror = function() {
                     this.onerror = null;
                     this.src = 'https://via.placeholder.com/200x50/1E3A8A/FFFFFF?text=Web4+Medya';
+                    this.alt = 'Web4 Medya Logo - Placeholder';
+                };
+            }
+            
+            // Handle footer logo fallback
+            const footerLogo = document.querySelector('.footer-logo img');
+            if (footerLogo) {
+                footerLogo.onerror = function() {
+                    this.onerror = null;
+                    this.src = 'https://via.placeholder.com/150x50/1E3A8A/FFFFFF?text=Web4+Medya';
                     this.alt = 'Web4 Medya Logo - Placeholder';
                 };
             }
