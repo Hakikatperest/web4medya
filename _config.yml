@@ -1,0 +1,66 @@
+# _config.yml - Web4 Medya
+# Site ayarları
+title: "Web4 Medya | Dijital Pazarlama, SEO, Web Tasarım ve Prodüksiyon Ajansı"
+description: "Google Ads, SEO, web tasarım, dijital pazarlama ve video prodüksiyon hizmetleri. Profesyonel ekibimizle işletmenizi dijitalde büyütün."
+url: "https://www.web4medya.com"
+baseurl: ""
+lang: "tr"
+locale: "tr_TR"
+timezone: "Europe/Istanbul"
+
+# Yazar bilgileri
+author:
+  name: "Web4 Medya"
+  email: "info@web4medya.com"
+
+# SEO ve sosyal medya
+twitter:
+  username: web4medya
+
+# Google Analytics (varsa)
+# google_analytics: "UA-XXXXXXXXX-X"  # Bunu şimdilik YORUM SATIRI yap
+
+# Jekyll ayarları
+markdown: kramdown
+highlighter: rouge
+permalink: pretty  # /iletisim/ şeklinde URL'ler için
+
+# SADECE GitHub Pages'ta DESTEKLENEN eklentiler
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Site haritası ayarları
+sitemap:
+  changefreq: weekly
+  priority: 0.8
+
+# Varsayılan değerler - BASİT TUT
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Exclude (dahil etmeme)
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Build ayarları
+future: false
+published: true
+
+# Özel değişkenler
+web4medya:
+  phone: "0542 236 09 83"
+  email: "info@web4medya.com"
+  address: "Bartın, Türkiye"
+  whatsapp: "905422360983"
+  working_hours: "Pzt-Cum: 09:00-20:00 | Cmt-Pzr: 10:00-20:00"
