@@ -490,72 +490,74 @@
             margin: 0 auto;
         }
 
-        /* MODERN GÖRSEL BÖLÜMÜ - MESAJ GÖNDERİN ÜZERİNDE */
-        .modern-image-section {
+        /* MASALÜSTÜ: MODERN GÖRSEL BÖLÜMÜ - AYRI BÖLÜM OLARAK */
+        .desktop-image-section {
+            display: block;
             position: relative;
             margin: 0 auto 60px;
             max-width: 1200px;
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow-hover);
-            height: auto;
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 500px;
         }
 
-        .modern-image-container {
+        /* MOBİL: GÖRSEL FORMU KARTINA ENTEGRE */
+        .mobile-image-section {
+            display: none;
+        }
+
+        .desktop-image-container {
             width: 100%;
             height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, rgba(20, 94, 141, 0.03) 0%, rgba(31, 144, 188, 0.03) 50%, rgba(29, 187, 225, 0.03) 100%);
-            padding: 20px;
-        }
-
-        .form-image {
-            width: 100%;
-            max-width: 1000px;
-            height: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             position: relative;
         }
 
-        .form-img {
+        .desktop-image {
             width: 100%;
-            height: auto;
-            max-height: 500px;
-            object-fit: contain;
-            border-radius: 12px;
+            height: 100%;
+            object-fit: cover;
             display: block;
-            box-shadow: 0 15px 50px rgba(20, 94, 141, 0.15);
-            border: 1px solid rgba(31, 144, 188, 0.2);
-            transition: var(--transition);
-            position: relative;
+            transition: transform 0.7s ease;
         }
 
-        .form-img:hover {
-            transform: scale(1.02);
-            box-shadow: 0 20px 60px rgba(20, 94, 141, 0.25);
-            border-color: rgba(31, 144, 188, 0.4);
+        .desktop-image:hover {
+            transform: scale(1.05);
         }
 
-        /* Resim çerçevesi için pseudo-element */
-        .form-img::before {
-            content: '';
+        .desktop-image-overlay {
             position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            border: 2px solid rgba(31, 144, 188, 0.1);
-            border-radius: 15px;
-            pointer-events: none;
-            z-index: -1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(20, 94, 141, 0.85) 0%, 
+                rgba(31, 144, 188, 0.75) 50%, 
+                rgba(29, 187, 225, 0.65) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .desktop-image-overlay h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .desktop-image-overlay p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            max-width: 600px;
+            line-height: 1.6;
+            opacity: 0.95;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
         }
 
         /* İLETİŞİM İÇERİK BÖLÜMÜ */
@@ -566,7 +568,7 @@
             margin-bottom: 60px;
         }
 
-        /* İLETİŞİM FORMU */
+        /* İLETİŞİM FORMU - GÜNCELLENMİŞ */
         .contact-form-section {
             background: var(--white);
             padding: 40px;
@@ -575,6 +577,24 @@
             border: 1px solid var(--gray-light);
             position: relative;
             z-index: 2;
+            overflow: hidden;
+        }
+
+        /* Form üstünde resim için konteyner (mobilde görünür) */
+        .form-image-container {
+            display: none;
+            width: 100%;
+            height: 250px;
+            position: relative;
+            margin-bottom: 30px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+
+        .form-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .form-title {
@@ -1227,16 +1247,27 @@
                 display: none;
             }
             
-            .modern-image-section {
+            .desktop-image-section {
                 margin-bottom: 50px;
-            }
-            
-            .form-img {
-                max-height: 450px;
+                height: 450px;
             }
         }
 
         @media (max-width: 768px) {
+            /* Masaüstü resim bölümünü gizle */
+            .desktop-image-section {
+                display: none;
+            }
+            
+            /* Mobilde resmi form kartına entegre et */
+            .mobile-image-section {
+                display: block;
+            }
+            
+            .form-image-container {
+                display: block;
+            }
+            
             .breadcrumb {
                 padding: 25px 4% 15px;
                 margin-top: 80px;
@@ -1244,15 +1275,6 @@
             
             .contact-hero {
                 padding: 40px 4% 30px;
-            }
-            
-            .modern-image-section {
-                margin-bottom: 40px;
-                padding: 15px;
-            }
-            
-            .form-img {
-                max-height: 400px;
             }
             
             .contact-content {
@@ -1265,7 +1287,11 @@
                 margin-bottom: 40px;
             }
             
-            .contact-form-section, .contact-info-card {
+            .contact-form-section {
+                padding: 30px 25px;
+            }
+            
+            .contact-info-card {
                 padding: 30px 25px;
             }
             
@@ -1366,21 +1392,20 @@
                 font-size: 1rem;
             }
             
-            .modern-image-section {
-                margin-bottom: 30px;
-                border-radius: var(--radius-sm);
-                padding: 10px;
-            }
-            
-            .form-img {
-                max-height: 350px;
+            .form-image-container {
+                height: 200px;
+                margin-bottom: 25px;
             }
             
             .contact-content {
                 padding: 0 20px 15px;
             }
             
-            .contact-form-section, .contact-info-card {
+            .contact-form-section {
+                padding: 25px 20px;
+            }
+            
+            .contact-info-card {
                 padding: 25px 20px;
             }
             
@@ -1445,16 +1470,12 @@
         }
 
         @media (max-width: 360px) {
-            .modern-image-section {
-                padding: 8px;
-            }
-            
-            .form-img {
-                max-height: 300px;
-            }
-            
             .contact-hero h1 {
                 font-size: 1.6rem;
+            }
+            
+            .form-image-container {
+                height: 180px;
             }
             
             .floating-btn {
@@ -1641,13 +1662,15 @@
         </div>
     </section>
 
-    <!-- MODERN GÖRSEL BÖLÜMÜ - MESAJ GÖNDERİN BÖLÜMÜNÜN ÜZERİNDE -->
-    <section class="modern-image-section">
-        <div class="modern-image-container">
-            <div class="form-image">
-                <img src="https://www.web4medya.com/images/web4medya-iletisim.webp" 
-                     alt="Web4 Medya İletişim" 
-                     class="form-img">
+    <!-- MASALÜSTÜ: MODERN GÖRSEL BÖLÜMÜ - AYRI BÖLÜM -->
+    <section class="desktop-image-section">
+        <div class="desktop-image-container">
+            <img src="https://www.web4medya.com/images/web4medya-iletisim.webp" 
+                 alt="Web4 Medya İletişim" 
+                 class="desktop-image">
+            <div class="desktop-image-overlay">
+                <h2>İletişime Geçin, Projenizi Konuşalım</h2>
+                <p>Dijital pazarlama stratejinizi birlikte oluşturalım. İşletmeniz için en uygun çözümü sunalım.</p>
             </div>
         </div>
     </section>
@@ -1657,6 +1680,13 @@
         <div class="contact-container">
             <!-- İLETİŞİM FORMU -->
             <div class="contact-form-section">
+                <!-- MOBİL: FORMU KARTINA ENTEGRE GÖRSEL -->
+                <div class="form-image-container">
+                    <img src="https://www.web4medya.com/images/web4medya-iletisim.webp" 
+                         alt="Web4 Medya İletişim" 
+                         class="form-image">
+                </div>
+                
                 <h2 class="form-title">Mesaj Gönderin</h2>
                 <form class="contact-form" id="contactForm">
                     <div class="form-group">
@@ -2035,12 +2065,22 @@
                 img.loading = 'lazy';
             });
             
-            // Handle modern image fallback
-            const formImg = document.querySelector('.form-img');
-            if (formImg) {
-                formImg.onerror = function() {
+            // Handle desktop image fallback
+            const desktopImage = document.querySelector('.desktop-image');
+            if (desktopImage) {
+                desktopImage.onerror = function() {
                     this.onerror = null;
                     this.src = 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80';
+                    this.alt = 'Web4 Medya İletişim - Unsplash Placeholder';
+                };
+            }
+            
+            // Handle form image fallback
+            const formImage = document.querySelector('.form-image');
+            if (formImage) {
+                formImage.onerror = function() {
+                    this.onerror = null;
+                    this.src = 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
                     this.alt = 'Web4 Medya İletişim - Unsplash Placeholder';
                 };
             }
