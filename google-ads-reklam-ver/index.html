@@ -580,7 +580,7 @@
             font-size: 0.95rem;
         }
 
-        /* PAKET VE TEKLİF BÖLÜMÜ */
+        /* PAKET VE TEKLİF BÖLÜMÜ - GÜNCELLENMİŞ */
         .packages-section {
             background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             padding: 60px;
@@ -590,7 +590,7 @@
 
         .package-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
@@ -603,6 +603,11 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 450px; /* Sabit yükseklik */
+            height: 100%;
         }
 
         .package-card:hover {
@@ -622,25 +627,61 @@
             font-weight: 800;
             color: var(--gradient-2);
             margin-bottom: 20px;
+            line-height: 1.2;
         }
 
         .package-card .price span {
             font-size: 1rem;
             color: var(--gray);
+            display: block;
+            font-weight: 400;
+            margin-top: 5px;
+        }
+
+        .package-card > p {
+            color: var(--gray-dark);
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            flex-grow: 0;
         }
 
         .package-card ul {
             list-style: none;
             margin: 25px 0;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .package-card li {
             padding: 10px 0;
             border-bottom: 1px solid var(--gray-light);
             color: var(--gray-dark);
+            font-size: 1rem;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* SSS BÖLÜMÜ - FLIP KARTLAR */
+        .package-card li:before {
+            content: '✓';
+            color: var(--gradient-2);
+            font-weight: bold;
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        .package-card .btn {
+            width: 100%;
+            justify-content: center;
+            margin-top: 20px;
+            flex-grow: 0;
+        }
+
+        /* SSS BÖLÜMÜ - GÜNCELLENMİŞ */
         .faq-section {
             margin: 80px 0;
         }
@@ -655,7 +696,7 @@
 
         .faq-card {
             position: relative;
-            height: 200px;
+            height: 250px; /* Yükseklik artırıldı */
             transform-style: preserve-3d;
             transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
             border-radius: var(--radius);
@@ -677,42 +718,44 @@
             height: 100%;
             border-radius: var(--radius);
             backface-visibility: hidden;
-            padding: 30px;
+            padding: 40px 30px; /* Padding artırıldı */
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
             overflow: hidden;
+            text-align: center;
         }
 
         .faq-front {
             background: var(--white);
-            justify-content: center;
-            text-align: center;
         }
 
         .faq-front h3 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--black);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            font-weight: 600;
         }
 
         .faq-front .question-icon {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--gradient-2);
-            margin-bottom: 15px;
+            margin-bottom: 25px;
         }
 
         .faq-back {
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
             color: var(--white);
             transform: rotateY(180deg);
-            text-align: center;
         }
 
         .faq-back p {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             line-height: 1.6;
             color: rgba(255, 255, 255, 0.95);
+            max-width: 90%;
         }
 
         /* POPÜLER ARAMALAR BÖLÜMÜ */
@@ -1140,7 +1183,7 @@
             }
         }
 
-        /* RESPONSIVE BREAKPOINTS */
+        /* RESPONSIVE BREAKPOINTS - GÜNCELLENMİŞ */
         @media (max-width: 1200px) {
             .header {
                 padding: 0 4%;
@@ -1152,6 +1195,14 @@
             
             .nav-link {
                 font-size: 0.9rem;
+            }
+            
+            .package-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .faq-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
         }
 
@@ -1171,6 +1222,19 @@
             .service-detail {
                 padding: 40px;
             }
+            
+            .package-card {
+                min-height: 420px;
+                padding: 35px 25px;
+            }
+            
+            .faq-card {
+                height: 230px;
+            }
+            
+            .faq-face {
+                padding: 35px 25px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1187,8 +1251,47 @@
                 padding: 40px 30px;
             }
             
+            .package-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .package-card {
+                min-height: 400px;
+                padding: 30px 25px;
+            }
+            
+            .package-card h3 {
+                font-size: 1.6rem;
+            }
+            
+            .package-card .price {
+                font-size: 2.2rem;
+            }
+            
+            .faq-section {
+                margin: 60px 0;
+            }
+            
             .faq-grid {
                 grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .faq-card {
+                height: 220px;
+            }
+            
+            .faq-face {
+                padding: 30px 25px;
+            }
+            
+            .faq-front h3 {
+                font-size: 1.3rem;
+            }
+            
+            .faq-back p {
+                font-size: 1.1rem;
             }
             
             .popular-searches {
@@ -1254,16 +1357,52 @@
                 padding: 20px;
             }
             
-            .package-grid {
-                grid-template-columns: 1fr;
+            .packages-section {
+                padding: 30px 20px;
+            }
+            
+            .package-card {
+                min-height: 380px;
+                padding: 25px 20px;
+            }
+            
+            .package-card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .package-card .price {
+                font-size: 2rem;
+            }
+            
+            .package-card li {
+                font-size: 0.95rem;
+                padding: 8px 0;
+            }
+            
+            .faq-section {
+                margin: 50px 0;
             }
             
             .faq-card {
-                height: 180px;
+                height: 210px;
             }
             
             .faq-face {
-                padding: 20px;
+                padding: 25px 20px;
+            }
+            
+            .faq-front h3 {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
+            
+            .faq-front .question-icon {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+            }
+            
+            .faq-back p {
+                font-size: 1rem;
             }
             
             .search-tags {
@@ -1295,6 +1434,34 @@
                 width: 55px;
                 height: 55px;
                 font-size: 1.6rem;
+            }
+        }
+
+        /* ÇOK KÜÇÜK EKRANLAR İÇİN */
+        @media (max-width: 360px) {
+            .package-card {
+                min-height: 360px;
+                padding: 20px 15px;
+            }
+            
+            .package-card h3 {
+                font-size: 1.4rem;
+            }
+            
+            .package-card .price {
+                font-size: 1.8rem;
+            }
+            
+            .faq-card {
+                height: 200px;
+            }
+            
+            .faq-face {
+                padding: 20px 15px;
+            }
+            
+            .faq-front h3 {
+                font-size: 1.1rem;
             }
         }
     </style>
