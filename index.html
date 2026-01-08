@@ -80,18 +80,20 @@
             border-bottom: 1px solid var(--gray-light);
         }
 
-        /* LOGO BOYUTU BÜYÜTÜLDÜ */
+        /* LOGO BOYUTU BÜYÜTÜLDÜ VE TIKLANABİLİR */
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
-            height: 70px; /* 50px'den 70px'e çıkarıldı */
+            height: 70px;
+            cursor: pointer;
+            text-decoration: none;
         }
 
         .logo img {
             height: 100%;
             width: auto;
-            max-height: 70px; /* 50px'den 70px'e çıkarıldı */
+            max-height: 70px;
             object-fit: contain;
         }
 
@@ -401,7 +403,7 @@
             z-index: 2;
         }
 
-        /* YENİ HERO BUTONLARI - GRADIENT TEMA */
+        /* YENİ MODERN HERO BUTONLARI */
         .hero-buttons {
             display: flex;
             justify-content: center;
@@ -413,49 +415,70 @@
         }
 
         .hero-buttons .btn {
-            min-width: 240px; /* Büyütüldü */
-            padding: 20px 40px; /* Büyütüldü */
+            min-width: 240px;
+            padding: 18px 36px;
             border-radius: 16px;
-            font-weight: 600;
-            font-size: 17px; /* Büyütüldü */
+            font-weight: 700;
+            font-size: 17px;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             border: none;
             cursor: pointer;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .hero-buttons .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+            transform: translateX(-100%);
+            transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: -1;
+        }
+
+        .hero-buttons .btn:hover::before {
+            transform: translateX(0);
         }
 
         .hero-buttons .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
 
         /* MAVİ Hemen Ara butonu */
         .hero-buttons .btn-primary {
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
             color: white;
-            border: 2px solid transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .hero-buttons .btn-primary:hover {
             background: linear-gradient(135deg, var(--gradient-2), var(--gradient-1));
             color: white;
-            border-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
         /* WhatsApp butonu (yeşil) */
         .hero-buttons .btn-whatsapp {
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .hero-buttons .btn-whatsapp:hover {
             background: linear-gradient(135deg, #128C7E, #25D366);
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
         /* BUTTONS - GRADIENT TEMA */
@@ -464,14 +487,14 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 15px 32px; /* Büyütüldü */
+            padding: 15px 32px;
             border-radius: var(--radius-sm);
             font-weight: 600;
             text-decoration: none;
             transition: var(--transition);
             border: none;
             cursor: pointer;
-            font-size: 1.05rem; /* Büyütüldü */
+            font-size: 1.05rem;
         }
 
         .btn-primary {
@@ -494,7 +517,7 @@
         /* MOBILE MENU - BEYAZ TEMA */
         .mobile-menu {
             position: fixed;
-            top: 80px; /* Header yüksekliğine göre güncellendi */
+            top: 80px;
             left: 0;
             right: 0;
             background: var(--white); /* BEYAZ */
@@ -607,7 +630,7 @@
 
         /* YENİ MODERN KART TASARIMI - TEK TIKLAMALI DÖNME */
         .services-section {
-            padding: 100px 5% 80px; /* Padding artırıldı */
+            padding: 100px 5% 80px;
             background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
             position: relative;
             overflow: hidden;
@@ -616,14 +639,14 @@
         .section-header {
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 70px; /* Margin artırıldı */
+            margin: 0 auto 70px;
             position: relative;
             z-index: 1;
         }
 
         /* HİZMETLERİMİZ BAŞLIĞI - GRADIENT RENK */
         .section-title {
-            font-size: clamp(2rem, 4.5vw, 3rem); /* Büyütüldü */
+            font-size: clamp(2rem, 4.5vw, 3rem);
             font-weight: 800;
             margin-bottom: 25px;
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
@@ -638,7 +661,7 @@
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -15px; /* Aşağı kaydırıldı */
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
             width: 100px;
@@ -648,20 +671,20 @@
         }
 
         .section-subtitle {
-            font-size: clamp(1.1rem, 1.8vw, 1.3rem); /* Büyütüldü */
-            color: var(--gray); /* Gri */
+            font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+            color: var(--gray);
             line-height: 1.6;
             margin-top: 30px;
         }
 
         /* KATEGORİ BAŞLIKLARI - SİYAH RENK */
         .category-title {
-            font-size: 2rem; /* Büyütüldü */
+            font-size: 2rem;
             font-weight: 800;
-            margin-bottom: 50px; /* Margin artırıldı */
-            color: var(--black); /* SİYAH */
+            margin-bottom: 50px;
+            color: var(--black);
             padding-left: 20px;
-            border-left: 5px solid var(--gradient-2); /* Kalınlık artırıldı */
+            border-left: 5px solid var(--gradient-2);
             position: relative;
             display: inline-block;
             max-width: 100%;
@@ -677,7 +700,7 @@
         }
 
         .service-category {
-            margin-bottom: 100px; /* Margin artırıldı */
+            margin-bottom: 100px;
         }
 
         .service-category:last-child {
@@ -686,15 +709,15 @@
 
         .category-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Genişlik artırıldı */
-            gap: 35px; /* Gap artırıldı */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
             perspective: 1200px;
         }
 
         /* YENİ FLIP CARD STYLES - SADECE TIKLAMADA DÖNER */
         .flip-card {
             position: relative;
-            height: 300px; /* Yükseklik artırıldı */
+            height: 300px;
             transform-style: preserve-3d;
             transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
             border-radius: var(--radius);
@@ -716,7 +739,7 @@
             height: 100%;
             border-radius: var(--radius);
             backface-visibility: hidden;
-            padding: 45px 30px; /* Padding artırıldı */
+            padding: 40px 25px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -731,22 +754,21 @@
         }
 
         .card-front .icon {
-            font-size: 3.5rem; /* Büyütüldü */
-            margin-bottom: 30px; /* Margin artırıldı */
+            font-size: 3.5rem;
+            margin-bottom: 25px;
             display: inline-block;
-            width: 90px; /* Büyütüldü */
-            height: 90px; /* Büyütüldü */
+            width: 90px;
+            height: 90px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
             background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-            margin-bottom: 30px; /* Margin artırıldı */
         }
 
         /* RENKLİ İKONLAR - MARKA RENKLERİYLE UYUMLU */
         .card-front .icon i {
-            font-size: 2.8rem; /* Büyütüldü */
+            font-size: 2.8rem;
         }
 
         /* Google icon - Google renkleri */
@@ -811,7 +833,7 @@
         }
 
         .card-front h3 {
-            font-size: 1.6rem; /* Büyütüldü */
+            font-size: 1.6rem;
             font-weight: 700;
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
             -webkit-background-clip: text;
@@ -821,76 +843,84 @@
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
 
+        /* DÜZENLENMİŞ CARD-BACK - BUTONLAR DÜZGÜN SIRALANDI */
         .card-back {
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
-            color: var(--white); /* BEYAZ */
+            color: var(--white);
             transform: rotateY(180deg);
             justify-content: space-between;
-            padding: 40px 30px; /* Padding artırıldı */
+            padding: 30px 25px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         .card-back h3 {
-            font-size: 1.6rem; /* Büyütüldü */
+            font-size: 1.6rem;
             font-weight: 700;
-            margin-bottom: 20px; /* Margin artırıldı */
+            margin-bottom: 15px;
             color: white;
             text-align: center;
+            line-height: 1.3;
         }
 
         .card-back p {
-            font-size: 1.05rem; /* Büyütüldü */
-            line-height: 1.6;
+            font-size: 1.05rem;
+            line-height: 1.5;
             opacity: 0.95;
-            margin-bottom: 30px; /* Margin artırıldı */
+            margin-bottom: 20px;
             color: rgba(255, 255, 255, 0.9);
             flex-grow: 1;
             text-align: center;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
         }
 
-        /* DÖNEN KARTLARIN BUTONLARINI MERKEZE AL VE DÜZENLE */
+        /* KART BUTONLARI - KARTIN İÇİNE SIĞACAK ŞEKİLDE DÜZENLENDİ */
         .card-back .btn {
-            background: var(--white); /* BEYAZ */
-            color: var(--gradient-1); /* GRADIENT RENK */
-            padding: 14px 32px; /* Büyütüldü */
+            background: var(--white);
+            color: var(--gradient-1);
+            padding: 12px 24px;
             font-weight: 700;
-            font-size: 1.05rem; /* Büyütüldü */
-            border-radius: 10px; /* Border radius artırıldı */
+            font-size: 1rem;
+            border-radius: 10px;
             transition: all 0.3s ease;
             border: none;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 250px;
+            max-width: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto;
+            text-decoration: none;
+            white-space: nowrap;
         }
 
         .card-back .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
             background: #f0f9ff;
         }
 
         /* Google ikonu için özel stil */
         .google-icon {
-            width: 90px; /* Büyütüldü */
-            height: 90px; /* Büyütüldü */
+            width: 90px;
+            height: 90px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
             background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-            margin-bottom: 30px; /* Margin artırıldı */
+            margin-bottom: 30px;
             position: relative;
         }
 
         /* WHY US SECTION - GRADIENT TEMA */
         .why-us {
-            padding: 100px 5%; /* Padding artırıldı */
+            padding: 100px 5%;
             background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
             color: white;
             position: relative;
@@ -959,8 +989,8 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Genişlik artırıldı */
-            gap: 35px; /* Gap artırıldı */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
             max-width: 1200px;
             margin: 0 auto;
             position: relative;
@@ -969,7 +999,7 @@
 
         .feature {
             background: rgba(255, 255, 255, 0.1);
-            padding: 40px 30px; /* Padding artırıldı */
+            padding: 40px 30px;
             border-radius: var(--radius);
             text-align: center;
             backdrop-filter: blur(10px);
@@ -985,21 +1015,21 @@
         }
 
         .feature-icon {
-            width: 80px; /* Büyütüldü */
-            height: 80px; /* Büyütüldü */
+            width: 80px;
+            height: 80px;
             background: linear-gradient(135deg, #FFFFFF, #E5E7EB);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px; /* Margin artırıldı */
-            color: var(--gradient-2); /* GRADIENT RENK */
-            font-size: 2rem; /* Büyütüldü */
+            margin: 0 auto 25px;
+            color: var(--gradient-2);
+            font-size: 2rem;
         }
 
         .feature h3 {
-            font-size: 1.3rem; /* Büyütüldü */
-            margin-bottom: 20px; /* Margin artırıldı */
+            font-size: 1.3rem;
+            margin-bottom: 20px;
             color: white;
             font-weight: 700;
         }
@@ -1007,13 +1037,13 @@
         .feature p {
             color: rgba(255, 255, 255, 0.9);
             line-height: 1.6;
-            font-size: 1rem; /* Büyütüldü */
+            font-size: 1rem;
         }
 
         /* CTA SECTION - SİTEYLE UYUMLU GRADIENT TEMA */
         .cta-section {
-            padding: 100px 5%; /* Padding artırıldı */
-            background: linear-gradient(135deg, #0d4c7a, #1a7cb0, #1dbbe1); /* SİTEYLE UYUMLU GRADIENT */
+            padding: 100px 5%;
+            background: linear-gradient(135deg, #0d4c7a, #1a7cb0, #1dbbe1);
             text-align: center;
             color: white;
             position: relative;
@@ -1042,7 +1072,7 @@
 
         /* CTA BAŞLIĞI - BEYAZ */
         .cta-section h2 {
-            font-size: clamp(2rem, 4.5vw, 3rem); /* Büyütüldü */
+            font-size: clamp(2rem, 4.5vw, 3rem);
             font-weight: 800;
             margin-bottom: 25px;
             line-height: 1.2;
@@ -1051,41 +1081,61 @@
         }
 
         .cta-section p {
-            font-size: clamp(1.1rem, 1.8vw, 1.3rem); /* Büyütüldü */
+            font-size: clamp(1.1rem, 1.8vw, 1.3rem);
             max-width: 700px;
-            margin: 0 auto 50px; /* Margin artırıldı */
+            margin: 0 auto 50px;
             opacity: 0.95;
             line-height: 1.6;
         }
 
-        /* YENİ CTA BUTONLARI - GRADIENT TEMA */
+        /* YENİ MODERN CTA BUTONLARI */
         .cta-buttons {
             display: flex;
             justify-content: center;
-            gap: 25px; /* Gap artırıldı */
+            gap: 25px;
             flex-wrap: wrap;
         }
 
         .cta-buttons .btn {
-            min-width: 240px; /* Büyütüldü */
-            padding: 20px 40px; /* Büyütüldü */
+            min-width: 240px;
+            padding: 18px 36px;
             border-radius: 16px;
-            font-weight: 600;
-            font-size: 17px; /* Büyütüldü */
+            font-weight: 700;
+            font-size: 17px;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             border: none;
             cursor: pointer;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-buttons .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+            transform: translateX(-100%);
+            transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: -1;
+        }
+
+        .cta-buttons .btn:hover::before {
+            transform: translateX(0);
         }
 
         .cta-buttons .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
 
         /* MAVİ Hemen Ara butonu - CTA */
@@ -1108,6 +1158,7 @@
 
         .cta-buttons .btn-whatsapp:hover {
             background: linear-gradient(135deg, #128C7E, #25D366);
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
         /* YENİ FLOATING CTA BUTONLARI */
@@ -1125,17 +1176,36 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 65px; /* Büyütüldü */
-            height: 65px; /* Büyütüldü */
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             text-decoration: none;
-            font-size: 1.9rem; /* Büyütüldü */
+            font-size: 1.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+            z-index: 1;
+        }
+
+        .floating-btn:hover::before {
+            transform: translateX(0);
         }
 
         .floating-btn:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(5deg);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
 
@@ -1164,9 +1234,9 @@
 
         /* MODERN FOOTER - SİTEYLE UYUMLU GRADIENT TEMA */
         .footer {
-            background: linear-gradient(135deg, #0d4c7a, #1a7cb0, #1dbbe1); /* SİTEYLE UYUMLU GRADIENT */
+            background: linear-gradient(135deg, #0d4c7a, #1a7cb0, #1dbbe1);
             color: white;
-            padding: 80px 5% 40px; /* Padding artırıldı */
+            padding: 80px 5% 40px;
             position: relative;
             overflow: hidden;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -1199,16 +1269,16 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px; /* Gap artırıldı */
-            margin-bottom: 60px; /* Margin artırıldı */
+            gap: 50px;
+            margin-bottom: 60px;
             position: relative;
             z-index: 1;
         }
 
         .footer-section h3 {
-            font-size: 1.4rem; /* Büyütüldü */
+            font-size: 1.4rem;
             font-weight: 700;
-            margin-bottom: 30px; /* Margin artırıldı */
+            margin-bottom: 30px;
             color: white;
             position: relative;
             display: inline-block;
@@ -1217,29 +1287,30 @@
         .footer-section h3::after {
             content: '';
             position: absolute;
-            bottom: -10px; /* Aşağı kaydırıldı */
+            bottom: -10px;
             left: 0;
-            width: 50px; /* Genişlik artırıldı */
+            width: 50px;
             height: 3px;
             background: rgba(255, 255, 255, 0.8);
         }
 
-        /* FOOTER LOGO BOYUTU BÜYÜTÜLDÜ */
+        /* FOOTER LOGO DÜZELTMESİ */
         .footer-logo {
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 30px; /* Margin artırıldı */
+            margin-bottom: 30px;
         }
 
         .footer-logo img {
-            height: 65px; /* 50px'den 65px'e çıkarıldı */
+            height: 65px;
             width: auto;
             filter: brightness(0) invert(1);
+            background: transparent; /* Beyaz arka planı kaldır */
         }
 
         .footer-logo-text {
-            font-size: 1.6rem; /* Büyütüldü */
+            font-size: 1.6rem;
             font-weight: 700;
             color: white;
         }
@@ -1247,19 +1318,19 @@
         .footer-description {
             color: rgba(255, 255, 255, 0.9);
             line-height: 1.7;
-            margin-bottom: 30px; /* Margin artırıldı */
-            font-size: 1.05rem; /* Büyütüldü */
+            margin-bottom: 30px;
+            font-size: 1.05rem;
         }
 
         .social-links {
             display: flex;
             gap: 15px;
-            margin-top: 25px; /* Margin artırıldı */
+            margin-top: 25px;
         }
 
         .social-link {
-            width: 45px; /* Büyütüldü */
-            height: 45px; /* Büyütüldü */
+            width: 45px;
+            height: 45px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
@@ -1283,7 +1354,7 @@
         }
 
         .footer-links li {
-            margin-bottom: 15px; /* Margin artırıldı */
+            margin-bottom: 15px;
         }
 
         .footer-links a {
@@ -1293,23 +1364,23 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 1.05rem; /* Büyütüldü */
+            font-size: 1.05rem;
         }
 
         .footer-links a:hover {
             color: white;
-            padding-left: 8px; /* Artırıldı */
+            padding-left: 8px;
         }
 
         .footer-links i {
             color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem; /* Büyütüldü */
+            font-size: 0.9rem;
         }
 
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 20px; /* Gap artırıldı */
+            gap: 20px;
         }
 
         .contact-item {
@@ -1320,23 +1391,23 @@
         }
 
         .contact-item i {
-            width: 40px; /* Büyütüldü */
-            height: 40px; /* Büyütüldü */
+            width: 40px;
+            height: 40px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.1rem; /* Büyütüldü */
+            font-size: 1.1rem;
         }
 
         .contact-item a {
             color: white;
             text-decoration: none;
             transition: var(--transition);
-            font-weight: 600; /* Kalınlaştırıldı */
-            font-size: 1.1rem; /* Büyütüldü */
+            font-weight: 600;
+            font-size: 1.1rem;
         }
 
         .contact-item a:hover {
@@ -1353,8 +1424,8 @@
             display: inline;
             margin-top: 0;
             transition: all 0.3s ease;
-            font-weight: 700; /* Daha kalın */
-            font-size: 1.2rem; /* Daha büyük */
+            font-weight: 700;
+            font-size: 1.2rem;
         }
 
         .contact-item a[href^="tel:"]:hover {
@@ -1368,17 +1439,17 @@
         .contact-item span {
             color: rgba(255, 255, 255, 0.9);
             line-height: 1.5;
-            font-size: 1.05rem; /* Büyütüldü */
+            font-size: 1.05rem;
         }
 
         .footer-bottom {
             max-width: 1200px;
             margin: 0 auto;
-            padding-top: 40px; /* Padding artırıldı */
+            padding-top: 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
             color: rgba(255, 255, 255, 0.8);
-            font-size: 1rem; /* Büyütüldü */
+            font-size: 1rem;
             position: relative;
             z-index: 1;
         }
@@ -1386,7 +1457,7 @@
         .footer-bottom a {
             color: white;
             text-decoration: none;
-            font-weight: 600; /* Kalınlaştırıldı */
+            font-weight: 600;
         }
 
         .footer-bottom a:hover {
@@ -1442,7 +1513,6 @@
                 display: none;
             }
             
-            /* Kategori başlıkları mobilde */
             .category-title {
                 font-size: 1.6rem;
                 padding-left: 15px;
@@ -1463,7 +1533,8 @@
             .hero-buttons .btn {
                 width: 100%;
                 max-width: 320px;
-                padding: 18px 32px;
+                padding: 16px 30px;
+                font-size: 16px;
             }
             
             /* CTA BUTONLARI MOBİL */
@@ -1476,10 +1547,28 @@
             .cta-buttons .btn {
                 width: 100%;
                 max-width: 320px;
+                padding: 16px 30px;
+                font-size: 16px;
             }
             
+            /* KARTLAR MOBİL */
             .category-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .card-back {
+                padding: 25px 20px;
+            }
+            
+            .card-back p {
+                font-size: 1rem;
+                -webkit-line-clamp: 3;
+            }
+            
+            .card-back .btn {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+                max-width: 180px;
             }
             
             .footer-content {
@@ -1523,7 +1612,6 @@
                 top: 75px;
             }
             
-            /* Çok küçük ekranlarda kategori başlıkları */
             .category-title {
                 font-size: 1.4rem;
                 padding-left: 10px;
@@ -1535,7 +1623,32 @@
             }
             
             .card-face {
-                padding: 35px 25px;
+                padding: 25px 20px;
+            }
+            
+            .card-front .icon {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 20px;
+            }
+            
+            .card-front h3 {
+                font-size: 1.4rem;
+            }
+            
+            .card-back h3 {
+                font-size: 1.4rem;
+            }
+            
+            .card-back p {
+                font-size: 0.95rem;
+                -webkit-line-clamp: 3;
+            }
+            
+            .card-back .btn {
+                padding: 10px 18px;
+                font-size: 0.9rem;
+                max-width: 170px;
             }
             
             .footer {
@@ -1566,6 +1679,15 @@
                 font-size: 1.3rem;
             }
             
+            .flip-card {
+                height: 250px;
+            }
+            
+            .card-back .btn {
+                max-width: 160px;
+                padding: 9px 16px;
+            }
+            
             .floating-btn {
                 width: 50px;
                 height: 50px;
@@ -1585,9 +1707,10 @@
 <body>
     <!-- HEADER -->
     <header class="header">
-        <div class="logo">
+        <!-- LOGO - ANA SAYFAYA LİNK OLARAK -->
+        <a href="/" class="logo">
             <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/145e8d/FFFFFF?text=Web4+Medya';">
-        </div>
+        </a>
         
         <!-- MODERN NAVIGATION -->
         <nav class="nav-desktop">
@@ -2025,7 +2148,9 @@
             <!-- Logo ve Açıklama -->
             <div class="footer-section">
                 <div class="footer-logo">
-                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x65/145e8d/FFFFFF?text=Web4+Medya';">
+                    <!-- FOOTER LOGO DÜZELTMESİ - TRANSPARAN ARKA PLAN -->
+                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" 
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/200x65/FFFFFF/145e8d?text=Web4+Medya';">
                     <div class="footer-logo-text">Sizin için en iyisi!</div>
                 </div>
                 <p class="footer-description">
@@ -2225,7 +2350,7 @@
                 img.loading = 'lazy';
             });
             
-            // Handle logo fallback - Yeni gradient placeholder
+            // Handle logo fallback
             const logo = document.querySelector('.logo img');
             if (logo) {
                 logo.onerror = function() {
@@ -2235,12 +2360,12 @@
                 };
             }
             
-            // Handle footer logo fallback - Yeni gradient placeholder
+            // Handle footer logo fallback - BEYAZ ARKA PLAN DÜZELTMESİ
             const footerLogo = document.querySelector('.footer-logo img');
             if (footerLogo) {
                 footerLogo.onerror = function() {
                     this.onerror = null;
-                    this.src = 'https://via.placeholder.com/200x65/145e8d/FFFFFF?text=Web4+Medya';
+                    this.src = 'https://via.placeholder.com/200x65/FFFFFF/145e8d?text=Web4+Medya';
                     this.alt = 'Web4 Medya Logo - Placeholder';
                 };
             }
