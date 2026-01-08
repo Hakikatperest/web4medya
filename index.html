@@ -22,19 +22,19 @@
     
     <style>
         :root {
-            --primary: #1E3A8A;
-            --primary-light: #3B82F6;
-            --primary-dark: #1E40AF;
-            --secondary: #2563EB;
+            --primary: #000000; /* SİYAH */
+            --primary-light: #333333; /* Koyu gri */
+            --primary-dark: #111111; /* Daha koyu siyah */
+            --secondary: #FFFFFF; /* BEYAZ */
             --accent: #60A5FA;
-            --dark: #1F2937;
-            --gray-dark: #374151;
-            --gray: #6B7280;
-            --gray-light: #E5E7EB;
-            --light: #F3F4F6;
-            --white: #FFFFFF;
-            --shadow: 0 10px 40px rgba(30, 58, 138, 0.08);
-            --shadow-hover: 0 20px 60px rgba(30, 58, 138, 0.12);
+            --dark: #000000; /* SİYAH */
+            --gray-dark: #222222; /* Koyu gri */
+            --gray: #666666; /* Gri */
+            --gray-light: #EEEEEE; /* Açık gri */
+            --light: #F8F9FA; /* Çok açık gri */
+            --white: #FFFFFF; /* BEYAZ */
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.12);
             --radius: 20px;
             --radius-sm: 12px;
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -58,22 +58,22 @@
             overflow-x: hidden;
         }
 
-        /* MODERN HEADER - Daha dar beyazlık */
+        /* MODERN HEADER - SİYAH TEMA */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(0, 0, 0, 0.98); /* SİYAH */
             backdrop-filter: blur(10px);
             padding: 0 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(30, 58, 138, 0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             height: 70px;
-            border-bottom: 1px solid var(--gray-light);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .logo {
@@ -88,9 +88,10 @@
             width: auto;
             max-height: 50px;
             object-fit: contain;
+            filter: brightness(0) invert(1); /* Logoyu beyaz yapar */
         }
 
-        /* MODERN NAVIGATION */
+        /* MODERN NAVIGATION - BEYAZ METİN */
         .nav-desktop {
             display: flex;
             align-items: center;
@@ -102,7 +103,7 @@
         }
 
         .nav-link {
-            color: var(--gray-dark);
+            color: var(--white); /* BEYAZ */
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
@@ -116,11 +117,11 @@
         }
 
         .nav-link:hover {
-            color: var(--primary);
+            color: var(--accent); /* Mavi hover */
         }
 
         .nav-link.active {
-            color: var(--primary);
+            color: var(--white); /* BEYAZ */
         }
 
         .nav-link.active::after {
@@ -130,16 +131,16 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            background: linear-gradient(90deg, var(--accent), #93C5FD);
             border-radius: 2px;
         }
 
-        /* DROPDOWN MENÜ */
+        /* DROPDOWN MENÜ - SİYAH TEMA */
         .dropdown {
             position: absolute;
             top: 100%;
             left: 0;
-            background: var(--white);
+            background: var(--dark); /* SİYAH */
             min-width: 280px;
             box-shadow: var(--shadow);
             border-radius: var(--radius-sm);
@@ -148,7 +149,7 @@
             transform: translateY(10px);
             transition: all 0.3s ease;
             z-index: 1001;
-            border: 1px solid var(--gray-light);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .dropdown.active {
@@ -163,7 +164,7 @@
 
         .dropdown-section {
             padding: 15px 20px;
-            border-bottom: 1px solid var(--gray-light);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .dropdown-section:last-child {
@@ -172,7 +173,7 @@
 
         .dropdown-section h4 {
             font-size: 0.85rem;
-            color: var(--primary);
+            color: var(--accent); /* Mavi */
             margin-bottom: 10px;
             font-weight: 700;
             text-transform: uppercase;
@@ -182,35 +183,36 @@
         .dropdown-link {
             display: block;
             padding: 8px 0;
-            color: var(--gray-dark);
+            color: rgba(255, 255, 255, 0.9); /* Beyaz */
             text-decoration: none;
             font-size: 0.9rem;
             transition: var(--transition);
         }
 
         .dropdown-link:hover {
-            color: var(--primary);
+            color: var(--accent); /* Mavi hover */
             padding-left: 5px;
         }
 
         .arrow {
             font-size: 0.7rem;
             transition: transform 0.3s ease;
+            color: var(--white); /* BEYAZ */
         }
 
         .nav-item:hover .arrow {
             transform: rotate(180deg);
         }
 
-        /* HEADER CTA BUTTON - Beyaz arka plan, mavi numara */
+        /* HEADER CTA BUTTON - BEYAZ ARKA PLAN, SİYAH YAZI */
         .header-cta {
             display: flex;
             align-items: center;
         }
 
         .header-cta .btn {
-            background: var(--white);
-            color: var(--primary);
+            background: var(--white); /* BEYAZ */
+            color: var(--dark); /* SİYAH */
             padding: 10px 24px;
             border-radius: 8px;
             font-weight: 600;
@@ -218,18 +220,19 @@
             text-decoration: none;
             transition: var(--transition);
             white-space: nowrap;
-            border: 2px solid var(--primary-light);
-            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.1);
+            border: 2px solid var(--white);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .header-cta .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.15);
-            background: var(--primary-light);
-            color: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            background: transparent;
+            color: var(--white); /* BEYAZ */
+            border-color: var(--white);
         }
 
-        /* HAMBURGER MENU */
+        /* HAMBURGER MENU - BEYAZ ÇİZGİLER */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -246,7 +249,7 @@
         .menu-toggle span {
             width: 100%;
             height: 3px;
-            background-color: var(--dark);
+            background-color: var(--white); /* BEYAZ */
             border-radius: 10px;
             transition: all 0.3s ease;
         }
@@ -263,11 +266,11 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* HERO SECTION - MAVİ AĞIRLIKLI - Roket simgesi eklendi */
+        /* HERO SECTION - SİYAH TEMA */
         .hero {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            color: var(--white);
-            padding: 140px 5% 100px; /* Üst padding azaltıldı */
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); /* SİYAH gradient */
+            color: var(--white); /* BEYAZ */
+            padding: 140px 5% 100px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -365,7 +368,7 @@
         .hero h1 {
             font-size: clamp(2rem, 5vw, 3.2rem);
             font-weight: 800;
-            margin-bottom: 15px; /* Margin azaltıldı */
+            margin-bottom: 15px;
             line-height: 1.2;
             position: relative;
             z-index: 2;
@@ -389,7 +392,7 @@
             z-index: 2;
         }
 
-        /* YENİ HERO BUTONLARI - ADS SİTESİ TASARIMI */
+        /* YENİ HERO BUTONLARI - BEYAZ TEMA */
         .hero-buttons {
             display: flex;
             justify-content: center;
@@ -422,11 +425,11 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
         }
 
-        /* Primary buton (mavi) */
+        /* Primary buton (BEYAZ) */
         .hero-buttons .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: var(--white);
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: var(--white); /* BEYAZ */
+            color: var(--dark); /* SİYAH */
+            border: 2px solid var(--white);
         }
 
         /* WhatsApp butonu (yeşil) */
@@ -436,7 +439,7 @@
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* BUTTONS - MAVİ AĞIRLIKLI */
+        /* BUTTONS - BEYAZ TEMA */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -453,9 +456,9 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: var(--white);
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: var(--white); /* BEYAZ */
+            color: var(--dark); /* SİYAH */
+            border: 2px solid var(--white);
         }
 
         .btn-whatsapp {
@@ -469,18 +472,19 @@
             box-shadow: var(--shadow-hover);
         }
 
-        /* MOBILE MENU */
+        /* MOBILE MENU - SİYAH TEMA */
         .mobile-menu {
             position: fixed;
-            top: 70px; /* Header yüksekliği ile aynı */
+            top: 70px;
             left: 0;
             right: 0;
-            background: var(--white);
+            background: var(--dark); /* SİYAH */
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             z-index: 999;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .mobile-menu.active {
@@ -499,14 +503,18 @@
         .mobile-nav-link {
             display: block;
             padding: 15px;
-            color: var(--gray-dark);
+            color: var(--white); /* BEYAZ */
             text-decoration: none;
             font-weight: 600;
-            border-bottom: 1px solid var(--gray-light);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             transition: var(--transition);
             font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--accent); /* Mavi hover */
         }
 
         .mobile-dropdown-btn {
@@ -517,13 +525,13 @@
             background: none;
             border: none;
             padding: 15px;
-            color: var(--gray-dark);
+            color: var(--white); /* BEYAZ */
             font-weight: 600;
             font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             cursor: pointer;
-            border-bottom: 1px solid var(--gray-light);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             text-align: left;
         }
 
@@ -531,7 +539,7 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
-            background: var(--light);
+            background: rgba(255, 255, 255, 0.05);
             margin-left: 10px;
         }
 
@@ -541,7 +549,7 @@
 
         .mobile-dropdown-section {
             padding: 10px 20px;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .mobile-dropdown-section:last-child {
@@ -550,7 +558,7 @@
 
         .mobile-dropdown-section h4 {
             font-size: 0.9rem;
-            color: var(--primary);
+            color: var(--accent); /* Mavi */
             margin-bottom: 8px;
             font-weight: 700;
         }
@@ -558,19 +566,20 @@
         .mobile-dropdown-link {
             display: block;
             padding: 8px 0;
-            color: var(--gray-dark);
+            color: rgba(255, 255, 255, 0.9); /* Beyaz */
             text-decoration: none;
             font-size: 0.9rem;
             transition: var(--transition);
         }
 
         .mobile-dropdown-link:hover {
-            color: var(--primary);
+            color: var(--accent); /* Mavi hover */
             padding-left: 5px;
         }
 
         .mobile-arrow {
             transition: transform 0.3s ease;
+            color: var(--white); /* BEYAZ */
         }
 
         .mobile-dropdown-btn.active .mobile-arrow {
@@ -597,7 +606,7 @@
             font-size: clamp(1.8rem, 4vw, 2.5rem);
             font-weight: 800;
             margin-bottom: 20px;
-            color: var(--primary-dark);
+            color: var(--dark); /* SİYAH */
             position: relative;
             display: inline-block;
         }
@@ -610,24 +619,24 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            background: linear-gradient(90deg, var(--accent), #93C5FD);
             border-radius: 2px;
         }
 
         .section-subtitle {
             font-size: clamp(1rem, 1.5vw, 1.2rem);
-            color: var(--gray);
+            color: var(--gray); /* Gri */
             line-height: 1.6;
         }
 
-        /* KATEGORİ BAŞLIKLARI - YAZIM ANİMASYONU - SİYAH RENK - TEK SATIR */
+        /* KATEGORİ BAŞLIKLARI - SİYAH RENK */
         .category-title {
-            font-size: 1.8rem; /* Biraz büyütüldü */
+            font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 40px;
-            color: var(--dark);
+            color: var(--dark); /* SİYAH */
             padding-left: 20px;
-            border-left: 4px solid var(--primary);
+            border-left: 4px solid var(--accent); /* Mavi */
             overflow: hidden;
             white-space: nowrap;
             position: relative;
@@ -641,7 +650,7 @@
             overflow: hidden;
             white-space: nowrap;
             width: 0;
-            border-right: 2px solid var(--primary);
+            border-right: 2px solid var(--accent); /* Mavi */
             max-width: 100%;
         }
 
@@ -649,7 +658,7 @@
             overflow: hidden;
             white-space: nowrap;
             width: 0;
-            border-right: 2px solid var(--primary);
+            border-right: 2px solid var(--accent); /* Mavi */
             max-width: 100%;
         }
 
@@ -657,38 +666,30 @@
             overflow: hidden;
             white-space: nowrap;
             width: 0;
-            border-right: 2px solid var(--primary);
+            border-right: 2px solid var(--accent); /* Mavi */
             max-width: 100%;
         }
 
         /* Animasyonlar - Z harfinden sonra cursor hemen kaybolsun */
         @keyframes typing-1 {
             0% { width: 0; }
-            /* Dijital Pazarlama Hizmetlerimiz */
-            94% { width: 100%; border-right: 2px solid var(--primary); }
+            94% { width: 100%; border-right: 2px solid var(--accent); }
             95% { width: 100%; border-right: none; }
             100% { width: 100%; border-right: none; }
         }
 
         @keyframes typing-2 {
             0% { width: 0; }
-            /* Web Tasarım Hizmetlerimiz */
-            94% { width: 100%; border-right: 2px solid var(--primary); }
+            94% { width: 100%; border-right: 2px solid var(--accent); }
             95% { width: 100%; border-right: none; }
             100% { width: 100%; border-right: none; }
         }
 
         @keyframes typing-3 {
             0% { width: 0; }
-            /* Prodüksiyon Hizmetlerimiz */
-            94% { width: 100%; border-right: 2px solid var(--primary); }
+            94% { width: 100%; border-right: 2px solid var(--accent); }
             95% { width: 100%; border-right: none; }
             100% { width: 100%; border-right: none; }
-        }
-
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--primary); }
         }
 
         /* MODERN KART TASARIMI - TEK TIKLAMALI DÖNME */
@@ -830,13 +831,13 @@
         .card-front h3 {
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--primary-dark);
+            color: var(--dark); /* SİYAH */
             margin: 0;
         }
 
         .card-back {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: var(--white);
+            background: linear-gradient(135deg, var(--dark), var(--primary)); /* SİYAH gradient */
+            color: var(--white); /* BEYAZ */
             transform: rotateY(180deg);
             justify-content: space-between;
             padding: 35px 30px;
@@ -859,8 +860,8 @@
         }
 
         .card-back .btn {
-            background: var(--white);
-            color: var(--primary-dark);
+            background: var(--white); /* BEYAZ */
+            color: var(--dark); /* SİYAH */
             padding: 12px 28px;
             font-weight: 700;
             font-size: 0.95rem;
@@ -898,10 +899,10 @@
             mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%234285F4' d='M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z'/%3E%3Cpath fill='%2334A853' d='M46.5 24c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26,5.48-4.78,7.18l7.73,6c4.51-4.18,7.09-10.36,7.09-17.65z'/%3E%3Cpath fill='%23FBBC05' d='M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z'/%3E%3Cpath fill='%23EA4335' d='M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92,2.3-8.16,2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z'/%3E%3Cpath fill='none' d='M0 0h48v48H0z'/%3E%3C/svg%3E");
         }
 
-        /* WHY US SECTION - MAVİ TEMA - Roket simgeleri eklendi */
+        /* WHY US SECTION - SİYAH TEMA */
         .why-us {
             padding: 80px 5%;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); /* SİYAH gradient */
             color: white;
             position: relative;
             overflow: hidden;
@@ -1016,10 +1017,10 @@
             font-size: 0.95rem;
         }
 
-        /* CTA SECTION - MAVİ TEMA - YENİ BUTONLAR */
+        /* CTA SECTION - SİYAH TEMA */
         .cta-section {
             padding: 80px 5%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); /* SİYAH gradient */
             text-align: center;
             color: white;
             position: relative;
@@ -1061,7 +1062,7 @@
             line-height: 1.6;
         }
 
-        /* YENİ CTA BUTONLARI */
+        /* YENİ CTA BUTONLARI - BEYAZ TEMA */
         .cta-buttons {
             display: flex;
             justify-content: center;
@@ -1092,9 +1093,9 @@
         }
 
         .cta-buttons .btn-primary {
-            background: linear-gradient(135deg, #2563EB, #1D4ED8);
-            color: var(--white);
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: var(--white); /* BEYAZ */
+            color: var(--dark); /* SİYAH */
+            border: 2px solid var(--white);
         }
 
         .cta-buttons .btn-whatsapp {
@@ -1103,7 +1104,7 @@
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* YENİ FLOATING CTA BUTONLARI - ADS REKLAM SİTESİ TASARIMINA UYGUN */
+        /* YENİ FLOATING CTA BUTONLARI */
         .floating-cta {
             position: fixed;
             bottom: 30px;
@@ -1139,8 +1140,8 @@
         }
 
         .floating-phone {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
+            background: var(--white); /* BEYAZ */
+            color: var(--dark); /* SİYAH */
         }
 
         @keyframes pulse {
@@ -1155,15 +1156,15 @@
             }
         }
 
-        /* MODERN FOOTER - BEYAZ TEMA */
+        /* MODERN FOOTER - SİYAH TEMA */
         .footer {
-            background: var(--white);
-            color: var(--dark);
+            background: var(--dark); /* SİYAH */
+            color: var(--white); /* BEYAZ */
             padding: 70px 5% 30px;
             position: relative;
             overflow: hidden;
-            border-top: 1px solid var(--gray-light);
-            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.1);
         }
 
         .footer::before {
@@ -1173,7 +1174,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            background: linear-gradient(90deg, var(--accent), #93C5FD);
         }
 
         .footer-content {
@@ -1189,7 +1190,7 @@
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 25px;
-            color: var(--primary-dark);
+            color: var(--white); /* BEYAZ */
             position: relative;
             display: inline-block;
         }
@@ -1201,7 +1202,7 @@
             left: 0;
             width: 40px;
             height: 3px;
-            background: linear-gradient(90deg, var(--primary-light), var(--accent));
+            background: linear-gradient(90deg, var(--accent), #93C5FD);
         }
 
         .footer-logo {
@@ -1214,16 +1215,17 @@
         .footer-logo img {
             height: 50px;
             width: auto;
+            filter: brightness(0) invert(1); /* Logoyu beyaz yapar */
         }
 
         .footer-logo-text {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary-dark);
+            color: var(--white); /* BEYAZ */
         }
 
         .footer-description {
-            color: var(--gray);
+            color: rgba(255, 255, 255, 0.8); /* Açık beyaz */
             line-height: 1.7;
             margin-bottom: 25px;
         }
@@ -1266,22 +1268,22 @@
         .social-link {
             width: 40px;
             height: 40px;
-            background: var(--light);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary);
+            color: var(--white); /* BEYAZ */
             text-decoration: none;
             transition: var(--transition);
-            border: 1px solid var(--gray-light);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .social-link:hover {
-            background: var(--primary);
+            background: var(--accent); /* Mavi */
             color: white;
             transform: translateY(-3px);
-            border-color: var(--primary);
+            border-color: var(--accent);
         }
 
         .footer-links {
@@ -1293,7 +1295,7 @@
         }
 
         .footer-links a {
-            color: var(--gray);
+            color: rgba(255, 255, 255, 0.8); /* Açık beyaz */
             text-decoration: none;
             transition: var(--transition);
             display: flex;
@@ -1302,12 +1304,12 @@
         }
 
         .footer-links a:hover {
-            color: var(--primary);
+            color: var(--accent); /* Mavi hover */
             padding-left: 5px;
         }
 
         .footer-links i {
-            color: var(--primary-light);
+            color: var(--accent); /* Mavi */
             font-size: 0.8rem;
         }
 
@@ -1321,13 +1323,13 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            color: var(--gray);
+            color: rgba(255, 255, 255, 0.8); /* Açık beyaz */
         }
 
         .contact-item i {
             width: 36px;
             height: 36px;
-            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            background: linear-gradient(135deg, var(--accent), #93C5FD);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1337,34 +1339,37 @@
         }
 
         .contact-item a {
-            color: var(--primary);
+            color: var(--white); /* BEYAZ */
             text-decoration: none;
             transition: var(--transition);
             font-weight: 500;
         }
 
         .contact-item a:hover {
-            color: var(--primary-dark);
+            color: var(--accent); /* Mavi hover */
         }
 
         /* Footer telefon linkini buton gibi yap */
         .contact-item a[href^="tel:"] {
-            background: linear-gradient(135deg, var(--primary-light), var(--accent));
-            color: white;
+            background: var(--white); /* BEYAZ */
+            color: var(--dark); /* SİYAH */
             padding: 8px 16px;
             border-radius: 8px;
             display: inline-block;
             margin-top: 5px;
             transition: all 0.3s ease;
+            font-weight: 600;
         }
 
         .contact-item a[href^="tel:"]:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: var(--accent); /* Mavi */
+            color: white;
         }
 
         .contact-item span {
-            color: var(--gray-dark);
+            color: rgba(255, 255, 255, 0.9);
             line-height: 1.5;
         }
 
@@ -1372,20 +1377,20 @@
             max-width: 1200px;
             margin: 0 auto;
             padding-top: 30px;
-            border-top: 1px solid var(--gray-light);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
-            color: var(--gray);
+            color: rgba(255, 255, 255, 0.6);
             font-size: 0.9rem;
         }
 
         .footer-bottom a {
-            color: var(--primary);
+            color: var(--accent); /* Mavi */
             text-decoration: none;
             font-weight: 500;
         }
 
         .footer-bottom a:hover {
-            color: var(--primary-dark);
+            color: var(--white); /* BEYAZ */
             text-decoration: underline;
         }
 
@@ -1424,11 +1429,11 @@
 
         @media (max-width: 768px) {
             .hero {
-                padding: 120px 4% 80px; /* Üst padding daha da azaltıldı */
+                padding: 120px 4% 80px;
             }
             
             .rocket-icon {
-                display: none; /* Mobilde roketi gizle */
+                display: none;
             }
             
             .rocket-hero-1, .rocket-hero-2, .rocket-hero-3, .rocket-hero-4,
@@ -1436,9 +1441,9 @@
                 display: none;
             }
             
-            /* Kategori başlıkları mobilde - TEK SATIR ve taşmadan */
+            /* Kategori başlıkları mobilde */
             .category-title {
-                font-size: 1.4rem; /* Mobilde biraz küçültüldü ama tek satır */
+                font-size: 1.4rem;
                 padding-left: 15px;
                 margin-bottom: 30px;
                 white-space: nowrap;
@@ -1451,21 +1456,21 @@
             /* Mobilde animasyon süreleri kısalttı */
             @keyframes typing-1 {
                 0% { width: 0; }
-                94% { width: 100%; border-right: 2px solid var(--primary); }
+                94% { width: 100%; border-right: 2px solid var(--accent); }
                 95% { width: 100%; border-right: none; }
                 100% { width: 100%; border-right: none; }
             }
             
             @keyframes typing-2 {
                 0% { width: 0; }
-                94% { width: 100%; border-right: 2px solid var(--primary); }
+                94% { width: 100%; border-right: 2px solid var(--accent); }
                 95% { width: 100%; border-right: none; }
                 100% { width: 100%; border-right: none; }
             }
             
             @keyframes typing-3 {
                 0% { width: 0; }
-                94% { width: 100%; border-right: 2px solid var(--primary); }
+                94% { width: 100%; border-right: 2px solid var(--accent); }
                 95% { width: 100%; border-right: none; }
                 100% { width: 100%; border-right: none; }
             }
@@ -1523,16 +1528,16 @@
         @media (max-width: 480px) {
             .header {
                 padding: 0 20px;
-                height: 65px; /* Mobilde daha dar */
+                height: 65px;
             }
             
             .hero {
-                padding: 100px 20px 60px; /* Üst padding azaltıldı */
+                padding: 100px 20px 60px;
                 margin-top: 65px;
             }
             
             .mobile-menu {
-                top: 65px; /* Header yüksekliği ile aynı */
+                top: 65px;
             }
             
             /* Çok küçük ekranlarda kategori başlıkları */
@@ -1588,7 +1593,7 @@
     <!-- HEADER -->
     <header class="header">
         <div class="logo">
-            <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x50/1E3A8A/FFFFFF?text=Web4+Medya';">
+            <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x50/FFFFFF/000000?text=Web4+Medya';">
         </div>
         
         <!-- MODERN NAVIGATION -->
@@ -1646,7 +1651,7 @@
                 <a href="/iletisim/" class="nav-link">İletişim</a>
             </div>
             
-            <!-- HEADER CTA BUTTON - Beyaz arka plan, mavi numara -->
+            <!-- HEADER CTA BUTTON - BEYAZ ARKA PLAN, SİYAH YAZI -->
             <div class="header-cta">
                 <a href="tel:05422360983" class="btn">
                     <i class="fas fa-phone-alt"></i> 0542 236 09 83
@@ -2021,13 +2026,13 @@
         </div>
     </section>
 
-    <!-- MODERN FOOTER - BEYAZ TEMA -->
+    <!-- MODERN FOOTER - SİYAH TEMA -->
     <footer class="footer">
         <div class="footer-content">
             <!-- Logo ve Açıklama -->
             <div class="footer-section">
                 <div class="footer-logo">
-                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x50/1E3A8A/FFFFFF?text=Web4+Medya';">
+                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x50/FFFFFF/000000?text=Web4+Medya';">
                     <div class="footer-logo-text">Sizin için en iyisi!</div>
                 </div>
                 <p class="footer-description">
@@ -2085,7 +2090,7 @@
                         <i class="fas fa-phone-alt"></i>
                         <div>
                             <a href="tel:05422360983">0542 236 09 83</a>
-                            <p style="margin-top: 5px; font-size: 0.9rem; color: var(--gray);">Hemen arayın, ücretsiz danışmanlık alın</p>
+                            <p style="margin-top: 5px; font-size: 0.9rem; color: rgba(255, 255, 255, 0.7);">Hemen arayın, ücretsiz danışmanlık alın</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -2120,7 +2125,7 @@
         
         <div class="footer-bottom">
             <p>&copy; 2024 Web4 Medya. Tüm hakları saklıdır. <a href="/gizlilik-politikasi/">Gizlilik Politikası</a> | <a href="/kullanim-kosullari/">Kullanım Koşulları</a></p>
-            <p style="margin-top: 10px; font-size: 0.8rem; color: var(--gray);">Profesyonel dijital pazarlama ve web tasarım çözümleri</p>
+            <p style="margin-top: 10px; font-size: 0.8rem; color: rgba(255, 255, 255, 0.6);">Profesyonel dijital pazarlama ve web tasarım çözümleri</p>
         </div>
     </footer>
 
@@ -2240,7 +2245,7 @@
             if (logo) {
                 logo.onerror = function() {
                     this.onerror = null;
-                    this.src = 'https://via.placeholder.com/200x50/1E3A8A/FFFFFF?text=Web4+Medya';
+                    this.src = 'https://via.placeholder.com/200x50/FFFFFF/000000?text=Web4+Medya';
                     this.alt = 'Web4 Medya Logo - Placeholder';
                 };
             }
@@ -2250,7 +2255,7 @@
             if (footerLogo) {
                 footerLogo.onerror = function() {
                     this.onerror = null;
-                    this.src = 'https://via.placeholder.com/150x50/1E3A8A/FFFFFF?text=Web4+Medya';
+                    this.src = 'https://via.placeholder.com/150x50/FFFFFF/000000?text=Web4+Medya';
                     this.alt = 'Web4 Medya Logo - Placeholder';
                 };
             }
@@ -2374,21 +2379,21 @@
             /* Dinamik animasyonlar - her başlık için farklı süre */
             @keyframes typing-digital-title {
                 0% { width: 0; }
-                94% { width: 100%; border-right: 2px solid var(--primary); }
+                94% { width: 100%; border-right: 2px solid var(--accent); }
                 95% { width: 100%; border-right: none; }
                 100% { width: 100%; border-right: none; }
             }
             
             @keyframes typing-web-title {
                 0% { width: 0; }
-                94% { width: 100%; border-right: 2px solid var(--primary); }
+                94% { width: 100%; border-right: 2px solid var(--accent); }
                 95% { width: 100%; border-right: none; }
                 100% { width: 100%; border-right: none; }
             }
             
             @keyframes typing-production-title {
                 0% { width: 0; }
-                94% { width: 100%; border-right: 2px solid var(--primary); }
+                94% { width: 100%; border-right: 2px solid var(--accent); }
                 95% { width: 100%; border-right: none; }
                 100% { width: 100%; border-right: none; }
             }
@@ -2397,21 +2402,21 @@
             @media (max-width: 768px) {
                 @keyframes typing-digital-title {
                     0% { width: 0; }
-                    94% { width: 100%; border-right: 2px solid var(--primary); }
+                    94% { width: 100%; border-right: 2px solid var(--accent); }
                     95% { width: 100%; border-right: none; }
                     100% { width: 100%; border-right: none; }
                 }
                 
                 @keyframes typing-web-title {
                     0% { width: 0; }
-                    94% { width: 100%; border-right: 2px solid var(--primary); }
+                    94% { width: 100%; border-right: 2px solid var(--accent); }
                     95% { width: 100%; border-right: none; }
                     100% { width: 100%; border-right: none; }
                 }
                 
                 @keyframes typing-production-title {
                     0% { width: 0; }
-                    94% { width: 100%; border-right: 2px solid var(--primary); }
+                    94% { width: 100%; border-right: 2px solid var(--accent); }
                     95% { width: 100%; border-right: none; }
                     100% { width: 100%; border-right: none; }
                 }
