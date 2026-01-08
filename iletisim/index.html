@@ -316,70 +316,65 @@
             font-size: 0.8rem;
         }
 
-        /* İLETİŞİM PAGE HERO - BOŞLUK DÜZELTİLDİ */
+        /* İLETİŞİM PAGE HERO - YENİ GÖRSEL ARKA PLANI */
         .contact-hero {
-            background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
+            background: linear-gradient(135deg, rgba(20, 94, 141, 0.85), rgba(31, 144, 188, 0.85), rgba(29, 187, 225, 0.85)), 
+                        url('https://www.web4medya.com/images/web4medya-iletisim.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             color: var(--white);
-            padding: 60px 5% 50px;
+            padding: 80px 5% 70px;
             text-align: center;
             position: relative;
             overflow: hidden;
             margin-top: 0;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .contact-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-                url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23FFFFFF' fill-opacity='0.05' d='M52.4,-50.9C66.6,-39.5,75.9,-19.8,76.1,0.2C76.3,20.2,67.4,40.3,53.2,55.6C39,70.9,19.5,81.5,0.7,80.8C-18.1,80.2,-36.2,68.3,-50.5,53C-64.8,37.7,-75.3,18.9,-75.8,-0.3C-76.3,-19.5,-66.8,-39,-52.5,-50.4C-38.2,-61.8,-19.1,-65.1,0.1,-65.2C19.2,-65.2,38.3,-62.2,52.4,-50.9Z' transform='translate(100 100)'/%3E%3C/svg%3E");
-            background-size: cover;
-            z-index: 0;
+        /* Görsel yüklenmezse yedek gradient */
+        .contact-hero.no-image {
+            background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
         }
 
         .contact-hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+            text-align: center;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .contact-hero h1 {
             font-size: clamp(2.5rem, 6vw, 3.5rem);
             font-weight: 800;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             line-height: 1.1;
             position: relative;
             z-index: 2;
-            background: linear-gradient(135deg, 
-                #000000 0%, 
-                #1a1a1a 25%, 
-                #333333 50%, 
-                #1a1a1a 75%, 
-                #000000 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
             color: white;
-            text-shadow: 
-                0 1px 0 rgba(255, 255, 255, 0.1),
-                0 2px 10px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
             letter-spacing: 0.5px;
         }
 
         .contact-hero p {
             font-size: clamp(1.1rem, 2.2vw, 1.3rem);
             color: rgba(255, 255, 255, 0.95);
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto 30px;
             font-weight: 300;
             line-height: 1.7;
             position: relative;
             z-index: 2;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
 
         /* MOBILE MENU - BEYAZ TEMA - ANA SAYFA İLE AYNI */
@@ -1178,7 +1173,12 @@
             }
             
             .contact-hero {
-                padding: 40px 4% 30px;
+                padding: 60px 4% 50px;
+                min-height: 350px;
+            }
+            
+            .contact-hero-content {
+                padding: 30px;
             }
             
             .contact-content {
@@ -1281,7 +1281,12 @@
             }
             
             .contact-hero {
-                padding: 30px 20px 20px;
+                padding: 40px 20px 30px;
+                min-height: 300px;
+            }
+            
+            .contact-hero-content {
+                padding: 20px;
             }
             
             .contact-hero h1 {
@@ -1361,6 +1366,10 @@
         }
 
         @media (max-width: 360px) {
+            .contact-hero {
+                min-height: 280px;
+            }
+            
             .contact-hero h1 {
                 font-size: 2rem;
             }
@@ -1528,8 +1537,8 @@
         </nav>
     </div>
 
-    <!-- İLETİŞİM HERO BÖLÜMÜ - BOŞLUK DÜZELTİLDİ -->
-    <section class="contact-hero">
+    <!-- İLETİŞİM HERO BÖLÜMÜ - YENİ GÖRSEL ARKA PLANI -->
+    <section class="contact-hero" id="contactHero">
         <div class="contact-hero-content">
             <h1>Web4 Medya ile İletişime Geçin</h1>
             <p>Dijital pazarlama, web tasarım ve prodüksiyon hizmetlerimiz hakkında bilgi almak veya ücretsiz danışmanlık için bize ulaşın. Profesyonel ekibimiz size en uygun çözümü sunmak için hazır.</p>
@@ -1936,6 +1945,35 @@
                     this.onerror = null;
                     this.src = 'https://via.placeholder.com/200x65/145e8d/FFFFFF?text=Web4+Medya';
                     this.alt = 'Web4 Medya Logo - Placeholder';
+                };
+            }
+            
+            // Handle contact hero image fallback
+            const contactHero = document.getElementById('contactHero');
+            if (contactHero) {
+                const testImage = new Image();
+                testImage.src = 'https://www.web4medya.com/images/web4medya-iletisim.webp';
+                
+                testImage.onload = function() {
+                    // Görsel yüklendi, her şey normal
+                    console.log('Contact hero image loaded successfully');
+                };
+                
+                testImage.onerror = function() {
+                    // Görsel yüklenemedi, gradient background kullan
+                    contactHero.classList.add('no-image');
+                    console.log('Contact hero image failed to load, using gradient background');
+                    
+                    // Alternatif görsel için mesaj göster
+                    const heroContent = contactHero.querySelector('.contact-hero-content');
+                    if (heroContent) {
+                        const fallbackMessage = document.createElement('p');
+                        fallbackMessage.style.marginTop = '15px';
+                        fallbackMessage.style.fontSize = '0.9rem';
+                        fallbackMessage.style.color = 'rgba(255, 255, 255, 0.8)';
+                        fallbackMessage.textContent = 'Web4 Medya ile dijital dünyada fark yaratın';
+                        heroContent.appendChild(fallbackMessage);
+                    }
                 };
             }
         });
