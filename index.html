@@ -461,9 +461,15 @@
             transform: translateX(0);
         }
 
-        .hero-buttons .btn:hover {
-            transform: translateY(-5px) scale(1.02);
+        /* HERO BUTONLARI - TERS ÇEVİRİLMİŞ HOVER/TIKLAMA */
+        .hero-buttons .btn {
+            transform: translateY(-3px) scale(1.02);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-buttons .btn:active {
+            transform: translateY(0) scale(1);
+            box-shadow: 0 8px 25px rgba(20, 94, 141, 0.25);
         }
 
         /* MAVİ Hemen Ara butonu - DÜZGÜN GRADIENT */
@@ -471,14 +477,14 @@
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
             color: white;
             border: 2px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 25px rgba(20, 94, 141, 0.25);
+            box-shadow: 0 15px 35px rgba(20, 94, 141, 0.35);
         }
 
-        .hero-buttons .btn-primary:hover {
+        .hero-buttons .btn-primary:active {
             background: linear-gradient(135deg, var(--gradient-2), var(--gradient-1));
             color: white;
             border-color: rgba(255, 255, 255, 0.5);
-            box-shadow: 0 15px 35px rgba(20, 94, 141, 0.35);
+            box-shadow: 0 8px 25px rgba(20, 94, 141, 0.25);
         }
 
         /* WhatsApp butonu - DÜZGÜN GRADIENT */
@@ -486,13 +492,13 @@
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
             border: 2px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.25);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.35);
         }
 
-        .hero-buttons .btn-whatsapp:hover {
+        .hero-buttons .btn-whatsapp:active {
             background: linear-gradient(135deg, #128C7E, #25D366);
             border-color: rgba(255, 255, 255, 0.5);
-            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.35);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.25);
         }
 
         /* BUTTONS - GENEL */
@@ -521,11 +527,6 @@
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
             border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
         }
 
         /* MOBILE MENU - BEYAZ TEMA */
@@ -1153,9 +1154,15 @@
             transform: translateX(0);
         }
 
-        .cta-buttons .btn:hover {
-            transform: translateY(-5px) scale(1.02);
+        /* CTA BUTONLARI - TERS ÇEVİRİLMİŞ HOVER/TIKLAMA */
+        .cta-buttons .btn {
+            transform: translateY(-3px) scale(1.02);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-buttons .btn:active {
+            transform: translateY(0) scale(1);
+            box-shadow: 0 8px 25px rgba(20, 94, 141, 0.25);
         }
 
         /* MAVİ Hemen Ara butonu - CTA */
@@ -1163,26 +1170,26 @@
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
             color: white;
             border: 2px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 25px rgba(20, 94, 141, 0.25);
+            box-shadow: 0 15px 35px rgba(20, 94, 141, 0.35);
         }
 
-        .cta-buttons .btn-primary:hover {
+        .cta-buttons .btn-primary:active {
             background: linear-gradient(135deg, var(--gradient-2), var(--gradient-1));
             border-color: rgba(255, 255, 255, 0.5);
-            box-shadow: 0 15px 35px rgba(20, 94, 141, 0.35);
+            box-shadow: 0 8px 25px rgba(20, 94, 141, 0.25);
         }
 
         .cta-buttons .btn-whatsapp {
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
             border: 2px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.25);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.35);
         }
 
-        .cta-buttons .btn-whatsapp:hover {
+        .cta-buttons .btn-whatsapp:active {
             background: linear-gradient(135deg, #128C7E, #25D366);
             border-color: rgba(255, 255, 255, 0.5);
-            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.35);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.25);
         }
 
         /* YENİ FLOATING CTA BUTONLARI */
@@ -1234,21 +1241,35 @@
             transform: translateX(0);
         }
 
-        .floating-btn:hover {
+        /* FLOATING BUTONLAR - TERS ÇEVİRİLMİŞ HOVER/TIKLAMA */
+        .floating-btn {
             transform: scale(1.1) rotate(5deg);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .floating-btn:active {
+            transform: scale(1) rotate(0);
+            box-shadow: 0 10px 30px rgba(20, 94, 141, 0.3);
         }
 
         .floating-whatsapp {
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
             animation: pulse 2s infinite;
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        .floating-whatsapp:active {
             box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
         }
 
         .floating-phone {
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
             color: white;
+            box-shadow: 0 15px 40px rgba(20, 94, 141, 0.4);
+        }
+
+        .floating-phone:active {
             box-shadow: 0 10px 30px rgba(20, 94, 141, 0.3);
         }
 
