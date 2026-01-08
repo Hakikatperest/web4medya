@@ -88,7 +88,7 @@
             width: auto;
             max-height: 50px;
             object-fit: contain;
-            filter: brightness(0) invert(1); /* Logoyu beyaz yapar */
+            /* filter: brightness(0) invert(1); BU SATIR KALDIRILDI - Logo orijinal renginde kalacak */
         }
 
         /* MODERN NAVIGATION - BEYAZ METİN */
@@ -1215,7 +1215,7 @@
         .footer-logo img {
             height: 50px;
             width: auto;
-            filter: brightness(0) invert(1); /* Logoyu beyaz yapar */
+            /* filter: brightness(0) invert(1); BU SATIR KALDIRILDI - Logo orijinal renginde kalacak */
         }
 
         .footer-logo-text {
@@ -1593,7 +1593,7 @@
     <!-- HEADER -->
     <header class="header">
         <div class="logo">
-            <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x50/FFFFFF/000000?text=Web4+Medya';">
+            <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x50/000000/FFFFFF?text=Web4+Medya';">
         </div>
         
         <!-- MODERN NAVIGATION -->
@@ -2032,7 +2032,7 @@
             <!-- Logo ve Açıklama -->
             <div class="footer-section">
                 <div class="footer-logo">
-                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x50/FFFFFF/000000?text=Web4+Medya';">
+                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x50/000000/FFFFFF?text=Web4+Medya';">
                     <div class="footer-logo-text">Sizin için en iyisi!</div>
                 </div>
                 <p class="footer-description">
@@ -2240,22 +2240,22 @@
                 img.loading = 'lazy';
             });
             
-            // Handle logo fallback
+            // Handle logo fallback - orijinal logo için siyah placeholder
             const logo = document.querySelector('.logo img');
             if (logo) {
                 logo.onerror = function() {
                     this.onerror = null;
-                    this.src = 'https://via.placeholder.com/200x50/FFFFFF/000000?text=Web4+Medya';
+                    this.src = 'https://via.placeholder.com/200x50/000000/FFFFFF?text=Web4+Medya';
                     this.alt = 'Web4 Medya Logo - Placeholder';
                 };
             }
             
-            // Handle footer logo fallback
+            // Handle footer logo fallback - orijinal logo için siyah placeholder
             const footerLogo = document.querySelector('.footer-logo img');
             if (footerLogo) {
                 footerLogo.onerror = function() {
                     this.onerror = null;
-                    this.src = 'https://via.placeholder.com/150x50/FFFFFF/000000?text=Web4+Medya';
+                    this.src = 'https://via.placeholder.com/150x50/000000/FFFFFF?text=Web4+Medya';
                     this.alt = 'Web4 Medya Logo - Placeholder';
                 };
             }
