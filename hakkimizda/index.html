@@ -1,0 +1,569 @@
+<<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web4Medya - Dijital çözümlerde yenilikçi yaklaşım. Misyonumuz, vizyonumuz ve değerlerimiz hakkında detaylı bilgi edinin.">
+    <title>Web4Medya - Hakkımızda, Misyon ve Vizyon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header ve Menü Stilleri */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #2c3e50;
+            cursor: pointer;
+        }
+        
+        /* Ana İçerik */
+        .main-content {
+            padding: 60px 0;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .page-header h1 {
+            font-size: 42px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            color: #7f8c8d;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Hakkımızda Bölümü */
+        .about-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 80px;
+            gap: 40px;
+        }
+        
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-content h2 {
+            font-size: 32px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            font-size: 17px;
+            color: #555;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+        
+        /* Misyon Vizyon Bölümü */
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+        
+        .mission, .vision {
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .mission:hover, .vision:hover {
+            transform: translateY(-10px);
+        }
+        
+        .mission h2, .vision h2 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .mission h2 i, .vision h2 i {
+            margin-right: 10px;
+            color: #3498db;
+        }
+        
+        /* İşlerimiz Bölümü */
+        .our-work {
+            margin-bottom: 80px;
+        }
+        
+        .our-work h2 {
+            font-size: 32px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .work-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .work-category {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .work-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .work-category h3 {
+            font-size: 22px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .work-category h3 i {
+            margin-right: 10px;
+            color: #3498db;
+        }
+        
+        .work-category ul {
+            list-style-position: inside;
+            margin-bottom: 20px;
+        }
+        
+        .work-category li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        .work-link {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .work-link:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Kısayollar */
+        .shortcuts {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0;
+            border-radius: 8px;
+            margin-bottom: 80px;
+        }
+        
+        .shortcuts h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        
+        .shortcut-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .shortcut-link {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .shortcut-link:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        /* Sabit Butonlar */
+        .fixed-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+        }
+        
+        .fixed-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        
+        .fixed-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .search-btn {
+            background-color: #3498db;
+        }
+        
+        .whatsapp-btn {
+            background-color: #25D366;
+        }
+        
+        /* Responsive Tasarım */
+        @media (max-width: 992px) {
+            .about-section, .mission-vision {
+                flex-direction: column;
+            }
+            
+            .page-header h1 {
+                font-size: 36px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+            
+            .mission, .vision {
+                padding: 30px 20px;
+            }
+            
+            .fixed-buttons {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .fixed-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 28px;
+            }
+            
+            .about-content h2, .our-work h2 {
+                font-size: 26px;
+            }
+            
+            .mission h2, .vision h2 {
+                font-size: 24px;
+            }
+            
+            .work-category {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header ve Menü -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Web<span>4</span>Medya</a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="mainMenu">
+                    <li><a href="#">Ana Sayfa</a></li>
+                    <li><a href="#">Hizmetlerimiz</a></li>
+                    <li><a href="#" class="active">Hakkımızda</a></li>
+                    <li><a href="#">Portfolyo</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Ana İçerik -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Sayfa Başlığı -->
+            <div class="page-header">
+                <h1>Hakkımızda</h1>
+                <p>Web4Medya olarak, dijital dünyada yenilikçi çözümler sunmak için 10 yılı aşkın süredir çalışıyoruz. Misyonumuz, vizyonumuz ve değerlerimiz hakkında daha fazla bilgi edinin.</p>
+            </div>
+            
+            <!-- Hakkımızda Bölümü -->
+            <section class="about-section">
+                <div class="about-content">
+                    <h2>Web4Medya Kimdir?</h2>
+                    <p>2014 yılında kurulan Web4Medya, dijital dönüşüm süreçlerinde işletmelere kapsamlı çözümler sunan öncü bir teknoloji şirketidir. Kurulduğumuz günden bu yana, müşterilerimizin dijital varlıklarını güçlendirmek ve onlara rekabet avantajı sağlamak için çalışıyoruz.</p>
+                    <p>Uzman ekibimiz, web geliştirme, dijital pazarlama, SEO, sosyal medya yönetimi ve e-ticaret çözümleri konularında derin bilgi birikimine sahiptir. Her projeye özel yaklaşıyor ve müşterilerimizin ihtiyaçlarına en uygun çözümleri sunuyoruz.</p>
+                    <p>Teknolojiyi insan odaklı kullanarak, karmaşık dijital sorunlara basit ve etkili çözümler üretmeyi hedefliyoruz. Müşteri memnuniyeti ve kaliteli hizmet anlayışımız, sektördeki başarımızın temelini oluşturuyor.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Web4Medya Ekibi - Ofis Ortamında Çalışma" width="800" height="600">
+                </div>
+            </section>
+            
+            <!-- Misyon Vizyon Bölümü -->
+            <section class="mission-vision">
+                <div class="mission">
+                    <h2><i class="fas fa-bullseye"></i> Misyonumuz</h2>
+                    <p>İşletmelerin dijital dönüşüm süreçlerini hızlandırmak ve onlara rekabet avantajı sağlayacak yenilikçi çözümler sunmak. Müşterilerimizin dijital varlıklarını güçlendirerek, hedef kitlelerine daha etkili bir şekilde ulaşmalarını sağlamak.</p>
+                    <p>Teknolojiyi insan odaklı kullanarak, karmaşık dijital sorunlara basit ve etkili çözümler üretmek. Sürekli gelişen dijital dünyada, müşterilerimizin her zaman bir adım önde olmalarını sağlamak.</p>
+                </div>
+                
+                <div class="vision">
+                    <h2><i class="fas fa-eye"></i> Vizyonumuz</h2>
+                    <p>Türkiye'nin ve bölgenin önde gelen dijital çözüm sağlayıcısı olmak. Yenilikçi teknolojileri kullanarak, dijital dünyada sürdürülebilir başarı için güvenilir bir partner olmak.</p>
+                    <p>2028 yılına kadar, Avrupa ve Orta Doğu'da 10'dan fazla ülkede faaliyet gösteren, sektöründe referans gösterilen küresel bir marka olmak. Dijital dönüşümde öncü rol oynayarak, iş dünyasının şekillenmesine katkıda bulunmak.</p>
+                </div>
+            </section>
+            
+            <!-- İşlerimiz Bölümü -->
+            <section class="our-work">
+                <h2>Yaptığımız İşler</h2>
+                <div class="work-categories">
+                    <div class="work-category">
+                        <h3><i class="fas fa-code"></i> Web Geliştirme</h3>
+                        <ul>
+                            <li>Kurumsal Web Siteleri</li>
+                            <li>E-ticaret Platformları</li>
+                            <li>Web Uygulamaları</li>
+                            <li>CMS Entegrasyonları</li>
+                        </ul>
+                        <a href="#" class="work-link">Projeleri Gör</a>
+                    </div>
+                    
+                    <div class="work-category">
+                        <h3><i class="fas fa-chart-line"></i> Dijital Pazarlama</h3>
+                        <ul>
+                            <li>SEO Optimizasyonu</li>
+                            <li>Sosyal Medya Yönetimi</li>
+                            <li>Google Ads Yönetimi</li>
+                            <li>İçerik Pazarlaması</li>
+                        </ul>
+                        <a href="#" class="work-link">Çalışmalarımız</a>
+                    </div>
+                    
+                    <div class="work-category">
+                        <h3><i class="fas fa-paint-brush"></i> Tasarım Hizmetleri</h3>
+                        <ul>
+                            <li>Kurumsal Kimlik Tasarımı</li>
+                            <li>UI/UX Tasarım</li>
+                            <li>Logo ve Marka Tasarımı</li>
+                            <li>Responsive Tasarım</li>
+                        </ul>
+                        <a href="#" class="work-link">Portfolyo</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Kısayollar -->
+            <section class="shortcuts">
+                <div class="container">
+                    <h2>Hızlı Erişim</h2>
+                    <div class="shortcut-links">
+                        <a href="#" class="shortcut-link">Hizmetlerimiz</a>
+                        <a href="#" class="shortcut-link">Referanslarımız</a>
+                        <a href="#" class="shortcut-link">Ekibimiz</a>
+                        <a href="#" class="shortcut-link">İletişim</a>
+                        <a href="#" class="shortcut-link">Kariyer</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Web4Medya. Tüm hakları saklıdır.</p>
+            <p>İstanbul, Türkiye | info@web4medya.com | +90 (212) 123 45 67</p>
+        </div>
+    </footer>
+
+    <!-- Sabit Butonlar (Arama ve WhatsApp) -->
+    <div class="fixed-buttons">
+        <a href="#" class="fixed-btn search-btn">
+            <i class="fas fa-search"></i>
+        </a>
+        <a href="https://wa.me/905551234567" class="fixed-btn whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        // Mobil Menü Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mainMenu').classList.toggle('show');
+        });
+        
+        // Menü dışına tıklanınca menüyü kapat
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mainMenu');
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            
+            if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+                menu.classList.remove('show');
+            }
+        });
+        
+        // SEO için sayfa başlığına odaklanma
+        document.addEventListener('DOMContentLoaded', function() {
+            const pageTitle = document.querySelector('.page-header h1');
+            if (pageTitle) {
+                pageTitle.setAttribute('tabindex', '-1');
+                pageTitle.focus();
+            }
+        });
+    </script>
+</body>
+</html>
