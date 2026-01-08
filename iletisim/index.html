@@ -316,104 +316,57 @@
             font-size: 0.8rem;
         }
 
-        /* İLETİŞİM PAGE HERO - MODERN GÖRSEL EKLENDİ */
+        /* İLETİŞİM PAGE HERO - SADE BİR TASARIM */
         .contact-hero {
+            padding: 60px 5% 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             position: relative;
-            margin-top: 0;
             overflow: hidden;
         }
 
-        .hero-image-container {
-            position: relative;
-            width: 100%;
-            height: 70vh;
-            min-height: 500px;
-            max-height: 800px;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .hero-image:hover {
-            transform: scale(1.02);
-        }
-
-        /* Görsel yüklenmezse gradient fallback */
-        .hero-image-container::before {
+        .contact-hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, 
-                rgba(20, 94, 141, 0.85) 0%, 
-                rgba(31, 144, 188, 0.85) 50%, 
-                rgba(29, 187, 225, 0.85) 100%);
-            z-index: 1;
-        }
-
-        .hero-image-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
-            z-index: 2;
+                radial-gradient(circle at 20% 80%, rgba(20, 94, 141, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(31, 144, 188, 0.05) 0%, transparent 50%);
         }
 
         .contact-hero-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 3;
-            width: 90%;
-            max-width: 1200px;
-            text-align: center;
-            color: var(--white);
-            padding: 40px;
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .contact-hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
             font-weight: 800;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             line-height: 1.1;
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 1) 0%, 
-                rgba(255, 255, 255, 0.9) 50%, 
-                rgba(255, 255, 255, 0.8) 100%);
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            letter-spacing: -0.5px;
+            letter-spacing: 0.5px;
         }
 
         .contact-hero p {
-            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-            color: rgba(255, 255, 255, 0.95);
-            max-width: 800px;
-            margin: 0 auto 40px;
-            font-weight: 300;
+            font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+            color: var(--gray-dark);
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-weight: 400;
             line-height: 1.7;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            background: rgba(0, 0, 0, 0.3);
-            padding: 20px 30px;
-            border-radius: var(--radius-sm);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 2;
         }
 
         /* MOBILE MENU - BEYAZ TEMA - ANA SAYFA İLE AYNI */
@@ -532,9 +485,73 @@
 
         /* GENEL SAYFA BOŞLUK DÜZENLEMELERİ */
         .contact-content {
-            padding: 50px 5% 40px;
+            padding: 0 5% 40px;
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        /* MODERN GÖRSEL BÖLÜMÜ - MESAJ GÖNDERİN ÜZERİNDE */
+        .modern-image-section {
+            position: relative;
+            margin: 0 auto 60px;
+            max-width: 1200px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-hover);
+            height: 400px;
+        }
+
+        .modern-image-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .modern-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .modern-image:hover {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(20, 94, 141, 0.85) 0%, 
+                rgba(31, 144, 188, 0.75) 50%, 
+                rgba(29, 187, 225, 0.65) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .image-overlay h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .image-overlay p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            max-width: 600px;
+            line-height: 1.6;
+            opacity: 0.95;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
         }
 
         /* İLETİŞİM İÇERİK BÖLÜMÜ */
@@ -552,6 +569,8 @@
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             border: 1px solid var(--gray-light);
+            position: relative;
+            z-index: 2;
         }
 
         .form-title {
@@ -1190,7 +1209,7 @@
             text-decoration: underline;
         }
 
-        /* RESPONSIVE TASARIM - MODERN GÖRSEL İÇİN DÜZENLEMELER */
+        /* RESPONSIVE TASARIM - BOŞLUK DÜZENLEMELERİ */
         @media (max-width: 1024px) {
             .nav-desktop {
                 display: none;
@@ -1204,9 +1223,9 @@
                 display: none;
             }
             
-            .hero-image-container {
-                height: 60vh;
-                min-height: 450px;
+            .modern-image-section {
+                height: 350px;
+                margin-bottom: 50px;
             }
         }
 
@@ -1216,29 +1235,30 @@
                 margin-top: 80px;
             }
             
-            .hero-image-container {
-                height: 50vh;
-                min-height: 400px;
+            .contact-hero {
+                padding: 40px 4% 30px;
             }
             
-            .contact-hero-content {
+            .modern-image-section {
+                height: 300px;
+                margin-bottom: 40px;
+            }
+            
+            .image-overlay {
                 padding: 30px 20px;
-                width: 95%;
             }
             
-            .contact-hero h1 {
-                font-size: clamp(2rem, 5vw, 3rem);
-                margin-bottom: 20px;
+            .image-overlay h2 {
+                font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+                margin-bottom: 15px;
             }
             
-            .contact-hero p {
-                font-size: clamp(1rem, 2vw, 1.2rem);
-                padding: 15px 20px;
-                margin-bottom: 30px;
+            .image-overlay p {
+                font-size: clamp(1rem, 1.8vw, 1.2rem);
             }
             
             .contact-content {
-                padding: 30px 4% 20px;
+                padding: 0 4% 20px;
             }
             
             .contact-container {
@@ -1336,28 +1356,39 @@
                 margin-top: 75px;
             }
             
-            .hero-image-container {
-                height: 45vh;
-                min-height: 350px;
-            }
-            
-            .contact-hero-content {
-                padding: 25px 15px;
+            .contact-hero {
+                padding: 30px 20px 20px;
             }
             
             .contact-hero h1 {
                 font-size: 1.8rem;
-                margin-bottom: 15px;
             }
             
             .contact-hero p {
                 font-size: 1rem;
-                padding: 12px 15px;
-                margin-bottom: 20px;
+            }
+            
+            .modern-image-section {
+                height: 250px;
+                margin-bottom: 30px;
+                border-radius: var(--radius-sm);
+            }
+            
+            .image-overlay {
+                padding: 20px 15px;
+            }
+            
+            .image-overlay h2 {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+            
+            .image-overlay p {
+                font-size: 0.95rem;
             }
             
             .contact-content {
-                padding: 20px 20px 15px;
+                padding: 0 20px 15px;
             }
             
             .contact-form-section, .contact-info-card {
@@ -1425,9 +1456,12 @@
         }
 
         @media (max-width: 360px) {
-            .hero-image-container {
-                height: 40vh;
-                min-height: 300px;
+            .modern-image-section {
+                height: 220px;
+            }
+            
+            .image-overlay h2 {
+                font-size: 1.3rem;
             }
             
             .contact-hero h1 {
@@ -1610,17 +1644,24 @@
         </nav>
     </div>
 
-    <!-- MODERN GÖRSEL İLE İLETİŞİM HERO BÖLÜMÜ -->
+    <!-- İLETİŞİM HERO BÖLÜMÜ -->
     <section class="contact-hero">
-        <div class="hero-image-container">
+        <div class="contact-hero-content">
+            <h1>Web4 Medya ile İletişime Geçin</h1>
+            <p>Dijital pazarlama, web tasarım ve prodüksiyon hizmetlerimiz hakkında bilgi almak veya ücretsiz danışmanlık için bize ulaşın. Profesyonel ekibimiz size en uygun çözümü sunmak için hazır.</p>
+        </div>
+    </section>
+
+    <!-- MODERN GÖRSEL BÖLÜMÜ - MESAJ GÖNDERİN BÖLÜMÜNÜN ÜZERİNDE -->
+    <section class="modern-image-section">
+        <div class="modern-image-container">
             <img src="https://www.web4medya.com/images/web4medya-iletisim.webp" 
                  alt="Web4 Medya İletişim - Dijital Pazarlama Ajansı" 
-                 class="hero-image"
+                 class="modern-image"
                  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80';">
-            <div class="hero-image-overlay"></div>
-            <div class="contact-hero-content">
-                <h1>Web4 Medya ile İletişime Geçin</h1>
-                <p>Dijital pazarlama, web tasarım ve prodüksiyon hizmetlerimiz hakkında bilgi almak veya ücretsiz danışmanlık için bize ulaşın. Profesyonel ekibimiz size en uygun çözümü sunmak için hazır.</p>
+            <div class="image-overlay">
+                <h2>Profesyonel Dijital Çözümler İçin Buradayız</h2>
+                <p>Google Ads, SEO, web tasarım ve video prodüksiyon hizmetlerimizle işinizi bir adım öne taşıyoruz. Hemen iletişime geçin!</p>
             </div>
         </div>
     </section>
@@ -2008,10 +2049,10 @@
                 img.loading = 'lazy';
             });
             
-            // Handle hero image fallback
-            const heroImage = document.querySelector('.hero-image');
-            if (heroImage) {
-                heroImage.onerror = function() {
+            // Handle modern image fallback
+            const modernImage = document.querySelector('.modern-image');
+            if (modernImage) {
+                modernImage.onerror = function() {
                     this.onerror = null;
                     this.src = 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80';
                     this.alt = 'Web4 Medya İletişim - Unsplash Placeholder';
