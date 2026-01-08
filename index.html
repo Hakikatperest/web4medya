@@ -1294,7 +1294,7 @@
             background: rgba(255, 255, 255, 0.8);
         }
 
-        /* FOOTER LOGO DÜZELTMESİ */
+        /* FOOTER LOGO DÜZELTMESİ - LOGO BEYAZ OLMAMALI */
         .footer-logo {
             display: flex;
             align-items: center;
@@ -1305,8 +1305,7 @@
         .footer-logo img {
             height: 65px;
             width: auto;
-            filter: brightness(0) invert(1);
-            background: transparent; /* Beyaz arka planı kaldır */
+            /* filter: brightness(0) invert(1); BU SATIRI KALDIRDIK - logo beyaz olmasın */
         }
 
         .footer-logo-text {
@@ -2148,9 +2147,9 @@
             <!-- Logo ve Açıklama -->
             <div class="footer-section">
                 <div class="footer-logo">
-                    <!-- FOOTER LOGO DÜZELTMESİ - TRANSPARAN ARKA PLAN -->
+                    <!-- FOOTER LOGO DÜZELTMESİ - ORJİNAL LOGO RENGİ -->
                     <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" 
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/200x65/FFFFFF/145e8d?text=Web4+Medya';">
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/200x65/145e8d/FFFFFF?text=Web4+Medya';">
                     <div class="footer-logo-text">Sizin için en iyisi!</div>
                 </div>
                 <p class="footer-description">
@@ -2360,12 +2359,12 @@
                 };
             }
             
-            // Handle footer logo fallback - BEYAZ ARKA PLAN DÜZELTMESİ
+            // Handle footer logo fallback
             const footerLogo = document.querySelector('.footer-logo img');
             if (footerLogo) {
                 footerLogo.onerror = function() {
                     this.onerror = null;
-                    this.src = 'https://via.placeholder.com/200x65/FFFFFF/145e8d?text=Web4+Medya';
+                    this.src = 'https://via.placeholder.com/200x65/145e8d/FFFFFF?text=Web4+Medya';
                     this.alt = 'Web4 Medya Logo - Placeholder';
                 };
             }
