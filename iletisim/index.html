@@ -193,15 +193,57 @@
             z-index: 1001;
         }
 
+        /* BREADCRUMB (İÇERİK NAVIGASYONU) - DÜZENLENDİ */
+        .breadcrumb {
+            padding: 30px 5% 20px;
+            background: #f8fafc;
+            margin-top: 80px;
+            border-bottom: 1px solid var(--gray-light);
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb-nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-nav a {
+            color: var(--gradient-2);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb-nav a:hover {
+            color: var(--gradient-1);
+            text-decoration: underline;
+        }
+
+        .breadcrumb-nav span {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb-separator {
+            color: var(--gray);
+            font-size: 0.8rem;
+        }
+
         /* İLETİŞİM PAGE HERO - BOŞLUK DÜZELTİLDİ */
         .contact-hero {
             background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
             color: var(--white);
-            padding: 140px 5% 80px; /* ÜST BOŞLUK AZALTILDI */
+            padding: 60px 5% 50px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            margin-top: 80px;
+            margin-top: 0;
         }
 
         .contact-hero::before {
@@ -259,18 +301,19 @@
             z-index: 2;
         }
 
-        /* İLETİŞİM İÇERİK BÖLÜMÜ */
+        /* GENEL SAYFA BOŞLUK DÜZENLEMELERİ */
         .contact-content {
-            padding: 80px 5%;
+            padding: 50px 5% 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
+        /* İLETİŞİM İÇERİK BÖLÜMÜ */
         .contact-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-            margin-bottom: 80px;
+            gap: 40px;
+            margin-bottom: 60px;
         }
 
         /* İLETİŞİM FORMU */
@@ -502,9 +545,9 @@
             color: var(--gray);
         }
 
-        /* HARİTA BÖLÜMÜ */
+        /* HARİTA BÖLÜMÜ - MOBİL DÜZENLEMELERİ */
         .map-section {
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
 
         .section-title {
@@ -553,6 +596,7 @@
             color: var(--gradient-1);
             padding: 40px;
             text-align: center;
+            box-sizing: border-box;
         }
 
         .map-placeholder i {
@@ -565,23 +609,27 @@
             font-size: 1.5rem;
             margin-bottom: 10px;
             font-weight: 700;
+            line-height: 1.3;
+            word-break: break-word;
+            max-width: 100%;
         }
 
         .map-placeholder p {
             font-size: 1.1rem;
             max-width: 500px;
             line-height: 1.6;
+            word-break: break-word;
         }
 
         /* CTA BÖLÜMÜ */
         .contact-cta {
-            padding: 80px 5%;
+            padding: 60px 5%;
             background: linear-gradient(135deg, #0d4c7a, #1a7cb0, #1dbbe1);
             text-align: center;
             color: white;
             position: relative;
             overflow: hidden;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
             border-radius: var(--radius);
         }
 
@@ -668,46 +716,6 @@
             box-shadow: 0 15px 35px rgba(37, 211, 102, 0.35);
         }
 
-        /* BREADCRUMB (İÇERİK NAVIGASYONU) */
-        .breadcrumb {
-            padding: 100px 5% 30px;
-            background: #f8fafc;
-            margin-top: 80px;
-            border-bottom: 1px solid var(--gray-light);
-        }
-
-        .breadcrumb-nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .breadcrumb-nav a {
-            color: var(--gradient-2);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            font-size: 0.95rem;
-        }
-
-        .breadcrumb-nav a:hover {
-            color: var(--gradient-1);
-            text-decoration: underline;
-        }
-
-        .breadcrumb-nav span {
-            color: var(--gray);
-            font-size: 0.95rem;
-        }
-
-        .breadcrumb-separator {
-            color: var(--gray);
-            font-size: 0.8rem;
-        }
-
         /* Mobile menu stilleri ana sayfa ile aynı */
         .mobile-menu {
             position: fixed;
@@ -732,7 +740,7 @@
         .footer {
             background: var(--white);
             color: var(--gray-dark);
-            padding: 60px 5% 30px; /* Padding azaltıldı */
+            padding: 60px 5% 30px;
             position: relative;
             overflow: hidden;
             border-top: 1px solid var(--gray-light);
@@ -754,16 +762,16 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px; /* Gap azaltıldı */
-            margin-bottom: 40px; /* Margin azaltıldı */
+            gap: 40px;
+            margin-bottom: 40px;
             position: relative;
             z-index: 1;
         }
 
         .footer-section h3 {
-            font-size: 1.3rem; /* Font boyutu küçültüldü */
+            font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 20px; /* Margin azaltıldı */
+            margin-bottom: 20px;
             color: var(--black);
             position: relative;
             display: inline-block;
@@ -772,9 +780,9 @@
         .footer-section h3::after {
             content: '';
             position: absolute;
-            bottom: -8px; /* Pozisyon ayarlandı */
+            bottom: -8px;
             left: 0;
-            width: 40px; /* Genişlik azaltıldı */
+            width: 40px;
             height: 3px;
             background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
         }
@@ -782,36 +790,36 @@
         .footer-logo {
             display: flex;
             align-items: center;
-            gap: 12px; /* Gap azaltıldı */
-            margin-bottom: 20px; /* Margin azaltıldı */
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
         .footer-logo img {
-            height: 55px; /* Boyut küçültüldü */
+            height: 55px;
             width: auto;
         }
 
         .footer-logo-text {
-            font-size: 1.4rem; /* Font boyutu küçültüldü */
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--black);
         }
 
         .footer-description {
             color: var(--gray);
-            line-height: 1.6; /* Line-height azaltıldı */
-            margin-bottom: 25px; /* Margin azaltıldı */
-            font-size: 1rem; /* Font boyutu küçültüldü */
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 1rem;
         }
 
         .social-links {
             display: flex;
-            gap: 12px; /* Gap azaltıldı */
+            gap: 12px;
             margin-top: 20px;
         }
 
         .social-link {
-            width: 40px; /* Boyut küçültüldü */
+            width: 40px;
             height: 40px;
             background: var(--light);
             border-radius: 50%;
@@ -822,7 +830,7 @@
             text-decoration: none;
             transition: var(--transition);
             border: 1px solid var(--gray-light);
-            font-size: 1rem; /* Font boyutu küçültüldü */
+            font-size: 1rem;
         }
 
         .social-link:hover {
@@ -837,7 +845,7 @@
         }
 
         .footer-links li {
-            margin-bottom: 12px; /* Margin azaltıldı */
+            margin-bottom: 12px;
         }
 
         .footer-links a {
@@ -846,35 +854,35 @@
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 8px; /* Gap azaltıldı */
-            font-size: 1rem; /* Font boyutu küçültüldü */
+            gap: 8px;
+            font-size: 1rem;
         }
 
         .footer-links a:hover {
             color: var(--gradient-2);
-            padding-left: 5px; /* Padding azaltıldı */
+            padding-left: 5px;
         }
 
         .footer-links i {
             color: var(--gradient-2);
-            font-size: 0.8rem; /* Font boyutu küçültüldü */
+            font-size: 0.8rem;
         }
 
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 15px; /* Gap azaltıldı */
+            gap: 15px;
         }
 
         .contact-item {
             display: flex;
-            align-items: flex-start; /* flex-start yapıldı */
-            gap: 12px; /* Gap azaltıldı */
+            align-items: flex-start;
+            gap: 12px;
             color: var(--gray-dark);
         }
 
         .contact-item i {
-            width: 35px; /* Boyut küçültüldü */
+            width: 35px;
             height: 35px;
             background: var(--light);
             border-radius: 50%;
@@ -882,8 +890,8 @@
             align-items: center;
             justify-content: center;
             color: var(--gradient-2);
-            font-size: 1rem; /* Font boyutu küçültüldü */
-            flex-shrink: 0; /* Küçülmesini engelle */
+            font-size: 1rem;
+            flex-shrink: 0;
         }
 
         .contact-item a {
@@ -891,8 +899,8 @@
             text-decoration: none;
             transition: var(--transition);
             font-weight: 600;
-            font-size: 1rem; /* Font boyutu küçültüldü */
-            line-height: 1.4; /* Line-height eklendi */
+            font-size: 1rem;
+            line-height: 1.4;
         }
 
         .contact-item a:hover {
@@ -902,18 +910,18 @@
 
         .contact-item span {
             color: var(--gray);
-            line-height: 1.4; /* Line-height eklendi */
-            font-size: 1rem; /* Font boyutu küçültüldü */
+            line-height: 1.4;
+            font-size: 1rem;
         }
 
         .footer-bottom {
             max-width: 1200px;
             margin: 0 auto;
-            padding-top: 30px; /* Padding azaltıldı */
+            padding-top: 30px;
             border-top: 1px solid var(--gray-light);
             text-align: center;
             color: var(--gray);
-            font-size: 0.9rem; /* Font boyutu küçültüldü */
+            font-size: 0.9rem;
             position: relative;
             z-index: 1;
         }
@@ -973,7 +981,7 @@
             box-shadow: 0 15px 40px rgba(20, 94, 141, 0.4);
         }
 
-        /* RESPONSIVE TASARIM */
+        /* RESPONSIVE TASARIM - BOŞLUK DÜZENLEMELERİ */
         @media (max-width: 1024px) {
             .nav-desktop {
                 display: none;
@@ -989,14 +997,23 @@
         }
 
         @media (max-width: 768px) {
-            .contact-hero {
-                padding: 120px 4% 60px; /* Responsive padding düzeltildi */
+            .breadcrumb {
+                padding: 25px 4% 15px;
                 margin-top: 80px;
+            }
+            
+            .contact-hero {
+                padding: 40px 4% 30px;
+            }
+            
+            .contact-content {
+                padding: 30px 4% 20px;
             }
             
             .contact-container {
                 grid-template-columns: 1fr;
                 gap: 40px;
+                margin-bottom: 40px;
             }
             
             .contact-form-section, .contact-info-card {
@@ -1031,6 +1048,29 @@
                 height: 350px;
             }
             
+            .map-placeholder {
+                padding: 30px 20px;
+            }
+            
+            .map-placeholder h3 {
+                font-size: 1.3rem;
+                padding: 0 10px;
+            }
+            
+            .map-placeholder p {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+            
+            .map-section {
+                margin-bottom: 40px;
+            }
+            
+            .contact-cta {
+                padding: 40px 4%;
+                margin-bottom: 40px;
+            }
+            
             /* Footer responsive düzenlemeleri */
             .footer-content {
                 grid-template-columns: 1fr;
@@ -1052,13 +1092,25 @@
                 height: 60px;
             }
             
-            .contact-hero {
-                padding: 100px 20px 50px; /* Mobile padding düzeltildi */
+            .breadcrumb {
+                padding: 20px 20px 10px;
                 margin-top: 75px;
             }
             
-            .breadcrumb {
-                padding: 100px 20px 25px;
+            .contact-hero {
+                padding: 30px 20px 20px;
+            }
+            
+            .contact-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .contact-hero p {
+                font-size: 1rem;
+            }
+            
+            .contact-content {
+                padding: 20px 20px 15px;
             }
             
             .contact-form-section, .contact-info-card {
@@ -1074,11 +1126,19 @@
             }
             
             .map-placeholder {
-                padding: 30px 20px;
+                padding: 25px 15px;
             }
             
             .map-placeholder i {
                 font-size: 3rem;
+            }
+            
+            .map-placeholder h3 {
+                font-size: 1.2rem;
+            }
+            
+            .map-placeholder p {
+                font-size: 0.95rem;
             }
             
             .floating-cta {
@@ -1268,7 +1328,7 @@
         </nav>
     </div>
 
-    <!-- BREADCRUMB (İÇERİK NAVIGASYONU) -->
+    <!-- BREADCRUMB (İÇERİK NAVIGASYONU) - ÜSTE ALINDI -->
     <div class="breadcrumb">
         <nav class="breadcrumb-nav">
             <a href="/">Ana Sayfa</a>
@@ -1568,7 +1628,6 @@
     </div>
 
     <script>
-        // Ana sayfa ile aynı JavaScript fonksiyonları
         // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
