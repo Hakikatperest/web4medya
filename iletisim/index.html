@@ -193,11 +193,11 @@
             z-index: 1001;
         }
 
-        /* İLETİŞİM PAGE HERO */
+        /* İLETİŞİM PAGE HERO - BOŞLUK DÜZELTİLDİ */
         .contact-hero {
             background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
             color: var(--white);
-            padding: 160px 5% 100px;
+            padding: 140px 5% 80px; /* ÜST BOŞLUK AZALTILDI */
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -728,15 +728,205 @@
             overflow-y: auto;
         }
 
-        /* Footer stilleri ana sayfa ile aynı */
+        /* FOOTER DÜZELTMELERİ */
         .footer {
             background: var(--white);
             color: var(--gray-dark);
-            padding: 80px 5% 40px;
+            padding: 60px 5% 30px; /* Padding azaltıldı */
             position: relative;
             overflow: hidden;
             border-top: 1px solid var(--gray-light);
             box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px; /* Gap azaltıldı */
+            margin-bottom: 40px; /* Margin azaltıldı */
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem; /* Font boyutu küçültüldü */
+            font-weight: 700;
+            margin-bottom: 20px; /* Margin azaltıldı */
+            color: var(--black);
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px; /* Pozisyon ayarlandı */
+            left: 0;
+            width: 40px; /* Genişlik azaltıldı */
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px; /* Gap azaltıldı */
+            margin-bottom: 20px; /* Margin azaltıldı */
+        }
+
+        .footer-logo img {
+            height: 55px; /* Boyut küçültüldü */
+            width: auto;
+        }
+
+        .footer-logo-text {
+            font-size: 1.4rem; /* Font boyutu küçültüldü */
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .footer-description {
+            color: var(--gray);
+            line-height: 1.6; /* Line-height azaltıldı */
+            margin-bottom: 25px; /* Margin azaltıldı */
+            font-size: 1rem; /* Font boyutu küçültüldü */
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px; /* Gap azaltıldı */
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px; /* Boyut küçültüldü */
+            height: 40px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gradient-2);
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+            font-size: 1rem; /* Font boyutu küçültüldü */
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            color: white;
+            transform: translateY(-3px);
+            border-color: transparent;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px; /* Margin azaltıldı */
+        }
+
+        .footer-links a {
+            color: var(--gray-dark);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Gap azaltıldı */
+            font-size: 1rem; /* Font boyutu küçültüldü */
+        }
+
+        .footer-links a:hover {
+            color: var(--gradient-2);
+            padding-left: 5px; /* Padding azaltıldı */
+        }
+
+        .footer-links i {
+            color: var(--gradient-2);
+            font-size: 0.8rem; /* Font boyutu küçültüldü */
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Gap azaltıldı */
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start; /* flex-start yapıldı */
+            gap: 12px; /* Gap azaltıldı */
+            color: var(--gray-dark);
+        }
+
+        .contact-item i {
+            width: 35px; /* Boyut küçültüldü */
+            height: 35px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gradient-2);
+            font-size: 1rem; /* Font boyutu küçültüldü */
+            flex-shrink: 0; /* Küçülmesini engelle */
+        }
+
+        .contact-item a {
+            color: var(--black);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 1rem; /* Font boyutu küçültüldü */
+            line-height: 1.4; /* Line-height eklendi */
+        }
+
+        .contact-item a:hover {
+            color: var(--gradient-2);
+            text-decoration: underline;
+        }
+
+        .contact-item span {
+            color: var(--gray);
+            line-height: 1.4; /* Line-height eklendi */
+            font-size: 1rem; /* Font boyutu küçültüldü */
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px; /* Padding azaltıldı */
+            border-top: 1px solid var(--gray-light);
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.9rem; /* Font boyutu küçültüldü */
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-bottom a {
+            color: var(--gradient-2);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--gradient-1);
+            text-decoration: underline;
         }
 
         /* FLOATING CTA BUTONLARI */
@@ -800,7 +990,7 @@
 
         @media (max-width: 768px) {
             .contact-hero {
-                padding: 140px 4% 80px;
+                padding: 120px 4% 60px; /* Responsive padding düzeltildi */
                 margin-top: 80px;
             }
             
@@ -840,6 +1030,16 @@
             .map-container {
                 height: 350px;
             }
+            
+            /* Footer responsive düzenlemeleri */
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer {
+                padding: 50px 4% 25px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -853,7 +1053,7 @@
             }
             
             .contact-hero {
-                padding: 120px 20px 60px;
+                padding: 100px 20px 50px; /* Mobile padding düzeltildi */
                 margin-top: 75px;
             }
             
@@ -891,6 +1091,25 @@
                 width: 55px;
                 height: 55px;
                 font-size: 1.6rem;
+            }
+            
+            /* Footer mobile düzenlemeleri */
+            .footer-logo img {
+                height: 50px;
+            }
+            
+            .footer-logo-text {
+                font-size: 1.2rem;
+            }
+            
+            .footer-description {
+                font-size: 0.95rem;
+            }
+            
+            .social-link {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
             }
         }
 
@@ -1058,7 +1277,7 @@
         </nav>
     </div>
 
-    <!-- İLETİŞİM HERO BÖLÜMÜ -->
+    <!-- İLETİŞİM HERO BÖLÜMÜ - BOŞLUK DÜZELTİLDİ -->
     <section class="contact-hero">
         <div class="contact-hero-content">
             <h1>Web4 Medya ile İletişime Geçin</h1>
@@ -1241,7 +1460,7 @@
         </div>
     </section>
 
-    <!-- FOOTER (Ana sayfa ile aynı) -->
+    <!-- FOOTER - DÜZELTİLMİŞ -->
     <footer class="footer">
         <div class="footer-content">
             <!-- Logo ve Açıklama -->
