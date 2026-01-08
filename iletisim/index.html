@@ -1384,15 +1384,15 @@
 <body>
     <!-- HEADER (ANA SAYFA İLE TAMAMEN AYNI) -->
     <header class="header">
-        <!-- LOGO - ANA SAYFAYA SMOOTH SCROLL -->
-        <a href="#" class="logo" id="homeLink">
+        <!-- LOGO - ANA SAYFAYA YÖNLENDİR -->
+        <a href="/" class="logo" id="homeLink">
             <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/145e8d/FFFFFF?text=Web4+Medya';">
         </a>
         
         <!-- MODERN NAVIGATION - ANA SAYFA İLE TAMAMEN AYNI -->
         <nav class="nav-desktop">
             <div class="nav-item">
-                <a href="/" class="nav-link">Ana Sayfa</a>
+                <a href="/" class="nav-link">Ana Sayfa</a> <!-- DÜZELTİLDİ: href="/" -->
             </div>
             
             <!-- HİZMETLER DROPDOWN - ANA SAYFA İLE TAMAMEN AYNI -->
@@ -1465,7 +1465,7 @@
         <nav class="mobile-nav">
             <!-- Ana Sayfa -->
             <div class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link" id="mobileHomeLink">Ana Sayfa</a>
+                <a href="/" class="mobile-nav-link" id="mobileHomeLink">Ana Sayfa</a> <!-- DÜZELTİLDİ: href="/" -->
             </div>
             
             <!-- Hizmetler -->
@@ -2018,28 +2018,28 @@
             });
         }
 
-        // LOGOYA TIKLAYINCA SAYFA BAŞINA SMOOTH SCROLL - ANA SAYFA İLE AYNI
+        // LOGOYA TIKLAYINCA ANA SAYFAYA GİTSİN - DÜZELTİLDİ
+        // Logonun href="/" zaten ayarlandığı için JavaScript'e gerek yok
+        // Fakat eğer JavaScript tarafında da kontrol etmek istiyorsanız:
+        
         const homeLink = document.getElementById('homeLink');
         const mobileHomeLink = document.getElementById('mobileHomeLink');
         
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-        
+        // Logoya tıklayınca direkt ana sayfaya gitmesi için
+        // href="/" zaten ayarlandı, burada sadece mobile menüyü kapat
         if (homeLink) {
-            homeLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                scrollToTop();
+            // href="/" zaten ayarlandı, burada sadece ek işlem yap
+            homeLink.addEventListener('click', function() {
+                // Mobile menü açıksa kapat
+                if (menuToggle.classList.contains('active')) {
+                    menuToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                }
             });
         }
         
         if (mobileHomeLink) {
-            mobileHomeLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                scrollToTop();
+            mobileHomeLink.addEventListener('click', function() {
                 // Mobile menüyü kapat
                 menuToggle.classList.remove('active');
                 mobileMenu.classList.remove('active');
