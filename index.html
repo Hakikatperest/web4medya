@@ -367,16 +367,27 @@
             margin: 0 auto;
         }
 
-        /* HERO BAŞLIĞI - BEYAZ RENK */
+        /* HERO BAŞLIĞI - METALİK SİYAH GRADIENT RENK */
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 3.8rem); /* Büyütüldü */
+            font-size: clamp(2.5rem, 6vw, 3.8rem);
             font-weight: 800;
             margin-bottom: 20px;
             line-height: 1.1;
             position: relative;
             z-index: 2;
-            color: white; /* BEYAZ */
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, 
+                #000000 0%, 
+                #1a1a1a 25%, 
+                #333333 50%, 
+                #1a1a1a 75%, 
+                #000000 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 
+                0 1px 0 rgba(255, 255, 255, 0.1),
+                0 2px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.5px;
         }
 
         .hero p {
@@ -423,17 +434,17 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
-        /* Primary buton (BEYAZ) */
+        /* MAVİ Hemen Ara butonu */
         .hero-buttons .btn-primary {
-            background: var(--white); /* BEYAZ */
-            color: var(--gradient-1); /* GRADIENT RENK */
-            border: 2px solid var(--white);
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            color: white;
+            border: 2px solid transparent;
         }
 
         .hero-buttons .btn-primary:hover {
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            background: linear-gradient(135deg, var(--gradient-2), var(--gradient-1));
             color: white;
-            border-color: transparent;
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
         /* WhatsApp butonu (yeşil) */
@@ -464,9 +475,9 @@
         }
 
         .btn-primary {
-            background: var(--white); /* BEYAZ */
-            color: var(--gradient-1); /* GRADIENT RENK */
-            border: 2px solid var(--white);
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            color: white;
+            border: 2px solid transparent;
         }
 
         .btn-whatsapp {
@@ -816,6 +827,9 @@
             transform: rotateY(180deg);
             justify-content: space-between;
             padding: 40px 30px; /* Padding artırıldı */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .card-back h3 {
@@ -823,6 +837,7 @@
             font-weight: 700;
             margin-bottom: 20px; /* Margin artırıldı */
             color: white;
+            text-align: center;
         }
 
         .card-back p {
@@ -832,8 +847,10 @@
             margin-bottom: 30px; /* Margin artırıldı */
             color: rgba(255, 255, 255, 0.9);
             flex-grow: 1;
+            text-align: center;
         }
 
+        /* DÖNEN KARTLARIN BUTONLARINI MERKEZE AL VE DÜZENLE */
         .card-back .btn {
             background: var(--white); /* BEYAZ */
             color: var(--gradient-1); /* GRADIENT RENK */
@@ -844,6 +861,12 @@
             transition: all 0.3s ease;
             border: none;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
         }
 
         .card-back .btn:hover {
@@ -1065,15 +1088,16 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
         }
 
+        /* MAVİ Hemen Ara butonu - CTA */
         .cta-buttons .btn-primary {
-            background: var(--white); /* BEYAZ */
-            color: #0d4c7a; /* GRADIENT RENK */
-            border: 2px solid var(--white);
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .cta-buttons .btn-primary:hover {
-            background: rgba(255, 255, 255, 0.9);
-            color: #0a3c62;
+            background: linear-gradient(135deg, var(--gradient-2), var(--gradient-1));
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
         .cta-buttons .btn-whatsapp {
@@ -1138,15 +1162,15 @@
             }
         }
 
-        /* MODERN FOOTER - BEYAZ TEMA */
+        /* MODERN FOOTER - SİTEYLE UYUMLU GRADIENT TEMA */
         .footer {
-            background: var(--white); /* BEYAZ */
-            color: var(--dark); /* Koyu gri */
+            background: linear-gradient(135deg, #0d4c7a, #1a7cb0, #1dbbe1); /* SİTEYLE UYUMLU GRADIENT */
+            color: white;
             padding: 80px 5% 40px; /* Padding artırıldı */
             position: relative;
             overflow: hidden;
-            border-top: 1px solid var(--gray-light);
-            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.1);
         }
 
         .footer::before {
@@ -1159,6 +1183,17 @@
             background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
         }
 
+        .footer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: 0;
+        }
+
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -1166,13 +1201,15 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 50px; /* Gap artırıldı */
             margin-bottom: 60px; /* Margin artırıldı */
+            position: relative;
+            z-index: 1;
         }
 
         .footer-section h3 {
             font-size: 1.4rem; /* Büyütüldü */
             font-weight: 700;
             margin-bottom: 30px; /* Margin artırıldı */
-            color: var(--gradient-1); /* GRADIENT RENK */
+            color: white;
             position: relative;
             display: inline-block;
         }
@@ -1184,7 +1221,7 @@
             left: 0;
             width: 50px; /* Genişlik artırıldı */
             height: 3px;
-            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+            background: rgba(255, 255, 255, 0.8);
         }
 
         /* FOOTER LOGO BOYUTU BÜYÜTÜLDÜ */
@@ -1198,16 +1235,17 @@
         .footer-logo img {
             height: 65px; /* 50px'den 65px'e çıkarıldı */
             width: auto;
+            filter: brightness(0) invert(1);
         }
 
         .footer-logo-text {
             font-size: 1.6rem; /* Büyütüldü */
             font-weight: 700;
-            color: var(--gradient-1); /* GRADIENT RENK */
+            color: white;
         }
 
         .footer-description {
-            color: var(--gray); /* Gri */
+            color: rgba(255, 255, 255, 0.9);
             line-height: 1.7;
             margin-bottom: 30px; /* Margin artırıldı */
             font-size: 1.05rem; /* Büyütüldü */
@@ -1222,22 +1260,22 @@
         .social-link {
             width: 45px; /* Büyütüldü */
             height: 45px; /* Büyütüldü */
-            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--gradient-2); /* GRADIENT RENK */
+            color: white;
             text-decoration: none;
             transition: var(--transition);
-            border: 1px solid var(--gray-light);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .social-link:hover {
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            background: rgba(255, 255, 255, 0.2);
             color: white;
             transform: translateY(-3px);
-            border-color: transparent;
+            border-color: rgba(255, 255, 255, 0.4);
         }
 
         .footer-links {
@@ -1249,7 +1287,7 @@
         }
 
         .footer-links a {
-            color: var(--gray); /* Gri */
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             transition: var(--transition);
             display: flex;
@@ -1259,12 +1297,12 @@
         }
 
         .footer-links a:hover {
-            color: var(--gradient-3); /* GRADIENT RENK hover */
+            color: white;
             padding-left: 8px; /* Artırıldı */
         }
 
         .footer-links i {
-            color: var(--gradient-2); /* GRADIENT RENK */
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem; /* Büyütüldü */
         }
 
@@ -1278,13 +1316,13 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            color: var(--gray); /* Gri */
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .contact-item i {
             width: 40px; /* Büyütüldü */
             height: 40px; /* Büyütüldü */
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1294,7 +1332,7 @@
         }
 
         .contact-item a {
-            color: var(--gradient-1); /* GRADIENT RENK */
+            color: white;
             text-decoration: none;
             transition: var(--transition);
             font-weight: 600; /* Kalınlaştırıldı */
@@ -1302,13 +1340,14 @@
         }
 
         .contact-item a:hover {
-            color: var(--gradient-3); /* Koyu gradient hover */
+            color: #e6f7ff;
+            text-decoration: underline;
         }
 
         /* Footer telefon linki - SADECE YAZI OLARAK */
         .contact-item a[href^="tel:"] {
             background: none;
-            color: var(--gradient-1); /* GRADIENT RENK */
+            color: white;
             padding: 0;
             border-radius: 0;
             display: inline;
@@ -1322,12 +1361,12 @@
             transform: none;
             box-shadow: none;
             background: none;
-            color: var(--gradient-3); /* Koyu gradient hover */
+            color: #e6f7ff;
             text-decoration: underline;
         }
 
         .contact-item span {
-            color: var(--gray-dark);
+            color: rgba(255, 255, 255, 0.9);
             line-height: 1.5;
             font-size: 1.05rem; /* Büyütüldü */
         }
@@ -1336,20 +1375,22 @@
             max-width: 1200px;
             margin: 0 auto;
             padding-top: 40px; /* Padding artırıldı */
-            border-top: 1px solid var(--gray-light);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
-            color: var(--gray);
+            color: rgba(255, 255, 255, 0.8);
             font-size: 1rem; /* Büyütüldü */
+            position: relative;
+            z-index: 1;
         }
 
         .footer-bottom a {
-            color: var(--gradient-2); /* GRADIENT RENK */
+            color: white;
             text-decoration: none;
             font-weight: 600; /* Kalınlaştırıldı */
         }
 
         .footer-bottom a:hover {
-            color: var(--gradient-3); /* Koyu gradient */
+            color: #e6f7ff;
             text-decoration: underline;
         }
 
@@ -1606,7 +1647,7 @@
             <!-- HEADER CTA BUTTON - GRADIENT ARKA PLAN, BEYAZ YAZI -->
             <div class="header-cta">
                 <a href="tel:05422360983" class="btn">
-                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
+                    <i class="fas fa-phone-alt"></i> Hemen Ara: 0542 236 09 83
                 </a>
             </div>
         </nav>
@@ -1702,14 +1743,12 @@
         <div class="hero-content">
             <h1>Dijitalde Güçlü Varlık Kazanın</h1>
             <p>Web4 Medya olarak, dijital pazarlama, web tasarım ve prodüksiyon hizmetlerimizle işletmenizi bir sonraki seviyeye taşıyoruz. Google Ads, SEO, modern web tasarım ve profesyonel prodüksiyon çözümlerimizle markanızı dijital dünyada öne çıkarıyoruz.</p>
-            
-            <!-- ORİJİNAL ADS SİTESİNİN BUTONLARI - HİÇ DEĞİŞTİRİLMEDEN -->
             <div class="hero-buttons">
-                <a href="https://wa.me/905303158752?text=Merhaba,%20Google%20reklam%20vermek%20istiyorum.%20Bana%20yardımcı%20olabilir%20misiniz?" class="btn btn-primary">
-                    <i class="fab fa-whatsapp"></i> Ücretsiz Danışmanlık Al
+                <a href="tel:05422360983" class="btn btn-primary">
+                    <i class="fas fa-phone-alt"></i> Hemen Ara: 0542 236 09 83
                 </a>
-                <a href="tel:05422360983" class="btn btn-whatsapp">
-                    <i class="fas fa-phone-alt"></i> Hemen Arayın: 0542 236 09 83
+                <a href="https://wa.me/905422360983" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp: 0542 236 09 83
                 </a>
             </div>
         </div>
@@ -1969,20 +2008,18 @@
         <div class="cta-content">
             <h2>İşinizi Dijitalde Büyütmeye Hazır mısınız?</h2>
             <p>Web4 Medya uzmanları sizin için en uygun dijital stratejiyi belirlesin. Ücretsiz danışmanlık ve analiz hizmetimizden yararlanın.</p>
-            
-            <!-- ORİJİNAL ADS SİTESİNİN CTA BUTONLARI - HİÇ DEĞİŞTİRİLMEDEN -->
             <div class="cta-buttons">
-                <a href="https://wa.me/905303158752?text=Merhaba,%20Google%20reklam%20vermek%20istiyorum.%20Bana%20yardımcı%20olabilir%20misiniz?" class="btn btn-primary">
-                    <i class="fab fa-whatsapp"></i> Ücretsiz Danışmanlık Al
+                <a href="tel:05422360983" class="btn btn-primary">
+                    <i class="fas fa-phone-alt"></i> Hemen Ara: 0542 236 09 83
                 </a>
-                <a href="tel:05422360983" class="btn btn-whatsapp">
-                    <i class="fas fa-phone-alt"></i> Hemen Arayın: 0542 236 09 83
+                <a href="https://wa.me/905422360983" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp: 0542 236 09 83
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- MODERN FOOTER - BEYAZ TEMA -->
+    <!-- MODERN FOOTER - SİTEYLE UYUMLU GRADIENT TEMA -->
     <footer class="footer">
         <div class="footer-content">
             <!-- Logo ve Açıklama -->
@@ -2045,8 +2082,8 @@
                     <div class="contact-item">
                         <i class="fas fa-phone-alt"></i>
                         <div>
-                            <a href="tel:05422360983">0542 236 09 83</a>
-                            <p style="margin-top: 5px; font-size: 0.95rem; color: var(--gray);">Hemen arayın, ücretsiz danışmanlık alın</p>
+                            <a href="tel:05422360983">Hemen Ara: 0542 236 09 83</a>
+                            <p style="margin-top: 5px; font-size: 0.95rem; color: rgba(255, 255, 255, 0.8);">Ücretsiz danışmanlık için arayın</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -2073,13 +2110,13 @@
         
         <div class="footer-bottom">
             <p>&copy; 2024 Web4 Medya. Tüm hakları saklıdır. <a href="/gizlilik-politikasi/">Gizlilik Politikası</a> | <a href="/kullanim-kosullari/">Kullanım Koşulları</a></p>
-            <p style="margin-top: 10px; font-size: 0.9rem; color: var(--gray);">Profesyonel dijital pazarlama ve web tasarım çözümleri</p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: rgba(255, 255, 255, 0.8);">Profesyonel dijital pazarlama ve web tasarım çözümleri</p>
         </div>
     </footer>
 
     <!-- YENİ FLOATING CTA BUTONLARI -->
     <div class="floating-cta">
-        <a href="https://wa.me/905303158752" class="floating-btn floating-whatsapp" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/905422360983" class="floating-btn floating-whatsapp" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-whatsapp"></i>
         </a>
         <a href="tel:05422360983" class="floating-btn floating-phone">
