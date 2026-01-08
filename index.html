@@ -27,6 +27,9 @@
             --primary-dark: #1E40AF;
             --secondary: #2563EB;
             --accent: #60A5FA;
+            --gold: #D4AF37;
+            --gold-light: #F7EF8A;
+            --gold-dark: #B8860B;
             --dark: #1F2937;
             --gray-dark: #374151;
             --gray: #6B7280;
@@ -58,7 +61,7 @@
             overflow-x: hidden;
         }
 
-        /* MODERN HEADER - Daha dar beyazlık */
+        /* HEADER */
         .header {
             position: fixed;
             top: 0;
@@ -88,26 +91,9 @@
             width: auto;
             max-height: 50px;
             object-fit: contain;
-            transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         }
 
-        .logo-animated img {
-            animation: logoRotate 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
-        }
-
-        @keyframes logoRotate {
-            0% {
-                transform: rotate(0deg) scale(1);
-            }
-            50% {
-                transform: rotate(180deg) scale(1.1);
-            }
-            100% {
-                transform: rotate(360deg) scale(1);
-            }
-        }
-
-        /* MODERN NAVIGATION */
+        /* NAVIGATION */
         .nav-desktop {
             display: flex;
             align-items: center;
@@ -140,18 +126,6 @@
             color: var(--primary);
         }
 
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--primary-light));
-            border-radius: 2px;
-        }
-
-        /* DROPDOWN MENÜ */
         .dropdown {
             position: absolute;
             top: 100%;
@@ -210,16 +184,7 @@
             padding-left: 5px;
         }
 
-        .arrow {
-            font-size: 0.7rem;
-            transition: transform 0.3s ease;
-        }
-
-        .nav-item:hover .arrow {
-            transform: rotate(180deg);
-        }
-
-        /* HEADER CTA BUTTON - Beyaz arka plan, mavi numara */
+        /* HEADER CTA BUTTON */
         .header-cta {
             display: flex;
             align-items: center;
@@ -237,13 +202,6 @@
             white-space: nowrap;
             border: 2px solid var(--primary-light);
             box-shadow: 0 4px 12px rgba(30, 58, 138, 0.1);
-        }
-
-        .header-cta .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.15);
-            background: var(--primary-light);
-            color: white;
         }
 
         /* HAMBURGER MENU */
@@ -268,19 +226,7 @@
             transition: all 0.3s ease;
         }
 
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-
-        /* HERO SECTION - YENİ BAŞLIK DÜZENİ */
+        /* HERO SECTION - YENİ BAŞLIK VE BUTONLAR */
         .hero {
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
             color: var(--white);
@@ -300,75 +246,7 @@
             bottom: 0;
             background: 
                 radial-gradient(circle at 20% 80%, rgba(96, 165, 250, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%2360A5FA' fill-opacity='0.05' d='M52.4,-50.9C66.6,-39.5,75.9,-19.8,76.1,0.2C76.3,20.2,67.4,40.3,53.2,55.6C39,70.9,19.5,81.5,0.7,80.8C-18.1,80.2,-36.2,68.3,-50.5,53C-64.8,37.7,-75.3,18.9,-75.8,-0.3C-76.3,-19.5,-66.8,-39,-52.5,-50.4C-38.2,-61.8,-19.1,-65.1,0.1,-65.2C19.2,-65.2,38.3,-62.2,52.4,-50.9Z' transform='translate(100 100)'/%3E%3C/svg%3E");
-            background-size: cover;
-            z-index: 0;
-        }
-
-        /* Roket simgesi - Hero */
-        .rocket-icon {
-            position: absolute;
-            top: 20px;
-            right: 10%;
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .rocket-icon i {
-            font-size: 3rem;
-            color: rgba(255, 255, 255, 0.3);
-            transform: rotate(45deg);
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-        }
-
-        /* Farklı yerlere roket simgeleri - HERO */
-        .rocket-hero-1 {
-            position: absolute;
-            top: 15%;
-            left: 5%;
-            font-size: 2.5rem;
-            color: rgba(255, 255, 255, 0.08);
-            transform: rotate(25deg);
-            z-index: 0;
-        }
-
-        .rocket-hero-2 {
-            position: absolute;
-            bottom: 20%;
-            right: 8%;
-            font-size: 3rem;
-            color: rgba(255, 255, 255, 0.06);
-            transform: rotate(-15deg);
-            z-index: 0;
-        }
-
-        .rocket-hero-3 {
-            position: absolute;
-            top: 40%;
-            left: 15%;
-            font-size: 2rem;
-            color: rgba(255, 255, 255, 0.04);
-            transform: rotate(45deg);
-            z-index: 0;
-        }
-
-        .rocket-hero-4 {
-            position: absolute;
-            bottom: 30%;
-            left: 10%;
-            font-size: 2.2rem;
-            color: rgba(255, 255, 255, 0.05);
-            transform: rotate(-30deg);
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
             z-index: 0;
         }
 
@@ -379,33 +257,33 @@
             margin: 0 auto;
         }
 
-        /* YENİ BAŞLIK DÜZENİ */
+        /* YENİ BAŞLIK DÜZENİ - DAHA BÜYÜK VE ORANTILI */
         .hero-title {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 5px;
-            margin-bottom: 15px;
+            margin-bottom: 30px;
         }
 
         .hero-top, .hero-bottom {
-            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-size: clamp(2rem, 5vw, 2.5rem);
             font-weight: 600;
             color: rgba(255, 255, 255, 0.95);
             line-height: 1.2;
         }
 
         .hero-main {
-            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-size: clamp(3.5rem, 8vw, 5.5rem);
             font-weight: 800;
             line-height: 1;
-            margin: 10px 0;
-            background: linear-gradient(135deg, #60A5FA, #3B82F6);
+            margin: 15px 0;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+            text-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
 
         .hero p {
@@ -419,6 +297,7 @@
             z-index: 2;
         }
 
+        /* YENİ BUTONLAR - ADS SAYFASINDAKİ GİBİ */
         .hero-buttons {
             display: flex;
             justify-content: center;
@@ -429,36 +308,37 @@
             z-index: 2;
         }
 
-        /* BUTTONS - MAVİ AĞIRLIKLI */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 14px 28px;
-            border-radius: var(--radius-sm);
+            gap: 12px;
+            padding: 18px 36px;
+            border-radius: var(--radius);
             font-weight: 600;
+            font-size: 16px;
             text-decoration: none;
             transition: var(--transition);
             border: none;
             cursor: pointer;
-            font-size: 1rem;
+            min-width: 220px;
+            box-shadow: var(--shadow);
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, #25D366, #128C7E);
             color: var(--white);
-            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
-        .btn-whatsapp {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--white);
         }
 
         .btn:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-hover);
         }
 
@@ -481,96 +361,7 @@
             overflow-y: auto;
         }
 
-        .mobile-nav {
-            padding: 20px;
-        }
-
-        .mobile-nav-item {
-            margin-bottom: 5px;
-        }
-
-        .mobile-nav-link {
-            display: block;
-            padding: 15px;
-            color: var(--gray-dark);
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px solid var(--gray-light);
-            transition: var(--transition);
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .mobile-dropdown-btn {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            background: none;
-            border: none;
-            padding: 15px;
-            color: var(--gray-dark);
-            font-weight: 600;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            border-bottom: 1px solid var(--gray-light);
-            text-align: left;
-        }
-
-        .mobile-dropdown-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            background: var(--light);
-            margin-left: 10px;
-        }
-
-        .mobile-dropdown-content.active {
-            max-height: 500px;
-        }
-
-        .mobile-dropdown-section {
-            padding: 10px 20px;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .mobile-dropdown-section:last-child {
-            border-bottom: none;
-        }
-
-        .mobile-dropdown-section h4 {
-            font-size: 0.9rem;
-            color: var(--primary);
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .mobile-dropdown-link {
-            display: block;
-            padding: 8px 0;
-            color: var(--gray-dark);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .mobile-dropdown-link:hover {
-            color: var(--primary);
-            padding-left: 5px;
-        }
-
-        .mobile-arrow {
-            transition: transform 0.3s ease;
-        }
-
-        .mobile-dropdown-btn.active .mobile-arrow {
-            transform: rotate(180deg);
-        }
-
-        /* YENİ MODERN KART TASARIMI - TEK TIKLAMALI DÖNME */
+        /* SERVİSLER BÖLÜMÜ - ALTIN METALİK KARTLAR */
         .services-section {
             padding: 80px 5%;
             background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
@@ -613,7 +404,7 @@
             line-height: 1.6;
         }
 
-        /* KATEGORİ BAŞLIKLARI - DÜZGÜN YAZIM ANİMASYONU */
+        /* KATEGORİ BAŞLIKLARI - YAZIM ANİMASYONU KALDIRILDI */
         .category-title {
             font-size: 1.8rem;
             font-weight: 700;
@@ -623,37 +414,9 @@
             border-left: 4px solid var(--primary);
             position: relative;
             display: inline-block;
-            overflow: hidden;
-            white-space: nowrap;
         }
 
-        /* Yazım animasyonu için stiller */
-        .typing-animation {
-            overflow: hidden;
-            border-right: 2px solid var(--primary);
-            white-space: nowrap;
-            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
-            width: 0;
-            max-width: 100%;
-        }
-
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--primary); }
-        }
-
-        /* Animasyon bitince cursor'ı kaldır */
-        .typing-complete {
-            animation: typing 3s steps(40, end) forwards, blink-caret 0.75s step-end 3;
-            border-right: none;
-        }
-
-        /* MODERN KART TASARIMI - TEK TIKLAMALI DÖNME */
+        /* MODERN KART TASARIMI - ALTIN METALİK */
         .services-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -676,7 +439,7 @@
             perspective: 1200px;
         }
 
-        /* YENİ FLIP CARD STYLES - SADECE TIKLAMADA DÖNER */
+        /* ALTIN METALİK FLIP CARD STYLES */
         .flip-card {
             position: relative;
             height: 280px;
@@ -711,8 +474,9 @@
         }
 
         .card-front {
-            background: var(--white);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
             justify-content: center;
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .card-front .icon {
@@ -725,83 +489,31 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: var(--light);
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
             margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
 
-        /* RENKLİ İKONLAR */
+        /* ALTIN RENKLİ İKONLAR */
         .card-front .icon i {
             font-size: 2.5rem;
-        }
-
-        /* Google icon */
-        .icon-google i {
-            color: #4285F4;
-        }
-
-        /* Instagram icon */
-        .icon-instagram i {
-            color: #E1306C;
-        }
-
-        /* Facebook icon */
-        .icon-facebook i {
-            color: #1877F2;
-        }
-
-        /* Maps icon */
-        .icon-maps i {
-            color: #34A853;
-        }
-
-        /* SEO icon */
-        .icon-seo i {
-            color: #FBBC05;
-        }
-
-        /* Social media icon */
-        .icon-social i {
-            color: #EA4335;
-        }
-
-        /* E-commerce icon */
-        .icon-ecommerce i {
-            color: #FF6B6B;
-        }
-
-        /* Corporate icon */
-        .icon-corporate i {
-            color: #4ECDC4;
-        }
-
-        /* Video icon */
-        .icon-video i {
-            color: #45B7D1;
-        }
-
-        /* Film icon */
-        .icon-film i {
-            color: #96CEB4;
-        }
-
-        /* Drone icon */
-        .icon-drone i {
-            color: #FFEAA7;
+            color: white;
         }
 
         .card-front h3 {
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--primary-dark);
             margin: 0;
+            color: var(--gold-light);
         }
 
         .card-back {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 100%);
             color: var(--white);
             transform: rotateY(180deg);
             justify-content: space-between;
             padding: 35px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .card-back h3 {
@@ -822,92 +534,29 @@
 
         .card-back .btn {
             background: var(--white);
-            color: var(--primary-dark);
+            color: var(--gold-dark);
             padding: 12px 28px;
             font-weight: 700;
             font-size: 0.95rem;
             border-radius: 8px;
             transition: all 0.3s ease;
             border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .card-back .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             background: var(--light);
         }
 
-        /* Google ikonu için özel stil */
-        .google-icon {
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: var(--light);
-            margin-bottom: 25px;
-            position: relative;
-        }
-
-        .google-icon::before {
-            content: '';
-            position: absolute;
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #4285F4, #34A853, #FBBC05, #EA4335);
-            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%234285F4' d='M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z'/%3E%3Cpath fill='%2334A853' d='M46.5 24c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26,5.48-4.78,7.18l7.73,6c4.51-4.18,7.09-10.36,7.09-17.65z'/%3E%3Cpath fill='%23FBBC05' d='M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z'/%3E%3Cpath fill='%23EA4335' d='M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z'/%3E%3Cpath fill='none' d='M0 0h48v48H0z'/%3E%3C/svg%3E");
-            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%234285F4' d='M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z'/%3E%3Cpath fill='%2334A853' d='M46.5 24c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26,5.48-4.78,7.18l7.73,6c4.51-4.18,7.09-10.36,7.09-17.65z'/%3E%3Cpath fill='%23FBBC05' d='M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z'/%3E%3Cpath fill='%23EA4335' d='M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z'/%3E%3Cpath fill='none' d='M0 0h48v48H0z'/%3E%3C/svg%3E");
-        }
-
-        /* WHY US SECTION - MAVİ TEMA - Roket simgeleri eklendi */
+        /* WHY US SECTION */
         .why-us {
             padding: 80px 5%;
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
             color: white;
             position: relative;
             overflow: hidden;
-        }
-
-        /* Roket simgeleri - Why Us */
-        .rocket-why-1 {
-            position: absolute;
-            top: 15%;
-            left: 5%;
-            font-size: 2.5rem;
-            color: rgba(255, 255, 255, 0.08);
-            transform: rotate(25deg);
-            z-index: 0;
-        }
-
-        .rocket-why-2 {
-            position: absolute;
-            bottom: 20%;
-            right: 8%;
-            font-size: 3rem;
-            color: rgba(255, 255, 255, 0.06);
-            transform: rotate(-15deg);
-            z-index: 0;
-        }
-
-        .rocket-why-3 {
-            position: absolute;
-            top: 40%;
-            right: 15%;
-            font-size: 2rem;
-            color: rgba(255, 255, 255, 0.04);
-            transform: rotate(45deg);
-            z-index: 0;
-        }
-
-        .rocket-why-4 {
-            position: absolute;
-            bottom: 30%;
-            left: 10%;
-            font-size: 2.2rem;
-            color: rgba(255, 255, 255, 0.05);
-            transform: rotate(-30deg);
-            z-index: 0;
         }
 
         .why-us .section-title {
@@ -918,12 +567,6 @@
 
         .why-us .section-title::after {
             background: linear-gradient(90deg, #60A5FA, #93C5FD);
-        }
-
-        .why-us .section-subtitle {
-            color: rgba(255, 255, 255, 0.9);
-            position: relative;
-            z-index: 1;
         }
 
         .features-grid {
@@ -955,7 +598,7 @@
         .feature-icon {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, #60A5FA, #3B82F6);
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -972,13 +615,7 @@
             font-weight: 700;
         }
 
-        .feature p {
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        /* CTA SECTION - MAVİ TEMA */
+        /* CTA SECTION */
         .cta-section {
             padding: 80px 5%;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
@@ -986,19 +623,6 @@
             color: white;
             position: relative;
             overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".1" fill="white"/></svg>');
-            background-size: 100% 100px;
-            background-position: bottom;
-            background-repeat: no-repeat;
         }
 
         .cta-content {
@@ -1037,15 +661,7 @@
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
-        .cta-buttons .btn-primary {
-            background: linear-gradient(135deg, #2563EB, #1D4ED8);
-        }
-
-        .cta-buttons .btn-whatsapp {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-        }
-
-        /* MODERN FOOTER - BEYAZ TEMA */
+        /* FOOTER */
         .footer {
             background: var(--white);
             color: var(--dark);
@@ -1075,218 +691,59 @@
             margin-bottom: 50px;
         }
 
-        .footer-section h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 25px;
-            color: var(--primary-dark);
-            position: relative;
-            display: inline-block;
-        }
-
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-light), var(--accent));
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .footer-logo img {
-            height: 50px;
-            width: auto;
-        }
-
-        .footer-logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-        }
-
-        .footer-description {
-            color: var(--gray);
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background: var(--light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            text-decoration: none;
-            transition: var(--transition);
-            border: 1px solid var(--gray-light);
-        }
-
-        .social-link:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-            border-color: var(--primary);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: var(--gray);
-            text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-            padding-left: 5px;
-        }
-
-        .footer-links i {
-            color: var(--primary-light);
-            font-size: 0.8rem;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: var(--gray);
-        }
-
-        .contact-item i {
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(135deg, var(--primary-light), var(--accent));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1rem;
-        }
-
-        .contact-item a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: var(--transition);
-            font-weight: 500;
-        }
-
-        .contact-item a:hover {
-            color: var(--primary-dark);
-        }
-
-        .contact-item span {
-            color: var(--gray-dark);
-            line-height: 1.5;
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 30px;
-            border-top: 1px solid var(--gray-light);
-            text-align: center;
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        .footer-bottom a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .footer-bottom a:hover {
-            color: var(--primary-dark);
-            text-decoration: underline;
-        }
-
-        /* MOBİL SABİT BUTONLAR - Sağ alt köşe - BÜYÜK BOY */
-        .mobile-fixed-buttons {
+        /* SAĞ ALT SABİT BUTONLAR - ADS SAYFASINDAKİ GİBİ */
+        .floating-cta {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: none;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
             flex-direction: column;
             gap: 15px;
-            z-index: 998;
         }
 
-        .mobile-fixed-btn {
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
+        .floating-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.8rem;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
             text-decoration: none;
+            font-size: 1.8rem;
         }
 
-        .mobile-fixed-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .mobile-fixed-btn.whatsapp {
+        .floating-whatsapp {
             background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            animation: pulse 2s infinite;
         }
 
-        .mobile-fixed-btn.phone {
+        .floating-phone {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
         }
 
-        /* RESPONSIVE BREAKPOINTS */
-        @media (max-width: 1200px) {
-            .header {
-                padding: 0 4%;
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
             }
-            
-            .nav-desktop {
-                gap: 20px;
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
             }
-            
-            .nav-link {
-                font-size: 0.85rem;
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
             }
         }
 
+        /* RESPONSIVE */
         @media (max-width: 1024px) {
             .nav-desktop {
                 display: none;
@@ -1299,15 +756,6 @@
             .header-cta {
                 display: none;
             }
-            
-            .category-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-            
-            /* Mobil sabit butonları göster */
-            .mobile-fixed-buttons {
-                display: flex;
-            }
         }
 
         @media (max-width: 768px) {
@@ -1315,127 +763,33 @@
                 padding: 120px 4% 80px;
             }
             
-            .rocket-icon {
-                display: none;
-            }
-            
-            .rocket-hero-1, .rocket-hero-2, .rocket-hero-3, .rocket-hero-4,
-            .rocket-why-1, .rocket-why-2, .rocket-why-3, .rocket-why-4 {
-                display: none;
-            }
-            
-            /* Yeni başlık düzeni mobil */
             .hero-main {
-                font-size: clamp(2rem, 6vw, 3.5rem);
+                font-size: clamp(2.5rem, 7vw, 4rem);
             }
             
             .hero-top, .hero-bottom {
-                font-size: clamp(1.2rem, 3vw, 1.5rem);
+                font-size: clamp(1.5rem, 4vw, 2rem);
             }
             
-            /* Kategori başlıkları mobilde */
-            .category-title {
-                font-size: 1.4rem;
-                padding-left: 15px;
-                margin-bottom: 30px;
-            }
-            
-            .typing-animation {
-                animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
-            }
-            
-            .flip-card {
-                height: 260px;
-            }
-            
-            .cta-buttons {
+            .hero-buttons, .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
             
-            .cta-buttons .btn {
+            .btn {
                 width: 100%;
                 max-width: 300px;
             }
             
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
+            .floating-cta {
+                bottom: 20px;
+                right: 20px;
             }
             
-            .hero-buttons .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .category-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header {
-                padding: 0 20px;
-                height: 65px;
-            }
-            
-            .hero {
-                padding: 100px 20px 60px;
-                margin-top: 65px;
-            }
-            
-            .mobile-menu {
-                top: 65px;
-            }
-            
-            /* Çok küçük ekranlarda kategori başlıkları */
-            .category-title {
-                font-size: 1.2rem;
-                padding-left: 10px;
-                margin-bottom: 25px;
-            }
-            
-            .flip-card {
-                height: 240px;
-            }
-            
-            .card-face {
-                padding: 30px 20px;
-            }
-            
-            .footer {
-                padding: 50px 20px 25px;
-            }
-            
-            /* Mobil sabit butonlar büyük */
-            .mobile-fixed-buttons {
-                bottom: 15px;
-                right: 15px;
-                gap: 12px;
-            }
-            
-            .mobile-fixed-btn {
-                width: 60px;
-                height: 60px;
-                font-size: 1.6rem;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .category-title {
-                font-size: 1.1rem;
-            }
-            
-            .mobile-fixed-btn {
+            .floating-btn {
                 width: 55px;
                 height: 55px;
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -1443,66 +797,53 @@
 <body>
     <!-- HEADER -->
     <header class="header">
-        <div class="logo" id="logo">
+        <div class="logo">
             <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x50/1E3A8A/FFFFFF?text=Web4+Medya';">
         </div>
         
-        <!-- MODERN NAVIGATION -->
+        <!-- NAVIGATION -->
         <nav class="nav-desktop">
             <div class="nav-item">
                 <a href="/" class="nav-link active">Ana Sayfa</a>
             </div>
             
-            <!-- HİZMETLER DROPDOWN -->
             <div class="nav-item">
                 <a href="#" class="nav-link">Hizmetler <i class="fas fa-chevron-down arrow"></i></a>
-                <div class="dropdown" id="hizmetlerDropdown">
+                <div class="dropdown">
                     <div class="dropdown-content">
-                        <!-- Dijital Pazarlama -->
                         <div class="dropdown-section">
                             <h4>Dijital Pazarlama</h4>
                             <a href="/google-ads-reklam-ver/" class="dropdown-link">Google Ads Reklam Ver</a>
                             <a href="/instagram-reklam-ver/" class="dropdown-link">İnstagram Reklam Ver</a>
                             <a href="/facebook-reklam-ver/" class="dropdown-link">Facebook Reklam Ver</a>
-                            <a href="/google-harita-maps-kaydi/" class="dropdown-link">Google Harita(Maps) Kaydı</a>
-                            <a href="/seo/" class="dropdown-link">SEO (Arama Motoru Optimizasyonu)</a>
-                            <a href="/sosyal-medya-yonetimi/" class="dropdown-link">Sosyal Medya Yönetimi</a>
+                            <a href="/seo/" class="dropdown-link">SEO</a>
                         </div>
-                        
-                        <!-- Web Tasarım -->
                         <div class="dropdown-section">
                             <h4>Web Tasarım</h4>
                             <a href="/e-ticaret-sitesi/" class="dropdown-link">E-Ticaret Sitesi</a>
                             <a href="/kurumsal-web-sitesi/" class="dropdown-link">Kurumsal Web Sitesi</a>
                         </div>
-                        
-                        <!-- Prodüksiyon -->
                         <div class="dropdown-section">
                             <h4>Prodüksiyon</h4>
                             <a href="/sosyal-medya-videolari/" class="dropdown-link">Sosyal Medya Videoları</a>
                             <a href="/tanitim-filmi/" class="dropdown-link">Tanıtım Filmi</a>
-                            <a href="/drone-cekimi/" class="dropdown-link">Drone Çekimi</a>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- BLOG -->
             <div class="nav-item">
                 <a href="/blog/" class="nav-link">Blog</a>
             </div>
             
-            <!-- HAKKIMIZDA -->
             <div class="nav-item">
                 <a href="/hakkimizda/" class="nav-link">Hakkımızda</a>
             </div>
             
-            <!-- İLETİŞİM -->
             <div class="nav-item">
                 <a href="/iletisim/" class="nav-link">İletişim</a>
             </div>
             
-            <!-- HEADER CTA BUTTON - Beyaz arka plan, mavi numara -->
             <div class="header-cta">
                 <a href="tel:05422360983" class="btn">
                     <i class="fas fa-phone-alt"></i> 0542 236 09 83
@@ -1510,323 +851,121 @@
             </div>
         </nav>
         
-        <!-- MOBILE MENU TOGGLE -->
         <button class="menu-toggle" id="menuToggle">
             <span></span>
             <span></span>
             <span></span>
         </button>
     </header>
-    
-    <!-- MOBILE MENU -->
-    <div class="mobile-menu" id="mobileMenu">
-        <nav class="mobile-nav">
-            <!-- Ana Sayfa -->
-            <div class="mobile-nav-item">
-                <a href="/" class="mobile-nav-link active">Ana Sayfa</a>
-            </div>
-            
-            <!-- Hizmetler -->
-            <div class="mobile-nav-item">
-                <button class="mobile-dropdown-btn" data-target="hizmetlerMobile">
-                    Hizmetler <i class="fas fa-chevron-down mobile-arrow"></i>
-                </button>
-                <div class="mobile-dropdown-content" id="hizmetlerMobile">
-                    <!-- Dijital Pazarlama -->
-                    <div class="mobile-dropdown-section">
-                        <h4>Dijital Pazarlama</h4>
-                        <a href="/google-ads-reklam-ver/" class="mobile-dropdown-link">Google Ads Reklam Ver</a>
-                        <a href="/instagram-reklam-ver/" class="mobile-dropdown-link">İnstagram Reklam Ver</a>
-                        <a href="/facebook-reklam-ver/" class="mobile-dropdown-link">Facebook Reklam Ver</a>
-                        <a href="/google-harita-maps-kaydi/" class="mobile-dropdown-link">Google Harita(Maps) Kaydı</a>
-                        <a href="/seo/" class="mobile-dropdown-link">SEO (Arama Motoru Optimizasyonu)</a>
-                        <a href="/sosyal-medya-yonetimi/" class="mobile-dropdown-link">Sosyal Medya Yönetimi</a>
-                    </div>
-                    
-                    <!-- Web Tasarım -->
-                    <div class="mobile-dropdown-section">
-                        <h4>Web Tasarım</h4>
-                        <a href="/e-ticaret-sitesi/" class="mobile-dropdown-link">E-Ticaret Sitesi</a>
-                        <a href="/kurumsal-web-sitesi/" class="mobile-dropdown-link">Kurumsal Web Sitesi</a>
-                    </div>
-                    
-                    <!-- Prodüksiyon -->
-                    <div class="mobile-dropdown-section">
-                        <h4>Prodüksiyon</h4>
-                        <a href="/sosyal-medya-videolari/" class="mobile-dropdown-link">Sosyal Medya Videoları</a>
-                        <a href="/tanitim-filmi/" class="mobile-dropdown-link">Tanıtım Filmi</a>
-                        <a href="/drone-cekimi/" class="mobile-dropdown-link">Drone Çekimi</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Blog -->
-            <div class="mobile-nav-item">
-                <a href="/blog/" class="mobile-nav-link">Blog</a>
-            </div>
-            
-            <!-- Hakkımızda -->
-            <div class="mobile-nav-item">
-                <a href="/hakkimizda/" class="mobile-nav-link">Hakkımızda</a>
-            </div>
-            
-            <!-- İletişim -->
-            <div class="mobile-nav-item">
-                <a href="/iletisim/" class="mobile-nav-link">İletişim</a>
-            </div>
-        </nav>
-    </div>
 
     <!-- HERO SECTION -->
     <section class="hero">
-        <!-- Roket simgesi - Hero -->
-        <div class="rocket-icon">
-            <i class="fas fa-rocket"></i>
-        </div>
-        
-        <!-- Hero arka plan roketleri -->
-        <div class="rocket-hero-1">
-            <i class="fas fa-rocket"></i>
-        </div>
-        <div class="rocket-hero-2">
-            <i class="fas fa-rocket"></i>
-        </div>
-        <div class="rocket-hero-3">
-            <i class="fas fa-rocket"></i>
-        </div>
-        <div class="rocket-hero-4">
-            <i class="fas fa-rocket"></i>
-        </div>
-        
         <div class="hero-content">
-            <!-- YENİ BAŞLIK DÜZENİ -->
+            <!-- BÜYÜTÜLMÜŞ VE ORANTILI BAŞLIK -->
             <div class="hero-title">
                 <div class="hero-top">Dijitalde</div>
                 <div class="hero-main">Güçlü Varlık</div>
                 <div class="hero-bottom">Kazanın</div>
             </div>
             
-            <p class="fade-in-up delay-1">Web4 Medya olarak, dijital pazarlama, web tasarım ve prodüksiyon hizmetlerimizle işletmenizi bir sonraki seviyeye taşıyoruz. Google Ads, SEO, modern web tasarım ve profesyonel prodüksiyon çözümlerimizle markanızı dijital dünyada öne çıkarıyoruz.</p>
-            <div class="hero-buttons fade-in-up delay-2">
-                <a href="tel:05422360983" class="btn btn-primary">
-                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
+            <p>Web4 Medya olarak, dijital pazarlama, web tasarım ve prodüksiyon hizmetlerimizle işletmenizi bir sonraki seviyeye taşıyoruz.</p>
+            
+            <!-- YENİ BUTONLAR - ADS SAYFASINDAKİ GİBİ -->
+            <div class="hero-buttons">
+                <a href="https://wa.me/905422360983?text=Merhaba,%20Web4%20Medya%20dan%20ücretsiz%20danışmanlık%20almak%20istiyorum." class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Ücretsiz Danışmanlık Al
                 </a>
-                <a href="https://wa.me/905422360983" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz
+                <a href="tel:05422360983" class="btn btn-secondary">
+                    <i class="fas fa-phone-alt"></i> Hemen Arayın: 0542 236 09 83
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- MODERN FLIP KARTLAR - TEK TIKLAMALI DÖNME -->
+    <!-- SERVİSLER BÖLÜMÜ -->
     <section class="services-section">
         <div class="section-header">
             <h2 class="section-title">Hizmetlerimiz</h2>
-            <p class="section-subtitle">İşletmeniz için kapsamlı dijital çözümler sunuyoruz. Kartlara tıklayarak detayları görün.</p>
+            <p class="section-subtitle">İşletmeniz için kapsamlı dijital çözümler sunuyoruz.</p>
         </div>
         
         <div class="services-container">
-            <!-- DİJİTAL PAZARLAMA KATEGORİSİ -->
-            <div class="service-category digital-marketing">
-                <h2 id="digital-title" class="category-title typing-animation">Dijital Pazarlama Hizmetlerimiz</h2>
+            <!-- DİJİTAL PAZARLAMA -->
+            <div class="service-category">
+                <h2 class="category-title">Dijital Pazarlama Hizmetlerimiz</h2>
                 <div class="category-grid">
-                    <!-- Google Ads -->
-                    <div class="flip-card" data-id="google-ads">
+                    <div class="flip-card">
                         <div class="card-face card-front">
-                            <div class="icon icon-google">
-                                <i class="fab fa-google"></i>
-                            </div>
+                            <div class="icon"><i class="fab fa-google"></i></div>
                             <h3>Google Ads Reklam Ver</h3>
                         </div>
                         <div class="card-face card-back">
                             <h3>Google Ads</h3>
-                            <p>Arama ve Display ağlarında reklamlarınızı profesyonel şekilde yönetiyor, hedef kitlenize ulaşmanızı sağlıyoruz.</p>
+                            <p>Profesyonel Google Ads yönetimi ile hedef kitlenize ulaşın.</p>
                             <a href="/google-ads-paketleri/" class="btn">Paketleri İncele</a>
                         </div>
                     </div>
                     
-                    <!-- Instagram Reklam -->
-                    <div class="flip-card" data-id="instagram-ads">
+                    <div class="flip-card">
                         <div class="card-face card-front">
-                            <div class="icon icon-instagram">
-                                <i class="fab fa-instagram"></i>
-                            </div>
-                            <h3>İnstagram Reklam Ver</h3>
+                            <div class="icon"><i class="fab fa-instagram"></i></div>
+                            <h3>Instagram Reklam</h3>
                         </div>
                         <div class="card-face card-back">
                             <h3>Instagram Reklam</h3>
-                            <p>Instagram'da görsel ve video reklamlarla genç ve aktif kitleye ulaşmanızı sağlıyor, etkileşimlerinizi artırıyoruz.</p>
+                            <p>Genç ve aktif kitleye ulaşmanızı sağlıyoruz.</p>
                             <a href="/instagram-paketleri/" class="btn">Paketleri İncele</a>
                         </div>
                     </div>
                     
-                    <!-- Facebook Reklam -->
-                    <div class="flip-card" data-id="facebook-ads">
+                    <div class="flip-card">
                         <div class="card-face card-front">
-                            <div class="icon icon-facebook">
-                                <i class="fab fa-facebook"></i>
-                            </div>
-                            <h3>Facebook Reklam Ver</h3>
+                            <div class="icon"><i class="fab fa-facebook"></i></div>
+                            <h3>Facebook Reklam</h3>
                         </div>
                         <div class="card-face card-back">
                             <h3>Facebook Reklam</h3>
-                            <p>Facebook'ta detaylı hedefleme ile doğru kitleye reklamlarınızı ulaştırıyor, dönüşüm oranlarınızı yükseltiyoruz.</p>
+                            <p>Detaylı hedefleme ile doğru kitleye ulaşın.</p>
                             <a href="/facebook-paketleri/" class="btn">Paketleri İncele</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Google Maps -->
-                    <div class="flip-card" data-id="google-maps">
-                        <div class="card-face card-front">
-                            <div class="icon icon-maps">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <h3>Google Harita Kaydı</h3>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>Google Harita</h3>
-                            <p>İşletmenizi Google Haritalar'da kaydediyor, müşterilerinizin sizi kolayca bulmasını ve yön bulmasını sağlıyoruz.</p>
-                            <a href="/google-maps-paketleri/" class="btn">Paketleri İncele</a>
-                        </div>
-                    </div>
-                    
-                    <!-- SEO -->
-                    <div class="flip-card" data-id="seo">
-                        <div class="card-face card-front">
-                            <div class="icon icon-seo">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h3>SEO Hizmeti</h3>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>SEO Optimizasyon</h3>
-                            <p>Web sitenizi arama motorları için optimize ediyor, organik trafik artışı sağlıyor ve sürekli takip ediyoruz.</p>
-                            <a href="/seo-paketleri/" class="btn">Paketleri İncele</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Sosyal Medya Yönetimi -->
-                    <div class="flip-card" data-id="social-media">
-                        <div class="card-face card-front">
-                            <div class="icon icon-social">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <h3>Sosyal Medya Yönetimi</h3>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>Sosyal Medya</h3>
-                            <p>Sosyal medya hesaplarınızı profesyonelce yönetiyor, içerik üretiyor ve takipçi etkileşiminizi artırıyoruz.</p>
-                            <a href="/sosyal-medya-paketleri/" class="btn">Paketleri İncele</a>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- WEB TASARIM KATEGORİSİ -->
-            <div class="service-category web-design">
-                <h2 id="web-title" class="category-title typing-animation">Web Tasarım Hizmetlerimiz</h2>
+            <!-- WEB TASARIM -->
+            <div class="service-category">
+                <h2 class="category-title">Web Tasarım Hizmetlerimiz</h2>
                 <div class="category-grid">
-                    <!-- E-Ticaret -->
-                    <div class="flip-card" data-id="ecommerce">
+                    <div class="flip-card">
                         <div class="card-face card-front">
-                            <div class="icon icon-ecommerce">
-                                <i class="fas fa-shopping-cart"></i>
-                            </div>
+                            <div class="icon"><i class="fas fa-shopping-cart"></i></div>
                             <h3>E-Ticaret Sitesi</h3>
                         </div>
                         <div class="card-face card-back">
                             <h3>E-Ticaret</h3>
-                            <p>Mobil uyumlu, güvenli ve kullanıcı dostu e-ticaret siteleri tasarlıyor, online satışlarınızı artırıyoruz.</p>
+                            <p>Modern e-ticaret siteleri ile satışlarınızı artırın.</p>
                             <a href="/e-ticaret-paketleri/" class="btn">Paketleri İncele</a>
                         </div>
                     </div>
                     
-                    <!-- Kurumsal Web -->
-                    <div class="flip-card" data-id="corporate-web">
+                    <div class="flip-card">
                         <div class="card-face card-front">
-                            <div class="icon icon-corporate">
-                                <i class="fas fa-briefcase"></i>
-                            </div>
+                            <div class="icon"><i class="fas fa-briefcase"></i></div>
                             <h3>Kurumsal Web Sitesi</h3>
                         </div>
                         <div class="card-face card-back">
                             <h3>Kurumsal Web</h3>
-                            <p>Kurumsal kimliğinize uygun, modern ve etkileyici web siteleri tasarlıyor, online varlığınızı güçlendiriyoruz.</p>
+                            <p>Kurumsal kimliğinize uygun modern web siteleri.</p>
                             <a href="/kurumsal-web-paketleri/" class="btn">Paketleri İncele</a>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- PRODÜKSİYON KATEGORİSİ -->
-            <div class="service-category production">
-                <h2 id="production-title" class="category-title typing-animation">Prodüksiyon Hizmetlerimiz</h2>
-                <div class="category-grid">
-                    <!-- Sosyal Medya Videoları -->
-                    <div class="flip-card" data-id="social-videos">
-                        <div class="card-face card-front">
-                            <div class="icon icon-video">
-                                <i class="fas fa-video"></i>
-                            </div>
-                            <h3>Sosyal Medya Videoları</h3>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>Sosyal Medya Videoları</h3>
-                            <p>Sosyal medya platformları için etkileyici ve paylaşılabilir video içerikler üretiyor, marka bilinirliğinizi artırıyoruz.</p>
-                            <a href="/video-paketleri/" class="btn">Paketleri İncele</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Tanıtım Filmi -->
-                    <div class="flip-card" data-id="promo-video">
-                        <div class="card-face card-front">
-                            <div class="icon icon-film">
-                                <i class="fas fa-film"></i>
-                            </div>
-                            <h3>Tanıtım Filmi</h3>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>Tanıtım Filmi</h3>
-                            <p>Markanızı en iyi şekilde tanıtan profesyonel tanıtım filmleri hazırlıyor, kurumsal kimliğinizi güçlendiriyoruz.</p>
-                            <a href="/tanitim-filmi-paketleri/" class="btn">Paketleri İncele</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Drone Çekimi -->
-                    <div class="flip-card" data-id="drone">
-                        <div class="card-face card-front">
-                            <div class="icon icon-drone">
-                                <i class="fas fa-drone"></i>
-                            </div>
-                            <h3>Drone Çekimi</h3>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>Drone Çekimi</h3>
-                            <p>Drone ile havadan çektiğimiz görüntülerle içeriklerinize farklı bir boyut katıyor, etkiyi artırıyoruz.</p>
-                            <a href="/drone-paketleri/" class="btn">Paketleri İncele</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- NEDEN BİZ SECTION -->
+    <!-- NEDEN BİZ -->
     <section class="why-us">
-        <!-- Why Us arka plan roketleri -->
-        <div class="rocket-why-1">
-            <i class="fas fa-rocket"></i>
-        </div>
-        <div class="rocket-why-2">
-            <i class="fas fa-rocket"></i>
-        </div>
-        <div class="rocket-why-3">
-            <i class="fas fa-rocket"></i>
-        </div>
-        <div class="rocket-why-4">
-            <i class="fas fa-rocket"></i>
-        </div>
-        
         <div class="section-header">
             <h2 class="section-title">Neden Web4 Medya?</h2>
             <p class="section-subtitle">Farkımızı ortaya koyan özelliklerimizle işletmenize değer katıyoruz</p>
@@ -1834,35 +973,27 @@
         
         <div class="features-grid">
             <div class="feature">
-                <div class="feature-icon">
-                    <i class="fas fa-trophy"></i>
-                </div>
+                <div class="feature-icon"><i class="fas fa-trophy"></i></div>
                 <h3>Deneyimli Ekip</h3>
-                <p>10+ yıllık sektör deneyimine sahip uzman ekibimizle çalışarak dijital dönüşümünüzü güvence altına alın.</p>
+                <p>10+ yıllık sektör deneyimine sahip uzman ekibimizle çalışın.</p>
             </div>
             
             <div class="feature">
-                <div class="feature-icon">
-                    <i class="fas fa-chart-bar"></i>
-                </div>
+                <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
                 <h3>Ölçülebilir Sonuçlar</h3>
-                <p>Tüm kampanyalarınızı detaylı raporlarla takip edin. Yatırımınızın geri dönüşünü net olarak görün.</p>
+                <p>Tüm kampanyalarınızı detaylı raporlarla takip edin.</p>
             </div>
             
             <div class="feature">
-                <div class="feature-icon">
-                    <i class="fas fa-headset"></i>
-                </div>
+                <div class="feature-icon"><i class="fas fa-headset"></i></div>
                 <h3>7/24 Destek</h3>
-                <p>Size özel danışmanınızla her zaman iletişimde kalın. Sorularınıza hızlı ve profesyonel çözümler sunuyoruz.</p>
+                <p>Size özel danışmanınızla her zaman iletişimde kalın.</p>
             </div>
             
             <div class="feature">
-                <div class="feature-icon">
-                    <i class="fas fa-handshake"></i>
-                </div>
+                <div class="feature-icon"><i class="fas fa-handshake"></i></div>
                 <h3>Şeffaf İletişim</h3>
-                <p>Tüm süreçlerde şeffaf ve açık iletişim politikamızla güven inşa ediyor, beklentilerinizi karşılıyoruz.</p>
+                <p>Tüm süreçlerde şeffaf ve açık iletişim politikamız.</p>
             </div>
         </div>
     </section>
@@ -1871,174 +1002,78 @@
     <section class="cta-section">
         <div class="cta-content">
             <h2>İşinizi Dijitalde Büyütmeye Hazır mısınız?</h2>
-            <p>Web4 Medya uzmanları sizin için en uygun dijital stratejiyi belirlesin. Ücretsiz danışmanlık ve analiz hizmetimizden yararlanın.</p>
+            <p>Web4 Medya uzmanları sizin için en uygun dijital stratejiyi belirlesin.</p>
             <div class="cta-buttons">
-                <a href="tel:05422360983" class="btn btn-primary">
-                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
+                <a href="https://wa.me/905422360983" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Ücretsiz Danışmanlık
                 </a>
-                <a href="https://wa.me/905422360983" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Teklif Al
+                <a href="tel:05422360983" class="btn btn-secondary">
+                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- MODERN FOOTER - BEYAZ TEMA -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
-            <!-- Logo ve Açıklama -->
             <div class="footer-section">
                 <div class="footer-logo">
-                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x50/1E3A8A/FFFFFF?text=Web4+Medya';">
+                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo">
                     <div class="footer-logo-text">Sizin için en iyisi!</div>
                 </div>
-                <p class="footer-description">
-                    Dijital pazarlama, web tasarım ve prodüksiyon alanında profesyonel çözümler sunan lider ajans. İşletmenizi dijital dünyada bir adım öne taşıyoruz.
-                </p>
-                <div class="social-links">
-                    <a href="https://instagram.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://facebook.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://twitter.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://linkedin.com/company/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://wa.me/905422360983" class="social-link" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                </div>
+                <p>Dijital pazarlama, web tasarım ve prodüksiyon alanında profesyonel çözümler sunan lider ajans.</p>
             </div>
             
-            <!-- Hızlı Bağlantılar -->
             <div class="footer-section">
                 <h3>Hızlı Bağlantılar</h3>
                 <ul class="footer-links">
-                    <li><a href="/"><i class="fas fa-chevron-right"></i> Ana Sayfa</a></li>
-                    <li><a href="/hakkimizda/"><i class="fas fa-chevron-right"></i> Hakkımızda</a></li>
-                    <li><a href="/blog/"><i class="fas fa-chevron-right"></i> Blog</a></li>
-                    <li><a href="/referanslar/"><i class="fas fa-chevron-right"></i> Referanslar</a></li>
-                    <li><a href="/iletisim/"><i class="fas fa-chevron-right"></i> İletişim</a></li>
+                    <li><a href="/">Ana Sayfa</a></li>
+                    <li><a href="/hakkimizda/">Hakkımızda</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/iletisim/">İletişim</a></li>
                 </ul>
             </div>
             
-            <!-- Hizmetler -->
             <div class="footer-section">
-                <h3>Hizmetlerimiz</h3>
-                <ul class="footer-links">
-                    <li><a href="/google-ads-reklam-ver/"><i class="fas fa-chevron-right"></i> Google Ads Reklam</a></li>
-                    <li><a href="/instagram-reklam-ver/"><i class="fas fa-chevron-right"></i> Instagram Reklam</a></li>
-                    <li><a href="/facebook-reklam-ver/"><i class="fas fa-chevron-right"></i> Facebook Reklam</a></li>
-                    <li><a href="/seo/"><i class="fas fa-chevron-right"></i> SEO Hizmeti</a></li>
-                    <li><a href="/e-ticaret-sitesi/"><i class="fas fa-chevron-right"></i> E-Ticaret Sitesi</a></li>
-                    <li><a href="/sosyal-medya-videolari/"><i class="fas fa-chevron-right"></i> Sosyal Medya Videoları</a></li>
-                </ul>
-            </div>
-            
-            <!-- İletişim Bilgileri -->
-            <div class="footer-section">
-                <h3>İletişim Bilgileri</h3>
+                <h3>İletişim</h3>
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <a href="tel:05422360983">0542 236 09 83</a>
-                        </div>
+                        <a href="tel:05422360983">0542 236 09 83</a>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <div>
-                            <a href="mailto:info@web4medya.com">info@web4medya.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <span>Web4 Medya Ajansı<br>İstanbul, Türkiye</span>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <span>Pzt-Cum: 09:00 - 18:00<br>Cmt: 10:00 - 16:00</span>
-                        </div>
+                        <a href="mailto:info@web4medya.com">info@web4medya.com</a>
                     </div>
                 </div>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2024 Web4 Medya. Tüm hakları saklıdır. <a href="/gizlilik-politikasi/">Gizlilik Politikası</a> | <a href="/kullanim-kosullari/">Kullanım Koşulları</a></p>
-            <p style="margin-top: 10px; font-size: 0.8rem; color: var(--gray);">Profesyonel dijital pazarlama ve web tasarım çözümleri</p>
+            <p>&copy; 2024 Web4 Medya. Tüm hakları saklıdır.</p>
         </div>
     </footer>
 
-    <!-- MOBİL SABİT BUTONLAR - BÜYÜK BOY -->
-    <div class="mobile-fixed-buttons">
-        <a href="https://wa.me/905422360983" class="mobile-fixed-btn whatsapp" target="_blank" rel="noopener noreferrer">
+    <!-- SAĞ ALT SABİT BUTONLAR -->
+    <div class="floating-cta">
+        <a href="https://wa.me/905422360983" class="floating-btn floating-whatsapp">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="tel:05422360983" class="mobile-fixed-btn phone">
+        <a href="tel:05422360983" class="floating-btn floating-phone">
             <i class="fas fa-phone-alt"></i>
         </a>
     </div>
 
     <script>
-        // SAYFA YÜKLENDİĞİNDE LOGO DÖNDÜRME
-        document.addEventListener('DOMContentLoaded', function() {
-            // Logo animasyonu - sadece bir kere
-            const logo = document.getElementById('logo');
-            if (logo && !sessionStorage.getItem('logoAnimated')) {
-                logo.classList.add('logo-animated');
-                sessionStorage.setItem('logoAnimated', 'true');
-                
-                // Animasyon bittikten sonra class'ı kaldır
-                setTimeout(() => {
-                    logo.classList.remove('logo-animated');
-                }, 800);
-            }
-            
-            // Resim fallback'leri
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                img.loading = 'lazy';
-                
-                if (img.src.includes('logo')) {
-                    img.onerror = function() {
-                        this.onerror = null;
-                        if (this.parentElement.classList.contains('logo')) {
-                            this.src = 'https://via.placeholder.com/200x50/1E3A8A/FFFFFF?text=Web4+Medya';
-                        } else {
-                            this.src = 'https://via.placeholder.com/150x50/1E3A8A/FFFFFF?text=Web4+Medya';
-                        }
-                    };
-                }
-            });
-            
-            // Drone icon için özel font
-            const style = document.createElement('style');
-            style.textContent = `
-                .fa-drone:before {
-                    content: "\\f0b2";
-                    font-family: "Font Awesome 5 Free";
-                }
-            `;
-            document.head.appendChild(style);
-        });
-
         // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenu = document.querySelector('.mobile-menu');
         
         if (menuToggle) {
-            menuToggle.addEventListener('click', function(e) {
-                e.stopPropagation();
+            menuToggle.addEventListener('click', function() {
                 this.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
+                if (mobileMenu) mobileMenu.classList.toggle('active');
             });
         }
 
@@ -2057,81 +1092,38 @@
             }
         });
 
-        // Mobile Dropdown Toggle
-        const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
-        mobileDropdownBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const targetId = this.getAttribute('data-target');
-                const target = document.getElementById(targetId);
-                
-                // Diğer dropdown'ları kapat
-                document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
-                    if (dropdown.id !== targetId) {
-                        dropdown.classList.remove('active');
-                        const otherBtn = dropdown.parentElement.querySelector('.mobile-dropdown-btn');
-                        if (otherBtn) otherBtn.classList.remove('active');
-                    }
-                });
-                
-                // Mevcut dropdown'ı aç/kapat
-                this.classList.toggle('active');
-                target.classList.toggle('active');
-            });
-        });
-
-        // Dışarı tıklayınca kapat
-        document.addEventListener('click', function(e) {
-            // Desktop dropdowns
-            if (!e.target.closest('.nav-item')) {
-                document.querySelectorAll('.dropdown.active').forEach(dropdown => {
-                    dropdown.classList.remove('active');
-                });
-            }
-            
-            // Mobile menu
-            if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
-                menuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            }
-        });
-
-        // Mobile dropdown link'lerine tıklayınca menüyü kapat
-        document.querySelectorAll('.mobile-dropdown-link').forEach(link => {
-            link.addEventListener('click', function() {
-                menuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
-                    dropdown.classList.remove('active');
-                });
-                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-            });
-        });
-
-        // Aktif sayfayı işaretle
-        const currentPage = window.location.pathname;
-        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+        // FLIP CARD FUNCTIONALITY
+        const flipCards = document.querySelectorAll('.flip-card');
         
-        navLinks.forEach(link => {
-            const linkPath = link.getAttribute('href');
-            if (linkPath === '/' && currentPage === '/') {
-                link.classList.add('active');
-            } else if (linkPath !== '/' && currentPage.includes(linkPath)) {
-                link.classList.add('active');
-            }
+        flipCards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (e.target.closest('a')) return;
+                
+                if (!this.classList.contains('flipped')) {
+                    this.classList.add('flipped');
+                    flipCards.forEach(otherCard => {
+                        if (otherCard !== this && otherCard.classList.contains('flipped')) {
+                            otherCard.classList.remove('flipped');
+                        }
+                    });
+                } else {
+                    this.classList.remove('flipped');
+                }
+            });
         });
 
-        // Dropdown içine tıklayınca kapanmasın
-        document.querySelectorAll('.dropdown').forEach(dropdown => {
-            dropdown.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
+        // Kart dışına tıklayınca sıfırla
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.flip-card')) {
+                flipCards.forEach(card => {
+                    card.classList.remove('flipped');
+                });
+            }
         });
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 if(targetId === '#') return;
@@ -2146,73 +1138,23 @@
             });
         });
 
-        // FLIP CARD FUNCTIONALITY - SADECE TIKLAMADA DÖNER
-        const flipCards = document.querySelectorAll('.flip-card');
-        
-        flipCards.forEach(card => {
-            card.addEventListener('click', function(e) {
-                // Eğer butona tıklandıysa flip olmasın
-                if (e.target.closest('a')) {
-                    return;
-                }
+        // Resim fallback
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.loading = 'lazy';
                 
-                // Sadece bir kez dönmesini sağla
-                if (!this.classList.contains('flipped')) {
-                    this.classList.add('flipped');
-                    
-                    // Diğer kartları sıfırla
-                    flipCards.forEach(otherCard => {
-                        if (otherCard !== this && otherCard.classList.contains('flipped')) {
-                            otherCard.classList.remove('flipped');
+                if (img.src.includes('logo')) {
+                    img.onerror = function() {
+                        this.onerror = null;
+                        if (this.parentElement.classList.contains('logo')) {
+                            this.src = 'https://via.placeholder.com/200x50/1E3A8A/FFFFFF?text=Web4+Medya';
+                        } else {
+                            this.src = 'https://via.placeholder.com/150x50/1E3A8A/FFFFFF?text=Web4+Medya';
                         }
-                    });
-                } else {
-                    // Eğer zaten dönmüşse, tekrar tıklayınca geri dönsün
-                    this.classList.remove('flipped');
+                    };
                 }
             });
-        });
-
-        // Kart dışına tıklayınca kartları sıfırla
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.flip-card')) {
-                flipCards.forEach(card => {
-                    card.classList.remove('flipped');
-                });
-            }
-        });
-
-        // YAZIM ANİMASYONU - DÜZGÜN ÇALIŞACAK ŞEKİLDE
-        const typingTitles = document.querySelectorAll('.typing-animation');
-        
-        // Intersection Observer - başlıklar görününce animasyon başlasın
-        const titleObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const title = entry.target;
-                    
-                    // Animasyonu başlat
-                    title.style.animation = 'typing 3s steps(40, end), blink-caret 0.75s step-end infinite';
-                    
-                    // Animasyon bittikten sonra cursor'ı kaldır
-                    setTimeout(() => {
-                        title.style.borderRight = 'none';
-                        title.style.animation = 'none';
-                        title.classList.add('typing-complete');
-                    }, 3000);
-                    
-                    // Sadece bir kere gözlemle
-                    titleObserver.unobserve(title);
-                }
-            });
-        }, {
-            threshold: 0.5,
-            rootMargin: '0px 0px -100px 0px'
-        });
-        
-        // Başlıkları gözlemle
-        typingTitles.forEach(title => {
-            titleObserver.observe(title);
         });
     </script>
 </body>
