@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hakkımızda | Web4 Medya - Profesyonel Dijital Pazarlama Ajansı</title>
+    <meta name="description" content="Web4 Medya hakkında: 10+ yıllık deneyimli ekibimizle dijital pazarlama, web tasarım ve prodüksiyon alanında profesyonel çözümler sunuyoruz." />
+    <meta name="keywords" content="web4 medya hakkında, dijital pazarlama ajansı, web tasarım firması, seo uzmanı, google ads uzmanı, instagram reklam, kurumsal kimlik" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Web4 Medya" />
+    <link rel="canonical" href="https://www.web4medya.com/hakkimizda/" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Hakkımızda | Web4 Medya - Profesyonel Dijital Pazarlama Ajansı" />
+    <meta property="og:description" content="10+ yıllık deneyimli ekibimizle dijital pazarlama, web tasarım ve prodüksiyon alanında profesyonel çözümler sunuyoruz." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.web4medya.com/hakkimizda/" />
+    <meta property="og:image" content="https://www.web4medya.com/images/web4medya-ekip.webp" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2563EB; /* MAVİ */
+            --primary-light: #3B82F6; /* Açık mavi */
+            --primary-dark: #1D4ED8; /* Koyu mavi */
+            --gradient-1: #145e8d; /* Yeni gradient renk 1 */
+            --gradient-2: #1f90bc; /* Yeni gradient renk 2 */
+            --gradient-3: #1dbbe1; /* Yeni gradient renk 3 */
+            --secondary: #FFFFFF; /* BEYAZ */
+            --accent: #60A5FA; /* Açık mavi */
+            --dark: #1F2937; /* Koyu gri */
+            --black: #000000; /* Siyah */
+            --gray-dark: #374151; /* Gri */
+            --gray: #6B7280; /* Orta gri */
+            --gray-light: #E5E7EB; /* Açık gri */
+            --light: #F3F4F6; /* Çok açık gri */
+            --white: #FFFFFF; /* BEYAZ */
+            --shadow: 0 10px 40px rgba(37, 99, 235, 0.08);
+            --shadow-hover: 0 20px 60px rgba(37, 99, 235, 0.12);
+            --radius: 20px;
+            --radius-sm: 12px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* MODERN HEADER - BEYAZ TEMA */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98); /* BEYAZ */
+            backdrop-filter: blur(10px);
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(37, 99, 235, 0.05);
+            height: 80px; /* Artırıldı */
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        /* LOGO BOYUTU BÜYÜTÜLDÜ VE TIKLANABİLİR */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            height: 70px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            max-height: 70px;
+            object-fit: contain;
+        }
+
+        /* MODERN NAVIGATION - MAVİ METİN */
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--gray-dark); /* Gri */
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            padding: 8px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-link:hover {
+            color: var(--primary); /* Mavi hover */
+        }
+
+        .nav-link.active {
+            color: var(--primary); /* Mavi */
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-3));
+            border-radius: 2px;
+        }
+
+        /* DROPDOWN MENÜ - BEYAZ TEMA */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white); /* BEYAZ */
+            min-width: 280px;
+            box-shadow: var(--shadow);
+            border-radius: var(--radius-sm);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            border: 1px solid var(--gray-light);
+        }
+
+        .dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content {
+            padding: 10px 0;
+        }
+
+        .dropdown-section {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .dropdown-section:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-section h4 {
+            font-size: 0.85rem;
+            color: var(--gradient-2); /* Yeni gradient renk */
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 8px 0;
+            color: var(--gray-dark); /* Gri */
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .dropdown-link:hover {
+            color: var(--gradient-3); /* Yeni gradient renk hover */
+            padding-left: 5px;
+        }
+
+        .arrow {
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+            color: var(--gray-dark); /* Gri */
+        }
+
+        .nav-item:hover .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* HEADER CTA BUTTON - DÜZGÜN BUTON */
+        .header-cta {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-cta .btn {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            color: var(--white); /* BEYAZ */
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: var(--transition);
+            white-space: nowrap;
+            border: none;
+            box-shadow: 0 4px 12px rgba(20, 94, 141, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-cta .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(20, 94, 141, 0.3);
+            background: linear-gradient(135deg, var(--gradient-2), var(--gradient-1));
+        }
+
+        /* HAMBURGER MENU - MAVİ ÇİZGİLER */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background-color: var(--gradient-2); /* Yeni gradient renk */
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* HAKKIMIZDA HERO SECTION */
+        .about-hero {
+            background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
+            color: var(--white);
+            padding: 160px 5% 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 3.8rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, 
+                #000000 0%, 
+                #1a1a1a 25%, 
+                #333333 50%, 
+                #1a1a1a 75%, 
+                #000000 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: white;
+            text-shadow: 
+                0 1px 0 rgba(255, 255, 255, 0.1),
+                0 2px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        .about-hero p {
+            font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-weight: 300;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* HAKKIMIZDA CONTENT SECTIONS */
+        .about-content-section {
+            padding: 100px 5%;
+            background: var(--white);
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+            color: var(--gray);
+            line-height: 1.6;
+            margin-top: 30px;
+            margin-bottom: 50px;
+        }
+
+        /* VİZYON & MİSYON */
+        .vision-mission {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .vm-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 2px solid transparent;
+            text-align: center;
+        }
+
+        .vm-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gradient-2);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .vm-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .vm-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--gradient-1);
+            font-weight: 700;
+        }
+
+        .vm-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--gray-dark);
+        }
+
+        /* DEĞERLERİMİZ */
+        .values-section {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .value-card {
+            background: var(--white);
+            padding: 35px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            border-top: 4px solid var(--gradient-2);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--gradient-2);
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .value-card p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--gray-dark);
+        }
+
+        /* EKİP */
+        .team-section {
+            padding: 100px 5%;
+            background: var(--white);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .team-member {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .member-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.05);
+        }
+
+        .member-info {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .member-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .member-info .position {
+            color: var(--gradient-2);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .member-info p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--gray-dark);
+        }
+
+        /* BAŞARI HİKAYESİ */
+        .story-section {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".1" fill="white"/></svg>');
+            background-size: 100% 100px;
+            background-position: bottom;
+            background-repeat: no-repeat;
+        }
+
+        .story-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .story-content h2 {
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .story-content p {
+            font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+            margin-bottom: 30px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .milestones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .milestone {
+            text-align: center;
+        }
+
+        .milestone-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .milestone-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 600;
+        }
+
+        /* TEKLİF KARTI */
+        .teklif-card {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            color: white;
+            padding: 50px;
+            border-radius: var(--radius);
+            text-align: center;
+            margin: 80px 0;
+            box-shadow: var(--shadow-hover);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .teklif-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+
+        .teklif-card h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .teklif-card p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .teklif-card .btn {
+            background: white;
+            color: var(--gradient-1);
+            padding: 18px 40px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            z-index: 1;
+            text-decoration: none;
+        }
+
+        .teklif-card .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            background: #f8fafc;
+        }
+
+        /* TEXT CONTENT */
+        .text-content {
+            margin: 60px 0;
+        }
+
+        .text-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 40px 0 20px;
+            color: var(--dark);
+        }
+
+        .text-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 30px 0 15px;
+            color: var(--gradient-2);
+        }
+
+        .text-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: var(--gray-dark);
+        }
+
+        .text-content ul {
+            margin: 20px 0 30px 30px;
+        }
+
+        .text-content li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--gray-dark);
+        }
+
+        .highlight {
+            background-color: rgba(20, 94, 141, 0.1);
+            padding: 20px;
+            border-radius: var(--radius-sm);
+            border-left: 4px solid var(--gradient-2);
+            margin: 30px 0;
+        }
+
+        .highlight p {
+            margin-bottom: 0;
+            font-weight: 600;
+            color: var(--gradient-1);
+        }
+
+        /* MOBILE MENU - BEYAZ TEMA */
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: var(--white); /* BEYAZ */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        .mobile-menu.active {
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .mobile-nav {
+            padding: 20px;
+        }
+
+        .mobile-nav-item {
+            margin-bottom: 5px;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            padding: 15px;
+            color: var(--gray-dark); /* Gri */
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid var(--gray-light);
+            transition: var(--transition);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--gradient-3); /* Yeni gradient renk hover */
+        }
+
+        .mobile-dropdown-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 15px;
+            color: var(--gray-dark); /* Gri */
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--gray-light);
+            text-align: left;
+        }
+
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--light);
+            margin-left: 10px;
+        }
+
+        .mobile-dropdown-content.active {
+            max-height: 500px;
+        }
+
+        .mobile-dropdown-section {
+            padding: 10px 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .mobile-dropdown-section:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-dropdown-section h4 {
+            font-size: 0.9rem;
+            color: var(--gradient-2); /* Yeni gradient renk */
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .mobile-dropdown-link {
+            display: block;
+            padding: 8px 0;
+            color: var(--gray-dark); /* Gri */
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .mobile-dropdown-link:hover {
+            color: var(--gradient-3); /* Yeni gradient renk hover */
+            padding-left: 5px;
+        }
+
+        .mobile-arrow {
+            transition: transform 0.3s ease;
+            color: var(--gray-dark); /* Gri */
+        }
+
+        .mobile-dropdown-btn.active .mobile-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* YENİ FLOATING CTA BUTONLARI */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 998;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .floating-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            text-decoration: none;
+            font-size: 1.9rem;
+            position: relative;
+            overflow: hidden;
+            /* Kenar yumuşatma */
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .floating-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+            z-index: 1;
+        }
+
+        .floating-btn:hover::after {
+            transform: translateX(0);
+        }
+
+        /* FLOATING BUTONLAR - TERS ÇEVİRİLMİŞ HOVER/TIKLAMA */
+        .floating-btn {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .floating-btn:active {
+            transform: scale(1) rotate(0);
+            box-shadow: 0 10px 30px rgba(20, 94, 141, 0.3);
+        }
+
+        .floating-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            animation: pulse 2s infinite;
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        .floating-whatsapp:active {
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .floating-phone {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            color: white;
+            box-shadow: 0 15px 40px rgba(20, 94, 141, 0.4);
+        }
+
+        .floating-phone:active {
+            box-shadow: 0 10px 30px rgba(20, 94, 141, 0.3);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* YENİ BEYAZ FOOTER */
+        .footer {
+            background: var(--white); /* BEYAZ ARKA PLAN */
+            color: var(--gray-dark); /* KARANLIK GRI YAZI */
+            padding: 80px 5% 40px;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid var(--gray-light);
+            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-section h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--black); /* SİYAH BAŞLIK */
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
+        }
+
+        /* FOOTER LOGO */
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo img {
+            height: 65px;
+            width: auto;
+            /* Logo orijinal renginde kalacak */
+        }
+
+        .footer-logo-text {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--black); /* SİYAH */
+        }
+
+        .footer-description {
+            color: var(--gray); /* GRI YAZI */
+            line-height: 1.7;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: var(--light); /* AÇIK GRI ARKA PLAN */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gradient-2); /* MAVİ İKON */
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            color: white;
+            transform: translateY(-3px);
+            border-color: transparent;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: var(--gray-dark); /* KARANLIK GRI */
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--gradient-2); /* MAVİ HOVER */
+            padding-left: 8px;
+        }
+
+        .footer-links i {
+            color: var(--gradient-2); /* MAVİ İKON */
+            font-size: 0.9rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--gray-dark); /* KARANLIK GRI */
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: var(--light); /* AÇIK GRI ARKA PLAN */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gradient-2); /* MAVİ İKON */
+            font-size: 1.1rem;
+        }
+
+        .contact-item a {
+            color: var(--black); /* SİYAH LİNK */
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .contact-item a:hover {
+            color: var(--gradient-2); /* MAVİ HOVER */
+            text-decoration: underline;
+        }
+
+        /* Footer telefon linki */
+        .contact-item a[href^="tel:"] {
+            background: none;
+            color: var(--black);
+            padding: 0;
+            border-radius: 0;
+            display: inline;
+            margin-top: 0;
+            transition: all 0.3s ease;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .contact-item a[href^="tel:"]:hover {
+            transform: none;
+            box-shadow: none;
+            background: none;
+            color: var(--gradient-2);
+            text-decoration: underline;
+        }
+
+        .contact-item span {
+            color: var(--gray);
+            line-height: 1.5;
+            font-size: 1.05rem;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid var(--gray-light);
+            text-align: center;
+            color: var(--gray);
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-bottom a {
+            color: var(--gradient-2);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--gradient-1);
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVE BREAKPOINTS */
+        @media (max-width: 1200px) {
+            .header {
+                padding: 0 4%;
+            }
+            
+            .nav-desktop {
+                gap: 20px;
+            }
+            
+            .nav-link {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .nav-desktop {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .header-cta {
+                display: none;
+            }
+            
+            .vision-mission {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero {
+                padding: 140px 4% 80px;
+                margin-top: 80px;
+            }
+            
+            .vision-mission {
+                gap: 30px;
+            }
+            
+            .vm-card {
+                padding: 30px 20px;
+            }
+            
+            .values-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+            }
+            
+            .value-card {
+                padding: 25px;
+            }
+            
+            .teklif-card {
+                padding: 30px 20px;
+                margin: 60px 0;
+            }
+            
+            .teklif-card h3 {
+                font-size: 1.8rem;
+            }
+            
+            .teklif-card p {
+                font-size: 1.1rem;
+            }
+            
+            .milestones {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            /* FLOATING BUTONLAR MOBİL */
+            .floating-cta {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .floating-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.7rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 0 20px;
+                height: 75px;
+            }
+            
+            .logo {
+                height: 60px;
+            }
+            
+            .logo img {
+                max-height: 60px;
+            }
+            
+            .about-hero {
+                padding: 120px 20px 60px;
+                margin-top: 75px;
+            }
+            
+            .mobile-menu {
+                top: 75px;
+            }
+            
+            .vm-card {
+                padding: 25px 15px;
+            }
+            
+            .vm-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+            
+            .vm-card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .member-image {
+                height: 250px;
+            }
+            
+            .milestones {
+                grid-template-columns: 1fr;
+            }
+            
+            .milestone-number {
+                font-size: 2.5rem;
+            }
+            
+            .footer {
+                padding: 60px 20px 30px;
+            }
+            
+            /* FOOTER LOGO MOBİL */
+            .footer-logo img {
+                height: 55px;
+            }
+            
+            /* FLOATING BUTONLAR MOBİL KÜÇÜK */
+            .floating-cta {
+                bottom: 15px;
+                right: 15px;
+                gap: 12px;
+            }
+            
+            .floating-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .vm-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .value-card h3 {
+                font-size: 1.2rem;
+            }
+            
+            .member-info h3 {
+                font-size: 1.3rem;
+            }
+            
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .logo {
+                height: 55px;
+            }
+            
+            .logo img {
+                max-height: 55px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <!-- LOGO - ANA SAYFAYA SMOOTH SCROLL -->
+        <a href="#" class="logo" id="homeLink">
+            <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/145e8d/FFFFFF?text=Web4+Medya';">
+        </a>
+        
+        <!-- MODERN NAVIGATION -->
+        <nav class="nav-desktop">
+            <div class="nav-item">
+                <a href="/" class="nav-link">Ana Sayfa</a>
+            </div>
+            
+            <!-- HİZMETLER DROPDOWN -->
+            <div class="nav-item">
+                <a href="#" class="nav-link">Hizmetler <i class="fas fa-chevron-down arrow"></i></a>
+                <div class="dropdown" id="hizmetlerDropdown">
+                    <div class="dropdown-content">
+                        <!-- Dijital Pazarlama -->
+                        <div class="dropdown-section">
+                            <h4>Dijital Pazarlama</h4>
+                            <a href="/google-ads-reklam-ver/" class="dropdown-link">Google Ads Reklam Ver</a>
+                            <a href="/instagram-reklam-ver/" class="dropdown-link">İnstagram Reklam Ver</a>
+                            <a href="/facebook-reklam-ver/" class="dropdown-link">Facebook Reklam Ver</a>
+                            <a href="/google-harita-maps-kaydi/" class="dropdown-link">Google Harita(Maps) Kaydı</a>
+                            <a href="/seo/" class="dropdown-link">SEO (Arama Motoru Optimizasyonu)</a>
+                            <a href="/sosyal-medya-yonetimi/" class="dropdown-link">Sosyal Medya Yönetimi</a>
+                        </div>
+                        
+                        <!-- Web Tasarım -->
+                        <div class="dropdown-section">
+                            <h4>Web Tasarım</h4>
+                            <a href="/e-ticaret-sitesi/" class="dropdown-link">E-Ticaret Sitesi</a>
+                            <a href="/kurumsal-web-sitesi/" class="dropdown-link">Kurumsal Web Sitesi</a>
+                        </div>
+                        
+                        <!-- Prodüksiyon -->
+                        <div class="dropdown-section">
+                            <h4>Prodüksiyon</h4>
+                            <a href="/sosyal-medya-videolari/" class="dropdown-link">Sosyal Medya Videoları</a>
+                            <a href="/tanitim-filmi/" class="dropdown-link">Tanıtım Filmi</a>
+                            <a href="/drone-cekimi/" class="dropdown-link">Drone Çekimi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BLOG -->
+            <div class="nav-item">
+                <a href="/blog/" class="nav-link">Blog</a>
+            </div>
+            
+            <!-- HAKKIMIZDA -->
+            <div class="nav-item">
+                <a href="/hakkimizda/" class="nav-link active">Hakkımızda</a>
+            </div>
+            
+            <!-- İLETİŞİM -->
+            <div class="nav-item">
+                <a href="/iletisim/" class="nav-link">İletişim</a>
+            </div>
+            
+            <!-- HEADER CTA BUTTON -->
+            <div class="header-cta">
+                <a href="tel:05422360983" class="btn">
+                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
+                </a>
+            </div>
+        </nav>
+        
+        <!-- MOBILE MENU TOGGLE -->
+        <button class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+    
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <!-- Ana Sayfa -->
+            <div class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link" id="mobileHomeLink">Ana Sayfa</a>
+            </div>
+            
+            <!-- Hizmetler -->
+            <div class="mobile-nav-item">
+                <button class="mobile-dropdown-btn" data-target="hizmetlerMobile">
+                    Hizmetler <i class="fas fa-chevron-down mobile-arrow"></i>
+                </button>
+                <div class="mobile-dropdown-content" id="hizmetlerMobile">
+                    <!-- Dijital Pazarlama -->
+                    <div class="mobile-dropdown-section">
+                        <h4>Dijital Pazarlama</h4>
+                        <a href="/google-ads-reklam-ver/" class="mobile-dropdown-link">Google Ads Reklam Ver</a>
+                        <a href="/instagram-reklam-ver/" class="mobile-dropdown-link">İnstagram Reklam Ver</a>
+                        <a href="/facebook-reklam-ver/" class="mobile-dropdown-link">Facebook Reklam Ver</a>
+                        <a href="/google-harita-maps-kaydi/" class="mobile-dropdown-link">Google Harita(Maps) Kaydı</a>
+                        <a href="/seo/" class="mobile-dropdown-link">SEO (Arama Motoru Optimizasyonu)</a>
+                        <a href="/sosyal-medya-yonetimi/" class="mobile-dropdown-link">Sosyal Medya Yönetimi</a>
+                    </div>
+                    
+                    <!-- Web Tasarım -->
+                    <div class="mobile-dropdown-section">
+                        <h4>Web Tasarım</h4>
+                        <a href="/e-ticaret-sitesi/" class="mobile-dropdown-link">E-Ticaret Sitesi</a>
+                        <a href="/kurumsal-web-sitesi/" class="mobile-dropdown-link">Kurumsal Web Sitesi</a>
+                    </div>
+                    
+                    <!-- Prodüksiyon -->
+                    <div class="mobile-dropdown-section">
+                        <h4>Prodüksiyon</h4>
+                        <a href="/sosyal-medya-videolari/" class="mobile-dropdown-link">Sosyal Medya Videoları</a>
+                        <a href="/tanitim-filmi/" class="mobile-dropdown-link">Tanıtım Filmi</a>
+                        <a href="/drone-cekimi/" class="mobile-dropdown-link">Drone Çekimi</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blog -->
+            <div class="mobile-nav-item">
+                <a href="/blog/" class="mobile-nav-link">Blog</a>
+            </div>
+            
+            <!-- Hakkımızda -->
+            <div class="mobile-nav-item">
+                <a href="/hakkimizda/" class="mobile-nav-link active">Hakkımızda</a>
+            </div>
+            
+            <!-- İletişim -->
+            <div class="mobile-nav-item">
+                <a href="/iletisim/" class="mobile-nav-link">İletişim</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- HAKKIMIZDA HERO SECTION -->
+    <section class="about-hero">
+        <div class="about-hero-content">
+            <h1>Web4 Medya Hakkında</h1>
+            <p>10+ yıllık deneyimli ekibimizle dijital pazarlama, web tasarım ve prodüksiyon alanında profesyonel çözümler sunuyoruz. İşletmenizi dijital dünyada bir adım öne taşıyoruz.</p>
+        </div>
+    </section>
+
+    <!-- HAKKIMIZDA CONTENT -->
+    <section class="about-content-section">
+        <div class="content-container">
+            <h2 class="section-title">Biz Kimiz?</h2>
+            <p class="section-subtitle">Dijital dünyanın dinamiklerini iyi bilen, yenilikçi ve deneyimli bir ekibiz.</p>
+            
+            <div class="text-content">
+                <p><strong>Web4 Medya</strong> olarak 2014 yılından bu yana dijital pazarlama, web tasarım ve prodüksiyon alanında hizmet veriyoruz. Kurulduğumuz günden bu yana, <strong>1000'den fazla projeyi</strong> başarıyla tamamlayarak müşterilerimizin dijital dönüşümüne katkı sağladık.</p>
+                
+                <div class="highlight">
+                    <p>Misyonumuz: İşletmelerin dijital dünyada görünürlüğünü artırarak büyümelerine ve başarılarına katkı sağlamak.</p>
+                </div>
+                
+                <p>Ekibimiz, alanında uzman <strong>dijital pazarlama uzmanları</strong>, <strong>web geliştiricileri</strong>, <strong>SEO uzmanları</strong>, <strong>grafik tasarımcılar</strong> ve <strong>video prodüksiyon ekiplerinden</strong> oluşmaktadır. Her birimiz, kendi alanında en az 5 yıllık deneyime sahip profesyonelleriz.</p>
+                
+                <h3>Neden Bizi Tercih Etmelisiniz?</h3>
+                <ul>
+                    <li><strong>Deneyimli Ekip:</strong> 10+ yıllık sektör deneyimine sahip uzman kadro</li>
+                    <li><strong>Bütünsel Çözüm:</strong> Dijital pazarlamanın tüm aşamalarında entegre hizmet</li>
+                    <li><strong>Şeffaf İletişim:</strong> Süreç boyunca düzenli raporlama ve açık iletişim</li>
+                    <li><strong>Güncel Teknolojiler:</strong> En son dijital pazarlama trendleri ve teknolojileri</li>
+                    <li><strong>Müşteri Odaklılık:</strong> Her projeyi özel olarak ele alan kişiselleştirilmiş yaklaşım</li>
+                    <li><strong>Somut Sonuçlar:</strong> Ölçülebilir ve sürdürülebilir dijital büyüme</li>
+                </ul>
+                
+                <p>Hizmetlerimiz arasında <a href="/seo/">SEO</a>, <a href="/google-ads-reklam-ver/">Google Ads</a>, <a href="/instagram-reklam-ver/">Instagram reklam yönetimi</a>, <a href="/web-tasarim/">profesyonel web tasarım</a>, <a href="/sosyal-medya-yonetimi/">sosyal medya yönetimi</a> ve <a href="/sosyal-medya-videolari/">video prodüksiyon</a> yer almaktadır.</p>
+            </div>
+            
+            <!-- VİZYON & MİSYON -->
+            <div class="vision-mission">
+                <div class="vm-card">
+                    <div class="vm-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Vizyonumuz</h3>
+                    <p>Türkiye'nin önde gelen dijital pazarlama ajansı olmak, teknoloji ve yaratıcılığı birleştirerek müşterilerimize sürdürülebilir büyüme sağlamak ve dijital dönüşümde liderlik etmek.</p>
+                </div>
+                
+                <div class="vm-card">
+                    <div class="vm-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Misyonumuz</h3>
+                    <p>İşletmelerin dijital varlıklarını güçlendirmek, marka değerlerini artırmak ve dijital pazarlama alanında en yenilikçi çözümleri sunarak müşteri memnuniyetini en üst seviyede tutmak.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEĞERLERİMİZ -->
+    <section class="values-section">
+        <div class="content-container">
+            <h2 class="section-title">Değerlerimiz</h2>
+            <p class="section-subtitle">Çalışma prensiplerimizi ve iş ahlakımızı şekillendiren temel değerlerimiz</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Güvenilirlik</h3>
+                    <p>Verdiğimiz sözleri tutar, şeffaf iletişim kurar ve uzun vadeli güven ilişkileri inşa ederiz.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Yenilikçilik</h3>
+                    <p>Dijital pazarlama trendlerini yakından takip eder, yenilikçi çözümler geliştiririz.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Sonuç Odaklılık</h3>
+                    <p>Somut ve ölçülebilir sonuçlar elde etmek için stratejik yaklaşımlar geliştiririz.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Ekip Çalışması</h3>
+                    <p>Farklı disiplinlerden uzmanların sinerjisiyle en iyi sonuçları elde ederiz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EKİP -->
+    <section class="team-section">
+        <div class="content-container">
+            <h2 class="section-title">Ekibimiz</h2>
+            <p class="section-subtitle">Alanında uzman, deneyimli ve dinamik ekibimizle tanışın</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="/images/ekip-1.webp" alt="Ahmet Yılmaz - Kurucu Ortak" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300/145e8d/FFFFFF?text=Ahmet+Y%C4%B1lmaz';">
+                    </div>
+                    <div class="member-info">
+                        <h3>Ahmet Yılmaz</h3>
+                        <div class="position">Kurucu Ortak & Dijital Strateji Uzmanı</div>
+                        <p>12 yıllık dijital pazarlama deneyimi. 500+ başarılı projenin arkasındaki isim. Google Ads ve SEO alanında uzman.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="/images/ekip-2.webp" alt="Zeynep Kaya - Creative Director" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300/1f90bc/FFFFFF?text=Zeynep+Kaya';">
+                    </div>
+                    <div class="member-info">
+                        <h3>Zeynep Kaya</h3>
+                        <div class="position">Creative Director</div>
+                        <p>8 yıllık grafik tasarım ve kreatif yönetim deneyimi. Marka kimliği ve görsel iletişim stratejileri uzmanı.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="/images/ekip-3.webp" alt="Mehmet Demir - Teknik Direktör" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300/1dbbe1/FFFFFF?text=Mehmet+Demir';">
+                    </div>
+                    <div class="member-info">
+                        <h3>Mehmet Demir</h3>
+                        <div class="position">Teknik Direktör</div>
+                        <p>10 yıllık web geliştirme deneyimi. Front-end ve back-end teknolojilerinde uzman. 300+ web projesi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAŞARI HİKAYESİ -->
+    <section class="story-section">
+        <div class="story-content">
+            <h2>Başarı Hikayemiz</h2>
+            <p>2014 yılında küçük bir ekip olarak başladığımız yolculuğumuzda, bugün Türkiye'nin önde gelen dijital pazarlama ajanslarından biri haline geldik. Sürekli öğrenme, gelişme ve müşteri memnuniyeti odaklı yaklaşımımız sayesinde yüzlerce işletmenin dijital dönüşümüne katkı sağladık.</p>
+            
+            <div class="milestones">
+                <div class="milestone">
+                    <div class="milestone-number">10+</div>
+                    <div class="milestone-text">Yıllık Deneyim</div>
+                </div>
+                
+                <div class="milestone">
+                    <div class="milestone-number">1000+</div>
+                    <div class="milestone-text">Tamamlanan Proje</div>
+                </div>
+                
+                <div class="milestone">
+                    <div class="milestone-number">200+</div>
+                    <div class="milestone-text">Mutlu Müşteri</div>
+                </div>
+                
+                <div class="milestone">
+                    <div class="milestone-number">15</div>
+                    <div class="milestone-text">Uzman Ekip Üyesi</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEKLİF KARTI -->
+    <section class="about-content-section">
+        <div class="content-container">
+            <div class="teklif-card">
+                <h3>Bizimle Çalışmaya Hazır mısınız?</h3>
+                <p>Web4 Medya ekibi olarak, işletmenizin dijital pazarlama ihtiyaçları için özel çözümler geliştiriyoruz. Ücretsiz danışmanlık ve analiz hizmetimizden yararlanın.</p>
+                <a href="tel:05422360983" class="btn">
+                    <i class="fas fa-phone-alt"></i> Hemen Ara: 0542 236 09 83
+                </a>
+            </div>
+            
+            <div class="text-content">
+                <h3>Hizmet Alanlarımız</h3>
+                <p>Web4 Medya olarak geniş bir hizmet yelpazesi sunuyoruz:</p>
+                
+                <ul>
+                    <li><strong><a href="/seo/">SEO Hizmetleri:</a></strong> Web sitenizin Google'da üst sıralara çıkması için profesyonel SEO çalışmaları</li>
+                    <li><strong><a href="/google-ads-reklam-ver/">Google Ads Yönetimi:</a></strong> Arama, display ve video reklam kampanyalarının profesyonel yönetimi</li>
+                    <li><strong><a href="/instagram-reklam-ver/">Sosyal Medya Reklamları:</a></strong> Instagram, Facebook ve diğer platformlarda hedef kitleye yönelik reklam stratejileri</li>
+                    <li><strong><a href="/web-tasarim/">Web Tasarım ve Geliştirme:</a></strong> Mobil uyumlu, hızlı ve SEO dostu web siteleri</li>
+                    <li><strong><a href="/sosyal-medya-yonetimi/">Sosyal Medya Yönetimi:</a></strong> Marka bilinirliği ve müşteri etkileşimi için sosyal medya stratejileri</li>
+                    <li><strong><a href="/sosyal-medya-videolari/">Video Prodüksiyon:</a></strong> Tanıtım filmleri, sosyal medya videoları ve drone çekimleri</li>
+                </ul>
+                
+                <p>Dijital pazarlamanın her alanında hizmet veren ekibimiz, işletmenizin ihtiyaçlarına özel çözümler geliştiriyor. <a href="/iletisim/">İletişim sayfamızdan</a> bize ulaşabilir veya <a href="tel:05422360983">0542 236 09 83</a> numaralı telefondan doğrudan iletişime geçebilirsiniz.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- YENİ BEYAZ FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Logo ve Açıklama -->
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <!-- FOOTER LOGO - ORJİNAL RENK -->
+                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" 
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/200x65/145e8d/FFFFFF?text=Web4+Medya';">
+                    <div class="footer-logo-text">Sizin için en iyisi!</div>
+                </div>
+                <p class="footer-description">
+                    Dijital pazarlama, web tasarım ve prodüksiyon alanında profesyonel çözümler sunan lider ajans. İşletmenizi dijital dünyada bir adım öne taşıyoruz.
+                </p>
+                <div class="social-links">
+                    <a href="https://instagram.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://facebook.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://wa.me/905422360983" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Hızlı Bağlantılar -->
+            <div class="footer-section">
+                <h3>Hızlı Bağlantılar</h3>
+                <ul class="footer-links">
+                    <li><a href="/"><i class="fas fa-chevron-right"></i> Ana Sayfa</a></li>
+                    <li><a href="/hakkimizda/"><i class="fas fa-chevron-right"></i> Hakkımızda</a></li>
+                    <li><a href="/blog/"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                    <li><a href="/referanslar/"><i class="fas fa-chevron-right"></i> Referanslar</a></li>
+                    <li><a href="/iletisim/"><i class="fas fa-chevron-right"></i> İletişim</a></li>
+                </ul>
+            </div>
+            
+            <!-- Hizmetler -->
+            <div class="footer-section">
+                <h3>Hizmetlerimiz</h3>
+                <ul class="footer-links">
+                    <li><a href="/google-ads-reklam-ver/"><i class="fas fa-chevron-right"></i> Google Ads Reklam</a></li>
+                    <li><a href="/instagram-reklam-ver/"><i class="fas fa-chevron-right"></i> Instagram Reklam</a></li>
+                    <li><a href="/facebook-reklam-ver/"><i class="fas fa-chevron-right"></i> Facebook Reklam</a></li>
+                    <li><a href="/seo/"><i class="fas fa-chevron-right"></i> SEO Hizmeti</a></li>
+                    <li><a href="/web-tasarim/"><i class="fas fa-chevron-right"></i> Web Tasarım</a></li>
+                    <li><a href="/sosyal-medya-videolari/"><i class="fas fa-chevron-right"></i> Sosyal Medya Videoları</a></li>
+                     <li><a href="/drone-cekimi/"><i class="fas fa-chevron-right"></i> Drone Çekimi</a></li>
+                </ul>
+            </div>
+            
+            <!-- İletişim Bilgileri -->
+            <div class="footer-section">
+                <h3>İletişim Bilgileri</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <a href="tel:05422360983">Hemen Ara: 0542 236 09 83</a>
+                            <p style="margin-top: 5px; font-size: 0.95rem; color: var(--gray);">Ücretsiz danışmanlık için arayın</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <a href="mailto:info@web4medya.com">info@web4medya.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <span>Web4 Medya Ajansı<br>İstanbul, Türkiye</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <span>Pzt-Cum: 09:00 - 20:00<br>Cmt & Pzr: 10:00 - 20:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Web4 Medya. Tüm hakları saklıdır. <a href="/gizlilik-politikasi/">Gizlilik Politikası</a> | <a href="/kullanim-kosullari/">Kullanım Koşulları</a></p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: var(--gray);">Profesyonel dijital pazarlama ve web tasarım çözümleri</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING CTA BUTONLARI -->
+    <div class="floating-cta">
+        <a href="https://wa.me/905422360983" class="floating-btn floating-whatsapp" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:05422360983" class="floating-btn floating-phone">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+        }
+
+        // Desktop Dropdown Hover
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            const dropdown = item.querySelector('.dropdown');
+            if (dropdown) {
+                item.addEventListener('mouseenter', () => {
+                    dropdown.classList.add('active');
+                });
+                
+                item.addEventListener('mouseleave', () => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        });
+
+        // Mobile Dropdown Toggle
+        const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
+        mobileDropdownBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const target = document.getElementById(targetId);
+                
+                // Close other dropdowns
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
+                    if (dropdown.id !== targetId) {
+                        dropdown.classList.remove('active');
+                        const otherBtn = dropdown.parentElement.querySelector('.mobile-dropdown-btn');
+                        if (otherBtn) otherBtn.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current dropdown
+                this.classList.toggle('active');
+                target.classList.toggle('active');
+            });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+            // Desktop dropdowns
+            if (!e.target.closest('.nav-item')) {
+                document.querySelectorAll('.dropdown.active').forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
+            
+            // Mobile menu
+            if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        // Close mobile dropdowns when clicking a link
+        document.querySelectorAll('.mobile-dropdown-link').forEach(link => {
+            link.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+            });
+        });
+
+        // Add active class to current page in navigation
+        const currentPage = window.location.pathname;
+        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+        
+        navLinks.forEach(link => {
+            const linkPath = link.getAttribute('href');
+            if (linkPath === '/hakkimizda/' && currentPage.includes('/hakkimizda')) {
+                link.classList.add('active');
+            }
+        });
+
+        // Handle image fallback for logo
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add lazy loading to images
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.loading = 'lazy';
+            });
+            
+            // Handle logo fallback
+            const logo = document.querySelector('.logo img');
+            if (logo) {
+                logo.onerror = function() {
+                    this.onerror = null;
+                    this.src = 'https://via.placeholder.com/200x70/145e8d/FFFFFF?text=Web4+Medya';
+                    this.alt = 'Web4 Medya Logo - Placeholder';
+                };
+            }
+            
+            // Handle footer logo fallback
+            const footerLogo = document.querySelector('.footer-logo img');
+            if (footerLogo) {
+                footerLogo.onerror = function() {
+                    this.onerror = null;
+                    this.src = 'https://via.placeholder.com/200x65/145e8d/FFFFFF?text=Web4+Medya';
+                    this.alt = 'Web4 Medya Logo - Placeholder';
+                };
+            }
+            
+            // Handle team images fallback
+            const teamImages = document.querySelectorAll('.member-image img');
+            teamImages.forEach(img => {
+                img.onerror = function() {
+                    const altText = this.alt || 'Web4 Medya Ekibi';
+                    const name = altText.split('-')[0]?.trim() || 'Ekip Üyesi';
+                    const colors = ['145e8d', '1f90bc', '1dbbe1'];
+                    const colorIndex = Math.floor(Math.random() * colors.length);
+                    this.src = `https://via.placeholder.com/400x300/${colors[colorIndex]}/FFFFFF?text=${encodeURIComponent(name)}`;
+                    this.alt = altText + ' - Placeholder';
+                };
+            });
+        });
+
+        // Prevent dropdown from closing when clicking inside
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            dropdown.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+
+        // LOGOYA TIKLAYINCA SAYFA BAŞINA SMOOTH SCROLL
+        const homeLink = document.getElementById('homeLink');
+        const mobileHomeLink = document.getElementById('mobileHomeLink');
+        
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        if (homeLink) {
+            homeLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = '/';
+            });
+        }
+        
+        if (mobileHomeLink) {
+            mobileHomeLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = '/';
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
