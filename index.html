@@ -1639,58 +1639,39 @@
                 max-height: 45px;
             }
         }
-.loading-content {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-}
-
 .loading-logo-rotate {
     width: 200px;
     height: 200px;
     object-fit: contain;
-    animation: logoRotate 1s cubic-bezier(0.65, 0, 0.35, 1) 1 forwards;
+    animation: logoRotateSmooth 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55) 1 forwards;
     filter: drop-shadow(0 0 20px rgba(62, 146, 204, 0.5));
+    transform-style: preserve-3d;
     transform-origin: center center;
 }
 
-.loading-progress {
-    width: 300px;
-    height: 4px;
-    background: rgba(10, 36, 99, 0.2);
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 0 auto;
-    opacity: 0;
-    animation: fadeIn 0.5s ease 0.8s forwards;
-}
-
-.loading-bar {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, 
-        var(--accent-light), 
-        var(--primary-light), 
-        var(--accent));
-    border-radius: 10px;
-    animation: loadingBar 0.5s ease-in-out 1s forwards;
-}
-
-/* Logo dönme animasyonu */
-@keyframes logoRotate {
+@keyframes logoRotateSmooth {
     0% {
-        transform: rotate(0deg) scale(0.8);
+        transform: rotateY(0deg) rotateX(0deg) scale(0.7);
         opacity: 0;
     }
-    50% {
-        transform: rotate(180deg) scale(1.1);
+    20% {
+        transform: rotateY(90deg) rotateX(10deg) scale(0.9);
+        opacity: 0.7;
+    }
+    40% {
+        transform: rotateY(180deg) rotateX(0deg) scale(1.05);
+        opacity: 0.9;
+    }
+    60% {
+        transform: rotateY(270deg) rotateX(-10deg) scale(1.1);
+        opacity: 1;
+    }
+    80% {
+        transform: rotateY(340deg) rotateX(0deg) scale(1.05);
         opacity: 1;
     }
     100% {
-        transform: rotate(360deg) scale(1);
+        transform: rotateY(360deg) rotateX(0deg) scale(1);
         opacity: 1;
     }
 }
@@ -1758,7 +1739,7 @@
                 background: var(--accent);
                 transform: scale(0.95);
             }
-        }
+        }.loading-content {
     </style>
 </head>
 <body>
