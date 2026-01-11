@@ -62,6 +62,114 @@
             overflow-x: hidden;
         }
 
+        /* DİNAMİK GRADIENT ARKA PLAN */
+        .dynamic-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 1;
+            background: linear-gradient(
+                135deg,
+                #0a2a4a 0%,
+                #0e3a5f 15%,
+                #145e8d 30%,
+                #1a7cb0 45%,
+                #1f90bc 60%,
+                #1dbbe1 75%,
+                #3b82f6 90%,
+                #60a5fa 100%
+            );
+            background-size: 400% 400%;
+            animation: gradientFlow 20s ease infinite;
+            filter: blur(0px);
+        }
+
+        /* Gradient akış animasyonu */
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Parçacık efekti (particles) */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: floatParticle 20s infinite linear;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Gece modu gradient */
+        .night-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0;
+            background: linear-gradient(
+                135deg,
+                #0c1c2c 0%,
+                #0e2840 25%,
+                #113456 50%,
+                #15426c 75%,
+                #1a5688 100%
+            );
+            background-size: 400% 400%;
+            animation: nightGradient 25s ease infinite;
+            transition: opacity 3s ease;
+        }
+
+        @keyframes nightGradient {
+            0% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+
         /* MODERN HEADER - BEYAZ TEMA */
         .header {
             position: fixed;
@@ -210,33 +318,93 @@
             transform: rotate(180deg);
         }
 
-        /* HEADER CTA BUTTON - DÜZGÜN BUTON */
+        /* YENİ WAVE BUTON STİLİ - ADANA GÜZELLİK MERKEZİ TASARIMI */
+        .wave-btn {
+            position: relative;
+            display: block;
+            padding: 18px 24px;
+            color: #fff;
+            background: #25D366;
+            border-radius: 50px;
+            text-decoration: none;
+            overflow: hidden;
+            font-weight: 700;
+            z-index: 0;
+            transition: background 0.3s ease, transform 0.2s ease;
+            font-size: 18px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.5px;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.25);
+        }
+
+        .wave-btn.call {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+        }
+
+        .wave-btn:hover {
+            transform: translateY(-2px);
+            background: #1ebe5d;
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.35);
+        }
+
+        .wave-btn.call:hover {
+            background: linear-gradient(135deg, var(--gradient-2), var(--gradient-1));
+            box-shadow: 0 15px 40px rgba(20, 94, 141, 0.35);
+        }
+
+        .wave-btn span {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .wave-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: wave 1.8s infinite;
+            z-index: 1;
+        }
+
+        @keyframes wave {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 0.7;
+            }
+            100% {
+                width: 300px;
+                height: 300px;
+                opacity: 0;
+            }
+        }
+
+        /* HEADER CTA BUTTON - YENİ WAVE BUTON STİLİ */
         .header-cta {
             display: flex;
             align-items: center;
         }
 
-        .header-cta .btn {
+        .header-cta .wave-btn {
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
-            color: var(--white); /* BEYAZ */
             padding: 12px 28px;
-            border-radius: 8px;
-            font-weight: 600;
             font-size: 0.9rem;
-            text-decoration: none;
-            transition: var(--transition);
+            min-width: 180px;
             white-space: nowrap;
-            border: none;
-            box-shadow: 0 4px 12px rgba(20, 94, 141, 0.2);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .header-cta .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(20, 94, 141, 0.3);
-            background: linear-gradient(135deg, var(--gradient-2), var(--gradient-1));
         }
 
         /* HAMBURGER MENU - MAVİ ÇİZGİLER */
@@ -282,6 +450,7 @@
             position: relative;
             overflow: hidden;
             margin-top: 80px; /* Header yüksekliğine göre güncellendi */
+            z-index: 1;
         }
 
         .hero::before {
@@ -393,6 +562,9 @@
                 0 1px 0 rgba(255, 255, 255, 0.1),
                 0 2px 10px rgba(0, 0, 0, 0.3);
             letter-spacing: 0.5px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 0.2s;
         }
 
         .hero p {
@@ -404,9 +576,12 @@
             line-height: 1.7;
             position: relative;
             z-index: 2;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease forwards;
+            animation-delay: 0.6s;
         }
 
-        /* YENİ GERÇEKÇİ BUTONLAR - RENK KIRILMASI OLMADAN */
+        /* YENİ HERO BUTONLARI - WAVE STİLİ */
         .hero-buttons {
             display: flex;
             justify-content: center;
@@ -415,118 +590,63 @@
             margin-top: 40px;
             position: relative;
             z-index: 2;
+            opacity: 0;
+            animation: fadeInUp 1.4s ease forwards;
+            animation-delay: 1s;
         }
 
-        .hero-buttons .btn {
-            min-width: 240px;
-            padding: 18px 36px;
-            border-radius: 16px;
-            font-weight: 700;
+        .hero-buttons .wave-btn {
+            min-width: 280px;
+            padding: 20px 40px;
             font-size: 17px;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border: none;
-            cursor: pointer;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            /* Kenar yumuşatma */
-            -webkit-backface-visibility: hidden;
-            -moz-backface-visibility: hidden;
-            backface-visibility: hidden;
-            transform: translateZ(0);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Buton hover efekti - daha gerçekçi */
-        .hero-buttons .btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
-            transform: translateX(-100%);
-            transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-            z-index: -1;
-        }
-
-        .hero-buttons .btn:hover::after {
-            transform: translateX(0);
-        }
-
-        /* HERO BUTONLARI - TERS ÇEVİRİLMİŞ HOVER/TIKLAMA */
-        .hero-buttons .btn {
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
 
-        .hero-buttons .btn:active {
+        .hero-buttons .wave-btn:active {
             transform: translateY(0) scale(1);
             box-shadow: 0 8px 25px rgba(20, 94, 141, 0.25);
         }
 
-        /* MAVİ Hemen Ara butonu - DÜZGÜN GRADIENT */
-        .hero-buttons .btn-primary {
+        .hero-buttons .wave-btn.call {
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
-            color: white;
             border: 2px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 15px 35px rgba(20, 94, 141, 0.35);
         }
 
-        .hero-buttons .btn-primary:active {
+        .hero-buttons .wave-btn.call:active {
             background: linear-gradient(135deg, var(--gradient-2), var(--gradient-1));
-            color: white;
             border-color: rgba(255, 255, 255, 0.5);
             box-shadow: 0 8px 25px rgba(20, 94, 141, 0.25);
         }
 
         /* WhatsApp butonu - DÜZGÜN GRADIENT */
-        .hero-buttons .btn-whatsapp {
+        .hero-buttons .wave-btn:not(.call) {
             background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
             border: 2px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 15px 35px rgba(37, 211, 102, 0.35);
         }
 
-        .hero-buttons .btn-whatsapp:active {
+        .hero-buttons .wave-btn:not(.call):active {
             background: linear-gradient(135deg, #128C7E, #25D366);
             border-color: rgba(255, 255, 255, 0.5);
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.25);
         }
 
-        /* BUTTONS - GENEL */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 15px 32px;
-            border-radius: var(--radius-sm);
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            font-size: 1.05rem;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
-            color: white;
-            border: 2px solid transparent;
-        }
-
-        .btn-whatsapp {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+        /* Animasyon */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* MOBILE MENU - BEYAZ TEMA */
@@ -646,9 +766,21 @@
         /* YENİ MODERN KART TASARIMI - TEK TIKLAMALI DÖNME */
         .services-section {
             padding: 100px 5% 80px;
-            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+            background: rgba(248, 250, 252, 0.95);
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            z-index: -1;
         }
 
         .section-header {
@@ -671,6 +803,9 @@
             position: relative;
             display: inline-block;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            animation: fadeInUp 1.6s ease forwards;
+            animation-delay: 1.4s;
         }
 
         .section-title::after {
@@ -690,6 +825,9 @@
             color: var(--gray);
             line-height: 1.6;
             margin-top: 30px;
+            opacity: 0;
+            animation: fadeInUp 1.8s ease forwards;
+            animation-delay: 1.8s;
         }
 
         /* KATEGORİ BAŞLIKLARI - SİYAH RENK */
@@ -704,6 +842,9 @@
             display: inline-block;
             max-width: 100%;
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            animation: fadeInUp 2s ease forwards;
+            animation-delay: 2.2s;
         }
 
         /* MODERN KART TASARIMI - TEK TIKLAMALI DÖNME */
@@ -740,7 +881,16 @@
             box-shadow: var(--shadow);
             border: 2px solid transparent;
             background: var(--white);
+            opacity: 0;
+            animation: fadeInUp 2.2s ease forwards;
         }
+
+        .flip-card:nth-child(1) { animation-delay: 2.4s; }
+        .flip-card:nth-child(2) { animation-delay: 2.6s; }
+        .flip-card:nth-child(3) { animation-delay: 2.8s; }
+        .flip-card:nth-child(4) { animation-delay: 3s; }
+        .flip-card:nth-child(5) { animation-delay: 3.2s; }
+        .flip-card:nth-child(6) { animation-delay: 3.4s; }
 
         .flip-card.flipped {
             transform: rotateY(180deg);
@@ -858,7 +1008,7 @@
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
 
-        /* DÜZENLENMİŞ CARD-BACK - BUTONLAR DÜZGÜN SIRALANDI */
+        /* DÜZENLENMİŞ CARD-BACK - WAVE BUTONLAR */
         .card-back {
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
             color: var(--white);
@@ -893,14 +1043,14 @@
             -webkit-box-orient: vertical;
         }
 
-        /* KART BUTONLARI - KARTIN İÇİNE SIĞACAK ŞEKİLDE DÜZENLENDİ */
-        .card-back .btn {
+        /* KART BUTONLARI - WAVE BUTON STİLİ */
+        .card-back .wave-btn {
             background: var(--white);
             color: var(--gradient-1);
             padding: 12px 24px;
             font-weight: 700;
             font-size: 1rem;
-            border-radius: 10px;
+            border-radius: 50px;
             transition: all 0.3s ease;
             border: none;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -912,25 +1062,17 @@
             margin: 0 auto;
             text-decoration: none;
             white-space: nowrap;
+            min-width: auto;
         }
 
-        .card-back .btn:hover {
+        .card-back .wave-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
             background: #f0f9ff;
         }
 
-        /* Google ikonu için özel stil */
-        .google-icon {
-            width: 90px;
-            height: 90px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-            margin-bottom: 30px;
-            position: relative;
+        .card-back .wave-btn::before {
+            animation: wave 2s infinite;
         }
 
         /* WHY US SECTION - GRADIENT TEMA */
@@ -940,6 +1082,7 @@
             color: white;
             position: relative;
             overflow: hidden;
+            z-index: 1;
         }
 
         /* Why Us arka plan roketleri */
@@ -1020,7 +1163,13 @@
             backdrop-filter: blur(10px);
             transition: var(--transition);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            animation: fadeInUp 2.8s ease forwards;
+            animation-delay: 3.8s;
         }
+
+        .feature:nth-child(2) { animation-delay: 4s; }
+        .feature:nth-child(3) { animation-delay: 4.2s; }
 
         .feature:hover {
             transform: translateY(-10px);
@@ -1055,7 +1204,7 @@
             font-size: 1rem;
         }
 
-        /* CTA SECTION - DÜZGÜN BUTONLAR */
+        /* CTA SECTION - WAVE BUTONLAR */
         .cta-section {
             padding: 100px 5%;
             background: linear-gradient(135deg, #0d4c7a, #1a7cb0, #1dbbe1);
@@ -1063,6 +1212,7 @@
             color: white;
             position: relative;
             overflow: hidden;
+            z-index: 1;
         }
 
         .cta-section::before {
@@ -1093,6 +1243,9 @@
             line-height: 1.2;
             color: white;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: fadeInUp 4.4s ease forwards;
+            animation-delay: 4.6s;
         }
 
         .cta-section p {
@@ -1101,98 +1254,67 @@
             margin: 0 auto 50px;
             opacity: 0.95;
             line-height: 1.6;
+            opacity: 0;
+            animation: fadeInUp 4.6s ease forwards;
+            animation-delay: 4.8s;
         }
 
-        /* CTA BUTONLARI - DÜZGÜN */
+        /* CTA BUTONLARI - WAVE STİLİ */
         .cta-buttons {
             display: flex;
             justify-content: center;
             gap: 25px;
             flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 4.8s ease forwards;
+            animation-delay: 5s;
         }
 
-        .cta-buttons .btn {
-            min-width: 240px;
-            padding: 18px 36px;
-            border-radius: 16px;
-            font-weight: 700;
+        .cta-buttons .wave-btn {
+            min-width: 280px;
+            padding: 20px 40px;
             font-size: 17px;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border: none;
-            cursor: pointer;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            /* Kenar yumuşatma */
-            -webkit-backface-visibility: hidden;
-            -moz-backface-visibility: hidden;
-            backface-visibility: hidden;
-            transform: translateZ(0);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .cta-buttons .btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
-            transform: translateX(-100%);
-            transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-            z-index: -1;
-        }
-
-        .cta-buttons .btn:hover::after {
-            transform: translateX(0);
-        }
-
-        /* CTA BUTONLARI - TERS ÇEVİRİLMİŞ HOVER/TIKLAMA */
-        .cta-buttons .btn {
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
 
-        .cta-buttons .btn:active {
+        .cta-buttons .wave-btn:active {
             transform: translateY(0) scale(1);
             box-shadow: 0 8px 25px rgba(20, 94, 141, 0.25);
         }
 
         /* MAVİ Hemen Ara butonu - CTA */
-        .cta-buttons .btn-primary {
+        .cta-buttons .wave-btn.call {
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
             color: white;
             border: 2px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 15px 35px rgba(20, 94, 141, 0.35);
         }
 
-        .cta-buttons .btn-primary:active {
+        .cta-buttons .wave-btn.call:active {
             background: linear-gradient(135deg, var(--gradient-2), var(--gradient-1));
             border-color: rgba(255, 255, 255, 0.5);
             box-shadow: 0 8px 25px rgba(20, 94, 141, 0.25);
         }
 
-        .cta-buttons .btn-whatsapp {
+        .cta-buttons .wave-btn:not(.call) {
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
             border: 2px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 15px 35px rgba(37, 211, 102, 0.35);
         }
 
-        .cta-buttons .btn-whatsapp:active {
+        .cta-buttons .wave-btn:not(.call):active {
             background: linear-gradient(135deg, #128C7E, #25D366);
             border-color: rgba(255, 255, 255, 0.5);
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.25);
         }
 
-        /* YENİ FLOATING CTA BUTONLARI */
+        /* YENİ FLOATING WAVE BUTONLARI */
         .floating-cta {
             position: fixed;
             bottom: 30px;
@@ -1203,18 +1325,21 @@
             gap: 15px;
         }
 
-        .floating-btn {
+        .floating-wave-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 65px;
-            height: 65px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             text-decoration: none;
             font-size: 1.9rem;
             position: relative;
             overflow: hidden;
+            border: none;
+            cursor: pointer;
+            color: white;
             /* Kenar yumuşatma */
             -webkit-backface-visibility: hidden;
             -moz-backface-visibility: hidden;
@@ -1222,32 +1347,34 @@
             transform: translateZ(0);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-        }
-
-        .floating-btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
-            transform: translateX(-100%);
-            transition: transform 0.6s ease;
-            z-index: 1;
-        }
-
-        .floating-btn:hover::after {
-            transform: translateX(0);
-        }
-
-        /* FLOATING BUTONLAR - TERS ÇEVİRİLMİŞ HOVER/TIKLAMA */
-        .floating-btn {
-            transform: scale(1.1) rotate(5deg);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .floating-btn:active {
+        .floating-wave-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: wave 1.8s infinite;
+            z-index: 1;
+        }
+
+        .floating-wave-btn span {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* FLOATING WAVE BUTONLAR - TERS ÇEVİRİLMİŞ HOVER/TIKLAMA */
+        .floating-wave-btn {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .floating-wave-btn:active {
             transform: scale(1) rotate(0);
             box-shadow: 0 10px 30px rgba(20, 94, 141, 0.3);
         }
@@ -1256,7 +1383,6 @@
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
             animation: pulse 2s infinite;
-            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
         }
 
         .floating-whatsapp:active {
@@ -1266,7 +1392,6 @@
         .floating-phone {
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
             color: white;
-            box-shadow: 0 15px 40px rgba(20, 94, 141, 0.4);
         }
 
         .floating-phone:active {
@@ -1278,7 +1403,7 @@
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
             }
             70% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+                box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
             }
             100% {
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
@@ -1287,13 +1412,14 @@
 
         /* YENİ BEYAZ FOOTER */
         .footer {
-            background: var(--white); /* BEYAZ ARKA PLAN */
+            background: rgba(255, 255, 255, 0.98);
             color: var(--gray-dark); /* KARANLIK GRI YAZI */
             padding: 80px 5% 40px;
             position: relative;
             overflow: hidden;
             border-top: 1px solid var(--gray-light);
             box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(5px);
         }
 
         .footer::before {
@@ -1519,6 +1645,11 @@
             .nav-link {
                 font-size: 0.9rem;
             }
+            
+            .hero-buttons .wave-btn,
+            .cta-buttons .wave-btn {
+                min-width: 250px;
+            }
         }
 
         @media (max-width: 1024px) {
@@ -1571,11 +1702,12 @@
                 gap: 20px;
             }
             
-            .hero-buttons .btn {
+            .hero-buttons .wave-btn {
                 width: 100%;
                 max-width: 320px;
-                padding: 16px 30px;
+                padding: 18px 30px;
                 font-size: 16px;
+                min-width: auto;
             }
             
             /* CTA BUTONLARI MOBİL */
@@ -1585,11 +1717,12 @@
                 gap: 20px;
             }
             
-            .cta-buttons .btn {
+            .cta-buttons .wave-btn {
                 width: 100%;
                 max-width: 320px;
-                padding: 16px 30px;
+                padding: 18px 30px;
                 font-size: 16px;
+                min-width: auto;
             }
             
             /* KARTLAR MOBİL */
@@ -1606,8 +1739,8 @@
                 -webkit-line-clamp: 3;
             }
             
-            .card-back .btn {
-                padding: 10px 20px;
+            .card-back .wave-btn {
+                padding: 12px 24px;
                 font-size: 0.95rem;
                 max-width: 180px;
             }
@@ -1623,9 +1756,9 @@
                 right: 20px;
             }
             
-            .floating-btn {
-                width: 60px;
-                height: 60px;
+            .floating-wave-btn {
+                width: 65px;
+                height: 65px;
                 font-size: 1.7rem;
             }
         }
@@ -1686,8 +1819,8 @@
                 -webkit-line-clamp: 3;
             }
             
-            .card-back .btn {
-                padding: 10px 18px;
+            .card-back .wave-btn {
+                padding: 12px 20px;
                 font-size: 0.9rem;
                 max-width: 170px;
             }
@@ -1708,10 +1841,18 @@
                 gap: 12px;
             }
             
-            .floating-btn {
-                width: 55px;
-                height: 55px;
+            .floating-wave-btn {
+                width: 60px;
+                height: 60px;
                 font-size: 1.6rem;
+            }
+            
+            .hero-buttons .wave-btn,
+            .cta-buttons .wave-btn {
+                min-width: auto;
+                width: 100%;
+                padding: 16px 20px;
+                font-size: 15px;
             }
         }
 
@@ -1724,14 +1865,14 @@
                 height: 250px;
             }
             
-            .card-back .btn {
+            .card-back .wave-btn {
                 max-width: 160px;
-                padding: 9px 16px;
+                padding: 10px 18px;
             }
             
-            .floating-btn {
-                width: 50px;
-                height: 50px;
+            .floating-wave-btn {
+                width: 55px;
+                height: 55px;
                 font-size: 1.5rem;
             }
             
@@ -1742,10 +1883,20 @@
             .logo img {
                 max-height: 55px;
             }
+            
+            .wave-btn {
+                padding: 16px 20px;
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- DİNAMİK GRADIENT ARKA PLAN -->
+    <div class="dynamic-gradient" id="dynamicGradient"></div>
+    <div class="night-gradient" id="nightGradient"></div>
+    <div class="particles" id="particlesContainer"></div>
+    
     <!-- HEADER -->
     <header class="header">
         <!-- LOGO - ANA SAYFAYA SMOOTH SCROLL -->
@@ -1808,10 +1959,10 @@
                 <a href="/iletisim/" class="nav-link">İletişim</a>
             </div>
             
-            <!-- HEADER CTA BUTTON -->
+            <!-- HEADER CTA BUTTON - YENİ WAVE STİLİ -->
             <div class="header-cta">
-                <a href="tel:05422360983" class="btn">
-                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
+                <a href="tel:05422360983" class="wave-btn call">
+                    <span><i class="fas fa-phone-alt"></i> 0542 236 09 83</span>
                 </a>
             </div>
         </nav>
@@ -1853,7 +2004,7 @@
                     <div class="mobile-dropdown-section">
                         <h4>Web Tasarım</h4>
                         <a href="/e-ticaret-sitesi/" class="mobile-dropdown-link">E-Ticaret Sitesi</a>
-                        <a href="/kurumsal-web-sitesi/" class="mobile-dropdown-link">Kurumsal Web Sitesi</a>
+                            <a href="/kurumsal-web-sitesi/" class="mobile-dropdown-link">Kurumsal Web Sitesi</a>
                     </div>
                     
                     <!-- Prodüksiyon -->
@@ -1908,11 +2059,11 @@
             <h1>Dijitalde Fark Yaratın</h1>
             <p>Web Tasarım, SEO, Google & Meta Ads Reklamları ve profesyonel prodüksiyon çözümlerimizle markanızı dijital dünyada öne çıkarıyoruz.</p>
             <div class="hero-buttons">
-                <a href="tel:05422360983" class="btn btn-primary">
-                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
+                <a href="tel:05422360983" class="wave-btn call">
+                    <span><i class="fas fa-phone-alt"></i> 0542 236 09 83</span>
                 </a>
-                <a href="https://wa.me/905422360983" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Whatsapp Destek Hattı
+                <a href="https://wa.me/905422360983" target="_blank" class="wave-btn">
+                    <span><i class="fab fa-whatsapp"></i> WhatsApp Destek Hattı</span>
                 </a>
             </div>
         </div>
@@ -1941,7 +2092,7 @@
                         <div class="card-face card-back">
                             <h3>Google Ads</h3>
                             <p>Arama ve Display ağlarında reklamlarınızı profesyonel şekilde yönetiyor, hedef kitlenize ulaşmanızı sağlıyoruz.</p>
-                            <a href="/google-ads-reklam-ver/" class="btn">Paketleri İncele</a>
+                            <a href="/google-ads-reklam-ver/" class="wave-btn">Paketleri İncele</a>
                         </div>
                     </div>
                     
@@ -1956,7 +2107,7 @@
                         <div class="card-face card-back">
                             <h3>Instagram Reklam</h3>
                             <p>Instagram'da görsel ve video reklamlarla genç ve aktif kitleye ulaşmanızı sağlıyor, etkileşimlerinizi artırıyoruz.</p>
-                            <a href="/instagram-reklam-ver/" class="btn">Paketleri İncele</a>
+                            <a href="/instagram-reklam-ver/" class="wave-btn">Paketleri İncele</a>
                         </div>
                     </div>
                     
@@ -1971,7 +2122,7 @@
                         <div class="card-face card-back">
                             <h3>Facebook Reklam</h3>
                             <p>Facebook'ta detaylı hedefleme ile doğru kitleye reklamlarınızı ulaştırıyor, dönüşüm oranlarınızı yükseltiyoruz.</p>
-                            <a href="/facebook-reklam-ver/" class="btn">Paketleri İncele</a>
+                            <a href="/facebook-reklam-ver/" class="wave-btn">Paketleri İncele</a>
                         </div>
                     </div>
                     
@@ -1986,7 +2137,7 @@
                         <div class="card-face card-back">
                             <h3>Google Harita</h3>
                             <p>İşletmenizi Google Haritalar'da kaydediyor, müşterilerinizin sizi kolayca bulmasını ve yön bulmasını sağlıyoruz.</p>
-                            <a href="/google-harita-maps-kaydi/" class="btn">Paketleri İncele</a>
+                            <a href="/google-harita-maps-kaydi/" class="wave-btn">Paketleri İncele</a>
                         </div>
                     </div>
                     
@@ -2001,7 +2152,7 @@
                         <div class="card-face card-back">
                             <h3>SEO Optimizasyon</h3>
                             <p>Web sitenizi arama motorları için optimize ediyor, organik trafik artışı sağlıyor ve sürekli takip ediyoruz.</p>
-                            <a href="/seo/" class="btn">Paketleri İncele</a>
+                            <a href="/seo/" class="wave-btn">Paketleri İncele</a>
                         </div>
                     </div>
                     
@@ -2016,7 +2167,7 @@
                         <div class="card-face card-back">
                             <h3>Sosyal Medya</h3>
                             <p>Sosyal medya hesaplarınızı profesyonelce yönetiyor, içerik üretiyor ve takipçi etkileşiminizi artırıyoruz.</p>
-                            <a href="/sosyal-medya-yonetimi/" class="btn">Paketleri İncele</a>
+                            <a href="/sosyal-medya-yonetimi/" class="wave-btn">Paketleri İncele</a>
                         </div>
                     </div>
                 </div>
@@ -2037,7 +2188,7 @@
                         <div class="card-face card-back">
                             <h3>E-Ticaret</h3>
                             <p>Mobil uyumlu, güvenli ve kullanıcı dostu e-ticaret siteleri tasarlıyor, online satışlarınızı artırıyoruz.</p>
-                            <a href="/e-ticaret-sitesi/" class="btn">Paketleri İncele</a>
+                            <a href="/e-ticaret-sitesi/" class="wave-btn">Paketleri İncele</a>
                         </div>
                     </div>
                     
@@ -2052,7 +2203,7 @@
                         <div class="card-face card-back">
                             <h3>Kurumsal Web</h3>
                             <p>Kurumsal kimliğinize uygun, modern ve etkileyici web siteleri tasarlıyor, online varlığınızı güçlendiriyoruz.</p>
-                            <a href="/kurumsal-web-sitesi/" class="btn">Paketleri İncele</a>
+                            <a href="/kurumsal-web-sitesi/" class="wave-btn">Paketleri İncele</a>
                         </div>
                     </div>
                 </div>
@@ -2073,7 +2224,7 @@
                         <div class="card-face card-back">
                             <h3>Sosyal Medya Videoları</h3>
                             <p>Sosyal medya platformları için etkileyici ve paylaşılabilir video içerikler üretiyor, marka bilinirliğinizi artırıyoruz.</p>
-                            <a href="/sosyal-medya-videolari/" class="btn">Paketleri İncele</a>
+                            <a href="/sosyal-medya-videolari/" class="wave-btn">Paketleri İncele</a>
                         </div>
                     </div>
                     
@@ -2088,7 +2239,7 @@
                         <div class="card-face card-back">
                             <h3>Tanıtım Filmi</h3>
                             <p>Markanızı en iyi şekilde tanıtan profesyonel tanıtım filmleri hazırlıyor, kurumsal kimliğinizi güçlendiriyoruz.</p>
-                            <a href="/tanitim-filmi/" class="btn">Paketleri İncele</a>
+                            <a href="/tanitim-filmi/" class="wave-btn">Paketleri İncele</a>
                         </div>
                     </div>
                     
@@ -2103,7 +2254,7 @@
                         <div class="card-face card-back">
                             <h3>Drone Çekimi</h3>
                             <p>Drone ile havadan çektiğimiz görüntülerle içeriklerinize farklı bir boyut katıyor, etkiyi artırıyoruz.</p>
-                            <a href="/drone-cekimi/" class="btn">Paketleri İncele</a>
+                            <a href="/drone-cekimi/" class="wave-btn">Paketleri İncele</a>
                         </div>
                     </div>
                 </div>
@@ -2165,11 +2316,11 @@
             <h2>İşinizi Dijitalde Büyütmeye Hazır mısınız?</h2>
             <p>Web4 Medya uzmanları sizin için en uygun dijital stratejiyi belirlesin. Ücretsiz danışmanlık ve analiz hizmetimizden yararlanın.</p>
             <div class="cta-buttons">
-                <a href="tel:05422360983" class="btn btn-primary">
-                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
+                <a href="tel:05422360983" class="wave-btn call">
+                    <span><i class="fas fa-phone-alt"></i> 0542 236 09 83</span>
                 </a>
-                <a href="https://wa.me/905422360983" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> 0542 236 09 83
+                <a href="https://wa.me/905422360983" target="_blank" class="wave-btn">
+                    <span><i class="fab fa-whatsapp"></i> 0542 236 09 83</span>
                 </a>
             </div>
         </div>
@@ -2273,17 +2424,138 @@
         </div>
     </footer>
 
-    <!-- FLOATING CTA BUTONLARI -->
+    <!-- FLOATING WAVE CTA BUTONLARI -->
     <div class="floating-cta">
-        <a href="https://wa.me/905422360983" class="floating-btn floating-whatsapp" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/905422360983" class="floating-wave-btn floating-whatsapp" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="tel:05422360983" class="floating-btn floating-phone">
+        <a href="tel:05422360983" class="floating-wave-btn floating-phone">
             <i class="fas fa-phone-alt"></i>
         </a>
     </div>
 
     <script>
+        // Dinamik Gradient ve Partikül Sistemi
+        document.addEventListener('DOMContentLoaded', function() {
+            const dynamicGradient = document.getElementById('dynamicGradient');
+            const nightGradient = document.getElementById('nightGradient');
+            const particlesContainer = document.getElementById('particlesContainer');
+            
+            // Partikül oluşturma
+            function createParticles() {
+                const particleCount = window.innerWidth < 768 ? 15 : 30;
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    
+                    // Rastgele boyut
+                    const size = Math.random() * 100 + 20;
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    
+                    // Rastgele pozisyon
+                    particle.style.left = `${Math.random() * 100}%`;
+                    
+                    // Rastgele renk
+                    const colors = [
+                        'rgba(255, 255, 255, 0.1)',
+                        'rgba(96, 165, 250, 0.15)',
+                        'rgba(59, 130, 246, 0.1)',
+                        'rgba(29, 187, 225, 0.12)'
+                    ];
+                    particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    
+                    // Rastgele animasyon süresi ve gecikmesi
+                    const duration = Math.random() * 30 + 20;
+                    const delay = Math.random() * 10;
+                    particle.style.animationDuration = `${duration}s`;
+                    particle.style.animationDelay = `${delay}s`;
+                    
+                    particlesContainer.appendChild(particle);
+                }
+            }
+            
+            // Gece modu geçişi
+            function toggleNightMode() {
+                const now = new Date();
+                const hour = now.getHours();
+                
+                // Akşam 20:00 - Sabah 06:00 arası gece modu
+                if (hour >= 20 || hour < 6) {
+                    nightGradient.style.opacity = '0.7';
+                    dynamicGradient.style.opacity = '0.3';
+                } else {
+                    nightGradient.style.opacity = '0';
+                    dynamicGradient.style.opacity = '1';
+                }
+            }
+            
+            // Mouse hareketi ile gradient hareketi
+            document.addEventListener('mousemove', (e) => {
+                const x = (e.clientX / window.innerWidth) * 100;
+                const y = (e.clientY / window.innerHeight) * 100;
+                
+                dynamicGradient.style.backgroundPosition = `${x}% ${y}%`;
+                
+                if (nightGradient.style.opacity > 0) {
+                    nightGradient.style.backgroundPosition = `${100 - x}% ${100 - y}%`;
+                }
+            });
+            
+            // Scroll ile opacity değişimi
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                const opacity = 1 - Math.min(scrollY / 1000, 0.3);
+                dynamicGradient.style.opacity = opacity;
+                
+                if (nightGradient.style.opacity > 0) {
+                    nightGradient.style.opacity = parseFloat(nightGradient.style.opacity) * opacity;
+                }
+            });
+            
+            // Renk geçişleri (dijital pazarlama temasına uygun)
+            const colorThemes = [
+                ['#145e8d', '#1f90bc', '#1dbbe1'], // Ana tema
+                ['#0a2540', '#145e8d', '#3b82f6'], // Derin mavi
+                ['#1e3a8a', '#2563eb', '#60a5fa'], // Canlı mavi
+                ['#0c4a6e', '#0369a1', '#0ea5e9'], // Okyanus mavisi
+            ];
+            
+            let currentTheme = 0;
+            
+            function changeGradientTheme() {
+                const [color1, color2, color3] = colorThemes[currentTheme];
+                
+                dynamicGradient.style.background = `
+                    linear-gradient(
+                        135deg,
+                        ${color1} 0%,
+                        ${color2} 50%,
+                        ${color3} 100%
+                    )
+                `;
+                
+                currentTheme = (currentTheme + 1) % colorThemes.length;
+            }
+            
+            // Her 30 saniyede bir tema değiştir
+            setInterval(changeGradientTheme, 30000);
+            
+            // Başlangıçta çalıştır
+            createParticles();
+            toggleNightMode();
+            
+            // Pencere boyutu değişince partikülleri yeniden oluştur
+            window.addEventListener('resize', () => {
+                particlesContainer.innerHTML = '';
+                createParticles();
+            });
+            
+            // Saat başı gece modunu kontrol et
+            setInterval(toggleNightMode, 60000);
+        });
+
         // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -2444,8 +2716,8 @@
         
         flipCards.forEach(card => {
             card.addEventListener('click', function(e) {
-                // Eğer butona tıklandıysa flip olmasın, buton çalışsın
-                if (e.target.closest('a')) {
+                // Eğer wave butona tıklandıysa flip olmasın, buton çalışsın
+                if (e.target.closest('.wave-btn')) {
                     return;
                 }
                 
@@ -2502,6 +2774,17 @@
                 mobileMenu.classList.remove('active');
             });
         }
+
+        // Wave butonları için touch event desteği
+        document.querySelectorAll('.wave-btn').forEach(btn => {
+            btn.addEventListener('touchstart', function() {
+                this.classList.add('active');
+            });
+            
+            btn.addEventListener('touchend', function() {
+                this.classList.remove('active');
+            });
+        });
     </script>
 </body>
 </html>
