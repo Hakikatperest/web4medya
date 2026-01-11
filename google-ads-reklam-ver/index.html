@@ -1098,98 +1098,97 @@
         }
 
         /* YENİ FLOATING CTA BUTONLARI - GÖNDERDİĞİNİZ SAYFADAKİYLE AYNI */
-        .floating-cta {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 998;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+     /* YENİ KOD - GÖNDERDİĞİNİZ SAYFADAKİYLE %100 AYNI */
+.floating-cta {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 998;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-        .floating-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            text-decoration: none;
-            font-size: 1.9rem;
-            position: relative;
-            overflow: hidden;
-            /* Kenar yumuşatma */
-            -webkit-backface-visibility: hidden;
-            -moz-backface-visibility: hidden;
-            backface-visibility: hidden;
-            transform: translateZ(0);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+.floating-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    text-decoration: none;
+    font-size: 1.9rem;
+    position: relative;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-        .floating-btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
-            transform: translateX(-100%);
-            transition: transform 0.6s ease;
-            z-index: 1;
-        }
+.floating-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+    z-index: 1;
+}
 
-        .floating-btn:hover::after {
-            transform: translateX(0);
-        }
+.floating-btn:hover::after {
+    transform: translateX(0);
+}
 
-        /* FLOATING BUTONLAR - TERS ÇEVİRİLMİŞ HOVER/TIKLAMA */
-        .floating-btn {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
+/* FLOATING BUTONLAR - TERS ÇEVİRİLMİŞ HOVER/TIKLAMA */
+.floating-btn {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
 
-        .floating-btn:active {
-            transform: scale(1) rotate(0);
-            box-shadow: 0 10px 30px rgba(20, 94, 141, 0.3);
-        }
+.floating-btn:active {
+    transform: scale(1) rotate(0);
+    box-shadow: 0 10px 30px rgba(20, 94, 141, 0.3);
+}
 
-        .floating-whatsapp {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-            animation: pulse 2s infinite;
-            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
-        }
+.floating-whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    animation: pulse 2s infinite;
+    box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+}
 
-        .floating-whatsapp:active {
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
-        }
+.floating-whatsapp:active {
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+}
 
-        .floating-phone {
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
-            color: white;
-            box-shadow: 0 15px 40px rgba(10, 36, 99, 0.4);
-        }
+.floating-phone {
+    background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+    color: white;
+    box-shadow: 0 15px 40px rgba(20, 94, 141, 0.4); /* DEĞİŞTİ: rgba(20, 94, 141, 0.4) */
+}
 
-        .floating-phone:active {
-            box-shadow: 0 10px 30px rgba(10, 36, 99, 0.3);
-        }
+.floating-phone:active {
+    box-shadow: 0 10px 30px rgba(20, 94, 141, 0.3); /* DEĞİŞTİ: rgba(20, 94, 141, 0.3) */
+}
 
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
-        }
-
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
         /* FOOTER */
         .footer {
             background: linear-gradient(135deg, var(--primary-dark), var(--primary));
