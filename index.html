@@ -157,7 +157,7 @@
             object-fit: contain;
         }
 
-        /* MODERN NAVIGATION */
+        /* MODERN NAVIGATION - BİRİNCİ SAYFADAKİ AYNI STİL */
         .nav-desktop {
             display: flex;
             align-items: center;
@@ -174,28 +174,12 @@
             font-weight: 600;
             font-size: 0.95rem;
             transition: var(--transition);
-            padding: 12px 0;
+            padding: 8px 0;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-light));
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
-
-        .nav-link:hover::before,
-        .nav-link.active::before {
-            transform: translateX(0);
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .nav-link:hover {
@@ -206,64 +190,47 @@
             color: var(--primary);
         }
 
-        /* YENİ: MODERN AÇILIR MENÜ TASARIMI */
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            border-radius: 2px;
+        }
+
+        /* DROPDOWN MENÜ - BİRİNCİ SAYFADAKİ AYNI STİL */
         .dropdown {
             position: absolute;
-            top: calc(100% + 15px);
+            top: 100%;
             left: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            min-width: 320px;
-            box-shadow: 0 25px 50px rgba(10, 36, 99, 0.15);
-            border-radius: 16px;
+            background: var(--white); /* BEYAZ */
+            min-width: 280px;
+            box-shadow: var(--shadow);
+            border-radius: var(--radius-sm);
             opacity: 0;
             visibility: hidden;
-            transform: translateY(15px) scale(0.95);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(10px);
+            transition: all 0.3s ease;
             z-index: 1001;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            overflow: hidden;
-            padding: 20px 0;
+            border: 1px solid var(--gray-light);
         }
 
         .dropdown.active {
             opacity: 1;
             visibility: visible;
-            transform: translateY(0) scale(1);
+            transform: translateY(0);
         }
 
         .dropdown-content {
-            padding: 0;
+            padding: 10px 0;
         }
 
         .dropdown-section {
-            padding: 20px 25px;
-            border-bottom: 1px solid rgba(10, 36, 99, 0.08);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .dropdown-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 230, 109, 0.1), transparent);
-            transition: left 0.6s ease;
-            z-index: 0;
-        }
-
-        .dropdown-section:hover::before {
-            left: 100%;
-        }
-
-        .dropdown-section:hover {
-            background: rgba(10, 36, 99, 0.03);
-            transform: translateX(5px);
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--gray-light);
         }
 
         .dropdown-section:last-child {
@@ -272,78 +239,38 @@
 
         .dropdown-section h4 {
             font-size: 0.85rem;
-            color: var(--primary);
-            margin-bottom: 15px;
+            color: var(--accent);
+            margin-bottom: 10px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .dropdown-section h4 i {
-            color: var(--accent);
-            font-size: 1rem;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 107, 107, 0.1);
-            border-radius: 6px;
-            padding: 4px;
         }
 
         .dropdown-link {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 15px;
-            color: var(--gray-dark);
+            display: block;
+            padding: 8px 0;
+            color: var(--gray-dark); /* Gri */
             text-decoration: none;
-            font-size: 0.95rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border-radius: 10px;
-            margin: 5px 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        .dropdown-link i {
-            color: var(--primary-light);
-            font-size: 0.8rem;
-            width: 24px;
-            text-align: center;
+            font-size: 0.9rem;
+            transition: var(--transition);
         }
 
         .dropdown-link:hover {
-            background: linear-gradient(135deg, rgba(10, 36, 99, 0.1), rgba(62, 146, 204, 0.1));
-            color: var(--primary);
-            transform: translateX(10px);
-            box-shadow: 0 5px 15px rgba(10, 36, 99, 0.1);
-        }
-
-        .dropdown-link:hover i {
             color: var(--accent);
-            transform: scale(1.2);
-            transition: transform 0.3s ease;
+            padding-left: 5px;
         }
 
         .arrow {
             font-size: 0.7rem;
             transition: transform 0.3s ease;
-            color: var(--gray-dark);
-            margin-left: 5px;
+            color: var(--gray-dark); /* Gri */
         }
 
         .nav-item:hover .arrow {
             transform: rotate(180deg);
         }
 
-        /* YENİ: HEADER BUTTON - Sarı renk geri getirildi */
+        /* HEADER CTA BUTTON - BİRİNCİ SAYFADAKİ AYNI STİL */
         .header-cta {
             display: flex;
             align-items: center;
@@ -353,84 +280,45 @@
             background: linear-gradient(135deg, var(--accent-light), #FFD93D);
             color: var(--primary);
             padding: 12px 28px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.95rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
             text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: var(--transition);
+            white-space: nowrap;
             border: none;
+            box-shadow: 0 4px 12px rgba(255, 230, 109, 0.2);
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(255, 230, 109, 0.3);
-        }
-
-        /* YENİ: BEYAZ IŞIK DALGASI EFEKTİ */
-        .header-cta .btn::before,
-        .hero-buttons .btn::before,
-        .cta-buttons .btn::before,
-        .floating-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: left 0.7s ease;
-            z-index: 1;
-        }
-
-        .header-cta .btn:hover::before,
-        .hero-buttons .btn:hover::before,
-        .cta-buttons .btn:hover::before,
-        .floating-btn:hover::before {
-            left: 100%;
+            gap: 8px;
         }
 
         .header-cta .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 230, 109, 0.4);
-            color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 230, 109, 0.3);
+            background: linear-gradient(135deg, #FFD93D, var(--accent-light));
         }
 
-        .header-cta .btn:active {
-            transform: translateY(-1px);
-        }
-
-        /* HAMBURGER MENU */
+        /* HAMBURGER MENU - BİRİNCİ SAYFADAKİ AYNI STİL */
         .menu-toggle {
             display: none;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
-            border-radius: 50%;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
             border: none;
             cursor: pointer;
             padding: 0;
-            position: relative;
             z-index: 1001;
-            transition: var(--transition);
         }
 
         .menu-toggle span {
-            display: block;
-            width: 20px;
-            height: 2px;
-            background: white;
-            margin: 4px auto;
-            border-radius: 2px;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent);
+            border-radius: 10px;
             transition: all 0.3s ease;
-        }
-
-        .menu-toggle:hover {
-            transform: rotate(90deg);
-        }
-
-        .menu-toggle.active {
-            transform: rotate(180deg);
         }
 
         .menu-toggle.active span:nth-child(1) {
@@ -657,54 +545,49 @@
             }
         }
 
-        /* MOBILE MENU */
+        /* MOBILE MENU - BİRİNCİ SAYFADAKİ AYNI STİL */
         .mobile-menu {
             position: fixed;
-            top: 0;
-            right: -100%;
-            width: 100%;
-            height: 100vh;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: var(--white); /* BEYAZ */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             z-index: 999;
-            transition: right 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            border-top: 1px solid var(--gray-light);
         }
 
         .mobile-menu.active {
-            right: 0;
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
         .mobile-nav {
-            width: 90%;
-            max-width: 400px;
+            padding: 20px;
         }
 
         .mobile-nav-item {
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .mobile-nav-link {
             display: block;
-            padding: 16px;
-            color: var(--primary);
+            padding: 15px;
+            color: var(--gray-dark); /* Gri */
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
-            text-align: center;
-            border-radius: var(--radius-sm);
-            background: rgba(10, 36, 99, 0.05);
+            border-bottom: 1px solid var(--gray-light);
             transition: var(--transition);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .mobile-nav-link:hover,
-        .mobile-nav-link.active {
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
-            color: white;
+        .mobile-nav-link:hover {
+            color: var(--accent);
         }
 
         .mobile-dropdown-btn {
@@ -712,29 +595,25 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            background: rgba(10, 36, 99, 0.05);
+            background: none;
             border: none;
-            padding: 16px;
-            color: var(--primary);
+            padding: 15px;
+            color: var(--gray-dark); /* Gri */
             font-weight: 600;
             font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             cursor: pointer;
-            border-radius: var(--radius-sm);
+            border-bottom: 1px solid var(--gray-light);
             text-align: left;
-            transition: var(--transition);
-        }
-
-        .mobile-dropdown-btn:hover {
-            background: rgba(10, 36, 99, 0.1);
         }
 
         .mobile-dropdown-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
-            background: rgba(10, 36, 99, 0.03);
-            border-radius: var(--radius-sm);
-            margin-top: 5px;
+            background: var(--light);
+            margin-left: 10px;
         }
 
         .mobile-dropdown-content.active {
@@ -742,8 +621,8 @@
         }
 
         .mobile-dropdown-section {
-            padding: 12px 20px;
-            border-bottom: 1px solid rgba(10, 36, 99, 0.1);
+            padding: 10px 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .mobile-dropdown-section:last-child {
@@ -752,7 +631,7 @@
 
         .mobile-dropdown-section h4 {
             font-size: 0.9rem;
-            color: var(--primary);
+            color: var(--accent);
             margin-bottom: 8px;
             font-weight: 700;
         }
@@ -760,7 +639,7 @@
         .mobile-dropdown-link {
             display: block;
             padding: 8px 0;
-            color: var(--gray-dark);
+            color: var(--gray-dark); /* Gri */
             text-decoration: none;
             font-size: 0.9rem;
             transition: var(--transition);
@@ -768,11 +647,12 @@
 
         .mobile-dropdown-link:hover {
             color: var(--accent);
+            padding-left: 5px;
         }
 
         .mobile-arrow {
             transition: transform 0.3s ease;
-            color: var(--primary);
+            color: var(--gray-dark); /* Gri */
         }
 
         .mobile-dropdown-btn.active .mobile-arrow {
@@ -1492,7 +1372,7 @@
             }
             
             .menu-toggle {
-                display: block;
+                display: flex;
             }
             
             .header-cta {
@@ -1772,63 +1652,41 @@
             </div>
         </a>
         
-        <!-- NAVIGATION -->
+        <!-- NAVIGATION - BİRİNCİ SAYFADAKİ AYNI NAVIGATION YAPISI -->
         <nav class="nav-desktop">
             <div class="nav-item">
                 <a href="/" class="nav-link active">Ana Sayfa</a>
             </div>
             
-            <!-- HİZMETLER DROPDOWN - YENİ TASARIM -->
+            <!-- HİZMETLER DROPDOWN - BİRİNCİ SAYFADAKİ AYNI YAPISI -->
             <div class="nav-item">
                 <a href="#" class="nav-link">Hizmetler <i class="fas fa-chevron-down arrow"></i></a>
                 <div class="dropdown" id="hizmetlerDropdown">
                     <div class="dropdown-content">
                         <!-- Dijital Pazarlama -->
                         <div class="dropdown-section">
-                            <h4><i class="fas fa-bullhorn"></i> Dijital Pazarlama</h4>
-                            <a href="/google-ads-reklam-ver/" class="dropdown-link">
-                                <i class="fas fa-ad"></i> Google Ads Reklam Ver
-                            </a>
-                            <a href="/instagram-reklam-ver/" class="dropdown-link">
-                                <i class="fab fa-instagram"></i> İnstagram Reklam Ver
-                            </a>
-                            <a href="/facebook-reklam-ver/" class="dropdown-link">
-                                <i class="fab fa-facebook"></i> Facebook Reklam Ver
-                            </a>
-                            <a href="/google-harita-maps-kaydi/" class="dropdown-link">
-                                <i class="fas fa-map-marker-alt"></i> Google Harita(Maps) Kaydı
-                            </a>
-                            <a href="/seo/" class="dropdown-link">
-                                <i class="fas fa-chart-line"></i> SEO (Arama Motoru Optimizasyonu)
-                            </a>
-                            <a href="/sosyal-medya-yonetimi/" class="dropdown-link">
-                                <i class="fas fa-users"></i> Sosyal Medya Yönetimi
-                            </a>
+                            <h4>Dijital Pazarlama</h4>
+                            <a href="/google-ads-reklam-ver/" class="dropdown-link">Google Ads Reklam Ver</a>
+                            <a href="/instagram-reklam-ver/" class="dropdown-link">İnstagram Reklam Ver</a>
+                            <a href="/facebook-reklam-ver/" class="dropdown-link">Facebook Reklam Ver</a>
+                            <a href="/google-harita-maps-kaydi/" class="dropdown-link">Google Harita(Maps) Kaydı</a>
+                            <a href="/seo/" class="dropdown-link">SEO (Arama Motoru Optimizasyonu)</a>
+                            <a href="/sosyal-medya-yonetimi/" class="dropdown-link">Sosyal Medya Yönetimi</a>
                         </div>
                         
                         <!-- Web Tasarım -->
                         <div class="dropdown-section">
-                            <h4><i class="fas fa-laptop-code"></i> Web Tasarım</h4>
-                            <a href="/e-ticaret-sitesi/" class="dropdown-link">
-                                <i class="fas fa-shopping-cart"></i> E-Ticaret Sitesi
-                            </a>
-                            <a href="/kurumsal-web-sitesi/" class="dropdown-link">
-                                <i class="fas fa-briefcase"></i> Kurumsal Web Sitesi
-                            </a>
+                            <h4>Web Tasarım</h4>
+                            <a href="/e-ticaret-sitesi/" class="dropdown-link">E-Ticaret Sitesi</a>
+                            <a href="/kurumsal-web-sitesi/" class="dropdown-link">Kurumsal Web Sitesi</a>
                         </div>
                         
                         <!-- Prodüksiyon -->
                         <div class="dropdown-section">
-                            <h4><i class="fas fa-video"></i> Prodüksiyon</h4>
-                            <a href="/sosyal-medya-videolari/" class="dropdown-link">
-                                <i class="fas fa-video"></i> Sosyal Medya Videoları
-                            </a>
-                            <a href="/tanitim-filmi/" class="dropdown-link">
-                                <i class="fas fa-film"></i> Tanıtım Filmi
-                            </a>
-                            <a href="/drone-cekimi/" class="dropdown-link">
-                                <i class="fas fa-drone"></i> Drone Çekimi
-                            </a>
+                            <h4>Prodüksiyon</h4>
+                            <a href="/sosyal-medya-videolari/" class="dropdown-link">Sosyal Medya Videoları</a>
+                            <a href="/tanitim-filmi/" class="dropdown-link">Tanıtım Filmi</a>
+                            <a href="/drone-cekimi/" class="dropdown-link">Drone Çekimi</a>
                         </div>
                     </div>
                 </div>
@@ -1849,7 +1707,7 @@
                 <a href="/iletisim/" class="nav-link">İletişim</a>
             </div>
             
-            <!-- HEADER CTA BUTTON - Sarı renk geri getirildi -->
+            <!-- HEADER CTA BUTTON - BİRİNCİ SAYFADAKİ AYNI BUTON -->
             <div class="header-cta">
                 <a href="tel:05422360983" class="btn">
                     <i class="fas fa-phone-alt"></i> 0542 236 09 83
@@ -1857,7 +1715,7 @@
             </div>
         </nav>
         
-        <!-- Hamburger Menu -->
+        <!-- Hamburger Menu - BİRİNCİ SAYFADAKİ AYNI YAPISI -->
         <button class="menu-toggle" id="menuToggle" aria-label="Menüyü aç/kapat">
             <span></span>
             <span></span>
@@ -1865,7 +1723,7 @@
         </button>
     </header>
     
-    <!-- Mobile Menu -->
+    <!-- Mobile Menu - BİRİNCİ SAYFADAKİ AYNI YAPISI -->
     <div class="mobile-menu" id="mobileMenu">
         <nav class="mobile-nav">
             <!-- Ana Sayfa -->
@@ -1922,7 +1780,7 @@
                 <a href="/iletisim/" class="mobile-nav-link">İletişim</a>
             </div>
             
-            <!-- Mobile CTA - Sarı renk geri getirildi -->
+            <!-- Mobile CTA -->
             <div class="mobile-nav-item">
                 <a href="tel:05422360983" class="mobile-nav-link" style="background: linear-gradient(135deg, var(--accent-light), #FFD93D); color: var(--primary);">
                     <i class="fas fa-phone-alt"></i> 0542 236 09 83
@@ -2338,12 +2196,6 @@
                 e.stopPropagation();
                 this.classList.toggle('active');
                 mobileMenu.classList.toggle('active');
-                
-                if (mobileMenu.classList.contains('active')) {
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    document.body.style.overflow = '';
-                }
             });
         }
 
@@ -2395,7 +2247,6 @@
             if (!e.target.closest('.menu-toggle') && !e.target.closest('.mobile-menu')) {
                 if (menuToggle) menuToggle.classList.remove('active');
                 if (mobileMenu) mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
             }
         });
 
@@ -2523,7 +2374,6 @@
                 scrollToTop();
                 if (menuToggle) menuToggle.classList.remove('active');
                 if (mobileMenu) mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
             });
         }
 
@@ -2552,7 +2402,6 @@
             link.addEventListener('click', function() {
                 if (menuToggle) menuToggle.classList.remove('active');
                 if (mobileMenu) mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
                 document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
                     dropdown.classList.remove('active');
                 });
