@@ -248,6 +248,7 @@
             left: 0;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             min-width: 300px;
             box-shadow: 0 20px 50px rgba(10, 36, 99, 0.2);
             border-radius: var(--radius-sm);
@@ -394,16 +395,17 @@
         }
 
         .header-cta .btn:hover {
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.05);
             box-shadow: 0 15px 35px rgba(10, 36, 99, 0.4),
-                        0 0 0 2px rgba(62, 146, 204, 0.3);
+                        0 0 0 2px rgba(62, 146, 204, 0.3),
+                        0 0 30px rgba(62, 146, 204, 0.5);
         }
 
         /* HAMBURGER MENU - YENİ TASARIM */
         .menu-toggle {
             display: none;
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
             border-radius: 50%;
             border: none;
@@ -426,11 +428,11 @@
         }
 
         .menu-toggle:hover {
-            transform: rotate(90deg);
+            transform: rotate(90deg) scale(1.1);
         }
 
         .menu-toggle.active {
-            transform: rotate(180deg);
+            transform: rotate(180deg) scale(1.1);
         }
 
         .menu-toggle.active span:nth-child(1) {
@@ -445,7 +447,7 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* YENİ: HERO SECTION PARALLAX */
+        /* YENİ: PARALLAX HERO SECTION */
         .hero {
             background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
             color: var(--white);
@@ -457,10 +459,20 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
 
-        /* YENİ: PARALLAX ARKA PLAN PARTİKÜLLERİ */
-        .particles-container {
+        .hero-content {
+            position: relative;
+            z-index: 4;
+            max-width: 1000px;
+            margin: 0 auto;
+            transform: translateZ(50px);
+        }
+
+        /* YENİ: PARALLAX LAYERS */
+        .parallax-layer {
             position: absolute;
             top: 0;
             left: 0;
@@ -470,42 +482,37 @@
             pointer-events: none;
         }
 
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: floatParticle 20s infinite linear;
-        }
-
-        @keyframes floatParticle {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(100vw, 100vh) rotate(360deg); }
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+        .parallax-bg {
+            z-index: 1;
             background: 
                 radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-                url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23FFFFFF' fill-opacity='0.05' d='M52.4,-50.9C66.6,-39.5,75.9,-19.8,76.1,0.2C76.3,20.2,67.4,40.3,53.2,55.6C39,70.9,19.5,81.5,0.7,80.8C-18.1,80.2,-36.2,68.3,-50.5,53C-64.8,37.7,-75.3,18.9,-75.8,-0.3C-76.3,-19.5,-66.8,-39,-52.5,-50.4C-38.2,-61.8,-19.1,-65.1,0.1,-65.2C19.2,-65.2,38.3,-62.2,52.4,-50.9Z' transform='translate(100 100)'/%3E%3C/svg%3E");
-            background-size: cover;
-            z-index: 1;
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+            transform: translateZ(-100px) scale(2);
+        }
+
+        .parallax-fg {
+            z-index: 3;
+            background: url('data:image/svg+xml,<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="%23FFFFFF" fill-opacity="0.03" d="M52.4,-50.9C66.6,-39.5,75.9,-19.8,76.1,0.2C76.3,20.2,67.4,40.3,53.2,55.6C39,70.9,19.5,81.5,0.7,80.8C-18.1,80.2,-36.2,68.3,-50.5,53C-64.8,37.7,-75.3,18.9,-75.8,-0.3C-76.3,-19.5,-66.8,-39,-52.5,-50.4C-38.2,-61.8,-19.1,-65.1,0.1,-65.2C19.2,-65.2,38.3,-62.2,52.4,-50.9Z" transform="translate(100 100)"/></svg>');
+            background-size: 400px;
+            transform: translateZ(50px) scale(1.1);
+        }
+
+        /* YENİ: PARALLAX PARTIKÜLLER */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
         }
 
         /* YENİ: GLITCH TEXT EFFECT */
-        .hero-content {
+        .glitch-container {
             position: relative;
-            z-index: 2;
-            max-width: 1000px;
-            margin: 0 auto;
+            display: inline-block;
         }
 
-        .hero h1 {
+        .glitch-text {
             font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 900;
             margin-bottom: 30px;
@@ -519,13 +526,67 @@
                 var(--gradient-3) 75%, 
                 var(--white) 100%);
             -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             background-clip: text;
-            color: transparent;
             text-shadow: 
                 0 2px 10px rgba(0, 0, 0, 0.3),
                 0 0 30px rgba(62, 146, 204, 0.2);
             animation: gradientShift 8s ease infinite;
             background-size: 400% 400%;
+        }
+
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, 
+                var(--white) 0%, 
+                var(--accent-light) 25%, 
+                var(--accent) 50%, 
+                var(--gradient-3) 75%, 
+                var(--white) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0.8;
+            animation: glitch 3s infinite;
+        }
+
+        .glitch-text::before {
+            animation: glitch 3s infinite;
+            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+            transform: translate(-2px, 0);
+        }
+
+        .glitch-text::after {
+            animation: glitch 2s infinite reverse;
+            clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+            transform: translate(2px, 0);
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(-2px, 2px);
+            }
+            40% {
+                transform: translate(-2px, -2px);
+            }
+            60% {
+                transform: translate(2px, 2px);
+            }
+            80% {
+                transform: translate(2px, -2px);
+            }
+            100% {
+                transform: translate(0);
+            }
         }
 
         @keyframes gradientShift {
@@ -576,6 +637,8 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
 
         /* NEON HOVER EFFECT */
@@ -596,7 +659,7 @@
         }
 
         .hero-buttons .btn:hover {
-            transform: translateY(-5px) scale(1.05);
+            transform: translateY(-5px) scale(1.05) rotateX(5deg);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
                         0 0 30px rgba(255, 255, 255, 0.2);
         }
@@ -610,9 +673,9 @@
                         0 15px 35px rgba(10, 36, 99, 0.4);
         }
 
-        .hero-buttons .btn-primary:active {
-            transform: translateY(0) scale(1);
-            box-shadow: 0 10px 25px rgba(10, 36, 99, 0.3);
+        .hero-buttons .btn-primary:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+                        0 0 30px rgba(62, 146, 204, 0.7);
         }
 
         /* YENİ: WHATSAPP NEON BUTON WITH PULSE */
@@ -640,12 +703,6 @@
             }
         }
 
-        .hero-buttons .btn-whatsapp:active {
-            animation: none;
-            transform: translateY(0) scale(1);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-        }
-
         /* BUTTONS - GENEL */
         .btn {
             display: inline-flex;
@@ -662,6 +719,10 @@
             font-size: 1.05rem;
             position: relative;
             overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            min-height: 48px;
+            min-width: 48px;
         }
 
         /* YENİ: 3D HOVER EFFECTS */
@@ -669,26 +730,24 @@
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
             color: white;
             border: 2px solid transparent;
-            transform-style: preserve-3d;
-            perspective: 1000px;
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px) rotateX(5deg);
-            box-shadow: 0 20px 40px rgba(10, 36, 99, 0.3);
+            transform: translateY(-3px) rotateX(5deg) scale(1.05);
+            box-shadow: 0 20px 40px rgba(10, 36, 99, 0.3),
+                        0 0 30px rgba(62, 146, 204, 0.5);
         }
 
         .btn-whatsapp {
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
             border: 2px solid rgba(255, 255, 255, 0.2);
-            transform-style: preserve-3d;
-            perspective: 1000px;
         }
 
         .btn-whatsapp:hover {
-            transform: translateY(-3px) rotateX(5deg);
-            box-shadow: 0 20px 40px rgba(37, 211, 102, 0.3);
+            transform: translateY(-3px) rotateX(5deg) scale(1.05);
+            box-shadow: 0 20px 40px rgba(37, 211, 102, 0.3),
+                        0 0 30px rgba(37, 211, 102, 0.5);
         }
 
         /* MOBILE MENU - GLASS EFFECT */
@@ -700,12 +759,14 @@
             height: 100vh;
             background: rgba(255, 255, 255, 0.97);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             z-index: 999;
             transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .mobile-menu.active {
@@ -744,6 +805,7 @@
             transition: var(--transition);
             text-transform: uppercase;
             letter-spacing: 1px;
+            min-height: 48px;
         }
 
         .mobile-nav-link:hover,
@@ -770,6 +832,7 @@
             border-radius: var(--radius-sm);
             text-align: left;
             transition: var(--transition);
+            min-height: 48px;
         }
 
         .mobile-dropdown-btn:hover {
@@ -813,6 +876,7 @@
             font-size: 0.95rem;
             transition: var(--transition);
             padding-left: 15px;
+            min-height: 44px;
         }
 
         .mobile-dropdown-link:hover {
@@ -864,8 +928,8 @@
             margin-bottom: 30px;
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
             -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             background-clip: text;
-            color: transparent;
             position: relative;
             display: inline-block;
             text-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -912,7 +976,7 @@
         }
 
         .category-title:hover {
-            transform: translateX(10px);
+            transform: translateX(10px) rotateX(5deg);
             text-shadow: 0 5px 15px rgba(10, 36, 99, 0.1);
         }
 
@@ -954,12 +1018,13 @@
         }
 
         .flip-card:hover:not(.flipped) {
-            transform: translateY(-10px) rotateX(5deg);
-            box-shadow: var(--shadow-hover);
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: var(--shadow-hover),
+                        0 20px 40px rgba(10, 36, 99, 0.2);
         }
 
         .flip-card.flipped {
-            transform: rotateY(180deg);
+            transform: rotateY(180deg) translateY(-10px);
         }
 
         .card-face {
@@ -1019,15 +1084,15 @@
         .icon-google i {
             background: linear-gradient(135deg, var(--primary), var(--gradient-2));
             -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             background-clip: text;
-            color: transparent;
         }
 
         .icon-instagram i {
             background: linear-gradient(135deg, #405DE6, #5851DB, #833AB4, #C13584);
             -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             background-clip: text;
-            color: transparent;
         }
 
         .icon-facebook i {
@@ -1071,8 +1136,8 @@
             font-weight: 800;
             background: linear-gradient(135deg, var(--primary), var(--gradient-2));
             -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             background-clip: text;
-            color: transparent;
             margin: 0;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
@@ -1090,6 +1155,7 @@
             flex-direction: column;
             align-items: center;
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
@@ -1138,6 +1204,7 @@
             white-space: nowrap;
             position: relative;
             overflow: hidden;
+            transform-style: preserve-3d;
         }
 
         .card-back .btn::before {
@@ -1156,7 +1223,7 @@
         }
 
         .card-back .btn:hover {
-            transform: translateY(-3px) scale(1.05);
+            transform: translateY(-3px) scale(1.05) rotateX(5deg);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3),
                         0 0 20px rgba(255, 255, 255, 0.2);
         }
@@ -1191,6 +1258,7 @@
         .why-us .section-title {
             background: linear-gradient(135deg, #ffffff, var(--accent-light));
             -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
@@ -1219,6 +1287,7 @@
             border-radius: var(--radius);
             text-align: center;
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             transition: var(--transition);
             border: 1px solid rgba(255, 255, 255, 0.2);
             transform-style: preserve-3d;
@@ -1271,8 +1340,7 @@
             padding: 120px 5%;
             background: linear-gradient(135deg, 
                 rgba(10, 36, 99, 0.95), 
-                rgba(62, 146, 204, 0.95)),
-                url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+                rgba(62, 146, 204, 0.95));
             background-size: cover;
             background-attachment: fixed;
             text-align: center;
@@ -1313,8 +1381,8 @@
                 0 0 30px rgba(255, 255, 255, 0.2);
             background: linear-gradient(45deg, white, var(--accent-light), var(--accent));
             -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             background-clip: text;
-            color: transparent;
             animation: gradientShift 8s ease infinite;
             background-size: 400% 400%;
         }
@@ -1356,6 +1424,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transform-style: preserve-3d;
         }
 
         .cta-buttons .btn::before {
@@ -1375,7 +1444,7 @@
         }
 
         .cta-buttons .btn:hover {
-            transform: translateY(-5px) scale(1.05);
+            transform: translateY(-5px) scale(1.05) rotateX(5deg);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4),
                         0 0 30px rgba(255, 255, 255, 0.2);
         }
@@ -1387,6 +1456,11 @@
             border: 2px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 0 25px rgba(255, 230, 109, 0.5),
                         0 15px 35px rgba(255, 107, 107, 0.3);
+        }
+
+        .cta-buttons .btn-primary:hover {
+            box-shadow: 0 0 35px rgba(255, 230, 109, 0.7),
+                        0 20px 40px rgba(255, 107, 107, 0.4);
         }
 
         /* CTA WHATSAPP NEON */
@@ -1562,6 +1636,7 @@
             position: relative;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            transform-style: preserve-3d;
         }
 
         .social-link::before {
@@ -1581,7 +1656,7 @@
 
         .social-link:hover {
             background: var(--accent);
-            transform: translateY(-5px) rotate(15deg);
+            transform: translateY(-5px) rotate(15deg) scale(1.1);
             box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
             border-color: transparent;
         }
@@ -1650,7 +1725,7 @@
 
         .contact-item:hover i {
             background: var(--accent);
-            transform: rotate(15deg);
+            transform: rotate(15deg) scale(1.1);
         }
 
         .contact-item a {
@@ -1751,12 +1826,6 @@
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
             
-            /* Touch friendly butonlar */
-            .btn, .floating-btn, .social-link, .mobile-nav-link {
-                min-height: 48px;
-                min-width: 48px;
-            }
-            
             .hero-buttons .btn,
             .cta-buttons .btn {
                 min-width: 280px;
@@ -1785,7 +1854,6 @@
                 height: 300px;
             }
             
-            /* HERO BUTONLARI MOBİL */
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -1799,7 +1867,6 @@
                 font-size: 1rem;
             }
             
-            /* CTA BUTONLARI MOBİL */
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -1813,7 +1880,6 @@
                 font-size: 1rem;
             }
             
-            /* KARTLAR MOBİL */
             .category-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -1839,7 +1905,6 @@
                 gap: 50px;
             }
             
-            /* FLOATING BUTONLAR MOBİL */
             .floating-cta {
                 bottom: 20px;
                 right: 20px;
@@ -1850,14 +1915,6 @@
                 width: 60px;
                 height: 60px;
                 font-size: 1.8rem;
-            }
-            
-            /* Touch optimizasyonu */
-            .dropdown-link,
-            .mobile-dropdown-link,
-            .footer-links a {
-                padding: 12px 0;
-                min-height: 44px;
             }
         }
 
@@ -1941,7 +1998,6 @@
                 padding: 80px 20px 40px;
             }
             
-            /* FOOTER LOGO MOBİL */
             .footer-logo img {
                 height: 60px;
             }
@@ -1950,7 +2006,6 @@
                 font-size: 1.5rem;
             }
             
-            /* FLOATING BUTONLAR MOBİL KÜÇÜK */
             .floating-cta {
                 bottom: 15px;
                 right: 15px;
@@ -2010,7 +2065,7 @@
                 cursor: auto;
             }
             
-            /* Touch için hover efektlerini kaldır */
+            /* Touch için hover efektlerini optimize et */
             .flip-card:hover:not(.flipped),
             .feature:hover,
             .btn:hover,
@@ -2029,6 +2084,14 @@
             .btn:active,
             .floating-btn:active {
                 transform: scale(0.95) !important;
+            }
+            
+            .menu-toggle:active {
+                transform: scale(0.95);
+            }
+            
+            .social-link:active {
+                transform: scale(0.95);
             }
         }
     </style>
@@ -2194,12 +2257,19 @@
 
     <!-- YENİ: Parallax Hero Section -->
     <section class="hero" id="hero">
-        <!-- Partikül Container -->
-        <div class="particles-container" id="particles"></div>
+        <!-- Parallax Layers -->
+        <div class="parallax-layer parallax-bg"></div>
+        
+        <!-- Particles Container -->
+        <div id="particles-js"></div>
+        
+        <div class="parallax-layer parallax-fg"></div>
         
         <!-- Hero Content -->
         <div class="hero-content">
-            <h1>Dijitalde Fark Yaratın</h1>
+            <div class="glitch-container">
+                <h1 class="glitch-text" data-text="Dijitalde Fark Yaratın">Dijitalde Fark Yaratın</h1>
+            </div>
             <p>Web Tasarım, SEO, Google & Meta Ads Reklamları ve profesyonel prodüksiyon çözümlerimizle markanızı dijital dünyada öne çıkarıyoruz.</p>
             <div class="hero-buttons">
                 <a href="tel:05422360983" class="btn btn-primary">
@@ -2576,6 +2646,9 @@
         </a>
     </div>
 
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
     <script>
         // Loading Screen
         window.addEventListener('load', function() {
@@ -2585,7 +2658,7 @@
                 setTimeout(() => {
                     loadingOverlay.style.visibility = 'hidden';
                 }, 500);
-            }, 800); // 0.8 saniye göster
+            }, 800);
         });
 
         // Custom Cursor
@@ -2593,15 +2666,38 @@
         const cursorFollower = document.querySelector('.cursor-follower');
 
         if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-            document.addEventListener('mousemove', function(e) {
-                cursor.style.left = e.clientX + 'px';
-                cursor.style.top = e.clientY + 'px';
+            let mouseX = 0, mouseY = 0;
+            let cursorX = 0, cursorY = 0;
+            let followerX = 0, followerY = 0;
+
+            function animateCursor() {
+                // Main cursor (fast)
+                let dx = mouseX - cursorX;
+                let dy = mouseY - cursorY;
+                cursorX += dx * 0.2;
+                cursorY += dy * 0.2;
                 
-                setTimeout(() => {
-                    cursorFollower.style.left = e.clientX + 'px';
-                    cursorFollower.style.top = e.clientY + 'px';
-                }, 100);
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+
+                // Follower cursor (slower)
+                dx = mouseX - followerX;
+                dy = mouseY - followerY;
+                followerX += dx * 0.1;
+                followerY += dy * 0.1;
+                
+                cursorFollower.style.left = followerX + 'px';
+                cursorFollower.style.top = followerY + 'px';
+
+                requestAnimationFrame(animateCursor);
+            }
+
+            document.addEventListener('mousemove', function(e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
             });
+
+            animateCursor();
 
             document.addEventListener('mousedown', function() {
                 cursor.style.transform = 'scale(0.8)';
@@ -2644,6 +2740,9 @@
             
             // Scroll animation için elementleri kontrol et
             checkScrollAnimation();
+            
+            // Parallax efekti
+            updateParallax();
         });
 
         // Mobile menu
@@ -2776,8 +2875,8 @@
             `;
             document.head.appendChild(style);
             
-            // Create particles
-            createParticles();
+            // Initialize particles
+            initParticles();
         });
 
         // Prevent dropdown from closing when clicking inside
@@ -2868,41 +2967,111 @@
             });
         }
 
-        // Parallax Effect ve Partiküller
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            if (!particlesContainer) return;
-            
-            const particleCount = 80;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                
-                // Random properties
-                const size = Math.random() * 5 + 2;
-                const posX = Math.random() * 100;
-                const posY = Math.random() * 100;
-                const duration = Math.random() * 20 + 15;
-                const delay = Math.random() * 5;
-                
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${posX}%`;
-                particle.style.top = `${posY}%`;
-                particle.style.animationDuration = `${duration}s`;
-                particle.style.animationDelay = `${delay}s`;
-                
-                // Random gradient
-                const gradients = [
-                    'rgba(255, 107, 107, 0.3)',
-                    'rgba(255, 230, 109, 0.3)',
-                    'rgba(62, 146, 204, 0.3)',
-                    'rgba(78, 205, 196, 0.3)'
-                ];
-                particle.style.backgroundColor = gradients[Math.floor(Math.random() * gradients.length)];
-                
-                particlesContainer.appendChild(particle);
+        // Particles.js Initialization
+        function initParticles() {
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS('particles-js', {
+                    particles: {
+                        number: {
+                            value: 160,
+                            density: {
+                                enable: true,
+                                value_area: 800
+                            }
+                        },
+                        color: {
+                            value: ['#0A2463', '#3E92CC', '#4ECDC4', '#FF6B6B', '#FFE66D']
+                        },
+                        shape: {
+                            type: 'circle',
+                            stroke: {
+                                width: 0,
+                                color: '#000000'
+                            }
+                        },
+                        opacity: {
+                            value: 0.3,
+                            random: true,
+                            anim: {
+                                enable: true,
+                                speed: 1,
+                                opacity_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        size: {
+                            value: 3,
+                            random: true,
+                            anim: {
+                                enable: true,
+                                speed: 2,
+                                size_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        line_linked: {
+                            enable: true,
+                            distance: 150,
+                            color: '#3E92CC',
+                            opacity: 0.2,
+                            width: 1
+                        },
+                        move: {
+                            enable: true,
+                            speed: 1,
+                            direction: 'none',
+                            random: true,
+                            straight: false,
+                            out_mode: 'out',
+                            bounce: false,
+                            attract: {
+                                enable: false,
+                                rotateX: 600,
+                                rotateY: 1200
+                            }
+                        }
+                    },
+                    interactivity: {
+                        detect_on: 'canvas',
+                        events: {
+                            onhover: {
+                                enable: true,
+                                mode: 'repulse'
+                            },
+                            onclick: {
+                                enable: true,
+                                mode: 'push'
+                            },
+                            resize: true
+                        },
+                        modes: {
+                            grab: {
+                                distance: 400,
+                                line_linked: {
+                                    opacity: 1
+                                }
+                            },
+                            bubble: {
+                                distance: 400,
+                                size: 40,
+                                duration: 2,
+                                opacity: 8,
+                                speed: 3
+                            },
+                            repulse: {
+                                distance: 100,
+                                duration: 0.4
+                            },
+                            push: {
+                                particles_nb: 4
+                            },
+                            remove: {
+                                particles_nb: 2
+                            }
+                        }
+                    },
+                    retina_detect: true
+                });
             }
         }
 
@@ -2923,17 +3092,27 @@
         // İlk yüklemede kontrol et
         setTimeout(checkScrollAnimation, 500);
 
-        // Parallax scroll effect
+        // Parallax Scroll Effect
         let ticking = false;
-        window.addEventListener('scroll', function() {
+        let scrollPosition = 0;
+
+        function updateParallax() {
             if (!ticking) {
-                window.requestAnimationFrame(function() {
-                    const scrolled = window.pageYOffset;
+                requestAnimationFrame(() => {
                     const hero = document.getElementById('hero');
+                    const scrolled = window.pageYOffset;
                     
                     if (hero) {
+                        // Hero section parallax effect
                         const rate = scrolled * 0.5;
                         hero.style.transform = `translate3d(0, ${rate}px, 0)`;
+                        
+                        // Content parallax (moves slower)
+                        const heroContent = hero.querySelector('.hero-content');
+                        if (heroContent) {
+                            const contentRate = scrolled * 0.2;
+                            heroContent.style.transform = `translate3d(0, ${contentRate}px, 0) translateZ(50px)`;
+                        }
                     }
                     
                     ticking = false;
@@ -2941,12 +3120,12 @@
                 
                 ticking = true;
             }
-        });
+        }
 
         // 3D Hover efekti için
-        document.querySelectorAll('.flip-card, .feature, .btn').forEach(el => {
+        document.querySelectorAll('.flip-card, .feature, .btn, .category-title').forEach(el => {
             el.addEventListener('mousemove', function(e) {
-                if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+                if (window.matchMedia("(hover: hover) and (pointer: fine)").matches && !this.classList.contains('flipped')) {
                     const rect = this.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
@@ -2957,20 +3136,19 @@
                     const rotateY = (x - centerX) / 25;
                     const rotateX = (centerY - y) / 25;
                     
-                    if (!this.classList.contains('flipped')) {
-                        this.style.transform = `
-                            perspective(1000px)
-                            rotateX(${rotateX}deg)
-                            rotateY(${rotateY}deg)
-                            translateY(-10px)
-                        `;
-                    }
+                    this.style.transform = `
+                        perspective(1000px)
+                        rotateX(${rotateX}deg)
+                        rotateY(${rotateY}deg)
+                        translateY(-10px)
+                        scale(1.02)
+                    `;
                 }
             });
             
             el.addEventListener('mouseleave', function() {
                 if (!this.classList.contains('flipped')) {
-                    this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+                    this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
                 }
             });
         });
