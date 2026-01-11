@@ -874,6 +874,7 @@
         .flip-card {
             position: relative;
             height: 300px;
+            width: 100%;
             transform-style: preserve-3d;
             transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
             border-radius: var(--radius);
@@ -883,6 +884,7 @@
             background: var(--white);
             opacity: 0;
             animation: fadeInUp 2.2s ease forwards;
+            transform-origin: center center;
         }
 
         .flip-card:nth-child(1) { animation-delay: 2.4s; }
@@ -904,6 +906,7 @@
             height: 100%;
             border-radius: var(--radius);
             backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
             padding: 40px 25px;
             display: flex;
             flex-direction: column;
@@ -2437,12 +2440,24 @@
     <script>
         // Dinamik Gradient ve Partikül Sistemi
         document.addEventListener('DOMContentLoaded', function() {
+            console.log("Web4 Medya - DOM yüklendi");
+            
             const dynamicGradient = document.getElementById('dynamicGradient');
             const nightGradient = document.getElementById('nightGradient');
             const particlesContainer = document.getElementById('particlesContainer');
             
             // Partikül oluşturma
             function createParticles() {
+                console.log("Partiküller oluşturuluyor...");
+                
+                if (!particlesContainer) {
+                    console.error("particlesContainer elementi bulunamadı!");
+                    return;
+                }
+                
+                // Önce mevcut partikülleri temizle
+                particlesContainer.innerHTML = '';
+                
                 const particleCount = window.innerWidth < 768 ? 15 : 30;
                 
                 for (let i = 0; i < particleCount; i++) {
@@ -2474,6 +2489,8 @@
                     
                     particlesContainer.appendChild(particle);
                 }
+                
+                console.log(`${particleCount} partikül oluşturuldu`);
             }
             
             // Gece modu geçişi
@@ -2496,9 +2513,11 @@
                 const x = (e.clientX / window.innerWidth) * 100;
                 const y = (e.clientY / window.innerHeight) * 100;
                 
-                dynamicGradient.style.backgroundPosition = `${x}% ${y}%`;
+                if (dynamicGradient) {
+                    dynamicGradient.style.backgroundPosition = `${x}% ${y}%`;
+                }
                 
-                if (nightGradient.style.opacity > 0) {
+                if (nightGradient && nightGradient.style.opacity > 0) {
                     nightGradient.style.backgroundPosition = `${100 - x}% ${100 - y}%`;
                 }
             });
@@ -2507,9 +2526,12 @@
             window.addEventListener('scroll', () => {
                 const scrollY = window.scrollY;
                 const opacity = 1 - Math.min(scrollY / 1000, 0.3);
-                dynamicGradient.style.opacity = opacity;
                 
-                if (nightGradient.style.opacity > 0) {
+                if (dynamicGradient) {
+                    dynamicGradient.style.opacity = opacity;
+                }
+                
+                if (nightGradient && nightGradient.style.opacity > 0) {
                     nightGradient.style.opacity = parseFloat(nightGradient.style.opacity) * opacity;
                 }
             });
@@ -2527,14 +2549,16 @@
             function changeGradientTheme() {
                 const [color1, color2, color3] = colorThemes[currentTheme];
                 
-                dynamicGradient.style.background = `
-                    linear-gradient(
-                        135deg,
-                        ${color1} 0%,
-                        ${color2} 50%,
-                        ${color3} 100%
-                    )
-                `;
+                if (dynamicGradient) {
+                    dynamicGradient.style.background = `
+                        linear-gradient(
+                            135deg,
+                            ${color1} 0%,
+                            ${color2} 50%,
+                            ${color3} 100%
+                        )
+                    `;
+                }
                 
                 currentTheme = (currentTheme + 1) % colorThemes.length;
             }
@@ -2548,12 +2572,13 @@
             
             // Pencere boyutu değişince partikülleri yeniden oluştur
             window.addEventListener('resize', () => {
-                particlesContainer.innerHTML = '';
                 createParticles();
             });
             
             // Saat başı gece modunu kontrol et
             setInterval(toggleNightMode, 60000);
+            
+            console.log("Web4 Medya - Sistem başlatıldı");
         });
 
         // Mobile Menu Toggle
@@ -2615,7 +2640,7 @@
             }
             
             // Mobile menu
-            if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+            if (menuToggle && !menuToggle.contains(e.target) && mobileMenu && !mobileMenu.contains(e.target)) {
                 menuToggle.classList.remove('active');
                 mobileMenu.classList.remove('active');
             }
@@ -2624,8 +2649,8 @@
         // Close mobile dropdowns when clicking a link
         document.querySelectorAll('.mobile-dropdown-link').forEach(link => {
             link.addEventListener('click', function() {
-                menuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
+                if (menuToggle) menuToggle.classList.remove('active');
+                if (mobileMenu) mobileMenu.classList.remove('active');
                 document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
                     dropdown.classList.remove('active');
                 });
@@ -2716,23 +2741,29 @@
         
         flipCards.forEach(card => {
             card.addEventListener('click', function(e) {
+                console.log("Kart tıklandı:", this.dataset.id);
+                
                 // Eğer wave butona tıklandıysa flip olmasın, buton çalışsın
                 if (e.target.closest('.wave-btn')) {
+                    console.log("Wave butona tıklandı, flip iptal");
                     return;
                 }
                 
                 // Sadece bir kez dönmesini sağla
                 if (!this.classList.contains('flipped')) {
+                    console.log("Kart döndürülüyor");
                     this.classList.add('flipped');
                     
                     // Diğer kartları sıfırla
                     flipCards.forEach(otherCard => {
                         if (otherCard !== this && otherCard.classList.contains('flipped')) {
+                            console.log("Diğer kart sıfırlanıyor");
                             otherCard.classList.remove('flipped');
                         }
                     });
                 } else {
                     // Eğer zaten dönmüşse, tekrar tıklayınca geri dönsün
+                    console.log("Kart geri döndürülüyor");
                     this.classList.remove('flipped');
                 }
             });
@@ -2741,6 +2772,7 @@
         // Kart dışına tıklayınca kartları sıfırla
         document.addEventListener('click', function(e) {
             if (!e.target.closest('.flip-card')) {
+                console.log("Kart dışına tıklandı, tüm kartlar sıfırlanıyor");
                 flipCards.forEach(card => {
                     card.classList.remove('flipped');
                 });
@@ -2770,8 +2802,8 @@
                 e.preventDefault();
                 scrollToTop();
                 // Mobile menüyü kapat
-                menuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
+                if (menuToggle) menuToggle.classList.remove('active');
+                if (mobileMenu) mobileMenu.classList.remove('active');
             });
         }
 
@@ -2785,6 +2817,9 @@
                 this.classList.remove('active');
             });
         });
+        
+        // Hata ayıklama için konsol mesajı
+        console.log("Web4 Medya - Tüm JavaScript fonksiyonları yüklendi");
     </script>
 </body>
 </html>
