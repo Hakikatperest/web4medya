@@ -18,7 +18,7 @@
     <meta property="og:image" content="https://www.web4medya.com/images/web4medya-logo.png" />
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <style>
         :root {
@@ -88,11 +88,23 @@
             color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
-            cursor: none;
             background: 
                 radial-gradient(circle at 10% 20%, rgba(62, 146, 204, 0.05) 0%, transparent 20%),
                 radial-gradient(circle at 90% 80%, rgba(255, 107, 107, 0.05) 0%, transparent 20%),
                 linear-gradient(180deg, #F7FFF7 0%, #FFFFFF 100%);
+        }
+
+        /* Touch devices için cursor gizle */
+        @media (hover: none) and (pointer: coarse) {
+            .cursor, 
+            .cursor-follower {
+                display: none;
+                pointer-events: none;
+            }
+            
+            body {
+                cursor: auto;
+            }
         }
 
         /* YENİ: Loading animasyonu */
@@ -691,6 +703,15 @@
             box-shadow: 0 20px 40px rgba(37, 211, 102, 0.3);
         }
 
+        /* Touch devices için aktif durum */
+        @media (hover: none) and (pointer: coarse) {
+            .btn-primary:active,
+            .btn-whatsapp:active {
+                transform: translateY(1px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+        }
+
         /* MOBILE MENU - GLASS EFFECT */
         .mobile-menu {
             position: fixed;
@@ -700,6 +721,7 @@
             height: 100vh;
             background: rgba(255, 255, 255, 0.97);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             z-index: 999;
             transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
@@ -944,6 +966,7 @@
             position: relative;
             height: 320px;
             transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
             transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
             border-radius: var(--radius);
             cursor: pointer;
@@ -970,6 +993,7 @@
             height: 100%;
             border-radius: var(--radius);
             backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
             padding: 40px 25px;
             display: flex;
             flex-direction: column;
@@ -1090,6 +1114,7 @@
             flex-direction: column;
             align-items: center;
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
@@ -1161,6 +1186,17 @@
                         0 0 20px rgba(255, 255, 255, 0.2);
         }
 
+        /* Touch devices için kart aktif durumu */
+        @media (hover: none) and (pointer: coarse) {
+            .flip-card:active:not(.flipped) {
+                transform: scale(0.98);
+            }
+            
+            .flip-card.flipped:active {
+                transform: rotateY(180deg) scale(0.98);
+            }
+        }
+
         /* WHY US SECTION - YENİ GRADIENT */
         .why-us {
             padding: 120px 5%;
@@ -1219,9 +1255,11 @@
             border-radius: var(--radius);
             text-align: center;
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             transition: var(--transition);
             border: 1px solid rgba(255, 255, 255, 0.2);
             transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
             perspective: 1000px;
         }
 
@@ -1264,6 +1302,14 @@
             color: rgba(255, 255, 255, 0.9);
             line-height: 1.7;
             font-size: 1.05rem;
+        }
+
+        /* Touch devices için feature aktif durumu */
+        @media (hover: none) and (pointer: coarse) {
+            .feature:active {
+                transform: scale(0.98);
+                background: rgba(255, 255, 255, 0.15);
+            }
         }
 
         /* YENİ: NEON CTA SECTION */
@@ -1423,6 +1469,7 @@
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
             transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
             perspective: 1000px;
         }
 
@@ -1459,6 +1506,13 @@
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
             color: white;
             box-shadow: 0 15px 35px rgba(10, 36, 99, 0.4);
+        }
+
+        /* Touch devices için floating buton aktif durumu */
+        @media (hover: none) and (pointer: coarse) {
+            .floating-btn:active {
+                transform: scale(0.95);
+            }
         }
 
         /* YENİ: MODERN FOOTER */
@@ -2000,17 +2054,9 @@
             }
         }
 
-        /* TOUCH DEVICE DETECTION */
+        /* TOUCH DEVICE OPTIMIZATION */
         @media (hover: none) and (pointer: coarse) {
-            .cursor, .cursor-follower {
-                display: none;
-            }
-            
-            body {
-                cursor: auto;
-            }
-            
-            /* Touch için hover efektlerini kaldır */
+            /* Remove hover effects for touch devices */
             .flip-card:hover:not(.flipped),
             .feature:hover,
             .btn:hover,
@@ -2021,14 +2067,15 @@
                 transform: none !important;
             }
             
-            /* Touch için aktif state */
-            .flip-card:active:not(.flipped) {
-                transform: scale(0.98);
+            /* Add active states for touch */
+            .mobile-nav-link:active,
+            .dropdown-link:active {
+                background-color: rgba(10, 36, 99, 0.1) !important;
             }
             
-            .btn:active,
-            .floating-btn:active {
-                transform: scale(0.95) !important;
+            .social-link:active {
+                background: var(--accent);
+                transform: scale(0.95);
             }
         }
     </style>
@@ -2042,16 +2089,16 @@
         </div>
     </div>
 
-    <!-- YENİ: Custom Cursor -->
+    <!-- Custom Cursor (only for desktop) -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
 
     <!-- HEADER -->
     <header class="header" id="mainHeader">
-        <!-- YENİ: 3D Dönen Logo -->
-        <a href="#" class="logo" id="homeLink">
+        <!-- 3D Dönen Logo -->
+        <a href="#" class="logo" id="homeLink" aria-label="Web4 Medya - Ana Sayfa">
             <div class="logo-inner">
-                <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/0A2463/FFFFFF?text=Web4+Medya';">
+                <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='//via.placeholder.com/200x70/0A2463/FFFFFF?text=Web4+Medya';">
             </div>
         </a>
         
@@ -2118,15 +2165,15 @@
             </div>
         </nav>
         
-        <!-- YENİ: Modern Hamburger Menu -->
-        <button class="menu-toggle" id="menuToggle">
+        <!-- Modern Hamburger Menu -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Menüyü aç/kapat">
             <span></span>
             <span></span>
             <span></span>
         </button>
     </header>
     
-    <!-- YENİ: Glass Mobile Menu -->
+    <!-- Glass Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <nav class="mobile-nav">
             <!-- Ana Sayfa -->
@@ -2183,7 +2230,7 @@
                 <a href="/iletisim/" class="mobile-nav-link">İletişim</a>
             </div>
             
-            <!-- YENİ: Mobile CTA -->
+            <!-- Mobile CTA -->
             <div class="mobile-nav-item">
                 <a href="tel:05422360983" class="mobile-nav-link" style="background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));">
                     <i class="fas fa-phone-alt"></i> 0542 236 09 83
@@ -2192,7 +2239,7 @@
         </nav>
     </div>
 
-    <!-- YENİ: Parallax Hero Section -->
+    <!-- Parallax Hero Section -->
     <section class="hero" id="hero">
         <!-- Partikül Container -->
         <div class="particles-container" id="particles"></div>
@@ -2469,14 +2516,14 @@
         </div>
     </section>
 
-    <!-- YENİ: MODERN FOOTER -->
+    <!-- MODERN FOOTER -->
     <footer class="footer">
         <div class="footer-content">
             <!-- Logo ve Açıklama -->
             <div class="footer-section">
                 <div class="footer-logo">
                     <img src="/images/web4medya-logo-white.png" alt="Web4 Medya Logo" 
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/FFFFFF/0A2463?text=Web4+Medya';">
+                         onerror="this.onerror=null; this.src='//via.placeholder.com/200x70/FFFFFF/0A2463?text=Web4+Medya';">
                     <div class="footer-logo-text">Sizin için en iyisi!</div>
                 </div>
                 <p class="footer-description">
@@ -2566,29 +2613,47 @@
         </div>
     </footer>
 
-    <!-- YENİ: MODERN FLOATING CTA BUTONLARI -->
+    <!-- MODERN FLOATING CTA BUTONLARI -->
     <div class="floating-cta">
-        <a href="https://wa.me/905422360983" class="floating-btn floating-whatsapp" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/905422360983" class="floating-btn floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp'tan yazın">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="tel:05422360983" class="floating-btn floating-phone">
+        <a href="tel:05422360983" class="floating-btn floating-phone" aria-label="Telefonla arayın">
             <i class="fas fa-phone-alt"></i>
         </a>
     </div>
 
     <script>
-        // Loading Screen
+        // Loading Screen ve diğer load event'leri
         window.addEventListener('load', function() {
+            // Loading Screen
             const loadingOverlay = document.getElementById('loadingOverlay');
             setTimeout(() => {
                 loadingOverlay.style.opacity = '0';
                 setTimeout(() => {
                     loadingOverlay.style.visibility = 'hidden';
                 }, 500);
-            }, 800); // 0.8 saniye göster
+            }, 800);
+
+            // Performance logging
+            if ('performance' in window) {
+                const timing = performance.getEntriesByType('navigation')[0];
+                if (timing) {
+                    console.log('Page loaded in:', timing.domContentLoadedEventEnd - timing.fetchStart, 'ms');
+                }
+            }
+
+            // Add lazy loading to images
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.loading = 'lazy';
+            });
+            
+            // Check scroll animation on load
+            setTimeout(checkScrollAnimation, 500);
         });
 
-        // Custom Cursor
+        // Custom Cursor (only for desktop)
         const cursor = document.querySelector('.cursor');
         const cursorFollower = document.querySelector('.cursor-follower');
 
@@ -2626,11 +2691,6 @@
                     cursorFollower.style.transform = 'scale(1)';
                 });
             });
-        } else {
-            // Touch devices için cursor'ı gizle
-            cursor.style.display = 'none';
-            cursorFollower.style.display = 'none';
-            document.body.style.cursor = 'auto';
         }
 
         // Header scroll effect
@@ -2655,6 +2715,13 @@
                 e.stopPropagation();
                 this.classList.toggle('active');
                 mobileMenu.classList.toggle('active');
+                
+                // Body scroll'unu toggle et
+                if (mobileMenu.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
             });
         }
 
@@ -2691,7 +2758,9 @@
                 
                 // Toggle current dropdown
                 this.classList.toggle('active');
-                target.classList.toggle('active');
+                if (target) {
+                    target.classList.toggle('active');
+                }
             });
         });
 
@@ -2705,24 +2774,11 @@
             }
             
             // Mobile menu
-            if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
-                menuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
+            if (!e.target.closest('.menu-toggle') && !e.target.closest('.mobile-menu')) {
+                if (menuToggle) menuToggle.classList.remove('active');
+                if (mobileMenu) mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
             }
-        });
-
-        // Close mobile dropdowns when clicking a link
-        document.querySelectorAll('.mobile-dropdown-link').forEach(link => {
-            link.addEventListener('click', function() {
-                menuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
-                    dropdown.classList.remove('active');
-                });
-                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-            });
         });
 
         // Add active class to current page in navigation
@@ -2740,18 +2796,12 @@
 
         // Handle image fallback for logo
         document.addEventListener('DOMContentLoaded', function() {
-            // Add lazy loading to images
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                img.loading = 'lazy';
-            });
-            
             // Handle logo fallback
             const logo = document.querySelector('.logo img');
             if (logo) {
                 logo.onerror = function() {
                     this.onerror = null;
-                    this.src = 'https://via.placeholder.com/200x70/0A2463/FFFFFF?text=Web4+Medya';
+                    this.src = '//via.placeholder.com/200x70/0A2463/FFFFFF?text=Web4+Medya';
                     this.alt = 'Web4 Medya Logo - Placeholder';
                 };
             }
@@ -2761,7 +2811,7 @@
             if (footerLogo) {
                 footerLogo.onerror = function() {
                     this.onerror = null;
-                    this.src = 'https://via.placeholder.com/200x70/FFFFFF/0A2463?text=Web4+Medya';
+                    this.src = '//via.placeholder.com/200x70/FFFFFF/0A2463?text=Web4+Medya';
                     this.alt = 'Web4 Medya Logo - Placeholder';
                 };
             }
@@ -2863,8 +2913,9 @@
                 e.preventDefault();
                 scrollToTop();
                 // Mobile menüyü kapat
-                menuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
+                if (menuToggle) menuToggle.classList.remove('active');
+                if (mobileMenu) mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
             });
         }
 
@@ -2920,33 +2971,30 @@
             });
         }
 
-        // İlk yüklemede kontrol et
-        setTimeout(checkScrollAnimation, 500);
-
-        // Parallax scroll effect
+        // Parallax scroll effect (optimized)
+        let lastScrollY = window.scrollY;
         let ticking = false;
+
         window.addEventListener('scroll', function() {
+            lastScrollY = window.scrollY;
+            
             if (!ticking) {
                 window.requestAnimationFrame(function() {
-                    const scrolled = window.pageYOffset;
                     const hero = document.getElementById('hero');
-                    
                     if (hero) {
-                        const rate = scrolled * 0.5;
+                        const rate = lastScrollY * 0.5;
                         hero.style.transform = `translate3d(0, ${rate}px, 0)`;
                     }
-                    
                     ticking = false;
                 });
-                
                 ticking = true;
             }
         });
 
-        // 3D Hover efekti için
-        document.querySelectorAll('.flip-card, .feature, .btn').forEach(el => {
-            el.addEventListener('mousemove', function(e) {
-                if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        // 3D Hover efekti için (only desktop)
+        if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+            document.querySelectorAll('.flip-card, .feature, .btn').forEach(el => {
+                el.addEventListener('mousemove', function(e) {
                     const rect = this.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
@@ -2965,15 +3013,15 @@
                             translateY(-10px)
                         `;
                     }
-                }
+                });
+                
+                el.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('flipped')) {
+                        this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+                    }
+                });
             });
-            
-            el.addEventListener('mouseleave', function() {
-                if (!this.classList.contains('flipped')) {
-                    this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
-                }
-            });
-        });
+        }
 
         // Performance optimization
         let resizeTimer;
@@ -2984,29 +3032,19 @@
             }, 250);
         });
 
-        // Lazy loading for better performance
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                    }
-                    observer.unobserve(img);
-                }
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-dropdown-link, .mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                if (menuToggle) menuToggle.classList.remove('active');
+                if (mobileMenu) mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(btn => {
+                    btn.classList.remove('active');
+                });
             });
-        });
-
-        document.querySelectorAll('img[data-src]').forEach(img => {
-            imageObserver.observe(img);
-        });
-
-        // Add performance logging
-        window.addEventListener('load', () => {
-            if ('performance' in window) {
-                const timing = performance.getEntriesByType('navigation')[0];
-                console.log('Page loaded in:', timing.domContentLoadedEventEnd - timing.fetchStart, 'ms');
-            }
         });
     </script>
 </body>
