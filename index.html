@@ -71,15 +71,40 @@
         }
 
         /* Loading animasyonu - Basit ve hızlı */
-      <!-- Loading Screen -->
-<div class="loading-overlay" id="loadingOverlay">
-    <div class="loading-content">
-        <img src="/images/web4medya-logo.png" alt="Web4 Medya" 
-             class="loading-logo-rotate"
-             onerror="this.onerror=null; this.src='//via.placeholder.com/180x180/FFFFFF/0A2463?text=W4';">
-        <div class="loading-text">Sizin için en iyisi...</div>
-    </div>
-</div>
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 99999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            position: relative;
+        }
+
+        .loader-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 3px solid transparent;
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
         /* MODERN HEADER */
         .header {
@@ -2521,3 +2546,5 @@
     </script>
 </body>
 </html>
+
+bu sayfada yükleniyor kısmını komple kaldır sayfa direk açılsın ve sağ alttaki whatsapp ve arama butonlarını biraz yukarı ve sol tarafa taşı
