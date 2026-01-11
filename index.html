@@ -21,6 +21,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <style>
+        /* YAZMA EFEKTİ İÇİN STİLLER */
+        .typing-heading {
+            position: relative;
+            display: inline-block;
+            min-height: 1.5em;
+            text-align: left;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        
+        .typing-heading::after {
+            content: "|";
+            position: absolute;
+            animation: blink 0.7s infinite;
+            font-weight: 300;
+            color: var(--accent);
+            margin-left: 2px;
+        }
+        
+        @keyframes blink {
+            0%, 50% {
+                opacity: 1;
+            }
+            51%, 100% {
+                opacity: 0;
+            }
+        }
+        
         :root {
             --primary: #0A2463; /* Derin Mavi */
             --primary-light: #3E92CC; /* Açık Mavi */
@@ -1812,7 +1840,7 @@
         <div class="services-container">
             <!-- DİJİTAL PAZARLAMA KATEGORİSİ -->
             <div class="service-category digital-marketing animate-on-scroll">
-                <h2 class="category-title">Dijital Pazarlama Hizmetlerimiz</h2>
+                <h2 class="category-title typing-heading" data-text="Dijital Pazarlama Hizmetlerimiz">Dijital Pazarlama Hizmetlerimiz</h2>
                 <div class="category-grid">
                     <!-- Google Ads -->
                     <div class="flip-card" data-id="google-ads">
@@ -1908,7 +1936,7 @@
             
             <!-- WEB TASARIM KATEGORİSİ -->
             <div class="service-category web-design animate-on-scroll">
-                <h2 class="category-title">Web Tasarım Hizmetlerimiz</h2>
+                <h2 class="category-title typing-heading" data-text="Web Tasarım Hizmetlerimiz">Web Tasarım Hizmetlerimiz</h2>
                 <div class="category-grid">
                     <!-- E-Ticaret -->
                     <div class="flip-card" data-id="ecommerce">
@@ -1944,7 +1972,7 @@
             
             <!-- PRODÜKSİYON KATEGORİSİ -->
             <div class="service-category production animate-on-scroll">
-                <h2 class="category-title">Prodüksiyon Hizmetlerimiz</h2>
+                <h2 class="category-title typing-heading" data-text="Prodüksiyon Hizmetlerimiz">Prodüksiyon Hizmetlerimiz</h2>
                 <div class="category-grid">
                     <!-- Sosyal Medya Videoları -->
                     <div class="flip-card" data-id="social-videos">
@@ -1989,6 +2017,7 @@
                             <p>Drone ile havadan çektiğimiz görüntülerle içeriklerinize farklı bir boyut katıyor, etkiyi artırıyoruz.</p>
                             <a href="/drone-cekimi/" class="btn">Paketleri İncele</a>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2151,96 +2180,164 @@
     </div>
 
     <script>
-        // Header scroll effect
-        const header = document.getElementById('mainHeader');
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 20) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        // YAZMA EFEKTİ KODLARI
+        document.addEventListener('DOMContentLoaded', function() {
+            const typingHeadings = document.querySelectorAll('.typing-heading');
+            let currentTypingIndex = 0;
+            
+            // Başlıkların orijinal metinlerini sakla
+            typingHeadings.forEach(heading => {
+                const originalText = heading.textContent;
+                heading.setAttribute('data-text', originalText);
+                heading.textContent = '';
+            });
+            
+            // Yazma efektini başlat
+            function startTypingEffect() {
+                if (currentTypingIndex < typingHeadings.length) {
+                    const currentHeading = typingHeadings[currentTypingIndex];
+                    const text = currentHeading.getAttribute('data-text');
+                    typeText(currentHeading, text, 0, 60, function() {
+                        currentTypingIndex++;
+                        // Bir sonraki başlık için bekle
+                        setTimeout(startTypingEffect, 800);
+                    });
+                }
             }
             
-            checkScrollAnimation();
-        });
-
-        // Mobile menu
-        const menuToggle = document.getElementById('menuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        if (menuToggle) {
-            menuToggle.addEventListener('click', function(e) {
-                e.stopPropagation();
-                this.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
-            });
-        }
-
-        // Desktop Dropdown Hover
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => {
-            const dropdown = item.querySelector('.dropdown');
-            if (dropdown) {
-                item.addEventListener('mouseenter', () => {
-                    dropdown.classList.add('active');
-                });
+            // Metni harf harf yazdır
+            function typeText(element, text, index, speed, callback) {
+                if (index < text.length) {
+                    element.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(function() {
+                        typeText(element, text, index, speed, callback);
+                    }, speed);
+                } else {
+                    // Yazma bitti, imleç yanıp sönme efekti
+                    let blinkCount = 0;
+                    const maxBlinks = 6; // 3 kez yanıp sönme
+                    
+                    function blinkCursor() {
+                        if (blinkCount < maxBlinks) {
+                            // İmleci göster/gizle
+                            const cursorVisible = blinkCount % 2 === 0;
+                            if (cursorVisible) {
+                                element.style.setProperty('--cursor-visibility', 'visible');
+                            } else {
+                                element.style.setProperty('--cursor-visibility', 'hidden');
+                            }
+                            
+                            blinkCount++;
+                            setTimeout(blinkCursor, 300);
+                        } else {
+                            // İmleci tamamen kaldır
+                            element.style.opacity = '0';
+                            setTimeout(() => {
+                                element.style.opacity = '1';
+                                element.style.setProperty('--cursor-visibility', 'hidden');
+                                element.classList.remove('typing-heading');
+                                if (callback) callback();
+                            }, 200);
+                        }
+                    }
+                    
+                    blinkCursor();
+                }
+            }
+            
+            // Sayfa yüklendikten sonra efektleri başlat
+            setTimeout(startTypingEffect, 1000);
+            
+            // Header scroll effect
+            const header = document.getElementById('mainHeader');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 20) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
                 
-                item.addEventListener('mouseleave', () => {
-                    dropdown.classList.remove('active');
+                checkScrollAnimation();
+            });
+
+            // Mobile menu
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
                 });
             }
-        });
 
-        // Mobile Dropdown Toggle
-        const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
-        mobileDropdownBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const targetId = this.getAttribute('data-target');
-                const target = document.getElementById(targetId);
-                
-                document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
-                    if (dropdown.id !== targetId) {
+            // Desktop Dropdown Hover
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                const dropdown = item.querySelector('.dropdown');
+                if (dropdown) {
+                    item.addEventListener('mouseenter', () => {
+                        dropdown.classList.add('active');
+                    });
+                    
+                    item.addEventListener('mouseleave', () => {
                         dropdown.classList.remove('active');
-                        const otherBtn = dropdown.parentElement.querySelector('.mobile-dropdown-btn');
-                        if (otherBtn) otherBtn.classList.remove('active');
-                    }
-                });
-                
-                this.classList.toggle('active');
-                if (target) {
-                    target.classList.toggle('active');
+                    });
                 }
             });
-        });
 
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.nav-item')) {
-                document.querySelectorAll('.dropdown.active').forEach(dropdown => {
-                    dropdown.classList.remove('active');
+            // Mobile Dropdown Toggle
+            const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
+            mobileDropdownBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const target = document.getElementById(targetId);
+                    
+                    document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
+                        if (dropdown.id !== targetId) {
+                            dropdown.classList.remove('active');
+                            const otherBtn = dropdown.parentElement.querySelector('.mobile-dropdown-btn');
+                            if (otherBtn) otherBtn.classList.remove('active');
+                        }
+                    });
+                    
+                    this.classList.toggle('active');
+                    if (target) {
+                        target.classList.toggle('active');
+                    }
                 });
-            }
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.nav-item')) {
+                    document.querySelectorAll('.dropdown.active').forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                }
+                
+                if (!e.target.closest('.menu-toggle') && !e.target.closest('.mobile-menu')) {
+                    if (menuToggle) menuToggle.classList.remove('active');
+                    if (mobileMenu) mobileMenu.classList.remove('active');
+                }
+            });
+
+            // Add active class to current page
+            const currentPage = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
             
-            if (!e.target.closest('.menu-toggle') && !e.target.closest('.mobile-menu')) {
-                if (menuToggle) menuToggle.classList.remove('active');
-                if (mobileMenu) mobileMenu.classList.remove('active');
-            }
-        });
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('href');
+                if (linkPath === '/' && currentPage === '/') {
+                    link.classList.add('active');
+                } else if (linkPath !== '/' && currentPage.includes(linkPath)) {
+                    link.classList.add('active');
+                }
+            });
 
-        // Add active class to current page
-        const currentPage = window.location.pathname;
-        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
-        
-        navLinks.forEach(link => {
-            const linkPath = link.getAttribute('href');
-            if (linkPath === '/' && currentPage === '/') {
-                link.classList.add('active');
-            } else if (linkPath !== '/' && currentPage.includes(linkPath)) {
-                link.classList.add('active');
-            }
-        });
-
-        // Handle image fallback
-        document.addEventListener('DOMContentLoaded', function() {
+            // Handle image fallback
             const logo = document.querySelector('.logo img');
             if (logo) {
                 logo.onerror = function() {
@@ -2265,6 +2362,15 @@
                 .fa-drone:before {
                     content: "\\f0b2";
                     font-family: "Font Awesome 5 Free";
+                }
+                
+                .typing-heading {
+                    border-right: 2px solid transparent;
+                }
+                
+                .typing-heading::after {
+                    opacity: var(--cursor-visibility, 1);
+                    transition: opacity 0.1s ease;
                 }
             `;
             document.head.appendChild(style);
