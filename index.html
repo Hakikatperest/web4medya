@@ -70,42 +70,6 @@
                 linear-gradient(180deg, #F7FFF7 0%, #FFFFFF 100%);
         }
 
-        /* Loading animasyonu - Basit ve hızlı */
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            z-index: 99999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-
-        .loader {
-            width: 60px;
-            height: 60px;
-            position: relative;
-        }
-
-        .loader-circle {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 3px solid transparent;
-            border-top-color: var(--accent);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
         /* MODERN HEADER */
         .header {
             position: fixed;
@@ -1097,11 +1061,11 @@
             box-shadow: 0 20px 40px rgba(37, 211, 102, 0.4);
         }
 
-       /* YENİ KOD - GÖNDERDİĞİNİZ SAYFADAKİYLE %100 AYNI */
+       /* FLOATING BUTONLARI YUKARI VE SOLA KAYDIRDIK */
 .floating-cta {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 120px; /* Daha yukarı */
+    right: 20px; /* Sağdan biraz içeri */
     z-index: 998;
     display: flex;
     flex-direction: column;
@@ -1170,11 +1134,11 @@
 .floating-phone {
     background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
     color: white;
-    box-shadow: 0 15px 40px rgba(20, 94, 141, 0.4); /* DEĞİŞTİ: rgba(20, 94, 141, 0.4) */
+    box-shadow: 0 15px 40px rgba(20, 94, 141, 0.4);
 }
 
 .floating-phone:active {
-    box-shadow: 0 10px 30px rgba(20, 94, 141, 0.3); /* DEĞİŞTİ: rgba(20, 94, 141, 0.3) */
+    box-shadow: 0 10px 30px rgba(20, 94, 141, 0.3);
 }
 
 @keyframes pulse {
@@ -1186,6 +1150,34 @@
     }
     100% {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* MOBİLDE DAHA DA YUKARI VE SOLA */
+@media (max-width: 768px) {
+    .floating-cta {
+        bottom: 100px; /* Mobilde daha yukarı */
+        right: 15px; /* Sağdan biraz daha içeri */
+    }
+    
+    .floating-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-cta {
+        bottom: 80px; /* Çok küçük ekranlarda daha yukarı */
+        right: 10px;
+        gap: 12px;
+    }
+    
+    .floating-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 1.5rem;
     }
 }
         /* FOOTER */
@@ -1390,7 +1382,7 @@
             }
             
             .floating-cta {
-                bottom: 20px;
+                bottom: 100px;
                 right: 20px;
             }
         }
@@ -1495,19 +1487,6 @@
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
-            
-            /* FLOATING BUTONLAR MOBİL */
-            .floating-cta {
-                bottom: 15px;
-                right: 15px;
-                gap: 15px;
-            }
-            
-            .floating-btn {
-                width: 60px;
-                height: 60px;
-                font-size: 1.6rem;
-            }
         }
 
         @media (max-width: 480px) {
@@ -1596,18 +1575,6 @@
             .footer-logo-text {
                 font-size: 1.3rem;
             }
-            
-            .floating-cta {
-                bottom: 10px;
-                right: 10px;
-                gap: 12px;
-            }
-            
-            .floating-btn {
-                width: 55px;
-                height: 55px;
-                font-size: 1.5rem;
-            }
         }
 
         @media (max-width: 360px) {
@@ -1625,12 +1592,6 @@
                 font-size: 0.8rem;
             }
             
-            .floating-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.4rem;
-            }
-            
             .logo {
                 height: 45px;
             }
@@ -1639,85 +1600,7 @@
                 max-height: 45px;
             }
         }
-.loading-logo-rotate {
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
-    animation: logoRotateSmooth 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55) 1 forwards;
-    filter: drop-shadow(0 0 20px rgba(62, 146, 204, 0.5));
-    transform-style: preserve-3d;
-    transform-origin: center center;
-}
 
-@keyframes logoRotateSmooth {
-    0% {
-        transform: rotateY(0deg) rotateX(0deg) scale(0.7);
-        opacity: 0;
-    }
-    20% {
-        transform: rotateY(90deg) rotateX(10deg) scale(0.9);
-        opacity: 0.7;
-    }
-    40% {
-        transform: rotateY(180deg) rotateX(0deg) scale(1.05);
-        opacity: 0.9;
-    }
-    60% {
-        transform: rotateY(270deg) rotateX(-10deg) scale(1.1);
-        opacity: 1;
-    }
-    80% {
-        transform: rotateY(340deg) rotateX(0deg) scale(1.05);
-        opacity: 1;
-    }
-    100% {
-        transform: rotateY(360deg) rotateX(0deg) scale(1);
-        opacity: 1;
-    }
-}
-
-/* Loading bar animasyonu */
-@keyframes loadingBar {
-    0% {
-        width: 0%;
-    }
-    100% {
-        width: 100%;
-    }
-}
-
-/* Fade in animasyonu */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Responsive loading screen */
-@media (max-width: 768px) {
-    .loading-logo-rotate {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .loading-progress {
-        width: 250px;
-    }
-}
-
-@media (max-width: 480px) {
-    .loading-logo-rotate {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .loading-progress {
-        width: 200px;
-    }
-}
         /* TOUCH DEVICE OPTIMIZATION */
         @media (hover: none) and (pointer: coarse) {
             .flip-card:hover:not(.flipped),
@@ -1739,22 +1622,12 @@
                 background: var(--accent);
                 transform: scale(0.95);
             }
-        }.loading-content {
+        }
     </style>
 </head>
 <body>
-   <!-- Loading Screen -->
-<div class="loading-overlay" id="loadingOverlay">
-    <div class="loading-content">
-        <img src="/images/web4medya-logo.png" alt="Web4 Medya" 
-             class="loading-logo-rotate"
-             onerror="this.onerror=null; this.src='//via.placeholder.com/200x70/0A2463/FFFFFF?text=Web4+Medya';">
-        <div class="loading-progress">
-            <div class="loading-bar"></div>
-        </div>
-    </div>
-</div>
-
+    <!-- Loading Screen KALDIRILDI -->
+    
     <!-- HEADER -->
     <header class="header" id="mainHeader">
         <!-- Logo -->
@@ -2256,7 +2129,8 @@
         </div>
     </footer>
     
- <div class="floating-cta">
+    <!-- FLOATING CTA BUTTONLARI - YUKARI VE SOLA KAYDIRILDI -->
+    <div class="floating-cta">
         <a href="https://wa.me/905422360983" class="floating-btn floating-whatsapp" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-whatsapp"></i>
         </a>
@@ -2265,49 +2139,7 @@
         </a>
     </div>
 
-        <script>
-        // Loading animasyonu - Logo dönecek
-        document.addEventListener('DOMContentLoaded', function() {
-            const loadingOverlay = document.getElementById('loadingOverlay');
-            const loadingBar = document.querySelector('.loading-bar');
-            
-            // Logo dönme animasyonu bittikten sonra loading bar'ı göster
-            setTimeout(() => {
-                loadingBar.style.animation = 'loadingBar 0.5s ease-in-out forwards';
-            }, 1000);
-            
-            // Toplam 1.5 saniye sonra loading'i kapat
-            setTimeout(() => {
-                loadingOverlay.style.opacity = '0';
-                loadingOverlay.style.transition = 'opacity 0.5s ease';
-                
-                setTimeout(() => {
-                    loadingOverlay.style.visibility = 'hidden';
-                    
-                    // Lazy loading for images
-                    const images = document.querySelectorAll('img');
-                    images.forEach(img => {
-                        img.loading = 'lazy';
-                    });
-                    
-                    // Check scroll animation on load
-                    checkScrollAnimation();
-                }, 500);
-            }, 1500); // Toplam 1.5 saniye
-            
-            // Eğer sayfa yüklenmesi 3 saniyeden uzun sürerse loading'i kapat
-            setTimeout(function() {
-                if (loadingOverlay && loadingOverlay.style.visibility !== 'hidden') {
-                    loadingOverlay.style.opacity = '0';
-                    loadingOverlay.style.transition = 'opacity 0.5s ease';
-                    
-                    setTimeout(() => {
-                        loadingOverlay.style.visibility = 'hidden';
-                    }, 500);
-                }
-            }, 3000);
-        });
-
+    <script>
         // Header scroll effect
         const header = document.getElementById('mainHeader');
         window.addEventListener('scroll', function() {
@@ -2425,6 +2257,9 @@
                 }
             `;
             document.head.appendChild(style);
+            
+            // Check scroll animation on load
+            checkScrollAnimation();
         });
 
         // Prevent dropdown from closing when clicking inside
@@ -2546,5 +2381,3 @@
     </script>
 </body>
 </html>
-
-bu sayfada yükleniyor kısmını komple kaldır sayfa direk açılsın ve sağ alttaki whatsapp ve arama butonlarını biraz yukarı ve sol tarafa taşı
