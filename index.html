@@ -29,28 +29,45 @@
             text-align: left;
             white-space: nowrap;
             overflow: hidden;
+            border-right: 2px solid transparent;
         }
-        
+
         .typing-heading::after {
             content: "|";
             position: absolute;
-            animation: blink 0.7s infinite;
             font-weight: 300;
             color: var(--accent);
             margin-left: 2px;
             right: -8px;
+            animation: blink 0.7s infinite;
+            opacity: var(--cursor-opacity, 1);
+            transition: opacity 0.1s ease;
         }
-        
+
         .typing-heading.completed::after {
             display: none;
         }
-        
+
         @keyframes blink {
-            0%, 50% {
-                opacity: 1;
+            0%, 100% {
+                opacity: var(--cursor-opacity, 1);
             }
-            51%, 100% {
-                opacity: 0;
+            50% {
+                opacity: calc(var(--cursor-opacity, 1) * 0.3);
+            }
+        }
+
+        /* Başlık yazılırken imleç daha belirgin */
+        .typing-heading.typing-started::after {
+            animation: typingBlink 0.8s infinite;
+        }
+
+        @keyframes typingBlink {
+            0%, 100% {
+                opacity: var(--cursor-opacity, 1);
+            }
+            50% {
+                opacity: calc(var(--cursor-opacity, 1) * 0.2);
             }
         }
         
@@ -103,7 +120,7 @@
                 linear-gradient(180deg, #F7FFF7 0%, #FFFFFF 100%);
         }
 
-        /* MODERN HEADER - GÜNCELLENDİ (Beyazlık alanı daraltıldı) */
+        /* MODERN HEADER - HATA DÜZELTİLDİ (Boşluk kaldırıldı) */
         .header {
             position: fixed;
             top: 0;
@@ -199,12 +216,12 @@
             border-radius: 2px;
         }
 
-        /* DROPDOWN MENÜ */
+        /* DROPDOWN MENÜ - MAVİ ARKA PLAN YAPILDI */
         .dropdown {
             position: absolute;
             top: 100%;
             left: 0;
-            background: var(--white);
+            background: linear-gradient(135deg, rgba(10, 36, 99, 0.95), rgba(62, 146, 204, 0.95));
             min-width: 280px;
             box-shadow: var(--shadow);
             border-radius: var(--radius-sm);
@@ -213,7 +230,7 @@
             transform: translateY(10px);
             transition: all 0.3s ease;
             z-index: 1001;
-            border: 1px solid var(--gray-light);
+            border: 1px solid rgba(62, 146, 204, 0.3);
         }
 
         .dropdown.active {
@@ -228,7 +245,7 @@
 
         .dropdown-section {
             padding: 15px 20px;
-            border-bottom: 1px solid var(--gray-light);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .dropdown-section:last-child {
@@ -238,7 +255,7 @@
         /* DROPDOWN BAŞLIKLARI MAVİ YAPILDI */
         .dropdown-section h4 {
             font-size: 0.85rem;
-            color: var(--primary);
+            color: white;
             margin-bottom: 10px;
             font-weight: 700;
             text-transform: uppercase;
@@ -248,14 +265,14 @@
         .dropdown-link {
             display: block;
             padding: 8px 0;
-            color: var(--gray-dark);
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             font-size: 0.9rem;
             transition: var(--transition);
         }
 
         .dropdown-link:hover {
-            color: var(--accent);
+            color: var(--accent-light);
             padding-left: 5px;
         }
 
@@ -332,7 +349,7 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* HERO SECTION */
+        /* HERO SECTION - HEADER BOŞLUĞU DÜZELTİLDİ */
         .hero {
             background: linear-gradient(rgba(10, 36, 99, 0.85), rgba(62, 146, 204, 0.85)),
                         url('/images/w4medya-arkaplan1.webp');
@@ -344,10 +361,10 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            margin-top: 80px;
             min-height: 80vh;
             display: flex;
             align-items: center;
+            margin-top: 0; /* Boşluk kaldırıldı */
         }
 
         .hero-content {
@@ -547,7 +564,7 @@
         /* MOBILE MENU */
         .mobile-menu {
             position: fixed;
-            top: 80px;
+            top: 60px;
             left: 0;
             right: 0;
             background: var(--white);
@@ -611,8 +628,9 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
-            background: var(--light);
+            background: linear-gradient(135deg, rgba(10, 36, 99, 0.05), rgba(62, 146, 204, 0.05));
             margin-left: 10px;
+            border-radius: var(--radius-sm);
         }
 
         .mobile-dropdown-content.active {
@@ -1226,10 +1244,10 @@
             }
         }
 
-        /* FOOTER */
+        /* FOOTER - BEYAZ ARKA PLAN VE SİYAH YAZI YAPILDI */
         .footer {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-            color: white;
+            background: white;
+            color: var(--dark);
             padding: 80px 5% 40px;
             position: relative;
             overflow: hidden;
@@ -1249,7 +1267,7 @@
             font-size: 1.3rem;
             font-weight: 800;
             margin-bottom: 25px;
-            color: white;
+            color: var(--primary); /* MAVİ YAPILDI */
             position: relative;
             display: inline-block;
             padding-bottom: 10px;
@@ -1281,11 +1299,11 @@
         .footer-logo-text {
             font-size: 1.5rem;
             font-weight: 900;
-            color: white;
+            color: var(--primary); /* MAVİ YAPILDI */
         }
 
         .footer-description {
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--gray-dark);
             line-height: 1.6;
             margin-bottom: 30px;
             font-size: 1rem;
@@ -1300,18 +1318,19 @@
         .social-link {
             width: 45px;
             height: 45px;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--gray-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--dark);
             text-decoration: none;
             transition: var(--transition);
         }
 
         .social-link:hover {
             background: var(--accent);
+            color: white;
             transform: translateY(-3px);
         }
 
@@ -1324,7 +1343,7 @@
         }
 
         .footer-links a {
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--gray-dark);
             text-decoration: none;
             transition: var(--transition);
             display: flex;
@@ -1334,7 +1353,7 @@
         }
 
         .footer-links a:hover {
-            color: var(--accent-light);
+            color: var(--accent);
         }
 
         .footer-links i {
@@ -1352,18 +1371,18 @@
             display: flex;
             align-items: flex-start;
             gap: 15px;
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--gray-dark);
         }
 
         .contact-item i {
             width: 40px;
             height: 40px;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--gray-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--accent-light);
+            color: var(--primary);
             font-size: 1rem;
             flex-shrink: 0;
             transition: var(--transition);
@@ -1371,10 +1390,11 @@
 
         .contact-item:hover i {
             background: var(--accent);
+            color: white;
         }
 
         .contact-item a {
-            color: white;
+            color: var(--dark);
             text-decoration: none;
             transition: var(--transition);
             font-weight: 600;
@@ -1384,11 +1404,11 @@
         }
 
         .contact-item a:hover {
-            color: var(--accent-light);
+            color: var(--accent);
         }
 
         .contact-item span {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--gray);
             line-height: 1.6;
             font-size: 1rem;
         }
@@ -1397,21 +1417,21 @@
             max-width: 1200px;
             margin: 0 auto;
             padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-top: 1px solid var(--gray-light);
             text-align: center;
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--gray);
             font-size: 0.9rem;
         }
 
         .footer-bottom a {
-            color: var(--accent-light);
+            color: var(--primary);
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
         }
 
         .footer-bottom a:hover {
-            color: white;
+            color: var(--accent);
         }
 
         /* RESPONSIVE BREAKPOINTS */
@@ -1467,7 +1487,6 @@
         @media (max-width: 768px) {
             .hero {
                 padding: 140px 4% 80px;
-                margin-top: 80px;
                 min-height: auto;
                 background-attachment: scroll;
             }
@@ -1534,16 +1553,20 @@
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
+            
+            .mobile-menu {
+                top: 60px;
+            }
         }
 
         @media (max-width: 480px) {
             .header {
                 padding: 0 20px;
-                height: 70px;
+                height: 60px;
             }
             
             .header.scrolled {
-                height: 70px;
+                height: 60px;
             }
             
             .logo {
@@ -1556,7 +1579,6 @@
             
             .hero {
                 padding: 120px 20px 60px;
-                margin-top: 70px;
             }
             
             .hero h1 {
@@ -1569,7 +1591,7 @@
             }
             
             .mobile-menu {
-                top: 70px;
+                top: 60px;
             }
             
             .category-title {
@@ -2170,7 +2192,7 @@
         
         <div class="footer-bottom">
             <p>&copy; 2024 Web4 Medya. Tüm hakları saklıdır. <a href="/gizlilik-politikasi/">Gizlilik Politikası</a> | <a href="/kullanim-kosullari/">Kullanım Koşulları</a></p>
-            <p style="margin-top: 15px; font-size: 0.9rem; color: rgba(255, 255, 255, 0.7);">Profesyonel dijital pazarlama ve web tasarım çözümleri</p>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">Profesyonel dijital pazarlama ve web tasarım çözümleri</p>
         </div>
     </footer>
     
@@ -2185,82 +2207,130 @@
     </div>
 
     <script>
-        // YAZMA EFEKTİ KODLARI
+        // YAZMA EFEKTİ KODLARI - GÜNCELLENDİ (DOĞAL VE SCROLL İLE TETİKLENEN)
         document.addEventListener('DOMContentLoaded', function() {
             const typingHeadings = document.querySelectorAll('.typing-heading');
-            let currentTypingIndex = 0;
             
-            // Başlıkların orijinal metinlerini sakla (HTML'den al)
+            // Her başlık için Intersection Observer oluştur
+            const observerOptions = {
+                root: null, // viewport
+                rootMargin: '0px 0px -100px 0px', // biraz daha erken tetikle
+                threshold: 0.3 // %30 görünür olduğunda tetikle
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const heading = entry.target;
+                        
+                        // Daha önce yazılmadıysa yazmaya başla
+                        if (!heading.classList.contains('typing-started') && !heading.classList.contains('typing-completed')) {
+                            heading.classList.add('typing-started');
+                            startTypingEffect(heading);
+                        }
+                        
+                        // Görünür olduğunda gözlemlemeyi durdur
+                        observer.unobserve(heading);
+                    }
+                });
+            }, observerOptions);
+            
+            // Başlıkları gözlemlemeye başla
             typingHeadings.forEach(heading => {
+                // Başlığı temizle
                 const originalText = heading.getAttribute('data-text');
                 heading.textContent = '';
+                heading.setAttribute('data-original-text', originalText);
+                
+                // Yazma durumunu izle
+                heading.classList.remove('typing-started', 'typing-completed');
+                
+                // Gözlemciyi başlat
+                observer.observe(heading);
             });
             
-            // Yazma efektini başlat
-            function startTypingEffect() {
-                if (currentTypingIndex < typingHeadings.length) {
-                    const currentHeading = typingHeadings[currentTypingIndex];
-                    const text = currentHeading.getAttribute('data-text');
-                    
-                    // Son harfe kadar yazdır
-                    typeText(currentHeading, text, 0, 60, function() {
-                        // Başlık tamamen yazıldığında imleci yanıp söndür
-                        blinkCursor(currentHeading, 3, function() {
-                            // İmleci kaldır
-                            currentHeading.classList.add('completed');
-                            currentTypingIndex++;
-                            
-                            // Bir sonraki başlık için bekle
-                            if (currentTypingIndex < typingHeadings.length) {
-                                setTimeout(startTypingEffect, 500);
-                            }
-                        });
-                    });
-                }
+            // Rastgele hızlar için yardımcı fonksiyon (daha doğal hissiyat)
+            function getRandomSpeed(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
             }
             
-            // Metni harf harf yazdır
-            function typeText(element, text, index, speed, callback) {
+            // Metni harf harf yazdır (doğal versiyon - HATA YAPMAYAN)
+            function typeTextNatural(element, text, index, callback) {
                 if (index < text.length) {
-                    element.textContent += text.charAt(index);
-                    index++;
-                    setTimeout(function() {
-                        typeText(element, text, index, speed, callback);
+                    // Rastgele yazma hızı (daha doğal hissiyat için)
+                    const baseSpeed = getRandomSpeed(40, 80);
+                    
+                    // Noktalama işaretlerinde daha uzun bekle
+                    let speed = baseSpeed;
+                    const currentChar = text.charAt(index);
+                    const punctuation = ['.', ',', '!', '?', ':', ';'];
+                    
+                    if (punctuation.includes(currentChar)) {
+                        speed = getRandomSpeed(200, 400); // Noktalama işaretlerinde duraksama
+                    } else if (currentChar === ' ') {
+                        speed = getRandomSpeed(30, 60); // Boşlukta biraz daha hızlı
+                    }
+                    
+                    // Kelime sonlarında biraz daha uzun bekle
+                    if (index > 0 && text.charAt(index - 1) === ' ') {
+                        speed = getRandomSpeed(60, 100);
+                    }
+                    
+                    // Normal yaz (yazım hatası YOK)
+                    element.textContent += currentChar;
+                    
+                    // Sonraki karaktere geç
+                    setTimeout(() => {
+                        typeTextNatural(element, text, index + 1, callback);
                     }, speed);
                 } else {
                     if (callback) callback();
                 }
             }
             
+            // Başlık için yazma efekti başlat
+            function startTypingEffect(heading) {
+                const text = heading.getAttribute('data-original-text');
+                
+                // İmleci göster
+                heading.classList.remove('completed');
+                
+                // Metni yazmaya başla
+                typeTextNatural(heading, text, 0, function() {
+                    // Yazma tamamlandığında imleci yanıp söndür
+                    blinkCursor(heading, 3, function() {
+                        // İmleci kaldır ve tamamlandı olarak işaretle
+                        heading.classList.add('completed', 'typing-completed');
+                    });
+                });
+            }
+            
             // İmleç yanıp sönme efekti
             function blinkCursor(element, times, callback) {
                 let blinkCount = 0;
-                const originalAfter = element.style.after;
                 
                 function blink() {
-                    if (blinkCount < times * 2) { // Her yanıp sönme için 2 kez (açık/kapalı)
-                        const isVisible = blinkCount % 2 === 0;
-                        
-                        if (isVisible) {
-                            element.style.setProperty('--cursor-visibility', 'visible');
+                    if (blinkCount < times * 2) {
+                        // İmleci göster/gizle
+                        if (blinkCount % 2 === 0) {
+                            element.style.setProperty('--cursor-opacity', '1');
                         } else {
-                            element.style.setProperty('--cursor-visibility', 'hidden');
+                            element.style.setProperty('--cursor-opacity', '0');
                         }
                         
                         blinkCount++;
-                        setTimeout(blink, 300);
+                        
+                        // Rastgele yanıp sönme hızı
+                        const blinkSpeed = getRandomSpeed(300, 600);
+                        setTimeout(blink, blinkSpeed);
                     } else {
                         // İmleci tamamen kaldır
-                        element.classList.add('completed');
                         if (callback) callback();
                     }
                 }
                 
                 blink();
             }
-            
-            // Sayfa yüklendikten sonra efektleri başlat
-            setTimeout(startTypingEffect, 1000);
             
             // Header scroll effect
             const header = document.getElementById('mainHeader');
@@ -2364,7 +2434,7 @@
             if (footerLogo) {
                 footerLogo.onerror = function() {
                     this.onerror = null;
-                    this.src = '//via.placeholder.com/200x70/transparent/FFFFFF?text=Web4+Medya';
+                    this.src = '//via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';
                     this.alt = 'Web4 Medya Logo - Placeholder';
                 };
             }
@@ -2375,15 +2445,6 @@
                 .fa-drone:before {
                     content: "\\f0b2";
                     font-family: "Font Awesome 5 Free";
-                }
-                
-                .typing-heading {
-                    border-right: 2px solid transparent;
-                }
-                
-                .typing-heading::after {
-                    opacity: var(--cursor-visibility, 1);
-                    transition: opacity 0.1s ease;
                 }
             `;
             document.head.appendChild(style);
@@ -2409,7 +2470,7 @@
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 60,
                         behavior: 'smooth'
                     });
                 }
