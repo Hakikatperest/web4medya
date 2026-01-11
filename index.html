@@ -58,30 +58,6 @@
             scroll-behavior: smooth;
         }
 
-        /* YENİ: Özel fare imleci */
-        .cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background: var(--accent);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: difference;
-            transition: transform 0.1s ease;
-        }
-
-        .cursor-follower {
-            position: fixed;
-            width: 40px;
-            height: 40px;
-            border: 2px solid var(--gradient-3);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9998;
-            transition: all 0.3s ease;
-        }
-
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--light);
@@ -92,19 +68,6 @@
                 radial-gradient(circle at 10% 20%, rgba(62, 146, 204, 0.05) 0%, transparent 20%),
                 radial-gradient(circle at 90% 80%, rgba(255, 107, 107, 0.05) 0%, transparent 20%),
                 linear-gradient(180deg, #F7FFF7 0%, #FFFFFF 100%);
-        }
-
-        /* Touch devices için cursor gizle */
-        @media (hover: none) and (pointer: coarse) {
-            .cursor, 
-            .cursor-follower {
-                display: none;
-                pointer-events: none;
-            }
-            
-            body {
-                cursor: auto;
-            }
         }
 
         /* Loading animasyonu - Basit ve hızlı */
@@ -143,7 +106,7 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* MODERN GLASSMORPHISM HEADER */
+        /* MODERN HEADER */
         .header {
             position: fixed;
             top: 0;
@@ -167,7 +130,7 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* LOGO - Arka planı kaldırıldı */
+        /* LOGO */
         .logo {
             display: flex;
             align-items: center;
@@ -355,7 +318,7 @@
             transform: rotate(180deg);
         }
 
-        /* HEADER BUTTON - Gölge kaldırıldı */
+        /* HEADER BUTTON */
         .header-cta {
             display: flex;
             align-items: center;
@@ -427,9 +390,13 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* HERO SECTION */
+        /* HERO SECTION - Arka plan görseli eklendi */
         .hero {
-            background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
+            background: linear-gradient(rgba(10, 36, 99, 0.8), rgba(62, 146, 204, 0.8)),
+                        url('/images/w4medya-arkaplan1.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: var(--white);
             padding: 160px 5% 100px;
             text-align: center;
@@ -455,22 +422,8 @@
             line-height: 1.1;
             position: relative;
             z-index: 2;
-            background: linear-gradient(45deg, 
-                var(--white) 0%, 
-                var(--accent-light) 25%, 
-                var(--accent) 50%, 
-                var(--gradient-3) 75%, 
-                var(--white) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: gradientShift 8s ease infinite;
-            background-size: 400% 400%;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .hero p {
@@ -482,9 +435,10 @@
             line-height: 1.7;
             position: relative;
             z-index: 2;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
         }
 
-        /* HERO BUTTONS - Gölgeler kaldırıldı */
+        /* HERO BUTTONS */
         .hero-buttons {
             display: flex;
             justify-content: center;
@@ -832,60 +786,67 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: rgba(10, 36, 99, 0.1);
             transition: var(--transition);
         }
 
+        /* YENİ: RENKLİ İKONLAR */
+        .icon-google {
+            background: linear-gradient(45deg, #4285F4, #34A853, #FBBC05, #EA4335);
+            color: white;
+        }
+
+        .icon-instagram {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+        }
+
+        .icon-facebook {
+            background: linear-gradient(45deg, #1877F2, #0A66C2);
+            color: white;
+        }
+
+        .icon-maps {
+            background: linear-gradient(45deg, #4285F4, #0F9D58);
+            color: white;
+        }
+
+        .icon-seo {
+            background: linear-gradient(45deg, var(--accent-light), var(--accent));
+            color: white;
+        }
+
+        .icon-social {
+            background: linear-gradient(45deg, #3B5998, #1DA1F2);
+            color: white;
+        }
+
+        .icon-ecommerce {
+            background: linear-gradient(45deg, #FF6B6B, #FFD93D);
+            color: white;
+        }
+
+        .icon-corporate {
+            background: linear-gradient(45deg, var(--gradient-3), #3E92CC);
+            color: white;
+        }
+
+        .icon-video {
+            background: linear-gradient(45deg, #FF0000, #FF6B6B);
+            color: white;
+        }
+
+        .icon-film {
+            background: linear-gradient(45deg, #6A5ACD, #9370DB);
+            color: white;
+        }
+
+        .icon-drone {
+            background: linear-gradient(45deg, #3E92CC, #4ECDC4);
+            color: white;
+        }
+
         .flip-card:hover .card-front .icon {
-            transform: scale(1.1);
-        }
-
-        /* RENKLİ İKONLAR */
-        .icon-google i {
-            color: var(--primary);
-        }
-
-        .icon-instagram i {
-            background: linear-gradient(135deg, #405DE6, #833AB4);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .icon-facebook i {
-            color: #1877F2;
-        }
-
-        .icon-maps i {
-            color: var(--gradient-3);
-        }
-
-        .icon-seo i {
-            color: var(--accent-light);
-        }
-
-        .icon-social i {
-            color: var(--accent);
-        }
-
-        .icon-ecommerce i {
-            color: #FF6B6B;
-        }
-
-        .icon-corporate i {
-            color: #4ECDC4;
-        }
-
-        .icon-video i {
-            color: #FF0000;
-        }
-
-        .icon-film i {
-            color: #6A5ACD;
-        }
-
-        .icon-drone i {
-            color: #3E92CC;
+            transform: scale(1.1) rotate(5deg);
         }
 
         .card-front h3 {
@@ -1075,7 +1036,7 @@
             line-height: 1.6;
         }
 
-        /* CTA BUTTONS - Gölgeler kaldırıldı */
+        /* CTA BUTTONS */
         .cta-buttons {
             display: flex;
             justify-content: center;
@@ -1115,7 +1076,7 @@
             border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
-        /* FLOATING BUTTONS - Gölgeler kaldırıldı */
+        /* FLOATING BUTTONS */
         .floating-cta {
             position: fixed;
             bottom: 20px;
@@ -1401,6 +1362,7 @@
                 padding: 140px 4% 80px;
                 margin-top: 80px;
                 min-height: auto;
+                background-attachment: scroll;
             }
             
             .category-title {
@@ -1793,12 +1755,12 @@
         <div class="hero-content">
             <h1>Dijitalde Fark Yaratın</h1>
             <p>Web Tasarım, SEO, Google & Meta Ads Reklamları ve profesyonel prodüksiyon çözümlerimizle markanızı dijital dünyada öne çıkarıyoruz.</p>
-             <div class="cta-buttons">
+            <div class="hero-buttons">
                 <a href="tel:05422360983" class="btn btn-primary">
                     <i class="fas fa-phone-alt"></i> 0542 236 09 83
                 </a>
                 <a href="https://wa.me/905422360983" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz
+                    <i class="fab fa-whatsapp"></i> WhatsApp Destek Hattı
                 </a>
             </div>
         </div>
@@ -1991,7 +1953,6 @@
                             <p>Drone ile havadan çektiğimiz görüntülerle içeriklerinize farklı bir boyut katıyor, etkiyi artırıyoruz.</p>
                             <a href="/drone-cekimi/" class="btn">Paketleri İncele</a>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
