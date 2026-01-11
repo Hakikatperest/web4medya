@@ -70,28 +70,28 @@
                 linear-gradient(180deg, #F7FFF7 0%, #FFFFFF 100%);
         }
 
-        /* MODERN HEADER */
+        /* MODERN HEADER - GÜNCELLENDİ (Beyazlık alanı daraltıldı) */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             padding: 0 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
             height: 60px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             transition: var(--transition);
         }
 
         .header.scrolled {
             background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         /* LOGO */
@@ -119,9 +119,10 @@
             width: auto;
             max-height: 60px;
             object-fit: contain;
+            background: transparent;
         }
 
-        /* MODERN NAVIGATION - BİRİNCİ SAYFADAKİ AYNI STİL */
+        /* MODERN NAVIGATION */
         .nav-desktop {
             display: flex;
             align-items: center;
@@ -165,12 +166,12 @@
             border-radius: 2px;
         }
 
-        /* DROPDOWN MENÜ - BİRİNCİ SAYFADAKİ AYNI STİL */
+        /* DROPDOWN MENÜ */
         .dropdown {
             position: absolute;
             top: 100%;
             left: 0;
-            background: var(--white); /* BEYAZ */
+            background: var(--white);
             min-width: 280px;
             box-shadow: var(--shadow);
             border-radius: var(--radius-sm);
@@ -201,9 +202,10 @@
             border-bottom: none;
         }
 
+        /* DROPDOWN BAŞLIKLARI MAVİ YAPILDI */
         .dropdown-section h4 {
             font-size: 0.85rem;
-            color: var(--accent);
+            color: var(--primary);
             margin-bottom: 10px;
             font-weight: 700;
             text-transform: uppercase;
@@ -213,7 +215,7 @@
         .dropdown-link {
             display: block;
             padding: 8px 0;
-            color: var(--gray-dark); /* Gri */
+            color: var(--gray-dark);
             text-decoration: none;
             font-size: 0.9rem;
             transition: var(--transition);
@@ -227,14 +229,14 @@
         .arrow {
             font-size: 0.7rem;
             transition: transform 0.3s ease;
-            color: var(--gray-dark); /* Gri */
+            color: var(--gray-dark);
         }
 
         .nav-item:hover .arrow {
             transform: rotate(180deg);
         }
 
-        /* HEADER CTA BUTTON - BİRİNCİ SAYFADAKİ AYNI STİL */
+        /* HEADER CTA BUTTON */
         .header-cta {
             display: flex;
             align-items: center;
@@ -263,7 +265,7 @@
             background: linear-gradient(135deg, #FFD93D, var(--accent-light));
         }
 
-        /* HAMBURGER MENU - BİRİNCİ SAYFADAKİ AYNI STİL */
+        /* HAMBURGER MENU - SİYAH YAPILDI */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -280,7 +282,7 @@
         .menu-toggle span {
             width: 100%;
             height: 3px;
-            background-color: var(--accent);
+            background-color: var(--dark);
             border-radius: 10px;
             transition: all 0.3s ease;
         }
@@ -297,7 +299,7 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* HERO SECTION - Arka plan görseli eklendi */
+        /* HERO SECTION */
         .hero {
             background: linear-gradient(rgba(10, 36, 99, 0.85), rgba(62, 146, 204, 0.85)),
                         url('/images/w4medya-arkaplan1.webp');
@@ -322,29 +324,29 @@
             margin: 0 auto;
         }
 
-        /* YENİ: BAŞLIK RENK DEĞİŞİM EFEKTİ GERİ GETİRİLDİ */
-       .hero h1 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 900;
-    margin-bottom: 30px;
-    line-height: 1.1;
-    position: relative;
-    z-index: 2;
-    background: linear-gradient(45deg, 
-        var(--white) 0%, 
-        var(--accent-light) 25%, 
-        var(--accent) 50%, 
-        var(--gradient-3) 75%, 
-        var(--white) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 
-        0 2px 10px rgba(0, 0, 0, 0.3),
-        0 0 30px rgba(62, 146, 204, 0.2);
-    animation: gradientShift 8s ease infinite;
-    background-size: 400% 400%;
-}
+        /* BAŞLIK RENK DEĞİŞİM EFEKTİ */
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(45deg, 
+                var(--white) 0%, 
+                var(--accent-light) 25%, 
+                var(--accent) 50%, 
+                var(--gradient-3) 75%, 
+                var(--white) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 
+                0 2px 10px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(62, 146, 204, 0.2);
+            animation: gradientShift 8s ease infinite;
+            background-size: 400% 400%;
+        }
 
         @keyframes gradientShift {
             0%, 100% { background-position: 0% 50%; }
@@ -363,7 +365,7 @@
             text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
         }
 
-        /* HERO BUTTONS - Beyaz ışık dalgası efekti eklendi */
+        /* HERO BUTTONS */
         .hero-buttons {
             display: flex;
             justify-content: center;
@@ -509,13 +511,13 @@
             }
         }
 
-        /* MOBILE MENU - BİRİNCİ SAYFADAKİ AYNI STİL */
+        /* MOBILE MENU */
         .mobile-menu {
             position: fixed;
             top: 80px;
             left: 0;
             right: 0;
-            background: var(--white); /* BEYAZ */
+            background: var(--white);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             z-index: 999;
             max-height: 0;
@@ -540,7 +542,7 @@
         .mobile-nav-link {
             display: block;
             padding: 15px;
-            color: var(--gray-dark); /* Gri */
+            color: var(--gray-dark);
             text-decoration: none;
             font-weight: 600;
             border-bottom: 1px solid var(--gray-light);
@@ -562,7 +564,7 @@
             background: none;
             border: none;
             padding: 15px;
-            color: var(--gray-dark); /* Gri */
+            color: var(--gray-dark);
             font-weight: 600;
             font-size: 1rem;
             text-transform: uppercase;
@@ -593,17 +595,27 @@
             border-bottom: none;
         }
 
+        /* MOBİL DROPDOWN BAŞLIKLARI MAVİ YAPILDI */
         .mobile-dropdown-section h4 {
             font-size: 0.9rem;
-            color: var(--accent);
+            color: var(--primary);
             margin-bottom: 8px;
             font-weight: 700;
+        }
+
+        /* MOBİL MENÜ TELEFON NUMARASI MAVİ YAPILDI */
+        .mobile-nav-item a[style*="background: linear-gradient"] {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2)) !important;
+            color: white !important;
+            border: none !important;
+            margin-top: 10px;
+            border-radius: var(--radius-sm);
         }
 
         .mobile-dropdown-link {
             display: block;
             padding: 8px 0;
-            color: var(--gray-dark); /* Gri */
+            color: var(--gray-dark);
             text-decoration: none;
             font-size: 0.9rem;
             transition: var(--transition);
@@ -616,7 +628,7 @@
 
         .mobile-arrow {
             transition: transform 0.3s ease;
-            color: var(--gray-dark); /* Gri */
+            color: var(--gray-dark);
         }
 
         .mobile-dropdown-btn.active .mobile-arrow {
@@ -968,7 +980,7 @@
             }
         }
 
-        /* CTA SECTION - Beyaz ışık dalgası efekti eklendi */
+        /* CTA SECTION */
         .cta-section {
             padding: 100px 5%;
             background: linear-gradient(135deg, 
@@ -1007,7 +1019,7 @@
             line-height: 1.6;
         }
 
-        /* CTA BUTTONS - Beyaz ışık dalgası efekti eklendi */
+        /* CTA BUTTONS */
         .cta-buttons {
             display: flex;
             justify-content: center;
@@ -1061,125 +1073,126 @@
             box-shadow: 0 20px 40px rgba(37, 211, 102, 0.4);
         }
 
-       /* FLOATING BUTONLARI YUKARI VE SOLA KAYDIRDIK */
-.floating-cta {
-    position: fixed;
-    bottom: 120px; /* Daha yukarı */
-    right: 20px; /* Sağdan biraz içeri */
-    z-index: 998;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+        /* FLOATING BUTONLARI YUKARI VE SOLA KAYDIRDIK */
+        .floating-cta {
+            position: fixed;
+            bottom: 120px;
+            right: 20px;
+            z-index: 998;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-.floating-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    text-decoration: none;
-    font-size: 1.9rem;
-    position: relative;
-    overflow: hidden;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+        .floating-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            text-decoration: none;
+            font-size: 1.9rem;
+            position: relative;
+            overflow: hidden;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-.floating-btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
-    transform: translateX(-100%);
-    transition: transform 0.6s ease;
-    z-index: 1;
-}
+        .floating-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+            z-index: 1;
+        }
 
-.floating-btn:hover::after {
-    transform: translateX(0);
-}
+        .floating-btn:hover::after {
+            transform: translateX(0);
+        }
 
-/* FLOATING BUTONLAR - TERS ÇEVİRİLMİŞ HOVER/TIKLAMA */
-.floating-btn {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-}
+        /* FLOATING BUTONLAR */
+        .floating-btn {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
 
-.floating-btn:active {
-    transform: scale(1) rotate(0);
-    box-shadow: 0 10px 30px rgba(20, 94, 141, 0.3);
-}
+        .floating-btn:active {
+            transform: scale(1) rotate(0);
+            box-shadow: 0 10px 30px rgba(20, 94, 141, 0.3);
+        }
 
-.floating-whatsapp {
-    background: linear-gradient(135deg, #25D366, #128C7E);
-    color: white;
-    animation: pulse 2s infinite;
-    box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
-}
+        .floating-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            animation: pulse 2s infinite;
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
 
-.floating-whatsapp:active {
-    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
-}
+        .floating-whatsapp:active {
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
 
-.floating-phone {
-    background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
-    color: white;
-    box-shadow: 0 15px 40px rgba(20, 94, 141, 0.4);
-}
+        .floating-phone {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            color: white;
+            box-shadow: 0 15px 40px rgba(20, 94, 141, 0.4);
+        }
 
-.floating-phone:active {
-    box-shadow: 0 10px 30px rgba(20, 94, 141, 0.3);
-}
+        .floating-phone:active {
+            box-shadow: 0 10px 30px rgba(20, 94, 141, 0.3);
+        }
 
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-    }
-    70% {
-        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-    }
-}
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
 
-/* MOBİLDE DAHA DA YUKARI VE SOLA */
-@media (max-width: 768px) {
-    .floating-cta {
-        bottom: 100px; /* Mobilde daha yukarı */
-        right: 15px; /* Sağdan biraz daha içeri */
-    }
-    
-    .floating-btn {
-        width: 60px;
-        height: 60px;
-        font-size: 1.6rem;
-    }
-}
+        /* MOBİLDE DAHA DA YUKARI VE SOLA */
+        @media (max-width: 768px) {
+            .floating-cta {
+                bottom: 100px;
+                right: 15px;
+            }
+            
+            .floating-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.6rem;
+            }
+        }
 
-@media (max-width: 480px) {
-    .floating-cta {
-        bottom: 80px; /* Çok küçük ekranlarda daha yukarı */
-        right: 10px;
-        gap: 12px;
-    }
-    
-    .floating-btn {
-        width: 55px;
-        height: 55px;
-        font-size: 1.5rem;
-    }
-}
+        @media (max-width: 480px) {
+            .floating-cta {
+                bottom: 80px;
+                right: 10px;
+                gap: 12px;
+            }
+            
+            .floating-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+            }
+        }
+
         /* FOOTER */
         .footer {
             background: linear-gradient(135deg, var(--primary-dark), var(--primary));
@@ -1229,6 +1242,7 @@
         .footer-logo img {
             height: 60px;
             width: auto;
+            background: transparent;
         }
 
         .footer-logo-text {
@@ -1626,24 +1640,22 @@
     </style>
 </head>
 <body>
-    <!-- Loading Screen KALDIRILDI -->
-    
     <!-- HEADER -->
     <header class="header" id="mainHeader">
         <!-- Logo -->
         <a href="#" class="logo" id="homeLink" aria-label="Web4 Medya - Ana Sayfa">
             <div class="logo-inner">
-                <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='//via.placeholder.com/200x70/0A2463/FFFFFF?text=Web4+Medya';">
+                <img src="/images/web4medya-logo-transparent.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='//via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
             </div>
         </a>
         
-        <!-- NAVIGATION - BİRİNCİ SAYFADAKİ AYNI NAVIGATION YAPISI -->
+        <!-- NAVIGATION -->
         <nav class="nav-desktop">
             <div class="nav-item">
                 <a href="/" class="nav-link active">Ana Sayfa</a>
             </div>
             
-            <!-- HİZMETLER DROPDOWN - BİRİNCİ SAYFADAKİ AYNI YAPISI -->
+            <!-- HİZMETLER DROPDOWN -->
             <div class="nav-item">
                 <a href="#" class="nav-link">Hizmetler <i class="fas fa-chevron-down arrow"></i></a>
                 <div class="dropdown" id="hizmetlerDropdown">
@@ -1692,7 +1704,7 @@
                 <a href="/iletisim/" class="nav-link">İletişim</a>
             </div>
             
-            <!-- HEADER CTA BUTTON - BİRİNCİ SAYFADAKİ AYNI BUTON -->
+            <!-- HEADER CTA BUTTON -->
             <div class="header-cta">
                 <a href="tel:05422360983" class="btn">
                     <i class="fas fa-phone-alt"></i> 0542 236 09 83
@@ -1700,7 +1712,7 @@
             </div>
         </nav>
         
-        <!-- Hamburger Menu - BİRİNCİ SAYFADAKİ AYNI YAPISI -->
+        <!-- Hamburger Menu -->
         <button class="menu-toggle" id="menuToggle" aria-label="Menüyü aç/kapat">
             <span></span>
             <span></span>
@@ -1708,7 +1720,7 @@
         </button>
     </header>
     
-    <!-- Mobile Menu - BİRİNCİ SAYFADAKİ AYNI YAPISI -->
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <nav class="mobile-nav">
             <!-- Ana Sayfa -->
@@ -1767,7 +1779,7 @@
             
             <!-- Mobile CTA -->
             <div class="mobile-nav-item">
-                <a href="tel:05422360983" class="mobile-nav-link" style="background: linear-gradient(135deg, var(--accent-light), #FFD93D); color: var(--primary);">
+                <a href="tel:05422360983" class="mobile-nav-link" style="background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2)); color: white;">
                     <i class="fas fa-phone-alt"></i> 0542 236 09 83
                 </a>
             </div>
@@ -2038,8 +2050,8 @@
             <!-- Logo ve Açıklama -->
             <div class="footer-section">
                 <div class="footer-logo">
-                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" 
-                         onerror="this.onerror=null; this.src='//via.placeholder.com/200x70/FFFFFF/0A2463?text=Web4+Medya';">
+                    <img src="/images/web4medya-logo-transparent.png" alt="Web4 Medya Logo" 
+                         onerror="this.onerror=null; this.src='//via.placeholder.com/200x70/transparent/FFFFFF?text=Web4+Medya';">
                     <div class="footer-logo-text">İşinizi şansa bırakmayın!</div>
                 </div>
                 <p class="footer-description">
@@ -2129,7 +2141,7 @@
         </div>
     </footer>
     
-    <!-- FLOATING CTA BUTTONLARI - YUKARI VE SOLA KAYDIRILDI -->
+    <!-- FLOATING CTA BUTTONLARI -->
     <div class="floating-cta">
         <a href="https://wa.me/905422360983" class="floating-btn floating-whatsapp" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-whatsapp"></i>
@@ -2234,7 +2246,7 @@
             if (logo) {
                 logo.onerror = function() {
                     this.onerror = null;
-                    this.src = '//via.placeholder.com/200x70/0A2463/FFFFFF?text=Web4+Medya';
+                    this.src = '//via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';
                     this.alt = 'Web4 Medya Logo - Placeholder';
                 };
             }
@@ -2243,7 +2255,7 @@
             if (footerLogo) {
                 footerLogo.onerror = function() {
                     this.onerror = null;
-                    this.src = '//via.placeholder.com/200x70/FFFFFF/0A2463?text=Web4+Medya';
+                    this.src = '//via.placeholder.com/200x70/transparent/FFFFFF?text=Web4+Medya';
                     this.alt = 'Web4 Medya Logo - Placeholder';
                 };
             }
