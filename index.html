@@ -38,6 +38,11 @@
             font-weight: 300;
             color: var(--accent);
             margin-left: 2px;
+            right: -8px;
+        }
+        
+        .typing-heading.completed::after {
+            display: none;
         }
         
         @keyframes blink {
@@ -1840,7 +1845,7 @@
         <div class="services-container">
             <!-- DİJİTAL PAZARLAMA KATEGORİSİ -->
             <div class="service-category digital-marketing animate-on-scroll">
-                <h2 class="category-title typing-heading" data-text="Dijital Pazarlama Hizmetlerimiz">Dijital Pazarlama Hizmetlerimiz</h2>
+                <h2 class="category-title typing-heading" data-text="Dijital Pazarlama Hizmetlerimiz"></h2>
                 <div class="category-grid">
                     <!-- Google Ads -->
                     <div class="flip-card" data-id="google-ads">
@@ -1936,7 +1941,7 @@
             
             <!-- WEB TASARIM KATEGORİSİ -->
             <div class="service-category web-design animate-on-scroll">
-                <h2 class="category-title typing-heading" data-text="Web Tasarım Hizmetlerimiz">Web Tasarım Hizmetlerimiz</h2>
+                <h2 class="category-title typing-heading" data-text="Web Tasarım Hizmetlerimiz"></h2>
                 <div class="category-grid">
                     <!-- E-Ticaret -->
                     <div class="flip-card" data-id="ecommerce">
@@ -1972,7 +1977,7 @@
             
             <!-- PRODÜKSİYON KATEGORİSİ -->
             <div class="service-category production animate-on-scroll">
-                <h2 class="category-title typing-heading" data-text="Prodüksiyon Hizmetlerimiz">Prodüksiyon Hizmetlerimiz</h2>
+                <h2 class="category-title typing-heading" data-text="Prodüksiyon Hizmetlerimiz"></h2>
                 <div class="category-grid">
                     <!-- Sosyal Medya Videoları -->
                     <div class="flip-card" data-id="social-videos">
@@ -2185,10 +2190,9 @@
             const typingHeadings = document.querySelectorAll('.typing-heading');
             let currentTypingIndex = 0;
             
-            // Başlıkların orijinal metinlerini sakla
+            // Başlıkların orijinal metinlerini sakla (HTML'den al)
             typingHeadings.forEach(heading => {
-                const originalText = heading.textContent;
-                heading.setAttribute('data-text', originalText);
+                const originalText = heading.getAttribute('data-text');
                 heading.textContent = '';
             });
             
@@ -2197,10 +2201,20 @@
                 if (currentTypingIndex < typingHeadings.length) {
                     const currentHeading = typingHeadings[currentTypingIndex];
                     const text = currentHeading.getAttribute('data-text');
+                    
+                    // Son harfe kadar yazdır
                     typeText(currentHeading, text, 0, 60, function() {
-                        currentTypingIndex++;
-                        // Bir sonraki başlık için bekle
-                        setTimeout(startTypingEffect, 800);
+                        // Başlık tamamen yazıldığında imleci yanıp söndür
+                        blinkCursor(currentHeading, 3, function() {
+                            // İmleci kaldır
+                            currentHeading.classList.add('completed');
+                            currentTypingIndex++;
+                            
+                            // Bir sonraki başlık için bekle
+                            if (currentTypingIndex < typingHeadings.length) {
+                                setTimeout(startTypingEffect, 500);
+                            }
+                        });
                     });
                 }
             }
@@ -2214,36 +2228,35 @@
                         typeText(element, text, index, speed, callback);
                     }, speed);
                 } else {
-                    // Yazma bitti, imleç yanıp sönme efekti
-                    let blinkCount = 0;
-                    const maxBlinks = 6; // 3 kez yanıp sönme
-                    
-                    function blinkCursor() {
-                        if (blinkCount < maxBlinks) {
-                            // İmleci göster/gizle
-                            const cursorVisible = blinkCount % 2 === 0;
-                            if (cursorVisible) {
-                                element.style.setProperty('--cursor-visibility', 'visible');
-                            } else {
-                                element.style.setProperty('--cursor-visibility', 'hidden');
-                            }
-                            
-                            blinkCount++;
-                            setTimeout(blinkCursor, 300);
-                        } else {
-                            // İmleci tamamen kaldır
-                            element.style.opacity = '0';
-                            setTimeout(() => {
-                                element.style.opacity = '1';
-                                element.style.setProperty('--cursor-visibility', 'hidden');
-                                element.classList.remove('typing-heading');
-                                if (callback) callback();
-                            }, 200);
-                        }
-                    }
-                    
-                    blinkCursor();
+                    if (callback) callback();
                 }
+            }
+            
+            // İmleç yanıp sönme efekti
+            function blinkCursor(element, times, callback) {
+                let blinkCount = 0;
+                const originalAfter = element.style.after;
+                
+                function blink() {
+                    if (blinkCount < times * 2) { // Her yanıp sönme için 2 kez (açık/kapalı)
+                        const isVisible = blinkCount % 2 === 0;
+                        
+                        if (isVisible) {
+                            element.style.setProperty('--cursor-visibility', 'visible');
+                        } else {
+                            element.style.setProperty('--cursor-visibility', 'hidden');
+                        }
+                        
+                        blinkCount++;
+                        setTimeout(blink, 300);
+                    } else {
+                        // İmleci tamamen kaldır
+                        element.classList.add('completed');
+                        if (callback) callback();
+                    }
+                }
+                
+                blink();
             }
             
             // Sayfa yüklendikten sonra efektleri başlat
