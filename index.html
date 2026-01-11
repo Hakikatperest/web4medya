@@ -1639,7 +1639,104 @@
                 max-height: 45px;
             }
         }
+.loading-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
 
+.loading-logo-rotate {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    animation: logoRotate 1s cubic-bezier(0.65, 0, 0.35, 1) 1 forwards;
+    filter: drop-shadow(0 0 20px rgba(62, 146, 204, 0.5));
+    transform-origin: center center;
+}
+
+.loading-progress {
+    width: 300px;
+    height: 4px;
+    background: rgba(10, 36, 99, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeIn 0.5s ease 0.8s forwards;
+}
+
+.loading-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, 
+        var(--accent-light), 
+        var(--primary-light), 
+        var(--accent));
+    border-radius: 10px;
+    animation: loadingBar 0.5s ease-in-out 1s forwards;
+}
+
+/* Logo dönme animasyonu */
+@keyframes logoRotate {
+    0% {
+        transform: rotate(0deg) scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: rotate(180deg) scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Loading bar animasyonu */
+@keyframes loadingBar {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Fade in animasyonu */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive loading screen */
+@media (max-width: 768px) {
+    .loading-logo-rotate {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .loading-progress {
+        width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .loading-logo-rotate {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .loading-progress {
+        width: 200px;
+    }
+}
         /* TOUCH DEVICE OPTIMIZATION */
         @media (hover: none) and (pointer: coarse) {
             .flip-card:hover:not(.flipped),
@@ -1668,10 +1765,9 @@
    <!-- Loading Screen -->
 <div class="loading-overlay" id="loadingOverlay">
     <div class="loading-content">
-        <div class="loading-logo">
-            <img src="/images/web4medya-logo-white.png" alt="Web4 Medya Logo" 
-                 onerror="this.onerror=null; this.src='/images/web4medya-logo.png'; this.onerror=null; this.src='//via.placeholder.com/200x70/0A2463/FFFFFF?text=Web4+Medya';">
-        </div>
+        <img src="/images/web4medya-logo.png" alt="Web4 Medya" 
+             class="loading-logo-rotate"
+             onerror="this.onerror=null; this.src='//via.placeholder.com/200x70/0A2463/FFFFFF?text=Web4+Medya';">
         <div class="loading-progress">
             <div class="loading-bar"></div>
         </div>
@@ -2188,25 +2284,47 @@
         </a>
     </div>
 
-    <script>
-        // Basit ve hızlı loading screen
-        window.addEventListener('load', function() {
+        <script>
+        // Loading animasyonu - Logo dönecek
+        document.addEventListener('DOMContentLoaded', function() {
             const loadingOverlay = document.getElementById('loadingOverlay');
+            const loadingBar = document.querySelector('.loading-bar');
+            
+            // Logo dönme animasyonu bittikten sonra loading bar'ı göster
+            setTimeout(() => {
+                loadingBar.style.animation = 'loadingBar 0.5s ease-in-out forwards';
+            }, 1000);
+            
+            // Toplam 1.5 saniye sonra loading'i kapat
             setTimeout(() => {
                 loadingOverlay.style.opacity = '0';
+                loadingOverlay.style.transition = 'opacity 0.5s ease';
+                
                 setTimeout(() => {
                     loadingOverlay.style.visibility = 'hidden';
-                }, 300);
-            }, 500);
+                    
+                    // Lazy loading for images
+                    const images = document.querySelectorAll('img');
+                    images.forEach(img => {
+                        img.loading = 'lazy';
+                    });
+                    
+                    // Check scroll animation on load
+                    checkScrollAnimation();
+                }, 500);
+            }, 1500); // Toplam 1.5 saniye
             
-            // Lazy loading for images
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                img.loading = 'lazy';
-            });
-            
-            // Check scroll animation on load
-            setTimeout(checkScrollAnimation, 100);
+            // Eğer sayfa yüklenmesi 3 saniyeden uzun sürerse loading'i kapat
+            setTimeout(function() {
+                if (loadingOverlay && loadingOverlay.style.visibility !== 'hidden') {
+                    loadingOverlay.style.opacity = '0';
+                    loadingOverlay.style.transition = 'opacity 0.5s ease';
+                    
+                    setTimeout(() => {
+                        loadingOverlay.style.visibility = 'hidden';
+                    }, 500);
+                }
+            }, 3000);
         });
 
         // Header scroll effect
