@@ -87,12 +87,12 @@
             --gradient-3: #1465D6;
             --accent: #FF6B6B;
             --accent-light: #FFE66D;
+            --white: #FFFFFF;
             --dark: #1F2937;
             --gray-dark: #374151;
             --gray: #6B7280;
             --gray-light: #E5E7EB;
             --light: #F7FFF7;
-            --white: #FFFFFF;
             --shadow: 0 10px 40px rgba(24, 119, 242, 0.1);
             --radius: 20px;
             --radius-sm: 12px;
@@ -341,30 +341,16 @@
             margin: 0 auto;
         }
 
+        /* DEĞİŞTİRİLDİ: Sadece beyaz başlık */
         .hero-facebook h1 {
             font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 900;
             margin-bottom: 30px;
             line-height: 1.1;
-            background: linear-gradient(45deg, 
-                var(--white) 0%, 
-                #8BC1FF 25%, 
-                var(--facebook-blue) 50%, 
-                #0D5FCC 75%, 
-                var(--white) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: white;
             text-shadow: 
                 0 2px 10px rgba(0, 0, 0, 0.3),
-                0 0 30px rgba(24, 119, 242, 0.2);
-            animation: gradientShift 8s ease infinite;
-            background-size: 400% 400%;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+                0 0 30px rgba(62, 146, 204, 0.2);
         }
 
         .hero-facebook p {
@@ -532,14 +518,14 @@
             margin: 0 auto 60px;
         }
 
+        /* DEĞİŞTİRİLDİ: Sadece beyaz başlık */
         .section-title {
             font-size: clamp(2rem, 4.5vw, 3.2rem);
             font-weight: 900;
             margin-bottom: 20px;
-            background: var(--facebook-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--white);
+            -webkit-background-clip: initial;
+            background-clip: initial;
         }
 
         .section-subtitle {
@@ -816,17 +802,17 @@
             margin: 0 auto;
         }
 
+        /* DEĞİŞTİRİLDİ: Sadece beyaz başlık */
         .cta-section h2 {
             font-size: clamp(2rem, 4.5vw, 3.2rem);
             font-weight: 900;
             margin-bottom: 20px;
             line-height: 1.2;
-            background: linear-gradient(45deg, white, #8BC1FF, var(--facebook-blue));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: gradientShift 8s ease infinite;
-            background-size: 400% 400%;
+            color: white;
+            -webkit-background-clip: initial;
+            background-clip: initial;
+            animation: none;
+            background-size: initial;
         }
 
         .cta-section p {
@@ -1723,145 +1709,145 @@
     </section>
 
     <!-- Sık Sorulan Sorular -->
-    <section class="faq-section" id="sss">
-        <div class="section-header">
-            <h2 class="section-title">Facebook Reklam Hakkında Sık Sorulan Sorular</h2>
-            <p class="section-subtitle"><strong>Facebook reklam verme</strong> sürecinde en çok merak edilen sorular ve detaylı cevapları</p>
+   <section class="faq-section" id="sss">
+    <div class="section-header">
+        <h2 class="section-title" style="color: #000000;">Facebook Reklam Hakkında Sık Sorulan Sorular</h2>
+        <p class="section-subtitle"><strong>Facebook reklam verme</strong> sürecinde en çok merak edilen sorular ve detaylı cevapları</p>
+    </div>
+    
+    <div class="faq-container">
+        <div class="faq-item">
+            <button class="faq-question">
+                Facebook reklam vermek ne kadar maliyetli?
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <p><strong>Facebook reklam fiyatları</strong> birçok faktöre bağlı olarak değişkenlik gösterir. Temel olarak:</p>
+                <ul>
+                    <li><strong>Hedef kitlenin büyüklüğü ve rekabet düzeyi:</strong> Daha geniş ve rekabetçi kitlelerde maliyet artar</li>
+                    <li><strong>Reklam formatı:</strong> Video reklamlar genellikle görsel reklamlardan daha maliyetlidir</li>
+                    <li><strong>Reklam kalite puanı:</strong> Yüksek kaliteli reklamlar daha düşük maliyetle gösterilir</li>
+                    <li><strong>Mevsimsel etkiler:</strong> Tatil dönemlerinde ve özel günlerde maliyetler artabilir</li>
+                </ul>
+                <p>Türkiye'de ortalama <strong>facebook reklam maliyeti</strong> tıklama başına 0.50 TL ile 5.00 TL arasında değişmektedir. Minimum günlük bütçe genellikle 50 TL'dir. Web4 Medya olarak size özel <strong>facebook reklam bütçesi</strong> planlaması yapıyoruz.</p>
+            </div>
         </div>
         
-        <div class="faq-container">
-            <div class="faq-item">
-                <button class="faq-question">
-                    Facebook reklam vermek ne kadar maliyetli?
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">
-                    <p><strong>Facebook reklam fiyatları</strong> birçok faktöre bağlı olarak değişkenlik gösterir. Temel olarak:</p>
-                    <ul>
-                        <li><strong>Hedef kitlenin büyüklüğü ve rekabet düzeyi:</strong> Daha geniş ve rekabetçi kitlelerde maliyet artar</li>
-                        <li><strong>Reklam formatı:</strong> Video reklamlar genellikle görsel reklamlardan daha maliyetlidir</li>
-                        <li><strong>Reklam kalite puanı:</strong> Yüksek kaliteli reklamlar daha düşük maliyetle gösterilir</li>
-                        <li><strong>Mevsimsel etkiler:</strong> Tatil dönemlerinde ve özel günlerde maliyetler artabilir</li>
-                    </ul>
-                    <p>Türkiye'de ortalama <strong>facebook reklam maliyeti</strong> tıklama başına 0.50 TL ile 5.00 TL arasında değişmektedir. Minimum günlük bütçe genellikle 50 TL'dir. Web4 Medya olarak size özel <strong>facebook reklam bütçesi</strong> planlaması yapıyoruz.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <button class="faq-question">
-                    Facebook reklam verme süreci ne kadar sürer?
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">
-                    <p><strong>Facebook reklam verme</strong> süreci genellikle şu adımlardan oluşur:</p>
-                    <ol>
-                        <li><strong>İlk danışmanlık ve analiz:</strong> 1-2 gün</li>
-                        <li><strong>Strateji geliştirme:</strong> 2-3 gün</li>
-                        <li><strong>Reklam içeriği oluşturma:</strong> 3-5 gün</li>
-                        <li><strong>Kampanya kurulumu:</strong> 1-2 gün</li>
-                        <li><strong>Optimizasyon ve test süreci:</strong> Sürekli</li>
-                    </ol>
-                    <p>Toplamda ilk kampanyanızın aktif olması genellikle 5-7 iş günü sürer. Ancak acil durumlarda bu süreyi 48 saate kadar indirebiliyoruz. <strong>Facebook reklam yönetimi</strong> sürekli optimizasyon ve takip gerektiren bir süreçtir.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <button class="faq-question">
-                    Facebook reklamlarında başarı oranı nedir?
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">
-                    <p><strong>Facebook reklamları</strong>nın başarı oranı birçok faktöre bağlıdır:</p>
-                    <ul>
-                        <li><strong>Sektör:</strong> E-ticaret genellikle en yüksek dönüşüm oranlarına sahiptir</li>
-                        <li><strong>Hedefleme doğruluğu:</strong> Doğru <strong>facebook reklam hedefleme</strong> başarıyı direkt etkiler</li>
-                        <li><strong>Reklam içeriği kalitesi:</strong> Profesyonel tasarım ve içerik daha yüksek etkileşim sağlar</li>
-                        <li><strong>Landing page uyumu:</strong> Reklam ile açılan sayfanın tutarlılığı</li>
-                    </ul>
-                    <p>Web4 Medya olarak yönettiğimiz kampanyalarda ortalama başarı oranı:</p>
-                    <ul>
-                        <li>Tıklama oranı (CTR): %1.5 - %3.5</li>
-                        <li>Dönüşüm oranı (CVR): %2 - %8</li>
-                        <li>Geri dönüş yatırımı (ROI): %200 - %500+</li>
-                    </ul>
-                    <p>Bu oranlar sektöre ve kampanya hedeflerine göre değişkenlik gösterebilir.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <button class="faq-question">
-                    Facebook ve Instagram reklamları birlikte yönetilebilir mi?
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>Evet, <strong>Instagram facebook reklam</strong> birlikte yönetilebilir ve bu oldukça etkilidir. Facebook Business Manager üzerinden tek panelden hem Facebook hem Instagram reklamlarını yönetebilirsiniz. Avantajları:</p>
-                    <ul>
-                        <li><strong>Tek bütçe yönetimi:</strong> İki platform için tek bütçe</li>
-                        <li><strong>Entegre raporlama:</strong> Tüm performans verileri tek yerde</li>
-                        <li><strong>Hedef kitle senkronizasyonu:</strong> Aynı hedef kitleyi iki platformda kullanma</li>
-                        <li><strong>İçerik optimizasyonu:</strong> Platforma özgü içerik uyarlaması</li>
-                    </ul>
-                    <p>Web4 Medya olarak <strong>facebook reklam ajansı</strong> hizmetimiz kapsamında iki platformu entegre şekilde yönetiyor, böylece daha geniş kitlelere ulaşmanızı sağlıyoruz. Instagram genç ve görsel odaklı kitleye ulaşırken, Facebook daha geniş yaş gruplarına hitap eder.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <button class="faq-question">
-                    Facebook reklam optimizasyonu nasıl yapılır?
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">
-                    <p><strong>Facebook reklam optimizasyonu</strong> sürekli bir süreçtir ve şu adımlardan oluşur:</p>
-                    <ol>
-                        <li><strong>Performans analizi:</strong> Günlük kampanya performans takibi</li>
-                        <li><strong>A/B testleri:</strong> Farklı reklam varyasyonlarını test etme</li>
-                        <li><strong>Hedef kitle optimizasyonu:</strong> En iyi performans gösteren segmentlere odaklanma</li>
-                        <li><strong>Teklif optimizasyonu:</strong> Maliyet etkin teklif stratejileri</li>
-                        <li><strong>Zamanlama optimizasyonu:</strong> Hedef kitlenin en aktif olduğu saatlerde reklam gösterme</li>
-                        <li><strong>Yerleşim optimizasyonu:</strong> En iyi performans gösteren platform ve pozisyonlar</li>
-                        <li><strong>İçerik optimizasyonu:</strong> En çok etkileşim alan içerik formatları</li>
-                    </ol>
-                    <p>Web4 Medya <strong>facebook reklam uzmanı</strong> ekibimiz, tüm kampanyalarınızı günlük olarak takip eder ve optimize eder. <strong>Facebook reklam desteği</strong> hizmetimiz kapsamında sürekli iyileştirme yaparız.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <button class="faq-question">
-                    Facebook reklamları için minimum bütçe ne kadar?
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">
-                    <p><strong>Facebook reklam vermek</strong> için minimum bütçe şu şekildedir:</p>
-                    <ul>
-                        <li><strong>Günlük minimum bütçe:</strong> 50 TL (kampanya başına)</li>
-                        <li><strong>Ömür boyu bütçe:</strong> 250 TL (kampanya süresi boyunca)</li>
-                        <li><strong>Web4 Medya yönetim ücreti:</strong> Paketlere göre 5.000 TL'den başlar</li>
-                    </ul>
-                    <p>Ancak unutmayın ki, çok düşük bütçelerle anlamlı sonuçlar almak zordur. <strong>Facebook reklam fiyatları</strong> rekabete göre değiştiği için, sektörünüze ve hedef kitlenize göre optimal bütçeyi belirlemek önemlidir. Web4 Medya olarak size özel <strong>facebook reklam danışmanlığı</strong> ile en uygun bütçe planlamasını yapıyoruz.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <button class="faq-question">
-                    Facebook reklam yönetimi neden profesyonel ajans gerektirir?
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">
-                    <p><strong>Facebook reklam yönetimi</strong> profesyonel destek gerektirir çünkü:</p>
-                    <ul>
-                        <li><strong>Karmaşık algoritma:</strong> Facebook'un sürekli güncellenen algoritmasını takip etmek</li>
-                        <li><strong>Rekabet analizi:</strong> Sektörünüzdeki rekabeti sürekli izlemek</li>
-                        <li><strong>Hedefleme stratejileri:</strong> Doğru <strong>facebook reklam hedefleme</strong> tekniklerini uygulamak</li>
-                        <li><strong>Sürekli optimizasyon:</strong> Kampanyaları günlük olarak optimize etmek</li>
-                        <li><strong>Yaratıcı içerik üretimi:</strong> Dikkat çekici reklam içerikleri tasarlamak</li>
-                        <li><strong>Detaylı raporlama:</strong> Anlamlı performans metrikleri oluşturmak</li>
-                        <li><strong>Bütçe optimizasyonu:</strong> <strong>Facebook reklam bütçesi</strong>ni en verimli şekilde kullanmak</li>
-                    </ul>
-                    <p>Web4 Medya <strong>facebook reklam ajansı</strong> olarak, 10+ yıllık deneyimimizle tüm bu süreçleri sizin için profesyonelce yönetiyoruz. <strong>Facebook reklam vermek istiyorum</strong> diyorsanız, doğru adrestesiniz.</p>
-                </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                Facebook reklam verme süreci ne kadar sürer?
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <p><strong>Facebook reklam verme</strong> süreci genellikle şu adımlardan oluşur:</p>
+                <ol>
+                    <li><strong>İlk danışmanlık ve analiz:</strong> 1-2 gün</li>
+                    <li><strong>Strateji geliştirme:</strong> 2-3 gün</li>
+                    <li><strong>Reklam içeriği oluşturma:</strong> 3-5 gün</li>
+                    <li><strong>Kampanya kurulumu:</strong> 1-2 gün</li>
+                    <li><strong>Optimizasyon ve test süreci:</strong> Sürekli</li>
+                </ol>
+                <p>Toplamda ilk kampanyanızın aktif olması genellikle 5-7 iş günü sürer. Ancak acil durumlarda bu süreyi 48 saate kadar indirebiliyoruz. <strong>Facebook reklam yönetimi</strong> sürekli optimizasyon ve takip gerektiren bir süreçtir.</p>
             </div>
         </div>
-    </section>
+        
+        <div class="faq-item">
+            <button class="faq-question">
+                Facebook reklamlarında başarı oranı nedir?
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <p><strong>Facebook reklamları</strong>nın başarı oranı birçok faktöre bağlıdır:</p>
+                <ul>
+                    <li><strong>Sektör:</strong> E-ticaret genellikle en yüksek dönüşüm oranlarına sahiptir</li>
+                    <li><strong>Hedefleme doğruluğu:</strong> Doğru <strong>facebook reklam hedefleme</strong> başarıyı direkt etkiler</li>
+                    <li><strong>Reklam içeriği kalitesi:</strong> Profesyonel tasarım ve içerik daha yüksek etkileşim sağlar</li>
+                    <li><strong>Landing page uyumu:</strong> Reklam ile açılan sayfanın tutarlılığı</li>
+                </ul>
+                <p>Web4 Medya olarak yönettiğimiz kampanyalarda ortalama başarı oranı:</p>
+                <ul>
+                    <li>Tıklama oranı (CTR): %1.5 - %3.5</li>
+                    <li>Dönüşüm oranı (CVR): %2 - %8</li>
+                    <li>Geri dönüş yatırımı (ROI): %200 - %500+</li>
+                </ul>
+                <p>Bu oranlar sektöre ve kampanya hedeflerine göre değişkenlik gösterebilir.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question">
+                Facebook ve Instagram reklamları birlikte yönetilebilir mi?
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <p>Evet, <strong>Instagram facebook reklam</strong> birlikte yönetilebilir ve bu oldukça etkilidir. Facebook Business Manager üzerinden tek panelden hem Facebook hem Instagram reklamlarını yönetebilirsiniz. Avantajları:</p>
+                <ul>
+                    <li><strong>Tek bütçe yönetimi:</strong> İki platform için tek bütçe</li>
+                    <li><strong>Entegre raporlama:</strong> Tüm performans verileri tek yerde</li>
+                    <li><strong>Hedef kitle senkronizasyonu:</strong> Aynı hedef kitleyi iki platformda kullanma</li>
+                    <li><strong>İçerik optimizasyonu:</strong> Platforma özgü içerik uyarlaması</li>
+                </ul>
+                <p>Web4 Medya olarak <strong>facebook reklam ajansı</strong> hizmetimiz kapsamında iki platformu entegre şekilde yönetiyor, böylece daha geniş kitlelere ulaşmanızı sağlıyoruz. Instagram genç ve görsel odaklı kitleye ulaşırken, Facebook daha geniş yaş gruplarına hitap eder.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question">
+                Facebook reklam optimizasyonu nasıl yapılır?
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <p><strong>Facebook reklam optimizasyonu</strong> sürekli bir süreçtir ve şu adımlardan oluşur:</p>
+                <ol>
+                    <li><strong>Performans analizi:</strong> Günlük kampanya performans takibi</li>
+                    <li><strong>A/B testleri:</strong> Farklı reklam varyasyonlarını test etme</li>
+                    <li><strong>Hedef kitle optimizasyonu:</strong> En iyi performans gösteren segmentlere odaklanma</li>
+                    <li><strong>Teklif optimizasyonu:</strong> Maliyet etkin teklif stratejileri</li>
+                    <li><strong>Zamanlama optimizasyonu:</strong> Hedef kitlenin en aktif olduğu saatlerde reklam gösterme</li>
+                    <li><strong>Yerleşim optimizasyonu:</strong> En iyi performans gösteren platform ve pozisyonlar</li>
+                    <li><strong>İçerik optimizasyonu:</strong> En çok etkileşim alan içerik formatları</li>
+                </ol>
+                <p>Web4 Medya <strong>facebook reklam uzmanı</strong> ekibimiz, tüm kampanyalarınızı günlük olarak takip eder ve optimize eder. <strong>Facebook reklam desteği</strong> hizmetimiz kapsamında sürekli iyileştirme yaparız.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question">
+                Facebook reklamları için minimum bütçe ne kadar?
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <p><strong>Facebook reklam vermek</strong> için minimum bütçe şu şekildedir:</p>
+                <ul>
+                    <li><strong>Günlük minimum bütçe:</strong> 50 TL (kampanya başına)</li>
+                    <li><strong>Ömür boyu bütçe:</strong> 250 TL (kampanya süresi boyunca)</li>
+                    <li><strong>Web4 Medya yönetim ücreti:</strong> Paketlere göre 5.000 TL'den başlar</li>
+                </ul>
+                <p>Ancak unutmayın ki, çok düşük bütçelerle anlamlı sonuçlar almak zordur. <strong>Facebook reklam fiyatları</strong> rekabete göre değiştiği için, sektörünüze ve hedef kitlenize göre optimal bütçeyi belirlemek önemlidir. Web4 Medya olarak size özel <strong>facebook reklam danışmanlığı</strong> ile en uygun bütçe planlamasını yapıyoruz.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question">
+                Facebook reklam yönetimi neden profesyonel ajans gerektirir?
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <p><strong>Facebook reklam yönetimi</strong> profesyonel destek gerektirir çünkü:</p>
+                <ul>
+                    <li><strong>Karmaşık algoritma:</strong> Facebook'un sürekli güncellenen algoritmasını takip etmek</li>
+                    <li><strong>Rekabet analizi:</strong> Sektörünüzdeki rekabeti sürekli izlemek</li>
+                    <li><strong>Hedefleme stratejileri:</strong> Doğru <strong>facebook reklam hedefleme</strong> tekniklerini uygulamak</li>
+                    <li><strong>Sürekli optimizasyon:</strong> Kampanyaları günlük olarak optimize etmek</li>
+                    <li><strong>Yaratıcı içerik üretimi:</strong> Dikkat çekici reklam içerikleri tasarlamak</li>
+                    <li><strong>Detaylı raporlama:</strong> Anlamlı performans metrikleri oluşturmak</li>
+                    <li><strong>Bütçe optimizasyonu:</strong> <strong>facebook reklam bütçesi</strong>ni en verimli şekilde kullanmak</li>
+                </ul>
+                <p>Web4 Medya <strong>facebook reklam ajansı</strong> olarak, 10+ yıllık deneyimimizle tüm bu süreçleri sizin için profesyonelce yönetiyoruz. <strong>Facebook reklam vermek istiyorum</strong> diyorsanız, doğru adrestesiniz.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- CTA SECTION -->
     <section class="cta-section">
