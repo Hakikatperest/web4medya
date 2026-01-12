@@ -325,7 +325,7 @@
             text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
         }
 
-        /* BUTTONS */
+        /* BUTTONS - IŞIK EFEKTLİ BUTONLAR */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -343,31 +343,82 @@
             overflow: hidden;
         }
 
+        /* IŞIK DALGASI EFEKTİ - TÜM BUTONLAR İÇİN */
         .btn-primary,
-        .btn-whatsapp {
-            border: 2px solid transparent;
+        .btn-whatsapp,
+        .floating-btn,
+        .header-cta .btn,
+        .mobile-nav-item a[style*="background: linear-gradient"] {
             position: relative;
             overflow: hidden;
         }
 
-        .btn-primary::before,
-        .btn-whatsapp::before {
+        /* SÜREKLİ IŞIK DALGASI */
+        .btn-primary::after,
+        .btn-whatsapp::after,
+        .floating-btn::after,
+        .header-cta .btn::after,
+        .mobile-nav-item a[style*="background: linear-gradient"]::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.7s ease;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                transparent 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                transparent 100%
+            );
+            transform: rotate(30deg);
+            animation: lightWave 3s infinite linear;
             z-index: 1;
+            pointer-events: none;
         }
 
-        .btn-primary:hover::before,
-        .btn-whatsapp:hover::before {
-            left: 100%;
+        /* FARKLI HIZLARDA DALGALAR */
+        .btn-primary::after {
+            animation: lightWave 3s infinite linear;
         }
 
+        .btn-whatsapp::after {
+            animation: lightWave 2.5s infinite linear;
+        }
+
+        .floating-btn::after {
+            animation: lightWave 2s infinite linear;
+        }
+
+        .header-cta .btn::after {
+            animation: lightWave 3.5s infinite linear;
+        }
+
+        /* MOBİL MENÜDEKİ BUTON */
+        .mobile-nav-item a[style*="background: linear-gradient"]::after {
+            animation: lightWave 4s infinite linear;
+        }
+
+        @keyframes lightWave {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(30deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(30deg);
+            }
+        }
+
+        /* BUTON İÇERİĞİNİ IŞIK EFEKTİNİN ÜZERİNE GETİR */
+        .btn-primary > *,
+        .btn-whatsapp > *,
+        .floating-btn > *,
+        .header-cta .btn > *,
+        .mobile-nav-item a[style*="background: linear-gradient"] > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* HOVER EFEKTLERİ */
         .btn-primary:hover,
         .btn-whatsapp:hover {
             transform: translateY(-3px);
@@ -376,11 +427,13 @@
         .btn-primary {
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
             color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .btn-whatsapp {
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         /* HERO BUTTONS */
@@ -897,7 +950,7 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
-        /* FLOATING BUTTONS */
+        /* FLOATING BUTTONS - IŞIK EFEKTLİ */
         .floating-cta {
             position: fixed;
             bottom: 120px;
@@ -923,23 +976,6 @@
             transform: translateZ(0);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-        }
-
-        .floating-btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
-            transform: translateX(-100%);
-            transition: transform 0.6s ease;
-            z-index: 1;
-        }
-
-        .floating-btn:hover::after {
-            transform: translateX(0);
         }
 
         .floating-btn:hover {
@@ -1418,7 +1454,7 @@
                 <a href="/iletisim/" class="nav-link">İletişim</a>
             </div>
             
-            <!-- HEADER CTA BUTTON -->
+            <!-- HEADER CTA BUTTON - IŞIK EFEKTLİ -->
             <div class="header-cta">
                 <a href="tel:05422360983" class="btn">
                     <i class="fas fa-phone-alt"></i> 0542 236 09 83
@@ -1491,7 +1527,7 @@
                 <a href="/iletisim/" class="mobile-nav-link">İletişim</a>
             </div>
             
-            <!-- Mobile CTA -->
+            <!-- Mobile CTA - IŞIK EFEKTLİ -->
             <div class="mobile-nav-item">
                 <a href="tel:05422360983" class="mobile-nav-link" style="background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2)); color: white;">
                     <i class="fas fa-phone-alt"></i> 0542 236 09 83
@@ -1855,7 +1891,7 @@
         </div>
     </footer>
     
-    <!-- FLOATING CTA BUTTONLARI -->
+    <!-- FLOATING CTA BUTTONLARI - IŞIK EFEKTLİ -->
     <div class="floating-cta">
         <a href="https://wa.me/905422360983" class="floating-btn floating-whatsapp" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-whatsapp"></i>
