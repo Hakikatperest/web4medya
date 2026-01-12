@@ -300,12 +300,7 @@
 
         /* INSTAGRAM HERO SECTION */
         .instagram-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                        var(--instagram-gradient),
-                        url('/images/web4medya-instagram-reklam-ver.webp');
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: overlay;
+            background: var(--instagram-gradient);
             color: var(--white);
             padding: 180px 5% 100px;
             text-align: center;
@@ -314,18 +309,6 @@
             min-height: 70vh;
             display: flex;
             align-items: center;
-        }
-
-        .instagram-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--instagram-gradient);
-            opacity: 0.3;
-            z-index: 1;
         }
 
         .instagram-hero-content {
@@ -1530,6 +1513,12 @@
         </div>
     </section>
 
+    <!-- GÖRSEL BÖLÜMÜ -->
+    <div class="image-container" style="margin: 80px auto; max-width: 1200px; padding: 0 5%; text-align: center;">
+        <img src="/images/web4medya-instagram-reklam-ver.webp" alt="Instagram Reklam Ver - Web4 Medya Instagram Reklam Ajansı" class="seo-image" loading="lazy" style="max-width: 100%; height: auto; border-radius: var(--radius); box-shadow: var(--shadow);">
+        <p class="image-caption" style="margin-top: 15px; color: var(--gray); font-style: italic; font-size: 0.95rem;">Web4 Medya Instagram reklam ajansı olarak reklamlarınızı profesyonel şekilde yönetiyoruz.</p>
+    </div>
+
     <!-- HIZLI TEKLİF KARTI -->
     <section class="quick-quote">
         <h2>Hızlı Teklif Al</h2>
@@ -1887,6 +1876,8 @@
                     this.src = 'https://via.placeholder.com/800x450/5851DB/FFFFFF?text=Instagram+Reklamları+Nasıl+Verilir';
                 } else if (this.src.includes('instagram-reklam-fiyatlari')) {
                     this.src = 'https://via.placeholder.com/800x450/E1306C/FFFFFF?text=Instagram+Reklam+Fiyatları';
+                } else if (this.src.includes('web4medya-instagram-reklam-ver')) {
+                    this.src = 'https://via.placeholder.com/800x450/833AB4/FFFFFF?text=Web4+Medya+Instagram+Reklam+Ver';
                 }
             };
         });
