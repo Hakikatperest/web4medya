@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
     <style>
-        /* DEĞİŞKENLER */
+        /* OPTİMİZE EDİLMİŞ DEĞİŞKENLER */
         :root {
             --primary: #0A2463;
             --gradient-1: #0A2463;
@@ -64,7 +64,7 @@
                 linear-gradient(180deg, #F7FFF7 0%, #FFFFFF 100%);
         }
 
-        /* HEADER */
+        /* OPTİMİZE HEADER */
         .header {
             position: fixed;
             top: 0;
@@ -72,7 +72,6 @@
             right: 0;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
             padding: 0 5%;
             display: flex;
             justify-content: space-between;
@@ -88,7 +87,7 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
-        /* LOGO */
+        /* OPTİMİZE LOGO */
         .logo {
             display: flex;
             align-items: center;
@@ -102,10 +101,9 @@
             width: auto;
             max-height: 60px;
             object-fit: contain;
-            background: transparent;
         }
 
-        /* NAVIGATION */
+        /* OPTİMİZE NAVIGATION */
         .nav-desktop {
             display: flex;
             align-items: center;
@@ -130,15 +128,12 @@
             gap: 6px;
         }
 
-        .nav-link:hover {
+        .nav-link:hover,
+        .nav-link.active {
             color: var(--accent);
         }
 
-        .nav-link.active {
-            color: var(--primary);
-        }
-
-        /* DROPDOWN */
+        /* OPTİMİZE DROPDOWN */
         .dropdown {
             position: absolute;
             top: 100%;
@@ -207,7 +202,7 @@
             transform: rotate(180deg);
         }
 
-        /* HEADER CTA BUTTON */
+        /* OPTİMİZE HEADER CTA */
         .header-cta .btn {
             background: linear-gradient(135deg, var(--accent-light), #FFD93D);
             color: var(--primary);
@@ -264,13 +259,9 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* HERO SECTION - AŞAĞI UZATILDI */
+        /* OPTİMİZE HERO SECTION */
         .hero {
-            background: linear-gradient(rgba(10, 36, 99, 0.85), rgba(62, 146, 204, 0.85)),
-                        url('/images/w4medya-arkaplan1.webp');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: linear-gradient(rgba(10, 36, 99, 0.85), rgba(62, 146, 204, 0.85));
             color: var(--white);
             padding: 160px 5% 140px;
             text-align: center;
@@ -279,7 +270,6 @@
             min-height: 85vh;
             display: flex;
             align-items: center;
-            margin-top: 0;
         }
 
         .hero-content {
@@ -325,7 +315,7 @@
             text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
         }
 
-        /* BUTTONS - IŞIK EFEKTLİ BUTONLAR */
+        /* OPTİMİZE BUTTONLAR */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -336,29 +326,20 @@
             font-weight: 600;
             text-decoration: none;
             transition: var(--transition);
-            border: none;
+            border: 2px solid transparent;
             cursor: pointer;
             font-size: 1rem;
             position: relative;
             overflow: hidden;
         }
 
-        /* IŞIK DALGASI EFEKTİ - TÜM BUTONLAR İÇİN */
-        .btn-primary,
-        .btn-whatsapp,
-        .floating-btn,
-        .header-cta .btn,
-        .mobile-nav-item a[style*="background: linear-gradient"] {
+        /* ORTAK IŞIK EFEKTİ */
+        .light-effect {
             position: relative;
             overflow: hidden;
         }
 
-        /* SÜREKLİ IŞIK DALGASI */
-        .btn-primary::after,
-        .btn-whatsapp::after,
-        .floating-btn::after,
-        .header-cta .btn::after,
-        .mobile-nav-item a[style*="background: linear-gradient"]::after {
+        .light-effect::after {
             content: '';
             position: absolute;
             top: -50%;
@@ -377,28 +358,6 @@
             pointer-events: none;
         }
 
-        /* FARKLI HIZLARDA DALGALAR */
-        .btn-primary::after {
-            animation: lightWave 3s infinite linear;
-        }
-
-        .btn-whatsapp::after {
-            animation: lightWave 2.5s infinite linear;
-        }
-
-        .floating-btn::after {
-            animation: lightWave 2s infinite linear;
-        }
-
-        .header-cta .btn::after {
-            animation: lightWave 3.5s infinite linear;
-        }
-
-        /* MOBİL MENÜDEKİ BUTON */
-        .mobile-nav-item a[style*="background: linear-gradient"]::after {
-            animation: lightWave 4s infinite linear;
-        }
-
         @keyframes lightWave {
             0% {
                 transform: translateX(-100%) translateY(-100%) rotate(30deg);
@@ -408,32 +367,38 @@
             }
         }
 
-        /* BUTON İÇERİĞİNİ IŞIK EFEKTİNİN ÜZERİNE GETİR */
-        .btn-primary > *,
-        .btn-whatsapp > *,
-        .floating-btn > *,
-        .header-cta .btn > *,
-        .mobile-nav-item a[style*="background: linear-gradient"] > * {
+        .light-effect > * {
             position: relative;
             z-index: 2;
         }
 
-        /* HOVER EFEKTLERİ */
-        .btn-primary:hover,
-        .btn-whatsapp:hover {
-            transform: translateY(-3px);
-        }
-
+        /* BUTON TİPLERİ */
         .btn-primary {
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
             color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
         .btn-whatsapp {
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-yellow {
+            background: linear-gradient(135deg, var(--accent-light), #FFD93D);
+            color: var(--primary);
+        }
+
+        /* HOVER EFEKTLERİ */
+        .btn:hover:not(.floating-btn) {
+            transform: translateY(-3px);
+        }
+
+        .hero-buttons .btn:hover,
+        .cta-buttons .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
         /* HERO BUTTONS */
@@ -452,12 +417,7 @@
             font-size: 1.1rem;
         }
 
-        .hero-buttons .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* MOBILE MENU */
+        /* OPTİMİZE MOBILE MENU */
         .mobile-menu {
             position: fixed;
             top: 60px;
@@ -500,6 +460,14 @@
 
         .mobile-nav-link:hover {
             color: var(--accent);
+        }
+
+        .mobile-cta-btn {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2)) !important;
+            color: white !important;
+            border: none !important;
+            margin-top: 10px;
+            border-radius: var(--radius-sm);
         }
 
         .mobile-dropdown-btn {
@@ -565,19 +533,16 @@
 
         .mobile-arrow {
             transition: transform 0.3s ease;
-            color: var(--gray-dark);
         }
 
         .mobile-dropdown-btn.active .mobile-arrow {
             transform: rotate(180deg);
         }
 
-        /* HİZMETLERİMİZ - YUKARI KALDIRILDI */
+        /* OPTİMİZE HİZMETLERİMİZ */
         .services-section {
             padding: 60px 5% 80px;
             background: #F8FAFC;
-            position: relative;
-            overflow: hidden;
             margin-top: -20px;
         }
 
@@ -632,7 +597,7 @@
             gap: 30px;
         }
 
-        /* FLIP CARD */
+        /* OPTİMİZE FLIP CARD */
         .flip-card {
             position: relative;
             height: 280px;
@@ -670,8 +635,6 @@
 
         .card-front {
             background: white;
-            justify-content: center;
-            position: relative;
             border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
@@ -696,63 +659,21 @@
             justify-content: center;
             border-radius: 50%;
             transition: var(--transition);
-        }
-
-        /* İKON RENKLERİ */
-        .icon-google {
-            background: linear-gradient(45deg, #4285F4, #34A853, #FBBC05, #EA4335);
             color: white;
         }
 
-        .icon-instagram {
-            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-            color: white;
-        }
-
-        .icon-facebook {
-            background: linear-gradient(45deg, #1877F2, #0A66C2);
-            color: white;
-        }
-
-        .icon-maps {
-            background: linear-gradient(45deg, #4285F4, #0F9D58);
-            color: white;
-        }
-
-        .icon-seo {
-            background: linear-gradient(45deg, var(--accent-light), var(--accent));
-            color: white;
-        }
-
-        .icon-social {
-            background: linear-gradient(45deg, #3B5998, #1DA1F2);
-            color: white;
-        }
-
-        .icon-ecommerce {
-            background: linear-gradient(45deg, #FF6B6B, #FFD93D);
-            color: white;
-        }
-
-        .icon-corporate {
-            background: linear-gradient(45deg, var(--gradient-3), #3E92CC);
-            color: white;
-        }
-
-        .icon-video {
-            background: linear-gradient(45deg, #FF0000, #FF6B6B);
-            color: white;
-        }
-
-        .icon-film {
-            background: linear-gradient(45deg, #6A5ACD, #9370DB);
-            color: white;
-        }
-
-        .icon-drone {
-            background: linear-gradient(45deg, #3E92CC, #4ECDC4);
-            color: white;
-        }
+        /* OPTİMİZE İKON RENKLERİ */
+        .icon-google { background: linear-gradient(45deg, #4285F4, #34A853, #FBBC05, #EA4335); }
+        .icon-instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
+        .icon-facebook { background: linear-gradient(45deg, #1877F2, #0A66C2); }
+        .icon-maps { background: linear-gradient(45deg, #4285F4, #0F9D58); }
+        .icon-seo { background: linear-gradient(45deg, var(--accent-light), var(--accent)); }
+        .icon-social { background: linear-gradient(45deg, #3B5998, #1DA1F2); }
+        .icon-ecommerce { background: linear-gradient(45deg, #FF6B6B, #FFD93D); }
+        .icon-corporate { background: linear-gradient(45deg, var(--gradient-3), #3E92CC); }
+        .icon-video { background: linear-gradient(45deg, #FF0000, #FF6B6B); }
+        .icon-film { background: linear-gradient(45deg, #6A5ACD, #9370DB); }
+        .icon-drone { background: linear-gradient(45deg, #3E92CC, #4ECDC4); }
 
         .flip-card:hover .card-front .icon {
             transform: scale(1.1) rotate(5deg);
@@ -781,7 +702,6 @@
             font-weight: 800;
             margin-bottom: 15px;
             color: white;
-            text-align: center;
             line-height: 1.3;
         }
 
@@ -791,7 +711,6 @@
             opacity: 0.95;
             margin-bottom: 20px;
             color: rgba(255, 255, 255, 0.95);
-            text-align: center;
             overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 3;
@@ -805,18 +724,10 @@
             font-weight: 600;
             font-size: 0.9rem;
             border-radius: 50px;
-            transition: var(--transition);
             text-decoration: none;
             width: 100%;
             max-width: 160px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             margin: 0 auto;
-        }
-
-        .card-back .btn:hover {
-            transform: translateY(-2px);
         }
 
         /* NEDEN BİZ SECTION */
@@ -824,8 +735,6 @@
             padding: 100px 5%;
             background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
             color: white;
-            position: relative;
-            overflow: hidden;
         }
 
         .why-us .section-title {
@@ -892,7 +801,7 @@
             font-size: 1rem;
         }
 
-        /* CTA SECTION */
+        /* OPTİMİZE CTA SECTION */
         .cta-section {
             padding: 100px 5%;
             background: linear-gradient(135deg, 
@@ -900,8 +809,6 @@
                 rgba(62, 146, 204, 0.95));
             text-align: center;
             color: white;
-            position: relative;
-            overflow: hidden;
         }
 
         .cta-content {
@@ -914,7 +821,6 @@
             font-weight: 900;
             margin-bottom: 20px;
             line-height: 1.2;
-            color: white;
             background: linear-gradient(45deg, white, var(--accent-light), var(--accent));
             -webkit-background-clip: text;
             background-clip: text;
@@ -945,12 +851,7 @@
             font-size: 1.1rem;
         }
 
-        .cta-buttons .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* FLOATING BUTTONS - IŞIK EFEKTLİ */
+        /* OPTİMİZE FLOATING BUTTONS */
         .floating-cta {
             position: fixed;
             bottom: 120px;
@@ -968,14 +869,11 @@
             width: 65px;
             height: 65px;
             border-radius: 50%;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: var(--transition);
             text-decoration: none;
             font-size: 1.9rem;
             position: relative;
             overflow: hidden;
-            transform: translateZ(0);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         .floating-btn:hover {
@@ -1008,13 +906,11 @@
             }
         }
 
-        /* FOOTER */
+        /* OPTİMİZE FOOTER */
         .footer {
             background: white;
             color: var(--dark);
             padding: 80px 5% 40px;
-            position: relative;
-            overflow: hidden;
             border-top: 4px solid var(--accent);
         }
 
@@ -1057,7 +953,6 @@
         .footer-logo img {
             height: 60px;
             width: auto;
-            background: transparent;
         }
 
         .footer-logo-text {
@@ -1198,7 +1093,13 @@
             color: var(--accent);
         }
 
-        /* RESPONSIVE */
+        /* DRONE ICON FIX */
+        .fa-drone:before {
+            content: "\f0b2";
+            font-family: "Font Awesome 5 Free";
+        }
+
+        /* OPTİMİZE RESPONSIVE */
         @media (max-width: 1024px) {
             .nav-desktop {
                 display: none;
@@ -1215,19 +1116,12 @@
             .category-grid {
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
-            
-            .hero-buttons .btn,
-            .cta-buttons .btn {
-                min-width: 240px;
-                padding: 16px 32px;
-            }
         }
 
         @media (max-width: 768px) {
             .hero {
                 padding: 140px 4% 80px;
                 min-height: auto;
-                background-attachment: scroll;
             }
             
             .services-section {
@@ -1236,7 +1130,6 @@
             
             .category-title {
                 font-size: 1.6rem;
-                margin-bottom: 30px;
             }
             
             .flip-card {
@@ -1255,7 +1148,6 @@
                 width: 100%;
                 max-width: 320px;
                 padding: 16px 32px;
-                font-size: 1rem;
             }
             
             .category-grid {
@@ -1273,17 +1165,12 @@
             
             .card-back .btn {
                 padding: 10px 16px;
-                font-size: 0.85rem;
                 max-width: 140px;
             }
             
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
-            }
-            
-            .mobile-menu {
-                top: 60px;
             }
             
             .floating-cta {
@@ -1301,11 +1188,6 @@
         @media (max-width: 480px) {
             .header {
                 padding: 0 20px;
-                height: 60px;
-            }
-            
-            .logo {
-                height: 50px;
             }
             
             .logo img {
@@ -1332,7 +1214,6 @@
             
             .category-title {
                 font-size: 1.4rem;
-                margin-bottom: 20px;
             }
             
             .flip-card {
@@ -1346,7 +1227,6 @@
             .card-front .icon {
                 width: 70px;
                 height: 70px;
-                margin-bottom: 20px;
             }
             
             .card-front h3,
@@ -1356,12 +1236,10 @@
             
             .card-back p {
                 font-size: 0.9rem;
-                margin-bottom: 15px;
             }
             
             .card-back .btn {
                 padding: 8px 16px;
-                font-size: 0.8rem;
                 max-width: 130px;
             }
             
@@ -1394,7 +1272,6 @@
 <body>
     <!-- HEADER -->
     <header class="header" id="mainHeader">
-        <!-- Logo -->
         <a href="#" class="logo" id="homeLink" aria-label="Web4 Medya - Ana Sayfa">
             <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
         </a>
@@ -1454,9 +1331,9 @@
                 <a href="/iletisim/" class="nav-link">İletişim</a>
             </div>
             
-            <!-- HEADER CTA BUTTON - IŞIK EFEKTLİ -->
+            <!-- HEADER CTA BUTTON -->
             <div class="header-cta">
-                <a href="tel:05422360983" class="btn">
+                <a href="tel:05422360983" class="btn btn-yellow light-effect">
                     <i class="fas fa-phone-alt"></i> 0542 236 09 83
                 </a>
             </div>
@@ -1473,18 +1350,15 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <nav class="mobile-nav">
-            <!-- Ana Sayfa -->
             <div class="mobile-nav-item">
                 <a href="#" class="mobile-nav-link active" id="mobileHomeLink">Ana Sayfa</a>
             </div>
             
-            <!-- Hizmetler -->
             <div class="mobile-nav-item">
                 <button class="mobile-dropdown-btn" data-target="hizmetlerMobile">
                     Hizmetler <i class="fas fa-chevron-down mobile-arrow"></i>
                 </button>
                 <div class="mobile-dropdown-content" id="hizmetlerMobile">
-                    <!-- Dijital Pazarlama -->
                     <div class="mobile-dropdown-section">
                         <h4>Dijital Pazarlama</h4>
                         <a href="/google-ads-reklam-ver/" class="mobile-dropdown-link">Google Ads Reklam Ver</a>
@@ -1495,14 +1369,12 @@
                         <a href="/sosyal-medya-yonetimi/" class="mobile-dropdown-link">Sosyal Medya Yönetimi</a>
                     </div>
                     
-                    <!-- Web Tasarım -->
                     <div class="mobile-dropdown-section">
                         <h4>Web Tasarım</h4>
                         <a href="/e-ticaret-sitesi/" class="mobile-dropdown-link">E-Ticaret Sitesi</a>
                         <a href="/kurumsal-web-sitesi/" class="mobile-dropdown-link">Kurumsal Web Sitesi</a>
                     </div>
                     
-                    <!-- Prodüksiyon -->
                     <div class="mobile-dropdown-section">
                         <h4>Prodüksiyon</h4>
                         <a href="/sosyal-medya-videolari/" class="mobile-dropdown-link">Sosyal Medya Videoları</a>
@@ -1512,24 +1384,20 @@
                 </div>
             </div>
             
-            <!-- Blog -->
             <div class="mobile-nav-item">
                 <a href="/blog/" class="mobile-nav-link">Blog</a>
             </div>
             
-            <!-- Hakkımızda -->
             <div class="mobile-nav-item">
                 <a href="/hakkimizda/" class="mobile-nav-link">Hakkımızda</a>
             </div>
             
-            <!-- İletişim -->
             <div class="mobile-nav-item">
                 <a href="/iletisim/" class="mobile-nav-link">İletişim</a>
             </div>
             
-            <!-- Mobile CTA - IŞIK EFEKTLİ -->
             <div class="mobile-nav-item">
-                <a href="tel:05422360983" class="mobile-nav-link" style="background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2)); color: white;">
+                <a href="tel:05422360983" class="mobile-nav-link mobile-cta-btn light-effect">
                     <i class="fas fa-phone-alt"></i> 0542 236 09 83
                 </a>
             </div>
@@ -1541,11 +1409,11 @@
         <div class="hero-content">
             <h1>Dijitalde Fark Yaratın</h1>
             <p>Web Tasarım, SEO, Google & Meta Ads Reklamları ve profesyonel prodüksiyon çözümlerimizle markanızı dijital dünyada öne çıkarıyoruz.</p>
-             <div class="cta-buttons">
-                <a href="tel:05422360983" class="btn btn-primary">
+             <div class="hero-buttons">
+                <a href="tel:05422360983" class="btn btn-primary light-effect">
                     <i class="fas fa-phone-alt"></i> 0542 236 09 83
                 </a>
-                <a href="https://wa.me/905422360983" class="btn btn-whatsapp">
+                <a href="https://wa.me/905422360983" class="btn btn-whatsapp light-effect">
                     <i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz
                 </a>
             </div>
@@ -1560,11 +1428,9 @@
         </div>
         
         <div class="services-container">
-            <!-- DİJİTAL PAZARLAMA KATEGORİSİ -->
             <div class="service-category">
                 <h2 class="category-title">Dijital Pazarlama Hizmetlerimiz</h2>
                 <div class="category-grid">
-                    <!-- Google Ads -->
                     <div class="flip-card" data-id="google-ads">
                         <div class="card-face card-front">
                             <div class="icon icon-google">
@@ -1579,7 +1445,6 @@
                         </div>
                     </div>
                     
-                    <!-- Instagram Reklam -->
                     <div class="flip-card" data-id="instagram-ads">
                         <div class="card-face card-front">
                             <div class="icon icon-instagram">
@@ -1594,7 +1459,6 @@
                         </div>
                     </div>
                     
-                    <!-- Facebook Reklam -->
                     <div class="flip-card" data-id="facebook-ads">
                         <div class="card-face card-front">
                             <div class="icon icon-facebook">
@@ -1609,7 +1473,6 @@
                         </div>
                     </div>
                     
-                    <!-- Google Maps -->
                     <div class="flip-card" data-id="google-maps">
                         <div class="card-face card-front">
                             <div class="icon icon-maps">
@@ -1624,7 +1487,6 @@
                         </div>
                     </div>
                     
-                    <!-- SEO -->
                     <div class="flip-card" data-id="seo">
                         <div class="card-face card-front">
                             <div class="icon icon-seo">
@@ -1639,7 +1501,6 @@
                         </div>
                     </div>
                     
-                    <!-- Sosyal Medya Yönetimi -->
                     <div class="flip-card" data-id="social-media">
                         <div class="card-face card-front">
                             <div class="icon icon-social">
@@ -1656,11 +1517,9 @@
                 </div>
             </div>
             
-            <!-- WEB TASARIM KATEGORİSİ -->
             <div class="service-category">
                 <h2 class="category-title">Web Tasarım Hizmetlerimiz</h2>
                 <div class="category-grid">
-                    <!-- E-Ticaret -->
                     <div class="flip-card" data-id="ecommerce">
                         <div class="card-face card-front">
                             <div class="icon icon-ecommerce">
@@ -1675,7 +1534,6 @@
                         </div>
                     </div>
                     
-                    <!-- Kurumsal Web -->
                     <div class="flip-card" data-id="corporate-web">
                         <div class="card-face card-front">
                             <div class="icon icon-corporate">
@@ -1692,11 +1550,9 @@
                 </div>
             </div>
             
-            <!-- PRODÜKSİYON KATEGORİSİ -->
             <div class="service-category">
                 <h2 class="category-title">Prodüksiyon Hizmetlerimiz</h2>
                 <div class="category-grid">
-                    <!-- Sosyal Medya Videoları -->
                     <div class="flip-card" data-id="social-videos">
                         <div class="card-face card-front">
                             <div class="icon icon-video">
@@ -1711,7 +1567,6 @@
                         </div>
                     </div>
                     
-                    <!-- Tanıtım Filmi -->
                     <div class="flip-card" data-id="promo-video">
                         <div class="card-face card-front">
                             <div class="icon icon-film">
@@ -1726,7 +1581,6 @@
                         </div>
                     </div>
                     
-                    <!-- Drone Çekimi -->
                     <div class="flip-card" data-id="drone">
                         <div class="card-face card-front">
                             <div class="icon icon-drone">
@@ -1785,10 +1639,10 @@
             <h2>İşinizi Dijitalde Büyütmeye Hazır mısınız?</h2>
             <p>Web4 Medya uzmanları sizin için en uygun dijital stratejiyi belirlesin. Ücretsiz danışmanlık ve analiz hizmetimizden yararlanın.</p>
             <div class="cta-buttons">
-                <a href="tel:05422360983" class="btn btn-primary">
+                <a href="tel:05422360983" class="btn btn-primary light-effect">
                     <i class="fas fa-phone-alt"></i> 0542 236 09 83
                 </a>
-                <a href="https://wa.me/905422360983" class="btn btn-whatsapp">
+                <a href="https://wa.me/905422360983" class="btn btn-whatsapp light-effect">
                     <i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz
                 </a>
             </div>
@@ -1798,7 +1652,6 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
-            <!-- Logo ve Açıklama -->
             <div class="footer-section">
                 <div class="footer-logo">
                     <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
@@ -1826,7 +1679,6 @@
                 </div>
             </div>
             
-            <!-- Hızlı Bağlantılar -->
             <div class="footer-section">
                 <h3>Hızlı Bağlantılar</h3>
                 <ul class="footer-links">
@@ -1838,7 +1690,6 @@
                 </ul>
             </div>
             
-            <!-- Hizmetler -->
             <div class="footer-section">
                 <h3>Hizmetlerimiz</h3>
                 <ul class="footer-links">
@@ -1848,18 +1699,17 @@
                     <li><a href="/seo/"><i class="fas fa-chevron-right"></i> SEO Hizmeti</a></li>
                     <li><a href="/web-tasarim/"><i class="fas fa-chevron-right"></i> Web Tasarım</a></li>
                     <li><a href="/sosyal-medya-videolari/"><i class="fas fa-chevron-right"></i> Sosyal Medya Videoları</a></li>
-                     <li><a href="/drone-cekimi/"><i class="fas fa-chevron-right"></i> Drone Çekimi</a></li>
+                    <li><a href="/drone-cekimi/"><i class="fas fa-chevron-right"></i> Drone Çekimi</a></li>
                 </ul>
             </div>
             
-            <!-- İletişim Bilgileri -->
             <div class="footer-section">
                 <h3>İletişim Bilgileri</h3>
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-phone-alt"></i>
                         <div>
-                            <a href="tel:05422360983">Hemen Ara: 0542 236 09 83</a>
+                            <a href="tel:05422360983">0542 236 09 83</a>
                             <span>Ücretsiz danışmanlık için arayın</span>
                         </div>
                     </div>
@@ -1891,191 +1741,129 @@
         </div>
     </footer>
     
-    <!-- FLOATING CTA BUTTONLARI - IŞIK EFEKTLİ -->
+    <!-- FLOATING CTA BUTTONLARI -->
     <div class="floating-cta">
-        <a href="https://wa.me/905422360983" class="floating-btn floating-whatsapp" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/905422360983" class="floating-btn floating-whatsapp light-effect" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="tel:05422360983" class="floating-btn floating-phone">
+        <a href="tel:05422360983" class="floating-btn floating-phone light-effect">
             <i class="fas fa-phone-alt"></i>
         </a>
     </div>
 
     <script>
-        // Header scroll effect
+        // OPTİMİZE HEADER SCROLL
         const header = document.getElementById('mainHeader');
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 20) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 20);
         });
 
-        // Mobile menu
+        // OPTİMİZE MOBILE MENU
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
 
-        if (menuToggle) {
-            menuToggle.addEventListener('click', function(e) {
-                e.stopPropagation();
-                this.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
-            });
-        }
+        menuToggle?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
 
-        // Desktop Dropdown Hover
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => {
+        // OPTİMİZE DESKTOP DROPDOWN
+        document.querySelectorAll('.nav-item').forEach(item => {
             const dropdown = item.querySelector('.dropdown');
             if (dropdown) {
-                item.addEventListener('mouseenter', () => {
-                    dropdown.classList.add('active');
-                });
-                
-                item.addEventListener('mouseleave', () => {
-                    dropdown.classList.remove('active');
-                });
+                item.addEventListener('mouseenter', () => dropdown.classList.add('active'));
+                item.addEventListener('mouseleave', () => dropdown.classList.remove('active'));
             }
         });
 
-        // Mobile Dropdown Toggle
-        const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
-        mobileDropdownBtns.forEach(btn => {
+        // OPTİMİZE MOBILE DROPDOWN
+        document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
             btn.addEventListener('click', function() {
-                const targetId = this.getAttribute('data-target');
-                const target = document.getElementById(targetId);
+                const target = document.getElementById(this.dataset.target);
+                const isActive = this.classList.toggle('active');
                 
-                document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
-                    if (dropdown.id !== targetId) {
-                        dropdown.classList.remove('active');
-                        const otherBtn = dropdown.parentElement.querySelector('.mobile-dropdown-btn');
-                        if (otherBtn) otherBtn.classList.remove('active');
-                    }
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(d => {
+                    if (d !== target) d.classList.remove('active');
                 });
                 
-                this.classList.toggle('active');
-                if (target) {
-                    target.classList.toggle('active');
+                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => {
+                    if (b !== this) b.classList.remove('active');
+                });
+                
+                if (target) target.classList.toggle('active', isActive);
+            });
+        });
+
+        // OPTİMİZE FLIP CARDS
+        document.querySelectorAll('.flip-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (e.target.closest('a')) return;
+                
+                const isFlipped = this.classList.toggle('flipped');
+                
+                if (isFlipped) {
+                    document.querySelectorAll('.flip-card.flipped').forEach(other => {
+                        if (other !== this) other.classList.remove('flipped');
+                    });
                 }
             });
         });
 
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', function(e) {
+        // CLOSE DROPDOWNS ON CLICK OUTSIDE
+        document.addEventListener('click', (e) => {
             if (!e.target.closest('.nav-item')) {
-                document.querySelectorAll('.dropdown.active').forEach(dropdown => {
-                    dropdown.classList.remove('active');
-                });
+                document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
             }
             
             if (!e.target.closest('.menu-toggle') && !e.target.closest('.mobile-menu')) {
-                if (menuToggle) menuToggle.classList.remove('active');
-                if (mobileMenu) mobileMenu.classList.remove('active');
+                menuToggle?.classList.remove('active');
+                mobileMenu?.classList.remove('active');
             }
-        });
-
-        // FLIP CARD FUNCTIONALITY
-        const flipCards = document.querySelectorAll('.flip-card');
-        
-        flipCards.forEach(card => {
-            card.addEventListener('click', function(e) {
-                if (e.target.closest('a')) {
-                    return;
-                }
-                
-                if (!this.classList.contains('flipped')) {
-                    this.classList.add('flipped');
-                    
-                    flipCards.forEach(otherCard => {
-                        if (otherCard !== this && otherCard.classList.contains('flipped')) {
-                            otherCard.classList.remove('flipped');
-                        }
-                    });
-                } else {
-                    this.classList.remove('flipped');
-                }
-            });
-        });
-
-        // Kart dışına tıklayınca kartları sıfırla
-        document.addEventListener('click', function(e) {
+            
             if (!e.target.closest('.flip-card')) {
-                flipCards.forEach(card => {
-                    card.classList.remove('flipped');
-                });
+                document.querySelectorAll('.flip-card.flipped').forEach(c => c.classList.remove('flipped'));
             }
         });
 
-        // LOGOYA TIKLAYINCA SAYFA BAŞINA SMOOTH SCROLL
+        // OPTİMİZE SMOOTH SCROLL
         const homeLink = document.getElementById('homeLink');
         const mobileHomeLink = document.getElementById('mobileHomeLink');
         
         function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
         
-        if (homeLink) {
-            homeLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                scrollToTop();
-            });
-        }
+        homeLink?.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToTop();
+        });
         
-        if (mobileHomeLink) {
-            mobileHomeLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                scrollToTop();
-                if (menuToggle) menuToggle.classList.remove('active');
-                if (mobileMenu) mobileMenu.classList.remove('active');
-            });
-        }
+        mobileHomeLink?.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToTop();
+            menuToggle?.classList.remove('active');
+            mobileMenu?.classList.remove('active');
+        });
 
-        // Close mobile menu when clicking a link
+        // CLOSE MOBILE MENU ON LINK CLICK
         document.querySelectorAll('.mobile-dropdown-link, .mobile-nav-link').forEach(link => {
-            link.addEventListener('click', function() {
-                if (menuToggle) menuToggle.classList.remove('active');
-                if (mobileMenu) mobileMenu.classList.remove('active');
-                document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
-                    dropdown.classList.remove('active');
-                });
-                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(btn => {
-                    btn.classList.remove('active');
-                });
+            link.addEventListener('click', () => {
+                menuToggle?.classList.remove('active');
+                mobileMenu?.classList.remove('active');
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(d => d.classList.remove('active'));
+                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => b.classList.remove('active'));
             });
         });
 
-        // Image fallback
-        const logo = document.querySelector('.logo img');
-        if (logo) {
-            logo.onerror = function() {
+        // IMAGE FALLBACK
+        document.querySelectorAll('.logo img, .footer-logo img').forEach(img => {
+            img.onerror = function() {
                 this.onerror = null;
                 this.src = 'https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';
-                this.alt = 'Web4 Medya Logo - Placeholder';
+                this.alt = 'Web4 Medya Logo';
             };
-        }
-        
-        const footerLogo = document.querySelector('.footer-logo img');
-        if (footerLogo) {
-            footerLogo.onerror = function() {
-                this.onerror = null;
-                this.src = 'https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';
-                this.alt = 'Web4 Medya Logo - Placeholder';
-            };
-        }
-        
-        // Add drone icon
-        const style = document.createElement('style');
-        style.textContent = `
-            .fa-drone:before {
-                content: "\\f0b2";
-                font-family: "Font Awesome 5 Free";
-            }
-        `;
-        document.head.appendChild(style);
+        });
     </script>
 </body>
 </html>
