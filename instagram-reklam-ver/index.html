@@ -323,11 +323,30 @@
             font-weight: 900;
             margin-bottom: 30px;
             line-height: 1.1;
-            background: var(--instagram-gradient);
+            background: linear-gradient(90deg, 
+                #FFFFFF 0%,          /* Beyaz */
+                #FFE66D 33%,         /* Sarı */
+                #FFD93D 66%,         /* Daha koyu sarı */
+                #405DE6 100%         /* Instagram mavisi */
+            );
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            animation: titleGradient 8s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes titleGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .instagram-hero p {
