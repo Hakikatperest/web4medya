@@ -299,7 +299,7 @@
             font-weight: 900;
             margin-bottom: 20px;
             line-height: 1.2;
-            color: var(--white); /* Sadece beyaz renk */
+            color: var(--white);
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
@@ -311,6 +311,35 @@
             font-weight: 300;
             line-height: 1.7;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hero bölümündeki butonları düzenle */
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .hero-buttons .btn {
+            width: 100%;
+            padding: 18px 30px;
+            font-size: 1.1rem;
+            justify-content: center;
+            min-height: 60px;
+        }
+
+        /* Arama butonunu mavi yap */
+        .hero-buttons .btn-success {
+            background: linear-gradient(135deg, #0A2463, #3E92CC);
+            color: white;
+        }
+
+        .hero-buttons .btn-success:hover {
+            background: linear-gradient(135deg, #091e55, #3681b7);
+            transform: translateY(-3px);
         }
 
         /* BUTTONLAR */
@@ -891,7 +920,7 @@
             left: 0;
             width: 40px;
             height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            background: linear-gradient(90deg, var(--accent), var(--accent-light);
         }
 
         .footer-logo {
