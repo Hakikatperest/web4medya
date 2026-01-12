@@ -930,12 +930,20 @@
             line-height: 1.6;
         }
 
-        .quick-quote .btn {
-            min-width: 280px;
-            padding: 20px 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
+        .quick-quote-btn {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    font-size: 1.1rem; /* Biraz küçült */
+    padding: 16px 30px; /* Biraz küçült */
+    width: auto; /* DEĞİŞTİR: 100% yerine auto */
+    max-width: 90%; /* EKLE: Maksimum genişlik */
+    display: inline-flex; /* DEĞİŞTİR: flex yerine inline-flex */
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Biraz küçült */
+    margin-top: 10px; /* EKLE: Üstten boşluk */
+    white-space: nowrap; /* EKLE: Metni tek satırda tut */
+}
 
         /* SIK SORULAN SORULAR */
         .faq-section {
