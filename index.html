@@ -18,86 +18,30 @@
     <meta property="og:image" content="images/web4medya-logo.png" />
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
     <style>
-        /* YAZMA EFEKTİ İÇİN STİLLER */
-        .typing-heading {
-            position: relative;
-            display: inline-block;
-            min-height: 1.5em;
-            text-align: left;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 2px solid transparent;
-        }
-
-        .typing-heading::after {
-            content: "|";
-            position: absolute;
-            font-weight: 300;
-            color: var(--accent);
-            margin-left: 2px;
-            right: -8px;
-            animation: blink 0.7s infinite;
-            opacity: var(--cursor-opacity, 1);
-            transition: opacity 0.1s ease;
-        }
-
-        .typing-heading.completed::after {
-            display: none;
-        }
-
-        @keyframes blink {
-            0%, 100% {
-                opacity: var(--cursor-opacity, 1);
-            }
-            50% {
-                opacity: calc(var(--cursor-opacity, 1) * 0.3);
-            }
-        }
-
-        /* Başlık yazılırken imleç daha belirgin */
-        .typing-heading.typing-started::after {
-            animation: typingBlink 0.8s infinite;
-        }
-
-        @keyframes typingBlink {
-            0%, 100% {
-                opacity: var(--cursor-opacity, 1);
-            }
-            50% {
-                opacity: calc(var(--cursor-opacity, 1) * 0.2);
-            }
-        }
-        
+        /* DEĞİŞKENLER */
         :root {
-            --primary: #0A2463; /* Derin Mavi */
-            --primary-light: #3E92CC; /* Açık Mavi */
-            --primary-dark: #072448; /* Koyu mavi */
-            --gradient-1: #0A2463; /* Yeni gradient renk 1 */
-            --gradient-2: #3E92CC; /* Yeni gradient renk 2 */
-            --gradient-3: #4ECDC4; /* Yeni gradient renk 3 */
-            --secondary: #FFFFFF; /* BEYAZ */
-            --accent: #FF6B6B; /* Canlı Kırmızı */
-            --accent-light: #FFE66D; /* Sarı */
-            --accent-green: #4ECDC4; /* Turkuaz */
-            --dark: #1F2937; /* Koyu gri */
-            --black: #000000; /* Siyah */
-            --gray-dark: #374151; /* Gri */
-            --gray: #6B7280; /* Orta gri */
-            --gray-light: #E5E7EB; /* Açık gri */
-            --light: #F7FFF7; /* Çok açık gri */
-            --white: #FFFFFF; /* BEYAZ */
+            --primary: #0A2463;
+            --gradient-1: #0A2463;
+            --gradient-2: #3E92CC;
+            --gradient-3: #4ECDC4;
+            --accent: #FF6B6B;
+            --accent-light: #FFE66D;
+            --dark: #1F2937;
+            --gray-dark: #374151;
+            --gray: #6B7280;
+            --gray-light: #E5E7EB;
+            --light: #F7FFF7;
+            --white: #FFFFFF;
             --shadow: 0 10px 40px rgba(10, 36, 99, 0.1);
-            --shadow-hover: 0 20px 60px rgba(10, 36, 99, 0.2);
-            --shadow-neon: 0 0 20px rgba(62, 146, 204, 0.5);
             --radius: 20px;
             --radius-sm: 12px;
             --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            --transition-fast: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* TEMEL STİLLER */
         * {
             margin: 0;
             padding: 0;
@@ -120,7 +64,7 @@
                 linear-gradient(180deg, #F7FFF7 0%, #FFFFFF 100%);
         }
 
-        /* MODERN HEADER - HATA DÜZELTİLDİ (Boşluk kaldırıldı) */
+        /* HEADER */
         .header {
             position: fixed;
             top: 0;
@@ -148,20 +92,9 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
             height: 60px;
             cursor: pointer;
             text-decoration: none;
-            position: relative;
-        }
-
-        .logo-inner {
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover .logo-inner {
-            transform: scale(1.05);
         }
 
         .logo img {
@@ -172,7 +105,7 @@
             background: transparent;
         }
 
-        /* MODERN NAVIGATION */
+        /* NAVIGATION */
         .nav-desktop {
             display: flex;
             align-items: center;
@@ -205,18 +138,7 @@
             color: var(--primary);
         }
 
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-light));
-            border-radius: 2px;
-        }
-
-        /* DROPDOWN MENÜ - MAVİ ARKA PLAN YAPILDI */
+        /* DROPDOWN */
         .dropdown {
             position: absolute;
             top: 100%;
@@ -252,7 +174,6 @@
             border-bottom: none;
         }
 
-        /* DROPDOWN BAŞLIKLARI MAVİ YAPILDI */
         .dropdown-section h4 {
             font-size: 0.85rem;
             color: white;
@@ -287,11 +208,6 @@
         }
 
         /* HEADER CTA BUTTON */
-        .header-cta {
-            display: flex;
-            align-items: center;
-        }
-
         .header-cta .btn {
             background: linear-gradient(135deg, var(--accent-light), #FFD93D);
             color: var(--primary);
@@ -312,10 +228,9 @@
         .header-cta .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(255, 230, 109, 0.3);
-            background: linear-gradient(135deg, #FFD93D, var(--accent-light));
         }
 
-        /* HAMBURGER MENU - SİYAH YAPILDI */
+        /* HAMBURGER MENU */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -349,7 +264,7 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* HERO SECTION - HEADER BOŞLUĞU DÜZELTİLDİ */
+        /* HERO SECTION - AŞAĞI UZATILDI */
         .hero {
             background: linear-gradient(rgba(10, 36, 99, 0.85), rgba(62, 146, 204, 0.85)),
                         url('/images/w4medya-arkaplan1.webp');
@@ -357,14 +272,14 @@
             background-position: center;
             background-attachment: fixed;
             color: var(--white);
-            padding: 160px 5% 100px;
+            padding: 160px 5% 140px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            min-height: 80vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
-            margin-top: 0; /* Boşluk kaldırıldı */
+            margin-top: 0;
         }
 
         .hero-content {
@@ -374,14 +289,11 @@
             margin: 0 auto;
         }
 
-        /* BAŞLIK RENK DEĞİŞİM EFEKTİ */
         .hero h1 {
             font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 900;
             margin-bottom: 30px;
             line-height: 1.1;
-            position: relative;
-            z-index: 2;
             background: linear-gradient(45deg, 
                 var(--white) 0%, 
                 var(--accent-light) 25%, 
@@ -410,71 +322,10 @@
             margin: 0 auto 60px;
             font-weight: 300;
             line-height: 1.7;
-            position: relative;
-            z-index: 2;
             text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
         }
 
-        /* HERO BUTTONS */
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 50px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-buttons .btn {
-            min-width: 260px;
-            padding: 18px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-decoration: none;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            border: none;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .hero-buttons .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* PRIMARY BUTTON */
-        .hero-buttons .btn-primary {
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 10px 25px rgba(10, 36, 99, 0.3);
-        }
-
-        .hero-buttons .btn-primary:hover {
-            box-shadow: 0 20px 40px rgba(10, 36, 99, 0.4);
-        }
-
-        /* WHATSAPP BUTTON */
-        .hero-buttons .btn-whatsapp {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-        }
-
-        .hero-buttons .btn-whatsapp:hover {
-            box-shadow: 0 20px 40px rgba(37, 211, 102, 0.4);
-        }
-
-        /* BUTTONS - GENEL */
+        /* BUTTONS */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -492,42 +343,14 @@
             overflow: hidden;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
-            color: white;
+        .btn-primary,
+        .btn-whatsapp {
             border: 2px solid transparent;
             position: relative;
             overflow: hidden;
         }
 
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.7s ease;
-            z-index: 1;
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-        }
-
-        .btn-whatsapp {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
+        .btn-primary::before,
         .btn-whatsapp::before {
             content: '';
             position: absolute;
@@ -540,25 +363,45 @@
             z-index: 1;
         }
 
+        .btn-primary:hover::before,
         .btn-whatsapp:hover::before {
             left: 100%;
         }
 
+        .btn-primary:hover,
         .btn-whatsapp:hover {
             transform: translateY(-3px);
         }
 
-        /* Touch devices için aktif durum */
-        @media (hover: none) and (pointer: coarse) {
-            .btn-primary:active,
-            .btn-whatsapp:active {
-                transform: translateY(1px);
-            }
-            
-            .btn-primary:active::before,
-            .btn-whatsapp:active::before {
-                left: 100%;
-            }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+        }
+
+        /* HERO BUTTONS */
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .hero-buttons .btn {
+            min-width: 260px;
+            padding: 18px 40px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .hero-buttons .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
         /* MOBILE MENU */
@@ -646,21 +489,11 @@
             border-bottom: none;
         }
 
-        /* MOBİL DROPDOWN BAŞLIKLARI MAVİ YAPILDI */
         .mobile-dropdown-section h4 {
             font-size: 0.9rem;
             color: var(--primary);
             margin-bottom: 8px;
             font-weight: 700;
-        }
-
-        /* MOBİL MENÜ TELEFON NUMARASI MAVİ YAPILDI */
-        .mobile-nav-item a[style*="background: linear-gradient"] {
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2)) !important;
-            color: white !important;
-            border: none !important;
-            margin-top: 10px;
-            border-radius: var(--radius-sm);
         }
 
         .mobile-dropdown-link {
@@ -686,24 +519,13 @@
             transform: rotate(180deg);
         }
 
-        /* SCROLL ANIMATION */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .animate-on-scroll.animated {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* HİZMETLERİMİZ SECTION */
+        /* HİZMETLERİMİZ - YUKARI KALDIRILDI */
         .services-section {
-            padding: 100px 5% 80px;
+            padding: 60px 5% 80px;
             background: #F8FAFC;
             position: relative;
             overflow: hidden;
+            margin-top: -20px;
         }
 
         .section-header {
@@ -823,7 +645,7 @@
             transition: var(--transition);
         }
 
-        /* RENKLİ İKONLAR */
+        /* İKON RENKLERİ */
         .icon-google {
             background: linear-gradient(45deg, #4285F4, #34A853, #FBBC05, #EA4335);
             color: white;
@@ -944,14 +766,7 @@
             transform: translateY(-2px);
         }
 
-        /* Touch devices için kart aktif durumu */
-        @media (hover: none) and (pointer: coarse) {
-            .flip-card:active:not(.flipped) {
-                transform: scale(0.98);
-            }
-        }
-
-        /* WHY US SECTION */
+        /* NEDEN BİZ SECTION */
         .why-us {
             padding: 100px 5%;
             background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
@@ -1024,13 +839,6 @@
             font-size: 1rem;
         }
 
-        /* Touch devices için feature aktif durumu */
-        @media (hover: none) and (pointer: coarse) {
-            .feature:active {
-                transform: scale(0.98);
-            }
-        }
-
         /* CTA SECTION */
         .cta-section {
             padding: 100px 5%;
@@ -1070,7 +878,6 @@
             line-height: 1.6;
         }
 
-        /* CTA BUTTONS */
         .cta-buttons {
             display: flex;
             justify-content: center;
@@ -1081,20 +888,8 @@
         .cta-buttons .btn {
             min-width: 240px;
             padding: 18px 40px;
-            border-radius: 50px;
             font-weight: 700;
             font-size: 1.1rem;
-            text-decoration: none;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            border: none;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
         }
 
         .cta-buttons .btn:hover {
@@ -1102,29 +897,7 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
-        .cta-buttons .btn-primary {
-            background: linear-gradient(135deg, var(--accent-light), var(--accent));
-            color: var(--primary);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 10px 25px rgba(255, 230, 109, 0.3);
-        }
-
-        .cta-buttons .btn-primary:hover {
-            box-shadow: 0 20px 40px rgba(255, 230, 109, 0.4);
-        }
-
-        .cta-buttons .btn-whatsapp {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-        }
-
-        .cta-buttons .btn-whatsapp:hover {
-            box-shadow: 0 20px 40px rgba(37, 211, 102, 0.4);
-        }
-
-        /* FLOATING BUTONLARI YUKARI VE SOLA KAYDIRDIK */
+        /* FLOATING BUTTONS */
         .floating-cta {
             position: fixed;
             bottom: 120px;
@@ -1147,9 +920,6 @@
             font-size: 1.9rem;
             position: relative;
             overflow: hidden;
-            -webkit-backface-visibility: hidden;
-            -moz-backface-visibility: hidden;
-            backface-visibility: hidden;
             transform: translateZ(0);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -1172,15 +942,9 @@
             transform: translateX(0);
         }
 
-        /* FLOATING BUTONLAR */
-        .floating-btn {
+        .floating-btn:hover {
             transform: scale(1.1) rotate(5deg);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .floating-btn:active {
-            transform: scale(1) rotate(0);
-            box-shadow: 0 10px 30px rgba(20, 94, 141, 0.3);
         }
 
         .floating-whatsapp {
@@ -1190,18 +954,10 @@
             box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
         }
 
-        .floating-whatsapp:active {
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
-        }
-
         .floating-phone {
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
             color: white;
             box-shadow: 0 15px 40px rgba(20, 94, 141, 0.4);
-        }
-
-        .floating-phone:active {
-            box-shadow: 0 10px 30px rgba(20, 94, 141, 0.3);
         }
 
         @keyframes pulse {
@@ -1216,35 +972,7 @@
             }
         }
 
-        /* MOBİLDE DAHA DA YUKARI VE SOLA */
-        @media (max-width: 768px) {
-            .floating-cta {
-                bottom: 100px;
-                right: 15px;
-            }
-            
-            .floating-btn {
-                width: 60px;
-                height: 60px;
-                font-size: 1.6rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .floating-cta {
-                bottom: 80px;
-                right: 10px;
-                gap: 12px;
-            }
-            
-            .floating-btn {
-                width: 55px;
-                height: 55px;
-                font-size: 1.5rem;
-            }
-        }
-
-        /* FOOTER - BEYAZ ARKA PLAN VE SİYAH YAZI YAPILDI */
+        /* FOOTER */
         .footer {
             background: white;
             color: var(--dark);
@@ -1267,7 +995,7 @@
             font-size: 1.3rem;
             font-weight: 800;
             margin-bottom: 25px;
-            color: var(--primary); /* MAVİ YAPILDI */
+            color: var(--primary);
             position: relative;
             display: inline-block;
             padding-bottom: 10px;
@@ -1299,7 +1027,7 @@
         .footer-logo-text {
             font-size: 1.5rem;
             font-weight: 900;
-            color: var(--primary); /* MAVİ YAPILDI */
+            color: var(--primary);
         }
 
         .footer-description {
@@ -1434,26 +1162,7 @@
             color: var(--accent);
         }
 
-        /* RESPONSIVE BREAKPOINTS */
-        @media (max-width: 1200px) {
-            .header {
-                padding: 0 4%;
-            }
-            
-            .nav-desktop {
-                gap: 20px;
-            }
-            
-            .nav-link {
-                font-size: 0.9rem;
-            }
-            
-            .floating-cta {
-                bottom: 100px;
-                right: 20px;
-            }
-        }
-
+        /* RESPONSIVE */
         @media (max-width: 1024px) {
             .nav-desktop {
                 display: none;
@@ -1471,12 +1180,6 @@
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
             
-            /* Touch friendly butonlar */
-            .btn, .floating-btn, .social-link, .mobile-nav-link {
-                min-height: 44px;
-                min-width: 44px;
-            }
-            
             .hero-buttons .btn,
             .cta-buttons .btn {
                 min-width: 240px;
@@ -1491,6 +1194,10 @@
                 background-attachment: scroll;
             }
             
+            .services-section {
+                padding: 40px 4% 80px;
+            }
+            
             .category-title {
                 font-size: 1.6rem;
                 margin-bottom: 30px;
@@ -1500,27 +1207,14 @@
                 height: 260px;
             }
             
-            /* HERO BUTONLARI MOBİL */
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-            
-            .hero-buttons .btn {
-                width: 100%;
-                max-width: 320px;
-                padding: 16px 32px;
-                font-size: 1rem;
-            }
-            
-            /* CTA BUTONLARI MOBİL */
+            .hero-buttons,
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
                 gap: 20px;
             }
             
+            .hero-buttons .btn,
             .cta-buttons .btn {
                 width: 100%;
                 max-width: 320px;
@@ -1528,7 +1222,6 @@
                 font-size: 1rem;
             }
             
-            /* KARTLAR MOBİL */
             .category-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -1540,7 +1233,6 @@
             
             .card-back p {
                 font-size: 0.95rem;
-                -webkit-line-clamp: 3;
             }
             
             .card-back .btn {
@@ -1557,15 +1249,22 @@
             .mobile-menu {
                 top: 60px;
             }
+            
+            .floating-cta {
+                bottom: 100px;
+                right: 15px;
+            }
+            
+            .floating-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.6rem;
+            }
         }
 
         @media (max-width: 480px) {
             .header {
                 padding: 0 20px;
-                height: 60px;
-            }
-            
-            .header.scrolled {
                 height: 60px;
             }
             
@@ -1590,8 +1289,9 @@
                 margin-bottom: 30px;
             }
             
-            .mobile-menu {
-                top: 60px;
+            .services-section {
+                padding: 30px 20px 60px;
+                margin-top: -10px;
             }
             
             .category-title {
@@ -1613,17 +1313,13 @@
                 margin-bottom: 20px;
             }
             
-            .card-front h3 {
-                font-size: 1.2rem;
-            }
-            
+            .card-front h3,
             .card-back h3 {
                 font-size: 1.2rem;
             }
             
             .card-back p {
                 font-size: 0.9rem;
-                -webkit-line-clamp: 3;
                 margin-bottom: 15px;
             }
             
@@ -1644,52 +1340,17 @@
             .footer-logo-text {
                 font-size: 1.3rem;
             }
-        }
-
-        @media (max-width: 360px) {
-            .category-title {
-                font-size: 1.3rem;
+            
+            .floating-cta {
+                bottom: 80px;
+                right: 10px;
+                gap: 12px;
             }
             
-            .flip-card {
-                height: 220px;
-            }
-            
-            .card-back .btn {
-                max-width: 120px;
-                padding: 8px 14px;
-                font-size: 0.8rem;
-            }
-            
-            .logo {
-                height: 45px;
-            }
-            
-            .logo img {
-                max-height: 45px;
-            }
-        }
-
-        /* TOUCH DEVICE OPTIMIZATION */
-        @media (hover: none) and (pointer: coarse) {
-            .flip-card:hover:not(.flipped),
-            .feature:hover,
-            .btn:hover,
-            .nav-link:hover,
-            .dropdown-link:hover,
-            .social-link:hover,
-            .floating-btn:hover {
-                transform: none !important;
-            }
-            
-            .mobile-nav-link:active,
-            .dropdown-link:active {
-                background-color: rgba(10, 36, 99, 0.1) !important;
-            }
-            
-            .social-link:active {
-                background: var(--accent);
-                transform: scale(0.95);
+            .floating-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -1699,9 +1360,7 @@
     <header class="header" id="mainHeader">
         <!-- Logo -->
         <a href="#" class="logo" id="homeLink" aria-label="Web4 Medya - Ana Sayfa">
-            <div class="logo-inner">
-                <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='//via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
-            </div>
+            <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
         </a>
         
         <!-- NAVIGATION -->
@@ -1866,8 +1525,8 @@
         
         <div class="services-container">
             <!-- DİJİTAL PAZARLAMA KATEGORİSİ -->
-            <div class="service-category digital-marketing animate-on-scroll">
-                <h2 class="category-title typing-heading" data-text="Dijital Pazarlama Hizmetlerimiz"></h2>
+            <div class="service-category">
+                <h2 class="category-title">Dijital Pazarlama Hizmetlerimiz</h2>
                 <div class="category-grid">
                     <!-- Google Ads -->
                     <div class="flip-card" data-id="google-ads">
@@ -1962,8 +1621,8 @@
             </div>
             
             <!-- WEB TASARIM KATEGORİSİ -->
-            <div class="service-category web-design animate-on-scroll">
-                <h2 class="category-title typing-heading" data-text="Web Tasarım Hizmetlerimiz"></h2>
+            <div class="service-category">
+                <h2 class="category-title">Web Tasarım Hizmetlerimiz</h2>
                 <div class="category-grid">
                     <!-- E-Ticaret -->
                     <div class="flip-card" data-id="ecommerce">
@@ -1998,8 +1657,8 @@
             </div>
             
             <!-- PRODÜKSİYON KATEGORİSİ -->
-            <div class="service-category production animate-on-scroll">
-                <h2 class="category-title typing-heading" data-text="Prodüksiyon Hizmetlerimiz"></h2>
+            <div class="service-category">
+                <h2 class="category-title">Prodüksiyon Hizmetlerimiz</h2>
                 <div class="category-grid">
                     <!-- Sosyal Medya Videoları -->
                     <div class="flip-card" data-id="social-videos">
@@ -2058,7 +1717,7 @@
         </div>
         
         <div class="features-grid">
-            <div class="feature animate-on-scroll">
+            <div class="feature">
                 <div class="feature-icon">
                     <i class="fas fa-trophy"></i>
                 </div>
@@ -2066,7 +1725,7 @@
                 <p>10+ yıllık sektör deneyimine sahip uzman ekibimizle çalışarak dijital dönüşümünüzü güvence altına alın.</p>
             </div>
             
-            <div class="feature animate-on-scroll">
+            <div class="feature">
                 <div class="feature-icon">
                     <i class="fas fa-headset"></i>
                 </div>
@@ -2074,7 +1733,7 @@
                 <p>Size özel danışmanınızla her zaman iletişimde kalın. Sorularınıza hızlı ve profesyonel çözümler sunuyoruz.</p>
             </div>
             
-            <div class="feature animate-on-scroll">
+            <div class="feature">
                 <div class="feature-icon">
                     <i class="fas fa-handshake"></i>
                 </div>
@@ -2106,7 +1765,7 @@
             <!-- Logo ve Açıklama -->
             <div class="footer-section">
                 <div class="footer-logo">
-                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo">
+                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
                     <div class="footer-logo-text">İşinizi şansa bırakmayın!</div>
                 </div>
                 <p class="footer-description">
@@ -2207,274 +1866,77 @@
     </div>
 
     <script>
-        // YAZMA EFEKTİ KODLARI - GÜNCELLENDİ (DOĞAL VE SCROLL İLE TETİKLENEN)
-        document.addEventListener('DOMContentLoaded', function() {
-            const typingHeadings = document.querySelectorAll('.typing-heading');
-            
-            // Her başlık için Intersection Observer oluştur
-            const observerOptions = {
-                root: null, // viewport
-                rootMargin: '0px 0px -100px 0px', // biraz daha erken tetikle
-                threshold: 0.3 // %30 görünür olduğunda tetikle
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const heading = entry.target;
-                        
-                        // Daha önce yazılmadıysa yazmaya başla
-                        if (!heading.classList.contains('typing-started') && !heading.classList.contains('typing-completed')) {
-                            heading.classList.add('typing-started');
-                            startTypingEffect(heading);
-                        }
-                        
-                        // Görünür olduğunda gözlemlemeyi durdur
-                        observer.unobserve(heading);
-                    }
-                });
-            }, observerOptions);
-            
-            // Başlıkları gözlemlemeye başla
-            typingHeadings.forEach(heading => {
-                // Başlığı temizle
-                const originalText = heading.getAttribute('data-text');
-                heading.textContent = '';
-                heading.setAttribute('data-original-text', originalText);
-                
-                // Yazma durumunu izle
-                heading.classList.remove('typing-started', 'typing-completed');
-                
-                // Gözlemciyi başlat
-                observer.observe(heading);
-            });
-            
-            // Rastgele hızlar için yardımcı fonksiyon (daha doğal hissiyat)
-            function getRandomSpeed(min, max) {
-                return Math.floor(Math.random() * (max - min + 1)) + min;
+        // Header scroll effect
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
-            
-            // Metni harf harf yazdır (doğal versiyon - HATA YAPMAYAN)
-            function typeTextNatural(element, text, index, callback) {
-                if (index < text.length) {
-                    // Rastgele yazma hızı (daha doğal hissiyat için)
-                    const baseSpeed = getRandomSpeed(40, 80);
-                    
-                    // Noktalama işaretlerinde daha uzun bekle
-                    let speed = baseSpeed;
-                    const currentChar = text.charAt(index);
-                    const punctuation = ['.', ',', '!', '?', ':', ';'];
-                    
-                    if (punctuation.includes(currentChar)) {
-                        speed = getRandomSpeed(200, 400); // Noktalama işaretlerinde duraksama
-                    } else if (currentChar === ' ') {
-                        speed = getRandomSpeed(30, 60); // Boşlukta biraz daha hızlı
-                    }
-                    
-                    // Kelime sonlarında biraz daha uzun bekle
-                    if (index > 0 && text.charAt(index - 1) === ' ') {
-                        speed = getRandomSpeed(60, 100);
-                    }
-                    
-                    // Normal yaz (yazım hatası YOK)
-                    element.textContent += currentChar;
-                    
-                    // Sonraki karaktere geç
-                    setTimeout(() => {
-                        typeTextNatural(element, text, index + 1, callback);
-                    }, speed);
-                } else {
-                    if (callback) callback();
-                }
-            }
-            
-            // Başlık için yazma efekti başlat
-            function startTypingEffect(heading) {
-                const text = heading.getAttribute('data-original-text');
-                
-                // İmleci göster
-                heading.classList.remove('completed');
-                
-                // Metni yazmaya başla
-                typeTextNatural(heading, text, 0, function() {
-                    // Yazma tamamlandığında imleci yanıp söndür
-                    blinkCursor(heading, 3, function() {
-                        // İmleci kaldır ve tamamlandı olarak işaretle
-                        heading.classList.add('completed', 'typing-completed');
-                    });
-                });
-            }
-            
-            // İmleç yanıp sönme efekti
-            function blinkCursor(element, times, callback) {
-                let blinkCount = 0;
-                
-                function blink() {
-                    if (blinkCount < times * 2) {
-                        // İmleci göster/gizle
-                        if (blinkCount % 2 === 0) {
-                            element.style.setProperty('--cursor-opacity', '1');
-                        } else {
-                            element.style.setProperty('--cursor-opacity', '0');
-                        }
-                        
-                        blinkCount++;
-                        
-                        // Rastgele yanıp sönme hızı
-                        const blinkSpeed = getRandomSpeed(300, 600);
-                        setTimeout(blink, blinkSpeed);
-                    } else {
-                        // İmleci tamamen kaldır
-                        if (callback) callback();
-                    }
-                }
-                
-                blink();
-            }
-            
-            // Header scroll effect
-            const header = document.getElementById('mainHeader');
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 20) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-                
-                checkScrollAnimation();
-            });
-
-            // Mobile menu
-            const menuToggle = document.getElementById('menuToggle');
-            const mobileMenu = document.getElementById('mobileMenu');
-
-            if (menuToggle) {
-                menuToggle.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    this.classList.toggle('active');
-                    mobileMenu.classList.toggle('active');
-                });
-            }
-
-            // Desktop Dropdown Hover
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => {
-                const dropdown = item.querySelector('.dropdown');
-                if (dropdown) {
-                    item.addEventListener('mouseenter', () => {
-                        dropdown.classList.add('active');
-                    });
-                    
-                    item.addEventListener('mouseleave', () => {
-                        dropdown.classList.remove('active');
-                    });
-                }
-            });
-
-            // Mobile Dropdown Toggle
-            const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
-            mobileDropdownBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const targetId = this.getAttribute('data-target');
-                    const target = document.getElementById(targetId);
-                    
-                    document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
-                        if (dropdown.id !== targetId) {
-                            dropdown.classList.remove('active');
-                            const otherBtn = dropdown.parentElement.querySelector('.mobile-dropdown-btn');
-                            if (otherBtn) otherBtn.classList.remove('active');
-                        }
-                    });
-                    
-                    this.classList.toggle('active');
-                    if (target) {
-                        target.classList.toggle('active');
-                    }
-                });
-            });
-
-            // Close dropdowns when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('.nav-item')) {
-                    document.querySelectorAll('.dropdown.active').forEach(dropdown => {
-                        dropdown.classList.remove('active');
-                    });
-                }
-                
-                if (!e.target.closest('.menu-toggle') && !e.target.closest('.mobile-menu')) {
-                    if (menuToggle) menuToggle.classList.remove('active');
-                    if (mobileMenu) mobileMenu.classList.remove('active');
-                }
-            });
-
-            // Add active class to current page
-            const currentPage = window.location.pathname;
-            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
-            
-            navLinks.forEach(link => {
-                const linkPath = link.getAttribute('href');
-                if (linkPath === '/' && currentPage === '/') {
-                    link.classList.add('active');
-                } else if (linkPath !== '/' && currentPage.includes(linkPath)) {
-                    link.classList.add('active');
-                }
-            });
-
-            // Handle image fallback
-            const logo = document.querySelector('.logo img');
-            if (logo) {
-                logo.onerror = function() {
-                    this.onerror = null;
-                    this.src = '//via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';
-                    this.alt = 'Web4 Medya Logo - Placeholder';
-                };
-            }
-            
-            const footerLogo = document.querySelector('.footer-logo img');
-            if (footerLogo) {
-                footerLogo.onerror = function() {
-                    this.onerror = null;
-                    this.src = '//via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';
-                    this.alt = 'Web4 Medya Logo - Placeholder';
-                };
-            }
-            
-            // Add drone icon
-            const style = document.createElement('style');
-            style.textContent = `
-                .fa-drone:before {
-                    content: "\\f0b2";
-                    font-family: "Font Awesome 5 Free";
-                }
-            `;
-            document.head.appendChild(style);
-            
-            // Check scroll animation on load
-            checkScrollAnimation();
         });
 
-        // Prevent dropdown from closing when clicking inside
-        document.querySelectorAll('.dropdown').forEach(dropdown => {
-            dropdown.addEventListener('click', function(e) {
+        // Mobile menu
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function(e) {
                 e.stopPropagation();
+                this.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+        }
+
+        // Desktop Dropdown Hover
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            const dropdown = item.querySelector('.dropdown');
+            if (dropdown) {
+                item.addEventListener('mouseenter', () => {
+                    dropdown.classList.add('active');
+                });
+                
+                item.addEventListener('mouseleave', () => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        });
+
+        // Mobile Dropdown Toggle
+        const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
+        mobileDropdownBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const target = document.getElementById(targetId);
+                
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
+                    if (dropdown.id !== targetId) {
+                        dropdown.classList.remove('active');
+                        const otherBtn = dropdown.parentElement.querySelector('.mobile-dropdown-btn');
+                        if (otherBtn) otherBtn.classList.remove('active');
+                    }
+                });
+                
+                this.classList.toggle('active');
+                if (target) {
+                    target.classList.toggle('active');
+                }
             });
         });
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 60,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-item')) {
+                document.querySelectorAll('.dropdown.active').forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
+            
+            if (!e.target.closest('.menu-toggle') && !e.target.closest('.mobile-menu')) {
+                if (menuToggle) menuToggle.classList.remove('active');
+                if (mobileMenu) mobileMenu.classList.remove('active');
+            }
         });
 
         // FLIP CARD FUNCTIONALITY
@@ -2536,26 +1998,6 @@
             });
         }
 
-        // Scroll Animasyonları
-        function checkScrollAnimation() {
-            const elements = document.querySelectorAll('.animate-on-scroll');
-            
-            elements.forEach(el => {
-                const elementTop = el.getBoundingClientRect().top;
-                
-                if (elementTop < window.innerHeight - 100) {
-                    el.classList.add('animated');
-                }
-            });
-        }
-
-        // Performance optimization
-        let resizeTimer;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(checkScrollAnimation, 100);
-        });
-
         // Close mobile menu when clicking a link
         document.querySelectorAll('.mobile-dropdown-link, .mobile-nav-link').forEach(link => {
             link.addEventListener('click', function() {
@@ -2569,6 +2011,35 @@
                 });
             });
         });
+
+        // Image fallback
+        const logo = document.querySelector('.logo img');
+        if (logo) {
+            logo.onerror = function() {
+                this.onerror = null;
+                this.src = 'https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';
+                this.alt = 'Web4 Medya Logo - Placeholder';
+            };
+        }
+        
+        const footerLogo = document.querySelector('.footer-logo img');
+        if (footerLogo) {
+            footerLogo.onerror = function() {
+                this.onerror = null;
+                this.src = 'https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';
+                this.alt = 'Web4 Medya Logo - Placeholder';
+            };
+        }
+        
+        // Add drone icon
+        const style = document.createElement('style');
+        style.textContent = `
+            .fa-drone:before {
+                content: "\\f0b2";
+                font-family: "Font Awesome 5 Free";
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
