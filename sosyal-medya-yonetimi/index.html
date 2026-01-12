@@ -641,6 +641,7 @@
             box-shadow: var(--shadow);
             border-left: 4px solid var(--accent);
             transition: var(--transition);
+            overflow: visible;
         }
 
         .seo-article:hover {
@@ -682,17 +683,16 @@
             margin-bottom: 10px;
         }
 
-    
-           .article-image {
-    width: 100%;
-    max-width: 900px;
-    height: auto;
-    max-height: 500px;
-    object-fit: contain;
-    border-radius: var(--radius);
-    margin: 30px auto;
-    display: block;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        .article-image {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: var(--radius);
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         /* SOSYAL MEDYA PLATFORMLARI */
@@ -707,11 +707,14 @@
         .platform-card {
             background: var(--white);
             border-radius: var(--radius);
-            padding: 40px 30px;
+            padding: 30px 25px;
             text-align: center;
             box-shadow: var(--shadow);
             transition: var(--transition);
             border-top: 4px solid transparent;
+            display: flex;
+            flex-direction: column;
+            min-height: 280px;
         }
 
         .platform-card:hover {
@@ -752,6 +755,7 @@
             margin: 0 auto 20px;
             font-size: 2.5rem;
             color: white;
+            flex-shrink: 0;
         }
 
         .platform-icon.instagram {
@@ -787,6 +791,7 @@
         .platform-card p {
             color: var(--gray);
             line-height: 1.6;
+            flex-grow: 1;
         }
 
         /* PAKETLER BÖLÜMÜ */
@@ -806,13 +811,17 @@
         .package-card {
             background: var(--white);
             border-radius: var(--radius);
-            padding: 50px 40px;
+            padding: 40px 30px;
             text-align: center;
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
-            overflow: hidden;
+            overflow: visible;
             border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            min-height: 680px;
         }
 
         .package-card.popular {
@@ -864,6 +873,7 @@
             list-style: none;
             margin-bottom: 40px;
             text-align: left;
+            flex-grow: 1;
         }
 
         .package-features li {
@@ -889,6 +899,7 @@
             padding: 18px 40px;
             font-weight: 700;
             font-size: 1.1rem;
+            margin-top: auto;
         }
 
         /* HIZLI TEKLİF KARTI */
@@ -1308,6 +1319,10 @@
             .package-card.popular:hover {
                 transform: translateY(-10px);
             }
+            
+            .package-card {
+                min-height: 650px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1330,7 +1345,7 @@
             }
             
             .article-image {
-                height: 300px;
+                max-height: 400px;
             }
             
             .platforms-grid {
@@ -1338,9 +1353,19 @@
                 gap: 20px;
             }
             
+            .platform-card {
+                min-height: 260px;
+                padding: 25px 20px;
+            }
+            
             .packages-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
+            }
+            
+            .package-card {
+                min-height: auto;
+                padding: 35px 25px;
             }
             
             .quick-quote {
@@ -1418,7 +1443,7 @@
             }
             
             .package-card {
-                padding: 40px 25px;
+                padding: 30px 20px;
             }
             
             .package-price {
@@ -1452,6 +1477,10 @@
                 width: 55px;
                 height: 55px;
                 font-size: 1.5rem;
+            }
+            
+            .article-image {
+                max-height: 300px;
             }
         }
     </style>
@@ -1612,7 +1641,7 @@
         <div class="seo-articles">
             <div class="seo-article">
                 <h2>Sosyal Medya Yönetimi Nedir?</h2>
-                <img src="/images/sosyal-medya-yonetimi.webp" alt="Sosyal Medya Yönetimi" class="article-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/1200x400/0A2463/FFFFFF?text=Sosyal+Medya+Yönetimi';">
+                <img src="/images/sosyal-medya-yonetimi.webp" alt="Sosyal Medya Yönetimi" class="article-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/1200x600/0A2463/FFFFFF?text=Sosyal+Medya+Yönetimi';">
                 <p>Sosyal medya yönetimi, işletmelerin sosyal medya platformlarında varlıklarını etkili bir şekilde yönetmek, içerik üretmek, takipçi etkileşimini sağlamak ve marka bilinirliğini artırmak için uygulanan stratejik bir süreçtir. Instagram yönetimi, Facebook yönetimi, Twitter yönetimi ve diğer platformların profesyonel olarak yönetilmesini kapsar.</p>
                 
                 <h3>Sosyal Medya Yönetiminin Önemi</h3>
@@ -1628,7 +1657,7 @@
             
             <div class="seo-article">
                 <h2>Sosyal Medya Yönetimi Nasıl Yapılır?</h2>
-                <img src="/images/sosyal-medya-yonetmek.webp" alt="Sosyal Medya Yönetmek" class="article-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/1200x400/3E92CC/FFFFFF?text=Sosyal+Medya+Yönetmek';">
+                <img src="/images/sosyal-medya-yonetmek.webp" alt="Sosyal Medya Yönetmek" class="article-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/1200x600/3E92CC/FFFFFF?text=Sosyal+Medya+Yönetmek';">
                 <p>Profesyonel sosyal medya yönetimi, planlama, içerik üretimi, yayınlama, etkileşim ve analiz aşamalarından oluşur. İşletmeniz için en uygun sosyal medya yönetimi paketini seçerek bu süreçleri profesyonellere devredebilirsiniz.</p>
                 
                 <h3>Sosyal Medya Yönetim Süreçleri</h3>
@@ -1644,7 +1673,7 @@
             
             <div class="seo-article">
                 <h2>Sosyal Medya Yönetimi Fiyatları Neye Göre Belirlenir?</h2>
-                <img src="/images/sosyal-medya-yonetimi-fiyatlari.webp" alt="Sosyal Medya Yönetimi Fiyatları" class="article-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/1200x400/4ECDC4/FFFFFF?text=Sosyal+Medya+Yönetimi+Fiyatları';">
+                <img src="/images/sosyal-medya-yonetimi-fiyatlari.webp" alt="Sosyal Medya Yönetimi Fiyatları" class="article-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/1200x600/4ECDC4/FFFFFF?text=Sosyal+Medya+Yönetimi+Fiyatları';">
                 <p>Sosyal medya yönetimi fiyatları, yönetilecek platform sayısı, içerik sıklığı, içerik türleri, raporlama detayı ve ek hizmetlere göre değişiklik gösterir. Web4 Medya olarak esnek sosyal medya yönetim paketleri sunuyoruz.</p>
                 
                 <h3>Fiyatı Etkileyen Faktörler</h3>
@@ -1655,6 +1684,21 @@
                     <li>Özel tasarım ve prodüksiyon ihtiyaçları</li>
                     <li>Reklam yönetimi dahil olup olmaması</li>
                     <li>Aylık raporlama detayı</li>
+                </ul>
+            </div>
+            
+            <div class="seo-article">
+                <h2>Sosyal Medya Yönetim Stratejileri</h2>
+                <img src="/images/sosyal-medya-yonetim.webp" alt="Sosyal Medya Yönetim" class="article-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/1200x600/FF6B6B/FFFFFF?text=Sosyal+Medya+Yönetim';">
+                <p>Başarılı bir sosyal medya yönetim stratejisi, markanızın hedeflerine ulaşmasını sağlar. Instagram, Facebook, Twitter, LinkedIn ve TikTok gibi platformlarda farklı stratejiler uygulanmalıdır. Her platformun kendine özgü algoritması ve kullanıcı davranışları vardır.</p>
+                
+                <h3>Platform Bazlı Stratejiler</h3>
+                <ul>
+                    <li><strong>Instagram Yönetimi:</strong> Görsel ağırlıklı içerik, hikayeler, reels ve IGTV</li>
+                    <li><strong>Facebook Yönetimi:</strong> Topluluk oluşturma, uzun format içerikler ve gruplar</li>
+                    <li><strong>Twitter Yönetimi:</strong> Anlık güncellemeler, trend takibi ve kısa mesajlar</li>
+                    <li><strong>LinkedIn Yönetimi:</strong> Profesyonel içerik, B2B pazarlama ve network</li>
+                    <li><strong>TikTok Yönetimi:</strong> Kısa videolar, trend challenge'lar ve eğlenceli içerik</li>
                 </ul>
             </div>
         </div>
@@ -2104,7 +2148,7 @@
             img.onerror = function() {
                 this.onerror = null;
                 if (this.classList.contains('article-image')) {
-                    this.src = 'https://via.placeholder.com/1200x400/0A2463/FFFFFF?text=Sosyal+Medya+Yönetimi';
+                    this.src = 'https://via.placeholder.com/1200x600/0A2463/FFFFFF?text=Sosyal+Medya+Yönetimi';
                 } else {
                     this.src = 'https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';
                 }
