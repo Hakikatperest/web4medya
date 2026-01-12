@@ -601,23 +601,32 @@
             gap: 30px;
         }
 
-        /* OPTİMİZE FLIP CARD */
+        /* iOS FIX: OPTİMİZE FLIP CARD - DÜZELTİLDİ */
         .flip-card {
             position: relative;
             height: 280px;
             transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d; /* iOS için */
             transition: transform 0.6s ease;
+            -webkit-transition: transform 0.6s ease; /* iOS için */
             border-radius: var(--radius);
             cursor: pointer;
             background: white;
+            /* iOS FIX 1: */
+            perspective: 1000px;
+            -webkit-perspective: 1000px; /* iOS için */
+            transform: translate3d(0,0,0);
+            -webkit-transform: translate3d(0,0,0); /* iOS için */
         }
 
         .flip-card:hover:not(.flipped) {
-            transform: translateY(-5px);
+            transform: translateY(-5px) translate3d(0,0,0);
+            -webkit-transform: translateY(-5px) translate3d(0,0,0); /* iOS için */
         }
 
         .flip-card.flipped {
-            transform: rotateY(180deg);
+            transform: rotateY(180deg) translateZ(1px); /* iOS için küçük Z değeri */
+            -webkit-transform: rotateY(180deg) translateZ(1px); /* iOS için */
         }
 
         .card-face {
@@ -628,6 +637,7 @@
             height: 100%;
             border-radius: var(--radius);
             backface-visibility: hidden;
+            -webkit-backface-visibility: hidden; /* iOS için kritik */
             padding: 30px 20px;
             display: flex;
             flex-direction: column;
@@ -635,6 +645,9 @@
             align-items: center;
             text-align: center;
             overflow: hidden;
+            /* iOS FIX 2: */
+            transform: translate3d(0,0,0);
+            -webkit-transform: translate3d(0,0,0); /* iOS için */
         }
 
         .card-front {
@@ -664,6 +677,11 @@
             border-radius: 50%;
             transition: var(--transition);
             color: white;
+            /* iOS FIX 3: İkon flicker sorunu için */
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden; /* iOS için */
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0); /* iOS için */
         }
 
         /* OPTİMİZE İKON RENKLERİ */
@@ -680,7 +698,8 @@
         .icon-drone { background: linear-gradient(45deg, #3E92CC, #4ECDC4); }
 
         .flip-card:hover .card-front .icon {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.1) rotate(5deg) translateZ(0);
+            -webkit-transform: scale(1.1) rotate(5deg) translateZ(0); /* iOS için */
         }
 
         .card-front h3 {
@@ -695,7 +714,8 @@
                 rgba(10, 36, 99, 0.95), 
                 rgba(62, 146, 204, 0.95));
             color: var(--white);
-            transform: rotateY(180deg);
+            transform: rotateY(180deg) translate3d(0,0,0); /* iOS için düzeltme */
+            -webkit-transform: rotateY(180deg) translate3d(0,0,0); /* iOS için */
             justify-content: space-between;
             padding: 30px 20px;
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -721,19 +741,19 @@
             -webkit-box-orient: vertical;
         }
 
-      .card-back .btn {
-    background: white;
-    color: var(--primary);
-    padding: 12px 24px; 
-    font-weight: 600;
-    font-size: 0.95rem; 
-    border-radius: 50px;
-    text-decoration: none;
-    width: 100%;
-    max-width: 180px; 
-    margin: 0 auto;
-    white-space: nowrap; 
-}
+        .card-back .btn {
+            background: white;
+            color: var(--primary);
+            padding: 12px 24px; 
+            font-weight: 600;
+            font-size: 0.95rem; 
+            border-radius: 50px;
+            text-decoration: none;
+            width: 100%;
+            max-width: 180px; 
+            margin: 0 auto;
+            white-space: nowrap; 
+        }
 
         /* NEDEN BİZ SECTION */
         .why-us {
@@ -1098,10 +1118,11 @@
             color: var(--accent);
         }
 
-        /* DRONE ICON FIX */
+        /* DRONE ICON FIX - GÜNCELLENDİ */
         .fa-drone:before {
-            content: "\f0b2";
+            content: "\f5d1"; /* helicopter icon */
             font-family: "Font Awesome 5 Free";
+            font-weight: 900;
         }
 
         /* OPTİMİZE RESPONSIVE */
@@ -1127,7 +1148,7 @@
             .hero {
                 padding: 140px 4% 80px;
                 min-height: auto;
-                background-attachment: scroll; /* Mobilde fixed background kapatıldı */
+                background-attachment: scroll;
             }
             
             .services-section {
@@ -1170,11 +1191,11 @@
             }
             
             .card-back .btn {
-    padding: 10px 20px; /* DEĞİŞTİR: 16px yerine 20px */
-    font-size: 0.9rem;  /* DEĞİŞTİR: 0.85rem yerine 0.9rem */
-    max-width: 160px;   /* DEĞİŞTİR: 140px yerine 160px */
-    white-space: nowrap; /* EKLE: metnin üst üste binmesini önler */
-}
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                max-width: 160px;
+                white-space: nowrap;
+            }
             
             .footer-content {
                 grid-template-columns: 1fr;
@@ -1247,18 +1268,18 @@
             }
             
             .card-back .btn {
-    background: white;
-    color: var(--primary);
-    padding: 12px 24px; 
-    font-weight: 600;
-    font-size: 0.95rem; 
-    border-radius: 50px;
-    text-decoration: none;
-    width: 100%;
-    max-width: 180px; 
-    margin: 0 auto;
-    white-space: nowrap; 
-}
+                background: white;
+                color: var(--primary);
+                padding: 12px 24px; 
+                font-weight: 600;
+                font-size: 0.95rem; 
+                border-radius: 50px;
+                text-decoration: none;
+                width: 100%;
+                max-width: 180px; 
+                margin: 0 auto;
+                white-space: nowrap; 
+            }
             
             .footer {
                 padding: 60px 20px 30px;
@@ -1783,6 +1804,13 @@
             e.stopPropagation();
             menuToggle.classList.toggle('active');
             mobileMenu.classList.toggle('active');
+            
+            // iOS için: Menü açıkken body scroll'unu engelle
+            if (mobileMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
         });
 
         // OPTİMİZE DESKTOP DROPDOWN
@@ -1812,7 +1840,7 @@
             });
         });
 
-        // OPTİMİZE FLIP CARDS
+        // OPTİMİZE FLIP CARDS - iOS FIX için güncellendi
         document.querySelectorAll('.flip-card').forEach(card => {
             card.addEventListener('click', function(e) {
                 if (e.target.closest('a')) return;
@@ -1836,6 +1864,7 @@
             if (!e.target.closest('.menu-toggle') && !e.target.closest('.mobile-menu')) {
                 menuToggle?.classList.remove('active');
                 mobileMenu?.classList.remove('active');
+                document.body.style.overflow = ''; // iOS için: Scroll'u geri aç
             }
             
             if (!e.target.closest('.flip-card')) {
@@ -1861,6 +1890,7 @@
             scrollToTop();
             menuToggle?.classList.remove('active');
             mobileMenu?.classList.remove('active');
+            document.body.style.overflow = ''; // iOS için: Scroll'u geri aç
         });
 
         // CLOSE MOBILE MENU ON LINK CLICK
@@ -1870,6 +1900,7 @@
                 mobileMenu?.classList.remove('active');
                 document.querySelectorAll('.mobile-dropdown-content.active').forEach(d => d.classList.remove('active'));
                 document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => b.classList.remove('active'));
+                document.body.style.overflow = ''; // iOS için: Scroll'u geri aç
             });
         });
 
@@ -1881,6 +1912,10 @@
                 this.alt = 'Web4 Medya Logo';
             };
         });
+
+        // iOS FIX: Touch events için optimizasyon
+        document.addEventListener('touchstart', function() {}, {passive: true});
+        document.addEventListener('touchmove', function() {}, {passive: true});
     </script>
 </body>
 </html>
