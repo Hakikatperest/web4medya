@@ -259,9 +259,13 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* OPTİMİZE HERO SECTION */
+        /* OPTİMİZE HERO SECTION - ARKA PLAN RESMİ GERİ EKLENDİ */
         .hero {
-            background: linear-gradient(rgba(10, 36, 99, 0.85), rgba(62, 146, 204, 0.85));
+            background: linear-gradient(rgba(10, 36, 99, 0.85), rgba(62, 146, 204, 0.85)),
+                        url('/images/w4medya-arkaplan1.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: var(--white);
             padding: 160px 5% 140px;
             text-align: center;
@@ -1122,6 +1126,7 @@
             .hero {
                 padding: 140px 4% 80px;
                 min-height: auto;
+                background-attachment: scroll; /* Mobilde fixed background kapatıldı */
             }
             
             .services-section {
