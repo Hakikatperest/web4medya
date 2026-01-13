@@ -258,26 +258,42 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* OPTİMİZE HERO SECTION - ARKA PLAN RESMİ GERİ EKLENDİ */
+        /* OPTİMİZE HERO SECTION - VİDEO ARKA PLAN */
         .hero {
-            background: linear-gradient(rgba(10, 36, 99, 0.85), rgba(62, 146, 204, 0.85)),
-                        url('/images/w4medya-arkaplan1.webp');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            position: relative;
             color: var(--white);
             padding: 160px 5% 140px;
             text-align: center;
-            position: relative;
             overflow: hidden;
             min-height: 85vh;
             display: flex;
             align-items: center;
+            background-color: #000;
+        }
+
+        #heroVideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2;
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
             max-width: 1000px;
             margin: 0 auto;
         }
@@ -1124,6 +1140,15 @@
             font-weight: 900;
         }
 
+        /* VİDEO KONTROLLERİNİ GİZLE */
+        #heroVideo::-webkit-media-controls {
+            display: none !important;
+        }
+
+        #heroVideo {
+            -webkit-mask-image: -webkit-radial-gradient(white, black);
+        }
+
         /* OPTİMİZE RESPONSIVE */
         @media (max-width: 1024px) {
             .nav-desktop {
@@ -1210,6 +1235,11 @@
                 width: 60px;
                 height: 60px;
                 font-size: 1.6rem;
+            }
+            
+            /* Mobilde video için optimize */
+            #heroVideo {
+                object-position: center;
             }
         }
 
@@ -1441,8 +1471,25 @@
         </nav>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Video Background -->
     <section class="hero" id="hero">
+        <!-- Video Background -->
+        <video 
+            id="heroVideo" 
+            autoplay 
+            muted 
+            playsinline 
+            preload="auto"
+            onended="videoEnded()"
+        >
+            <source src="/videos/web-4-medya-video.mp4" type="video/mp4">
+            Tarayıcınız video etiketini desteklemiyor.
+        </video>
+        
+        <!-- Video Overlay -->
+        <div class="video-overlay"></div>
+        
+        <!-- Hero Content -->
         <div class="hero-content">
             <h1>Dijitalde Fark Yaratın</h1>
             <p>Web Tasarım, SEO, Google & Meta Ads Reklamları ve profesyonel prodüksiyon çözümlerimizle markanızı dijital dünyada öne çıkarıyoruz.</p>
@@ -1912,6 +1959,43 @@
             };
         });
 
+        // VİDEO İŞLEMLERİ
+        const heroVideo = document.getElementById('heroVideo');
+        
+        // Video bittiğinde arka plan siyah kalacak
+        function videoEnded() {
+            heroVideo.style.opacity = '0';
+            heroVideo.style.transition = 'opacity 1s ease';
+            
+            // Opacity 0 olduktan sonra display none yap (performans için)
+            setTimeout(() => {
+                heroVideo.style.display = 'none';
+            }, 1000);
+        }
+        
+        // Sayfa her yüklendiğinde video baştan başlasın
+        window.addEventListener('load', () => {
+            if (heroVideo) {
+                heroVideo.currentTime = 0;
+                heroVideo.play().catch(e => {
+                    console.log('Video otomatik oynatma hatası:', e);
+                });
+                
+                // Video için display ve opacity'yi sıfırla
+                heroVideo.style.display = 'block';
+                heroVideo.style.opacity = '1';
+            }
+        });
+        
+        // Sayfa görünür olduğunda video kontrolü
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible' && heroVideo) {
+                heroVideo.play().catch(e => {
+                    console.log('Video tekrar başlatma hatası:', e);
+                });
+            }
+        });
+        
         // iOS FIX: Touch events için optimizasyon
         document.addEventListener('touchstart', function() {}, {passive: true});
         document.addEventListener('touchmove', function() {}, {passive: true});
