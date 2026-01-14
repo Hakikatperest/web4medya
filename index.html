@@ -4,18 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web4 Medya | Dijital Pazarlama, SEO, Web Tasarım ve Prodüksiyon Ajansı</title>
-    <meta name="description" content="Web4 Medya: Google Ads, SEO, web tasarım, dijital pazarlama ve video prodüksiyon hizmetleri. Profesyonel ekibimizle işletmenizi dijitalde büyütün." />
-    <meta name="keywords" content="dijital pazarlama, google ads, seo, web tasarım, video prodüksiyon, meta ads, drone çekimi, grafik tasarım, dijital ajans" />
+    <meta name="description" content="Web Tasarım, SEO, Google & Meta Ads Reklamları ve Profesyonel Prodüksiyon hizmetleri. İşletmenizi dijitalde büyütün." />
+    <meta name="keywords" content="dijital pazarlama, google ads, seo, web tasarım, video prodüksiyon, meta ads, drone çekimi, grafik tasarım, dijital ajans, istanbul" />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Web4 Medya" />
     <link rel="canonical" href="https://www.web4medya.com/" />
     
+    <!-- Favicon -->
+    <link rel="icon" href="/images/web4medya-logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/web4medya-logo.ico" type="image/x-icon">
+    
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Web4 Medya | Dijital Pazarlama & Web Tasarım Ajansı" />
-    <meta property="og:description" content="Google Ads, SEO, web tasarım ve prodüksiyon hizmetleriyle işletmenizi dijitalde büyütün." />
+    <meta property="og:description" content="Web Tasarım, SEO, Google & Meta Ads Reklamları ve Profesyonel Prodüksiyon hizmetleri. İşinizi şansa bırakmayın!" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.web4medya.com/" />
-    <meta property="og:image" content="images/web4medya-logo.png" />
+    <meta property="og:image" content="https://www.web4medya.com/images/web4medya-hakkimizda.webp" />
+    <meta property="og:image:alt" content="Web4 Medya - Dijital Pazarlama Ajansı" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="tr_TR" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Web4 Medya | Dijital Pazarlama Ajansı" />
+    <meta name="twitter:description" content="Web Tasarım, SEO, Google & Meta Ads Reklamları ve Profesyonel Prodüksiyon" />
+    <meta name="twitter:image" content="https://www.web4medya.com/images/web4medya-hakkimizda.webp" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Web4 Medya",
+      "description": "Dijital pazarlama, web tasarım, SEO ve prodüksiyon hizmetleri sunan profesyonel ajans",
+      "url": "https://www.web4medya.com/",
+      "logo": "https://www.web4medya.com/images/web4medya-logo.png",
+      "image": "https://www.web4medya.com/images/web4medya-hakkimizda.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "İstanbul",
+        "addressCountry": "TR"
+      },
+      "telephone": "+905422360983",
+      "openingHours": "Mo-Fr 09:00-20:00, Sa-Su 10:00-20:00",
+      "sameAs": [
+        "https://instagram.com/web4medya",
+        "https://facebook.com/web4medya",
+        "https://twitter.com/web4medya",
+        "https://linkedin.com/company/web4medya"
+      ],
+      "serviceType": ["Dijital Pazarlama", "Web Tasarım", "SEO", "Video Prodüksiyon"]
+    }
+    </script>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -268,7 +309,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: #000; /* Video oynamazsa siyah arkaplan */
+            background: #000;
         }
 
         .video-background {
@@ -291,31 +332,36 @@
             z-index: 2;
         }
 
-        /* SEO BAŞLIK - GÖRÜNMEZ */
-        .seo-heading {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 0 5%;
+            max-width: 1200px;
+            width: 100%;
+            padding-top: 150px;
         }
 
-        .hero-content {
-    position: relative;
-    z-index: 3;
-    text-align: center;
-    padding: 0 5%;
-    max-width: 1200px;
-    width: 100%;
-    /* YENİ: İçeriği biraz aşağı kaydırmak için padding-top eklendi */
-    padding-top: 350px; /* Bu satırı ekleyin */
-}
-
+        /* H1 BAŞLIK - ESKİ GÖRÜNÜM KORUNACAK */
         .hero h1 {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem); /* ESKİ BOYUT */
+            color: rgba(255, 255, 255, 0.95); /* ESKİ RENK */
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300; /* ESKİ KALINLIK */
+            line-height: 1.7;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+            /* Gradient ve animasyon kaldırıldı - eski görünüm korundu */
+            background: none;
+            -webkit-background-clip: initial;
+            background-clip: initial;
+            animation: none;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Büyük gradient başlık için yeni sınıf */
+        .hero-title-large {
             font-size: clamp(3rem, 8vw, 5rem);
             font-weight: 900;
             margin-bottom: 10px;
@@ -345,31 +391,18 @@
             100% { background-position: 0% center; }
         }
 
-       .hero p {
-    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-    color: rgba(255, 255, 255, 0.95);
-    max-width: 800px;
-    margin: 0 auto;
-    font-weight: 300;
-    line-height: 1.7;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    /* YENİ: Paragraf ile logo arasına biraz daha boşluk */
-    margin-bottom: 30px; /* Bu satırı ekleyin */
-}
-
         /* HERO LOGO */
         .hero-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 40px;
-    /* YENİ: Logo alanını daha belirgin hale getirelim */
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.2); /* Hafif arkaplan efekti */
-    border-radius: var(--radius);
-    backdrop-filter: blur(5px);
-}
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: var(--radius);
+            backdrop-filter: blur(5px);
+        }
 
         .hero-logo img {
             height: 70px;
@@ -653,27 +686,26 @@
             position: relative;
             height: 280px;
             transform-style: preserve-3d;
-            -webkit-transform-style: preserve-3d; /* iOS için */
+            -webkit-transform-style: preserve-3d;
             transition: transform 0.6s ease;
-            -webkit-transition: transform 0.6s ease; /* iOS için */
+            -webkit-transition: transform 0.6s ease;
             border-radius: var(--radius);
             cursor: pointer;
             background: white;
-            /* iOS FIX 1: */
             perspective: 1000px;
-            -webkit-perspective: 1000px; /* iOS için */
+            -webkit-perspective: 1000px;
             transform: translate3d(0,0,0);
-            -webkit-transform: translate3d(0,0,0); /* iOS için */
+            -webkit-transform: translate3d(0,0,0);
         }
 
         .flip-card:hover:not(.flipped) {
             transform: translateY(-5px) translate3d(0,0,0);
-            -webkit-transform: translateY(-5px) translate3d(0,0,0); /* iOS için */
+            -webkit-transform: translateY(-5px) translate3d(0,0,0);
         }
 
         .flip-card.flipped {
-            transform: rotateY(180deg) translateZ(1px); /* iOS için küçük Z değeri */
-            -webkit-transform: rotateY(180deg) translateZ(1px); /* iOS için */
+            transform: rotateY(180deg) translateZ(1px);
+            -webkit-transform: rotateY(180deg) translateZ(1px);
         }
 
         .card-face {
@@ -684,7 +716,7 @@
             height: 100%;
             border-radius: var(--radius);
             backface-visibility: hidden;
-            -webkit-backface-visibility: hidden; /* iOS için kritik */
+            -webkit-backface-visibility: hidden;
             padding: 30px 20px;
             display: flex;
             flex-direction: column;
@@ -692,9 +724,8 @@
             align-items: center;
             text-align: center;
             overflow: hidden;
-            /* iOS FIX 2: */
             transform: translate3d(0,0,0);
-            -webkit-transform: translate3d(0,0,0); /* iOS için */
+            -webkit-transform: translate3d(0,0,0);
         }
 
         .card-front {
@@ -724,11 +755,10 @@
             border-radius: 50%;
             transition: var(--transition);
             color: white;
-            /* iOS FIX 3: İkon flicker sorunu için */
             backface-visibility: hidden;
-            -webkit-backface-visibility: hidden; /* iOS için */
+            -webkit-backface-visibility: hidden;
             transform: translateZ(0);
-            -webkit-transform: translateZ(0); /* iOS için */
+            -webkit-transform: translateZ(0);
         }
 
         /* OPTİMİZE İKON RENKLERİ */
@@ -744,9 +774,16 @@
         .icon-film { background: linear-gradient(45deg, #6A5ACD, #9370DB); }
         .icon-drone { background: linear-gradient(45deg, #3E92CC, #4ECDC4); }
 
+        /* DRONE ICON FIX - Helicopter icon kullan */
+        .fa-drone:before {
+            content: "\f533"; /* Font Awesome helicopter icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+
         .flip-card:hover .card-front .icon {
             transform: scale(1.1) rotate(5deg) translateZ(0);
-            -webkit-transform: scale(1.1) rotate(5deg) translateZ(0); /* iOS için */
+            -webkit-transform: scale(1.1) rotate(5deg) translateZ(0);
         }
 
         .card-front h3 {
@@ -761,11 +798,13 @@
                 rgba(10, 36, 99, 0.95), 
                 rgba(62, 146, 204, 0.95));
             color: var(--white);
-            transform: rotateY(180deg) translate3d(0,0,0); /* iOS için düzeltme */
-            -webkit-transform: rotateY(180deg) translate3d(0,0,0); /* iOS için */
+            transform: rotateY(180deg) translate3d(0,0,0);
+            -webkit-transform: rotateY(180deg) translate3d(0,0,0);
             justify-content: space-between;
             padding: 30px 20px;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
         }
 
         .card-back h3 {
@@ -1165,11 +1204,17 @@
             color: var(--accent);
         }
 
-        /* DRONE ICON FIX - GÜNCELLENDİ */
-        .fa-drone:before {
-            content: "\f5d1"; /* helicopter icon */
-            font-family: "Font Awesome 5 Free";
-            font-weight: 900;
+        /* Ekran okuyucular için gizli sınıf */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
         /* OPTİMİZE RESPONSIVE */
@@ -1210,10 +1255,6 @@
             }
             
             .hero h1 {
-                font-size: clamp(2.5rem, 6vw, 4rem);
-            }
-            
-            .hero p {
                 font-size: clamp(1.1rem, 2vw, 1.5rem);
             }
             
@@ -1293,12 +1334,8 @@
             }
             
             .hero h1 {
-                font-size: 2.5rem;
-                margin-bottom: 20px;
-            }
-            
-            .hero p {
                 font-size: 1.2rem;
+                margin-bottom: 20px;
             }
             
             .hero-logo {
@@ -1346,17 +1383,11 @@
             }
             
             .card-back .btn {
-                background: white;
-                color: var(--primary);
-                padding: 12px 24px; 
-                font-weight: 600;
-                font-size: 0.95rem; 
-                border-radius: 50px;
-                text-decoration: none;
-                width: 100%;
-                max-width: 180px; 
-                margin: 0 auto;
-                white-space: nowrap; 
+                padding: 10px 20px;
+                font-size: 0.85rem;
+                max-width: 160px;
+                white-space: normal;
+                word-break: break-word;
             }
             
             .footer {
@@ -1389,44 +1420,44 @@
     <!-- HEADER -->
     <header class="header" id="mainHeader">
         <a href="#" class="logo" id="homeLink" aria-label="Web4 Medya - Ana Sayfa">
-            <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
+            <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo - Dijital Pazarlama Ajansı" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
         </a>
         
         <!-- NAVIGATION -->
-        <nav class="nav-desktop">
+        <nav class="nav-desktop" aria-label="Ana navigasyon">
             <div class="nav-item">
-                <a href="/" class="nav-link active">Ana Sayfa</a>
+                <a href="/" class="nav-link active" aria-current="page">Ana Sayfa</a>
             </div>
             
             <!-- HİZMETLER DROPDOWN -->
             <div class="nav-item">
-                <a href="#" class="nav-link">Hizmetler <i class="fas fa-chevron-down arrow"></i></a>
-                <div class="dropdown" id="hizmetlerDropdown">
+                <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">Hizmetler <i class="fas fa-chevron-down arrow"></i></a>
+                <div class="dropdown" id="hizmetlerDropdown" role="menu" aria-label="Hizmetler alt menüsü">
                     <div class="dropdown-content">
                         <!-- Dijital Pazarlama -->
                         <div class="dropdown-section">
                             <h4>Dijital Pazarlama</h4>
-                            <a href="/google-ads-reklam-ver/" class="dropdown-link">Google Ads Reklam Ver</a>
-                            <a href="/instagram-reklam-ver/" class="dropdown-link">İnstagram Reklam Ver</a>
-                            <a href="/facebook-reklam-ver/" class="dropdown-link">Facebook Reklam Ver</a>
-                            <a href="/google-harita-maps-kaydi/" class="dropdown-link">Google Harita(Maps) Kaydı</a>
-                            <a href="/seo/" class="dropdown-link">SEO (Arama Motoru Optimizasyonu)</a>
-                            <a href="/sosyal-medya-yonetimi/" class="dropdown-link">Sosyal Medya Yönetimi</a>
+                            <a href="/google-ads-reklam-ver/" class="dropdown-link" role="menuitem">Google Ads Reklam Ver</a>
+                            <a href="/instagram-reklam-ver/" class="dropdown-link" role="menuitem">İnstagram Reklam Ver</a>
+                            <a href="/facebook-reklam-ver/" class="dropdown-link" role="menuitem">Facebook Reklam Ver</a>
+                            <a href="/google-harita-maps-kaydi/" class="dropdown-link" role="menuitem">Google Harita(Maps) Kaydı</a>
+                            <a href="/seo/" class="dropdown-link" role="menuitem">SEO (Arama Motoru Optimizasyonu)</a>
+                            <a href="/sosyal-medya-yonetimi/" class="dropdown-link" role="menuitem">Sosyal Medya Yönetimi</a>
                         </div>
                         
                         <!-- Web Tasarım -->
                         <div class="dropdown-section">
                             <h4>Web Tasarım</h4>
-                            <a href="/e-ticaret-sitesi/" class="dropdown-link">E-Ticaret Sitesi</a>
-                            <a href="/kurumsal-web-sitesi/" class="dropdown-link">Kurumsal Web Sitesi</a>
+                            <a href="/e-ticaret-sitesi/" class="dropdown-link" role="menuitem">E-Ticaret Sitesi</a>
+                            <a href="/kurumsal-web-sitesi/" class="dropdown-link" role="menuitem">Kurumsal Web Sitesi</a>
                         </div>
                         
                         <!-- Prodüksiyon -->
                         <div class="dropdown-section">
                             <h4>Prodüksiyon</h4>
-                            <a href="/sosyal-medya-videolari/" class="dropdown-link">Sosyal Medya Videoları</a>
-                            <a href="/tanitim-filmi/" class="dropdown-link">Tanıtım Filmi</a>
-                            <a href="/drone-cekimi/" class="dropdown-link">Drone Çekimi</a>
+                            <a href="/sosyal-medya-videolari/" class="dropdown-link" role="menuitem">Sosyal Medya Videoları</a>
+                            <a href="/tanitim-filmi/" class="dropdown-link" role="menuitem">Tanıtım Filmi</a>
+                            <a href="/drone-cekimi/" class="dropdown-link" role="menuitem">Drone Çekimi</a>
                         </div>
                     </div>
                 </div>
@@ -1449,14 +1480,14 @@
             
             <!-- HEADER CTA BUTTON -->
             <div class="header-cta">
-                <a href="tel:05422360983" class="btn btn-yellow light-effect">
+                <a href="tel:05422360983" class="btn btn-yellow light-effect" aria-label="Telefon ile arayın">
                     <i class="fas fa-phone-alt"></i> 0542 236 09 83
                 </a>
             </div>
         </nav>
         
         <!-- Hamburger Menu -->
-        <button class="menu-toggle" id="menuToggle" aria-label="Menüyü aç/kapat">
+        <button class="menu-toggle" id="menuToggle" aria-label="Menüyü aç/kapat" aria-expanded="false" aria-controls="mobileMenu">
             <span></span>
             <span></span>
             <span></span>
@@ -1464,38 +1495,38 @@
     </header>
     
     <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobil navigasyon">
         <nav class="mobile-nav">
             <div class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link active" id="mobileHomeLink">Ana Sayfa</a>
+                <a href="#" class="mobile-nav-link active" id="mobileHomeLink" aria-current="page">Ana Sayfa</a>
             </div>
             
             <div class="mobile-nav-item">
-                <button class="mobile-dropdown-btn" data-target="hizmetlerMobile">
+                <button class="mobile-dropdown-btn" data-target="hizmetlerMobile" aria-expanded="false" aria-controls="hizmetlerMobile">
                     Hizmetler <i class="fas fa-chevron-down mobile-arrow"></i>
                 </button>
-                <div class="mobile-dropdown-content" id="hizmetlerMobile">
+                <div class="mobile-dropdown-content" id="hizmetlerMobile" role="menu">
                     <div class="mobile-dropdown-section">
                         <h4>Dijital Pazarlama</h4>
-                        <a href="/google-ads-reklam-ver/" class="mobile-dropdown-link">Google Ads Reklam Ver</a>
-                        <a href="/instagram-reklam-ver/" class="mobile-dropdown-link">İnstagram Reklam Ver</a>
-                        <a href="/facebook-reklam-ver/" class="mobile-dropdown-link">Facebook Reklam Ver</a>
-                        <a href="/google-harita-maps-kaydi/" class="mobile-dropdown-link">Google Harita(Maps) Kaydı</a>
-                        <a href="/seo/" class="mobile-dropdown-link">SEO (Arama Motoru Optimizasyonu)</a>
-                        <a href="/sosyal-medya-yonetimi/" class="mobile-dropdown-link">Sosyal Medya Yönetimi</a>
+                        <a href="/google-ads-reklam-ver/" class="mobile-dropdown-link" role="menuitem">Google Ads Reklam Ver</a>
+                        <a href="/instagram-reklam-ver/" class="mobile-dropdown-link" role="menuitem">İnstagram Reklam Ver</a>
+                        <a href="/facebook-reklam-ver/" class="mobile-dropdown-link" role="menuitem">Facebook Reklam Ver</a>
+                        <a href="/google-harita-maps-kaydi/" class="mobile-dropdown-link" role="menuitem">Google Harita(Maps) Kaydı</a>
+                        <a href="/seo/" class="mobile-dropdown-link" role="menuitem">SEO (Arama Motoru Optimizasyonu)</a>
+                        <a href="/sosyal-medya-yonetimi/" class="mobile-dropdown-link" role="menuitem">Sosyal Medya Yönetimi</a>
                     </div>
                     
                     <div class="mobile-dropdown-section">
                         <h4>Web Tasarım</h4>
-                        <a href="/e-ticaret-sitesi/" class="mobile-dropdown-link">E-Ticaret Sitesi</a>
-                        <a href="/kurumsal-web-sitesi/" class="mobile-dropdown-link">Kurumsal Web Sitesi</a>
+                        <a href="/e-ticaret-sitesi/" class="mobile-dropdown-link" role="menuitem">E-Ticaret Sitesi</a>
+                        <a href="/kurumsal-web-sitesi/" class="mobile-dropdown-link" role="menuitem">Kurumsal Web Sitesi</a>
                     </div>
                     
                     <div class="mobile-dropdown-section">
                         <h4>Prodüksiyon</h4>
-                        <a href="/sosyal-medya-videolari/" class="mobile-dropdown-link">Sosyal Medya Videoları</a>
-                        <a href="/tanitim-filmi/" class="mobile-dropdown-link">Tanıtım Filmi</a>
-                        <a href="/drone-cekimi/" class="mobile-dropdown-link">Drone Çekimi</a>
+                        <a href="/sosyal-medya-videolari/" class="mobile-dropdown-link" role="menuitem">Sosyal Medya Videoları</a>
+                        <a href="/tanitim-filmi/" class="mobile-dropdown-link" role="menuitem">Tanıtım Filmi</a>
+                        <a href="/drone-cekimi/" class="mobile-dropdown-link" role="menuitem">Drone Çekimi</a>
                     </div>
                 </div>
             </div>
@@ -1513,7 +1544,7 @@
             </div>
             
             <div class="mobile-nav-item">
-                <a href="tel:05422360983" class="mobile-nav-link mobile-cta-btn light-effect">
+                <a href="tel:05422360983" class="mobile-nav-link mobile-cta-btn light-effect" aria-label="Telefon ile arayın">
                     <i class="fas fa-phone-alt"></i> 0542 236 09 83
                 </a>
             </div>
@@ -1522,9 +1553,6 @@
 
     <!-- YENİ HERO SECTION - VIDEO ARKA PLAN -->
     <section class="hero" id="hero">
-        <!-- SEO için görünmez başlık -->
-        <h1 class="seo-heading">Dijitalde Fark Yaratın - Web4 Medya</h1>
-        
         <!-- Video Arka Plan -->
         <video 
             class="video-background"
@@ -1532,20 +1560,21 @@
             muted
             playsinline
             loop
-            preload="auto"
+            preload="metadata"
             poster="https://www.web4medya.com/images/w4-arka.webp.jpeg"
+            aria-label="Arkaplan videosu"
         >
             <source src="https://www.web4medya.com/videos/web-4-medya-video.mp4" type="video/mp4">
-            <source src="https://www.web4medya.com/images/w4-arka.webp.jpeg" type="video/webm">
+            <source src="https://www.web4medya.com/images/w4-arka.webp.jpeg" type="image/jpeg">
             Tarayıcınız video etiketini desteklemiyor.
         </video>
         
         <!-- Video overlay -->
         <div class="video-overlay"></div>
         
-        <!-- Hero içeriği -->
+        <!-- Hero içeriği - H1 OLARAK KULLAN (ESKİ GÖRÜNÜM KORUNDU) -->
         <div class="hero-content">
-            <p>Web Tasarım, SEO, Google & Meta Ads Reklamları ve Profesyonel Prodüksiyon</p>
+            <h1>Web Tasarım, SEO, Google & Meta Ads Reklamları ve Profesyonel Prodüksiyon</h1>
             
             <!-- Hero Logo -->
             <div class="hero-logo">
@@ -1555,9 +1584,9 @@
     </section>
 
     <!-- Hizmetlerimiz -->
-    <section class="services-section">
+    <section class="services-section" aria-labelledby="hizmetler-baslik">
         <div class="section-header">
-            <h2 class="section-title">Hizmetlerimiz</h2>
+            <h2 class="section-title" id="hizmetler-baslik">Hizmetlerimiz</h2>
             <p class="section-subtitle">İşletmeniz için kapsamlı dijital çözümler sunuyoruz. Kartlara tıklayarak detayları görün.</p>
         </div>
         
@@ -1565,7 +1594,7 @@
             <div class="service-category">
                 <h2 class="category-title">Dijital Pazarlama Hizmetlerimiz</h2>
                 <div class="category-grid">
-                    <div class="flip-card" data-id="google-ads">
+                    <div class="flip-card" data-id="google-ads" tabindex="0" role="button" aria-label="Google Ads hizmeti - detayları görmek için tıklayın">
                         <div class="card-face card-front">
                             <div class="icon icon-google">
                                 <i class="fab fa-google"></i>
@@ -1579,7 +1608,7 @@
                         </div>
                     </div>
                     
-                    <div class="flip-card" data-id="instagram-ads">
+                    <div class="flip-card" data-id="instagram-ads" tabindex="0" role="button" aria-label="Instagram Ads hizmeti - detayları görmek için tıklayın">
                         <div class="card-face card-front">
                             <div class="icon icon-instagram">
                                 <i class="fab fa-instagram"></i>
@@ -1593,7 +1622,7 @@
                         </div>
                     </div>
                     
-                    <div class="flip-card" data-id="facebook-ads">
+                    <div class="flip-card" data-id="facebook-ads" tabindex="0" role="button" aria-label="Facebook Ads hizmeti - detayları görmek için tıklayın">
                         <div class="card-face card-front">
                             <div class="icon icon-facebook">
                                 <i class="fab fa-facebook"></i>
@@ -1607,7 +1636,7 @@
                         </div>
                     </div>
                     
-                    <div class="flip-card" data-id="google-maps">
+                    <div class="flip-card" data-id="google-maps" tabindex="0" role="button" aria-label="Google Harita hizmeti - detayları görmek için tıklayın">
                         <div class="card-face card-front">
                             <div class="icon icon-maps">
                                 <i class="fas fa-map-marker-alt"></i>
@@ -1621,7 +1650,7 @@
                         </div>
                     </div>
                     
-                    <div class="flip-card" data-id="seo">
+                    <div class="flip-card" data-id="seo" tabindex="0" role="button" aria-label="SEO hizmeti - detayları görmek için tıklayın">
                         <div class="card-face card-front">
                             <div class="icon icon-seo">
                                 <i class="fas fa-chart-line"></i>
@@ -1635,7 +1664,7 @@
                         </div>
                     </div>
                     
-                    <div class="flip-card" data-id="social-media">
+                    <div class="flip-card" data-id="social-media" tabindex="0" role="button" aria-label="Sosyal Medya hizmeti - detayları görmek için tıklayın">
                         <div class="card-face card-front">
                             <div class="icon icon-social">
                                 <i class="fas fa-users"></i>
@@ -1654,7 +1683,7 @@
             <div class="service-category">
                 <h2 class="category-title">Web Tasarım Hizmetlerimiz</h2>
                 <div class="category-grid">
-                    <div class="flip-card" data-id="ecommerce">
+                    <div class="flip-card" data-id="ecommerce" tabindex="0" role="button" aria-label="E-Ticaret hizmeti - detayları görmek için tıklayın">
                         <div class="card-face card-front">
                             <div class="icon icon-ecommerce">
                                 <i class="fas fa-shopping-cart"></i>
@@ -1668,7 +1697,7 @@
                         </div>
                     </div>
                     
-                    <div class="flip-card" data-id="corporate-web">
+                    <div class="flip-card" data-id="corporate-web" tabindex="0" role="button" aria-label="Kurumsal Web hizmeti - detayları görmek için tıklayın">
                         <div class="card-face card-front">
                             <div class="icon icon-corporate">
                                 <i class="fas fa-briefcase"></i>
@@ -1687,7 +1716,7 @@
             <div class="service-category">
                 <h2 class="category-title">Prodüksiyon Hizmetlerimiz</h2>
                 <div class="category-grid">
-                    <div class="flip-card" data-id="social-videos">
+                    <div class="flip-card" data-id="social-videos" tabindex="0" role="button" aria-label="Sosyal Medya Videoları hizmeti - detayları görmek için tıklayın">
                         <div class="card-face card-front">
                             <div class="icon icon-video">
                                 <i class="fas fa-video"></i>
@@ -1701,7 +1730,7 @@
                         </div>
                     </div>
                     
-                    <div class="flip-card" data-id="promo-video">
+                    <div class="flip-card" data-id="promo-video" tabindex="0" role="button" aria-label="Tanıtım Filmi hizmeti - detayları görmek için tıklayın">
                         <div class="card-face card-front">
                             <div class="icon icon-film">
                                 <i class="fas fa-film"></i>
@@ -1715,7 +1744,7 @@
                         </div>
                     </div>
                     
-                    <div class="flip-card" data-id="drone">
+                    <div class="flip-card" data-id="drone" tabindex="0" role="button" aria-label="Drone Çekimi hizmeti - detayları görmek için tıklayın">
                         <div class="card-face card-front">
                             <div class="icon icon-drone">
                                 <i class="fas fa-drone"></i>
@@ -1734,9 +1763,9 @@
     </section>
 
     <!-- NEDEN BİZ SECTION -->
-    <section class="why-us">
+    <section class="why-us" aria-labelledby="neden-biz-baslik">
         <div class="section-header">
-            <h2 class="section-title">Neden Web4 Medya?</h2>
+            <h2 class="section-title" id="neden-biz-baslik">Neden Web4 Medya?</h2>
             <p class="section-subtitle">Farkımızı ortaya koyan özelliklerimizle işletmenize değer katıyoruz</p>
         </div>
         
@@ -1768,15 +1797,15 @@
     </section>
 
     <!-- CTA SECTION -->
-    <section class="cta-section">
+    <section class="cta-section" aria-labelledby="cta-baslik">
         <div class="cta-content">
-            <h2>İşinizi Dijitalde Büyütmeye Hazır mısınız?</h2>
+            <h2 id="cta-baslik">İşinizi Dijitalde Büyütmeye Hazır mısınız?</h2>
             <p>Web4 Medya uzmanları sizin için en uygun dijital stratejiyi belirlesin. Ücretsiz danışmanlık ve analiz hizmetimizden yararlanın.</p>
             <div class="cta-buttons">
-                <a href="tel:05422360983" class="btn btn-primary light-effect">
+                <a href="tel:05422360983" class="btn btn-primary light-effect" aria-label="Telefon ile arayın: 0542 236 09 83">
                     <i class="fas fa-phone-alt"></i> 0542 236 09 83
                 </a>
-                <a href="https://wa.me/905422360983" class="btn btn-whatsapp light-effect">
+                <a href="https://wa.me/905422360983" class="btn btn-whatsapp light-effect" aria-label="WhatsApp üzerinden mesaj gönderin">
                     <i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz
                 </a>
             </div>
@@ -1788,26 +1817,26 @@
         <div class="footer-content">
             <div class="footer-section">
                 <div class="footer-logo">
-                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
+                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo - Dijital Pazarlama Ajansı" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
                     <div class="footer-logo-text">İşinizi şansa bırakmayın!</div>
                 </div>
                 <p class="footer-description">
                     Dijital pazarlama, web tasarım ve prodüksiyon alanında profesyonel çözümler sunan lider ajans. İşletmenizi dijital dünyada bir adım öne taşıyoruz.
                 </p>
                 <div class="social-links">
-                    <a href="https://instagram.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://instagram.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram hesabımız">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://facebook.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://facebook.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook sayfamız">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="https://twitter.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://twitter.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter hesabımız">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="https://linkedin.com/company/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://linkedin.com/company/web4medya" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn şirket sayfamız">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://wa.me/905422360983" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/905422360983" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp üzerinden iletişim">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
@@ -1877,10 +1906,10 @@
     
     <!-- FLOATING CTA BUTTONLARI -->
     <div class="floating-cta">
-        <a href="https://wa.me/905422360983" class="floating-btn floating-whatsapp light-effect" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/905422360983" class="floating-btn floating-whatsapp light-effect" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp üzerinden mesaj gönderin">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="tel:05422360983" class="floating-btn floating-phone light-effect">
+        <a href="tel:05422360983" class="floating-btn floating-phone light-effect" aria-label="Telefon ile arayın">
             <i class="fas fa-phone-alt"></i>
         </a>
     </div>
@@ -1898,8 +1927,10 @@
 
         menuToggle?.addEventListener('click', (e) => {
             e.stopPropagation();
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
             menuToggle.classList.toggle('active');
             mobileMenu.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
             
             // iOS için: Menü açıkken body scroll'unu engelle
             if (mobileMenu.classList.contains('active')) {
@@ -1912,9 +1943,16 @@
         // OPTİMİZE DESKTOP DROPDOWN
         document.querySelectorAll('.nav-item').forEach(item => {
             const dropdown = item.querySelector('.dropdown');
-            if (dropdown) {
-                item.addEventListener('mouseenter', () => dropdown.classList.add('active'));
-                item.addEventListener('mouseleave', () => dropdown.classList.remove('active'));
+            const link = item.querySelector('.nav-link');
+            if (dropdown && link) {
+                item.addEventListener('mouseenter', () => {
+                    dropdown.classList.add('active');
+                    link.setAttribute('aria-expanded', 'true');
+                });
+                item.addEventListener('mouseleave', () => {
+                    dropdown.classList.remove('active');
+                    link.setAttribute('aria-expanded', 'false');
+                });
             }
         });
 
@@ -1923,13 +1961,18 @@
             btn.addEventListener('click', function() {
                 const target = document.getElementById(this.dataset.target);
                 const isActive = this.classList.toggle('active');
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
                 
                 document.querySelectorAll('.mobile-dropdown-content.active').forEach(d => {
                     if (d !== target) d.classList.remove('active');
                 });
                 
                 document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => {
-                    if (b !== this) b.classList.remove('active');
+                    if (b !== this) {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-expanded', 'false');
+                    }
                 });
                 
                 if (target) target.classList.toggle('active', isActive);
@@ -1949,18 +1992,38 @@
                     });
                 }
             });
+            
+            // Klavye erişilebilirliği için
+            card.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
         });
 
         // CLOSE DROPDOWNS ON CLICK OUTSIDE
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.nav-item')) {
-                document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+                document.querySelectorAll('.dropdown.active').forEach(d => {
+                    d.classList.remove('active');
+                    const link = d.previousElementSibling;
+                    if (link) link.setAttribute('aria-expanded', 'false');
+                });
             }
             
             if (!e.target.closest('.menu-toggle') && !e.target.closest('.mobile-menu')) {
                 menuToggle?.classList.remove('active');
                 mobileMenu?.classList.remove('active');
-                document.body.style.overflow = ''; // iOS için: Scroll'u geri aç
+                menuToggle?.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                
+                // Mobile dropdown'ları kapat
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(d => d.classList.remove('active'));
+                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-expanded', 'false');
+                });
             }
             
             if (!e.target.closest('.flip-card')) {
@@ -1986,7 +2049,8 @@
             scrollToTop();
             menuToggle?.classList.remove('active');
             mobileMenu?.classList.remove('active');
-            document.body.style.overflow = ''; // iOS için: Scroll'u geri aç
+            menuToggle?.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
         });
 
         // CLOSE MOBILE MENU ON LINK CLICK
@@ -1994,9 +2058,13 @@
             link.addEventListener('click', () => {
                 menuToggle?.classList.remove('active');
                 mobileMenu?.classList.remove('active');
+                menuToggle?.setAttribute('aria-expanded', 'false');
                 document.querySelectorAll('.mobile-dropdown-content.active').forEach(d => d.classList.remove('active'));
-                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => b.classList.remove('active'));
-                document.body.style.overflow = ''; // iOS için: Scroll'u geri aç
+                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-expanded', 'false');
+                });
+                document.body.style.overflow = '';
             });
         });
 
@@ -2013,18 +2081,34 @@
         document.addEventListener('DOMContentLoaded', () => {
             const video = document.querySelector('.video-background');
             if (video) {
-                // Video yüklendiğinde otomatik oynat
-                video.play().catch(e => {
-                    console.log('Video otomatik oynatma hatası:', e);
-                    // iOS için alternatif yaklaşım
-                    video.setAttribute('playsinline', '');
-                    video.setAttribute('webkit-playsinline', '');
-                    // Video oynamazsa arkaplan siyah kalacak (zaten CSS'te ayarlandı)
-                });
+                // Video otomatik oynatma için optimize edilmiş versiyon
+                const playVideo = () => {
+                    const playPromise = video.play();
+                    
+                    if (playPromise !== undefined) {
+                        playPromise.catch(error => {
+                            console.log('Video otomatik oynatma başlatılamadı:', error);
+                            // iOS için gerekli attribute'lar
+                            video.setAttribute('playsinline', '');
+                            video.setAttribute('webkit-playsinline', '');
+                            video.setAttribute('muted', '');
+                            
+                            // Kullanıcı etkileşimi için fallback
+                            video.controls = false;
+                        });
+                    }
+                };
                 
-                // Video yükleme hatası durumunda sadece siyah arkaplan kalacak
+                // Video yüklendiğinde oynatmayı dene
+                if (video.readyState >= 3) {
+                    playVideo();
+                } else {
+                    video.addEventListener('loadeddata', playVideo);
+                }
+                
+                // Video yükleme hatası durumunda
                 video.addEventListener('error', () => {
-                    console.log('Video yükleme hatası, siyah arkaplan kullanılıyor');
+                    console.log('Video yükleme hatası, statik görsel kullanılıyor');
                     // Hero zaten siyah arkaplan rengine sahip (#000)
                 });
             }
@@ -2033,6 +2117,27 @@
         // iOS FIX: Touch events için optimizasyon
         document.addEventListener('touchstart', function() {}, {passive: true});
         document.addEventListener('touchmove', function() {}, {passive: true});
+        
+        // ARIA Live regions for screen readers
+        const announceFlip = (serviceName) => {
+            const announcement = document.createElement('div');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.setAttribute('aria-atomic', 'true');
+            announcement.className = 'sr-only';
+            announcement.textContent = `${serviceName} hizmeti detayları açıldı`;
+            document.body.appendChild(announcement);
+            setTimeout(() => announcement.remove(), 1000);
+        };
+        
+        // Flip kartları için ekran okuyucu duyuruları
+        document.querySelectorAll('.flip-card').forEach(card => {
+            card.addEventListener('click', function() {
+                if (this.classList.contains('flipped')) {
+                    const serviceName = this.querySelector('h3').textContent;
+                    announceFlip(serviceName);
+                }
+            });
+        });
     </script>
 </body>
 </html>
