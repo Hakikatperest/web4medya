@@ -258,17 +258,17 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* YENİ HERO SECTION - VIDEO ARKA PLAN (GÜNCELLENDİ) */
+        /* YENİ HERO SECTION - VIDEO ARKA PLAN */
         .hero {
             position: relative;
             width: 100%;
             height: 100vh;
             min-height: 100vh;
             display: flex;
-            align-items: center; /* Yukarı kaydırmak için center yaptık */
+            align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: #000;
+            background: #000; /* Video oynamazsa siyah arkaplan */
         }
 
         .video-background {
@@ -287,11 +287,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.3); 
             z-index: 2;
         }
 
-        /* SEO için görünmez başlık */
+        /* SEO BAŞLIK - GÖRÜNMEZ */
         .seo-heading {
             position: absolute;
             width: 1px;
@@ -311,7 +311,6 @@
             padding: 0 5%;
             max-width: 1200px;
             width: 100%;
-            margin-top: -40px; /* Yukarı kaydırmak için negatif margin */
         }
 
         .hero h1 {
@@ -348,36 +347,36 @@
             font-size: clamp(1.2rem, 2.5vw, 1.8rem);
             color: rgba(255, 255, 255, 0.95);
             max-width: 800px;
-            margin: 0 auto 40px; /* Alt boşluğu artırdık */
+            margin: 0 auto;
             font-weight: 300;
             line-height: 1.7;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
-        /* HERO LOGO - YENİ DİJİTALDE FARK YARATIN */
+        /* HERO LOGO */
         .hero-logo {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
+            margin-top: 40px;
+        }
+
+        .hero-logo img {
+            height: 70px;
+            width: auto;
+            filter: brightness(1.2);
+            transition: var(--transition);
+        }
+
+        .hero-logo:hover img {
+            transform: scale(1.05);
         }
 
         .hero-logo-text {
-            font-size: 2.5rem; /* Büyüttük */
+            font-size: 1.5rem;
             font-weight: 900;
-            background: linear-gradient(
-                90deg,
-                #FFFFFF 0%,
-                #FFE66D 25%,
-                #3E92CC 50%,
-                #0A2463 75%,
-                #FFFFFF 100%
-            );
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            background-size: 200% auto;
-            animation: gradientShift 3s ease-in-out infinite;
+            color: white;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
@@ -603,13 +602,6 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-        }
-
-        /* Hizmetlerimiz yazısı SİYAH */
-        .services-section .section-title {
-            color: #000000 !important; /* Siyah renk */
-            background: none !important;
-            -webkit-text-fill-color: #000000 !important;
         }
 
         .section-subtitle {
@@ -1196,10 +1188,6 @@
                 min-height: 90vh;
             }
             
-            .hero-content {
-                margin-top: -20px; /* Mobil için daha az negatif margin */
-            }
-            
             .services-section {
                 padding: 40px 4% 80px;
             }
@@ -1218,11 +1206,18 @@
             
             .hero p {
                 font-size: clamp(1.1rem, 2vw, 1.5rem);
-                margin-bottom: 30px; /* Mobil için daha az margin */
+            }
+            
+            .hero-logo {
+                margin-top: 30px;
+            }
+            
+            .hero-logo img {
+                height: 50px;
             }
             
             .hero-logo-text {
-                font-size: 2rem; /* Mobil için biraz küçült */
+                font-size: 1.3rem;
             }
             
             .cta-buttons {
@@ -1288,10 +1283,6 @@
                 min-height: 85vh;
             }
             
-            .hero-content {
-                margin-top: -10px; /* Küçük ekran için daha az negatif margin */
-            }
-            
             .hero h1 {
                 font-size: 2.5rem;
                 margin-bottom: 20px;
@@ -1299,11 +1290,20 @@
             
             .hero p {
                 font-size: 1.2rem;
-                margin-bottom: 25px; /* Küçük ekran için daha az margin */
+            }
+            
+            .hero-logo {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 25px;
+            }
+            
+            .hero-logo img {
+                height: 45px;
             }
             
             .hero-logo-text {
-                font-size: 1.8rem; /* Küçük ekran için daha küçük */
+                font-size: 1.2rem;
             }
             
             .services-section {
@@ -1337,6 +1337,8 @@
             }
             
             .card-back .btn {
+                background: white;
+                color: var(--primary);
                 padding: 12px 24px; 
                 font-weight: 600;
                 font-size: 0.95rem; 
@@ -1536,10 +1538,8 @@
         <div class="hero-content">
             <p>Web Tasarım, SEO, Google & Meta Ads Reklamları ve Profesyonel Prodüksiyon</p>
             
-            <!-- Hero Logo - Dijitalde Fark Yaratın -->
+            <!-- Hero Logo -->
             <div class="hero-logo">
-                <div class="hero-logo-text">Dijitalde Fark Yaratın</div>
-            </div>
         </div>
     </section>
 
@@ -1778,7 +1778,7 @@
             <div class="footer-section">
                 <div class="footer-logo">
                     <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
-                    <div class="footer-logo-text">Dijitalde Fark Yaratın</div>
+                    <div class="footer-logo-text">İşinizi şansa bırakmayın!</div>
                 </div>
                 <p class="footer-description">
                     Dijital pazarlama, web tasarım ve prodüksiyon alanında profesyonel çözümler sunan lider ajans. İşletmenizi dijital dünyada bir adım öne taşıyoruz.
