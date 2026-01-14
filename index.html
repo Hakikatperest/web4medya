@@ -305,13 +305,15 @@
         }
 
         .hero-content {
-            position: relative;
-            z-index: 3;
-            text-align: center;
-            padding: 0 5%;
-            max-width: 1200px;
-            width: 100%;
-        }
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 0 5%;
+    max-width: 1200px;
+    width: 100%;
+    /* YENİ: İçeriği biraz aşağı kaydırmak için padding-top eklendi */
+    padding-top: 80px; /* Bu satırı ekleyin */
+}
 
         .hero h1 {
             font-size: clamp(3rem, 8vw, 5rem);
@@ -343,24 +345,31 @@
             100% { background-position: 0% center; }
         }
 
-        .hero p {
-            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-            color: rgba(255, 255, 255, 0.95);
-            max-width: 800px;
-            margin: 0 auto;
-            font-weight: 300;
-            line-height: 1.7;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
+       .hero p {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 300;
+    line-height: 1.7;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    /* YENİ: Paragraf ile logo arasına biraz daha boşluk */
+    margin-bottom: 30px; /* Bu satırı ekleyin */
+}
 
         /* HERO LOGO */
         .hero-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 40px;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+    /* YENİ: Logo alanını daha belirgin hale getirelim */
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2); /* Hafif arkaplan efekti */
+    border-radius: var(--radius);
+    backdrop-filter: blur(5px);
+}
 
         .hero-logo img {
             height: 70px;
@@ -1540,6 +1549,8 @@
             
             <!-- Hero Logo -->
             <div class="hero-logo">
+                <div class="hero-logo-text">İşinizi şansa bırakmayın!</div>
+            </div>
         </div>
     </section>
 
