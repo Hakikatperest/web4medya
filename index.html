@@ -17,11 +17,6 @@
     <meta property="og:url" content="https://www.web4medya.com/" />
     <meta property="og:image" content="images/web4medya-logo.png" />
     
-    <!-- Preconnect for CDNs -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
@@ -263,42 +258,27 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* OPTİMİZE HERO SECTION - VİDEO ARKA PLAN */
+        /* YENİ HERO SECTION - VIDEO ARKA PLAN */
         .hero {
             position: relative;
-            color: var(--white);
-            padding: 160px 5% 140px;
-            text-align: center;
-            overflow: hidden;
-            min-height: 85vh;
+            width: 100%;
+            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            background-color: #000;
-            isolation: isolate;
+            justify-content: center;
+            overflow: hidden;
+            background: #000;
         }
 
-        #heroVideo {
+        .video-background {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            transform: translate(-50%, -50%);
             z-index: 1;
-            
-            /* PERFORMANS OPTİMİZASYONLARI */
-            will-change: transform;
-            backface-visibility: hidden;
-            transform: translate3d(-50%, -50%, 0);
-            -webkit-transform: translate3d(-50%, -50%, 0);
-            image-rendering: -webkit-optimize-contrast;
-            
-            /* Video boyutu sınırlaması */
-            max-width: 1920px;
-            max-height: 1080px;
         }
 
         .video-overlay {
@@ -307,95 +287,65 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: linear-gradient(
+                to bottom,
+                rgba(10, 36, 99, 0.7),
+                rgba(62, 146, 204, 0.5),
+                rgba(10, 36, 99, 0.7)
+            );
             z-index: 2;
-        }
-
-        /* Video Placeholder (Yüklenene kadar) */
-        .video-placeholder {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 3;
-            transition: opacity 0.5s ease;
-        }
-
-        .video-placeholder.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .video-placeholder p {
-            color: white;
-            margin-top: 20px;
-            font-size: 1.1rem;
-            opacity: 0.9;
         }
 
         .hero-content {
             position: relative;
-            z-index: 4;
-            max-width: 1000px;
-            margin: 0 auto;
+            z-index: 3;
+            text-align: center;
+            padding: 0 5%;
+            max-width: 1200px;
+            width: 100%;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: clamp(3rem, 8vw, 5rem);
             font-weight: 900;
             margin-bottom: 30px;
             line-height: 1.1;
-            background: linear-gradient(45deg, 
-                var(--white) 0%, 
-                var(--accent-light) 25%, 
-                var(--accent) 50%, 
-                var(--gradient-3) 75%, 
-                var(--white) 100%);
+            background: linear-gradient(
+                90deg,
+                #FFFFFF 0%,
+                #FFE66D 20%,
+                #3E92CC 40%,
+                #FF6B6B 60%,
+                #0A2463 80%,
+                #FFFFFF 100%
+            );
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            background-size: 200% auto;
+            animation: gradientShift 3s ease-in-out infinite;
             text-shadow: 
-                0 2px 10px rgba(0, 0, 0, 0.3),
+                0 5px 15px rgba(0, 0, 0, 0.3),
                 0 0 30px rgba(62, 146, 204, 0.2);
-            animation: gradientShift 8s ease infinite;
-            background-size: 400% 400%;
         }
 
         @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            0% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+            100% { background-position: 0% center; }
         }
 
         .hero p {
-            font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
             color: rgba(255, 255, 255, 0.95);
             max-width: 800px;
-            margin: 0 auto 60px;
+            margin: 0 auto;
             font-weight: 300;
             line-height: 1.7;
-            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
-        /* OPTİMİZE BUTTONLAR */
+        /* OPTİMİZE BUTONLAR */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -473,28 +423,6 @@
         /* HOVER EFEKTLERİ */
         .btn:hover:not(.floating-btn) {
             transform: translateY(-3px);
-        }
-
-        .hero-buttons .btn:hover,
-        .cta-buttons .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* HERO BUTTONS */
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 50px;
-        }
-
-        .hero-buttons .btn {
-            min-width: 260px;
-            padding: 18px 40px;
-            font-weight: 700;
-            font-size: 1.1rem;
         }
 
         /* OPTİMİZE MOBILE MENU */
@@ -623,7 +551,6 @@
         .services-section {
             padding: 60px 5% 80px;
             background: #F8FAFC;
-            margin-top: -20px;
         }
 
         .section-header {
@@ -1201,24 +1128,6 @@
             font-weight: 900;
         }
 
-        /* VİDEO KONTROLLERİNİ GİZLE */
-        #heroVideo::-webkit-media-controls {
-            display: none !important;
-        }
-
-        #heroVideo {
-            -webkit-mask-image: -webkit-radial-gradient(white, black);
-        }
-
-        /* MOBİL OPTİMİZASYONU */
-        @media (max-width: 768px) {
-            #heroVideo {
-                /* Mobilde daha hızlı render için */
-                transform: translate(-50%, -50%) scale(1.05);
-                -webkit-transform: translate(-50%, -50%) scale(1.05);
-            }
-        }
-
         /* OPTİMİZE RESPONSIVE */
         @media (max-width: 1024px) {
             .nav-desktop {
@@ -1240,8 +1149,8 @@
 
         @media (max-width: 768px) {
             .hero {
-                padding: 140px 4% 80px;
-                min-height: auto;
+                height: 90vh;
+                min-height: 90vh;
             }
             
             .services-section {
@@ -1256,14 +1165,20 @@
                 height: 260px;
             }
             
-            .hero-buttons,
+            .hero h1 {
+                font-size: clamp(2.5rem, 6vw, 4rem);
+            }
+            
+            .hero p {
+                font-size: clamp(1.1rem, 2vw, 1.5rem);
+            }
+            
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
                 gap: 20px;
             }
             
-            .hero-buttons .btn,
             .cta-buttons .btn {
                 width: 100%;
                 max-width: 320px;
@@ -1317,21 +1232,21 @@
             }
             
             .hero {
-                padding: 120px 20px 60px;
+                height: 85vh;
+                min-height: 85vh;
             }
             
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
+                margin-bottom: 20px;
             }
             
             .hero p {
-                font-size: 1.1rem;
-                margin-bottom: 30px;
+                font-size: 1.2rem;
             }
             
             .services-section {
                 padding: 30px 20px 60px;
-                margin-top: -10px;
             }
             
             .category-title {
@@ -1535,50 +1450,31 @@
         </nav>
     </div>
 
-    <!-- Hero Section with Video Background -->
+    <!-- YENİ HERO SECTION - VIDEO ARKA PLAN -->
     <section class="hero" id="hero">
-        <!-- Video Placeholder (Yüklenene kadar gösterilecek) -->
-        <div class="video-placeholder" id="videoPlaceholder">
-            <div class="spinner"></div>
-            <p>Video yükleniyor...</p>
-        </div>
-        
-        <!-- Video Background -->
+        <!-- Video Arka Plan -->
         <video 
-            id="heroVideo" 
-            autoplay 
-            muted 
-            playsinline 
-            preload="metadata"
-            onended="videoEnded()"
-            onloadeddata="videoLoaded()"
-            oncanplaythrough="videoCanPlayThrough()"
-            onerror="videoError()"
+            class="video-background"
+            autoplay
+            muted
+            playsinline
+            loop
+            preload="auto"
+            poster="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
         >
-            <!-- WebM formatı (En iyi optimizasyon) -->
-            <source src="/videos/web-4-medya-video.mp4" type="video/mp4">
-            
-            <!-- Fallback için MP4 -->
-            <source src="/videos/web-4-medya-video.mp4" type="video/mp4">
-            
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-a-futuristic-server-room-122727-large.mp4" type="video/mp4">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-a-futuristic-server-room-122727-large.webm" type="video/webm">
             Tarayıcınız video etiketini desteklemiyor.
         </video>
         
-        <!-- Video Overlay -->
+        <!-- Video overlay -->
         <div class="video-overlay"></div>
         
-        <!-- Hero Content -->
+        <!-- Hero içeriği -->
         <div class="hero-content">
             <h1>Dijitalde Fark Yaratın</h1>
-            <p>Web Tasarım, SEO, Google & Meta Ads Reklamları ve Profesyonel Prodüksiyon</p>
-             <div class="hero-buttons">
-                <a href="tel:05422360983" class="btn btn-primary light-effect">
-                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
-                </a>
-                <a href="https://wa.me/905422360983" class="btn btn-whatsapp light-effect">
-                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz
-                </a>
-            </div>
+            <p>Web Tasarım, SEO, Google & Meta Ads Reklamları ve profesyonel prodüksiyon çözümlerimizle markanızı dijital dünyada öne çıkarıyoruz.</p>
+            <!-- Butonlar kaldırıldı -->
         </div>
     </section>
 
@@ -2037,190 +1933,32 @@
             };
         });
 
-        // VİDEO OPTİMİZASYONU - YENİ VE GELİŞMİŞ
-        const heroVideo = document.getElementById('heroVideo');
-        const videoPlaceholder = document.getElementById('videoPlaceholder');
-        
-        // 1. Video yüklendiğinde placeholder'ı gizle
-        function videoLoaded() {
-            if (videoPlaceholder) {
-                videoPlaceholder.classList.add('hidden');
-            }
-        }
-        
-        // 2. Video tamamen oynatılabildiğinde
-        function videoCanPlayThrough() {
-            // Video kesintisiz oynatılabilecek kadar yüklendi
-            console.log('Video kesintisiz oynatılmaya hazır');
-            
-            // Video'yu oynatmaya çalış
-            heroVideo.play().then(() => {
-                console.log('Video başarıyla oynatılıyor');
-            }).catch(error => {
-                console.log('Video oynatma hatası:', error);
-            });
-        }
-        
-        // 3. Video bittiğinde
-        function videoEnded() {
-            heroVideo.style.opacity = '0';
-            heroVideo.style.transition = 'opacity 1s ease';
-            
-            setTimeout(() => {
-                heroVideo.style.display = 'none';
-            }, 1000);
-        }
-        
-        // 4. Video hata yönetimi
-        function videoError() {
-            console.log('Video yükleme hatası');
-            
-            if (videoPlaceholder) {
-                // Placeholder'ı güncelle
-                const spinner = videoPlaceholder.querySelector('.spinner');
-                const text = videoPlaceholder.querySelector('p');
-                
-                if (spinner) spinner.style.display = 'none';
-                if (text) text.textContent = 'Video yüklenemedi, alternatif içerik gösteriliyor';
-                
-                // Fallback gradient background göster
-                const heroSection = document.getElementById('hero');
-                heroSection.style.background = 'linear-gradient(rgba(10, 36, 99, 0.85), rgba(62, 146, 204, 0.85))';
-            }
-        }
-        
-        // 5. Intersection Observer ile optimize edilmiş video kontrolü
-        let videoObserver;
-        
-        function initVideoObserver() {
-            if ('IntersectionObserver' in window) {
-                videoObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            // Video görünür alanda
-                            if (heroVideo.readyState >= 3) { // HAVE_FUTURE_DATA veya daha iyi
-                                heroVideo.play().catch(e => {
-                                    // Otomatik oynatma engellendi, kullanıcı etkileşimi bekleniyor
-                                    console.log('Otomatik oynatma engellendi:', e);
-                                });
-                            }
-                        } else {
-                            // Video görünür alanda değil, duraklat
-                            if (!heroVideo.paused) {
-                                heroVideo.pause();
-                            }
-                        }
-                    });
-                }, {
-                    threshold: 0.3, // %30 görünür olunca
-                    rootMargin: '50px' // 50px önceden yükle
+        // VIDEO OTOMATİK BAŞLATMA VE PERFORMANS OPTİMİZASYONU
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.querySelector('.video-background');
+            if (video) {
+                // Video yüklendiğinde otomatik oynat
+                video.play().catch(e => {
+                    console.log('Video otomatik oynatma hatası:', e);
+                    // iOS için alternatif yaklaşım
+                    video.setAttribute('playsinline', '');
+                    video.setAttribute('webkit-playsinline', '');
                 });
                 
-                videoObserver.observe(heroVideo);
-            }
-        }
-        
-        // 6. Sayfa yüklendiğinde video optimizasyonunu başlat
-        window.addEventListener('load', function() {
-            // Video'yu sıfırla ve başlat
-            if (heroVideo) {
-                heroVideo.currentTime = 0;
-                
-                // Öncelikle metadata yükle
-                heroVideo.load();
-                
-                // Video observer'ı başlat
-                initVideoObserver();
-                
-                // Ağ bağlantısına göre optimizasyon
-                optimizeForNetwork();
-            }
-        });
-        
-        // 7. Ağ bağlantısına göre optimizasyon
-        function optimizeForNetwork() {
-            if (navigator.connection) {
-                const connection = navigator.connection;
-                
-                // Düşük bağlantıda video kalitesini düşür
-                if (connection.saveData || connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
-                    console.log('Düşük bağlantı tespit edildi, video optimizasyonu uygulanıyor');
-                    // Video buffer boyutunu azalt
-                    heroVideo.preload = 'none';
-                }
-            }
-        }
-        
-        // 8. Sayfa görünür olduğunda video kontrolü
-        document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'visible') {
-                // Sayfa tekrar görünür oldu
-                if (heroVideo && heroVideo.paused) {
-                    heroVideo.play().catch(e => {
-                        console.log('Sayfa görünür oldu, video tekrar başlatılamadı:', e);
-                    });
-                }
-            } else {
-                // Sayfa gizlendi, video duraklat
-                if (heroVideo && !heroVideo.paused) {
-                    heroVideo.pause();
-                }
-            }
-        });
-        
-        // 9. Buffer monitoring
-        if (heroVideo) {
-            let lastBufferTime = 0;
-            
-            heroVideo.addEventListener('progress', () => {
-                const currentTime = heroVideo.currentTime;
-                const buffered = heroVideo.buffered;
-                
-                if (buffered.length > 0) {
-                    const bufferEnd = buffered.end(buffered.length - 1);
-                    const bufferAhead = bufferEnd - currentTime;
-                    
-                    // Buffer azalıyorsa log kaydı
-                    if (bufferAhead < 3 && currentTime > lastBufferTime + 2) {
-                        console.log('Buffer azalıyor:', bufferAhead.toFixed(1), 'saniye kaldı');
-                        lastBufferTime = currentTime;
+                // Video yükleme hatası durumunda fallback
+                video.addEventListener('error', () => {
+                    console.log('Video yükleme hatası, fallback image kullanılıyor');
+                    const hero = document.querySelector('.hero');
+                    if (hero) {
+                        hero.style.background = 'linear-gradient(135deg, var(--gradient-1), var(--gradient-2))';
                     }
-                }
-            });
-            
-            // Stalling (takılma) tespiti
-            heroVideo.addEventListener('waiting', () => {
-                console.log('Video buffering (takılıyor)...');
-            });
-            
-            heroVideo.addEventListener('playing', () => {
-                console.log('Video tekrar oynatılıyor');
-            });
-        }
-        
+                });
+            }
+        });
+
         // iOS FIX: Touch events için optimizasyon
         document.addEventListener('touchstart', function() {}, {passive: true});
         document.addEventListener('touchmove', function() {}, {passive: true});
-        
-        // Preload critical resources
-        function preloadCriticalResources() {
-            // Font Awesome ikon fontunu preload et
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
-            link.as = 'style';
-            document.head.appendChild(link);
-            
-            // Google Fonts'ı preload et
-            const fontLink = document.createElement('link');
-            fontLink.rel = 'preload';
-            fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap';
-            fontLink.as = 'style';
-            document.head.appendChild(fontLink);
-        }
-        
-        // Sayfa yüklendiğinde kritik kaynakları preload et
-        preloadCriticalResources();
     </script>
 </body>
 </html>
