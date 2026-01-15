@@ -154,21 +154,21 @@
 
         /* HEADER - FIXED WHITE NAVIGATION - %100 AYNI */
         .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            padding: 0 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            height: 60px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            transition: var(--transition);
-        }
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    height: 60px; /* Sabit yükseklik */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+}
 
         .header.scrolled {
             background: rgba(255, 255, 255, 0.98);
@@ -176,20 +176,20 @@
         }
 
         /* LOGO - %100 AYNI */
-        .logo {
-            display: flex;
-            align-items: center;
-            height: 60px;
-            cursor: pointer;
-            text-decoration: none;
-        }
+       .logo {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    cursor: pointer;
+    text-decoration: none;
+}
 
         .logo img {
-            height: 100%;
-            width: auto;
-            max-height: 60px;
-            object-fit: contain;
-        }
+    height: 100%;
+    width: auto;
+    max-height: 60px;
+    object-fit: contain;
+}
 
         /* MODERN NAVIGATION - %100 AYNI */
         .nav-desktop {
@@ -1280,24 +1280,36 @@
             }
         }
 
-        @media (max-width: 480px) {
-            .header {
-                padding: 0 20px;
-                height: 60px;
-            }
+       @media (max-width: 480px) {
+    .header {
+        padding: 0 20px;
+        height: 60px; /* Sabit yükseklik */
+    }
             
-            .logo {
-                height: 60px;
-            }
-            
-            .logo img {
-                max-height: 60px;
-            }
-            
-            .page-hero {
-                padding: 100px 20px 60px;
-                margin-top: 60px;
-            }
+ .logo {
+        height: 60px; /* Sabit yükseklik */
+    }
+    
+    .logo img {
+        max-height: 50px; /* İkinci sitedeki gibi 50px */
+        width: auto;
+    }
+    
+    .page-hero {
+        padding: 100px 20px 60px;
+        margin-top: 60px;
+    }
+    
+    .mobile-menu {
+        top: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo img {
+        max-height: 55px; /* Orta boy ekranlar için */
+    }
+}
             
             .mobile-menu {
                 top: 60px;
