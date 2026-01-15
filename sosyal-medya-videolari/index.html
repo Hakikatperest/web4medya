@@ -9,9 +9,10 @@
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Web4 Medya" />
     <link rel="canonical" href="https://www.web4medya.com/sosyal-medya-videolari/" />
+    
     <!-- Favicon -->
-<link rel="icon" href="/images/web4medya-logo.ico" type="image/x-icon">
-<link rel="shortcut icon" href="/images/web4medya-logo.ico" type="image/x-icon">
+    <link rel="icon" href="/images/web4medya-logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/web4medya-logo.ico" type="image/x-icon">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Web4 Medya | Profesyonel Sosyal Medya Video Prodüksiyonu" />
@@ -20,33 +21,56 @@
     <meta property="og:url" content="https://www.web4medya.com/sosyal-medya-videolari/" />
     <meta property="og:image" content="https://www.web4medya.com/images/sosyal-medya-videolari.webp" />
     
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Web4 Medya | Profesyonel Sosyal Medya Video Prodüksiyonu" />
+    <meta name="twitter:description" content="Instagram Reels, TikTok, YouTube Shorts için profesyonel sosyal medya videoları" />
+    <meta name="twitter:image" content="https://www.web4medya.com/images/sosyal-medya-videolari.webp" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Sosyal Medya Video Prodüksiyonu",
+      "description": "Instagram Reels, TikTok, YouTube Shorts için profesyonel sosyal medya videoları üretimi",
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "Web4 Medya",
+        "url": "https://www.web4medya.com/"
+      },
+      "serviceType": ["Video Prodüksiyon", "Sosyal Medya İçerik", "Dijital Pazarlama"],
+      "areaServed": {
+        "@type": "Country",
+        "name": "Türkiye"
+      }
+    }
+    </script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
     <style>
         :root {
-            --primary: #2563EB;
-            --primary-light: #3B82F6;
-            --primary-dark: #1D4ED8;
-            --gradient-1: #145e8d;
-            --gradient-2: #1f90bc;
-            --gradient-3: #1dbbe1;
-            --secondary: #FFFFFF;
-            --accent: #60A5FA;
+            --primary: #0A2463;
+            --gradient-1: #0A2463;
+            --gradient-2: #3E92CC;
+            --gradient-3: #4ECDC4;
+            --accent: #FF6B6B;
+            --accent-light: #FFE66D;
             --dark: #1F2937;
-            --black: #000000;
             --gray-dark: #374151;
             --gray: #6B7280;
             --gray-light: #E5E7EB;
-            --light: #F3F4F6;
+            --light: #F7FFF7;
             --white: #FFFFFF;
-            --shadow: 0 10px 40px rgba(37, 99, 235, 0.08);
-            --shadow-hover: 0 20px 60px rgba(37, 99, 235, 0.12);
+            --shadow: 0 10px 40px rgba(10, 36, 99, 0.1);
             --radius: 20px;
             --radius-sm: 12px;
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
+        /* TEMEL STİLLER */
         * {
             margin: 0;
             padding: 0;
@@ -63,32 +87,40 @@
             color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(62, 146, 204, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 107, 107, 0.05) 0%, transparent 20%),
+                linear-gradient(180deg, #F7FFF7 0%, #FFFFFF 100%);
         }
 
-        /* MODERN HEADER - BEYAZ TEMA */
+        /* OPTİMİZE HEADER - İLK SAYFA İLE %100 AYNI */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
             padding: 0 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(37, 99, 235, 0.05);
-            height: 80px;
-            border-bottom: 1px solid var(--gray-light);
+            height: 60px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
         }
 
-        /* LOGO */
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* OPTİMİZE LOGO - İLK SAYFA İLE %100 AYNI */
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
-            height: 70px;
+            height: 60px;
             cursor: pointer;
             text-decoration: none;
         }
@@ -96,11 +128,11 @@
         .logo img {
             height: 100%;
             width: auto;
-            max-height: 70px;
+            max-height: 60px;
             object-fit: contain;
         }
 
-        /* MODERN NAVIGATION */
+        /* OPTİMİZE NAVIGATION - İLK SAYFA İLE %100 AYNI */
         .nav-desktop {
             display: flex;
             align-items: center;
@@ -125,31 +157,17 @@
             gap: 6px;
         }
 
-        .nav-link:hover {
-            color: var(--primary);
-        }
-
+        .nav-link:hover,
         .nav-link.active {
-            color: var(--primary);
+            color: var(--accent);
         }
 
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-3));
-            border-radius: 2px;
-        }
-
-        /* DROPDOWN MENÜ */
+        /* OPTİMİZE DROPDOWN - İLK SAYFA İLE %100 AYNI */
         .dropdown {
             position: absolute;
             top: 100%;
             left: 0;
-            background: var(--white);
+            background: linear-gradient(135deg, rgba(10, 36, 99, 0.95), rgba(62, 146, 204, 0.95));
             min-width: 280px;
             box-shadow: var(--shadow);
             border-radius: var(--radius-sm);
@@ -158,7 +176,7 @@
             transform: translateY(10px);
             transition: all 0.3s ease;
             z-index: 1001;
-            border: 1px solid var(--gray-light);
+            border: 1px solid rgba(62, 146, 204, 0.3);
         }
 
         .dropdown.active {
@@ -173,7 +191,7 @@
 
         .dropdown-section {
             padding: 15px 20px;
-            border-bottom: 1px solid var(--gray-light);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .dropdown-section:last-child {
@@ -182,7 +200,7 @@
 
         .dropdown-section h4 {
             font-size: 0.85rem;
-            color: var(--gradient-2);
+            color: white;
             margin-bottom: 10px;
             font-weight: 700;
             text-transform: uppercase;
@@ -192,15 +210,20 @@
         .dropdown-link {
             display: block;
             padding: 8px 0;
-            color: var(--gray-dark);
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             font-size: 0.9rem;
             transition: var(--transition);
         }
 
         .dropdown-link:hover {
-            color: var(--gradient-3);
+            color: var(--accent-light);
             padding-left: 5px;
+        }
+
+        .dropdown-link.active {
+            color: var(--accent-light);
+            font-weight: 700;
         }
 
         .arrow {
@@ -213,15 +236,10 @@
             transform: rotate(180deg);
         }
 
-        /* HEADER CTA BUTTON */
-        .header-cta {
-            display: flex;
-            align-items: center;
-        }
-
+        /* OPTİMİZE HEADER CTA - İLK SAYFA İLE %100 AYNI */
         .header-cta .btn {
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
-            color: var(--white);
+            background: linear-gradient(135deg, var(--accent-light), #FFD93D);
+            color: var(--primary);
             padding: 12px 28px;
             border-radius: 8px;
             font-weight: 600;
@@ -230,7 +248,7 @@
             transition: var(--transition);
             white-space: nowrap;
             border: none;
-            box-shadow: 0 4px 12px rgba(20, 94, 141, 0.2);
+            box-shadow: 0 4px 12px rgba(255, 230, 109, 0.2);
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -238,11 +256,10 @@
 
         .header-cta .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(20, 94, 141, 0.3);
-            background: linear-gradient(135deg, var(--gradient-2), var(--gradient-1));
+            box-shadow: 0 8px 20px rgba(255, 230, 109, 0.3);
         }
 
-        /* HAMBURGER MENU */
+        /* HAMBURGER MENU - İLK SAYFA İLE %100 AYNI */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -259,7 +276,7 @@
         .menu-toggle span {
             width: 100%;
             height: 3px;
-            background-color: var(--gradient-2);
+            background-color: var(--dark);
             border-radius: 10px;
             transition: all 0.3s ease;
         }
@@ -284,7 +301,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            margin-top: 80px;
+            margin-top: 60px;
         }
 
         .page-hero::before {
@@ -364,7 +381,7 @@
         .social-video-description h2 {
             font-size: 2.2rem;
             margin-bottom: 25px;
-            color: var(--black);
+            color: var(--dark);
             text-align: center;
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
             -webkit-background-clip: text;
@@ -406,7 +423,7 @@
         .benefit-item h3 {
             font-size: 1.3rem;
             margin-bottom: 15px;
-            color: var(--black);
+            color: var(--dark);
         }
 
         /* PLATFORM GRID */
@@ -428,7 +445,7 @@
 
         .platform-card:hover {
             transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: var(--shadow);
         }
 
         .platform-card.instagram {
@@ -471,7 +488,7 @@
         .platform-card h3 {
             font-size: 1.4rem;
             margin-bottom: 15px;
-            color: var(--black);
+            color: var(--dark);
         }
 
         /* HIZLI TEKLİF AL KARTI */
@@ -515,6 +532,86 @@
             font-size: 1.2rem;
             margin-bottom: 40px;
             opacity: 0.95;
+        }
+
+        /* OPTİMİZE BUTONLAR - İLK SAYFA İLE %100 AYNI */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* ORTAK IŞIK EFEKTİ - İLK SAYFA İLE %100 AYNI */
+        .light-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .light-effect::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                transparent 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                transparent 100%
+            );
+            transform: rotate(30deg);
+            animation: lightWave 3s infinite linear;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes lightWave {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(30deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(30deg);
+            }
+        }
+
+        .light-effect > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* BUTON TİPLERİ - İLK SAYFA İLE %100 AYNI */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-yellow {
+            background: linear-gradient(135deg, var(--accent-light), #FFD93D);
+            color: var(--primary);
+        }
+
+        /* HOVER EFEKTLERİ - İLK SAYFA İLE %100 AYNI */
+        .btn:hover:not(.floating-btn) {
+            transform: translateY(-3px);
         }
 
         .quick-quote .btn {
@@ -629,7 +726,7 @@
         .faq-front h3 {
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--black);
+            color: var(--dark);
             margin: 0;
         }
 
@@ -717,7 +814,7 @@
 
         .internal-link-card:hover {
             transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: var(--shadow);
         }
 
         .internal-link-card i {
@@ -729,7 +826,7 @@
         .internal-link-card h3 {
             font-size: 1.3rem;
             margin-bottom: 15px;
-            color: var(--black);
+            color: var(--dark);
         }
 
         /* VİDEO TÜRLERİ GRID */
@@ -752,7 +849,7 @@
 
         .video-type-card:hover {
             transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: var(--shadow);
             border-color: var(--gradient-2);
         }
 
@@ -765,13 +862,13 @@
         .video-type-card h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
-            color: var(--black);
+            color: var(--dark);
         }
 
-        /* MOBILE MENU */
+        /* OPTİMİZE MOBILE MENU - İLK SAYFA İLE %100 AYNI */
         .mobile-menu {
             position: fixed;
-            top: 80px;
+            top: 60px;
             left: 0;
             right: 0;
             background: var(--white);
@@ -810,7 +907,20 @@
         }
 
         .mobile-nav-link:hover {
-            color: var(--gradient-3);
+            color: var(--accent);
+        }
+
+        .mobile-nav-link.active {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .mobile-cta-btn {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2)) !important;
+            color: white !important;
+            border: none !important;
+            margin-top: 10px;
+            border-radius: var(--radius-sm);
         }
 
         .mobile-dropdown-btn {
@@ -835,8 +945,9 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
-            background: var(--light);
+            background: linear-gradient(135deg, rgba(10, 36, 99, 0.05), rgba(62, 146, 204, 0.05));
             margin-left: 10px;
+            border-radius: var(--radius-sm);
         }
 
         .mobile-dropdown-content.active {
@@ -854,7 +965,7 @@
 
         .mobile-dropdown-section h4 {
             font-size: 0.9rem;
-            color: var(--gradient-2);
+            color: var(--primary);
             margin-bottom: 8px;
             font-weight: 700;
         }
@@ -869,222 +980,28 @@
         }
 
         .mobile-dropdown-link:hover {
-            color: var(--gradient-3);
+            color: var(--accent);
             padding-left: 5px;
+        }
+
+        .mobile-dropdown-link.active {
+            color: var(--accent);
+            font-weight: 700;
         }
 
         .mobile-arrow {
             transition: transform 0.3s ease;
-            color: var(--gray-dark);
         }
 
         .mobile-dropdown-btn.active .mobile-arrow {
             transform: rotate(180deg);
         }
 
-        /* YENİ BEYAZ FOOTER */
-        .footer {
-            background: var(--white);
-            color: var(--gray-dark);
-            padding: 80px 5% 40px;
-            position: relative;
-            overflow: hidden;
-            border-top: 1px solid var(--gray-light);
-            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.05);
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 60px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .footer-section h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: var(--black);
-            position: relative;
-            display: inline-block;
-        }
-
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .footer-logo img {
-            height: 65px;
-            width: auto;
-        }
-
-        .footer-logo-text {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--black);
-        }
-
-        .footer-description {
-            color: var(--gray);
-            line-height: 1.7;
-            margin-bottom: 30px;
-            font-size: 1.05rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .social-link {
-            width: 45px;
-            height: 45px;
-            background: var(--light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gradient-2);
-            text-decoration: none;
-            transition: var(--transition);
-            border: 1px solid var(--gray-light);
-        }
-
-        .social-link:hover {
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
-            color: white;
-            transform: translateY(-3px);
-            border-color: transparent;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 15px;
-        }
-
-        .footer-links a {
-            color: var(--gray-dark);
-            text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.05rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--gradient-2);
-            padding-left: 8px;
-        }
-
-        .footer-links i {
-            color: var(--gradient-2);
-            font-size: 0.9rem;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: var(--gray-dark);
-        }
-
-        .contact-item i {
-            width: 40px;
-            height: 40px;
-            background: var(--light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gradient-2);
-            font-size: 1.1rem;
-        }
-
-        .contact-item a {
-            color: var(--black);
-            text-decoration: none;
-            transition: var(--transition);
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .contact-item a:hover {
-            color: var(--gradient-2);
-            text-decoration: underline;
-        }
-
-        .contact-item span {
-            color: var(--gray);
-            line-height: 1.5;
-            font-size: 1.05rem;
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 40px;
-            border-top: 1px solid var(--gray-light);
-            text-align: center;
-            color: var(--gray);
-            font-size: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .footer-bottom a {
-            color: var(--gradient-2);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .footer-bottom a:hover {
-            color: var(--gradient-1);
-            text-decoration: underline;
-        }
-
-        /* FLOATING CTA BUTONLARI */
+        /* OPTİMİZE FLOATING BUTTONS - İLK SAYFA İLE %100 AYNI */
         .floating-cta {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 120px;
+            right: 20px;
             z-index: 998;
             display: flex;
             flex-direction: column;
@@ -1098,44 +1015,16 @@
             width: 65px;
             height: 65px;
             border-radius: 50%;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: var(--transition);
             text-decoration: none;
             font-size: 1.9rem;
             position: relative;
             overflow: hidden;
-            -webkit-backface-visibility: hidden;
-            -moz-backface-visibility: hidden;
-            backface-visibility: hidden;
-            transform: translateZ(0);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        .floating-btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
-            transform: translateX(-100%);
-            transition: transform 0.6s ease;
-            z-index: 1;
-        }
-
-        .floating-btn:hover::after {
-            transform: translateX(0);
-        }
-
-        .floating-btn {
+        .floating-btn:hover {
             transform: scale(1.1) rotate(5deg);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .floating-btn:active {
-            transform: scale(1) rotate(0);
-            box-shadow: 0 10px 30px rgba(20, 94, 141, 0.3);
         }
 
         .floating-whatsapp {
@@ -1145,18 +1034,10 @@
             box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
         }
 
-        .floating-whatsapp:active {
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
-        }
-
         .floating-phone {
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
             color: white;
             box-shadow: 0 15px 40px rgba(20, 94, 141, 0.4);
-        }
-
-        .floating-phone:active {
-            box-shadow: 0 10px 30px rgba(20, 94, 141, 0.3);
         }
 
         @keyframes pulse {
@@ -1171,48 +1052,207 @@
             }
         }
 
-        /* SOSYAL MEDYA VİDEOLARI İÇERİĞİ */
-        .social-video-content {
-            padding: 40px 5%;
-            background: var(--white);
-            max-width: 1000px;
+        /* OPTİMİZE FOOTER - İLK SAYFA İLE %100 AYNI */
+        .footer {
+            background: white;
+            color: var(--dark);
+            padding: 80px 5% 40px;
+            border-top: 4px solid var(--accent);
+        }
+
+        .footer-content {
+            max-width: 1200px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
         }
 
-        .article-section {
-            margin-bottom: 50px;
+        .footer-section h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
         }
 
-        .article-section h3 {
-            font-size: 1.8rem;
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             margin-bottom: 20px;
-            color: var(--black);
-            border-left: 4px solid var(--gradient-2);
-            padding-left: 15px;
         }
 
-        .article-section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
+        .footer-logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .footer-logo-text {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        .footer-description {
             color: var(--gray-dark);
-            margin-bottom: 15px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-size: 1rem;
         }
 
-        /* RESPONSIVE BREAKPOINTS */
-        @media (max-width: 1200px) {
-            .header {
-                padding: 0 4%;
-            }
-            
-            .nav-desktop {
-                gap: 20px;
-            }
-            
-            .nav-link {
-                font-size: 0.9rem;
-            }
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
         }
 
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: var(--gray-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--gray-dark);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-links i {
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            color: var(--gray-dark);
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: var(--gray-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1rem;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover i {
+            background: var(--accent);
+            color: white;
+        }
+
+        .contact-item a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        .contact-item span {
+            color: var(--gray);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid var(--gray-light);
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .footer-bottom a:hover {
+            color: var(--accent);
+        }
+
+        /* Ekran okuyucular için gizli sınıf */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* OPTİMİZE RESPONSIVE */
         @media (max-width: 1024px) {
             .nav-desktop {
                 display: none;
@@ -1230,7 +1270,11 @@
         @media (max-width: 768px) {
             .page-hero {
                 padding: 120px 4% 60px;
-                margin-top: 80px;
+                margin-top: 60px;
+            }
+            
+            .social-video-image-section {
+                padding: 40px 4% 60px;
             }
             
             .faq-grid {
@@ -1262,38 +1306,33 @@
             }
             
             .floating-cta {
-                bottom: 20px;
-                right: 20px;
+                bottom: 100px;
+                right: 15px;
             }
             
             .floating-btn {
                 width: 60px;
                 height: 60px;
-                font-size: 1.7rem;
+                font-size: 1.6rem;
             }
         }
 
         @media (max-width: 480px) {
             .header {
                 padding: 0 20px;
-                height: 75px;
-            }
-            
-            .logo {
-                height: 60px;
             }
             
             .logo img {
-                max-height: 60px;
+                max-height: 50px;
             }
             
             .page-hero {
                 padding: 100px 20px 50px;
-                margin-top: 75px;
+                margin-top: 60px;
             }
             
-            .mobile-menu {
-                top: 75px;
+            .page-hero h1 {
+                font-size: 1.8rem;
             }
             
             .faq-card {
@@ -1313,66 +1352,65 @@
             }
             
             .footer-logo img {
-                height: 55px;
+                height: 50px;
             }
             
             .floating-cta {
-                bottom: 15px;
-                right: 15px;
+                bottom: 80px;
+                right: 10px;
                 gap: 12px;
             }
             
             .floating-btn {
                 width: 55px;
                 height: 55px;
-                font-size: 1.6rem;
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="header">
-        <!-- LOGO - ANA SAYFAYA SMOOTH SCROLL -->
-        <a href="/" class="logo">
-            <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/145e8d/FFFFFF?text=Web4+Medya';">
+    <!-- HEADER - İLK SAYFA İLE %100 AYNI -->
+    <header class="header" id="mainHeader">
+        <a href="/" class="logo" id="homeLink" aria-label="Web4 Medya - Ana Sayfa">
+            <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo - Dijital Pazarlama Ajansı" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
         </a>
         
-        <!-- MODERN NAVIGATION -->
-        <nav class="nav-desktop">
+        <!-- NAVIGATION - İLK SAYFA İLE %100 AYNI -->
+        <nav class="nav-desktop" aria-label="Ana navigasyon">
             <div class="nav-item">
                 <a href="/" class="nav-link">Ana Sayfa</a>
             </div>
             
             <!-- HİZMETLER DROPDOWN -->
             <div class="nav-item">
-                <a href="#" class="nav-link active">Hizmetler <i class="fas fa-chevron-down arrow"></i></a>
-                <div class="dropdown" id="hizmetlerDropdown">
+                <a href="#" class="nav-link active" aria-haspopup="true" aria-expanded="false">Hizmetler <i class="fas fa-chevron-down arrow"></i></a>
+                <div class="dropdown" id="hizmetlerDropdown" role="menu" aria-label="Hizmetler alt menüsü">
                     <div class="dropdown-content">
                         <!-- Dijital Pazarlama -->
                         <div class="dropdown-section">
                             <h4>Dijital Pazarlama</h4>
-                            <a href="/google-ads-reklam-ver/" class="dropdown-link">Google Ads Reklam Ver</a>
-                            <a href="/instagram-reklam-ver/" class="dropdown-link">İnstagram Reklam Ver</a>
-                            <a href="/facebook-reklam-ver/" class="dropdown-link">Facebook Reklam Ver</a>
-                            <a href="/google-harita-maps-kaydi/" class="dropdown-link">Google Harita(Maps) Kaydı</a>
-                            <a href="/seo/" class="dropdown-link">SEO (Arama Motoru Optimizasyonu)</a>
-                            <a href="/sosyal-medya-yonetimi/" class="dropdown-link">Sosyal Medya Yönetimi</a>
+                            <a href="/google-ads-reklam-ver/" class="dropdown-link" role="menuitem">Google Ads Reklam Ver</a>
+                            <a href="/instagram-reklam-ver/" class="dropdown-link" role="menuitem">İnstagram Reklam Ver</a>
+                            <a href="/facebook-reklam-ver/" class="dropdown-link" role="menuitem">Facebook Reklam Ver</a>
+                            <a href="/google-harita-maps-kaydi/" class="dropdown-link" role="menuitem">Google Harita(Maps) Kaydı</a>
+                            <a href="/seo/" class="dropdown-link" role="menuitem">SEO (Arama Motoru Optimizasyonu)</a>
+                            <a href="/sosyal-medya-yonetimi/" class="dropdown-link" role="menuitem">Sosyal Medya Yönetimi</a>
                         </div>
                         
                         <!-- Web Tasarım -->
                         <div class="dropdown-section">
                             <h4>Web Tasarım</h4>
-                            <a href="/e-ticaret-sitesi/" class="dropdown-link">E-Ticaret Sitesi</a>
-                            <a href="/kurumsal-web-sitesi/" class="dropdown-link">Kurumsal Web Sitesi</a>
+                            <a href="/e-ticaret-sitesi/" class="dropdown-link" role="menuitem">E-Ticaret Sitesi</a>
+                            <a href="/kurumsal-web-sitesi/" class="dropdown-link" role="menuitem">Kurumsal Web Sitesi</a>
                         </div>
                         
                         <!-- Prodüksiyon -->
                         <div class="dropdown-section">
                             <h4>Prodüksiyon</h4>
-                            <a href="/sosyal-medya-videolari/" class="dropdown-link active">Sosyal Medya Videoları</a>
-                            <a href="/tanitim-filmi/" class="dropdown-link">Tanıtım Filmi</a>
-                            <a href="/drone-cekimi/" class="dropdown-link">Drone Çekimi</a>
+                            <a href="/sosyal-medya-videolari/" class="dropdown-link active" role="menuitem">Sosyal Medya Videoları</a>
+                            <a href="/tanitim-filmi/" class="dropdown-link" role="menuitem">Tanıtım Filmi</a>
+                            <a href="/drone-cekimi/" class="dropdown-link" role="menuitem">Drone Çekimi</a>
                         </div>
                     </div>
                 </div>
@@ -1395,75 +1433,73 @@
             
             <!-- HEADER CTA BUTTON -->
             <div class="header-cta">
-                <a href="tel:05422360983" class="btn">
+                <a href="tel:05422360983" class="btn btn-yellow light-effect" aria-label="Telefon ile arayın">
                     <i class="fas fa-phone-alt"></i> 0542 236 09 83
                 </a>
             </div>
         </nav>
         
-        <!-- MOBILE MENU TOGGLE -->
-        <button class="menu-toggle" id="menuToggle">
+        <!-- Hamburger Menu - İLK SAYFA İLE %100 AYNI -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Menüyü aç/kapat" aria-expanded="false" aria-controls="mobileMenu">
             <span></span>
             <span></span>
             <span></span>
         </button>
     </header>
     
-    <!-- MOBILE MENU -->
-    <div class="mobile-menu" id="mobileMenu">
+    <!-- Mobile Menu - İLK SAYFA İLE %100 AYNI -->
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobil navigasyon">
         <nav class="mobile-nav">
-            <!-- Ana Sayfa -->
             <div class="mobile-nav-item">
                 <a href="/" class="mobile-nav-link">Ana Sayfa</a>
             </div>
             
-            <!-- Hizmetler -->
             <div class="mobile-nav-item">
-                <button class="mobile-dropdown-btn" data-target="hizmetlerMobile">
+                <button class="mobile-dropdown-btn" data-target="hizmetlerMobile" aria-expanded="false" aria-controls="hizmetlerMobile">
                     Hizmetler <i class="fas fa-chevron-down mobile-arrow"></i>
                 </button>
-                <div class="mobile-dropdown-content" id="hizmetlerMobile">
-                    <!-- Dijital Pazarlama -->
+                <div class="mobile-dropdown-content" id="hizmetlerMobile" role="menu">
                     <div class="mobile-dropdown-section">
                         <h4>Dijital Pazarlama</h4>
-                        <a href="/google-ads-reklam-ver/" class="mobile-dropdown-link">Google Ads Reklam Ver</a>
-                        <a href="/instagram-reklam-ver/" class="mobile-dropdown-link">İnstagram Reklam Ver</a>
-                        <a href="/facebook-reklam-ver/" class="mobile-dropdown-link">Facebook Reklam Ver</a>
-                        <a href="/google-harita-maps-kaydi/" class="mobile-dropdown-link">Google Harita(Maps) Kaydı</a>
-                        <a href="/seo/" class="mobile-dropdown-link">SEO (Arama Motoru Optimizasyonu)</a>
-                        <a href="/sosyal-medya-yonetimi/" class="mobile-dropdown-link">Sosyal Medya Yönetimi</a>
+                        <a href="/google-ads-reklam-ver/" class="mobile-dropdown-link" role="menuitem">Google Ads Reklam Ver</a>
+                        <a href="/instagram-reklam-ver/" class="mobile-dropdown-link" role="menuitem">İnstagram Reklam Ver</a>
+                        <a href="/facebook-reklam-ver/" class="mobile-dropdown-link" role="menuitem">Facebook Reklam Ver</a>
+                        <a href="/google-harita-maps-kaydi/" class="mobile-dropdown-link" role="menuitem">Google Harita(Maps) Kaydı</a>
+                        <a href="/seo/" class="mobile-dropdown-link" role="menuitem">SEO (Arama Motoru Optimizasyonu)</a>
+                        <a href="/sosyal-medya-yonetimi/" class="mobile-dropdown-link" role="menuitem">Sosyal Medya Yönetimi</a>
                     </div>
                     
-                    <!-- Web Tasarım -->
                     <div class="mobile-dropdown-section">
                         <h4>Web Tasarım</h4>
-                        <a href="/e-ticaret-sitesi/" class="mobile-dropdown-link">E-Ticaret Sitesi</a>
-                        <a href="/kurumsal-web-sitesi/" class="mobile-dropdown-link">Kurumsal Web Sitesi</a>
+                        <a href="/e-ticaret-sitesi/" class="mobile-dropdown-link" role="menuitem">E-Ticaret Sitesi</a>
+                        <a href="/kurumsal-web-sitesi/" class="mobile-dropdown-link" role="menuitem">Kurumsal Web Sitesi</a>
                     </div>
                     
-                    <!-- Prodüksiyon -->
                     <div class="mobile-dropdown-section">
                         <h4>Prodüksiyon</h4>
-                        <a href="/sosyal-medya-videolari/" class="mobile-dropdown-link active">Sosyal Medya Videoları</a>
-                        <a href="/tanitim-filmi/" class="mobile-dropdown-link">Tanıtım Filmi</a>
-                        <a href="/drone-cekimi/" class="mobile-dropdown-link">Drone Çekimi</a>
+                        <a href="/sosyal-medya-videolari/" class="mobile-dropdown-link active" role="menuitem">Sosyal Medya Videoları</a>
+                        <a href="/tanitim-filmi/" class="mobile-dropdown-link" role="menuitem">Tanıtım Filmi</a>
+                        <a href="/drone-cekimi/" class="mobile-dropdown-link" role="menuitem">Drone Çekimi</a>
                     </div>
                 </div>
             </div>
             
-            <!-- Blog -->
             <div class="mobile-nav-item">
                 <a href="/blog/" class="mobile-nav-link">Blog</a>
             </div>
             
-            <!-- Hakkımızda -->
             <div class="mobile-nav-item">
                 <a href="/hakkimizda/" class="mobile-nav-link">Hakkımızda</a>
             </div>
             
-            <!-- İletişim -->
             <div class="mobile-nav-item">
                 <a href="/iletisim/" class="mobile-nav-link">İletişim</a>
+            </div>
+            
+            <div class="mobile-nav-item">
+                <a href="tel:05422360983" class="mobile-nav-link mobile-cta-btn light-effect" aria-label="Telefon ile arayın">
+                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
+                </a>
             </div>
         </nav>
     </div>
@@ -1607,7 +1643,7 @@
         <div class="quick-quote-content">
             <h2>Sosyal Medya Videolarınız İçin Hızlı Teklif Alın</h2>
             <p>Instagram Reels, TikTok veya diğer platformlar için video içerik ihtiyaçlarınız için ücretsiz danışmanlık ve fiyat teklifi alın. 24 saat içinde dönüş yapıyoruz!</p>
-            <a href="tel:05422360983" class="btn">
+            <a href="tel:05422360983" class="btn light-effect">
                 <i class="fas fa-phone-alt"></i> Hemen Teklif Al: 0542 236 09 83
             </a>
         </div>
@@ -1620,7 +1656,7 @@
         <div class="faq-container">
             <div class="faq-grid">
                 <!-- Soru 1 -->
-                <div class="faq-card" data-id="faq1">
+                <div class="faq-card" data-id="faq1" tabindex="0" role="button" aria-label="Sosyal medya videoları fiyatları sorusu - detayları görmek için tıklayın">
                     <div class="faq-card-face faq-front">
                         <div class="faq-icon">
                             <i class="fas fa-question-circle"></i>
@@ -1633,7 +1669,7 @@
                 </div>
                 
                 <!-- Soru 2 -->
-                <div class="faq-card" data-id="faq2">
+                <div class="faq-card" data-id="faq2" tabindex="0" role="button" aria-label="Video içerik hazırlanma süresi sorusu - detayları görmek için tıklayın">
                     <div class="faq-card-face faq-front">
                         <div class="faq-icon">
                             <i class="fas fa-question-circle"></i>
@@ -1646,7 +1682,7 @@
                 </div>
                 
                 <!-- Soru 3 -->
-                <div class="faq-card" data-id="faq3">
+                <div class="faq-card" data-id="faq3" tabindex="0" role="button" aria-label="Video hazırlanan platformlar sorusu - detayları görmek için tıklayın">
                     <div class="faq-card-face faq-front">
                         <div class="faq-icon">
                             <i class="fas fa-question-circle"></i>
@@ -1659,7 +1695,7 @@
                 </div>
                 
                 <!-- Soru 4 -->
-                <div class="faq-card" data-id="faq4">
+                <div class="faq-card" data-id="faq4" tabindex="0" role="button" aria-label="Video çekim stüdyosu sorusu - detayları görmek için tıklayın">
                     <div class="faq-card-face faq-front">
                         <div class="faq-icon">
                             <i class="fas fa-question-circle"></i>
@@ -1672,7 +1708,7 @@
                 </div>
                 
                 <!-- Soru 5 -->
-                <div class="faq-card" data-id="faq5">
+                <div class="faq-card" data-id="faq5" tabindex="0" role="button" aria-label="Video içerik stratejisi sorusu - detayları görmek için tıklayın">
                     <div class="faq-card-face faq-front">
                         <div class="faq-icon">
                             <i class="fas fa-question-circle"></i>
@@ -1776,39 +1812,36 @@
         </div>
     </section>
 
-    <!-- YENİ BEYAZ FOOTER -->
+    <!-- FOOTER - İLK SAYFA İLE %100 AYNI -->
     <footer class="footer">
         <div class="footer-content">
-            <!-- Logo ve Açıklama -->
             <div class="footer-section">
                 <div class="footer-logo">
-                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" 
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/200x65/145e8d/FFFFFF?text=Web4+Medya';">
-                    <div class="footer-logo-text">Sizin için en iyisi!</div>
+                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo - Dijital Pazarlama Ajansı" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
+                    <div class="footer-logo-text">İşinizi şansa bırakmayın!</div>
                 </div>
                 <p class="footer-description">
                     Dijital pazarlama, web tasarım ve prodüksiyon alanında profesyonel çözümler sunan lider ajans. İşletmenizi dijital dünyada bir adım öne taşıyoruz.
                 </p>
                 <div class="social-links">
-                    <a href="https://instagram.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://instagram.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram hesabımız">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://facebook.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://facebook.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook sayfamız">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="https://twitter.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://twitter.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter hesabımız">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="https://linkedin.com/company/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://linkedin.com/company/web4medya" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn şirket sayfamız">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://wa.me/905422360983" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/905422360983" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp üzerinden iletişim">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
             </div>
             
-            <!-- Hızlı Bağlantılar -->
             <div class="footer-section">
                 <h3>Hızlı Bağlantılar</h3>
                 <ul class="footer-links">
@@ -1820,7 +1853,6 @@
                 </ul>
             </div>
             
-            <!-- Hizmetler -->
             <div class="footer-section">
                 <h3>Hizmetlerimiz</h3>
                 <ul class="footer-links">
@@ -1830,19 +1862,18 @@
                     <li><a href="/seo/"><i class="fas fa-chevron-right"></i> SEO Hizmeti</a></li>
                     <li><a href="/web-tasarim/"><i class="fas fa-chevron-right"></i> Web Tasarım</a></li>
                     <li><a href="/sosyal-medya-videolari/"><i class="fas fa-chevron-right"></i> Sosyal Medya Videoları</a></li>
-                     <li><a href="/drone-cekimi/"><i class="fas fa-chevron-right"></i> Drone Çekimi</a></li>
+                    <li><a href="/drone-cekimi/"><i class="fas fa-chevron-right"></i> Drone Çekimi</a></li>
                 </ul>
             </div>
             
-            <!-- İletişim Bilgileri -->
             <div class="footer-section">
                 <h3>İletişim Bilgileri</h3>
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-phone-alt"></i>
                         <div>
-                            <a href="tel:05422360983">Hemen Ara: 0542 236 09 83</a>
-                            <p style="margin-top: 5px; font-size: 0.95rem; color: var(--gray);">Ücretsiz danışmanlık için arayın</p>
+                            <a href="tel:05422360983">0542 236 09 83</a>
+                            <span>Ücretsiz danışmanlık için arayın</span>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -1868,113 +1899,175 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2024 Web4 Medya. Tüm hakları saklıdır. <a href="/gizlilik-politikasi/">Gizlilik Politikası</a> | <a href="/kullanim-kosullari/">Kullanım Koşulları</a></p>
-            <p style="margin-top: 10px; font-size: 0.9rem; color: var(--gray);">Profesyonel dijital pazarlama ve web tasarım çözümleri</p>
+            <p>&copy; 2026 Web4 Medya. Tüm hakları saklıdır. <a href="/gizlilik-politikasi/">Gizlilik Politikası</a> | <a href="/kullanim-kosullari/">Kullanım Koşulları</a></p>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">Profesyonel dijital pazarlama ve web tasarım çözümleri</p>
         </div>
     </footer>
-
-    <!-- FLOATING CTA BUTONLARI -->
+    
+    <!-- FLOATING CTA BUTTONLARI - İLK SAYFA İLE %100 AYNI -->
     <div class="floating-cta">
-        <a href="https://wa.me/905422360983" class="floating-btn floating-whatsapp" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/905422360983" class="floating-btn floating-whatsapp light-effect" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp üzerinden mesaj gönderin">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="tel:05422360983" class="floating-btn floating-phone">
+        <a href="tel:05422360983" class="floating-btn floating-phone light-effect" aria-label="Telefon ile arayın">
             <i class="fas fa-phone-alt"></i>
         </a>
     </div>
 
     <script>
-        // Mobile Menu Toggle
+        // OPTİMİZE HEADER SCROLL - İLK SAYFA İLE %100 AYNI
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 20);
+        });
+
+        // OPTİMİZE MOBILE MENU - İLK SAYFA İLE %100 AYNI
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
-        
-        if (menuToggle) {
-            menuToggle.addEventListener('click', function(e) {
-                e.stopPropagation();
-                this.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
-            });
-        }
 
-        // Desktop Dropdown Hover
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => {
+        menuToggle?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            
+            // iOS için: Menü açıkken body scroll'unu engelle
+            if (mobileMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // OPTİMİZE DESKTOP DROPDOWN - İLK SAYFA İLE %100 AYNI
+        document.querySelectorAll('.nav-item').forEach(item => {
             const dropdown = item.querySelector('.dropdown');
-            if (dropdown) {
+            const link = item.querySelector('.nav-link');
+            if (dropdown && link) {
                 item.addEventListener('mouseenter', () => {
                     dropdown.classList.add('active');
+                    link.setAttribute('aria-expanded', 'true');
                 });
-                
                 item.addEventListener('mouseleave', () => {
                     dropdown.classList.remove('active');
+                    link.setAttribute('aria-expanded', 'false');
                 });
             }
         });
 
-        // Mobile Dropdown Toggle
-        const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
-        mobileDropdownBtns.forEach(btn => {
+        // OPTİMİZE MOBILE DROPDOWN - İLK SAYFA İLE %100 AYNI
+        document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
             btn.addEventListener('click', function() {
-                const targetId = this.getAttribute('data-target');
-                const target = document.getElementById(targetId);
+                const target = document.getElementById(this.dataset.target);
+                const isActive = this.classList.toggle('active');
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
                 
-                // Close other dropdowns
-                document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
-                    if (dropdown.id !== targetId) {
-                        dropdown.classList.remove('active');
-                        const otherBtn = dropdown.parentElement.querySelector('.mobile-dropdown-btn');
-                        if (otherBtn) otherBtn.classList.remove('active');
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(d => {
+                    if (d !== target) d.classList.remove('active');
+                });
+                
+                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => {
+                    if (b !== this) {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-expanded', 'false');
                     }
                 });
                 
-                // Toggle current dropdown
-                this.classList.toggle('active');
-                target.classList.toggle('active');
+                if (target) target.classList.toggle('active', isActive);
             });
         });
 
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', function(e) {
-            // Desktop dropdowns
+        // FAQ FLIP CARDS - İLK SAYFA FLIP CARD MANTIĞI İLE AYNI
+        document.querySelectorAll('.faq-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (e.target.closest('a')) return;
+                
+                const isFlipped = this.classList.toggle('flipped');
+                
+                if (isFlipped) {
+                    document.querySelectorAll('.faq-card.flipped').forEach(other => {
+                        if (other !== this) other.classList.remove('flipped');
+                    });
+                }
+            });
+            
+            // Klavye erişilebilirliği için
+            card.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+
+        // CLOSE DROPDOWNS ON CLICK OUTSIDE - İLK SAYFA İLE %100 AYNI
+        document.addEventListener('click', (e) => {
             if (!e.target.closest('.nav-item')) {
-                document.querySelectorAll('.dropdown.active').forEach(dropdown => {
-                    dropdown.classList.remove('active');
+                document.querySelectorAll('.dropdown.active').forEach(d => {
+                    d.classList.remove('active');
+                    const link = d.previousElementSibling;
+                    if (link) link.setAttribute('aria-expanded', 'false');
                 });
             }
             
-            // Mobile menu
-            if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
-                menuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
+            if (!e.target.closest('.menu-toggle') && !e.target.closest('.mobile-menu')) {
+                menuToggle?.classList.remove('active');
+                mobileMenu?.classList.remove('active');
+                menuToggle?.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                
+                // Mobile dropdown'ları kapat
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(d => d.classList.remove('active'));
+                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-expanded', 'false');
+                });
+            }
+            
+            if (!e.target.closest('.faq-card')) {
+                document.querySelectorAll('.faq-card.flipped').forEach(c => c.classList.remove('flipped'));
             }
         });
 
-        // Close mobile dropdowns when clicking a link
-        document.querySelectorAll('.mobile-dropdown-link').forEach(link => {
-            link.addEventListener('click', function() {
-                menuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
-                    dropdown.classList.remove('active');
+        // OPTİMİZE SMOOTH SCROLL - İLK SAYFA İLE %100 AYNI
+        const homeLink = document.getElementById('homeLink');
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        homeLink?.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToTop();
+        });
+
+        // CLOSE MOBILE MENU ON LINK CLICK - İLK SAYFA İLE %100 AYNI
+        document.querySelectorAll('.mobile-dropdown-link, .mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle?.classList.remove('active');
+                mobileMenu?.classList.remove('active');
+                menuToggle?.setAttribute('aria-expanded', 'false');
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(d => d.classList.remove('active'));
+                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-expanded', 'false');
                 });
-                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(btn => {
-                    btn.classList.remove('active');
-                });
+                document.body.style.overflow = '';
             });
         });
 
-        // Add active class to current page in navigation
-        const currentPage = window.location.pathname;
-        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
-        
-        navLinks.forEach(link => {
-            const linkPath = link.getAttribute('href');
-            if (linkPath === currentPage || (linkPath === '/sosyal-medya-videolari/' && currentPage.includes('sosyal-medya-videolari'))) {
-                link.classList.add('active');
-            }
+        // IMAGE FALLBACK - İLK SAYFA İLE %100 AYNI
+        document.querySelectorAll('.logo img, .footer-logo img').forEach(img => {
+            img.onerror = function() {
+                this.onerror = null;
+                this.src = 'https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';
+                this.alt = 'Web4 Medya Logo';
+            };
         });
 
-        // Handle image fallback for social video image
+        // SOSYAL MEDYA VİDEOLARI IMAGE FALLBACK
         const socialVideoImage = document.querySelector('.social-video-image');
         if (socialVideoImage) {
             socialVideoImage.onerror = function() {
@@ -1984,53 +2077,30 @@
             };
         }
 
-        // FAQ FLIP CARD FUNCTIONALITY
-        const faqCards = document.querySelectorAll('.faq-card');
+        // iOS FIX: Touch events için optimizasyon - İLK SAYFA İLE %100 AYNI
+        document.addEventListener('touchstart', function() {}, {passive: true});
+        document.addEventListener('touchmove', function() {}, {passive: true});
         
-        faqCards.forEach(card => {
-            card.addEventListener('click', function(e) {
-                // Toggle flip state
-                this.classList.toggle('flipped');
-            });
-        });
-
-        // Prevent dropdown from closing when clicking inside
-        document.querySelectorAll('.dropdown').forEach(dropdown => {
-            dropdown.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+        // ARIA Live regions for screen readers - İLK SAYFA İLE %100 AYNI
+        const announceFlip = (serviceName) => {
+            const announcement = document.createElement('div');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.setAttribute('aria-atomic', 'true');
+            announcement.className = 'sr-only';
+            announcement.textContent = `${serviceName} hizmeti detayları açıldı`;
+            document.body.appendChild(announcement);
+            setTimeout(() => announcement.remove(), 1000);
+        };
+        
+        // Flip kartları için ekran okuyucu duyuruları
+        document.querySelectorAll('.faq-card').forEach(card => {
+            card.addEventListener('click', function() {
+                if (this.classList.contains('flipped')) {
+                    const serviceName = this.querySelector('h3').textContent;
+                    announceFlip(serviceName);
                 }
             });
         });
-
-        // Add drone icon
-        const style = document.createElement('style');
-        style.textContent = `
-            .fa-drone:before {
-                content: "\\f0b2";
-                font-family: "Font Awesome 5 Free";
-            }
-            .fa-tiktok:before {
-                content: "\\e07b";
-                font-family: "Font Awesome 5 Brands";
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
