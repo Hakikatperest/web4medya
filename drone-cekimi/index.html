@@ -10,107 +10,22 @@
     <meta name="author" content="Web4 Medya" />
     <link rel="canonical" href="https://www.web4medya.com/drone-cekimi/" />
     
-    <!-- Favicon -->
-    <link rel="icon" href="/images/web4medya-logo.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="/images/web4medya-logo.ico" type="image/x-icon">
-    
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Profesyonel Drone Çekimi | Web4 Medya | İstanbul Drone Hizmetleri" />
     <meta property="og:description" content="Web4 Medya ile profesyonel drone çekimi hizmetleri. İstanbul'da en iyi drone çekimi fiyatları, havadan video çekimi, tanıtım filmi, mimari drone çekimi." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.web4medya.com/drone-cekimi/" />
     <meta property="og:image" content="https://www.web4medya.com/images/web4medya-drone.webp" />
-    <meta property="og:site_name" content="Web4 Medya" />
     
-    <!-- JSON-LD Schema Markup -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Web4 Medya",
-        "description": "Profesyonel Drone Çekimi Hizmetleri",
-        "url": "https://www.web4medya.com/drone-cekimi/",
-        "logo": "https://www.web4medya.com/images/web4medya-logo.png",
-        "telephone": "+905422360983",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "İstanbul",
-            "addressCountry": "TR"
-        },
-        "priceRange": "₺1500-₺10000",
-        "openingHours": "Mo-Fr 09:00-20:00, Sa-Su 10:00-20:00",
-        "serviceType": ["Drone Photography", "Aerial Videography", "Video Production"],
-        "areaServed": ["İstanbul", "Kocaeli", "Sakarya", "Tekirdağ", "Bursa", "Yalova"]
-    }
-    </script>
+    <!-- Favicon -->
+    <link rel="icon" href="/images/web4medya-logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/web4medya-logo.ico" type="image/x-icon">
     
-    <!-- Breadcrumb Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Ana Sayfa",
-                "item": "https://www.web4medya.com/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Hizmetler",
-                "item": "https://www.web4medya.com/hizmetler/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Drone Çekimi",
-                "item": "https://www.web4medya.com/drone-cekimi/"
-            }
-        ]
-    }
-    </script>
-    
-    <!-- FAQ Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "Drone çekimi fiyatları ne kadar?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Drone çekimi fiyatları projenin kapsamına, süresine, lokasyonuna ve özel gereksinimlere göre değişir. Temel paketlerimiz 1.500 TL'den başlar. Detaylı fiyat teklifi için ücretsiz keşif talebinde bulunabilirsiniz."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Çekimler hangi bölgelerde yapılıyor?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "İstanbul ve çevre illerde (Kocaeli, Sakarya, Tekirdağ, Bursa, Yalova) drone çekimi hizmeti veriyoruz. Türkiye genelinde özel projeler için seyahat edebiliyoruz."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Çekimler ne kadar sürer?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Standard bir drone çekimi 2-4 saat arasında sürer. Bu süre hazırlık, çekim ve kapanışı kapsar. Büyük ölçekli projelerde çekim süresi 1 gün veya daha fazla olabilir."
-                }
-            }
-        ]
-    }
-    </script>
-    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
     <style>
-        /* ROOT VARIABLES - MODERN WEB4 MEDYA THEME */
         :root {
             --primary: #0A2463;
             --gradient-1: #0A2463;
@@ -130,6 +45,7 @@
             --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
+        /* TEMEL STİLLER */
         * {
             margin: 0;
             padding: 0;
@@ -152,46 +68,46 @@
                 linear-gradient(180deg, #F7FFF7 0%, #FFFFFF 100%);
         }
 
-        /* HEADER - FIXED WHITE NAVIGATION - %100 AYNI */
+        /* OPTİMİZE HEADER - %100 AYNI */
         .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    padding: 0 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    height: 60px; /* Sabit yükseklik */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    transition: var(--transition);
-}
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            height: 60px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
 
         .header.scrolled {
             background: rgba(255, 255, 255, 0.98);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
-        /* LOGO - %100 AYNI */
-       .logo {
-    display: flex;
-    align-items: center;
-    height: 60px;
-    cursor: pointer;
-    text-decoration: none;
-}
+        /* OPTİMİZE LOGO - %100 AYNI */
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 60px;
+            cursor: pointer;
+            text-decoration: none;
+        }
 
         .logo img {
-    height: 100%;
-    width: auto;
-    max-height: 60px;
-    object-fit: contain;
-}
+            height: 100%;
+            width: auto;
+            max-height: 60px;
+            object-fit: contain;
+        }
 
-        /* MODERN NAVIGATION - %100 AYNI */
+        /* OPTİMİZE NAVIGATION - %100 AYNI */
         .nav-desktop {
             display: flex;
             align-items: center;
@@ -221,7 +137,7 @@
             color: var(--accent);
         }
 
-        /* DROPDOWN MENÜ - %100 AYNI */
+        /* OPTİMİZE DROPDOWN - %100 AYNI */
         .dropdown {
             position: absolute;
             top: 100%;
@@ -295,7 +211,7 @@
             transform: rotate(180deg);
         }
 
-        /* HEADER CTA BUTTON - %100 AYNI */
+        /* OPTİMİZE HEADER CTA - %100 AYNI */
         .header-cta .btn {
             background: linear-gradient(135deg, var(--accent-light), #FFD93D);
             color: var(--primary);
@@ -352,196 +268,59 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* HERO SECTION - CLEAN WHITE DESIGN */
-        .page-hero {
-            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.98)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600"><path fill="%230A2463" fill-opacity="0.03" d="M0,0L1200,0L1200,600L0,600Z"/></svg>');
-            color: var(--dark);
+        /* HERO SECTION */
+        .drone-hero {
+            background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
+            color: white;
             padding: 140px 5% 100px;
             text-align: center;
             position: relative;
             overflow: hidden;
             margin-top: 60px;
-            border-bottom: 1px solid var(--gray-light);
         }
 
-        .page-hero-content {
-            max-width: 1000px;
-            margin: 0 auto;
+        .drone-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .drone-hero-content {
             position: relative;
             z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .page-hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
+        .drone-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
             font-weight: 800;
             margin-bottom: 25px;
             line-height: 1.1;
-            color: var(--dark);
+            color: white;
         }
 
-        .page-hero h1 .highlight {
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+        .drone-hero h1 .highlight {
+            background: linear-gradient(135deg, #FFE66D, #FFD93D, #FF6B6B);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
 
-        .page-hero p {
-            font-size: clamp(1.1rem, 2vw, 1.3rem);
-            color: var(--gray);
+        .drone-hero p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: rgba(255, 255, 255, 0.95);
             max-width: 800px;
             margin: 0 auto 40px;
-            font-weight: 400;
+            font-weight: 300;
             line-height: 1.7;
-        }
-
-        /* QUICK QUOTE SECTION */
-        .quick-quote {
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
-            padding: 80px 5%;
-            margin: 0;
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .quick-quote::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: float 20s linear infinite;
-            z-index: 0;
-        }
-
-        @keyframes float {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(-50px, -50px) rotate(360deg); }
-        }
-
-        .quick-quote-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .quick-quote h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: white;
-        }
-
-        .quick-quote p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            opacity: 0.95;
-        }
-
-        /* BUTONLAR - ORTAK STİL */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 28px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            border: 2px solid transparent;
-            cursor: pointer;
-            font-size: 1rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* ORTAK IŞIK EFEKTİ */
-        .light-effect {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .light-effect::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                to right,
-                transparent 0%,
-                rgba(255, 255, 255, 0.3) 50%,
-                transparent 100%
-            );
-            transform: rotate(30deg);
-            animation: lightWave 3s infinite linear;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        @keyframes lightWave {
-            0% {
-                transform: translateX(-100%) translateY(-100%) rotate(30deg);
-            }
-            100% {
-                transform: translateX(100%) translateY(100%) rotate(30deg);
-            }
-        }
-
-        .light-effect > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        /* BUTON TİPLERİ */
-        .btn-primary {
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
-            color: white;
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-whatsapp {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-yellow {
-            background: linear-gradient(135deg, var(--accent-light), #FFD93D);
-            color: var(--primary);
-        }
-
-        /* HOVER EFEKTLERİ */
-        .btn:hover:not(.floating-btn) {
-            transform: translateY(-3px);
-        }
-
-        .quick-quote .btn {
-            background: white;
-            color: var(--primary);
-            padding: 18px 40px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            border-radius: 12px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            transition: var(--transition);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .quick-quote .btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         /* MOBILE MENU - %100 AYNI */
@@ -671,17 +450,103 @@
             transform: rotate(180deg);
         }
 
-        /* MAIN CONTENT SECTIONS */
-        .section {
-            padding: 80px 5%;
+        /* BUTTON STYLES */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        .section-white {
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-yellow {
+            background: linear-gradient(135deg, var(--accent-light), #FFD93D);
+            color: var(--primary);
+        }
+
+        .btn:hover:not(.floating-btn) {
+            transform: translateY(-3px);
+        }
+
+        /* ORTAK IŞIK EFEKTİ */
+        .light-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .light-effect::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                transparent 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                transparent 100%
+            );
+            transform: rotate(30deg);
+            animation: lightWave 3s infinite linear;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes lightWave {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(30deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(30deg);
+            }
+        }
+
+        .light-effect > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* HERO CTA */
+        .drone-hero .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .drone-hero .btn {
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* DRONE SERVICES SECTION */
+        .drone-services {
+            padding: 100px 5%;
             background: var(--white);
-        }
-
-        .section-light {
-            background: var(--light);
         }
 
         .container {
@@ -690,12 +555,17 @@
         }
 
         .section-title {
-            text-align: center;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 800;
-            margin-bottom: 60px;
-            color: var(--dark);
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             position: relative;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
         }
 
         .section-title::after {
@@ -706,273 +576,325 @@
             transform: translateX(-50%);
             width: 100px;
             height: 4px;
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
             border-radius: 2px;
         }
 
-        /* DRONE IMAGE SECTION */
-        .drone-image-section {
-            background: var(--white);
-            padding: 0 5% 80px;
-        }
-
-        .drone-image-container {
-            max-width: 1000px;
-            margin: 0 auto;
+        .section-subtitle {
+            font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+            color: var(--gray);
+            line-height: 1.6;
+            margin-top: 30px;
+            margin-bottom: 60px;
             text-align: center;
         }
 
-        .drone-image {
-            width: 100%;
-            max-width: 1000px;
-            height: auto;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            margin-bottom: 50px;
-            object-fit: cover;
-            border: 10px solid var(--white);
-        }
-
-        /* CONTENT GRID */
-        .content-grid {
+        /* SERVICES GRID */
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            margin-top: 50px;
+            margin-top: 60px;
         }
 
-        .content-card {
+        .service-card {
             background: var(--white);
-            border-radius: var(--radius);
             padding: 40px 30px;
+            border-radius: var(--radius);
             box-shadow: var(--shadow);
-            border-top: 4px solid var(--primary);
             transition: var(--transition);
+            border-top: 4px solid var(--gradient-2);
+            text-align: center;
         }
 
-        .content-card:hover {
+        .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 40px rgba(10, 36, 99, 0.2);
+            box-shadow: 0 20px 60px rgba(10, 36, 99, 0.15);
         }
 
-        .content-card i {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 25px;
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 2.2rem;
         }
 
-        .content-card h3 {
+        .service-card h3 {
             font-size: 1.5rem;
             margin-bottom: 20px;
             color: var(--dark);
+            font-weight: 700;
         }
 
-        .content-card p {
-            color: var(--gray);
+        .service-card p {
+            font-size: 1.1rem;
             line-height: 1.7;
+            color: var(--gray-dark);
         }
 
-        /* BENEFITS SECTION */
-        .benefits-grid {
+        /* FEATURES SECTION */
+        .features-section {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+        }
+
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 50px;
+            margin-top: 60px;
         }
 
-        .benefit-item {
+        .feature-card {
             background: var(--white);
-            padding: 35px 25px;
+            padding: 35px 30px;
             border-radius: var(--radius);
-            text-align: center;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            border: 1px solid var(--gray-light);
+            text-align: center;
+            border: 2px solid transparent;
         }
 
-        .benefit-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(10, 36, 99, 0.15);
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gradient-2);
+            box-shadow: 0 20px 60px rgba(10, 36, 99, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--gradient-2);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--gray-dark);
+        }
+
+        /* PRICING SECTION */
+        .pricing-section {
+            padding: 100px 5%;
+            background: var(--white);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .price-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 2px solid var(--gray-light);
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(10, 36, 99, 0.15);
             border-color: var(--gradient-2);
         }
 
-        .benefit-item i {
-            font-size: 2.8rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .benefit-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        /* FAQ SECTION */
-        .faq-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            max-width: 900px;
-            margin: 50px auto 0;
-        }
-
-        .faq-item {
-            background: var(--white);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--gray-light);
-        }
-
-        .faq-question {
-            padding: 25px 30px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--dark);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: var(--transition);
-        }
-
-        .faq-question:hover {
-            background: var(--light);
-        }
-
-        .faq-question i {
-            color: var(--primary);
-            transition: transform 0.3s ease;
-        }
-
-        .faq-question.active i {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            padding: 0 30px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            color: var(--gray);
-            line-height: 1.7;
-        }
-
-        .faq-answer.active {
-            padding: 0 30px 25px 30px;
-            max-height: 500px;
-        }
-
-        /* POPULAR SEARCHES */
-        .popular-searches-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 40px;
-        }
-
-        .search-tag {
-            background: var(--light);
-            padding: 12px 24px;
-            border-radius: 50px;
-            color: var(--gray-dark);
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            border: 2px solid transparent;
-            font-size: 0.95rem;
-        }
-
-        .search-tag:hover {
+        .price-header {
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
             color: white;
-            transform: translateY(-3px);
-            box-shadow: var(--shadow);
+            padding: 30px;
+            text-align: center;
         }
 
-        /* ARTICLE CONTENT */
-        .article-content {
-            max-width: 900px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            line-height: 1.8;
+        .price-header h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 15px 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .price-features {
+            padding: 30px;
+        }
+
+        .price-features ul {
+            list-style: none;
+        }
+
+        .price-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--gray-light);
             color: var(--gray-dark);
         }
 
-        .article-content h2 {
-            font-size: 2rem;
-            margin: 50px 0 25px;
-            color: var(--dark);
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--gray-light);
+        .price-features li:last-child {
+            border-bottom: none;
         }
 
-        .article-content h3 {
-            font-size: 1.5rem;
-            margin: 40px 0 20px;
-            color: var(--dark);
+        .price-features li i {
+            color: var(--gradient-2);
+            margin-right: 10px;
         }
 
-        .article-content p {
-            margin-bottom: 20px;
+        .price-footer {
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid var(--gray-light);
         }
 
-        .article-content ul, .article-content ol {
-            margin-bottom: 25px;
-            padding-left: 25px;
+        /* WHY CHOOSE US */
+        .why-choose {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
+            color: white;
         }
 
-        .article-content li {
-            margin-bottom: 10px;
+        .why-choose .section-title {
+            background: linear-gradient(135deg, white, var(--accent-light));
+            -webkit-background-clip: text;
+            background-clip: text;
         }
 
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(10, 36, 99, 0.05), rgba(62, 146, 204, 0.05));
-            border-left: 4px solid var(--primary);
-            padding: 25px;
-            border-radius: var(--radius);
-            margin: 30px 0;
+        .why-choose .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
         }
 
-        /* INTERNAL LINKS */
-        .internal-links-grid {
+        .reasons-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            margin-top: 60px;
         }
 
-        .internal-link-card {
-            background: var(--white);
-            padding: 30px;
+        .reason-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 35px 25px;
             border-radius: var(--radius);
-            text-decoration: none;
-            color: var(--dark);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: var(--transition);
-            box-shadow: var(--shadow);
-            border-top: 4px solid var(--primary);
         }
 
-        .internal-link-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 40px rgba(10, 36, 99, 0.15);
+        .reason-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
         }
 
-        .internal-link-card i {
+        .reason-item i {
             font-size: 2.5rem;
-            color: var(--primary);
             margin-bottom: 20px;
+            color: white;
         }
 
-        .internal-link-card h3 {
+        .reason-item h3 {
             font-size: 1.3rem;
             margin-bottom: 15px;
-            color: var(--dark);
+            color: white;
         }
 
-        /* FOOTER - ORTAK STİL */
+        .reason-item p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        /* CONTACT CTA */
+        .contact-cta {
+            padding: 100px 5%;
+            background: var(--white);
+        }
+
+        .cta-card {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            color: white;
+            padding: 60px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(10, 36, 99, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+
+        .cta-card h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-card p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-card .btn {
+            background: white;
+            color: var(--gradient-1);
+            padding: 18px 40px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            z-index: 1;
+            text-decoration: none;
+        }
+
+        .cta-card .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            background: #f8fafc;
+        }
+
+        /* FOOTER - %100 AYNI */
         .footer {
             background: white;
             color: var(--dark);
@@ -1159,7 +1081,7 @@
             color: var(--accent);
         }
 
-        /* FLOATING CTA BUTTONS - %100 AYNI */
+        /* FLOATING CTA - %100 AYNI */
         .floating-cta {
             position: fixed;
             bottom: 120px;
@@ -1214,20 +1136,7 @@
             }
         }
 
-        /* EKRAN OKUYUCULAR İÇİN GİZLİ SINIF */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* RESPONSIVE BREAKPOINTS */
+        /* RESPONSIVE STYLES */
         @media (max-width: 1024px) {
             .nav-desktop {
                 display: none;
@@ -1240,28 +1149,60 @@
             .header-cta {
                 display: none;
             }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            
+            .pricing-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
         }
 
         @media (max-width: 768px) {
-            .page-hero {
+            .drone-hero {
                 padding: 120px 4% 80px;
                 margin-top: 60px;
             }
             
-            .content-grid {
-                grid-template-columns: 1fr;
+            .drone-hero .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
             }
             
-            .benefits-grid {
-                grid-template-columns: 1fr;
+            .drone-hero .btn {
+                width: 100%;
+                max-width: 300px;
             }
             
-            .internal-links-grid {
-                grid-template-columns: 1fr;
+            .services-grid {
+                gap: 30px;
             }
             
-            .popular-searches-grid {
-                justify-content: flex-start;
+            .service-card {
+                padding: 30px 20px;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            
+            .feature-card {
+                padding: 25px 20px;
+            }
+            
+            .cta-card {
+                padding: 40px 30px;
+            }
+            
+            .cta-card h3 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-card p {
+                font-size: 1.1rem;
             }
             
             .floating-cta {
@@ -1274,45 +1215,62 @@
                 height: 60px;
                 font-size: 1.6rem;
             }
-            
-            .quick-quote h2 {
-                font-size: 2rem;
-            }
         }
 
-       @media (max-width: 480px) {
-    .header {
-        padding: 0 20px;
-        height: 60px; /* Sabit yükseklik */
-    }
+        @media (max-width: 480px) {
+            .header {
+                padding: 0 20px;
+            }
             
- .logo {
-        height: 60px; /* Sabit yükseklik */
-    }
-    
-    .logo img {
-        max-height: 50px; /* İkinci sitedeki gibi 50px */
-        width: auto;
-    }
-    
-    .page-hero {
-        padding: 100px 20px 60px;
-        margin-top: 60px;
-    }
-    
-    .mobile-menu {
-        top: 60px;
-    }
-}
-
-@media (max-width: 768px) {
-    .logo img {
-        max-height: 55px; /* Orta boy ekranlar için */
-    }
-}
+            .logo img {
+                max-height: 50px;
+            }
             
-            .mobile-menu {
-                top: 60px;
+            .drone-hero {
+                padding: 100px 20px 60px;
+                margin-top: 60px;
+            }
+            
+            .drone-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .service-card {
+                padding: 25px 15px;
+            }
+            
+            .service-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .price-header {
+                padding: 25px;
+            }
+            
+            .price {
+                font-size: 2.2rem;
+            }
+            
+            .cta-card {
+                padding: 30px 20px;
+            }
+            
+            .cta-card h3 {
+                font-size: 1.6rem;
             }
             
             .footer {
@@ -1356,7 +1314,7 @@
             
             <!-- HİZMETLER DROPDOWN -->
             <div class="nav-item">
-                <a href="#" class="nav-link active" aria-haspopup="true" aria-expanded="false">Hizmetler <i class="fas fa-chevron-down arrow"></i></a>
+                <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">Hizmetler <i class="fas fa-chevron-down arrow"></i></a>
                 <div class="dropdown" id="hizmetlerDropdown" role="menu" aria-label="Hizmetler alt menüsü">
                     <div class="dropdown-content">
                         <!-- Dijital Pazarlama -->
@@ -1477,70 +1435,72 @@
     </div>
 
     <!-- HERO SECTION -->
-    <section class="page-hero">
-        <div class="page-hero-content">
-            <h1>Profesyonel <span class="highlight">Drone Çekimi</span> Hizmetleri</h1>
+    <section class="drone-hero">
+        <div class="drone-hero-content">
+            <h1>Profesyonel <span class="highlight">Drone Çekimi</span></h1>
             <p>Web4 Medya ile işletmeniz, etkinlikleriniz ve projeleriniz için en kaliteli havadan görüntüleme çözümleri. İstanbul'da profesyonel drone çekimi hizmetleri sunuyoruz.</p>
-        </div>
-    </section>
-
-    <!-- QUICK QUOTE SECTION -->
-    <section class="quick-quote">
-        <div class="quick-quote-content">
-            <h2>Hızlı Teklif Alın</h2>
-            <p>Drone çekimi ihtiyaçlarınız için ücretsiz keşif ve fiyat teklifi alın. 24 saat içinde dönüş yapıyoruz!</p>
-            <a href="tel:05422360983" class="btn light-effect">
-                <i class="fas fa-phone-alt"></i> Hemen Ara: 0542 236 09 83
-            </a>
-        </div>
-    </section>
-
-    <!-- DRONE IMAGE SECTION -->
-    <section class="drone-image-section">
-        <div class="drone-image-container">
-            <img src="/images/web4medya-drone.webp" alt="Profesyonel Drone Çekimi - Web4 Medya" class="drone-image" 
-                 onerror="this.onerror=null; this.src='/images/web4drone.webp';">
+            <div class="cta-buttons">
+                <a href="tel:05422360983" class="btn btn-yellow light-effect">
+                    <i class="fas fa-phone-alt"></i> Hemen Ara: 0542 236 09 83
+                </a>
+                <a href="#pricing" class="btn btn-primary">
+                    <i class="fas fa-tag"></i> Paketleri İncele
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- SERVICES SECTION -->
-    <section class="section section-light">
+    <section class="drone-services">
         <div class="container">
             <h2 class="section-title">Drone Çekimi Hizmetlerimiz</h2>
+            <p class="section-subtitle">İşletmeniz ve projeleriniz için özel çözümler sunuyoruz. En iyi drone çekimi hizmetlerini Web4 Medya ile deneyimleyin.</p>
             
-            <div class="content-grid">
-                <div class="content-card">
-                    <i class="fas fa-film"></i>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
                     <h3>Tanıtım Filmleri</h3>
                     <p>İşletmenizin profesyonel tanıtım filmlerini drone çekimleriyle zenginleştiriyor, markanızı havadan etkileyici bir şekilde sunuyoruz.</p>
                 </div>
                 
-                <div class="content-card">
-                    <i class="fas fa-building"></i>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
                     <h3>Mimari Çekimler</h3>
                     <p>Bina, site, villa ve diğer yapıların havadan görüntülenmesi ile mimari projelerinizi en iyi şekilde tanıtıyoruz.</p>
                 </div>
                 
-                <div class="content-card">
-                    <i class="fas fa-calendar-alt"></i>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
                     <h3>Etkinlik Görüntülemeleri</h3>
                     <p>Düğün, konser, festival, spor etkinlikleri gibi organizasyonların havadan kaydını yaparak unutulmaz anılar oluşturuyoruz.</p>
                 </div>
                 
-                <div class="content-card">
-                    <i class="fas fa-industry"></i>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
                     <h3>Endüstriyel Çekimler</h3>
                     <p>Fabrika, depo, inşaat sahası gibi endüstriyel alanların görüntülenmesi ve takibi için profesyonel drone çözümleri sunuyoruz.</p>
                 </div>
                 
-                <div class="content-card">
-                    <i class="fas fa-home"></i>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
                     <h3>Emlak Çekimleri</h3>
                     <p>Emlak sektörü için özel drone çekimleri ile mülklerinizi havadan en etkileyici şekilde tanıtarak satış ve kiralama süreçlerini hızlandırıyoruz.</p>
                 </div>
                 
-                <div class="content-card">
-                    <i class="fas fa-map"></i>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-map"></i>
+                    </div>
                     <h3>Arazi Haritalama</h3>
                     <p>Tarım arazileri, arsalar ve diğer geniş alanların havadan haritalanması, ölçümü ve analizi için drone teknolojisini kullanıyoruz.</p>
                 </div>
@@ -1548,32 +1508,41 @@
         </div>
     </section>
 
-    <!-- BENEFITS SECTION -->
-    <section class="section section-white">
+    <!-- FEATURES SECTION -->
+    <section class="features-section">
         <div class="container">
-            <h2 class="section-title">Neden Web4 Medya Drone Çekimi?</h2>
+            <h2 class="section-title">Teknik Özelliklerimiz</h2>
+            <p class="section-subtitle">Profesyonel drone çekimlerimizde kullandığımız teknolojiler ve standartlar</p>
             
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <i class="fas fa-video"></i>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
                     <h3>4K Yüksek Çözünürlük</h3>
                     <p>Net, detaylı ve etkileyici 4K video çekimleri ile en yüksek kalitede görüntüler sunuyoruz.</p>
                 </div>
                 
-                <div class="benefit-item">
-                    <i class="fas fa-shield-alt"></i>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
                     <h3>Lisanslı Pilotlar</h3>
                     <p>Sertifikalı ve deneyimli drone pilotları ile güvenli ve profesyonel çekimler gerçekleştiriyoruz.</p>
                 </div>
                 
-                <div class="benefit-item">
-                    <i class="fas fa-cogs"></i>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
                     <h3>Profesyonel Ekipman</h3>
                     <p>Son teknoloji drone ve kamera ekipmanları ile en kaliteli çekimleri yapıyoruz.</p>
                 </div>
                 
-                <div class="benefit-item">
-                    <i class="fas fa-clipboard-check"></i>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
                     <h3>Yasal Uyumluluk</h3>
                     <p>Tüm yasal gerekliliklere uygun çekimler ile güvenli ve sorunsuz hizmet sunuyoruz.</p>
                 </div>
@@ -1581,162 +1550,127 @@
         </div>
     </section>
 
-    <!-- ARTICLE CONTENT - SEO OPTIMIZED -->
-    <section class="section section-light">
+    <!-- PRICING SECTION -->
+    <section class="pricing-section" id="pricing">
         <div class="container">
-            <div class="article-content">
-                <h2>Profesyonel Drone Çekimi: İşletmeniz İçin Neden Önemli?</h2>
-                
-                <p>Günümüz dijital pazarlama dünyasında, <strong>drone çekimi</strong> işletmeler için vazgeçilmez bir araç haline geldi. Web4 Medya olarak, İstanbul'da <strong>en iyi drone çekimi</strong> hizmetlerini sunuyoruz. Havadan çekilmiş görüntüler, izleyicilerde güçlü bir etki bırakır ve işletmenizi rakiplerinizden ayırır.</p>
-                
-                <div class="highlight-box">
-                    <p><strong>Drone çekimi fiyatları</strong> 2024 yılında oldukça rekabetçi hale geldi. Web4 Medya olarak, <strong>en uygun drone çekimi fiyatları</strong> ile en kaliteli hizmeti sunmaktan gurur duyuyoruz. Temel paketlerimiz 1.500 TL'den başlar ve proje gereksinimlerinize göre özelleştirilebilir.</p>
-                </div>
-                
-                <h3>Drone Çekimi Çeşitleri ve Kullanım Alanları</h3>
-                
-                <p><strong>Mimari drone çekimi</strong>, inşaat firmaları ve emlakçılar için büyük önem taşır. Binaların havadan görüntüleri, müşterilere projenin büyüklüğü ve konumu hakkında net bir fikir verir. <strong>İstanbul drone çekimi</strong> hizmetimizle şehrin her bölgesinde profesyonel çekimler yapıyoruz.</p>
-                
-                <p><strong>Tanıtım filmi drone</strong> çekimleri, işletmenizin hikayesini anlatmanın en etkili yollarından biridir. Havadan çekilmiş görüntüler, ürün veya hizmetlerinizi daha etkileyici bir şekilde sunmanızı sağlar.</p>
-                
-                <h3>Drone ile Video Çekimi: Teknik Detaylar</h3>
-                
-                <p>Profesyonel <strong>drone ile video çekimi</strong> için en son teknoloji ekipmanları kullanıyoruz. DJI marka drone'larımız ve 4K kameralarımızla, net ve etkileyici görüntüler elde ediyoruz. Deneyimli pilot ekibimiz, güvenli ve verimli çekimler gerçekleştirir.</p>
-                
-                <p><strong>Havadan çekim</strong> yaparken dikkat etmemiz gereken birçok faktör vardır: hava koşulları, yasal izinler, çekim açıları ve ışık koşulları gibi. Web4 Medya olarak tüm bu faktörleri profesyonel bir şekilde yönetiyor, müşterilerimize sorunsuz bir hizmet sunuyoruz.</p>
-                
-                <h3>Etkinlik Drone Çekimi: Unutulmaz Anılar</h3>
-                
-                <p>Düğünler, konserler, festivaller ve diğer özel etkinlikler için <strong>etkinlik drone çekimi</strong> hizmeti sunuyoruz. Havadan çekilmiş görüntüler, etkinliğinizin büyüklüğünü ve atmosferini en iyi şekilde yansıtır.</p>
-                
-                <p><strong>Endüstriyel drone çekimi</strong> ise fabrika ve inşaat sahalarının takibi için idealdir. Havadan görüntüler, proje ilerlemesini takip etmeyi kolaylaştırır ve detaylı raporlama imkanı sunar.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ SECTION -->
-    <section class="section section-white">
-        <div class="container">
-            <h2 class="section-title">Sık Sorulan Sorular</h2>
+            <h2 class="section-title">Drone Çekimi Fiyatları</h2>
+            <p class="section-subtitle">İhtiyaçlarınıza uygun esnek paketler sunuyoruz. Özel projeler için özel teklif oluşturuyoruz.</p>
             
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Drone çekimi fiyatları ne kadar?</span>
-                        <i class="fas fa-chevron-down"></i>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <div class="price-header">
+                        <h3>Temel Paket</h3>
+                        <div class="price">₺1.500<span>/çekim</span></div>
+                        <p>Standart drone çekimi</p>
                     </div>
-                    <div class="faq-answer">
-                        <p>Drone çekimi fiyatları projenin kapsamına, süresine, lokasyonuna ve özel gereksinimlere göre değişir. Temel paketlerimiz 1.500 TL'den başlar. Detaylı fiyat teklifi için ücretsiz keşif talebinde bulunabilirsiniz.</p>
+                    <div class="price-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> 2 saat çekim süresi</li>
+                            <li><i class="fas fa-check"></i> 5 dakika ham video</li>
+                            <li><i class="fas fa-check"></i> 1 adet 4K video klibi</li>
+                            <li><i class="fas fa-check"></i> 10 adet yüksek çözünürlüklü fotoğraf</li>
+                            <li><i class="fas fa-check"></i> Temel renk düzeltme</li>
+                        </ul>
                     </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Çekimler hangi bölgelerde yapılıyor?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>İstanbul ve çevre illerde (Kocaeli, Sakarya, Tekirdağ, Bursa, Yalova) drone çekimi hizmeti veriyoruz. Türkiye genelinde özel projeler için seyahat edebiliyoruz. Yurt dışı çekimler için özel teklif hazırlıyoruz.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Çekimler ne kadar sürer?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Standard bir drone çekimi 2-4 saat arasında sürer. Bu süre hazırlık, çekim ve kapanışı kapsar. Büyük ölçekli projelerde çekim süresi 1 gün veya daha fazla olabilir. Kesin süre proje detaylarına göre belirlenir.</p>
+                    <div class="price-footer">
+                        <a href="tel:05422360983" class="btn btn-primary">Hemen Ara</a>
                     </div>
                 </div>
                 
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Hava koşulları çekimi etkiler mi?</span>
-                        <i class="fas fa-chevron-down"></i>
+                <div class="price-card">
+                    <div class="price-header">
+                        <h3>Profesyonel Paket</h3>
+                        <div class="price">₺3.500<span>/çekim</span></div>
+                        <p>Kapsamlı drone çekimi</p>
                     </div>
-                    <div class="faq-answer">
-                        <p>Evet, hava koşulları drone çekimlerini doğrudan etkiler. Rüzgar hızı, yağmur, kar ve aşırı sıcak/soğuk çekim yapmamıza engel olabilir. Bu nedenle çekim tarihlerini hava durumuna göre esnek planlıyoruz.</p>
+                    <div class="price-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> 4 saat çekim süresi</li>
+                            <li><i class="fas fa-check"></i> 15 dakika ham video</li>
+                            <li><i class="fas fa-check"></i> 3 adet 4K video klibi</li>
+                            <li><i class="fas fa-check"></i> 25 adet yüksek çözünürlüklü fotoğraf</li>
+                            <li><i class="fas fa-check"></i> Profesyonel renk düzeltme</li>
+                            <li><i class="fas fa-check"></i> Temel video montajı</li>
+                        </ul>
+                    </div>
+                    <div class="price-footer">
+                        <a href="tel:05422360983" class="btn btn-primary">Hemen Ara</a>
                     </div>
                 </div>
                 
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Yasal izinler için ne yapıyorsunuz?</span>
-                        <i class="fas fa-chevron-down"></i>
+                <div class="price-card">
+                    <div class="price-header">
+                        <h3>Premium Paket</h3>
+                        <div class="price">₺6.000<span>/çekim</span></div>
+                        <p>Kurumsal çözüm</p>
                     </div>
-                    <div class="faq-answer">
-                        <p>Tüm yasal izinleri ve gerekli izinleri biz alıyoruz. Pilotlarımız SHT tarafından sertifikalıdır. Yasak bölgelerde özel izinler için gerekli başvuruları yapıyor, çekimlerin yasal çerçevede gerçekleşmesini sağlıyoruz.</p>
+                    <div class="price-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Tam gün çekim (8 saat)</li>
+                            <li><i class="fas fa-check"></i> 30 dakika ham video</li>
+                            <li><i class="fas fa-check"></i> 5 adet 4K video klibi</li>
+                            <li><i class="fas fa-check"></i> 50 adet yüksek çözünürlüklü fotoğraf</li>
+                            <li><i class="fas fa-check"></i> İleri seviye renk düzeltme</li>
+                            <li><i class="fas fa-check"></i> Profesyonel video montajı</li>
+                            <li><i class="fas fa-check"></i> Seslendirme ve müzik ekleme</li>
+                        </ul>
+                    </div>
+                    <div class="price-footer">
+                        <a href="tel:05422360983" class="btn btn-primary">Hemen Ara</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- POPULAR SEARCHES -->
-    <section class="section section-light">
+    <!-- WHY CHOOSE US SECTION -->
+    <section class="why-choose">
         <div class="container">
-            <h2 class="section-title">Drone Çekimi İle İlgili Popüler Aramalar</h2>
+            <h2 class="section-title">Neden Web4 Medya?</h2>
+            <p class="section-subtitle">10+ yıllık deneyimimizle en iyi drone çekimi hizmetini sunuyoruz</p>
             
-            <div class="popular-searches-grid">
-                <a href="#" class="search-tag">drone çekimi fiyatları 2024</a>
-                <a href="#" class="search-tag">İstanbul drone çekimi</a>
-                <a href="#" class="search-tag">profesyonel drone çekimi</a>
-                <a href="#" class="search-tag">en iyi drone çekimi</a>
-                <a href="#" class="search-tag">drone ile video çekimi</a>
-                <a href="#" class="search-tag">havadan çekim</a>
-                <a href="#" class="search-tag">tanıtım filmi drone</a>
-                <a href="#" class="search-tag">mimari drone çekimi</a>
-                <a href="#" class="search-tag">etkinlik drone çekimi</a>
-                <a href="#" class="search-tag">drone hizmeti</a>
-                <a href="#" class="search-tag">aerial video</a>
-                <a href="#" class="search-tag">uygun fiyat drone çekimi</a>
-                <a href="#" class="search-tag">drone pilotu</a>
-                <a href="#" class="search-tag">4K drone çekimi</a>
-                <a href="#" class="search-tag">emlak drone çekimi</a>
-                <a href="#" class="search-tag">inşaat drone çekimi</a>
-                <a href="#" class="search-tag">düğün drone çekimi</a>
-                <a href="#" class="search-tag">endüstriyel drone çekimi</a>
-                <a href="#" class="search-tag">drone çekimi yapan firmalar</a>
-                <a href="#" class="search-tag">İstanbul'da drone çekimi</a>
+            <div class="reasons-grid">
+                <div class="reason-item">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Deneyimli Ekip</h3>
+                    <p>10+ yıllık sektör deneyimine sahip uzman ekibimizle çalışarak güvenilir hizmet alın.</p>
+                </div>
+                
+                <div class="reason-item">
+                    <i class="fas fa-headset"></i>
+                    <h3>7/24 Destek</h3>
+                    <p>Size özel danışmanınızla her zaman iletişimde kalın. Sorularınıza hızlı çözümler sunuyoruz.</p>
+                </div>
+                
+                <div class="reason-item">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Şeffaf İletişim</h3>
+                    <p>Tüm süreçlerde şeffaf ve açık iletişim politikamızla güven inşa ediyoruz.</p>
+                </div>
+                
+                <div class="reason-item">
+                    <i class="fas fa-medal"></i>
+                    <h3>Kalite Garantisi</h3>
+                    <p>Tüm çalışmalarımızda en yüksek kalite standartlarını koruyor, memnuniyet garantisi veriyoruz.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- INTERNAL LINKS -->
-    <section class="section section-white">
+    <!-- CONTACT CTA -->
+    <section class="contact-cta">
         <div class="container">
-            <h2 class="section-title">Diğer Hizmetlerimiz</h2>
-            
-            <div class="internal-links-grid">
-                <a href="/tanitim-filmi/" class="internal-link-card">
-                    <i class="fas fa-film"></i>
-                    <h3>Tanıtım Filmi</h3>
-                    <p>Profesyonel tanıtım filmleri ile markanızı öne çıkarın</p>
-                </a>
-                
-                <a href="/sosyal-medya-videolari/" class="internal-link-card">
-                    <i class="fas fa-video"></i>
-                    <h3>Sosyal Medya Videoları</h3>
-                    <p>Sosyal medya platformları için özel video içerikler</p>
-                </a>
-                
-                <a href="/google-ads-reklam-ver/" class="internal-link-card">
-                    <i class="fab fa-google"></i>
-                    <h3>Google Ads Reklam</h3>
-                    <p>Arama motorlarında etkili reklam kampanyaları</p>
-                </a>
-                
-                <a href="/seo/" class="internal-link-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>SEO Hizmeti</h3>
-                    <p>Arama motorlarında üst sıralarda çıkın</p>
+            <div class="cta-card">
+                <h3>Drone Çekimi İçin Hemen Teklif Alın</h3>
+                <p>Web4 Medya uzmanları sizin için en uygun drone çekimi stratejisini belirlesin. Ücretsiz danışmanlık ve analiz hizmetimizden yararlanın.</p>
+                <a href="tel:05422360983" class="btn">
+                    <i class="fas fa-phone-alt"></i> Hemen Ara: 0542 236 09 83
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER - %100 AYNI -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
@@ -1856,7 +1790,6 @@
             mobileMenu.classList.toggle('active');
             menuToggle.setAttribute('aria-expanded', !isExpanded);
             
-            // iOS için: Menü açıkken body scroll'unu engelle
             if (mobileMenu.classList.contains('active')) {
                 document.body.style.overflow = 'hidden';
             } else {
@@ -1919,7 +1852,6 @@
                 menuToggle?.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
                 
-                // Mobile dropdown'ları kapat
                 document.querySelectorAll('.mobile-dropdown-content.active').forEach(d => d.classList.remove('active'));
                 document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => {
                     b.classList.remove('active');
@@ -1928,9 +1860,9 @@
             }
         });
 
-        // OPTİMİZE SMOOTH SCROLL - %100 AYNI
+        // SMOOTH SCROLL TO TOP - %100 AYNI
         const homeLink = document.getElementById('homeLink');
-        const mobileHomeLink = document.getElementById('mobileMenu').querySelector('.mobile-nav-link');
+        const mobileHomeLink = document.getElementById('mobileMenu').querySelector('.mobile-nav-link[href="/"]');
         
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1965,35 +1897,25 @@
             };
         });
 
-        // FAQ Accordion
-        const faqQuestions = document.querySelectorAll('.faq-question');
+        // Add active class to current page in navigation
+        const currentPage = window.location.pathname;
+        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
         
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', function() {
-                // Close other FAQs
-                faqQuestions.forEach(otherQuestion => {
-                    if (otherQuestion !== this) {
-                        otherQuestion.classList.remove('active');
-                        otherQuestion.nextElementSibling.classList.remove('active');
-                    }
-                });
-                
-                // Toggle current FAQ
-                this.classList.toggle('active');
-                this.nextElementSibling.classList.toggle('active');
-            });
+        navLinks.forEach(link => {
+            const linkPath = link.getAttribute('href');
+            if (linkPath === '/drone-cekimi/' && currentPage.includes('/drone-cekimi')) {
+                link.classList.add('active');
+                if (link.classList.contains('dropdown-link') || link.classList.contains('mobile-dropdown-link')) {
+                    link.classList.add('active');
+                }
+            }
         });
 
-        // iOS FIX: Touch events için optimizasyon
-        document.addEventListener('touchstart', function() {}, {passive: true});
-        document.addEventListener('touchmove', function() {}, {passive: true});
-        
-        // Add current year to footer
-        document.addEventListener('DOMContentLoaded', function() {
-            const yearSpan = document.getElementById('currentYear');
-            if (yearSpan) {
-                yearSpan.textContent = new Date().getFullYear();
-            }
+        // Prevent dropdown from closing when clicking inside
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            dropdown.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
         });
     </script>
 </body>
