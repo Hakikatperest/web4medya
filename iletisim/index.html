@@ -9,9 +9,10 @@
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Web4 Medya" />
     <link rel="canonical" href="https://www.web4medya.com/iletisim/" />
+    
     <!-- Favicon -->
-<link rel="icon" href="/images/web4medya-logo.ico" type="image/x-icon">
-<link rel="shortcut icon" href="/images/web4medya-logo.ico" type="image/x-icon">
+    <link rel="icon" href="/images/web4medya-logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/web4medya-logo.ico" type="image/x-icon">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Web4 Medya | İletişim - Dijital Pazarlama & Web Tasarım Ajansı" />
@@ -20,34 +21,31 @@
     <meta property="og:url" content="https://www.web4medya.com/iletisim/" />
     <meta property="og:image" content="https://www.web4medya.com/images/web4medya-iletisim.webp" />
     
-    <!-- Ana sayfa ile aynı CSS (tutarlılık için) -->
+    <!-- ANA SAYFA İLE AYNI CSS (TUTARLILIK İÇİN) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
     <style>
         :root {
-            --primary: #2563EB;
-            --primary-light: #3B82F6;
-            --primary-dark: #1D4ED8;
-            --gradient-1: #145e8d;
-            --gradient-2: #1f90bc;
-            --gradient-3: #1dbbe1;
-            --secondary: #FFFFFF;
-            --accent: #60A5FA;
+            --primary: #0A2463;
+            --gradient-1: #0A2463;
+            --gradient-2: #3E92CC;
+            --gradient-3: #4ECDC4;
+            --accent: #FF6B6B;
+            --accent-light: #FFE66D;
             --dark: #1F2937;
-            --black: #000000;
             --gray-dark: #374151;
             --gray: #6B7280;
             --gray-light: #E5E7EB;
-            --light: #F3F4F6;
+            --light: #F7FFF7;
             --white: #FFFFFF;
-            --shadow: 0 10px 40px rgba(37, 99, 235, 0.08);
-            --shadow-hover: 0 20px 60px rgba(37, 99, 235, 0.12);
+            --shadow: 0 10px 40px rgba(10, 36, 99, 0.1);
             --radius: 20px;
             --radius-sm: 12px;
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
+        /* TEMEL STİLLER */
         * {
             margin: 0;
             padding: 0;
@@ -64,32 +62,40 @@
             color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(62, 146, 204, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 107, 107, 0.05) 0%, transparent 20%),
+                linear-gradient(180deg, #F7FFF7 0%, #FFFFFF 100%);
         }
 
-        /* MODERN HEADER - Ana sayfa ile TAMAMEN AYNI */
+        /* OPTİMİZE HEADER - ANA SAYFA İLE %100 AYNI */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.98); /* BEYAZ */
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
             padding: 0 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(37, 99, 235, 0.05);
-            height: 80px; /* Artırıldı */
-            border-bottom: 1px solid var(--gray-light);
+            height: 60px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
         }
 
-        /* LOGO BOYUTU BÜYÜTÜLDÜ VE TIKLANABİLİR - ANA SAYFA İLE AYNI */
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* OPTİMİZE LOGO - ANA SAYFA İLE %100 AYNI */
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
-            height: 70px;
+            height: 60px;
             cursor: pointer;
             text-decoration: none;
         }
@@ -97,11 +103,11 @@
         .logo img {
             height: 100%;
             width: auto;
-            max-height: 70px;
+            max-height: 60px;
             object-fit: contain;
         }
 
-        /* MODERN NAVIGATION - MAVİ METİN - ANA SAYFA İLE AYNI */
+        /* OPTİMİZE NAVIGATION - ANA SAYFA İLE %100 AYNI */
         .nav-desktop {
             display: flex;
             align-items: center;
@@ -113,7 +119,7 @@
         }
 
         .nav-link {
-            color: var(--gray-dark); /* Gri */
+            color: var(--gray-dark);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
@@ -126,31 +132,17 @@
             gap: 6px;
         }
 
-        .nav-link:hover {
-            color: var(--primary); /* Mavi hover */
-        }
-
+        .nav-link:hover,
         .nav-link.active {
-            color: var(--primary); /* Mavi */
+            color: var(--accent);
         }
 
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-3));
-            border-radius: 2px;
-        }
-
-        /* DROPDOWN MENÜ - BEYAZ TEMA - ANA SAYFA İLE AYNI */
+        /* OPTİMİZE DROPDOWN - ANA SAYFA İLE %100 AYNI */
         .dropdown {
             position: absolute;
             top: 100%;
             left: 0;
-            background: var(--white); /* BEYAZ */
+            background: linear-gradient(135deg, rgba(10, 36, 99, 0.95), rgba(62, 146, 204, 0.95));
             min-width: 280px;
             box-shadow: var(--shadow);
             border-radius: var(--radius-sm);
@@ -159,7 +151,7 @@
             transform: translateY(10px);
             transition: all 0.3s ease;
             z-index: 1001;
-            border: 1px solid var(--gray-light);
+            border: 1px solid rgba(62, 146, 204, 0.3);
         }
 
         .dropdown.active {
@@ -174,7 +166,7 @@
 
         .dropdown-section {
             padding: 15px 20px;
-            border-bottom: 1px solid var(--gray-light);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .dropdown-section:last-child {
@@ -183,7 +175,7 @@
 
         .dropdown-section h4 {
             font-size: 0.85rem;
-            color: var(--gradient-2); /* Yeni gradient renk */
+            color: white;
             margin-bottom: 10px;
             font-weight: 700;
             text-transform: uppercase;
@@ -193,36 +185,31 @@
         .dropdown-link {
             display: block;
             padding: 8px 0;
-            color: var(--gray-dark); /* Gri */
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             font-size: 0.9rem;
             transition: var(--transition);
         }
 
         .dropdown-link:hover {
-            color: var(--gradient-3); /* Yeni gradient renk hover */
+            color: var(--accent-light);
             padding-left: 5px;
         }
 
         .arrow {
             font-size: 0.7rem;
             transition: transform 0.3s ease;
-            color: var(--gray-dark); /* Gri */
+            color: var(--gray-dark);
         }
 
         .nav-item:hover .arrow {
             transform: rotate(180deg);
         }
 
-        /* HEADER CTA BUTTON - DÜZGÜN BUTON - ANA SAYFA İLE AYNI */
-        .header-cta {
-            display: flex;
-            align-items: center;
-        }
-
+        /* OPTİMİZE HEADER CTA - ANA SAYFA İLE %100 AYNI */
         .header-cta .btn {
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
-            color: var(--white); /* BEYAZ */
+            background: linear-gradient(135deg, var(--accent-light), #FFD93D);
+            color: var(--primary);
             padding: 12px 28px;
             border-radius: 8px;
             font-weight: 600;
@@ -231,7 +218,7 @@
             transition: var(--transition);
             white-space: nowrap;
             border: none;
-            box-shadow: 0 4px 12px rgba(20, 94, 141, 0.2);
+            box-shadow: 0 4px 12px rgba(255, 230, 109, 0.2);
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -239,11 +226,10 @@
 
         .header-cta .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(20, 94, 141, 0.3);
-            background: linear-gradient(135deg, var(--gradient-2), var(--gradient-1));
+            box-shadow: 0 8px 20px rgba(255, 230, 109, 0.3);
         }
 
-        /* HAMBURGER MENU - MAVİ ÇİZGİLER - ANA SAYFA İLE AYNI */
+        /* HAMBURGER MENU - ANA SAYFA İLE %100 AYNI */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -260,7 +246,7 @@
         .menu-toggle span {
             width: 100%;
             height: 3px;
-            background-color: var(--gradient-2); /* Yeni gradient renk */
+            background-color: var(--dark);
             border-radius: 10px;
             transition: all 0.3s ease;
         }
@@ -277,11 +263,133 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* BREADCRUMB (İÇERİK NAVIGASYONU) - DÜZENLENDİ */
+        /* MOBILE MENU - ANA SAYFA İLE %100 AYNI */
+        .mobile-menu {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        .mobile-menu.active {
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .mobile-nav {
+            padding: 20px;
+        }
+
+        .mobile-nav-item {
+            margin-bottom: 5px;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            padding: 15px;
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid var(--gray-light);
+            transition: var(--transition);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--accent);
+        }
+
+        .mobile-cta-btn {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2)) !important;
+            color: white !important;
+            border: none !important;
+            margin-top: 10px;
+            border-radius: var(--radius-sm);
+        }
+
+        .mobile-dropdown-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 15px;
+            color: var(--gray-dark);
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--gray-light);
+            text-align: left;
+        }
+
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: linear-gradient(135deg, rgba(10, 36, 99, 0.05), rgba(62, 146, 204, 0.05));
+            margin-left: 10px;
+            border-radius: var(--radius-sm);
+        }
+
+        .mobile-dropdown-content.active {
+            max-height: 500px;
+        }
+
+        .mobile-dropdown-section {
+            padding: 10px 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .mobile-dropdown-section:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-dropdown-section h4 {
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .mobile-dropdown-link {
+            display: block;
+            padding: 8px 0;
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .mobile-dropdown-link:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .mobile-arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-dropdown-btn.active .mobile-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* İLETİŞİM SAYFASI İÇERİĞİ (MEVCUT STİLLER KORUNDU) */
         .breadcrumb {
             padding: 30px 5% 20px;
             background: #f8fafc;
-            margin-top: 80px;
+            margin-top: 60px;
             border-bottom: 1px solid var(--gray-light);
             position: relative;
             z-index: 1;
@@ -319,7 +427,7 @@
             font-size: 0.8rem;
         }
 
-        /* İLETİŞİM PAGE HERO - SADE BİR TASARIM */
+        /* İLETİŞİM PAGE HERO */
         .contact-hero {
             padding: 60px 5% 40px;
             text-align: center;
@@ -372,127 +480,6 @@
             z-index: 2;
         }
 
-        /* MOBILE MENU - BEYAZ TEMA - ANA SAYFA İLE AYNI */
-        .mobile-menu {
-            position: fixed;
-            top: 80px;
-            left: 0;
-            right: 0;
-            background: var(--white); /* BEYAZ */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            z-index: 999;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-            border-top: 1px solid var(--gray-light);
-        }
-
-        .mobile-menu.active {
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .mobile-nav {
-            padding: 20px;
-        }
-
-        .mobile-nav-item {
-            margin-bottom: 5px;
-        }
-
-        .mobile-nav-link {
-            display: block;
-            padding: 15px;
-            color: var(--gray-dark); /* Gri */
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px solid var(--gray-light);
-            transition: var(--transition);
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .mobile-nav-link:hover {
-            color: var(--gradient-3); /* Yeni gradient renk hover */
-        }
-
-        .mobile-dropdown-btn {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            background: none;
-            border: none;
-            padding: 15px;
-            color: var(--gray-dark); /* Gri */
-            font-weight: 600;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            border-bottom: 1px solid var(--gray-light);
-            text-align: left;
-        }
-
-        .mobile-dropdown-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            background: var(--light);
-            margin-left: 10px;
-        }
-
-        .mobile-dropdown-content.active {
-            max-height: 500px;
-        }
-
-        .mobile-dropdown-section {
-            padding: 10px 20px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .mobile-dropdown-section:last-child {
-            border-bottom: none;
-        }
-
-        .mobile-dropdown-section h4 {
-            font-size: 0.9rem;
-            color: var(--gradient-2); /* Yeni gradient renk */
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .mobile-dropdown-link {
-            display: block;
-            padding: 8px 0;
-            color: var(--gray-dark); /* Gri */
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .mobile-dropdown-link:hover {
-            color: var(--gradient-3); /* Yeni gradient renk hover */
-            padding-left: 5px;
-        }
-
-        .mobile-arrow {
-            transition: transform 0.3s ease;
-            color: var(--gray-dark); /* Gri */
-        }
-
-        .mobile-dropdown-btn.active .mobile-arrow {
-            transform: rotate(180deg);
-        }
-
-        /* GENEL SAYFA BOŞLUK DÜZENLEMELERİ */
-        .contact-content {
-            padding: 0 5% 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
         /* MASALÜSTÜ: MODERN GÖRSEL BÖLÜMÜ - AYRI BÖLÜM OLARAK */
         .desktop-image-section {
             display: block;
@@ -501,7 +488,7 @@
             max-width: 1200px;
             border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: var(--shadow-hover);
+            box-shadow: var(--shadow);
             height: 500px;
         }
 
@@ -535,9 +522,9 @@
             right: 0;
             bottom: 0;
             background: linear-gradient(135deg, 
-                rgba(20, 94, 141, 0.85) 0%, 
-                rgba(31, 144, 188, 0.75) 50%, 
-                rgba(29, 187, 225, 0.65) 100%);
+                rgba(10, 36, 99, 0.85) 0%, 
+                rgba(62, 146, 204, 0.75) 50%, 
+                rgba(78, 205, 196, 0.65) 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -564,14 +551,13 @@
         }
 
         /* İLETİŞİM İÇERİK BÖLÜMÜ */
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
+        .contact-content {
+            padding: 0 5% 40px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        /* İLETİŞİM FORMU - GÜNCELLENMİŞ */
+        /* İLETİŞİM FORMU */
         .contact-form-section {
             background: var(--white);
             padding: 40px;
@@ -604,7 +590,7 @@
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 30px;
-            color: var(--gradient-1);
+            color: var(--primary);
             position: relative;
             padding-bottom: 15px;
         }
@@ -651,7 +637,7 @@
         .form-control:focus {
             outline: none;
             border-color: var(--gradient-2);
-            box-shadow: 0 0 0 3px rgba(31, 144, 188, 0.1);
+            box-shadow: 0 0 0 3px rgba(62, 146, 204, 0.1);
             background-color: var(--white);
         }
 
@@ -679,8 +665,7 @@
 
         .form-submit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(20, 94, 141, 0.25);
-            background: linear-gradient(135deg, var(--gradient-2), var(--gradient-1));
+            box-shadow: 0 10px 25px rgba(10, 36, 99, 0.25);
         }
 
         /* İLETİŞİM BİLGİLERİ */
@@ -701,7 +686,7 @@
 
         .contact-info-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: 0 15px 40px rgba(10, 36, 99, 0.15);
             border-color: var(--gradient-2);
         }
 
@@ -709,7 +694,7 @@
             font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 20px;
-            color: var(--gradient-1);
+            color: var(--primary);
             display: flex;
             align-items: center;
             gap: 12px;
@@ -755,7 +740,7 @@
         .contact-phone {
             font-size: 1.3rem !important;
             font-weight: 700;
-            color: var(--gradient-1) !important;
+            color: var(--primary) !important;
         }
 
         .contact-phone:hover {
@@ -785,7 +770,7 @@
 
         .social-contact a:hover {
             transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 10px 20px rgba(20, 94, 141, 0.2);
+            box-shadow: 0 10px 20px rgba(10, 36, 99, 0.2);
         }
 
         .social-contact a.whatsapp {
@@ -820,7 +805,7 @@
             color: var(--gray);
         }
 
-        /* HARİTA BÖLÜMÜ - MOBİL DÜZENLEMELERİ */
+        /* HARİTA BÖLÜMÜ */
         .map-section {
             margin-bottom: 60px;
         }
@@ -868,7 +853,7 @@
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-            color: var(--gradient-1);
+            color: var(--primary);
             padding: 40px;
             text-align: center;
             box-sizing: border-box;
@@ -899,7 +884,7 @@
         /* CTA BÖLÜMÜ */
         .contact-cta {
             padding: 60px 5%;
-            background: linear-gradient(135deg, #0d4c7a, #1a7cb0, #1dbbe1);
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
             text-align: center;
             color: white;
             position: relative;
@@ -981,7 +966,7 @@
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
             color: white;
             border: 2px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 15px 35px rgba(20, 94, 141, 0.35);
+            box-shadow: 0 15px 35px rgba(10, 36, 99, 0.35);
         }
 
         .cta-buttons .btn-whatsapp {
@@ -991,11 +976,11 @@
             box-shadow: 0 15px 35px rgba(37, 211, 102, 0.35);
         }
 
-        /* YENİ FLOATING CTA BUTONLARI - ANA SAYFA İLE AYNI */
+        /* FLOATING CTA BUTONLARI - ANA SAYFA İLE %100 AYNI */
         .floating-cta {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 120px;
+            right: 20px;
             z-index: 998;
             display: flex;
             flex-direction: column;
@@ -1009,17 +994,16 @@
             width: 65px;
             height: 65px;
             border-radius: 50%;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: var(--transition);
             text-decoration: none;
             font-size: 1.9rem;
             position: relative;
             overflow: hidden;
-            -webkit-backface-visibility: hidden;
-            -moz-backface-visibility: hidden;
-            backface-visibility: hidden;
-            transform: translateZ(0);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
 
         .floating-whatsapp {
@@ -1032,28 +1016,27 @@
         .floating-phone {
             background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
             color: white;
-            box-shadow: 0 15px 40px rgba(20, 94, 141, 0.4);
+            box-shadow: 0 15px 40px rgba(10, 36, 99, 0.4);
         }
 
-        /* FOOTER DÜZELTMELERİ */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* FOOTER - ANA SAYFA İLE %100 AYNI */
         .footer {
-            background: var(--white);
-            color: var(--gray-dark);
-            padding: 60px 5% 30px;
-            position: relative;
-            overflow: hidden;
-            border-top: 1px solid var(--gray-light);
-            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.05);
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+            background: white;
+            color: var(--dark);
+            padding: 80px 5% 40px;
+            border-top: 4px solid var(--accent);
         }
 
         .footer-content {
@@ -1061,82 +1044,78 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-            position: relative;
-            z-index: 1;
+            gap: 50px;
+            margin-bottom: 60px;
         }
 
         .footer-section h3 {
             font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--black);
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--primary);
             position: relative;
             display: inline-block;
+            padding-bottom: 10px;
         }
 
         .footer-section h3::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: 0;
             left: 0;
             width: 40px;
             height: 3px;
-            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
         }
 
         .footer-logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
             margin-bottom: 20px;
         }
 
         .footer-logo img {
-            height: 55px;
+            height: 60px;
             width: auto;
         }
 
         .footer-logo-text {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--black);
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
         }
 
         .footer-description {
-            color: var(--gray);
+            color: var(--gray-dark);
             line-height: 1.6;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             font-size: 1rem;
         }
 
         .social-links {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             margin-top: 20px;
         }
 
         .social-link {
-            width: 40px;
-            height: 40px;
-            background: var(--light);
+            width: 45px;
+            height: 45px;
+            background: var(--gray-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--gradient-2);
+            color: var(--dark);
             text-decoration: none;
             transition: var(--transition);
-            border: 1px solid var(--gray-light);
-            font-size: 1rem;
         }
 
         .social-link:hover {
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            background: var(--accent);
             color: white;
             transform: translateY(-3px);
-            border-color: transparent;
         }
 
         .footer-links {
@@ -1153,90 +1132,93 @@
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             font-size: 1rem;
         }
 
         .footer-links a:hover {
-            color: var(--gradient-2);
-            padding-left: 5px;
+            color: var(--accent);
         }
 
         .footer-links i {
-            color: var(--gradient-2);
+            color: var(--accent);
             font-size: 0.8rem;
         }
 
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
         }
 
         .contact-item {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
+            gap: 15px;
             color: var(--gray-dark);
         }
 
         .contact-item i {
-            width: 35px;
-            height: 35px;
-            background: var(--light);
+            width: 40px;
+            height: 40px;
+            background: var(--gray-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--gradient-2);
+            color: var(--primary);
             font-size: 1rem;
             flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover i {
+            background: var(--accent);
+            color: white;
         }
 
         .contact-item a {
-            color: var(--black);
+            color: var(--dark);
             text-decoration: none;
             transition: var(--transition);
             font-weight: 600;
-            font-size: 1rem;
-            line-height: 1.4;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 5px;
         }
 
         .contact-item a:hover {
-            color: var(--gradient-2);
-            text-decoration: underline;
+            color: var(--accent);
         }
 
         .contact-item span {
             color: var(--gray);
-            line-height: 1.4;
+            line-height: 1.6;
             font-size: 1rem;
         }
 
         .footer-bottom {
             max-width: 1200px;
             margin: 0 auto;
-            padding-top: 30px;
+            padding-top: 40px;
             border-top: 1px solid var(--gray-light);
             text-align: center;
             color: var(--gray);
             font-size: 0.9rem;
-            position: relative;
-            z-index: 1;
         }
 
         .footer-bottom a {
-            color: var(--gradient-2);
+            color: var(--primary);
             text-decoration: none;
             font-weight: 600;
+            transition: var(--transition);
         }
 
         .footer-bottom a:hover {
-            color: var(--gradient-1);
-            text-decoration: underline;
+            color: var(--accent);
         }
 
-        /* RESPONSIVE TASARIM - BOŞLUK DÜZENLEMELERİ */
+        /* OPTİMİZE RESPONSIVE */
         @media (max-width: 1024px) {
             .nav-desktop {
                 display: none;
@@ -1253,6 +1235,11 @@
             .desktop-image-section {
                 margin-bottom: 50px;
                 height: 450px;
+            }
+            
+            .floating-cta {
+                bottom: 100px;
+                right: 15px;
             }
         }
 
@@ -1273,7 +1260,7 @@
             
             .breadcrumb {
                 padding: 25px 4% 15px;
-                margin-top: 80px;
+                margin-top: 60px;
             }
             
             .contact-hero {
@@ -1312,8 +1299,8 @@
             }
             
             .floating-cta {
-                bottom: 20px;
-                right: 20px;
+                bottom: 100px;
+                right: 15px;
             }
             
             .floating-btn {
@@ -1360,27 +1347,27 @@
             }
             
             .mobile-menu {
-                top: 80px;
+                top: 60px;
             }
         }
 
         @media (max-width: 480px) {
             .header {
                 padding: 0 20px;
-                height: 75px;
-            }
-            
-            .logo {
                 height: 60px;
             }
             
+            .logo {
+                height: 55px;
+            }
+            
             .logo img {
-                max-height: 60px;
+                max-height: 55px;
             }
             
             .breadcrumb {
                 padding: 20px 20px 10px;
-                margin-top: 75px;
+                margin-top: 60px;
             }
             
             .contact-hero {
@@ -1437,8 +1424,8 @@
             }
             
             .floating-cta {
-                bottom: 15px;
-                right: 15px;
+                bottom: 80px;
+                right: 10px;
                 gap: 12px;
             }
             
@@ -1468,7 +1455,7 @@
             }
             
             .mobile-menu {
-                top: 75px;
+                top: 60px;
             }
         }
 
@@ -1488,71 +1475,57 @@
             }
             
             .logo {
-                height: 55px;
+                height: 50px;
             }
             
             .logo img {
-                max-height: 55px;
-            }
-        }
-
-        /* Pulse animasyonu için */
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+                max-height: 50px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- HEADER (ANA SAYFA İLE TAMAMEN AYNI) -->
-    <header class="header">
-        <!-- LOGO - ANA SAYFAYA YÖNLENDİR -->
-        <a href="/" class="logo" id="homeLink">
-            <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/145e8d/FFFFFF?text=Web4+Medya';">
+    <!-- HEADER - ANA SAYFA İLE %100 AYNI -->
+    <header class="header" id="mainHeader">
+        <a href="/" class="logo" id="homeLink" aria-label="Web4 Medya - Ana Sayfa">
+            <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo - Dijital Pazarlama Ajansı" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
         </a>
         
-        <!-- MODERN NAVIGATION - ANA SAYFA İLE TAMAMEN AYNI -->
-        <nav class="nav-desktop">
+        <!-- NAVIGATION - ANA SAYFA İLE %100 AYNI -->
+        <nav class="nav-desktop" aria-label="Ana navigasyon">
             <div class="nav-item">
                 <a href="/" class="nav-link">Ana Sayfa</a>
             </div>
             
-            <!-- HİZMETLER DROPDOWN - ANA SAYFA İLE TAMAMEN AYNI -->
+            <!-- HİZMETLER DROPDOWN - ANA SAYFA İLE %100 AYNI -->
             <div class="nav-item">
-                <a href="#" class="nav-link">Hizmetler <i class="fas fa-chevron-down arrow"></i></a>
-                <div class="dropdown" id="hizmetlerDropdown">
+                <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">Hizmetler <i class="fas fa-chevron-down arrow"></i></a>
+                <div class="dropdown" id="hizmetlerDropdown" role="menu" aria-label="Hizmetler alt menüsü">
                     <div class="dropdown-content">
                         <!-- Dijital Pazarlama -->
                         <div class="dropdown-section">
                             <h4>Dijital Pazarlama</h4>
-                            <a href="/google-ads-reklam-ver/" class="dropdown-link">Google Ads Reklam Ver</a>
-                            <a href="/instagram-reklam-ver/" class="dropdown-link">İnstagram Reklam Ver</a>
-                            <a href="/facebook-reklam-ver/" class="dropdown-link">Facebook Reklam Ver</a>
-                            <a href="/google-harita-maps-kaydi/" class="dropdown-link">Google Harita(Maps) Kaydı</a>
-                            <a href="/seo/" class="dropdown-link">SEO (Arama Motoru Optimizasyonu)</a>
-                            <a href="/sosyal-medya-yonetimi/" class="dropdown-link">Sosyal Medya Yönetimi</a>
+                            <a href="/google-ads-reklam-ver/" class="dropdown-link" role="menuitem">Google Ads Reklam Ver</a>
+                            <a href="/instagram-reklam-ver/" class="dropdown-link" role="menuitem">İnstagram Reklam Ver</a>
+                            <a href="/facebook-reklam-ver/" class="dropdown-link" role="menuitem">Facebook Reklam Ver</a>
+                            <a href="/google-harita-maps-kaydi/" class="dropdown-link" role="menuitem">Google Harita(Maps) Kaydı</a>
+                            <a href="/seo/" class="dropdown-link" role="menuitem">SEO (Arama Motoru Optimizasyonu)</a>
+                            <a href="/sosyal-medya-yonetimi/" class="dropdown-link" role="menuitem">Sosyal Medya Yönetimi</a>
                         </div>
                         
                         <!-- Web Tasarım -->
                         <div class="dropdown-section">
                             <h4>Web Tasarım</h4>
-                            <a href="/e-ticaret-sitesi/" class="dropdown-link">E-Ticaret Sitesi</a>
-                            <a href="/kurumsal-web-sitesi/" class="dropdown-link">Kurumsal Web Sitesi</a>
+                            <a href="/e-ticaret-sitesi/" class="dropdown-link" role="menuitem">E-Ticaret Sitesi</a>
+                            <a href="/kurumsal-web-sitesi/" class="dropdown-link" role="menuitem">Kurumsal Web Sitesi</a>
                         </div>
                         
                         <!-- Prodüksiyon -->
                         <div class="dropdown-section">
                             <h4>Prodüksiyon</h4>
-                            <a href="/sosyal-medya-videolari/" class="dropdown-link">Sosyal Medya Videoları</a>
-                            <a href="/tanitim-filmi/" class="dropdown-link">Tanıtım Filmi</a>
-                            <a href="/drone-cekimi/" class="dropdown-link">Drone Çekimi</a>
+                            <a href="/sosyal-medya-videolari/" class="dropdown-link" role="menuitem">Sosyal Medya Videoları</a>
+                            <a href="/tanitim-filmi/" class="dropdown-link" role="menuitem">Tanıtım Filmi</a>
+                            <a href="/drone-cekimi/" class="dropdown-link" role="menuitem">Drone Çekimi</a>
                         </div>
                     </div>
                 </div>
@@ -1570,85 +1543,83 @@
             
             <!-- İLETİŞİM (AKTİF) -->
             <div class="nav-item">
-                <a href="/iletisim/" class="nav-link active">İletişim</a>
+                <a href="/iletisim/" class="nav-link active" aria-current="page">İletişim</a>
             </div>
             
-            <!-- HEADER CTA BUTTON - ANA SAYFA İLE TAMAMEN AYNI -->
+            <!-- HEADER CTA BUTTON - ANA SAYFA İLE %100 AYNI -->
             <div class="header-cta">
-                <a href="tel:05422360983" class="btn">
+                <a href="tel:05422360983" class="btn btn-yellow light-effect" aria-label="Telefon ile arayın">
                     <i class="fas fa-phone-alt"></i> 0542 236 09 83
                 </a>
             </div>
         </nav>
         
-        <!-- MOBILE MENU TOGGLE - ANA SAYFA İLE TAMAMEN AYNI -->
-        <button class="menu-toggle" id="menuToggle">
+        <!-- Hamburger Menu - ANA SAYFA İLE %100 AYNI -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Menüyü aç/kapat" aria-expanded="false" aria-controls="mobileMenu">
             <span></span>
             <span></span>
             <span></span>
         </button>
     </header>
     
-    <!-- MOBILE MENU (ANA SAYFA İLE TAMAMEN AYNI) -->
-    <div class="mobile-menu" id="mobileMenu">
+    <!-- Mobile Menu - ANA SAYFA İLE %100 AYNI -->
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobil navigasyon">
         <nav class="mobile-nav">
-            <!-- Ana Sayfa -->
             <div class="mobile-nav-item">
                 <a href="/" class="mobile-nav-link" id="mobileHomeLink">Ana Sayfa</a>
             </div>
             
-            <!-- Hizmetler -->
             <div class="mobile-nav-item">
-                <button class="mobile-dropdown-btn" data-target="hizmetlerMobile">
+                <button class="mobile-dropdown-btn" data-target="hizmetlerMobile" aria-expanded="false" aria-controls="hizmetlerMobile">
                     Hizmetler <i class="fas fa-chevron-down mobile-arrow"></i>
                 </button>
-                <div class="mobile-dropdown-content" id="hizmetlerMobile">
-                    <!-- Dijital Pazarlama -->
+                <div class="mobile-dropdown-content" id="hizmetlerMobile" role="menu">
                     <div class="mobile-dropdown-section">
                         <h4>Dijital Pazarlama</h4>
-                        <a href="/google-ads-reklam-ver/" class="mobile-dropdown-link">Google Ads Reklam Ver</a>
-                        <a href="/instagram-reklam-ver/" class="mobile-dropdown-link">İnstagram Reklam Ver</a>
-                        <a href="/facebook-reklam-ver/" class="mobile-dropdown-link">Facebook Reklam Ver</a>
-                        <a href="/google-harita-maps-kaydi/" class="mobile-dropdown-link">Google Harita(Maps) Kaydı</a>
-                        <a href="/seo/" class="mobile-dropdown-link">SEO (Arama Motoru Optimizasyonu)</a>
-                        <a href="/sosyal-medya-yonetimi/" class="mobile-dropdown-link">Sosyal Medya Yönetimi</a>
+                        <a href="/google-ads-reklam-ver/" class="mobile-dropdown-link" role="menuitem">Google Ads Reklam Ver</a>
+                        <a href="/instagram-reklam-ver/" class="mobile-dropdown-link" role="menuitem">İnstagram Reklam Ver</a>
+                        <a href="/facebook-reklam-ver/" class="mobile-dropdown-link" role="menuitem">Facebook Reklam Ver</a>
+                        <a href="/google-harita-maps-kaydi/" class="mobile-dropdown-link" role="menuitem">Google Harita(Maps) Kaydı</a>
+                        <a href="/seo/" class="mobile-dropdown-link" role="menuitem">SEO (Arama Motoru Optimizasyonu)</a>
+                        <a href="/sosyal-medya-yonetimi/" class="mobile-dropdown-link" role="menuitem">Sosyal Medya Yönetimi</a>
                     </div>
                     
-                    <!-- Web Tasarım -->
                     <div class="mobile-dropdown-section">
                         <h4>Web Tasarım</h4>
-                        <a href="/e-ticaret-sitesi/" class="mobile-dropdown-link">E-Ticaret Sitesi</a>
-                        <a href="/kurumsal-web-sitesi/" class="mobile-dropdown-link">Kurumsal Web Sitesi</a>
+                        <a href="/e-ticaret-sitesi/" class="mobile-dropdown-link" role="menuitem">E-Ticaret Sitesi</a>
+                        <a href="/kurumsal-web-sitesi/" class="mobile-dropdown-link" role="menuitem">Kurumsal Web Sitesi</a>
                     </div>
                     
-                    <!-- Prodüksiyon -->
                     <div class="mobile-dropdown-section">
                         <h4>Prodüksiyon</h4>
-                        <a href="/sosyal-medya-videolari/" class="mobile-dropdown-link">Sosyal Medya Videoları</a>
-                        <a href="/tanitim-filmi/" class="mobile-dropdown-link">Tanıtım Filmi</a>
-                        <a href="/drone-cekimi/" class="mobile-dropdown-link">Drone Çekimi</a>
+                        <a href="/sosyal-medya-videolari/" class="mobile-dropdown-link" role="menuitem">Sosyal Medya Videoları</a>
+                        <a href="/tanitim-filmi/" class="mobile-dropdown-link" role="menuitem">Tanıtım Filmi</a>
+                        <a href="/drone-cekimi/" class="mobile-dropdown-link" role="menuitem">Drone Çekimi</a>
                     </div>
                 </div>
             </div>
             
-            <!-- Blog -->
             <div class="mobile-nav-item">
                 <a href="/blog/" class="mobile-nav-link">Blog</a>
             </div>
             
-            <!-- Hakkımızda -->
             <div class="mobile-nav-item">
                 <a href="/hakkimizda/" class="mobile-nav-link">Hakkımızda</a>
             </div>
             
-            <!-- İletişim (AKTİF) -->
             <div class="mobile-nav-item">
-                <a href="/iletisim/" class="mobile-nav-link active">İletişim</a>
+                <a href="/iletisim/" class="mobile-nav-link active" aria-current="page">İletişim</a>
+            </div>
+            
+            <div class="mobile-nav-item">
+                <a href="tel:05422360983" class="mobile-nav-link mobile-cta-btn light-effect" aria-label="Telefon ile arayın">
+                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
+                </a>
             </div>
         </nav>
     </div>
 
-    <!-- BREADCRUMB (İÇERİK NAVIGASYONU) - ÜSTE ALINDI -->
+    <!-- BREADCRUMB (İÇERİK NAVIGASYONU) -->
     <div class="breadcrumb">
         <nav class="breadcrumb-nav">
             <a href="/">Ana Sayfa</a>
@@ -1860,39 +1831,36 @@
         </div>
     </section>
 
-    <!-- FOOTER - DÜZELTİLMİŞ -->
+    <!-- FOOTER - ANA SAYFA İLE %100 AYNI -->
     <footer class="footer">
         <div class="footer-content">
-            <!-- Logo ve Açıklama -->
             <div class="footer-section">
                 <div class="footer-logo">
-                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" 
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/200x65/145e8d/FFFFFF?text=Web4+Medya';">
-                    <div class="footer-logo-text">Sizin için en iyisi!</div>
+                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo - Dijital Pazarlama Ajansı" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
+                    <div class="footer-logo-text">İşinizi şansa bırakmayın!</div>
                 </div>
                 <p class="footer-description">
                     Dijital pazarlama, web tasarım ve prodüksiyon alanında profesyonel çözümler sunan lider ajans. İşletmenizi dijital dünyada bir adım öne taşıyoruz.
                 </p>
                 <div class="social-links">
-                    <a href="https://instagram.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://instagram.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram hesabımız">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://facebook.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://facebook.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook sayfamız">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="https://twitter.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://twitter.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter hesabımız">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="https://linkedin.com/company/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://linkedin.com/company/web4medya" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn şirket sayfamız">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://wa.me/905422360983" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/905422360983" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp üzerinden iletişim">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
             </div>
             
-            <!-- Hızlı Bağlantılar -->
             <div class="footer-section">
                 <h3>Hızlı Bağlantılar</h3>
                 <ul class="footer-links">
@@ -1904,7 +1872,6 @@
                 </ul>
             </div>
             
-            <!-- Hizmetler -->
             <div class="footer-section">
                 <h3>Hizmetlerimiz</h3>
                 <ul class="footer-links">
@@ -1918,15 +1885,14 @@
                 </ul>
             </div>
             
-            <!-- İletişim Bilgileri -->
             <div class="footer-section">
                 <h3>İletişim Bilgileri</h3>
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-phone-alt"></i>
                         <div>
-                            <a href="tel:05422360983">Hemen Ara: 0542 236 09 83</a>
-                            <p style="margin-top: 5px; font-size: 0.95rem; color: var(--gray);">Ücretsiz danışmanlık için arayın</p>
+                            <a href="tel:05422360983">0542 236 09 83</a>
+                            <span>Ücretsiz danışmanlık için arayın</span>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -1938,7 +1904,7 @@
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
-                            <span>Web4 Medya Ajansı<br>Bartın, Türkiye</span>
+                            <span>Web4 Medya Ajansı<br>İstanbul, Türkiye</span>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -1952,188 +1918,162 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2024 Web4 Medya. Tüm hakları saklıdır. <a href="/gizlilik-politikasi/">Gizlilik Politikası</a> | <a href="/kullanim-kosullari/">Kullanım Koşulları</a></p>
-            <p style="margin-top: 10px; font-size: 0.9rem; color: var(--gray);">Profesyonel dijital pazarlama ve web tasarım çözümleri</p>
+            <p>&copy; 2026 Web4 Medya. Tüm hakları saklıdır. <a href="/gizlilik-politikasi/">Gizlilik Politikası</a> | <a href="/kullanim-kosullari/">Kullanım Koşulları</a></p>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">Profesyonel dijital pazarlama ve web tasarım çözümleri</p>
         </div>
     </footer>
-
-    <!-- FLOATING CTA BUTONLARI - ANA SAYFA İLE AYNI -->
+    
+    <!-- FLOATING CTA BUTTONLARI - ANA SAYFA İLE %100 AYNI -->
     <div class="floating-cta">
-        <a href="https://wa.me/905422360983" class="floating-btn floating-whatsapp" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/905422360983" class="floating-btn floating-whatsapp light-effect" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp üzerinden mesaj gönderin">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="tel:05422360983" class="floating-btn floating-phone">
+        <a href="tel:05422360983" class="floating-btn floating-phone light-effect" aria-label="Telefon ile arayın">
             <i class="fas fa-phone-alt"></i>
         </a>
     </div>
 
     <script>
-        // Mobile Menu Toggle - ANA SAYFA İLE AYNI
+        // OPTİMİZE HEADER SCROLL - ANA SAYFA İLE AYNI
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 20);
+        });
+
+        // OPTİMİZE MOBILE MENU - ANA SAYFA İLE AYNI
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
-        
-        if (menuToggle) {
-            menuToggle.addEventListener('click', function(e) {
-                e.stopPropagation();
-                this.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
-            });
-        }
 
-        // Desktop Dropdown Hover - ANA SAYFA İLE AYNI
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => {
+        menuToggle?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            
+            // iOS için: Menü açıkken body scroll'unu engelle
+            if (mobileMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // OPTİMİZE DESKTOP DROPDOWN - ANA SAYFA İLE AYNI
+        document.querySelectorAll('.nav-item').forEach(item => {
             const dropdown = item.querySelector('.dropdown');
-            if (dropdown) {
+            const link = item.querySelector('.nav-link');
+            if (dropdown && link) {
                 item.addEventListener('mouseenter', () => {
                     dropdown.classList.add('active');
+                    link.setAttribute('aria-expanded', 'true');
                 });
-                
                 item.addEventListener('mouseleave', () => {
                     dropdown.classList.remove('active');
+                    link.setAttribute('aria-expanded', 'false');
                 });
             }
         });
 
-        // Mobile Dropdown Toggle - ANA SAYFA İLE AYNI
-        const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
-        mobileDropdownBtns.forEach(btn => {
+        // OPTİMİZE MOBILE DROPDOWN - ANA SAYFA İLE AYNI
+        document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
             btn.addEventListener('click', function() {
-                const targetId = this.getAttribute('data-target');
-                const target = document.getElementById(targetId);
+                const target = document.getElementById(this.dataset.target);
+                const isActive = this.classList.toggle('active');
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
                 
-                // Close other dropdowns
-                document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
-                    if (dropdown.id !== targetId) {
-                        dropdown.classList.remove('active');
-                        const otherBtn = dropdown.parentElement.querySelector('.mobile-dropdown-btn');
-                        if (otherBtn) otherBtn.classList.remove('active');
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(d => {
+                    if (d !== target) d.classList.remove('active');
+                });
+                
+                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => {
+                    if (b !== this) {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-expanded', 'false');
                     }
                 });
                 
-                // Toggle current dropdown
-                this.classList.toggle('active');
-                target.classList.toggle('active');
+                if (target) target.classList.toggle('active', isActive);
             });
         });
 
-        // Close dropdowns when clicking outside - ANA SAYFA İLE AYNI
-        document.addEventListener('click', function(e) {
-            // Desktop dropdowns
+        // CLOSE DROPDOWNS ON CLICK OUTSIDE - ANA SAYFA İLE AYNI
+        document.addEventListener('click', (e) => {
             if (!e.target.closest('.nav-item')) {
-                document.querySelectorAll('.dropdown.active').forEach(dropdown => {
-                    dropdown.classList.remove('active');
+                document.querySelectorAll('.dropdown.active').forEach(d => {
+                    d.classList.remove('active');
+                    const link = d.previousElementSibling;
+                    if (link) link.setAttribute('aria-expanded', 'false');
                 });
             }
             
-            // Mobile menu
-            if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
-                menuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            }
-        });
-
-        // Close mobile dropdowns when clicking a link - ANA SAYFA İLE AYNI
-        document.querySelectorAll('.mobile-dropdown-link').forEach(link => {
-            link.addEventListener('click', function() {
-                menuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.querySelectorAll('.mobile-dropdown-content.active').forEach(dropdown => {
-                    dropdown.classList.remove('active');
-                });
-                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-            });
-        });
-
-        // Add active class to current page in navigation - ANA SAYFA İLE AYNI
-        const currentPage = window.location.pathname;
-        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
-        
-        navLinks.forEach(link => {
-            const linkPath = link.getAttribute('href');
-            if (linkPath === '/' && currentPage === '/') {
-                link.classList.add('active');
-            } else if (linkPath !== '/' && currentPage.includes(linkPath)) {
-                link.classList.add('active');
-            }
-        });
-
-        // Handle image fallback for logo - ANA SAYFA İLE AYNI
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add lazy loading to images
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                img.loading = 'lazy';
-            });
-            
-            // Handle desktop image fallback
-            const desktopImage = document.querySelector('.desktop-image');
-            if (desktopImage) {
-                desktopImage.onerror = function() {
-                    this.onerror = null;
-                    this.src = 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80';
-                    this.alt = 'Web4 Medya İletişim - Unsplash Placeholder';
-                };
-            }
-            
-            // Handle form image fallback
-            const formImage = document.querySelector('.form-image');
-            if (formImage) {
-                formImage.onerror = function() {
-                    this.onerror = null;
-                    this.src = 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
-                    this.alt = 'Web4 Medya İletişim - Unsplash Placeholder';
-                };
-            }
-            
-            // Handle logo fallback
-            const logo = document.querySelector('.logo img');
-            if (logo) {
-                logo.onerror = function() {
-                    this.onerror = null;
-                    this.src = 'https://via.placeholder.com/200x70/145e8d/FFFFFF?text=Web4+Medya';
-                    this.alt = 'Web4 Medya Logo - Placeholder';
-                };
-            }
-            
-            // Handle footer logo fallback
-            const footerLogo = document.querySelector('.footer-logo img');
-            if (footerLogo) {
-                footerLogo.onerror = function() {
-                    this.onerror = null;
-                    this.src = 'https://via.placeholder.com/200x65/145e8d/FFFFFF?text=Web4+Medya';
-                    this.alt = 'Web4 Medya Logo - Placeholder';
-                };
-            }
-        });
-
-        // Prevent dropdown from closing when clicking inside - ANA SAYFA İLE AYNI
-        document.querySelectorAll('.dropdown').forEach(dropdown => {
-            dropdown.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
-        });
-
-        // Smooth scroll for anchor links - ANA SAYFA İLE AYNI
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
+            if (!e.target.closest('.menu-toggle') && !e.target.closest('.mobile-menu')) {
+                menuToggle?.classList.remove('active');
+                mobileMenu?.classList.remove('active');
+                menuToggle?.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
                 
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+                // Mobile dropdown'ları kapat
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(d => d.classList.remove('active'));
+                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-expanded', 'false');
+                });
+            }
+        });
+
+        // OPTİMİZE SMOOTH SCROLL - ANA SAYFA İLE AYNI
+        const homeLink = document.getElementById('homeLink');
+        const mobileHomeLink = document.getElementById('mobileHomeLink');
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        homeLink?.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToTop();
+        });
+        
+        mobileHomeLink?.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToTop();
+            menuToggle?.classList.remove('active');
+            mobileMenu?.classList.remove('active');
+            menuToggle?.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        });
+
+        // CLOSE MOBILE MENU ON LINK CLICK - ANA SAYFA İLE AYNI
+        document.querySelectorAll('.mobile-dropdown-link, .mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle?.classList.remove('active');
+                mobileMenu?.classList.remove('active');
+                menuToggle?.setAttribute('aria-expanded', 'false');
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(d => d.classList.remove('active'));
+                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-expanded', 'false');
+                });
+                document.body.style.overflow = '';
             });
         });
 
-        // İletişim Formu Gönderimi
+        // IMAGE FALLBACK - ANA SAYFA İLE AYNI
+        document.querySelectorAll('.logo img, .footer-logo img').forEach(img => {
+            img.onerror = function() {
+                this.onerror = null;
+                this.src = 'https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';
+                this.alt = 'Web4 Medya Logo';
+            };
+        });
+
+        // iOS FIX: Touch events için optimizasyon - ANA SAYFA İLE AYNI
+        document.addEventListener('touchstart', function() {}, {passive: true});
+        document.addEventListener('touchmove', function() {}, {passive: true});
+        
+        // İletişim formu için ekstra JavaScript
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
@@ -2167,9 +2107,6 @@
                     return;
                 }
                 
-                // Burada form verilerini sunucuya gönderebilirsiniz
-                // Örnek: fetch('/api/contact', { method: 'POST', body: formData })
-                
                 // Başarılı mesajı göster
                 alert('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.');
                 
@@ -2186,27 +2123,25 @@
                 }
             });
         }
-
-        // LOGOYA TIKLAYINCA ANA SAYFAYA GİTSİN
-        const homeLink = document.getElementById('homeLink');
-        const mobileHomeLink = document.getElementById('mobileHomeLink');
         
-        if (homeLink) {
-            homeLink.addEventListener('click', function() {
-                // Mobile menü açıksa kapat
-                if (menuToggle.classList.contains('active')) {
-                    menuToggle.classList.remove('active');
-                    mobileMenu.classList.remove('active');
-                }
-            });
+        // Desktop image için fallback
+        const desktopImage = document.querySelector('.desktop-image');
+        if (desktopImage) {
+            desktopImage.onerror = function() {
+                this.onerror = null;
+                this.src = 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80';
+                this.alt = 'Web4 Medya İletişim - Unsplash Placeholder';
+            };
         }
         
-        if (mobileHomeLink) {
-            mobileHomeLink.addEventListener('click', function() {
-                // Mobile menüyü kapat
-                menuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            });
+        // Form image için fallback
+        const formImage = document.querySelector('.form-image');
+        if (formImage) {
+            formImage.onerror = function() {
+                this.onerror = null;
+                this.src = 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
+                this.alt = 'Web4 Medya İletişim - Unsplash Placeholder';
+            };
         }
     </script>
 </body>
