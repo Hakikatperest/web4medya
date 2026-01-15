@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kullanım Koşulları | Web4 Medya - Dijital Pazarlama, SEO, Web Tasarım ve Prodüksiyon Ajansı</title>
+    <meta name="description" content="Web4 Medya kullanım koşulları ve hükümleri. Web sitemizi kullanmadan önce bu koşulları dikkatlice okuyun." />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Web4 Medya" />
+    <link rel="canonical" href="https://www.web4medya.com/kullanim-kosullari/" />
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/images/web4medya-logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/web4medya-logo.ico" type="image/x-icon">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Kullanım Koşulları | Web4 Medya" />
+    <meta property="og:description" content="Web4 Medya kullanım koşulları ve hükümleri. Web sitemizi kullanmadan önce bu koşulları dikkatlice okuyun." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.web4medya.com/kullanim-kosullari/" />
+    <meta property="og:image" content="https://www.web4medya.com/images/web4medya-hakkimizda.webp" />
+    <meta property="og:image:alt" content="Web4 Medya - Kullanım Koşulları" />
+    <meta property="og:locale" content="tr_TR" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Kullanım Koşulları",
+      "description": "Web4 Medya web sitesi kullanım koşulları ve hükümleri",
+      "url": "https://www.web4medya.com/kullanim-kosullari/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Web4 Medya",
+        "logo": "https://www.web4medya.com/images/web4medya-logo.png"
+      }
+    }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <style>
+        :root {
+            --primary: #0A2463;
+            --gradient-1: #0A2463;
+            --gradient-2: #3E92CC;
+            --gradient-3: #4ECDC4;
+            --accent: #FF6B6B;
+            --accent-light: #FFE66D;
+            --dark: #1F2937;
+            --gray-dark: #374151;
+            --gray: #6B7280;
+            --gray-light: #E5E7EB;
+            --light: #F7FFF7;
+            --white: #FFFFFF;
+            --shadow: 0 10px 40px rgba(10, 36, 99, 0.1);
+            --radius: 20px;
+            --radius-sm: 12px;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* TEMEL STİLLER */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(62, 146, 204, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 107, 107, 0.05) 0%, transparent 20%),
+                linear-gradient(180deg, #F7FFF7 0%, #FFFFFF 100%);
+        }
+
+        /* OPTİMİZE HEADER */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            height: 60px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* OPTİMİZE LOGO */
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 60px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            max-height: 60px;
+            object-fit: contain;
+        }
+
+        /* OPTİMİZE NAVIGATION */
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            padding: 8px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent);
+        }
+
+        /* OPTİMİZE DROPDOWN */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: linear-gradient(135deg, rgba(10, 36, 99, 0.95), rgba(62, 146, 204, 0.95));
+            min-width: 280px;
+            box-shadow: var(--shadow);
+            border-radius: var(--radius-sm);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            border: 1px solid rgba(62, 146, 204, 0.3);
+        }
+
+        .dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content {
+            padding: 10px 0;
+        }
+
+        .dropdown-section {
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-section:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-section h4 {
+            font-size: 0.85rem;
+            color: white;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 8px 0;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .dropdown-link:hover {
+            color: var(--accent-light);
+            padding-left: 5px;
+        }
+
+        .arrow {
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+            color: var(--gray-dark);
+        }
+
+        .nav-item:hover .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* OPTİMİZE HEADER CTA */
+        .header-cta .btn {
+            background: linear-gradient(135deg, var(--accent-light), #FFD93D);
+            color: var(--primary);
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: var(--transition);
+            white-space: nowrap;
+            border: none;
+            box-shadow: 0 4px 12px rgba(255, 230, 109, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-cta .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 230, 109, 0.3);
+        }
+
+        /* HAMBURGER MENU */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background-color: var(--dark);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* SAYFA İÇERİK ALANI */
+        .page-hero {
+            background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
+            padding: 140px 5% 80px;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: white; /* Sadece beyaz renk */
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .page-hero p {
+            font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        /* KULLANIM KOŞULLARI İÇERİĞİ */
+        .terms-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 5%;
+        }
+
+        .terms-container {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 60px;
+            margin-bottom: 60px;
+        }
+
+        .terms-section {
+            margin-bottom: 50px;
+        }
+
+        .terms-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .terms-section h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent-light);
+        }
+
+        .terms-section h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--gray-dark);
+            margin: 30px 0 15px;
+        }
+
+        .terms-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: var(--gray-dark);
+        }
+
+        .terms-section ul, .terms-section ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .terms-section li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: var(--gray-dark);
+        }
+
+        .last-updated {
+            text-align: center;
+            font-style: italic;
+            color: var(--gray);
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--gray-light);
+            font-size: 0.95rem;
+        }
+
+        /* OPTİMİZE BUTONLAR */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* ORTAK IŞIK EFEKTİ */
+        .light-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .light-effect::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                transparent 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                transparent 100%
+            );
+            transform: rotate(30deg);
+            animation: lightWave 3s infinite linear;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes lightWave {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(30deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(30deg);
+            }
+        }
+
+        .light-effect > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* BUTON TİPLERİ */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-yellow {
+            background: linear-gradient(135deg, var(--accent-light), #FFD93D);
+            color: var(--primary);
+        }
+
+        /* HOVER EFEKTLERİ */
+        .btn:hover:not(.floating-btn) {
+            transform: translateY(-3px);
+        }
+
+        /* OPTİMİZE MOBILE MENU */
+        .mobile-menu {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        .mobile-menu.active {
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .mobile-nav {
+            padding: 20px;
+        }
+
+        .mobile-nav-item {
+            margin-bottom: 5px;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            padding: 15px;
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid var(--gray-light);
+            transition: var(--transition);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--accent);
+        }
+
+        .mobile-cta-btn {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2)) !important;
+            color: white !important;
+            border: none !important;
+            margin-top: 10px;
+            border-radius: var(--radius-sm);
+        }
+
+        .mobile-dropdown-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 15px;
+            color: var(--gray-dark);
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--gray-light);
+            text-align: left;
+        }
+
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: linear-gradient(135deg, rgba(10, 36, 99, 0.05), rgba(62, 146, 204, 0.05));
+            margin-left: 10px;
+            border-radius: var(--radius-sm);
+        }
+
+        .mobile-dropdown-content.active {
+            max-height: 500px;
+        }
+
+        .mobile-dropdown-section {
+            padding: 10px 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .mobile-dropdown-section:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-dropdown-section h4 {
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .mobile-dropdown-link {
+            display: block;
+            padding: 8px 0;
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .mobile-dropdown-link:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .mobile-arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-dropdown-btn.active .mobile-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* OPTİMİZE CTA SECTION */
+        .cta-section {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, 
+                rgba(10, 36, 99, 0.95), 
+                rgba(62, 146, 204, 0.95));
+            text-align: center;
+            color: white;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(45deg, white, var(--accent-light), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientShift 8s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        .cta-section p {
+            font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-buttons .btn {
+            min-width: 240px;
+            padding: 18px 40px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* OPTİMİZE FLOATING BUTTONS */
+        .floating-cta {
+            position: fixed;
+            bottom: 120px;
+            right: 20px;
+            z-index: 998;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .floating-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 1.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .floating-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            animation: pulse 2s infinite;
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        .floating-phone {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            color: white;
+            box-shadow: 0 15px 40px rgba(20, 94, 141, 0.4);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* OPTİMİZE FOOTER */
+        .footer {
+            background: white;
+            color: var(--dark);
+            padding: 80px 5% 40px;
+            border-top: 4px solid var(--accent);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .footer-logo-text {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        .footer-description {
+            color: var(--gray-dark);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: var(--gray-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--gray-dark);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-links i {
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            color: var(--gray-dark);
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: var(--gray-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1rem;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover i {
+            background: var(--accent);
+            color: white;
+        }
+
+        .contact-item a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        .contact-item span {
+            color: var(--gray);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid var(--gray-light);
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .footer-bottom a:hover {
+            color: var(--accent);
+        }
+
+        /* Ekran okuyucular için gizli sınıf */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* OPTİMİZE RESPONSIVE */
+        @media (max-width: 1024px) {
+            .nav-desktop {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .header-cta {
+                display: none;
+            }
+            
+            .terms-container {
+                padding: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero {
+                padding: 120px 4% 60px;
+            }
+            
+            .terms-content {
+                padding: 60px 4%;
+            }
+            
+            .terms-container {
+                padding: 30px;
+                margin-bottom: 40px;
+            }
+            
+            .terms-section h2 {
+                font-size: 1.6rem;
+            }
+            
+            .terms-section h3 {
+                font-size: 1.3rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .cta-buttons .btn {
+                width: 100%;
+                max-width: 320px;
+                padding: 16px 32px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .floating-cta {
+                bottom: 100px;
+                right: 15px;
+            }
+            
+            .floating-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 0 20px;
+            }
+            
+            .logo img {
+                max-height: 50px;
+            }
+            
+            .page-hero {
+                padding: 110px 20px 50px;
+            }
+            
+            .page-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .page-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .terms-content {
+                padding: 40px 20px;
+            }
+            
+            .terms-container {
+                padding: 25px 20px;
+                margin-bottom: 30px;
+            }
+            
+            .terms-section h2 {
+                font-size: 1.4rem;
+            }
+            
+            .terms-section h3 {
+                font-size: 1.2rem;
+            }
+            
+            .footer {
+                padding: 60px 20px 30px;
+            }
+            
+            .footer-logo img {
+                height: 50px;
+            }
+            
+            .footer-logo-text {
+                font-size: 1.3rem;
+            }
+            
+            .floating-cta {
+                bottom: 80px;
+                right: 10px;
+                gap: 12px;
+            }
+            
+            .floating-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" id="mainHeader">
+        <a href="/" class="logo" id="homeLink" aria-label="Web4 Medya - Ana Sayfa">
+            <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo - Dijital Pazarlama Ajansı" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
+        </a>
+        
+        <!-- NAVIGATION -->
+        <nav class="nav-desktop" aria-label="Ana navigasyon">
+            <div class="nav-item">
+                <a href="/" class="nav-link">Ana Sayfa</a>
+            </div>
+            
+            <!-- HİZMETLER DROPDOWN -->
+            <div class="nav-item">
+                <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">Hizmetler <i class="fas fa-chevron-down arrow"></i></a>
+                <div class="dropdown" id="hizmetlerDropdown" role="menu" aria-label="Hizmetler alt menüsü">
+                    <div class="dropdown-content">
+                        <!-- Dijital Pazarlama -->
+                        <div class="dropdown-section">
+                            <h4>Dijital Pazarlama</h4>
+                            <a href="/google-ads-reklam-ver/" class="dropdown-link" role="menuitem">Google Ads Reklam Ver</a>
+                            <a href="/instagram-reklam-ver/" class="dropdown-link" role="menuitem">İnstagram Reklam Ver</a>
+                            <a href="/facebook-reklam-ver/" class="dropdown-link" role="menuitem">Facebook Reklam Ver</a>
+                            <a href="/google-harita-maps-kaydi/" class="dropdown-link" role="menuitem">Google Harita(Maps) Kaydı</a>
+                            <a href="/seo/" class="dropdown-link" role="menuitem">SEO (Arama Motoru Optimizasyonu)</a>
+                            <a href="/sosyal-medya-yonetimi/" class="dropdown-link" role="menuitem">Sosyal Medya Yönetimi</a>
+                        </div>
+                        
+                        <!-- Web Tasarım -->
+                        <div class="dropdown-section">
+                            <h4>Web Tasarım</h4>
+                            <a href="/e-ticaret-sitesi/" class="dropdown-link" role="menuitem">E-Ticaret Sitesi</a>
+                            <a href="/kurumsal-web-sitesi/" class="dropdown-link" role="menuitem">Kurumsal Web Sitesi</a>
+                        </div>
+                        
+                        <!-- Prodüksiyon -->
+                        <div class="dropdown-section">
+                            <h4>Prodüksiyon</h4>
+                            <a href="/sosyal-medya-videolari/" class="dropdown-link" role="menuitem">Sosyal Medya Videoları</a>
+                            <a href="/tanitim-filmi/" class="dropdown-link" role="menuitem">Tanıtım Filmi</a>
+                            <a href="/drone-cekimi/" class="dropdown-link" role="menuitem">Drone Çekimi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BLOG -->
+            <div class="nav-item">
+                <a href="/blog/" class="nav-link">Blog</a>
+            </div>
+            
+            <!-- HAKKIMIZDA -->
+            <div class="nav-item">
+                <a href="/hakkimizda/" class="nav-link">Hakkımızda</a>
+            </div>
+            
+            <!-- İLETİŞİM -->
+            <div class="nav-item">
+                <a href="/iletisim/" class="nav-link">İletişim</a>
+            </div>
+            
+            <!-- HEADER CTA BUTTON -->
+            <div class="header-cta">
+                <a href="tel:05422360983" class="btn btn-yellow light-effect" aria-label="Telefon ile arayın">
+                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
+                </a>
+            </div>
+        </nav>
+        
+        <!-- Hamburger Menu -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Menüyü aç/kapat" aria-expanded="false" aria-controls="mobileMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobil navigasyon">
+        <nav class="mobile-nav">
+            <div class="mobile-nav-item">
+                <a href="/" class="mobile-nav-link" id="mobileHomeLink">Ana Sayfa</a>
+            </div>
+            
+            <div class="mobile-nav-item">
+                <button class="mobile-dropdown-btn" data-target="hizmetlerMobile" aria-expanded="false" aria-controls="hizmetlerMobile">
+                    Hizmetler <i class="fas fa-chevron-down mobile-arrow"></i>
+                </button>
+                <div class="mobile-dropdown-content" id="hizmetlerMobile" role="menu">
+                    <div class="mobile-dropdown-section">
+                        <h4>Dijital Pazarlama</h4>
+                        <a href="/google-ads-reklam-ver/" class="mobile-dropdown-link" role="menuitem">Google Ads Reklam Ver</a>
+                        <a href="/instagram-reklam-ver/" class="mobile-dropdown-link" role="menuitem">İnstagram Reklam Ver</a>
+                        <a href="/facebook-reklam-ver/" class="mobile-dropdown-link" role="menuitem">Facebook Reklam Ver</a>
+                        <a href="/google-harita-maps-kaydi/" class="mobile-dropdown-link" role="menuitem">Google Harita(Maps) Kaydı</a>
+                        <a href="/seo/" class="mobile-dropdown-link" role="menuitem">SEO (Arama Motoru Optimizasyonu)</a>
+                        <a href="/sosyal-medya-yonetimi/" class="mobile-dropdown-link" role="menuitem">Sosyal Medya Yönetimi</a>
+                    </div>
+                    
+                    <div class="mobile-dropdown-section">
+                        <h4>Web Tasarım</h4>
+                        <a href="/e-ticaret-sitesi/" class="mobile-dropdown-link" role="menuitem">E-Ticaret Sitesi</a>
+                        <a href="/kurumsal-web-sitesi/" class="mobile-dropdown-link" role="menuitem">Kurumsal Web Sitesi</a>
+                    </div>
+                    
+                    <div class="mobile-dropdown-section">
+                        <h4>Prodüksiyon</h4>
+                        <a href="/sosyal-medya-videolari/" class="mobile-dropdown-link" role="menuitem">Sosyal Medya Videoları</a>
+                        <a href="/tanitim-filmi/" class="mobile-dropdown-link" role="menuitem">Tanıtım Filmi</a>
+                        <a href="/drone-cekimi/" class="mobile-dropdown-link" role="menuitem">Drone Çekimi</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mobile-nav-item">
+                <a href="/blog/" class="mobile-nav-link">Blog</a>
+            </div>
+            
+            <div class="mobile-nav-item">
+                <a href="/hakkimizda/" class="mobile-nav-link">Hakkımızda</a>
+            </div>
+            
+            <div class="mobile-nav-item">
+                <a href="/iletisim/" class="mobile-nav-link">İletişim</a>
+            </div>
+            
+            <div class="mobile-nav-item">
+                <a href="tel:05422360983" class="mobile-nav-link mobile-cta-btn light-effect" aria-label="Telefon ile arayın">
+                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- SAYFA BAŞLIĞI -->
+    <section class="page-hero">
+        <h1>Kullanım Koşulları</h1>
+        <p>Web4 Medya web sitesini kullanmadan önce bu kullanım koşullarını dikkatlice okuyunuz.</p>
+    </section>
+
+    <!-- KULLANIM KOŞULLARI İÇERİĞİ -->
+    <section class="terms-content" aria-labelledby="terms-title">
+        <div class="terms-container">
+            <div class="terms-section">
+                <h2 id="terms-title">Genel Hükümler</h2>
+                <p>Bu web sitesi ("Site"), Web4 Medya ("Şirket", "biz", "bizim") tarafından işletilmektedir. Siteyi ziyaret ederek ve kullanarak, aşağıda belirtilen kullanım koşullarını ("Koşullar") kabul etmiş sayılırsınız. Koşulları kabul etmiyorsanız, lütfen bu Siteyi kullanmayın.</p>
+                
+                <p>Şirket, herhangi bir zamanda önceden bildirimde bulunmaksızın bu Koşulları değiştirme hakkını saklı tutar. Değişiklikler Site'de yayınlandıktan hemen sonra yürürlüğe girer. Siteyi kullanmaya devam etmeniz, değiştirilmiş Koşulları kabul ettiğiniz anlamına gelir.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>Hizmetler ve Kullanım</h2>
+                <p>Web4 Medya, dijital pazarlama, web tasarım, SEO, sosyal medya yönetimi, video prodüksiyon ve ilgili dijital hizmetleri sunmaktadır. Site üzerinden sağlanan tüm bilgiler genel bilgilendirme amaçlıdır ve profesyonel tavsiye niteliği taşımaz.</p>
+                
+                <h3>Kullanıcı Yükümlülükleri</h3>
+                <p>Siteyi kullanırken aşağıdakileri yapmayı taahhüt edersiniz:</p>
+                <ul>
+                    <li>Yasalara, düzenlemelere ve bu Koşullara uymak</li>
+                    <li>Başkalarının haklarına saygı göstermek</li>
+                    <li>Siteyi herhangi bir yasa dışı veya yasaklanmış amaç için kullanmamak</li>
+                    <li>Siteyi veya ilgili sistem ve ağlara zarar vermeyecek şekilde kullanmak</li>
+                    <li>Diğer kullanıcıların Site deneyimini engellememek veya bozmamak</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2>Fikri Mülkiyet Hakları</h2>
+                <p>Site üzerindeki tüm içerikler (metinler, grafikler, logolar, ikonlar, görseller, videolar, yazılım kodları ve diğer materyaller) Web4 Medya'nın veya lisans verdiği tarafların mülkiyetindedir ve telif hakkı, ticari marka ve diğer fikri mülkiyet yasalarıyla korunmaktadır.</p>
+                
+                <p>Web4 Medya'nın açık yazılı izni olmadan, Site içeriğini kopyalamak, çoğaltmak, dağıtmak, yayınlamak, sergilemek, değiştirmek veya türetmek yasaktır. Ticari markalarımızı izinsiz kullanmak yasal işlemlere neden olabilir.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>İletişim ve Kişisel Veriler</h2>
+                <p>Site üzerinden bizimle iletişime geçtiğinizde veya hizmetlerimiz hakkında bilgi talep ettiğinizde, iletişim bilgilerinizi (ad, soyad, e-posta, telefon numarası vb.) sağlamayı kabul edersiniz. Bu bilgiler, talebinize yanıt vermek ve hizmetlerimiz hakkında sizi bilgilendirmek amacıyla kullanılacaktır.</p>
+                
+                <p>Kişisel verilerinizin işlenmesi hakkında daha fazla bilgi için <a href="/gizlilik-politikasi/">Gizlilik Politikamızı</a> inceleyebilirsiniz.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>Üçüncü Taraf Bağlantıları</h2>
+                <p>Site, üçüncü taraf web sitelerine bağlantılar içerebilir. Bu bağlantılar yalnızca kolaylık sağlamak amacıyla sunulmaktadır. Web4 Medya, bu bağlantılar aracılığıyla erişilen sitelerin içeriği, doğruluğu veya uygulamaları üzerinde hiçbir kontrolü yoktur ve bu siteler için sorumluluk kabul etmez.</p>
+                
+                <p>Üçüncü taraf sitelerini ziyaret etmeden önce ilgili siteye ait kullanım koşullarını ve gizlilik politikalarını incelemenizi öneririz.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>Sorumluluk Reddi</h2>
+                <p>Site ve içeriği "olduğu gibi" sunulmaktadır. Web4 Medya, Site'nin kesintisiz, hatasız veya güvenli olacağını, hataların düzeltileceğini veya Site'nin belirli bir sunucuda bulunacağını garanti etmez.</p>
+                
+                <p>Web4 Medya, Site kullanımınızdan veya kullanamamanızdan kaynaklanan doğrudan, dolaylı, tesadüfi, özel veya bunlarla sınırlı olmamak üzere herhangi bir zarardan sorumlu değildir.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>İptal ve İade Politikası</h2>
+                <p>Web4 Medya tarafından sunulan hizmetler için iptal ve iade politikaları, her hizmet türü için ayrı ayrı belirlenmiştir. Hizmet sözleşmelerinde belirtilen koşullar geçerlidir.</p>
+                
+                <p>Dijital pazarlama ve web tasarım hizmetlerinde, proje başladıktan sonra iptal durumunda, tamamlanan işler için ödeme talep edilir. SEO hizmetlerinde aylık iptal hakkı bulunmaktadır.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>Uygulanacak Hukuk ve Yetki</h2>
+                <p>Bu Koşullar ve Site kullanımınız, Türkiye Cumhuriyeti yasalarına tabidir ve bu yasalara göre yorumlanır. Bu Koşullardan kaynaklanan herhangi bir uyuşmazlık, İstanbul mahkemelerinin ve icra dairelerinin münhasır yetkisine tabidir.</p>
+            </div>
+
+            <div class="last-updated">
+                <p><strong>Son Güncelleme Tarihi:</strong> 15 Ocak 2026</p>
+                <p>Bu kullanım koşulları en son 15 Ocak 2026 tarihinde güncellenmiştir.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section" aria-labelledby="cta-baslik">
+        <div class="cta-content">
+            <h2 id="cta-baslik">Sorularınız mı var?</h2>
+            <p>Kullanım koşulları hakkında daha fazla bilgi almak veya diğer sorularınız için bizimle iletişime geçin.</p>
+            <div class="cta-buttons">
+                <a href="tel:05422360983" class="btn btn-primary light-effect" aria-label="Telefon ile arayın: 0542 236 09 83">
+                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
+                </a>
+                <a href="https://wa.me/905422360983" class="btn btn-whatsapp light-effect" aria-label="WhatsApp üzerinden mesaj gönderin">
+                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo - Dijital Pazarlama Ajansı" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
+                    <div class="footer-logo-text">İşinizi şansa bırakmayın!</div>
+                </div>
+                <p class="footer-description">
+                    Dijital pazarlama, web tasarım ve prodüksiyon alanında profesyonel çözümler sunan lider ajans. İşletmenizi dijital dünyada bir adım öne taşıyoruz.
+                </p>
+                <div class="social-links">
+                    <a href="https://instagram.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram hesabımız">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://facebook.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook sayfamız">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter hesabımız">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/web4medya" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn şirket sayfamız">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://wa.me/905422360983" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp üzerinden iletişim">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Hızlı Bağlantılar</h3>
+                <ul class="footer-links">
+                    <li><a href="/"><i class="fas fa-chevron-right"></i> Ana Sayfa</a></li>
+                    <li><a href="/hakkimizda/"><i class="fas fa-chevron-right"></i> Hakkımızda</a></li>
+                    <li><a href="/blog/"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                    <li><a href="/referanslar/"><i class="fas fa-chevron-right"></i> Referanslar</a></li>
+                    <li><a href="/iletisim/"><i class="fas fa-chevron-right"></i> İletişim</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Hizmetlerimiz</h3>
+                <ul class="footer-links">
+                    <li><a href="/google-ads-reklam-ver/"><i class="fas fa-chevron-right"></i> Google Ads Reklam</a></li>
+                    <li><a href="/instagram-reklam-ver/"><i class="fas fa-chevron-right"></i> Instagram Reklam</a></li>
+                    <li><a href="/facebook-reklam-ver/"><i class="fas fa-chevron-right"></i> Facebook Reklam</a></li>
+                    <li><a href="/seo/"><i class="fas fa-chevron-right"></i> SEO Hizmeti</a></li>
+                    <li><a href="/web-tasarim/"><i class="fas fa-chevron-right"></i> Web Tasarım</a></li>
+                    <li><a href="/sosyal-medya-videolari/"><i class="fas fa-chevron-right"></i> Sosyal Medya Videoları</a></li>
+                    <li><a href="/drone-cekimi/"><i class="fas fa-chevron-right"></i> Drone Çekimi</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>İletişim Bilgileri</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <a href="tel:05422360983">0542 236 09 83</a>
+                            <span>Ücretsiz danışmanlık için arayın</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <a href="mailto:info@web4medya.com">info@web4medya.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <span>Web4 Medya Ajansı<br>İstanbul, Türkiye</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <span>Pzt-Cum: 09:00 - 20:00<br>Cmt & Pzr: 10:00 - 20:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Web4 Medya. Tüm hakları saklıdır. <a href="/gizlilik-politikasi/">Gizlilik Politikası</a> | <a href="/kullanim-kosullari/">Kullanım Koşulları</a></p>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">Profesyonel dijital pazarlama ve web tasarım çözümleri</p>
+        </div>
+    </footer>
+    
+    <!-- FLOATING CTA BUTTONLARI -->
+    <div class="floating-cta">
+        <a href="https://wa.me/905422360983" class="floating-btn floating-whatsapp light-effect" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp üzerinden mesaj gönderin">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:05422360983" class="floating-btn floating-phone light-effect" aria-label="Telefon ile arayın">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+    </div>
+
+    <script>
+        // OPTİMİZE HEADER SCROLL
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 20);
+        });
+
+        // OPTİMİZE MOBILE MENU
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuToggle?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            
+            // iOS için: Menü açıkken body scroll'unu engelle
+            if (mobileMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // OPTİMİZE DESKTOP DROPDOWN
+        document.querySelectorAll('.nav-item').forEach(item => {
+            const dropdown = item.querySelector('.dropdown');
+            const link = item.querySelector('.nav-link');
+            if (dropdown && link) {
+                item.addEventListener('mouseenter', () => {
+                    dropdown.classList.add('active');
+                    link.setAttribute('aria-expanded', 'true');
+                });
+                item.addEventListener('mouseleave', () => {
+                    dropdown.classList.remove('active');
+                    link.setAttribute('aria-expanded', 'false');
+                });
+            }
+        });
+
+        // OPTİMİZE MOBILE DROPDOWN
+        document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const target = document.getElementById(this.dataset.target);
+                const isActive = this.classList.toggle('active');
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+                
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(d => {
+                    if (d !== target) d.classList.remove('active');
+                });
+                
+                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => {
+                    if (b !== this) {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-expanded', 'false');
+                    }
+                });
+                
+                if (target) target.classList.toggle('active', isActive);
+            });
+        });
+
+        // CLOSE DROPDOWNS ON CLICK OUTSIDE
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-item')) {
+                document.querySelectorAll('.dropdown.active').forEach(d => {
+                    d.classList.remove('active');
+                    const link = d.previousElementSibling;
+                    if (link) link.setAttribute('aria-expanded', 'false');
+                });
+            }
+            
+            if (!e.target.closest('.menu-toggle') && !e.target.closest('.mobile-menu')) {
+                menuToggle?.classList.remove('active');
+                mobileMenu?.classList.remove('active');
+                menuToggle?.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                
+                // Mobile dropdown'ları kapat
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(d => d.classList.remove('active'));
+                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-expanded', 'false');
+                });
+            }
+        });
+
+        // OPTİMİZE SMOOTH SCROLL
+        const homeLink = document.getElementById('homeLink');
+        const mobileHomeLink = document.getElementById('mobileHomeLink');
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        homeLink?.addEventListener('click', (e) => {
+            // Logo ana sayfaya yönlendiriyor - href="/" mevcut
+        });
+        
+        mobileHomeLink?.addEventListener('click', () => {
+            menuToggle?.classList.remove('active');
+            mobileMenu?.classList.remove('active');
+            menuToggle?.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        });
+
+        // CLOSE MOBILE MENU ON LINK CLICK
+        document.querySelectorAll('.mobile-dropdown-link, .mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle?.classList.remove('active');
+                mobileMenu?.classList.remove('active');
+                menuToggle?.setAttribute('aria-expanded', 'false');
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(d => d.classList.remove('active'));
+                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-expanded', 'false');
+                });
+                document.body.style.overflow = '';
+            });
+        });
+
+        // IMAGE FALLBACK
+        document.querySelectorAll('.logo img, .footer-logo img').forEach(img => {
+            img.onerror = function() {
+                this.onerror = null;
+                this.src = 'https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';
+                this.alt = 'Web4 Medya Logo';
+            };
+        });
+
+        // iOS FIX: Touch events için optimizasyon
+        document.addEventListener('touchstart', function() {}, {passive: true});
+        document.addEventListener('touchmove', function() {}, {passive: true});
+        
+        // ARIA Live regions for screen readers
+        const announceSection = (sectionName) => {
+            const announcement = document.createElement('div');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.setAttribute('aria-atomic', 'true');
+            announcement.className = 'sr-only';
+            announcement.textContent = `${sectionName} bölümüne ulaşıldı`;
+            document.body.appendChild(announcement);
+            setTimeout(() => announcement.remove(), 1000);
+        };
+        
+        // Section görünürlüğü için ekran okuyucu duyuruları
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.3
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const sectionName = entry.target.querySelector('h2')?.textContent || 'Bölüm';
+                    announceSection(sectionName);
+                }
+            });
+        }, observerOptions);
+        
+        // Tüm bölümleri gözlemle
+        document.querySelectorAll('.terms-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
