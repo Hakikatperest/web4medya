@@ -179,6 +179,14 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,rgba(255,255,255,0.4),transparent);animation:scrollLine 2s infinite;}
 @keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
 
+body {
+  padding-top: 0;
+}
+
+.hero {
+  margin-top: 68px;
+  min-height: calc(100vh - 68px);
+}
   body {
   padding-top: 68px;
 }
@@ -196,10 +204,18 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   .video-bg {
     display: none;
   }
+  * {
+  max-width: 100%;
+}
+  html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
 
-  .dropdown {
-    min-width: 100%;
-  }
+.dropdown {
+  left: 0;
+  transform: none;
+}
 }
   .dropdown {
   min-width: auto;
