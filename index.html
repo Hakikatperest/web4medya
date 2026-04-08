@@ -970,19 +970,6 @@ body {
   opacity: 1;
   transform: none;
 }
-  <script>
-const reveals = document.querySelectorAll('.reveal');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
-
-reveals.forEach(el => observer.observe(el));
-</script>
 /* ─── FOOTER ─── */
 .footer {
   background: #080B16;
@@ -1171,7 +1158,19 @@ reveals.forEach(el => observer.observe(el));
 </style>
 </head>
 <body>
+  <script>
+const reveals = document.querySelectorAll('.reveal');
 
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+reveals.forEach(el => observer.observe(el));
+</script>
 <!-- SEARCH OVERLAY -->
 <div class="search-overlay" id="searchOverlay">
   <button class="search-close" id="searchClose"><i class="fas fa-times"></i></button>
