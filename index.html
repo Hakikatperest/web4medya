@@ -649,47 +649,57 @@ body::before{
 .test-name{font-size:0.85rem;font-weight:700;color:var(--white)}
 .test-role{font-size:0.75rem;color:var(--text3)}
 @keyframes testScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-   /* Gradient Header Animation */
-.header {
-  position: fixed;
+  /* Hero arka planına Google renkli gradient animasyonu */
+.hero {
+  position: relative;
   /* ... mevcut stilleriniz ... */
-  background: rgba(10, 10, 10, 0.85); /* Yarı saydam siyah zemin */
-  backdrop-filter: blur(12px); /* Biraz daha belirgin bulanıklık */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
 }
 
-/* Animasyonlu gradient overlay */
-.header::before {
+/* Google renkli ışık dalgaları */
+.hero-google-wave {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+}
+
+.hero-google-wave::before,
+.hero-google-wave::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(66, 133, 244, 0.15),  /* Google Mavi */
-    rgba(219, 68, 55, 0.15),   /* Google Kırmızı */
-    rgba(244, 180, 0, 0.15),   /* Google Sarı */
-    rgba(15, 157, 88, 0.15),    /* Google Yeşil */
-    rgba(66, 133, 244, 0.15)
+  width: 150%;
+  height: 150%;
+  top: -25%;
+  left: -25%;
+  background: conic-gradient(
+    from 0deg,
+    #4285f4,  /* Google Mavi */
+    #ea4335,  /* Google Kırmızı */
+    #fbbc04,  /* Google Sarı */
+    #34a853,  /* Google Yeşil */
+    #4285f4
   );
-  background-size: 300% 100%;
-  pointer-events: none; /* Tıklamaların geçmesi için */
-  z-index: -1;
-  animation: gradientFlow 8s ease infinite;
-  border-radius: inherit;
+  animation: googleSpin 12s linear infinite;
+  border-radius: 30%;
+  filter: blur(80px);
 }
 
-@keyframes gradientFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.hero-google-wave::after {
+  animation: googleSpinReverse 15s linear infinite;
+  opacity: 0.6;
+  filter: blur(100px);
 }
 
-/* Scroll durumunda gradient efektini koru */
-.header.scrolled::before {
-  opacity: 0.8;
+@keyframes googleSpin {
+  0% { transform: rotate(0deg) scale(1); }
+  100% { transform: rotate(360deg) scale(1.2); }
+}
+
+@keyframes googleSpinReverse {
+  0% { transform: rotate(360deg) scale(1.2); }
+  100% { transform: rotate(0deg) scale(1); }
 }
 
 /* ============================================================
