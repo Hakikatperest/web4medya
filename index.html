@@ -102,17 +102,38 @@ body::before{
    HEADER
 ============================================================ */
 .header{
-  position:fixed;top:0;left:0;right:0;z-index:500;height:var(--header-h);
-  display:flex;align-items:center;justify-content:space-between;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:500;
+  height:var(--header-h);
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
   padding:0 5%;
-  transition:background 0.4s var(--ease),border-color 0.4s,backdrop-filter 0.4s;
-  border-bottom:1px solid transparent;
+
+  /* SABİT BEYAZ */
+  background:#ffffff;
+
+  /* Hafif blur premium görünüm */
+  backdrop-filter:blur(10px);
+
+  /* Alt çizgi */
+  border-bottom:1px solid var(--border);
+
+  transition:all 0.3s ease;
 }
+
+/* Artık buna gerek yok */
 .header.scrolled{
-  background:rgba(248,250,254,0.95);
-  backdrop-filter:blur(24px);
+  background:#ffffff;
   border-color:var(--border);
 }
+   background:rgba(255,255,255,0.85);
+backdrop-filter:blur(14px);
+   
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
 .logo-mark{
   width:36px;height:36px;
