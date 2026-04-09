@@ -101,42 +101,18 @@ body::before{
 /* ============================================================
    HEADER
 ============================================================ */
-
 .header{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  z-index:1000;
-
-  height:72px;
+  position:fixed;top:0;left:0;right:0;z-index:500;height:var(--header-h);
+  display:flex;align-items:center;justify-content:space-between;
   padding:0 5%;
-
-  display:grid;
-  grid-template-columns:auto 1fr auto;
-  align-items:center;
-
-  /* 🔥 CAM EFEKTİ */
-  background:rgba(255,255,255,0.65);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-
-  /* 🔥 PREMIUM BORDER */
-  border-bottom:1px solid rgba(255,255,255,0.4);
-
-  /* 🔥 DERİNLİK */
-  box-shadow:0 8px 30px rgba(0,0,0,0.05);
-
-  transition:all 0.3s ease;
+  transition:background 0.4s var(--ease),border-color 0.4s,backdrop-filter 0.4s;
+  border-bottom:1px solid transparent;
 }
-/* Artık buna gerek yok */
 .header.scrolled{
-  background:#ffffff;
+  background:rgba(248,250,254,0.95);
+  backdrop-filter:blur(24px);
   border-color:var(--border);
 }
-   background:rgba(255,255,255,0.85);
-backdrop-filter:blur(14px);
-   
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
 .logo-mark{
   width:36px;height:36px;
@@ -211,19 +187,7 @@ backdrop-filter:blur(14px);
   overflow:hidden;
   color:#fff;
 }
-.header::before{
-  content:'';
-  position:absolute;
-  inset:0;
 
-  background:linear-gradient(
-    to bottom,
-    rgba(255,255,255,0.6),
-    rgba(255,255,255,0.1)
-  );
-
-  pointer-events:none;
-}
 /* Arka plan container */
 .ads-bg{
   position:absolute;
@@ -332,11 +296,7 @@ backdrop-filter:blur(14px);
   background-size:80px 80px;
   mask:radial-gradient(circle at 50% 50%,black 20%,transparent 75%);
 }
-.header.scrolled{
-  background:rgba(255,255,255,0.85);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(0,0,0,0.06);
-}
+
 /* Top badge */
 .hero-badge{
   display:inline-flex;align-items:center;gap:8px;
@@ -992,7 +952,7 @@ backdrop-filter:blur(14px);
   <div class="hero-google-wave"></div>
   <div class="hero-glow"></div>
   <div class="hero-grid"></div>
-  <div class="hero-badge"><span class="hero-badge-dot"></span> Google Reklam Ajansı &nbsp;·&nbsp; 2026</div>
+  <div class="hero-badge"><span class="hero-badge-dot"></span> Google Reklam Ajansı &nbsp;·&nbsp; İstanbul</div>
   <h1>
     <span class="line-outline">Dijitalde</span>
     <span class="line-white">Güçlü</span>
