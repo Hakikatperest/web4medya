@@ -156,6 +156,60 @@ body::before{
 /* ============================================================
    HERO
 ============================================================ */
+  .hero{
+  background:#000;
+  color:#fff;
+}
+
+/* Arka plan container */
+.ads-bg{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  z-index:0;
+}
+
+/* Akan çizgiler */
+.lines::before{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
+  background:linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(58,141,255,0.15) 20%,
+    transparent 40%
+  );
+  animation:flow 6s linear infinite;
+}
+
+@keyframes flow{
+  0%{ transform:translate(-50%, -50%) rotate(0deg);}
+  100%{ transform:translate(-50%, -50%) rotate(360deg);}
+}
+
+/* Veri noktaları */
+.dots{
+  position:absolute;
+  inset:0;
+}
+
+.dots::before{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-image:radial-gradient(#3A8DFF 1px, transparent 1px);
+  background-size:40px 40px;
+  animation:moveDots 20s linear infinite;
+  opacity:0.4;
+}
+
+@keyframes moveDots{
+  from{ transform:translateY(0);}
+  to{ transform:translateY(100px);}
+}
 .hero{
 background:#000;
   position:relative;
@@ -693,7 +747,10 @@ background:#000;
   <a href="#hero">Ana Sayfa</a><a href="#hizmetler">Hizmetler</a><a href="#referanslar">Referanslar</a><a href="#iletisim">İletişim</a>
   <div class="mob-menu-footer"><a href="#" class="mob-soc"><i class="fab fa-instagram"></i></a><a href="#" class="mob-soc"><i class="fab fa-linkedin-in"></i></a><a href="#" class="mob-soc"><i class="fab fa-twitter"></i></a></div>
 </div>
-
+<div class="ads-bg">
+  <div class="lines"></div>
+  <div class="dots"></div>
+</div>
 <section class="hero" id="hero">
   <div class="hero-google-wave"></div><div class="hero-glow"></div><div class="hero-grid"></div>
   <div class="hero-badge"><span class="hero-badge-dot"></span> Google Reklam Ajansı &nbsp;·&nbsp; İstanbul</div>
