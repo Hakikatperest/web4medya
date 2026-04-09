@@ -612,16 +612,43 @@ body::before{
   .hamburger{display:flex}
 }
 @media(max-width:640px){
+
   .refs-grid{grid-template-columns:1fr}
   .ref-card.featured{grid-column:span 1}
   .svc-grid{grid-template-columns:1fr}
   .process-row{grid-template-columns:1fr}
-  .hero-stats{flex-direction:column;gap:0}
-  .hero-stat{border-right:none;border-bottom:1px solid var(--border)}
-  .hero-stat:last-child{border-bottom:none}
+
+  /* ✅ HERO STATS MOBİL YAN YANA */
+  .hero-stats{
+    flex-direction:row;
+    gap:0;
+  }
+
+  .hero-stat{
+    flex:1;
+    min-width:0;
+    padding:16px 8px;
+    border-right:1px solid var(--border);
+    border-bottom:none;
+  }
+
+  .hero-stat:last-child{
+    border-right:none;
+  }
+
+  /* 🔥 mobil font optimize */
+  .stat-number{
+    font-size:1.3rem;
+  }
+
+  .stat-label{
+    font-size:0.6rem;
+  }
+
   .footer-top{grid-template-columns:1fr;gap:32px}
   .footer-bottom{flex-direction:column;text-align:center}
   .test-card{width:280px}
+}
 }
 </style>
 </head>
