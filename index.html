@@ -623,7 +623,17 @@ body::before{
     flex-direction:row;
     gap:0;
   }
-
+@media(max-width:640px){
+  .hero-scroll{
+    left:0;
+    transform:none;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+  }
+}
   .hero-stat{
     flex:1;
     min-width:0;
