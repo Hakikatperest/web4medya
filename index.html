@@ -101,38 +101,33 @@ body::before{
 /* ============================================================
    HEADER
 ============================================================ */
+
 .header{
   position:fixed;
   top:0;
   left:0;
   right:0;
-  z-index:500;
-  height:var(--header-h);
-grid-template-columns: auto 1fr auto;
-  display:grid;
-  align-items:center;
-  justify-content:space-between;
+  z-index:1000;
+
+  height:72px;
   padding:0 5%;
 
-  /* SABİT BEYAZ */
-  background:#ffffff;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
 
-  /* Hafif blur premium görünüm */
-  backdrop-filter:blur(10px);
+  /* 🔥 CAM EFEKTİ */
+  background:rgba(255,255,255,0.65);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
 
-  /* Alt çizgi */
-  border-bottom:1px solid var(--border);
+  /* 🔥 PREMIUM BORDER */
+  border-bottom:1px solid rgba(255,255,255,0.4);
+
+  /* 🔥 DERİNLİK */
+  box-shadow:0 8px 30px rgba(0,0,0,0.05);
 
   transition:all 0.3s ease;
-}
-   .nav{
-  justify-self:center;
-}
-   .nav-cta{
-  justify-self:end;
-}
-.header{
-  box-shadow:0 4px 20px rgba(0,0,0,0.04);
 }
 /* Artık buna gerek yok */
 .header.scrolled{
