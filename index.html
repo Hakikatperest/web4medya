@@ -19,27 +19,48 @@
 html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
 body{font-family:'Poppins',sans-serif;background:var(--bg-main);color:var(--text-dark);line-height:1.6;overflow-x:hidden}
 
+/* ============================================================
+   DESIGN TOKENS — Google Ads ajansına uyumlu renk sistemi
+   Ana palet: Google Blue #4285F4, Google Green #34A853,
+              Google Red #EA4335, Google Yellow #FBBC05
+   Tüm renkler bu 4 renk etrafında kurulmuştur.
+============================================================ */
 :root{
-  --bg-main: #F2F2F2;
-  --text-dark: #2B2B2B;
-  --primary-blue: #3A8DFF;
-  --secondary-blue: #5FA8FF;
-  --white: #FFFFFF;
-  --accent-green: #4CAF50;
-  --bg2: #F8F8F8;
+  /* Backgrounds */
+  --bg-main: #F8FAFE;
+  --bg2: #F1F5FF;
   --bg3: #FFFFFF;
-  --bg4: #F0F0F0;
-  --border: #E0E0E0;
-  --border2: #D0D0D0;
-  --text: #2B2B2B;
-  --text2: #555555;
-  --text3: #777777;
-  --accent: #3A8DFF;
-  --accent2: #3A8DFF;
+  --bg4: #EBF1FE;
+
+  /* Borders */
+  --border: #DCE5F5;
+  --border2: #C8D6F0;
+
+  /* Text */
+  --text-dark: #1A1F36;
+  --text: #1A1F36;
+  --text2: #4A5173;
+  --text3: #7B82A3;
+
+  /* Google-uyumlu marka renkleri */
+  --primary-blue: #4285F4;      /* Google Blue */
+  --secondary-blue: #669DF6;    /* Google Blue (lighter) */
+  --accent-green: #34A853;      /* Google Green */
+  --accent-red: #EA4335;        /* Google Red */
+  --accent-yellow: #FBBC05;     /* Google Yellow */
+
+  /* Alias */
+  --accent: #4285F4;
+  --accent2: #4285F4;
+  --white: #FFFFFF;
+
+  /* Radii */
   --r:16px;
   --r-sm:10px;
   --r-lg:24px;
   --r-xl:40px;
+
+  /* Misc */
   --ease:cubic-bezier(0.22,1,0.36,1);
   --header-h:72px;
 }
@@ -67,14 +88,14 @@ body::before{
   background-size:200px 200px;
   pointer-events:none;
   z-index:9999;
-  opacity:0.3;
+  opacity:0.25;
 }
 
 /* ============================================================
    CURSOR
 ============================================================ */
-.cursor{position:fixed;width:10px;height:10px;background:var(--primary-blue);border-radius:50%;pointer-events:none;z-index:10000;transform:translate(-50%,-50%);transition:transform 0.1s,width 0.3s,height 0.3s,opacity 0.3s;mix-blend-mode:difference}
-.cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid rgba(58,141,255,0.3);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform 0.18s var(--ease),width 0.4s,height 0.4s,opacity 0.4s}
+.cursor{position:fixed;width:10px;height:10px;background:var(--primary-blue);border-radius:50%;pointer-events:none;z-index:10000;transform:translate(-50%,-50%);transition:transform 0.1s,width 0.3s,height 0.3s,opacity 0.3s;mix-blend-mode:multiply}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid rgba(66,133,244,0.35);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform 0.18s var(--ease),width 0.4s,height 0.4s,opacity 0.4s}
 @media(hover:none){.cursor,.cursor-ring{display:none}}
 
 /* ============================================================
@@ -88,7 +109,7 @@ body::before{
   border-bottom:1px solid transparent;
 }
 .header.scrolled{
-  background:rgba(242,242,242,0.95);
+  background:rgba(248,250,254,0.95);
   backdrop-filter:blur(24px);
   border-color:var(--border);
 }
@@ -108,7 +129,7 @@ body::before{
   padding:8px 16px;border-radius:var(--r-sm);
   transition:color 0.2s,background 0.2s;
 }
-.nav-link:hover,.nav-link.active{color:var(--text-dark);background:rgba(58,141,255,0.08)}
+.nav-link:hover,.nav-link.active{color:var(--text-dark);background:rgba(66,133,244,0.08)}
 .nav-cta{
   margin-left:12px;
   padding:9px 22px;
@@ -131,7 +152,7 @@ body::before{
 ============================================================ */
 .mob-menu{
   position:fixed;inset:0;z-index:499;
-  background:rgba(242,242,242,0.98);
+  background:rgba(248,250,254,0.98);
   backdrop-filter:blur(20px);
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
   opacity:0;visibility:hidden;
@@ -143,7 +164,7 @@ body::before{
   letter-spacing:-0.02em;padding:8px 24px;border-radius:12px;
   transition:color 0.2s,background 0.2s;
 }
-.mob-menu a:hover{color:var(--primary-blue);background:rgba(58,141,255,0.06)}
+.mob-menu a:hover{color:var(--primary-blue);background:rgba(66,133,244,0.06)}
 .mob-menu-footer{position:absolute;bottom:40px;display:flex;gap:16px}
 .mob-soc{
   width:44px;height:44px;border:1px solid var(--border2);border-radius:12px;
@@ -154,10 +175,16 @@ body::before{
 .mob-soc:hover{border-color:var(--primary-blue);color:var(--primary-blue)}
 
 /* ============================================================
-   HERO
+   HERO — koyu tema, Google renk paleti ile
 ============================================================ */
-  .hero{
-  background:#000;
+.hero{
+  background:#0D1117;
+  position:relative;
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:calc(var(--header-h) + 60px) 5% 100px;
+  text-align:center;
+  overflow:hidden;
   color:#fff;
 }
 
@@ -178,48 +205,70 @@ body::before{
   background:linear-gradient(
     120deg,
     transparent 0%,
-    rgba(58,141,255,0.15) 20%,
+    rgba(66,133,244,0.12) 20%,
     transparent 40%
   );
   animation:flow 6s linear infinite;
 }
-
 @keyframes flow{
   0%{ transform:translate(-50%, -50%) rotate(0deg);}
   100%{ transform:translate(-50%, -50%) rotate(360deg);}
 }
-.hero h1 .line-white{
-  color: #ffffff;
-}
+
 /* Veri noktaları */
 .dots{
   position:absolute;
   inset:0;
 }
-
 .dots::before{
   content:"";
   position:absolute;
   width:100%;
   height:100%;
-  background-image:radial-gradient(#3A8DFF 1px, transparent 1px);
+  background-image:radial-gradient(rgba(66,133,244,0.6) 1px, transparent 1px);
   background-size:40px 40px;
   animation:moveDots 20s linear infinite;
-  opacity:0.4;
+  opacity:0.25;
 }
-
 @keyframes moveDots{
   from{ transform:translateY(0);}
   to{ transform:translateY(100px);}
 }
-.hero{
-background:#000;
-  position:relative;
-  min-height:100vh;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:calc(var(--header-h) + 60px) 5% 100px;
-  text-align:center;
-  overflow:hidden;
+
+/* Google 4 renkli ışık dalgaları */
+.hero-google-wave{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  opacity:0.15;
+}
+.hero-google-wave::before,
+.hero-google-wave::after{
+  content:'';
+  position:absolute;
+  width:150%;
+  height:150%;
+  top:-25%;
+  left:-25%;
+  /* Google 4 rengi */
+  background:conic-gradient(from 0deg, #4285F4, #34A853, #FBBC05, #EA4335, #4285F4);
+  animation:googleSpin 14s linear infinite;
+  border-radius:30%;
+  filter:blur(90px);
+}
+.hero-google-wave::after{
+  animation:googleSpinReverse 18s linear infinite;
+  opacity:0.5;
+  filter:blur(110px);
+}
+@keyframes googleSpin{
+  0%{transform:rotate(0deg) scale(1);}
+  100%{transform:rotate(360deg) scale(1.2);}
+}
+@keyframes googleSpinReverse{
+  0%{transform:rotate(360deg) scale(1.2);}
+  100%{transform:rotate(0deg) scale(1);}
 }
 
 /* Radial glow */
@@ -227,7 +276,7 @@ background:#000;
   position:absolute;
   width:900px;height:900px;
   border-radius:50%;
-  background:radial-gradient(circle,rgba(58,141,255,0.08) 0%,rgba(76,175,80,0.03) 40%,transparent 70%);
+  background:radial-gradient(circle,rgba(66,133,244,0.09) 0%,rgba(52,168,83,0.04) 40%,transparent 70%);
   top:50%;left:50%;
   transform:translate(-50%,-50%);
   pointer-events:none;
@@ -242,8 +291,8 @@ background:#000;
 .hero-grid{
   position:absolute;inset:0;pointer-events:none;
   background-image:
-    linear-gradient(rgba(0,0,0,0.03) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(0,0,0,0.03) 1px,transparent 1px);
+    linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
   background-size:80px 80px;
   mask:radial-gradient(circle at 50% 50%,black 20%,transparent 75%);
 }
@@ -252,44 +301,52 @@ background:#000;
 .hero-badge{
   display:inline-flex;align-items:center;gap:8px;
   padding:8px 18px;
-  border:1px solid var(--border);
+  border:1px solid rgba(255,255,255,0.15);
   border-radius:50px;
-  font-size:0.78rem;font-weight:600;color:var(--text2);
+  font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.75);
   margin-bottom:36px;
-  background:rgba(255,255,255,0.8);
+  background:rgba(255,255,255,0.07);
   backdrop-filter:blur(8px);
   position:relative;z-index:2;
   animation:fadeUp 0.8s var(--ease) both;
 }
-.hero-badge-dot{width:6px;height:6px;background:var(--primary-blue);border-radius:50%;animation:blink 2s infinite}
+.hero-badge-dot{width:6px;height:6px;background:#34A853;border-radius:50%;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
 
 .hero h1{
   font-size:clamp(3rem,8vw,7rem);
   font-weight:900;
   line-height:0.95;
-  color:var(--text-dark);
+  color:#fff;
   position:relative;z-index:2;
   animation:fadeUp 0.9s 0.1s var(--ease) both;
   letter-spacing:-0.04em;
 }
+/* Google sarısı - outline efekti için gradient */
+.hero h1 .line-outline{
+  display:block;
+  background:linear-gradient(135deg,#FBBC05,#FFD54F,#FFA000);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+/* Beyaz metin */
+.hero h1 .line-white{
+  display:block;
+  color:#ffffff;
+}
+/* Mavi gradient — Google blue */
 .hero h1 .line-accent{
   display:block;
-  background:linear-gradient(135deg,var(--primary-blue),var(--secondary-blue),var(--accent-green));
+  background:linear-gradient(135deg,#4285F4,#669DF6,#34A853);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.hero h1 .line-outline{
-  display: block;
-  background: linear-gradient(135deg, #F5B800, #FFD700, #FFA500);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-stroke: 0;
 }
 
 .hero-desc{
   max-width:520px;
-  font-size:1.05rem;color:#fff;;font-weight:300;
+  font-size:1.05rem;
+  color:rgba(255,255,255,0.65);
+  font-weight:300;
   margin:32px auto 0;
   position:relative;z-index:2;
   animation:fadeUp 0.9s 0.2s var(--ease) both;
@@ -311,36 +368,36 @@ background:#000;
   font-weight:700;font-size:0.92rem;
   text-decoration:none;
   transition:transform 0.25s,box-shadow 0.25s,background 0.2s;
-  box-shadow:0 4px 14px rgba(58,141,255,0.25);
+  box-shadow:0 4px 20px rgba(66,133,244,0.35);
 }
 .btn-main:hover{
   transform:translateY(-3px);
-  box-shadow:0 20px 48px rgba(58,141,255,0.3);
+  box-shadow:0 20px 48px rgba(66,133,244,0.4);
   background:var(--secondary-blue);
 }
 .btn-ghost{
   display:inline-flex;align-items:center;gap:10px;
   padding:15px 32px;
-  border:1px solid var(--border);
+  border:1px solid rgba(255,255,255,0.2);
   border-radius:var(--r-sm);
-  color:var(--text-dark);font-weight:600;font-size:0.92rem;
+  color:#fff;font-weight:600;font-size:0.92rem;
   text-decoration:none;
   transition:border-color 0.2s,background 0.2s,transform 0.25s;
-  background:rgba(255,255,255,0.6);
+  background:rgba(255,255,255,0.07);
 }
-.btn-ghost:hover{border-color:var(--primary-blue);background:rgba(58,141,255,0.08);transform:translateY(-3px)}
+.btn-ghost:hover{border-color:rgba(66,133,244,0.6);background:rgba(66,133,244,0.12);transform:translateY(-3px)}
 
 /* Scroll indicator */
 .hero-scroll{
   position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
   display:flex;flex-direction:column;align-items:center;gap:8px;
-  color:var(--text3);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:rgba(255,255,255,0.35);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;
   animation:fadeUp 1s 0.6s var(--ease) both;
   z-index:2;
 }
 .scroll-line{
   width:1px;height:48px;
-  background:linear-gradient(to bottom,var(--border),transparent);
+  background:linear-gradient(to bottom,rgba(255,255,255,0.3),transparent);
   animation:scrollDrop 2s infinite;
 }
 @keyframes scrollDrop{
@@ -349,84 +406,51 @@ background:#000;
   51%{transform:scaleY(1);transform-origin:bottom}
   100%{transform:scaleY(0);transform-origin:bottom}
 }
+
+/* Pulse glow */
 .hero::after{
   content:"";
   position:absolute;
-  top:50%;
-  left:50%;
-  width:300px;
-  height:300px;
-  background:radial-gradient(circle, rgba(58,141,255,0.4), transparent 70%);
+  top:50%;left:50%;
+  width:300px;height:300px;
+  background:radial-gradient(circle, rgba(66,133,244,0.35), transparent 70%);
   transform:translate(-50%,-50%);
   animation:pulse 2.5s ease-in-out infinite;
   filter:blur(40px);
+  pointer-events:none;
+  z-index:0;
+}
+@keyframes pulse{
+  0%{transform:translate(-50%,-50%) scale(0.8);opacity:0.5;}
+  100%{transform:translate(-50%,-50%) scale(1.4);opacity:0;}
 }
 
-@keyframes pulse{
-  0%{transform:translate(-50%,-50%) scale(0.8); opacity:0.5;}
-  100%{transform:translate(-50%,-50%) scale(1.4); opacity:0;}
-}
 /* Stats bar */
 .hero-stats{
   display:flex;justify-content:center;align-items:center;
   gap:0;margin-top:80px;
-  border:1px solid var(--border);
+  border:1px solid rgba(255,255,255,0.12);
   border-radius:var(--r-lg);
   overflow:hidden;
   position:relative;z-index:2;
   animation:fadeUp 0.9s 0.4s var(--ease) both;
-  background:rgba(255,255,255,0.8);
-  backdrop-filter:blur(12px);
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(16px);
   max-width:640px;
   margin-left:auto;margin-right:auto;
 }
 .hero-stat{
   flex:1;padding:24px 20px;text-align:center;
-  border-right:1px solid var(--border);
+  border-right:1px solid rgba(255,255,255,0.1);
   transition:background 0.2s;
 }
 .hero-stat:last-child{border-right:none}
-.hero-stat:hover{background:rgba(58,141,255,0.04)}
-.stat-number{font-size:1.8rem;font-weight:900;color:var(--text-dark);letter-spacing:-0.04em}
-.stat-number em{color:var(--primary-blue);font-style:normal}
-.stat-label{font-size:0.72rem;color:var(--text3);margin-top:4px;text-transform:uppercase;letter-spacing:0.06em}
+.hero-stat:hover{background:rgba(255,255,255,0.06)}
+.stat-number{font-size:1.8rem;font-weight:900;color:#fff;letter-spacing:-0.04em}
+.stat-number em{color:#4285F4;font-style:normal}
+.stat-label{font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:4px;text-transform:uppercase;letter-spacing:0.06em}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-
-/* Google renkli ışık dalgaları (fixed) */
-.hero-google-wave {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.2;
-}
-.hero-google-wave::before,
-.hero-google-wave::after {
-  content: '';
-  position: absolute;
-  width: 150%;
-  height: 150%;
-  top: -25%;
-  left: -25%;
-  background: conic-gradient(from 0deg, #3A8DFF, #4CAF50, #5FA8FF, #3A8DFF);
-  animation: googleSpin 12s linear infinite;
-  border-radius: 30%;
-  filter: blur(80px);
-}
-.hero-google-wave::after {
-  animation: googleSpinReverse 15s linear infinite;
-  opacity: 0.6;
-  filter: blur(100px);
-}
-@keyframes googleSpin {
-  0% { transform: rotate(0deg) scale(1); }
-  100% { transform: rotate(360deg) scale(1.2); }
-}
-@keyframes googleSpinReverse {
-  0% { transform: rotate(360deg) scale(1.2); }
-  100% { transform: rotate(0deg) scale(1); }
-}
 
 /* ============================================================
    MARQUEE TICKER
@@ -436,7 +460,7 @@ background:#000;
   border-top:1px solid var(--border);
   border-bottom:1px solid var(--border);
   overflow:hidden;
-  background:var(--bg2);
+  background:var(--bg3);
 }
 .ticker-track{
   display:flex;gap:0;
@@ -451,7 +475,11 @@ background:#000;
   white-space:nowrap;
   border-right:1px solid var(--border);
 }
-.ticker-item i{color:var(--primary-blue);font-size:0.7rem}
+/* Google 4 rengi ticker noktalara dağıtılır */
+.ticker-item:nth-child(4n+1) i{color:#4285F4}
+.ticker-item:nth-child(4n+2) i{color:#34A853}
+.ticker-item:nth-child(4n+3) i{color:#FBBC05}
+.ticker-item:nth-child(4n+4) i{color:#EA4335}
 @keyframes tickerRoll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ============================================================
@@ -497,18 +525,18 @@ background:#000;
   transition:transform 0.4s var(--ease),border-color 0.3s,box-shadow 0.4s;
   cursor:pointer;
   position:relative;
-  box-shadow:0 2px 8px rgba(0,0,0,0.02);
+  box-shadow:0 2px 8px rgba(66,133,244,0.04);
 }
 .ref-card:hover{
   transform:translateY(-8px) scale(1.01);
-  border-color:rgba(58,141,255,0.3);
-  box-shadow:0 32px 64px rgba(0,0,0,0.08),0 0 0 1px rgba(58,141,255,0.1);
+  border-color:rgba(66,133,244,0.3);
+  box-shadow:0 32px 64px rgba(66,133,244,0.1),0 0 0 1px rgba(66,133,244,0.1);
 }
 .ref-thumb{
   position:relative;
   aspect-ratio:16/10;
   overflow:hidden;
-  background:var(--bg3);
+  background:var(--bg2);
 }
 .ref-thumb-inner{
   width:100%;height:100%;
@@ -520,7 +548,7 @@ background:#000;
 .ref-card:hover .ref-thumb-inner{transform:scale(1.06)}
 .ref-thumb-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,0.5));
+  background:linear-gradient(to bottom,transparent 40%,rgba(13,17,23,0.55));
   opacity:0;
   transition:opacity 0.3s;
   display:flex;align-items:flex-end;padding:20px;
@@ -556,80 +584,250 @@ background:#000;
   text-decoration:none;
   transition:border-color 0.2s,background 0.2s,color 0.2s;
 }
-.ref-link:hover{border-color:var(--primary-blue);background:rgba(58,141,255,0.08);color:var(--primary-blue)}
+.ref-link:hover{border-color:var(--primary-blue);background:rgba(66,133,244,0.07);color:var(--primary-blue)}
 .ref-card.featured{grid-column:span 2}
 .ref-card.featured .ref-thumb{aspect-ratio:21/10}
 
 /* ============================================================
-   SERVICES & OTHERS (same as original, but keeping clean)
+   SERVICES
 ============================================================ */
 .svc-section{background:var(--bg2)}
 .svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:64px}
-.svc-card{padding:36px 28px;border:1px solid var(--border);border-radius:var(--r-lg);background:var(--white);transition:border-color 0.3s,transform 0.4s var(--ease),box-shadow 0.3s;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.02)}
-.svc-card::before{content:'';position:absolute;inset:-1px;border-radius:var(--r-lg);background:linear-gradient(135deg,var(--primary-blue),transparent 60%);opacity:0;transition:opacity 0.4s;z-index:0;padding:1px;mask:linear-gradient(#fff,#fff) content-box,linear-gradient(#fff,#fff);mask-composite:xor;-webkit-mask-composite:xor}
+.svc-card{
+  padding:36px 28px;
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  background:var(--white);
+  transition:border-color 0.3s,transform 0.4s var(--ease),box-shadow 0.3s;
+  position:relative;overflow:hidden;
+  box-shadow:0 2px 8px rgba(66,133,244,0.04);
+}
+.svc-card::before{
+  content:'';position:absolute;inset:-1px;border-radius:var(--r-lg);
+  background:linear-gradient(135deg,var(--primary-blue),transparent 60%);
+  opacity:0;transition:opacity 0.4s;z-index:0;padding:1px;
+  mask:linear-gradient(#fff,#fff) content-box,linear-gradient(#fff,#fff);
+  mask-composite:xor;-webkit-mask-composite:xor;
+}
 .svc-card:hover::before{opacity:0.4}
-.svc-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(0,0,0,0.06);border-color:rgba(58,141,255,0.2)}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(66,133,244,0.1);border-color:rgba(66,133,244,0.25)}
 .svc-card>*{position:relative;z-index:1}
 .svc-num{font-size:0.68rem;font-weight:700;color:var(--text3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:8px}
 .svc-num::after{content:'';flex:1;height:1px;background:var(--border)}
-.svc-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:20px;background:rgba(58,141,255,0.08);color:var(--primary-blue);border:1px solid rgba(58,141,255,0.15);transition:background 0.3s,transform 0.3s}
-.svc-card:hover .svc-icon{background:rgba(58,141,255,0.15);transform:rotate(-8deg) scale(1.1)}
+/* Her hizmet kartına Google rengi atandı */
+.svc-card:nth-child(1) .svc-icon{background:rgba(66,133,244,0.08);color:#4285F4;border-color:rgba(66,133,244,0.18)}
+.svc-card:nth-child(2) .svc-icon{background:rgba(52,168,83,0.08);color:#34A853;border-color:rgba(52,168,83,0.18)}
+.svc-card:nth-child(3) .svc-icon{background:rgba(251,188,5,0.1);color:#B8860B;border-color:rgba(251,188,5,0.25)}
+.svc-card:nth-child(4) .svc-icon{background:rgba(234,67,53,0.08);color:#EA4335;border-color:rgba(234,67,53,0.18)}
+.svc-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:20px;border:1px solid;transition:transform 0.3s,filter 0.3s}
+.svc-card:hover .svc-icon{transform:rotate(-8deg) scale(1.1);filter:brightness(1.1)}
 .svc-title{font-size:1.1rem;font-weight:700;color:var(--text-dark);margin-bottom:10px}
 .svc-desc{font-size:0.85rem;color:var(--text2);line-height:1.65}
 .svc-arrow{display:inline-flex;align-items:center;gap:6px;margin-top:24px;font-size:0.8rem;font-weight:700;color:var(--text3);transition:color 0.2s,gap 0.2s}
 .svc-card:hover .svc-arrow{color:var(--primary-blue);gap:10px}
 
-/* WHY US, PROCESS, TESTIMONIALS, CTA, FOOTER - compact but fully functional */
+/* ============================================================
+   WHY US
+============================================================ */
 .why-section{background:var(--bg-main);overflow:hidden}
 .why-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .why-visual{position:relative;aspect-ratio:1;max-width:480px}
 .why-circle{position:absolute;inset:0;border:1px solid var(--border);border-radius:50%;animation:spinSlow 30s linear infinite}
-.why-circle::after{content:'';position:absolute;top:-4px;left:50%;transform:translateX(-50%);width:8px;height:8px;background:var(--primary-blue);border-radius:50%;box-shadow:0 0 16px var(--primary-blue)}
+.why-circle::after{content:'';position:absolute;top:-4px;left:50%;transform:translateX(-50%);width:8px;height:8px;background:var(--primary-blue);border-radius:50%;box-shadow:0 0 16px rgba(66,133,244,0.5)}
 .why-circle2{position:absolute;inset:15%;border:1px dashed var(--border2);border-radius:50%;animation:spinSlow 20s linear infinite reverse}
-.why-center-card{position:absolute;inset:25%;background:var(--white);border:1px solid var(--border2);border-radius:var(--r-lg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;box-shadow:0 8px 24px rgba(0,0,0,0.04)}
+.why-center-card{position:absolute;inset:25%;background:var(--white);border:1px solid var(--border2);border-radius:var(--r-lg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;box-shadow:0 8px 24px rgba(66,133,244,0.08)}
 .why-center-num{font-size:2.5rem;font-weight:900;color:var(--text-dark);letter-spacing:-0.04em}
-.why-center-num em{color:var(--primary-blue);font-style:normal}
+.why-center-num em{color:var(--accent-green);font-style:normal}
 .why-center-lbl{font-size:0.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em}
 @keyframes spinSlow{to{transform:rotate(360deg)}}
 .why-items{display:flex;flex-direction:column;gap:20px;margin-top:48px}
-.why-item{display:flex;align-items:flex-start;gap:20px;padding:24px;border:1px solid var(--border);border-radius:var(--r);background:var(--white);transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;box-shadow:0 2px 8px rgba(0,0,0,0.02)}
-.why-item:hover{border-color:rgba(58,141,255,0.3);transform:translateX(6px);box-shadow:0 8px 24px rgba(0,0,0,0.04)}
-.why-item-icon{width:44px;height:44px;flex-shrink:0;border-radius:12px;background:rgba(58,141,255,0.08);border:1px solid rgba(58,141,255,0.12);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--primary-blue)}
+.why-item{display:flex;align-items:flex-start;gap:20px;padding:24px;border:1px solid var(--border);border-radius:var(--r);background:var(--white);transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;box-shadow:0 2px 8px rgba(66,133,244,0.03)}
+.why-item:hover{border-color:rgba(66,133,244,0.3);transform:translateX(6px);box-shadow:0 8px 24px rgba(66,133,244,0.07)}
+/* Neden biz ikonlarına Google renkleri */
+.why-item:nth-child(1) .why-item-icon{background:rgba(66,133,244,0.08);border-color:rgba(66,133,244,0.12);color:#4285F4}
+.why-item:nth-child(2) .why-item-icon{background:rgba(52,168,83,0.08);border-color:rgba(52,168,83,0.12);color:#34A853}
+.why-item:nth-child(3) .why-item-icon{background:rgba(234,67,53,0.08);border-color:rgba(234,67,53,0.12);color:#EA4335}
+.why-item-icon{width:44px;height:44px;flex-shrink:0;border-radius:12px;border:1px solid;display:flex;align-items:center;justify-content:center;font-size:1rem}
 .why-item-title{font-size:0.95rem;font-weight:700;color:var(--text-dark);margin-bottom:4px}
 .why-item-desc{font-size:0.83rem;color:var(--text2);line-height:1.5}
 
+/* ============================================================
+   PROCESS
+============================================================ */
 .process-section{background:var(--bg2)}
 .process-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;border:1px solid var(--border);border-radius:var(--r-xl);overflow:hidden;margin-top:64px;background:var(--border)}
 .process-step{background:var(--white);padding:40px 28px;transition:background 0.3s;position:relative}
 .process-step:hover{background:var(--bg4)}
-.process-step-num{font-size:3.5rem;font-weight:900;color:rgba(58,141,255,0.08);letter-spacing:-0.06em;line-height:1;margin-bottom:20px;transition:color 0.3s}
-.process-step:hover .process-step-num{color:rgba(58,141,255,0.2)}
-.process-step-icon{width:44px;height:44px;border-radius:12px;background:rgba(58,141,255,0.08);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--primary-blue);margin-bottom:16px}
+.process-step-num{font-size:3.5rem;font-weight:900;letter-spacing:-0.06em;line-height:1;margin-bottom:20px;transition:color 0.3s}
+/* Process adım numaraları Google renkleri */
+.process-step:nth-child(1) .process-step-num{color:rgba(66,133,244,0.12)}
+.process-step:nth-child(2) .process-step-num{color:rgba(52,168,83,0.12)}
+.process-step:nth-child(3) .process-step-num{color:rgba(251,188,5,0.2)}
+.process-step:nth-child(4) .process-step-num{color:rgba(234,67,53,0.12)}
+.process-step:nth-child(1):hover .process-step-num{color:rgba(66,133,244,0.25)}
+.process-step:nth-child(2):hover .process-step-num{color:rgba(52,168,83,0.25)}
+.process-step:nth-child(3):hover .process-step-num{color:rgba(251,188,5,0.35)}
+.process-step:nth-child(4):hover .process-step-num{color:rgba(234,67,53,0.25)}
+.process-step:nth-child(1) .process-step-icon{background:rgba(66,133,244,0.08);color:#4285F4}
+.process-step:nth-child(2) .process-step-icon{background:rgba(52,168,83,0.08);color:#34A853}
+.process-step:nth-child(3) .process-step-icon{background:rgba(251,188,5,0.1);color:#B8860B}
+.process-step:nth-child(4) .process-step-icon{background:rgba(234,67,53,0.08);color:#EA4335}
+.process-step-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:16px}
 .process-step-title{font-size:1rem;font-weight:700;color:var(--text-dark);margin-bottom:8px}
 .process-step-desc{font-size:0.83rem;color:var(--text2);line-height:1.6}
 
+/* ============================================================
+   TESTIMONIALS — manuel kaydırılabilir (drag + scroll)
+============================================================ */
 .test-section{background:var(--bg-main);overflow:hidden}
-.test-track-wrap{overflow:hidden;margin-top:60px}
-.test-track{display:flex;gap:20px;animation:testScroll 35s linear infinite}
-.test-track:hover{animation-play-state:paused}
-.test-card{flex-shrink:0;width:360px;padding:28px;border:1px solid var(--border);border-radius:var(--r-lg);background:var(--white);box-shadow:0 4px 12px rgba(0,0,0,0.02)}
-.test-stars{color:var(--primary-blue);font-size:0.8rem;margin-bottom:14px}
+
+.test-track-wrap{
+  position:relative;
+  margin-top:60px;
+  overflow:hidden;
+}
+
+/* Kenar soluklaştırma efekti */
+.test-track-wrap::before,
+.test-track-wrap::after{
+  content:'';
+  position:absolute;
+  top:0;bottom:0;
+  width:80px;
+  z-index:10;
+  pointer-events:none;
+}
+.test-track-wrap::before{
+  left:0;
+  background:linear-gradient(to right,var(--bg-main),transparent);
+}
+.test-track-wrap::after{
+  right:0;
+  background:linear-gradient(to left,var(--bg-main),transparent);
+}
+
+/* Scroll container */
+.test-scroll{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  padding:8px 16px 24px;
+  cursor:grab;
+  -webkit-overflow-scrolling:touch;
+  /* Scrollbar gizle */
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+.test-scroll::-webkit-scrollbar{display:none}
+.test-scroll:active{cursor:grabbing}
+
+/* Ok butonları */
+.test-nav{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  margin-top:28px;
+}
+.test-btn{
+  width:44px;height:44px;
+  border-radius:50%;
+  border:1px solid var(--border2);
+  background:var(--white);
+  color:var(--text2);
+  font-size:0.85rem;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:border-color 0.2s,color 0.2s,background 0.2s,transform 0.2s;
+  box-shadow:0 2px 8px rgba(66,133,244,0.05);
+}
+.test-btn:hover{
+  border-color:var(--primary-blue);
+  color:var(--primary-blue);
+  background:rgba(66,133,244,0.06);
+  transform:scale(1.06);
+}
+
+/* Sayfa göstergesi */
+.test-dots{
+  display:flex;
+  gap:6px;
+  align-items:center;
+  padding:0 12px;
+}
+.test-dot{
+  width:6px;height:6px;
+  border-radius:50%;
+  background:var(--border2);
+  transition:background 0.3s,transform 0.3s,width 0.3s;
+  cursor:pointer;
+}
+.test-dot.active{
+  background:var(--primary-blue);
+  transform:scale(1.2);
+  width:20px;
+  border-radius:3px;
+}
+
+.test-card{
+  flex-shrink:0;
+  width:340px;
+  padding:28px;
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  background:var(--white);
+  box-shadow:0 4px 12px rgba(66,133,244,0.05);
+  transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s;
+  user-select:none;
+}
+.test-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 32px rgba(66,133,244,0.1);
+  border-color:rgba(66,133,244,0.2);
+}
+/* Yıldızları Google sarısına çek */
+.test-stars{color:#FBBC05;font-size:0.9rem;margin-bottom:14px;letter-spacing:2px}
 .test-text{font-size:0.88rem;color:var(--text2);line-height:1.7;margin-bottom:20px}
 .test-author{display:flex;align-items:center;gap:12px}
 .test-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;color:var(--white);flex-shrink:0}
 .test-name{font-size:0.85rem;font-weight:700;color:var(--text-dark)}
 .test-role{font-size:0.75rem;color:var(--text3)}
-@keyframes testScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-.cta-section{padding:140px 5%;background:var(--bg2);position:relative;overflow:hidden}
-.cta-bg{position:absolute;inset:0;background:radial-gradient(circle at 50% 60%,rgba(58,141,255,0.06) 0%,transparent 65%);pointer-events:none}
-.cta-lines{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(0,0,0,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.02) 1px,transparent 1px);background-size:60px 60px}
+/* ============================================================
+   CTA
+============================================================ */
+.cta-section{
+  padding:140px 5%;
+  background:var(--bg2);
+  position:relative;overflow:hidden;
+}
+.cta-bg{position:absolute;inset:0;background:radial-gradient(circle at 50% 60%,rgba(66,133,244,0.07) 0%,transparent 65%);pointer-events:none}
+.cta-lines{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(66,133,244,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(66,133,244,0.025) 1px,transparent 1px);background-size:60px 60px}
 .cta-inner{position:relative;z-index:2;max-width:800px;margin:0 auto;text-align:center}
 .cta-inner h2{font-size:clamp(2.4rem,6vw,5rem);font-weight:900;color:var(--text-dark);letter-spacing:-0.04em;line-height:1.0;margin-bottom:24px}
-.cta-inner h2 span{background:linear-gradient(135deg,var(--primary-blue),var(--secondary-blue),var(--accent-green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta-inner h2 span{
+  background:linear-gradient(135deg,var(--primary-blue),var(--secondary-blue),var(--accent-green));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
 .cta-inner p{font-size:1rem;color:var(--text2);margin-bottom:48px;line-height:1.7}
 .cta-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
 
+/* CTA sayfasındaki btn-ghost buton rengi güncellendi */
+.cta-section .btn-ghost{
+  border:1px solid var(--border2);
+  color:var(--text-dark);
+  background:var(--white);
+}
+.cta-section .btn-ghost:hover{
+  border-color:var(--primary-blue);
+  background:rgba(66,133,244,0.07);
+  color:var(--primary-blue);
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
 .footer{background:var(--white);border-top:1px solid var(--border);padding:72px 5% 40px}
 .footer-inner{max-width:1200px;margin:0 auto}
 .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:48px;padding-bottom:60px;border-bottom:1px solid var(--border)}
@@ -639,7 +837,7 @@ background:#000;
 .footer-brand-desc{font-size:0.85rem;color:var(--text2);line-height:1.7;margin-bottom:24px}
 .footer-socials{display:flex;gap:8px}
 .footer-soc{width:36px;height:36px;border-radius:10px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;color:var(--text2);font-size:0.85rem;text-decoration:none;transition:border-color 0.2s,color 0.2s,background 0.2s}
-.footer-soc:hover{border-color:var(--primary-blue);color:var(--primary-blue);background:rgba(58,141,255,0.06)}
+.footer-soc:hover{border-color:var(--primary-blue);color:var(--primary-blue);background:rgba(66,133,244,0.06)}
 .footer-col-title{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text3);margin-bottom:20px}
 .footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
 .footer-links a{font-size:0.88rem;color:var(--text2);text-decoration:none;transition:color 0.2s}
@@ -654,13 +852,18 @@ background:#000;
 .footer-links-inline a{font-size:0.8rem;color:var(--text3);text-decoration:none;transition:color 0.2s}
 .footer-links-inline a:hover{color:var(--text-dark)}
 
+/* ============================================================
+   FLOATING BUTTONS
+============================================================ */
 .floating{position:fixed;bottom:28px;right:24px;z-index:490;display:flex;flex-direction:column;gap:10px}
 .fl-btn{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.15rem;text-decoration:none;color:#fff;transition:transform 0.25s,box-shadow 0.25s}
 .fl-wa{background:linear-gradient(135deg,#25D366,#128C7E);box-shadow:0 8px 24px rgba(37,211,102,0.3)}
-.fl-ph{background:var(--primary-blue);color:var(--white);box-shadow:0 8px 24px rgba(58,141,255,0.25)}
+.fl-ph{background:var(--primary-blue);color:var(--white);box-shadow:0 8px 24px rgba(66,133,244,0.3)}
 .fl-btn:hover{transform:translateY(-4px) scale(1.08)}
 
-/* PREMIUM SCROLL REVEAL - GERÇEKÇİ YAKLAŞMA EFFECT */
+/* ============================================================
+   SCROLL REVEAL
+============================================================ */
 .reveal{opacity:0;transform:translateY(40px) scale(0.96);transition:opacity 0.9s var(--ease),transform 0.9s var(--ease);will-change:transform,opacity}
 .reveal.visible{opacity:1;transform:translateY(0) scale(1)}
 .reveal-left{opacity:0;transform:translateX(-40px) scale(0.96);transition:opacity 0.9s var(--ease),transform 0.9s var(--ease)}
@@ -672,7 +875,9 @@ background:#000;
 .reveal-delay-3{transition-delay:0.3s}
 .reveal-delay-4{transition-delay:0.4s}
 
-/* RESPONSIVE */
+/* ============================================================
+   RESPONSIVE
+============================================================ */
 @media(max-width:1100px){
   .refs-grid{grid-template-columns:repeat(2,1fr)}
   .ref-card.featured{grid-column:span 2}
@@ -688,56 +893,21 @@ background:#000;
   .hamburger{display:flex}
 }
 @media(max-width:640px){
-
   .refs-grid{grid-template-columns:1fr}
   .ref-card.featured{grid-column:span 1}
   .svc-grid{grid-template-columns:1fr}
   .process-row{grid-template-columns:1fr}
 
-  /* ✅ HERO STATS MOBİL YAN YANA */
-  .hero-stats{
-    flex-direction:row;
-    gap:0;
-  }
-@media(max-width:640px){
-  .hero-scroll{
-    left:0;
-    transform:none;
-    width:100%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-  }
-}
-   .hero-scroll{
-  letter-spacing:0.15em;
-}
-  .hero-stat{
-    flex:1;
-    min-width:0;
-    padding:16px 8px;
-    border-right:1px solid var(--border);
-    border-bottom:none;
-  }
-
-  .hero-stat:last-child{
-    border-right:none;
-  }
-
-  /* 🔥 mobil font optimize */
-  .stat-number{
-    font-size:1.3rem;
-  }
-
-  .stat-label{
-    font-size:0.6rem;
-  }
+  .hero-stats{flex-direction:row;gap:0}
+  .hero-scroll{left:0;transform:none;width:100%;display:flex;align-items:center;justify-content:center;text-align:center;letter-spacing:0.15em}
+  .hero-stat{flex:1;min-width:0;padding:16px 8px;border-right:1px solid rgba(255,255,255,0.1);border-bottom:none}
+  .hero-stat:last-child{border-right:none}
+  .stat-number{font-size:1.3rem}
+  .stat-label{font-size:0.6rem}
 
   .footer-top{grid-template-columns:1fr;gap:32px}
   .footer-bottom{flex-direction:column;text-align:center}
   .test-card{width:280px}
-}
 }
 </style>
 </head>
@@ -762,51 +932,449 @@ background:#000;
 </header>
 
 <div class="mob-menu" id="mobMenu">
-  <a href="#hero">Ana Sayfa</a><a href="#hizmetler">Hizmetler</a><a href="#referanslar">Referanslar</a><a href="#iletisim">İletişim</a>
-  <div class="mob-menu-footer"><a href="#" class="mob-soc"><i class="fab fa-instagram"></i></a><a href="#" class="mob-soc"><i class="fab fa-linkedin-in"></i></a><a href="#" class="mob-soc"><i class="fab fa-twitter"></i></a></div>
+  <a href="#hero">Ana Sayfa</a>
+  <a href="#hizmetler">Hizmetler</a>
+  <a href="#referanslar">Referanslar</a>
+  <a href="#iletisim">İletişim</a>
+  <div class="mob-menu-footer">
+    <a href="#" class="mob-soc"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="mob-soc"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#" class="mob-soc"><i class="fab fa-twitter"></i></a>
+  </div>
 </div>
+
 <div class="ads-bg">
   <div class="lines"></div>
   <div class="dots"></div>
 </div>
+
 <section class="hero" id="hero">
-  <div class="hero-google-wave"></div><div class="hero-glow"></div><div class="hero-grid"></div>
+  <div class="hero-google-wave"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
   <div class="hero-badge"><span class="hero-badge-dot"></span> Google Reklam Ajansı &nbsp;·&nbsp; İstanbul</div>
-  <h1><span class="line-outline">Dijitalde</span><span class="line-white">Güçlü</span><span class="line-white">Büyüme.</span></h1>
+  <h1>
+    <span class="line-outline">Dijitalde</span>
+    <span class="line-white">Güçlü</span>
+    <span class="line-white">Büyüme.</span>
+  </h1>
   <p class="hero-desc">SEO, Google Ads, sosyal medya ve web tasarım ile markanızı hedef kitlenizle buluşturuyor, ölçülebilir sonuçlar üretiyoruz.</p>
-  <div class="hero-actions"><a href="#iletisim" class="btn-main"><i class="fas fa-bolt"></i> Hemen Teklif Al</a><a href="#referanslar" class="btn-ghost">Referansları Gör <i class="fas fa-arrow-right"></i></a></div>
-  <div class="hero-stats"><div class="hero-stat"><div class="stat-number">10<em>+</em></div><div class="stat-label">Yıl Deneyim</div></div><div class="hero-stat"><div class="stat-number">300<em>+</em></div><div class="stat-label">Tamamlanan Proje</div></div><div class="hero-stat"><div class="stat-number">98<em>%</em></div><div class="stat-label">Müşteri Memnuniyeti</div></div></div>
+  <div class="hero-actions">
+    <a href="#iletisim" class="btn-main"><i class="fas fa-bolt"></i> Hemen Teklif Al</a>
+    <a href="#referanslar" class="btn-ghost">Referansları Gör <i class="fas fa-arrow-right"></i></a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="stat-number">10<em>+</em></div><div class="stat-label">Yıl Deneyim</div></div>
+    <div class="hero-stat"><div class="stat-number">300<em>+</em></div><div class="stat-label">Tamamlanan Proje</div></div>
+    <div class="hero-stat"><div class="stat-number">98<em>%</em></div><div class="stat-label">Müşteri Memnuniyeti</div></div>
+  </div>
   <div class="hero-scroll"><div class="scroll-line"></div>Aşağı Kaydır</div>
 </section>
 
-<div class="ticker"><div class="ticker-track" id="tickerTrack"><div class="ticker-item"><i class="fas fa-circle"></i> Google Ads</div><div class="ticker-item"><i class="fas fa-circle"></i> SEO Optimizasyonu</div><div class="ticker-item"><i class="fas fa-circle"></i> Web Tasarım</div><div class="ticker-item"><i class="fas fa-circle"></i> Sosyal Medya Yönetimi</div><div class="ticker-item"><i class="fas fa-circle"></i> İçerik Pazarlama</div><div class="ticker-item"><i class="fas fa-circle"></i> E-Ticaret Çözümleri</div><div class="ticker-item"><i class="fas fa-circle"></i> Marka Stratejisi</div><div class="ticker-item"><i class="fas fa-circle"></i> Dönüşüm Optimizasyonu</div><div class="ticker-item"><i class="fas fa-circle"></i> Google Ads</div><div class="ticker-item"><i class="fas fa-circle"></i> SEO Optimizasyonu</div><div class="ticker-item"><i class="fas fa-circle"></i> Web Tasarım</div><div class="ticker-item"><i class="fas fa-circle"></i> Sosyal Medya Yönetimi</div><div class="ticker-item"><i class="fas fa-circle"></i> İçerik Pazarlama</div><div class="ticker-item"><i class="fas fa-circle"></i> E-Ticaret Çözümleri</div><div class="ticker-item"><i class="fas fa-circle"></i> Marka Stratejisi</div><div class="ticker-item"><i class="fas fa-circle"></i> Dönüşüm Optimizasyonu</div></div></div>
+<div class="ticker">
+  <div class="ticker-track" id="tickerTrack">
+    <div class="ticker-item"><i class="fas fa-circle"></i> Google Ads</div>
+    <div class="ticker-item"><i class="fas fa-circle"></i> SEO Optimizasyonu</div>
+    <div class="ticker-item"><i class="fas fa-circle"></i> Web Tasarım</div>
+    <div class="ticker-item"><i class="fas fa-circle"></i> Sosyal Medya Yönetimi</div>
+    <div class="ticker-item"><i class="fas fa-circle"></i> İçerik Pazarlama</div>
+    <div class="ticker-item"><i class="fas fa-circle"></i> E-Ticaret Çözümleri</div>
+    <div class="ticker-item"><i class="fas fa-circle"></i> Marka Stratejisi</div>
+    <div class="ticker-item"><i class="fas fa-circle"></i> Dönüşüm Optimizasyonu</div>
+    <div class="ticker-item"><i class="fas fa-circle"></i> Google Ads</div>
+    <div class="ticker-item"><i class="fas fa-circle"></i> SEO Optimizasyonu</div>
+    <div class="ticker-item"><i class="fas fa-circle"></i> Web Tasarım</div>
+    <div class="ticker-item"><i class="fas fa-circle"></i> Sosyal Medya Yönetimi</div>
+    <div class="ticker-item"><i class="fas fa-circle"></i> İçerik Pazarlama</div>
+    <div class="ticker-item"><i class="fas fa-circle"></i> E-Ticaret Çözümleri</div>
+    <div class="ticker-item"><i class="fas fa-circle"></i> Marka Stratejisi</div>
+    <div class="ticker-item"><i class="fas fa-circle"></i> Dönüşüm Optimizasyonu</div>
+  </div>
+</div>
 
+<!-- ============================================================
+     HİZMETLER
+============================================================ -->
+<section class="section svc-section" id="hizmetler">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal"><div class="eyebrow-line"></div> Hizmetler</div>
+    <h2 class="section-title reveal reveal-delay-1">Büyümenize özel<br>çözümler.</h2>
+    <div class="svc-grid">
+      <div class="svc-card reveal">
+        <div class="svc-num">01</div>
+        <div class="svc-icon"><i class="fab fa-google"></i></div>
+        <div class="svc-title">Google Ads</div>
+        <div class="svc-desc">Arama, alışveriş ve display kampanyalarında maksimum ROAS.</div>
+        <div class="svc-arrow">Daha Fazla <i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="svc-card reveal reveal-delay-1">
+        <div class="svc-num">02</div>
+        <div class="svc-icon"><i class="fas fa-chart-line"></i></div>
+        <div class="svc-title">SEO Optimizasyonu</div>
+        <div class="svc-desc">Teknik SEO, içerik stratejisi ve link inşasıyla kalıcı üst sıralar.</div>
+        <div class="svc-arrow">Daha Fazla <i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="svc-card reveal reveal-delay-2">
+        <div class="svc-num">03</div>
+        <div class="svc-icon"><i class="fas fa-laptop-code"></i></div>
+        <div class="svc-title">Web Tasarım</div>
+        <div class="svc-desc">Hız, estetik ve dönüşüm odaklı web siteleri.</div>
+        <div class="svc-arrow">Daha Fazla <i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="svc-card reveal reveal-delay-3">
+        <div class="svc-num">04</div>
+        <div class="svc-icon"><i class="fas fa-share-alt"></i></div>
+        <div class="svc-title">Sosyal Medya</div>
+        <div class="svc-desc">Instagram, Facebook ve LinkedIn'de marka bilinirliği.</div>
+        <div class="svc-arrow">Daha Fazla <i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ============================================================
+     NEDEN BİZ
+============================================================ -->
+<section class="section why-section">
+  <div class="section-inner">
+    <div class="why-inner">
+      <div class="why-left">
+        <div class="section-eyebrow reveal-left"><div class="eyebrow-line"></div> Neden Biz?</div>
+        <h2 class="section-title reveal-left reveal-delay-1">Sonuç<br>konuşur.</h2>
+        <p class="section-sub reveal-left reveal-delay-2">Vaatlerle değil, verilerle çalışıyoruz.</p>
+        <div class="why-items">
+          <div class="why-item reveal-left reveal-delay-2">
+            <div class="why-item-icon"><i class="fas fa-bolt"></i></div>
+            <div><div class="why-item-title">Hızlı Başlangıç</div><div class="why-item-desc">7 gün içinde kampanyalarınız yayında.</div></div>
+          </div>
+          <div class="why-item reveal-left reveal-delay-3">
+            <div class="why-item-icon"><i class="fas fa-chart-pie"></i></div>
+            <div><div class="why-item-title">Derin Analiz</div><div class="why-item-desc">Haftalık raporlar, anlık izleme.</div></div>
+          </div>
+          <div class="why-item reveal-left reveal-delay-4">
+            <div class="why-item-icon"><i class="fas fa-bullseye"></i></div>
+            <div><div class="why-item-title">Sonuç Garantisi</div><div class="why-item-desc">Hedeflerinize ulaşmazsak ücret almıyoruz.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="why-right reveal-right">
+        <div class="why-visual">
+          <div class="why-circle"></div>
+          <div class="why-circle2"></div>
+          <div class="why-center-card">
+            <div class="why-center-num">98<em>%</em></div>
+            <div class="why-center-lbl">Memnuniyet Oranı</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<section class="section svc-section" id="hizmetler"><div class="section-inner"><div class="section-eyebrow reveal"><div class="eyebrow-line"></div> Hizmetler</div><h2 class="section-title reveal reveal-delay-1">Büyümenize özel<br>çözümler.</h2><div class="svc-grid"><div class="svc-card reveal"><div class="svc-num">01</div><div class="svc-icon"><i class="fab fa-google"></i></div><div class="svc-title">Google Ads</div><div class="svc-desc">Arama, alışveriş ve display kampanyalarında maksimum ROAS.</div><div class="svc-arrow">Daha Fazla <i class="fas fa-arrow-right"></i></div></div><div class="svc-card reveal reveal-delay-1"><div class="svc-num">02</div><div class="svc-icon"><i class="fas fa-chart-line"></i></div><div class="svc-title">SEO Optimizasyonu</div><div class="svc-desc">Teknik SEO, içerik stratejisi ve link inşasıyla kalıcı üst sıralar.</div><div class="svc-arrow">Daha Fazla <i class="fas fa-arrow-right"></i></div></div><div class="svc-card reveal reveal-delay-2"><div class="svc-num">03</div><div class="svc-icon"><i class="fas fa-laptop-code"></i></div><div class="svc-title">Web Tasarım</div><div class="svc-desc">Hız, estetik ve dönüşüm odaklı web siteleri.</div><div class="svc-arrow">Daha Fazla <i class="fas fa-arrow-right"></i></div></div><div class="svc-card reveal reveal-delay-3"><div class="svc-num">04</div><div class="svc-icon"><i class="fas fa-share-alt"></i></div><div class="svc-title">Sosyal Medya</div><div class="svc-desc">Instagram, Facebook ve LinkedIn'de marka bilinirliği.</div><div class="svc-arrow">Daha Fazla <i class="fas fa-arrow-right"></i></div></div></div></div></section>
+<!-- ============================================================
+     SÜREÇ
+============================================================ -->
+<section class="section process-section">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal"><div class="eyebrow-line"></div> Süreç</div>
+    <h2 class="section-title reveal reveal-delay-1">4 adımda<br>büyüme.</h2>
+    <div class="process-row">
+      <div class="process-step reveal">
+        <div class="process-step-num">01</div>
+        <div class="process-step-icon"><i class="fas fa-search"></i></div>
+        <div class="process-step-title">Keşif &amp; Analiz</div>
+        <div class="process-step-desc">Markanızı, rakiplerinizi analiz ediyoruz.</div>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-step-num">02</div>
+        <div class="process-step-icon"><i class="fas fa-pencil-alt"></i></div>
+        <div class="process-step-title">Strateji Geliştirme</div>
+        <div class="process-step-desc">Veriye dayalı strateji oluşturuyoruz.</div>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-step-num">03</div>
+        <div class="process-step-icon"><i class="fas fa-rocket"></i></div>
+        <div class="process-step-title">Uygulama</div>
+        <div class="process-step-desc">Kampanyaları hayata geçiriyoruz.</div>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-step-num">04</div>
+        <div class="process-step-icon"><i class="fas fa-chart-bar"></i></div>
+        <div class="process-step-title">Ölçüm &amp; Rapor</div>
+        <div class="process-step-desc">Tüm metrikleri şeffaf şekilde paylaşıyoruz.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<section class="section why-section"><div class="section-inner"><div class="why-inner"><div class="why-left"><div class="section-eyebrow reveal-left"><div class="eyebrow-line"></div> Neden Biz?</div><h2 class="section-title reveal-left reveal-delay-1">Sonuç<br>konuşur.</h2><p class="section-sub reveal-left reveal-delay-2">Vaatlerle değil, verilerle çalışıyoruz.</p><div class="why-items"><div class="why-item reveal-left reveal-delay-2"><div class="why-item-icon"><i class="fas fa-bolt"></i></div><div><div class="why-item-title">Hızlı Başlangıç</div><div class="why-item-desc">7 gün içinde kampanyalarınız yayında.</div></div></div><div class="why-item reveal-left reveal-delay-3"><div class="why-item-icon"><i class="fas fa-chart-pie"></i></div><div><div class="why-item-title">Derin Analiz</div><div class="why-item-desc">Haftalık raporlar, anlık izleme.</div></div></div><div class="why-item reveal-left reveal-delay-4"><div class="why-item-icon"><i class="fas fa-bullseye"></i></div><div><div class="why-item-title">Sonuç Garantisi</div><div class="why-item-desc">Hedeflerinize ulaşmazsak ücret almıyoruz.</div></div></div></div></div><div class="why-right reveal-right"><div class="why-visual"><div class="why-circle"></div><div class="why-circle2"></div><div class="why-center-card"><div class="why-center-num">98<em>%</em></div><div class="why-center-lbl">Memnuniyet Oranı</div></div></div></div></div></div></section>
+<!-- ============================================================
+     MÜŞTERİLER — KAYDIRILABİLİR
+============================================================ -->
+<section class="section test-section">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal"><div class="eyebrow-line"></div> Müşteriler</div>
+    <h2 class="section-title reveal reveal-delay-1">Onlar anlatsın.</h2>
+  </div>
 
-<section class="section process-section"><div class="section-inner"><div class="section-eyebrow reveal"><div class="eyebrow-line"></div> Süreç</div><h2 class="section-title reveal reveal-delay-1">4 adımda<br>büyüme.</h2><div class="process-row"><div class="process-step reveal"><div class="process-step-num">01</div><div class="process-step-icon"><i class="fas fa-search"></i></div><div class="process-step-title">Keşif & Analiz</div><div class="process-step-desc">Markanızı, rakiplerinizi analiz ediyoruz.</div></div><div class="process-step reveal reveal-delay-1"><div class="process-step-num">02</div><div class="process-step-icon"><i class="fas fa-pencil-alt"></i></div><div class="process-step-title">Strateji Geliştirme</div><div class="process-step-desc">Veriye dayalı strateji oluşturuyoruz.</div></div><div class="process-step reveal reveal-delay-2"><div class="process-step-num">03</div><div class="process-step-icon"><i class="fas fa-rocket"></i></div><div class="process-step-title">Uygulama</div><div class="process-step-desc">Kampanyaları hayata geçiriyoruz.</div></div><div class="process-step reveal reveal-delay-3"><div class="process-step-num">04</div><div class="process-step-icon"><i class="fas fa-chart-bar"></i></div><div class="process-step-title">Ölçüm & Rapor</div><div class="process-step-desc">Tüm metrikleri şeffaf şekilde paylaşıyoruz.</div></div></div></div></section>
+  <div class="test-track-wrap">
+    <div class="test-scroll" id="testScroll">
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Google Ads kampanyalarımızla ciromuz %340 arttı. Web4Medya ekibi gerçekten işinin ehli."</p>
+        <div class="test-author">
+          <div class="test-avatar" style="background:#4285F4">AK</div>
+          <div><div class="test-name">Ahmet Kaya</div><div class="test-role">CEO, ModaShop</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"SEO çalışmalarıyla organik trafiğimiz 4 katına çıktı. Artık rakiplerimizin önündeyiz."</p>
+        <div class="test-author">
+          <div class="test-avatar" style="background:#34A853">SE</div>
+          <div><div class="test-name">Selin Erdem</div><div class="test-role">Kurucu, TeknoModa</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Sosyal medya stratejisiyle takipçimiz 85 bine ulaştı. Satışlara yansıması inanılmaz."</p>
+        <div class="test-author">
+          <div class="test-avatar" style="background:#EA4335">MÖ</div>
+          <div><div class="test-name">Merve Öztürk</div><div class="test-role">Güzellik Salonu</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"UX iyileştirmeleri ve dönüşüm odaklı tasarımla satışlarımız patlama yaptı."</p>
+        <div class="test-author">
+          <div class="test-avatar" style="background:#FBBC05;color:#7A5C00">KD</div>
+          <div><div class="test-name">Kemal Demir</div><div class="test-role">CEO, TechStore</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Yerel SEO ile Google Maps'te #1 konuma geldik. Rezervasyonlar %220 arttı."</p>
+        <div class="test-author">
+          <div class="test-avatar" style="background:#34A853">TA</div>
+          <div><div class="test-name">Tarık Arslan</div><div class="test-role">Restoran Sahibi</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"E-ticaret sitemizin yeniden tasarımından sonra sepet tamamlama oranı %65 yükseldi."</p>
+        <div class="test-author">
+          <div class="test-avatar" style="background:#4285F4">BY</div>
+          <div><div class="test-name">Berk Yılmaz</div><div class="test-role">E-Ticaret Yöneticisi</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Display reklam kampanyamız marka bilinirliğini kısa sürede ciddi ölçüde artırdı."</p>
+        <div class="test-author">
+          <div class="test-avatar" style="background:#EA4335">NÇ</div>
+          <div><div class="test-name">Neslihan Çelik</div><div class="test-role">Pazarlama Müdürü</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<section class="section test-section"><div class="section-inner"><div class="section-eyebrow reveal"><div class="eyebrow-line"></div> Müşteriler</div><h2 class="section-title reveal reveal-delay-1">Onlar anlatsın.</h2></div><div class="test-track-wrap"><div class="test-track" id="testTrack"><div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"Google Ads kampanyalarımızla ciromuz %340 arttı."</p><div class="test-author"><div class="test-avatar" style="background:var(--primary-blue)">AK</div><div><div class="test-name">Ahmet Kaya</div><div class="test-role">CEO, ModaShop</div></div></div></div><div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"SEO çalışmalarıyla organik trafiğimiz 4 katına çıktı."</p><div class="test-author"><div class="test-avatar" style="background:#5FA8FF">SE</div><div><div class="test-name">Selin Erdem</div><div class="test-role">Kurucu</div></div></div></div><div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"Sosyal medya stratejisiyle takipçimiz 85 bine ulaştı."</p><div class="test-author"><div class="test-avatar" style="background:#4CAF50">MÖ</div><div><div class="test-name">Merve Öztürk</div><div class="test-role">Güzellik Salonu</div></div></div></div><div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"UX iyileştirmeleriyle satışlar patlama yaptı."</p><div class="test-author"><div class="test-avatar" style="background:#3A8DFF">KD</div><div><div class="test-name">Kemal Demir</div><div class="test-role">TechStore</div></div></div></div><div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"Yerel SEO ile Google Maps'te #1 konuma geldik."</p><div class="test-author"><div class="test-avatar" style="background:#4CAF50">TA</div><div><div class="test-name">Tarık Arslan</div><div class="test-role">Restoran</div></div></div></div><div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"Google Ads kampanyalarımızla ciromuz %340 arttı."</p><div class="test-author"><div class="test-avatar" style="background:var(--primary-blue)">AK</div><div><div class="test-name">Ahmet Kaya</div><div class="test-role">CEO, ModaShop</div></div></div></div><div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"SEO çalışmalarıyla organik trafiğimiz 4 katına çıktı."</p><div class="test-author"><div class="test-avatar" style="background:#5FA8FF">SE</div><div><div class="test-name">Selin Erdem</div><div class="test-role">Kurucu</div></div></div></div><div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"Sosyal medya stratejisiyle takipçimiz 85 bine ulaştı."</p><div class="test-author"><div class="test-avatar" style="background:#4CAF50">MÖ</div><div><div class="test-name">Merve Öztürk</div><div class="test-role">Güzellik Salonu</div></div></div></div></div></div></section>
+  <!-- Navigasyon okları ve dots -->
+  <div class="test-nav">
+    <button class="test-btn" id="testPrev" aria-label="Önceki"><i class="fas fa-chevron-left"></i></button>
+    <div class="test-dots" id="testDots"></div>
+    <button class="test-btn" id="testNext" aria-label="Sonraki"><i class="fas fa-chevron-right"></i></button>
+  </div>
+</section>
 
-<section class="section refs-section" id="referanslar"><div class="section-inner"><div class="refs-header"><div><div class="section-eyebrow reveal"><div class="eyebrow-line"></div> Referanslar</div><h2 class="section-title reveal reveal-delay-1">Sonuç üreten<br>projeler.</h2></div><p class="section-sub reveal reveal-delay-2" style="margin-bottom:0">Her proje, veriye dayalı strateji ve yaratıcı icraatın birleşimiyle hayata geçirildi.</p></div>
-<div class="refs-grid"><div class="ref-card featured reveal"><div class="ref-thumb"><div class="ref-thumb-inner" style="background:linear-gradient(135deg,#f5f7fa,#eef2f6)"><span style="font-size:5rem">🛒</span><div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(58,141,255,0.05),transparent)"></div></div><div class="ref-thumb-overlay"><span class="ref-thumb-tag">E-Ticaret</span></div></div><div class="ref-body"><span class="ref-tag">Google Ads + SEO</span><div class="ref-title">ModaShop — %340 Ciro Artışı</div><div class="ref-desc">E-ticaret devinin Google Ads ve SEO stratejisini yeniden yapılandırdık.</div><div class="ref-footer"><div class="ref-metric"><strong>+340%</strong> Ciro Artışı</div><div class="ref-metric"><strong>-42%</strong> EBM Düşüşü</div><div class="ref-metric"><strong>8 ay</strong> Süre</div><a href="#" class="ref-link">Projeye Git <i class="fas fa-arrow-right"></i></a></div></div></div>
-<div class="ref-card reveal reveal-delay-1"><div class="ref-thumb"><div class="ref-thumb-inner" style="background:linear-gradient(135deg,#f5f7fa,#eef2f6)"><span style="font-size:3.5rem">🏢</span></div><div class="ref-thumb-overlay"><span class="ref-thumb-tag">Kurumsal</span></div></div><div class="ref-body"><span class="ref-tag">Web Tasarım + SEO</span><div class="ref-title">İnşaat Firması Kurumsal Web</div><div class="ref-desc">Yeni kurumsal kimlik ve %280 organik trafik artışı.</div><div class="ref-footer"><div class="ref-metric"><strong>+280%</strong> Organik Trafik</div><a href="#" class="ref-link">Projeye Git <i class="fas fa-arrow-right"></i></a></div></div></div>
-<div class="ref-card reveal reveal-delay-2"><div class="ref-thumb"><div class="ref-thumb-inner" style="background:linear-gradient(135deg,#f5f7fa,#eef2f6)"><span style="font-size:3.5rem">💆</span></div><div class="ref-thumb-overlay"><span class="ref-thumb-tag">Güzellik</span></div></div><div class="ref-body"><span class="ref-tag">Instagram + Google Ads</span><div class="ref-title">Güzellik Salonu Kampanyası</div><div class="ref-desc">Meta ve Google reklamlarıyla aylık randevu sayısını 3'e katladık.</div><div class="ref-footer"><div class="ref-metric"><strong>3×</strong> Randevu</div><a href="#" class="ref-link">Projeye Git <i class="fas fa-arrow-right"></i></a></div></div></div>
-<div class="ref-card reveal reveal-delay-1"><div class="ref-thumb"><div class="ref-thumb-inner" style="background:linear-gradient(135deg,#f5f7fa,#eef2f6)"><span style="font-size:3.5rem">🍕</span></div><div class="ref-thumb-overlay"><span class="ref-thumb-tag">Restoran</span></div></div><div class="ref-body"><span class="ref-tag">Yerel SEO + Google Maps</span><div class="ref-title">Restoran Zinciri Dijital Büyüme</div><div class="ref-desc">Google Maps görünürlüğünü ve yerel aramada #1 sıraya ulaştırdık.</div><div class="ref-footer"><div class="ref-metric"><strong>#1</strong> Google Maps</div><a href="#" class="ref-link">Projeye Git <i class="fas fa-arrow-right"></i></a></div></div></div>
-<div class="ref-card reveal reveal-delay-2"><div class="ref-thumb"><div class="ref-thumb-inner" style="background:linear-gradient(135deg,#f5f7fa,#eef2f6)"><span style="font-size:3.5rem">🏋️</span></div><div class="ref-thumb-overlay"><span class="ref-thumb-tag">Spor</span></div></div><div class="ref-body"><span class="ref-tag">Web + Sosyal Medya</span><div class="ref-title">Spor Merkezi Dijital Dönüşüm</div><div class="ref-desc">Yeni web sitesi ve sosyal medya yönetimiyle üyelik satışları %195 arttı.</div><div class="ref-footer"><div class="ref-metric"><strong>+195%</strong> Üyelik</div><a href="#" class="ref-link">Projeye Git <i class="fas fa-arrow-right"></i></a></div></div></div></div></div></section>
-   
-<section class="cta-section" id="iletisim"><div class="cta-bg"></div><div class="cta-lines"></div><div class="cta-inner"><div class="section-eyebrow reveal" style="justify-content:center"><div class="eyebrow-line"></div> İletişim</div><h2 class="reveal reveal-delay-1">Markanı büyütmeye<br><span>hazır mısın?</span></h2><p class="reveal reveal-delay-2">Ücretsiz strateji görüşmesi için bize ulaşın.</p><div class="cta-actions reveal reveal-delay-3"><a href="tel:05303158752" class="btn-main"><i class="fas fa-phone-alt"></i> Hemen Ara</a><a href="https://wa.me/905303158752" class="btn-ghost" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz</a></div><div style="display:flex;justify-content:center;gap:40px;margin-top:56px;flex-wrap:wrap" class="reveal reveal-delay-4"><div style="text-align:center"><div style="font-size:0.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Telefon</div><a href="tel:05303158752" style="color:var(--text-dark);font-weight:700;text-decoration:none;font-size:0.95rem">0530 315 87 52</a></div><div style="width:1px;background:var(--border);align-self:stretch"></div><div style="text-align:center"><div style="font-size:0.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">E-Posta</div><a href="mailto:info@web4medya.com" style="color:var(--text-dark);font-weight:700;text-decoration:none;font-size:0.95rem">info@web4medya.com</a></div><div style="width:1px;background:var(--border);align-self:stretch"></div><div style="text-align:center"><div style="font-size:0.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Konum</div><span style="color:var(--text-dark);font-weight:700;font-size:0.95rem">İstanbul, Türkiye</span></div></div></div></section>
+<!-- ============================================================
+     REFERANSLAR
+============================================================ -->
+<section class="section refs-section" id="referanslar">
+  <div class="section-inner">
+    <div class="refs-header">
+      <div>
+        <div class="section-eyebrow reveal"><div class="eyebrow-line"></div> Referanslar</div>
+        <h2 class="section-title reveal reveal-delay-1">Sonuç üreten<br>projeler.</h2>
+      </div>
+      <p class="section-sub reveal reveal-delay-2" style="margin-bottom:0">Her proje, veriye dayalı strateji ve yaratıcı icraatın birleşimiyle hayata geçirildi.</p>
+    </div>
+    <div class="refs-grid">
+      <div class="ref-card featured reveal">
+        <div class="ref-thumb">
+          <div class="ref-thumb-inner" style="background:linear-gradient(135deg,#EBF1FE,#DCE8FF)"><span style="font-size:5rem">🛒</span></div>
+          <div class="ref-thumb-overlay"><span class="ref-thumb-tag">E-Ticaret</span></div>
+        </div>
+        <div class="ref-body">
+          <span class="ref-tag">Google Ads + SEO</span>
+          <div class="ref-title">ModaShop — %340 Ciro Artışı</div>
+          <div class="ref-desc">E-ticaret devinin Google Ads ve SEO stratejisini yeniden yapılandırdık.</div>
+          <div class="ref-footer">
+            <div class="ref-metric"><strong>+340%</strong> Ciro Artışı</div>
+            <div class="ref-metric"><strong>-42%</strong> EBM Düşüşü</div>
+            <div class="ref-metric"><strong>8 ay</strong> Süre</div>
+            <a href="#" class="ref-link">Projeye Git <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="ref-card reveal reveal-delay-1">
+        <div class="ref-thumb">
+          <div class="ref-thumb-inner" style="background:linear-gradient(135deg,#EBF5F0,#D5EDDF)"><span style="font-size:3.5rem">🏢</span></div>
+          <div class="ref-thumb-overlay"><span class="ref-thumb-tag">Kurumsal</span></div>
+        </div>
+        <div class="ref-body">
+          <span class="ref-tag">Web Tasarım + SEO</span>
+          <div class="ref-title">İnşaat Firması Kurumsal Web</div>
+          <div class="ref-desc">Yeni kurumsal kimlik ve %280 organik trafik artışı.</div>
+          <div class="ref-footer">
+            <div class="ref-metric"><strong>+280%</strong> Organik Trafik</div>
+            <a href="#" class="ref-link">Projeye Git <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="ref-card reveal reveal-delay-2">
+        <div class="ref-thumb">
+          <div class="ref-thumb-inner" style="background:linear-gradient(135deg,#FEF5EB,#FDEBD5)"><span style="font-size:3.5rem">💆</span></div>
+          <div class="ref-thumb-overlay"><span class="ref-thumb-tag">Güzellik</span></div>
+        </div>
+        <div class="ref-body">
+          <span class="ref-tag">Instagram + Google Ads</span>
+          <div class="ref-title">Güzellik Salonu Kampanyası</div>
+          <div class="ref-desc">Meta ve Google reklamlarıyla aylık randevu sayısını 3'e katladık.</div>
+          <div class="ref-footer">
+            <div class="ref-metric"><strong>3×</strong> Randevu</div>
+            <a href="#" class="ref-link">Projeye Git <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="ref-card reveal reveal-delay-1">
+        <div class="ref-thumb">
+          <div class="ref-thumb-inner" style="background:linear-gradient(135deg,#FEF0EE,#FDE0DC)"><span style="font-size:3.5rem">🍕</span></div>
+          <div class="ref-thumb-overlay"><span class="ref-thumb-tag">Restoran</span></div>
+        </div>
+        <div class="ref-body">
+          <span class="ref-tag">Yerel SEO + Google Maps</span>
+          <div class="ref-title">Restoran Zinciri Dijital Büyüme</div>
+          <div class="ref-desc">Google Maps görünürlüğünü ve yerel aramada #1 sıraya ulaştırdık.</div>
+          <div class="ref-footer">
+            <div class="ref-metric"><strong>#1</strong> Google Maps</div>
+            <a href="#" class="ref-link">Projeye Git <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="ref-card reveal reveal-delay-2">
+        <div class="ref-thumb">
+          <div class="ref-thumb-inner" style="background:linear-gradient(135deg,#EBF1FE,#DCE8FF)"><span style="font-size:3.5rem">🏋️</span></div>
+          <div class="ref-thumb-overlay"><span class="ref-thumb-tag">Spor</span></div>
+        </div>
+        <div class="ref-body">
+          <span class="ref-tag">Web + Sosyal Medya</span>
+          <div class="ref-title">Spor Merkezi Dijital Dönüşüm</div>
+          <div class="ref-desc">Yeni web sitesi ve sosyal medya yönetimiyle üyelik satışları %195 arttı.</div>
+          <div class="ref-footer">
+            <div class="ref-metric"><strong>+195%</strong> Üyelik</div>
+            <a href="#" class="ref-link">Projeye Git <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<footer class="footer"><div class="footer-inner"><div class="footer-top"><div><a href="/" class="footer-brand-logo"><div class="logo-mark">W4</div><span class="footer-brand-name">Web4<span>Medya</span></span></a><p class="footer-brand-desc">Dijital pazarlama, web tasarım ve büyüme odaklı ajans.</p><div class="footer-socials"><a href="#" class="footer-soc"><i class="fab fa-instagram"></i></a><a href="#" class="footer-soc"><i class="fab fa-linkedin-in"></i></a><a href="#" class="footer-soc"><i class="fab fa-twitter"></i></a><a href="#" class="footer-soc"><i class="fab fa-youtube"></i></a></div></div><div><div class="footer-col-title">Sayfalar</div><ul class="footer-links"><li><a href="#hero">Ana Sayfa</a></li><li><a href="#hizmetler">Hizmetler</a></li><li><a href="#referanslar">Referanslar</a></li><li><a href="#iletisim">İletişim</a></li></ul></div><div><div class="footer-col-title">Hizmetler</div><ul class="footer-links"><li><a href="#">Google Ads</a></li><li><a href="#">SEO</a></li><li><a href="#">Web Tasarım</a></li><li><a href="#">Sosyal Medya</a></li></ul></div><div><div class="footer-col-title">İletişim</div><div class="footer-contact-item"><i class="fas fa-phone-alt"></i><a href="tel:05303158752">0530 315 87 52</a></div><div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:info@web4medya.com">info@web4medya.com</a></div><div class="footer-contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/905303158752">WhatsApp</a></div></div></div><div class="footer-bottom"><p class="footer-copy">© 2026 Web4Medya. Tüm hakları saklıdır.</p><div class="footer-links-inline"><a href="#">Gizlilik Politikası</a><a href="#">Kullanım Koşulları</a><a href="#">KVKK</a></div></div></div></footer>
+<!-- ============================================================
+     İLETİŞİM CTA
+============================================================ -->
+<section class="cta-section" id="iletisim">
+  <div class="cta-bg"></div>
+  <div class="cta-lines"></div>
+  <div class="cta-inner">
+    <div class="section-eyebrow reveal" style="justify-content:center"><div class="eyebrow-line"></div> İletişim</div>
+    <h2 class="reveal reveal-delay-1">Markanı büyütmeye<br><span>hazır mısın?</span></h2>
+    <p class="reveal reveal-delay-2">Ücretsiz strateji görüşmesi için bize ulaşın.</p>
+    <div class="cta-actions reveal reveal-delay-3">
+      <a href="tel:05303158752" class="btn-main"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
+      <a href="https://wa.me/905303158752" class="btn-ghost" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz</a>
+    </div>
+    <div style="display:flex;justify-content:center;gap:40px;margin-top:56px;flex-wrap:wrap" class="reveal reveal-delay-4">
+      <div style="text-align:center">
+        <div style="font-size:0.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Telefon</div>
+        <a href="tel:05303158752" style="color:var(--text-dark);font-weight:700;text-decoration:none;font-size:0.95rem">0530 315 87 52</a>
+      </div>
+      <div style="width:1px;background:var(--border);align-self:stretch"></div>
+      <div style="text-align:center">
+        <div style="font-size:0.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">E-Posta</div>
+        <a href="mailto:info@web4medya.com" style="color:var(--text-dark);font-weight:700;text-decoration:none;font-size:0.95rem">info@web4medya.com</a>
+      </div>
+      <div style="width:1px;background:var(--border);align-self:stretch"></div>
+      <div style="text-align:center">
+        <div style="font-size:0.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Konum</div>
+        <span style="color:var(--text-dark);font-weight:700;font-size:0.95rem">İstanbul, Türkiye</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="floating"><a href="https://wa.me/905303158752" class="fl-btn fl-wa" target="_blank"><i class="fab fa-whatsapp"></i></a><a href="tel:05303158752" class="fl-btn fl-ph"><i class="fas fa-phone-alt"></i></a></div>
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/" class="footer-brand-logo">
+          <div class="logo-mark">W4</div>
+          <span class="footer-brand-name">Web4<span>Medya</span></span>
+        </a>
+        <p class="footer-brand-desc">Dijital pazarlama, web tasarım ve büyüme odaklı ajans.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-soc"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="footer-soc"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="footer-soc"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="footer-soc"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Sayfalar</div>
+        <ul class="footer-links">
+          <li><a href="#hero">Ana Sayfa</a></li>
+          <li><a href="#hizmetler">Hizmetler</a></li>
+          <li><a href="#referanslar">Referanslar</a></li>
+          <li><a href="#iletisim">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Hizmetler</div>
+        <ul class="footer-links">
+          <li><a href="#">Google Ads</a></li>
+          <li><a href="#">SEO</a></li>
+          <li><a href="#">Web Tasarım</a></li>
+          <li><a href="#">Sosyal Medya</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">İletişim</div>
+        <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><a href="tel:05303158752">0530 315 87 52</a></div>
+        <div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:info@web4medya.com">info@web4medya.com</a></div>
+        <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/905303158752">WhatsApp</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Web4Medya. Tüm hakları saklıdır.</p>
+      <div class="footer-links-inline">
+        <a href="#">Gizlilik Politikası</a>
+        <a href="#">Kullanım Koşulları</a>
+        <a href="#">KVKK</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="floating">
+  <a href="https://wa.me/905303158752" class="fl-btn fl-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <a href="tel:05303158752" class="fl-btn fl-ph"><i class="fas fa-phone-alt"></i></a>
+</div>
 
 <script>
-// Custom cursor, header scroll, mobile menu, smooth scroll, active nav, scroll reveal, counter animation
 (function(){
+  /* ── Cursor ── */
   const cursor = document.getElementById('cursor'), ring = document.getElementById('cursorRing');
   let mx=0,my=0,rx=0,ry=0;
   if(cursor && ring){
@@ -818,21 +1386,97 @@ background:#000;
       el.addEventListener('mouseleave',()=>{ cursor.style.width='10px'; cursor.style.height='10px'; cursor.style.opacity='1'; ring.style.width='36px'; ring.style.height='36px'; });
     });
   }
+
+  /* ── Header scroll ── */
   const header=document.getElementById('mainHeader');
   window.addEventListener('scroll',()=>{ header.classList.toggle('scrolled', window.scrollY>40); });
+
+  /* ── Mobile menu ── */
   const hamburger=document.getElementById('hamburger'), mobMenu=document.getElementById('mobMenu');
   if(hamburger&&mobMenu){
     hamburger.addEventListener('click',()=>{ const open=hamburger.classList.toggle('open'); mobMenu.classList.toggle('open',open); document.body.style.overflow=open?'hidden':''; });
     mobMenu.querySelectorAll('a').forEach(a=>{ a.addEventListener('click',()=>{ hamburger.classList.remove('open'); mobMenu.classList.remove('open'); document.body.style.overflow=''; }); });
   }
+
+  /* ── Smooth scroll ── */
   document.querySelectorAll('a[href^="#"]').forEach(a=>{ a.addEventListener('click',e=>{ const id=a.getAttribute('href').slice(1); const t=document.getElementById(id); if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); } }); });
+
+  /* ── Active nav ── */
   const navLinks=document.querySelectorAll('.nav-link'), sections=['hero','referanslar','hizmetler','iletisim'].map(id=>document.getElementById(id)).filter(Boolean);
   const ioNav=new IntersectionObserver(entries=>{ entries.forEach(entry=>{ if(entry.isIntersecting){ navLinks.forEach(l=>{ l.classList.toggle('active', l.getAttribute('href')==='#'+entry.target.id); }); } }); },{rootMargin:'-40% 0px -50% 0px'});
   sections.forEach(s=>ioNav.observe(s));
+
+  /* ── Scroll reveal ── */
   const revealObs=new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); revealObs.unobserve(e.target); } }); },{threshold:0.1});
   document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>revealObs.observe(el));
-  const statsObs=new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.querySelectorAll('.stat-number').forEach(el=>{ let t=parseInt(el.textContent); let suf=el.textContent.replace(/[0-9]/g,''); let start=0, dur=1600, step=16, inc=t/(dur/step), timer=setInterval(()=>{ start+=inc; if(start>=t){ start=t; clearInterval(timer); } el.textContent=Math.floor(start)+(suf||''); },step); }); statsObs.unobserve(e.target); } }); },{threshold:0.5});
+
+  /* ── Counter animation ── */
+  const statsObs=new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.querySelectorAll('.stat-number').forEach(el=>{ let t=parseInt(el.textContent); let suf=el.querySelector('em') ? el.querySelector('em').textContent : el.textContent.replace(/[0-9]/g,''); let start=0, dur=1600, step=16, inc=t/(dur/step), timer=setInterval(()=>{ start+=inc; if(start>=t){ start=t; clearInterval(timer); } el.childNodes[0].nodeValue=Math.floor(start); },step); }); statsObs.unobserve(e.target); } }); },{threshold:0.5});
   document.querySelectorAll('.hero-stats').forEach(s=>statsObs.observe(s));
+
+  /* ════════════════════════════════════════════════
+     TESTİMONİALS — Sürükle & Kaydır + Ok Butonları
+  ════════════════════════════════════════════════ */
+  const scroll = document.getElementById('testScroll');
+  const prevBtn = document.getElementById('testPrev');
+  const nextBtn = document.getElementById('testNext');
+  const dotsContainer = document.getElementById('testDots');
+
+  if(scroll && prevBtn && nextBtn){
+    const cards = scroll.querySelectorAll('.test-card');
+    const cardCount = cards.length;
+
+    /* Dot'ları oluştur */
+    cards.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'test-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Yorum ${i+1}`);
+      dot.addEventListener('click', () => scrollToCard(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function getCardWidth(){
+      return cards[0].offsetWidth + 20; /* gap */
+    }
+
+    function getCurrentIndex(){
+      return Math.round(scroll.scrollLeft / getCardWidth());
+    }
+
+    function updateDots(idx){
+      const dots = dotsContainer.querySelectorAll('.test-dot');
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+
+    function scrollToCard(idx){
+      const clampedIdx = Math.max(0, Math.min(idx, cardCount - 1));
+      scroll.scrollTo({ left: clampedIdx * getCardWidth(), behavior: 'smooth' });
+      updateDots(clampedIdx);
+    }
+
+    prevBtn.addEventListener('click', () => scrollToCard(getCurrentIndex() - 1));
+    nextBtn.addEventListener('click', () => scrollToCard(getCurrentIndex() + 1));
+
+    /* Scroll sırasında dot güncelle */
+    let scrollTimer;
+    scroll.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => updateDots(getCurrentIndex()), 80);
+    });
+
+    /* ── Sürükleme (mouse drag) ── */
+    let isDown = false, startX = 0, startScrollLeft = 0;
+    scroll.addEventListener('mousedown', e => { isDown = true; startX = e.pageX - scroll.offsetLeft; startScrollLeft = scroll.scrollLeft; scroll.style.cursor = 'grabbing'; });
+    scroll.addEventListener('mouseleave', () => { isDown = false; scroll.style.cursor = 'grab'; });
+    scroll.addEventListener('mouseup', () => { isDown = false; scroll.style.cursor = 'grab'; });
+    scroll.addEventListener('mousemove', e => {
+      if(!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - scroll.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      scroll.scrollLeft = startScrollLeft - walk;
+    });
+  }
 })();
 </script>
 </body>
