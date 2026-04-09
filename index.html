@@ -108,8 +108,8 @@ body::before{
   right:0;
   z-index:500;
   height:var(--header-h);
-
-  display:flex;
+grid-template-columns: auto 1fr auto;
+  display:grid;
   align-items:center;
   justify-content:space-between;
   padding:0 5%;
@@ -125,7 +125,15 @@ body::before{
 
   transition:all 0.3s ease;
 }
-
+   .nav{
+  justify-self:center;
+}
+   .nav-cta{
+  justify-self:end;
+}
+.header{
+  box-shadow:0 4px 20px rgba(0,0,0,0.04);
+}
 /* Artık buna gerek yok */
 .header.scrolled{
   background:#ffffff;
