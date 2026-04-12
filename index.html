@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover"/>
 <title>Web4Medya — Yenileniyor</title>
 <meta name="description" content="Web4Medya yeni yüzüyle çok yakında. Dijital pazarlamada yeni bir dönem başlıyor."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -26,21 +26,28 @@
 }
  
 html, body {
-  height: 100%;
-  overflow: hidden;
+  width: 100%;
+  max-width: 100vw;
   overflow-x: hidden;
-  font-family: 'DM Sans', sans-serif;
+  position: relative;
+  margin: 0;
+  padding: 0;
   background: var(--dark);
   color: var(--text);
-  max-width: 100vw;
+  font-family: 'DM Sans', sans-serif;
 }
  
-/* ═══════════════════════ CANVAS BG ═══════════════════════ */
+/* ═══════════════════════ CANVAS BG (tam kaplar, taşma yok) ═══════════════════════ */
 canvas#bg {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
   z-index: 0;
   opacity: 0.55;
+  pointer-events: none;
 }
  
 /* ═══════════════════════ NOISE ═══════════════════════ */
@@ -55,7 +62,7 @@ canvas#bg {
   mix-blend-mode: overlay;
 }
  
-/* ═══════════════════════ GLOW ORBS ═══════════════════════ */
+/* ═══════════════════════ GLOW ORBS (mobilde küçült, taşma önle) ═══════════════════════ */
 .orb {
   position: fixed;
   border-radius: 50%;
@@ -64,57 +71,60 @@ canvas#bg {
   z-index: 1;
   animation: orbFloat 12s ease-in-out infinite alternate;
 }
-.orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(66,133,244,0.18), transparent 70%); top: -100px; left: -100px; animation-delay: 0s; }
-.orb-2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(52,168,83,0.12), transparent 70%); bottom: -80px; right: -80px; animation-delay: -4s; }
-.orb-3 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(234,67,53,0.1), transparent 70%); top: 40%; left: 50%; transform: translate(-50%,-50%); animation-delay: -8s; }
+.orb-1 { width: min(600px, 80vw); height: min(600px, 80vw); background: radial-gradient(circle, rgba(66,133,244,0.18), transparent 70%); top: -20%; left: -20%; animation-delay: 0s; }
+.orb-2 { width: min(500px, 70vw); height: min(500px, 70vw); background: radial-gradient(circle, rgba(52,168,83,0.12), transparent 70%); bottom: -15%; right: -15%; animation-delay: -4s; }
+.orb-3 { width: min(400px, 65vw); height: min(400px, 65vw); background: radial-gradient(circle, rgba(234,67,53,0.1), transparent 70%); top: 40%; left: 50%; transform: translate(-50%,-50%); animation-delay: -8s; }
  
 @keyframes orbFloat {
   from { transform: translate(0, 0) scale(1); }
-  to   { transform: translate(30px, 20px) scale(1.1); }
+  to   { transform: translate(20px, 15px) scale(1.05); }
 }
  
-/* ═══════════════════════ GRID ═══════════════════════ */
+/* ═══════════════════════ GRID (mobilde daha az yoğun) ═══════════════════════ */
 .grid-overlay {
   position: fixed;
   inset: 0;
   z-index: 2;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size: 80px 80px;
-  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 0%, transparent 100%);
+    linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 0%, transparent 70%);
 }
  
-/* ═══════════════════════ MAIN ═══════════════════════ */
+/* ═══════════════════════ MAIN — tam mobil uyum, taşma yok ═══════════════════════ */
 main {
   position: relative;
   z-index: 10;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   max-width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 24px;
+  padding: 40px 20px;
   text-align: center;
   gap: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
  
-/* ═══════════════════════ LOGO ═══════════════════════ */
+/* ═══════════════════════ LOGO (responsive) ═══════════════════════ */
 .logo-wrap {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 52px;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
   opacity: 0;
   transform: translateY(-20px);
   animation: fadeDown 0.8s cubic-bezier(0.22,1,0.36,1) 0.1s forwards;
+  flex-wrap: wrap;
 }
 .logo-mark {
-  width: 42px; height: 42px;
+  width: 40px; height: 40px;
   background: var(--blue);
   border-radius: 12px;
   display: flex;
@@ -122,15 +132,14 @@ main {
   justify-content: center;
   font-family: 'Syne', sans-serif;
   font-weight: 800;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #fff;
-  letter-spacing: -0.03em;
-  box-shadow: 0 0 32px rgba(66,133,244,0.4);
+  box-shadow: 0 0 24px rgba(66,133,244,0.3);
 }
 .logo-name {
   font-family: 'Syne', sans-serif;
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--text);
   letter-spacing: -0.02em;
 }
@@ -141,10 +150,10 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 7px 16px;
+  padding: 6px 16px;
   border: 1px solid var(--border);
   border-radius: 50px;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 500;
   color: var(--text2);
   letter-spacing: 0.06em;
@@ -154,32 +163,42 @@ main {
   margin-bottom: 28px;
   opacity: 0;
   animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.25s forwards;
+  white-space: nowrap;
+}
+@media (max-width: 420px) {
+  .badge { white-space: normal; font-size: 0.65rem; gap: 5px; }
 }
 .badge-dot {
   width: 6px; height: 6px;
   background: var(--green);
   border-radius: 50%;
   animation: pulse-dot 2.2s ease-in-out infinite;
+  flex-shrink: 0;
 }
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(52,168,83,0.5); }
   50% { opacity: 0.5; box-shadow: 0 0 0 5px rgba(52,168,83,0); }
 }
  
-/* ═══════════════════════ HEADING ═══════════════════════ */
+/* ═══════════════════════ HEADING (mobilde satır kırılması güzel) ═══════════════════════ */
 .heading {
   font-family: 'Syne', sans-serif;
   font-weight: 800;
-  font-size: clamp(2.2rem, 7vw, 6.5rem);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
-  margin-bottom: 24px;
+  font-size: clamp(2rem, 8vw, 6rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+  width: 100%;
   opacity: 0;
   animation: fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.35s forwards;
 }
-.heading .line1 { display: block; color: var(--text); }
+.heading .line1, 
 .heading .line2 {
   display: block;
+  word-break: break-word;
+}
+.heading .line1 { color: var(--text); }
+.heading .line2 {
   background: linear-gradient(120deg, var(--blue) 0%, #8AB4F8 40%, var(--green) 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -187,124 +206,151 @@ main {
   animation: shimmer 4s linear infinite;
   background-size: 200%;
 }
+.heading .line3 { 
+  display: block; 
+  color: rgba(240,244,255,0.28); 
+  font-size: clamp(0.65rem, 3vw, 0.85rem); 
+  font-weight: 600; 
+  letter-spacing: 0.12em; 
+  text-transform: uppercase; 
+  margin-top: 14px; 
+  font-family: 'DM Sans', sans-serif;
+}
 @keyframes shimmer {
   0% { background-position: 0% center; }
   100% { background-position: 200% center; }
 }
-.heading .line3 { display: block; color: rgba(240,244,255,0.25); font-size: 0.55em; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 16px; font-family: 'DM Sans', sans-serif; }
  
-/* ═══════════════════════ SUB ═══════════════════════ */
+/* ═══════════════════════ SUB (genişlik sınırlandırıldı) ═══════════════════════ */
 .sub {
-  font-size: clamp(0.92rem, 2vw, 1.05rem);
+  font-size: clamp(0.85rem, 4vw, 1rem);
   color: var(--text2);
   font-weight: 300;
-  max-width: 440px;
-  line-height: 1.75;
-  margin-bottom: 52px;
+  max-width: 460px;
+  width: 90%;
+  line-height: 1.6;
+  margin-bottom: 44px;
   opacity: 0;
   animation: fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.45s forwards;
+  padding: 0 8px;
 }
  
-/* ═══════════════════════ BUTTONS ═══════════════════════ */
+/* ═══════════════════════ BUTTONS (tam mobil uyum, yatay taşma yok) ═══════════════════════ */
 .actions {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 14px;
   flex-wrap: wrap;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
   opacity: 0;
   animation: fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.55s forwards;
+  padding: 0 8px;
 }
  
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  padding: 14px 28px;
-  border-radius: 12px;
+  padding: 12px 20px;
+  border-radius: 14px;
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
   text-decoration: none;
-  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s, background 0.2s, border-color 0.2s;
+  transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), box-shadow 0.2s, background 0.2s;
   cursor: pointer;
   border: none;
   outline: none;
   letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+@media (max-width: 500px) {
+  .btn { white-space: normal; padding: 12px 18px; font-size: 0.8rem; flex: 1 1 auto; min-width: 140px; }
+  .actions { gap: 12px; flex-direction: row; flex-wrap: wrap; }
+}
+@media (max-width: 400px) {
+  .btn { padding: 11px 16px; font-size: 0.78rem; gap: 8px; }
 }
  
 .btn-wa {
   background: linear-gradient(135deg, #25D366, #128C7E);
   color: #fff;
-  box-shadow: 0 4px 24px rgba(37,211,102,0.25), 0 1px 0 rgba(255,255,255,0.1) inset;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.25);
 }
 .btn-wa:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 16px 48px rgba(37,211,102,0.35);
+  box-shadow: 0 14px 32px rgba(37,211,102,0.35);
 }
  
 .btn-call {
   background: var(--surface);
   border: 1px solid var(--border);
   color: var(--text);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(12px);
 }
 .btn-call:hover {
   transform: translateY(-3px) scale(1.02);
-  border-color: rgba(66,133,244,0.45);
+  border-color: rgba(66,133,244,0.5);
   background: rgba(66,133,244,0.1);
-  box-shadow: 0 12px 32px rgba(66,133,244,0.15);
 }
  
-.btn i { font-size: 1rem; }
- 
-/* ═══════════════════════ GOOGLE COLORS STRIP ═══════════════════════ */
+/* ═══════════════════════ GOOGLE COLOR STRIP ═══════════════════════ */
 .color-strip {
   display: flex;
   gap: 8px;
   align-items: center;
   justify-content: center;
-  margin-top: 52px;
+  margin-top: 48px;
   opacity: 0;
   animation: fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.65s forwards;
+  flex-wrap: wrap;
 }
 .color-dot {
-  width: 8px; height: 8px;
+  width: 7px; height: 7px;
   border-radius: 50%;
 }
-.color-dot:nth-child(1) { background: var(--blue); box-shadow: 0 0 10px rgba(66,133,244,0.5); }
-.color-dot:nth-child(2) { background: var(--red); box-shadow: 0 0 10px rgba(234,67,53,0.5); }
-.color-dot:nth-child(3) { background: var(--yellow); box-shadow: 0 0 10px rgba(251,188,5,0.5); }
-.color-dot:nth-child(4) { background: var(--green); box-shadow: 0 0 10px rgba(52,168,83,0.5); }
+.color-dot:nth-child(1) { background: var(--blue); box-shadow: 0 0 8px rgba(66,133,244,0.6); }
+.color-dot:nth-child(2) { background: var(--red); box-shadow: 0 0 8px rgba(234,67,53,0.6); }
+.color-dot:nth-child(3) { background: var(--yellow); box-shadow: 0 0 8px rgba(251,188,5,0.6); }
+.color-dot:nth-child(4) { background: var(--green); box-shadow: 0 0 8px rgba(52,168,83,0.6); }
 .color-strip span {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   color: var(--text3);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 0 10px;
+  padding: 0 6px;
 }
  
-/* ═══════════════════════ CORNER LABELS ═══════════════════════ */
+/* ═══════════════════════ CORNER LABELS (mobilde küçük) ═══════════════════════ */
 .corner-tl, .corner-br {
   position: fixed;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   color: var(--text3);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   z-index: 20;
   font-family: 'DM Sans', sans-serif;
   opacity: 0;
   animation: fadeIn 1s 0.8s forwards;
+  pointer-events: none;
 }
-.corner-tl { top: 24px; left: 28px; }
-.corner-br { bottom: 24px; right: 28px; text-align: right; }
+.corner-tl { top: 16px; left: 18px; }
+.corner-br { bottom: 16px; right: 18px; text-align: right; line-height: 1.2; }
+@media (max-width: 550px) {
+  .corner-tl { font-size: 0.5rem; top: 12px; left: 12px; }
+  .corner-br { font-size: 0.5rem; bottom: 12px; right: 12px; }
+}
  
-/* ═══════════════════════ SCAN LINE ═══════════════════════ */
+/* ═══════════════════════ SCAN LINE (ince ve temiz) ═══════════════════════ */
 .scan-line {
   position: fixed;
   left: 0; right: 0;
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(66,133,244,0.3), transparent);
+  background: linear-gradient(to right, transparent, rgba(66,133,244,0.3), rgba(66,133,244,0.6), transparent);
   pointer-events: none;
   z-index: 3;
   animation: scan 8s linear infinite;
@@ -318,11 +364,11 @@ main {
  
 /* ═══════════════════════ ANIMATIONS ═══════════════════════ */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
+  from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes fadeDown {
-  from { opacity: 0; transform: translateY(-20px); }
+  from { opacity: 0; transform: translateY(-15px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes fadeIn {
@@ -330,35 +376,37 @@ main {
   to   { opacity: 1; }
 }
  
-/* ═══════════════════════ RESPONSIVE ═══════════════════════ */
-@media (max-width: 480px) {
-  .heading { font-size: clamp(3rem, 16vw, 5rem); }
-  .actions { flex-direction: column; width: 100%; max-width: 300px; }
-  .btn { width: 100%; justify-content: center; }
-}
- 
-/* ═══════════════════════ CURSOR ═══════════════════════ */
-.cursor-dot {
+/* ═══════════════════════ CURSOR (mobilde gizli, performans) ═══════════════════════ */
+.cursor-dot, .cursor-ring {
   position: fixed;
-  width: 8px; height: 8px;
-  background: var(--blue);
-  border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s, opacity 0.2s;
+  will-change: left, top;
+}
+.cursor-dot {
+  width: 8px; height: 8px;
+  background: var(--blue);
+  border-radius: 50%;
   mix-blend-mode: screen;
 }
 .cursor-ring {
-  position: fixed;
   width: 32px; height: 32px;
   border: 1px solid rgba(66,133,244,0.4);
   border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s;
 }
-@media (hover: none) { .cursor-dot, .cursor-ring { display: none; } }
+@media (hover: none) and (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none; }
+}
+ 
+/* ekstra güvenlik: tüm img veya blok taşma önleyici */
+img, svg, iframe, .btn, .heading, .sub, .actions {
+  max-width: 100%;
+}
+body {
+  overflow-x: hidden;
+}
 </style>
 </head>
 <body>
@@ -417,88 +465,133 @@ main {
 </main>
  
 <script>
-/* ── Cursor ── */
+/* ── Cursor (sadece masaüstü) ── */
 const dot = document.getElementById('cursorDot');
 const ring = document.getElementById('cursorRing');
-let mx=0,my=0,rx=0,ry=0;
-window.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-});
-(function animRing(){
-  rx += (mx-rx)*0.1; ry += (my-ry)*0.1;
-  ring.style.left = rx+'px'; ring.style.top = ry+'px';
-  requestAnimationFrame(animRing);
-})();
+if (dot && ring && window.matchMedia('(hover: hover)').matches) {
+  let mx=0,my=0,rx=0,ry=0;
+  window.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+  });
+  function animRing(){
+    rx += (mx-rx)*0.1; ry += (my-ry)*0.1;
+    ring.style.left = rx+'px'; ring.style.top = ry+'px';
+    requestAnimationFrame(animRing);
+  }
+  animRing();
+  
+  document.querySelectorAll('a,button,.btn').forEach(el => {
+    el.addEventListener('mouseenter', () => { 
+      dot.style.width='14px'; dot.style.height='14px'; 
+      ring.style.width='48px'; ring.style.height='48px'; 
+    });
+    el.addEventListener('mouseleave', () => { 
+      dot.style.width='8px'; dot.style.height='8px'; 
+      ring.style.width='32px'; ring.style.height='32px'; 
+    });
+  });
+} else {
+  if(dot) dot.style.display = 'none';
+  if(ring) ring.style.display = 'none';
+}
  
-document.querySelectorAll('a,button').forEach(el => {
-  el.addEventListener('mouseenter', () => { dot.style.width='14px'; dot.style.height='14px'; ring.style.width='48px'; ring.style.height='48px'; });
-  el.addEventListener('mouseleave', () => { dot.style.width='8px'; dot.style.height='8px'; ring.style.width='32px'; ring.style.height='32px'; });
-});
- 
-/* ── Particle Canvas ── */
+/* ── Particle Canvas (daha düşük parçacık sayısı ile mobil performansı optimize) ── */
 const canvas = document.getElementById('bg');
 const ctx = canvas.getContext('2d');
- 
-function resize() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+let width, height;
+let particles = [];
+let animationId = null;
+let frame = 0;
+
+function resizeCanvas() {
+  width = window.innerWidth;
+  height = window.innerHeight;
+  canvas.width = width;
+  canvas.height = height;
+  initParticles();
 }
-resize();
-window.addEventListener('resize', resize);
- 
-const COLORS = ['66,133,244', '52,168,83', '234,67,53', '251,188,5'];
- 
-const particles = Array.from({ length: 90 }, () => ({
-  x: Math.random() * window.innerWidth,
-  y: Math.random() * window.innerHeight,
-  vx: (Math.random() - 0.5) * 0.35,
-  vy: (Math.random() - 0.5) * 0.35,
-  r: Math.random() * 1.8 + 0.4,
-  color: COLORS[Math.floor(Math.random() * COLORS.length)],
-  alpha: Math.random() * 0.5 + 0.1
-}));
- 
-function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
- 
-  /* Lines between close particles */
+
+function initParticles() {
+  // Mobilde daha az parçacık, performans ve temiz görünüm
+  const particleCount = Math.min(55, Math.max(32, Math.floor(window.innerWidth / 22)));
+  particles = [];
+  const COLORS_ARRAY = ['66,133,244', '52,168,83', '234,67,53', '251,188,5'];
+  for(let i=0; i<particleCount; i++) {
+    particles.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.28,
+      vy: (Math.random() - 0.5) * 0.28,
+      r: Math.random() * 1.8 + 0.5,
+      color: COLORS_ARRAY[Math.floor(Math.random() * COLORS_ARRAY.length)],
+      alpha: Math.random() * 0.45 + 0.1
+    });
+  }
+}
+
+function drawParticles() {
+  if(!ctx) return;
+  ctx.clearRect(0, 0, width, height);
+  
+  // Çizgiler (daha kısa mesafe, mobilde daha az çizgi)
   for (let i = 0; i < particles.length; i++) {
     for (let j = i + 1; j < particles.length; j++) {
       const dx = particles[i].x - particles[j].x;
       const dy = particles[i].y - particles[j].y;
       const dist = Math.sqrt(dx*dx + dy*dy);
-      if (dist < 140) {
+      if (dist < 100) {
         ctx.beginPath();
-        ctx.strokeStyle = `rgba(${particles[i].color},${0.07 * (1 - dist/140)})`;
-        ctx.lineWidth = 0.5;
+        const intensity = 0.055 * (1 - dist/100);
+        ctx.strokeStyle = `rgba(${particles[i].color},${intensity})`;
+        ctx.lineWidth = 0.45;
         ctx.moveTo(particles[i].x, particles[i].y);
         ctx.lineTo(particles[j].x, particles[j].y);
         ctx.stroke();
       }
     }
   }
- 
-  /* Dots */
+  
+  // Noktalar
   particles.forEach(p => {
     ctx.beginPath();
     ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
     ctx.fillStyle = `rgba(${p.color},${p.alpha})`;
     ctx.fill();
- 
+    
     p.x += p.vx;
     p.y += p.vy;
- 
-    if (p.x < -10) p.x = canvas.width + 10;
-    if (p.x > canvas.width + 10) p.x = -10;
-    if (p.y < -10) p.y = canvas.height + 10;
-    if (p.y > canvas.height + 10) p.y = -10;
+    
+    if (p.x < -15) p.x = width + 15;
+    if (p.x > width + 15) p.x = -15;
+    if (p.y < -15) p.y = height + 15;
+    if (p.y > height + 15) p.y = -15;
   });
- 
-  requestAnimationFrame(draw);
+  
+  animationId = requestAnimationFrame(drawParticles);
 }
-draw();
+
+function handleResize() {
+  resizeCanvas();
+}
+
+window.addEventListener('resize', () => {
+  clearTimeout(window._resizeTimer);
+  window._resizeTimer = setTimeout(() => {
+    resizeCanvas();
+  }, 80);
+});
+resizeCanvas();
+drawParticles();
+
+/* Mobilde dokunma butonlarına hafif dokunma geri bildirimi (opsiyonel) */
+const allBtns = document.querySelectorAll('.btn');
+allBtns.forEach(btn => {
+  btn.addEventListener('touchstart', function(e) {
+    this.style.transform = 'scale(0.97)';
+    setTimeout(() => { if(this) this.style.transform = ''; }, 120);
+  });
+});
 </script>
 </body>
 </html>
- 
