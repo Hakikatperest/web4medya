@@ -75,7 +75,6 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 }
 .nav-logo-text span{color:var(--blue-light);}
 
-/* Dropdown Nav */
 .nav-links{display:flex;align-items:center;gap:4px;list-style:none;position:relative;}
 .nav-item{position:relative;}
 .nav-item > a{
@@ -131,7 +130,6 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 }
 .nav-cta:hover{background:var(--red-dark);transform:translateY(-1px);box-shadow:0 4px 20px rgba(234,67,53,0.4);}
 
-/* Mobile nav toggle */
 .nav-toggle{
   display:none;
   flex-direction:column;gap:5px;cursor:pointer;padding:8px;
@@ -176,57 +174,112 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   .nav-toggle{display:flex;}
 }
 
-/* ══ HERO ══ */
+/* ══ HERO — Tam ekran video ══ */
 .hero{
-  min-height:100vh;
-  background:var(--dark);
-  display:flex;align-items:center;
-  position:relative;overflow:hidden;
-  padding:100px 5% 80px;
+  position:relative;
+  width:100%;
+  height:100vh;
+  min-height:600px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-.hero-bg{
-  position:absolute;inset:0;
+
+/* Video: 16:9 oranında tam kaplayan arka plan */
+.hero-video{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  min-width:100%;
+  min-height:100%;
+  width:auto;
+  height:auto;
+  /* 16:9 video viewportta tam kaplar */
+  object-fit:cover;
+  object-position:center center;
+  z-index:0;
+}
+
+/* Koyu gren overlay — metin okunabilirliği için */
+.hero-overlay{
+  position:absolute;
+  inset:0;
   background:
-    radial-gradient(ellipse 60% 50% at 20% 50%,rgba(11,87,208,0.2) 0%,transparent 60%),
-    radial-gradient(ellipse 40% 60% at 80% 20%,rgba(52,168,83,0.1) 0%,transparent 50%),
-    radial-gradient(ellipse 50% 40% at 70% 80%,rgba(234,67,53,0.08) 0%,transparent 50%);
+    linear-gradient(to bottom, rgba(15,23,42,0.55) 0%, rgba(15,23,42,0.45) 50%, rgba(15,23,42,0.72) 100%);
+  z-index:1;
 }
+
+/* Hafif renk efektleri */
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse 55% 55% at 15% 55%, rgba(11,87,208,0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 40% at 85% 25%, rgba(52,168,83,0.09) 0%, transparent 55%);
+  z-index:2;
+  pointer-events:none;
+}
+
+/* Grid desen */
 .hero-grid{
-  position:absolute;inset:0;
-  background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);
-  background-size:60px 60px;
-  mask-image:radial-gradient(ellipse 90% 90% at 50% 50%,black 0%,transparent 80%);
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 80%);
+  z-index:2;
+  pointer-events:none;
 }
+
+/* İçerik — tam ortalanmış, tek sütun, geniş */
 .hero-inner{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;gap:60px;
-  align-items:center;position:relative;z-index:2;width:100%;
+  position:relative;
+  z-index:3;
+  width:100%;
+  max-width:860px;
+  margin:0 auto;
+  padding:0 5%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
 }
+
 .hero-badge{
   display:inline-flex;align-items:center;gap:8px;
-  padding:6px 14px;
-  background:rgba(11,87,208,0.15);
-  border:1px solid rgba(11,87,208,0.3);
+  padding:6px 16px;
+  background:rgba(11,87,208,0.22);
+  border:1px solid rgba(11,87,208,0.45);
   border-radius:50px;
   font-size:0.75rem;font-weight:600;
-  color:rgba(255,255,255,0.8);
-  letter-spacing:0.04em;
+  color:rgba(255,255,255,0.92);
+  letter-spacing:0.05em;
   text-transform:uppercase;
-  margin-bottom:20px;
+  margin-bottom:24px;
+  backdrop-filter:blur(6px);
 }
 .hero-badge-dot{
   width:6px;height:6px;background:var(--green);border-radius:50%;
   animation:pulse-dot 2s ease-in-out infinite;
 }
-@keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(52,168,83,0.5);}50%{box-shadow:0 0 0 6px rgba(52,168,83,0);}}
+@keyframes pulse-dot{
+  0%,100%{box-shadow:0 0 0 0 rgba(52,168,83,0.55);}
+  50%{box-shadow:0 0 0 7px rgba(52,168,83,0);}
+}
 
 .hero-title{
   font-family:var(--font-display);
-  font-size:clamp(2.2rem,4.5vw,4rem);
-  font-weight:800;line-height:1.08;
-  letter-spacing:-0.03em;
+  font-size:clamp(2.6rem,6vw,5rem);
+  font-weight:800;
+  line-height:1.06;
+  letter-spacing:-0.035em;
   color:#fff;
   margin-bottom:24px;
+  text-shadow:0 2px 20px rgba(0,0,0,0.4);
 }
 .hero-title .accent-blue{
   background:linear-gradient(135deg,var(--blue-light),#8AB4F8);
@@ -235,150 +288,129 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 .hero-title .accent-red{color:var(--red);}
 
 .hero-desc{
-  color:rgba(255,255,255,0.6);
-  font-size:1.05rem;font-weight:400;
-  line-height:1.7;
-  margin-bottom:32px;
-  max-width:480px;
-}
-.hero-checks{
-  display:flex;flex-wrap:wrap;gap:12px;
+  color:rgba(255,255,255,0.78);
+  font-size:1.1rem;font-weight:400;
+  line-height:1.75;
   margin-bottom:36px;
+  max-width:600px;
+  text-shadow:0 1px 6px rgba(0,0,0,0.25);
+}
+.hero-desc a{
+  color:rgba(255,255,255,0.92);
+  font-weight:600;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+
+.hero-checks{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
+  margin-bottom:40px;
 }
 .hero-check{
   display:flex;align-items:center;gap:8px;
-  color:rgba(255,255,255,0.75);font-size:0.875rem;font-weight:500;
+  color:rgba(255,255,255,0.88);
+  font-size:0.875rem;font-weight:500;
+  background:rgba(255,255,255,0.1);
+  padding:6px 14px;
+  border-radius:50px;
+  backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,0.12);
 }
 .hero-check i{color:var(--green);font-size:0.8rem;}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+.hero-actions{
+  display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
+}
 .btn-primary{
   display:inline-flex;align-items:center;gap:10px;
-  padding:14px 28px;
+  padding:16px 32px;
   background:var(--red);color:#fff;
   border:none;cursor:pointer;
   border-radius:var(--radius-sm);
-  font-family:var(--font-body);font-size:0.9rem;font-weight:700;
+  font-family:var(--font-body);font-size:0.95rem;font-weight:700;
   text-decoration:none;
   transition:all 0.25s;
   white-space:nowrap;
+  box-shadow:0 4px 24px rgba(234,67,53,0.35);
 }
-.btn-primary:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:0 8px 32px rgba(234,67,53,0.45);}
+.btn-primary:hover{
+  background:var(--red-dark);
+  transform:translateY(-2px);
+  box-shadow:0 10px 36px rgba(234,67,53,0.5);
+}
 .btn-secondary{
   display:inline-flex;align-items:center;gap:10px;
-  padding:14px 28px;
-  background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);
-  border:1px solid rgba(255,255,255,0.15);cursor:pointer;
+  padding:16px 32px;
+  background:rgba(255,255,255,0.13);
+  color:rgba(255,255,255,0.92);
+  border:1px solid rgba(255,255,255,0.22);
+  cursor:pointer;
   border-radius:var(--radius-sm);
-  font-family:var(--font-body);font-size:0.9rem;font-weight:600;
+  font-family:var(--font-body);font-size:0.95rem;font-weight:600;
   text-decoration:none;
   transition:all 0.25s;
   white-space:nowrap;
+  backdrop-filter:blur(6px);
 }
-.btn-secondary:hover{background:rgba(255,255,255,0.14);color:#fff;transform:translateY(-2px);}
-
-/* Hero dashboard mockup */
-.hero-visual{
-  position:relative;
-}
-.dashboard-card{
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:var(--radius-lg);
-  padding:24px;
-  backdrop-filter:blur(20px);
-  position:relative;overflow:hidden;
-}
-.dashboard-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(to right,transparent,rgba(11,87,208,0.5),rgba(52,168,83,0.3),transparent);
-}
-.dashboard-header{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:20px;padding-bottom:16px;
-  border-bottom:1px solid rgba(255,255,255,0.07);
-}
-.dashboard-title{
-  font-family:var(--font-display);font-weight:700;font-size:0.9rem;color:#fff;
-}
-.dashboard-period{
-  font-size:0.75rem;color:rgba(255,255,255,0.4);
-  background:rgba(255,255,255,0.06);
-  padding:4px 10px;border-radius:6px;
-}
-.dashboard-metrics{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:12px;
-  margin-bottom:20px;
-}
-.metric-box{
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.06);
-  border-radius:12px;padding:14px;
-}
-.metric-label{font-size:0.7rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;}
-.metric-value{font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:#fff;line-height:1.2;}
-.metric-delta{
-  font-size:0.72rem;font-weight:600;
-  display:inline-flex;align-items:center;gap:3px;
-  margin-top:2px;
-}
-.metric-delta.up{color:var(--green);}
-.metric-delta.down{color:var(--red);}
-
-.chart-area{
-  height:80px;
-  display:flex;align-items:flex-end;gap:5px;
-  margin-bottom:16px;
-}
-.bar{
-  flex:1;background:rgba(11,87,208,0.25);border-radius:4px 4px 0 0;
-  position:relative;transition:background 0.3s;
-  min-height:8px;
-}
-.bar.active{background:var(--blue);}
-.bar:hover{background:rgba(11,87,208,0.5);}
-.bar-highlight{background:linear-gradient(to top,var(--blue),var(--blue-light));}
-
-.dashboard-footer{
-  display:flex;align-items:center;justify-content:space-between;
-  font-size:0.75rem;color:rgba(255,255,255,0.35);
-}
-.live-indicator{
-  display:flex;align-items:center;gap:6px;
-  color:var(--green);font-weight:600;font-size:0.72rem;
-}
-.live-dot{
-  width:6px;height:6px;background:var(--green);border-radius:50%;
-  animation:pulse-dot 1.5s ease-in-out infinite;
+.btn-secondary:hover{
+  background:rgba(255,255,255,0.22);
+  color:#fff;
+  transform:translateY(-2px);
 }
 
-/* Floating badges on dashboard */
-.float-badge{
+/* Sayaçlar — alt kısım */
+.hero-stats{
   position:absolute;
-  background:rgba(15,23,42,0.95);
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:3;
+  padding:24px 5%;
+  background:linear-gradient(to top, rgba(15,23,42,0.85) 0%, transparent 100%);
+  display:flex;
+  justify-content:center;
+  gap:0;
+}
+.hero-stats-inner{
+  display:flex;
+  align-items:center;
+  gap:0;
+  max-width:760px;
+  width:100%;
+  background:rgba(255,255,255,0.06);
   border:1px solid rgba(255,255,255,0.12);
-  border-radius:10px;padding:8px 14px;
-  display:flex;align-items:center;gap:8px;
-  font-size:0.75rem;font-weight:600;color:#fff;
-  box-shadow:var(--shadow-lg);
-  white-space:nowrap;
+  border-radius:16px;
+  backdrop-filter:blur(12px);
+  overflow:hidden;
 }
-.float-badge-1{top:-12px;right:20px;animation:float1 4s ease-in-out infinite;}
-.float-badge-2{bottom:-12px;left:16px;animation:float2 5s ease-in-out infinite;}
-@keyframes float1{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-@keyframes float2{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
-.float-badge i.green{color:var(--green);}
-.float-badge i.yellow{color:var(--yellow);}
+.stat-item{
+  flex:1;
+  padding:18px 20px;
+  text-align:center;
+  border-right:1px solid rgba(255,255,255,0.1);
+}
+.stat-item:last-child{border-right:none;}
+.stat-value{
+  font-family:var(--font-display);
+  font-size:1.6rem;font-weight:800;
+  color:#fff;line-height:1;
+  margin-bottom:4px;
+}
+.stat-value span{color:var(--blue-light);}
+.stat-label{
+  font-size:0.72rem;font-weight:500;
+  color:rgba(255,255,255,0.5);
+  text-transform:uppercase;letter-spacing:0.06em;
+}
 
-/* ══ RESPONSIVE ══ */
-@media(max-width:1024px){
-  .hero-inner{grid-template-columns:1fr;gap:40px;text-align:center;}
-  .hero-desc{margin-left:auto;margin-right:auto;}
-  .hero-checks{justify-content:center;}
-  .hero-actions{justify-content:center;}
-  .hero-visual{display:none;}
-}
 @media(max-width:640px){
-  .hero{padding:90px 5% 60px;}
+  .hero-title{font-size:clamp(2rem,8vw,2.8rem);}
+  .hero-desc{font-size:0.95rem;}
+  .btn-primary,.btn-secondary{padding:14px 22px;font-size:0.875rem;}
+  .hero-stats-inner{flex-wrap:wrap;}
+  .stat-item{min-width:50%;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .stat-item:nth-child(even){border-right:none;}
+  .stat-item:nth-last-child(-n+2){border-bottom:none;}
 }
 </style>
 </head>
@@ -431,125 +463,71 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   <a href="#iletisim" class="mobile-cta">🎯 Ücretsiz Analiz Al</a>
 </div>
 
-<!-- ═══ HERO ═══ -->
+<!-- ═══ HERO — Tam Ekran Video ═══ -->
 <section class="hero" id="hero">
+
+  <!-- 16:9 video, tam ekran object-fit:cover ile kaplar -->
   <video class="hero-video" autoplay muted loop playsinline preload="auto">
-  <source src="https://www.web4medya.com/videos/web4medya-hero.mp4" type="video/mp4">
-</video>
+    <source src="https://www.web4medya.com/videos/web4medya-hero.mp4" type="video/mp4">
+  </video>
+
+  <!-- Overlay katmanları -->
+  <div class="hero-overlay"></div>
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
+
+  <!-- Merkez içerik -->
   <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="hero-badge-dot"></span>
-        Google Reklam Ajansı · İstanbul
-      </div>
-      <h1 class="hero-title">
-        Google Ads ile<br>
-        <span class="accent-blue">Daha Fazla</span><br>
-        Müşteri <span class="accent-red">Kazanın</span>
-      </h1>
-      <p class="hero-desc">
-        Performans odaklı <a href="https://www.web4medya.com/google-reklam-vermek/" style="color:rgba(255,255,255,0.8);font-weight:600;">Google reklam stratejilerimizle</a> rakiplerinizin önüne geçin. Ölçülebilir sonuçlar, şeffaf raporlama, gerçek büyüme.
-      </p>
-      <div class="hero-checks">
-        <div class="hero-check"><i class="fas fa-check-circle"></i> Daha fazla lead</div>
-        <div class="hero-check"><i class="fas fa-check-circle"></i> Daha düşük maliyet</div>
-        <div class="hero-check"><i class="fas fa-check-circle"></i> Ölçülebilir sonuçlar</div>
-        <div class="hero-check"><i class="fas fa-check-circle"></i> Şeffaf raporlama</div>
-      </div>
-      <div class="hero-actions">
-        <a href="#iletisim" class="btn-primary"><i class="fas fa-rocket"></i> Ücretsiz Analiz Al</a>
-        <a href="tel:05303158752" class="btn-secondary"><i class="fas fa-phone-alt"></i> 0530 315 87 52</a>
-      </div>
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Google Reklam Ajansı · İstanbul
     </div>
-    <div class="hero-visual">
-      <div class="dashboard-card">
-        <div class="float-badge float-badge-1">
-          <i class="fas fa-arrow-trend-up green"></i>
-          Bu ay +%247 dönüşüm
-        </div>
-        <div class="dashboard-header">
-          <div class="dashboard-title">Kampanya Performansı</div>
-          <div class="dashboard-period">Son 30 gün</div>
-        </div>
-        <div class="dashboard-metrics">
-          <div class="metric-box">
-            <div class="metric-label">Toplam Lead</div>
-            <div class="metric-value">842</div>
-            <div class="metric-delta up"><i class="fas fa-arrow-up"></i> +38% bu ay</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-label">Dönüşüm Ort.</div>
-            <div class="metric-value">%6.2</div>
-            <div class="metric-delta up"><i class="fas fa-arrow-up"></i> +1.4 puan</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-label">Tıklama Başı</div>
-            <div class="metric-value">₺4.8</div>
-            <div class="metric-delta down"><i class="fas fa-arrow-down"></i> -%22 düştü</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-label">ROAS</div>
-            <div class="metric-value">5.4×</div>
-            <div class="metric-delta up"><i class="fas fa-arrow-up"></i> +0.8×</div>
-          </div>
-        </div>
-        <div class="chart-area" id="chartArea"></div>
-        <div class="dashboard-footer">
-          <span>Google Ads · GA4 entegre</span>
-          <span class="live-indicator"><span class="live-dot"></span>Canlı veri</span>
-        </div>
-        <div class="float-badge float-badge-2">
-          <i class="fas fa-star yellow"></i>
-          4.9 ★ Müşteri Memnuniyeti
-        </div>
+    <h1 class="hero-title">
+      Google Ads ile<br>
+      <span class="accent-blue">Daha Fazla</span><br>
+      Müşteri <span class="accent-red">Kazanın</span>
+    </h1>
+    <p class="hero-desc">
+      Performans odaklı <a href="https://www.web4medya.com/google-reklam-vermek/">Google reklam stratejilerimizle</a> rakiplerinizin önüne geçin. Ölçülebilir sonuçlar, şeffaf raporlama, gerçek büyüme.
+    </p>
+    <div class="hero-checks">
+      <div class="hero-check"><i class="fas fa-check-circle"></i> Daha fazla lead</div>
+      <div class="hero-check"><i class="fas fa-check-circle"></i> Daha düşük maliyet</div>
+      <div class="hero-check"><i class="fas fa-check-circle"></i> Ölçülebilir sonuçlar</div>
+      <div class="hero-check"><i class="fas fa-check-circle"></i> Şeffaf raporlama</div>
+    </div>
+    <div class="hero-actions">
+      <a href="#iletisim" class="btn-primary"><i class="fas fa-rocket"></i> Ücretsiz Analiz Al</a>
+      <a href="tel:05303158752" class="btn-secondary"><i class="fas fa-phone-alt"></i> 0530 315 87 52</a>
+    </div>
+  </div>
+
+  <!-- Alt istatistik barı -->
+  <div class="hero-stats">
+    <div class="hero-stats-inner">
+      <div class="stat-item">
+        <div class="stat-value"><span>100+</span></div>
+        <div class="stat-label">Başarılı Kampanya</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value"><span>%300</span></div>
+        <div class="stat-label">Ortalama Dönüşüm Artışı</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value"><span>5.4×</span></div>
+        <div class="stat-label">Ortalama ROAS</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value"><span>4.9 ★</span></div>
+        <div class="stat-label">Müşteri Memnuniyeti</div>
       </div>
     </div>
   </div>
+
 </section>
 
 <script>
-/* ── Chart bars ── */
-const chartArea = document.getElementById('chartArea');
-if(chartArea){
-  const heights = [30,45,38,55,48,62,44,70,58,65,52,72,68,80,60,76,85,74,90,78,92,88,96,100,85,88,92,95,97,100];
-  heights.forEach((h,i)=>{
-    const bar = document.createElement('div');
-    bar.className = 'bar' + (i>=25?' bar-highlight':'');
-    bar.style.height = h+'%';
-    chartArea.appendChild(bar);
-  });
-}
-  .hero-video{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  z-index:0;
-  opacity:0.35; /* karanlık hissi için */
-}
-
-/* içerik üstte kalsın */
-.hero-inner,
-.hero-bg,
-.hero-grid{
-  position:relative;
-  z-index:2;
-}
-
-/* ekstra karartma (okunabilirlik için) */
-.hero::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.55);
-  z-index:1;
-}
-
-/* ── Mobile menu ── */
+/* Mobile menu */
 const toggle = document.getElementById('navToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 let menuOpen = false;
@@ -568,13 +546,13 @@ if(toggle && mobileMenu){
   });
 }
 
-/* ── Navbar scroll ── */
+/* Navbar scroll */
 window.addEventListener('scroll',()=>{
   const nb = document.getElementById('navbar');
   if(nb) nb.style.background = window.scrollY>50 ? 'rgba(15,23,42,0.98)' : 'rgba(15,23,42,0.9)';
 });
 
-/* ── Smooth scroll for anchors ── */
+/* Smooth scroll */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
     const target = document.querySelector(a.getAttribute('href'));
