@@ -68,11 +68,11 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   overflow:visible;
 }
 .nav-logo-img{
-  height:78px;
+  height:68px;
   width:auto;
   display:block;
   transition:transform 0.25s ease;
-  margin:-3px 0;
+  margin:-2px 0;
 }
 .nav-logo:hover .nav-logo-img{transform:scale(1.03);}
 .nav-logo-mark{
@@ -191,7 +191,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   .navbar-inner{height:64px;}
   .nav-logo{height:64px;}
   .nav-logo-text{font-size:1.05rem;}
-  .nav-logo-img{height:66px;margin:-2px 0;}
+  .nav-logo-img{height:58px;margin:-1px 0;}
   .mobile-menu{top:64px;}
 }
 
@@ -373,32 +373,6 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   100%{opacity:1;transform:translateZ(0) scale(1);filter:blur(0);}
 }
 
-/* Anamorphic lens flare — yatay yanardöner çizgi (film kamerası mercek yansıması) */
-.hero-title .brand-web::before{
-  content:"";
-  position:absolute;
-  left:-30%;right:-30%;
-  top:50%;
-  height:3px;
-  margin-top:-1.5px;
-  pointer-events:none;
-  background:linear-gradient(90deg,
-    transparent 0%,
-    rgba(130,180,255,0) 20%,
-    rgba(200,225,255,0.6) 42%,
-    #ffffff 50%,
-    rgba(200,225,255,0.6) 58%,
-    rgba(130,180,255,0) 80%,
-    transparent 100%
-  );
-  border-radius:50%;
-  filter:blur(1px);
-  opacity:0;
-  transform:scaleX(0.2);
-  animation:anamorphic-flare 3s ease-out 0.6s forwards;
-  will-change:transform,opacity;
-}
-
 /* Sinematik glow — başlığın arkasındaki sıcak ışık kaynağı */
 .hero-title .brand-web::after{
   content:"";
@@ -414,13 +388,6 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   opacity:0;
   transform:scale(0.6);
   animation:cinematic-glow 3s ease-out 0.3s forwards, glow-breathe 5s ease-in-out 3.3s infinite;
-}
-
-@keyframes anamorphic-flare{
-  0%  {opacity:0;transform:scaleX(0.2);}
-  35% {opacity:1;transform:scaleX(1.1);}
-  70% {opacity:0.5;transform:scaleX(1);}
-  100%{opacity:0;transform:scaleX(1);}
 }
 
 /* ══ PREMIUM UNDERLINE SWEEP — efekt sonunda başlığın altından geçen ışık ══ */
