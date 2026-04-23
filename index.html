@@ -669,6 +669,137 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   .orb,.search-typing,.cursor{animation:none !important;}
 }
 
+/* ═══ SCROLL INDICATOR ═══ */
+.scroll-indicator{
+  position:absolute;
+  bottom:28px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:4;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  color:rgba(255,255,255,0.75);
+  text-decoration:none;
+  cursor:pointer;
+  animation:scroll-fade-in 1s ease-out 3.5s both;
+}
+.scroll-indicator .scroll-text{
+  font-family:var(--font-body);
+  font-size:0.72rem;
+  font-weight:600;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  opacity:0.85;
+  transition:opacity 0.25s;
+}
+.scroll-indicator .scroll-mouse{
+  width:26px;
+  height:42px;
+  border:2px solid rgba(255,255,255,0.55);
+  border-radius:14px;
+  position:relative;
+  transition:border-color 0.25s;
+}
+.scroll-indicator .scroll-mouse::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:8px;
+  width:3px;
+  height:8px;
+  background:rgba(255,255,255,0.85);
+  border-radius:2px;
+  transform:translateX(-50%);
+  animation:scroll-wheel 1.8s ease-in-out infinite;
+}
+.scroll-indicator:hover{color:#fff;}
+.scroll-indicator:hover .scroll-mouse{border-color:#fff;}
+@keyframes scroll-wheel{
+  0%  {transform:translateX(-50%) translateY(0);opacity:1;}
+  70% {transform:translateX(-50%) translateY(14px);opacity:0;}
+  100%{transform:translateX(-50%) translateY(0);opacity:0;}
+}
+@keyframes scroll-fade-in{
+  0%  {opacity:0;transform:translateX(-50%) translateY(10px);}
+  100%{opacity:1;transform:translateX(-50%) translateY(0);}
+}
+@media(max-width:768px){
+  .scroll-indicator{bottom:20px;}
+  .scroll-indicator .scroll-mouse{width:22px;height:36px;}
+  .scroll-indicator .scroll-text{font-size:0.65rem;}
+}
+
+/* ═══ LOGO BAR ═══ */
+.logo-bar{
+  background:#ffffff;
+  padding:56px 0 48px;
+  overflow:hidden;
+  position:relative;
+  border-bottom:1px solid var(--border);
+}
+.logo-bar-title{
+  text-align:center;
+  font-family:var(--font-display);
+  font-size:clamp(0.95rem, 1.8vw, 1.15rem);
+  font-weight:600;
+  letter-spacing:-0.01em;
+  color:var(--text2);
+  margin-bottom:36px;
+  padding:0 20px;
+  text-transform:none;
+}
+.logo-marquee{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  mask-image:linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+}
+.logo-track{
+  display:flex;
+  align-items:center;
+  width:max-content;
+  animation:logo-scroll 35s linear infinite;
+}
+.logo-track:hover{animation-play-state:paused;}
+.logo-item{
+  flex-shrink:0;
+  padding:0 48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:48px;
+}
+.logo-item img{
+  max-height:40px;
+  width:auto;
+  max-width:140px;
+  opacity:0.55;
+  filter:grayscale(100%);
+  transition:opacity 0.3s, filter 0.3s;
+}
+.logo-item:hover img{
+  opacity:1;
+  filter:grayscale(0%);
+}
+@keyframes logo-scroll{
+  0%  {transform:translateX(0);}
+  100%{transform:translateX(-50%);}
+}
+@media(max-width:768px){
+  .logo-bar{padding:40px 0 32px;}
+  .logo-bar-title{margin-bottom:24px;}
+  .logo-item{padding:0 32px;height:38px;}
+  .logo-item img{max-height:30px;max-width:110px;}
+  .logo-track{animation-duration:25s;}
+}
+@media (prefers-reduced-motion: reduce){
+  .logo-track{animation:none;}
+  .scroll-indicator,.scroll-indicator .scroll-mouse::before{animation:none !important;}
+}
+
 /* ═══ FLOATING BUTTONS ═══ */
 .floating-buttons{
   position:fixed;bottom:24px;right:24px;z-index:998;
@@ -793,6 +924,37 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
     <div class="hero-actions">
       <a href="https://wa.me/905303158752?text=Merhaba%2C%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum" target="_blank" rel="noopener" class="btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp İletişim Hattı</a>
       <a href="tel:05303158752" class="btn-secondary"><i class="fas fa-phone-alt"></i> 0530 315 87 52</a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <a href="#logo-bar" class="scroll-indicator" aria-label="Aşağı kaydır">
+    <span class="scroll-text">Keşfet</span>
+    <div class="scroll-mouse"></div>
+  </a>
+</section>
+
+<!-- ═══ LOGO BAR ═══ -->
+<section class="logo-bar" id="logo-bar">
+  <p class="logo-bar-title">Güçlü pazarlama ekipleri tarafından güveniliyor</p>
+  <div class="logo-marquee">
+    <div class="logo-track">
+      <!-- 1. set -->
+      <div class="logo-item"><img src="https://www.web4medya.com/svg/hilton.svg" alt="Hilton" loading="lazy" width="140" height="40"/></div>
+      <div class="logo-item"><img src="https://www.web4medya.com/svg/att.svg" alt="AT&amp;T" loading="lazy" width="140" height="40"/></div>
+      <div class="logo-item"><img src="https://www.web4medya.com/svg/klaviyo.svg" alt="Klaviyo" loading="lazy" width="140" height="40"/></div>
+      <div class="logo-item"><img src="https://www.web4medya.com/svg/polaroid.svg" alt="Polaroid" loading="lazy" width="140" height="40"/></div>
+      <div class="logo-item"><img src="https://www.web4medya.com/svg/netflix.svg" alt="Netflix" loading="lazy" width="140" height="40"/></div>
+      <div class="logo-item"><img src="https://www.web4medya.com/svg/microsoft.svg" alt="Microsoft" loading="lazy" width="140" height="40"/></div>
+      <div class="logo-item"><img src="https://www.web4medya.com/svg/amn.svg" alt="AMN" loading="lazy" width="140" height="40"/></div>
+      <!-- 2. set (aynısı - kesintisiz döngü için) -->
+      <div class="logo-item"><img src="https://www.web4medya.com/svg/hilton.svg" alt="" aria-hidden="true" loading="lazy" width="140" height="40"/></div>
+      <div class="logo-item"><img src="https://www.web4medya.com/svg/att.svg" alt="" aria-hidden="true" loading="lazy" width="140" height="40"/></div>
+      <div class="logo-item"><img src="https://www.web4medya.com/svg/klaviyo.svg" alt="" aria-hidden="true" loading="lazy" width="140" height="40"/></div>
+      <div class="logo-item"><img src="https://www.web4medya.com/svg/polaroid.svg" alt="" aria-hidden="true" loading="lazy" width="140" height="40"/></div>
+      <div class="logo-item"><img src="https://www.web4medya.com/svg/netflix.svg" alt="" aria-hidden="true" loading="lazy" width="140" height="40"/></div>
+      <div class="logo-item"><img src="https://www.web4medya.com/svg/microsoft.svg" alt="" aria-hidden="true" loading="lazy" width="140" height="40"/></div>
+      <div class="logo-item"><img src="https://www.web4medya.com/svg/amn.svg" alt="" aria-hidden="true" loading="lazy" width="140" height="40"/></div>
     </div>
   </div>
 </section>
