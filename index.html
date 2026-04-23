@@ -59,16 +59,16 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 .navbar-inner{
   max-width:1200px;margin:0 auto;
   display:flex;align-items:center;justify-content:space-between;
-  height:62px;
+  height:56px;
 }
 .nav-logo{
   display:flex;align-items:center;gap:10px;text-decoration:none;
   flex-shrink:0;
-  height:62px;
+  height:56px;
   overflow:visible;
 }
 .nav-logo-img{
-  height:58px;
+  height:54px;
   width:auto;
   display:block;
   transition:transform 0.25s ease;
@@ -188,11 +188,11 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 @media(max-width:768px){
   .nav-links{display:none !important;}
   .nav-toggle{display:flex;}
-  .navbar-inner{height:54px;}
-  .nav-logo{height:54px;}
+  .navbar-inner{height:48px;}
+  .nav-logo{height:48px;}
   .nav-logo-text{font-size:1.05rem;}
-  .nav-logo-img{height:50px;margin:-1px 0;}
-  .mobile-menu{top:54px;}
+  .nav-logo-img{height:46px;margin:-1px 0;}
+  .mobile-menu{top:48px;}
 }
 
 /* ══ HERO — Sade: orb'lar + arama çubuğu ══ */
@@ -441,7 +441,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 /* Alt başlık (sarı "Yeni Nesil Reklam Ajansı") da film altyazısı gibi fade-in */
 .hero-title .title-sub{
   display:inline-block;
-  font-size:0.55em;
+  font-size:0.62em;
   font-weight:700;
   letter-spacing:-0.02em;
   color:var(--yellow);
@@ -455,6 +455,9 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   0%  {opacity:0;transform:translateY(14px);}
   100%{opacity:1;transform:translateY(0);}
 }
+@media(max-width:520px){
+  .hero-title .title-sub{font-size:0.56em;white-space:normal;}
+}
 
 @media (prefers-reduced-motion: reduce){
   .hero-title .brand-web,
@@ -467,9 +470,6 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   .hero-title .brand-web::before,
   .hero-title .brand-web::after{animation:none;opacity:0.3;}
   .hero-title .brand-web .underline-sweep::before{animation:none;display:none;}
-}
-@media(max-width:520px){
-  .hero-title .title-sub{font-size:0.5em;white-space:normal;}
 }
 .hero-desc{
   color:rgba(255,255,255,0.82);
