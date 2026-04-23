@@ -59,11 +59,11 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 .navbar-inner{
   max-width:1200px;margin:0 auto;
   display:flex;align-items:center;justify-content:space-between;
-  height:72px;
+  height:96px;
 }
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
 .nav-logo-img{
-  height:40px;
+  height:72px;
   width:auto;
   display:block;
   transition:transform 0.25s ease;
@@ -148,7 +148,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 .nav-toggle span{display:block;width:20px;height:2px;background:var(--dark);border-radius:2px;transition:all 0.3s;}
 .mobile-menu{
   display:none;
-  position:fixed;top:72px;left:0;right:0;bottom:0;
+  position:fixed;top:96px;left:0;right:0;bottom:0;
   background:rgba(255,255,255,0.96);
   backdrop-filter:blur(24px) saturate(180%);
   -webkit-backdrop-filter:blur(24px) saturate(180%);
@@ -182,9 +182,10 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 @media(max-width:768px){
   .nav-links{display:none !important;}
   .nav-toggle{display:flex;}
-  .navbar-inner{height:64px;}
+  .navbar-inner{height:80px;}
   .nav-logo-text{font-size:1.05rem;}
-  .nav-logo-img{height:34px;}
+  .nav-logo-img{height:60px;}
+  .mobile-menu{top:80px;}
 }
 
 /* ══ HERO — Sade: orb'lar + arama çubuğu ══ */
