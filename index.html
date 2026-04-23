@@ -342,8 +342,55 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
 .hero-title .accent-red{color:var(--red);}
-.hero-title .brand-web{color:#fff;}
-.hero-title .brand-four{color:var(--blue-light);}
+
+/* "Web4Medya" — net renkler */
+.hero-title .brand-web{
+  position:relative;
+  display:inline-block;
+  color:#ffffff;
+  z-index:1;
+  padding:0 0.15em;
+}
+.hero-title .brand-four{color:#4285F4;}
+
+/* Etrafında dolaşan ışık halesi */
+.hero-title .brand-web::before{
+  content:"";
+  position:absolute;
+  inset:-30% -10%;
+  z-index:-1;
+  pointer-events:none;
+  border-radius:50%;
+  background:
+    radial-gradient(ellipse 25% 55% at 0% 50%, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 70%),
+    radial-gradient(ellipse 25% 55% at 100% 50%, rgba(66,133,244,0.3) 0%, rgba(66,133,244,0) 70%);
+  filter:blur(18px);
+  animation:halo-orbit 8s linear infinite;
+  will-change:transform,opacity;
+}
+.hero-title .brand-web::after{
+  content:"";
+  position:absolute;
+  inset:-20% -5%;
+  z-index:-1;
+  pointer-events:none;
+  border-radius:50%;
+  background:radial-gradient(ellipse 40% 70% at 50% 50%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+  filter:blur(24px);
+  animation:halo-pulse 3.5s ease-in-out infinite;
+}
+@keyframes halo-orbit{
+  0%  {transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+@keyframes halo-pulse{
+  0%,100%{opacity:0.7;transform:scale(1);}
+  50%    {opacity:1;transform:scale(1.08);}
+}
+@media (prefers-reduced-motion: reduce){
+  .hero-title .brand-web::before,
+  .hero-title .brand-web::after{animation:none;}
+}
 .hero-title .title-sub{
   display:inline-block;
   font-size:0.55em;
@@ -534,7 +581,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   <!-- Merkez içerik -->
   <div class="hero-inner">
     <h1 class="hero-title">
-      <span class="brand-web">Web<span class="brand-four">4</span>Medya</span><br>
+      <span class="brand-web" data-text="Web4Medya">Web<span class="brand-four">4</span>Medya</span><br>
       <span class="title-sub">Yeni Nesil Reklam Ajansı</span>
     </h1>
     <p class="hero-desc">
