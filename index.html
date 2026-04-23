@@ -43,202 +43,259 @@
 html{scroll-behavior:smooth;overflow-x:hidden;}
 body{font-family:var(--font-body);color:var(--text);background:var(--light);overflow-x:hidden;line-height:1.6;}
 
-/* ══ NAVBAR ══ */
+/* ══ NAVBAR — BEYAZ ══ */
 .navbar{
   position:fixed;top:0;left:0;right:0;z-index:1000;
   padding:0 5%;
-  background:rgba(15,23,42,0.9);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border-dark);
-  transition:all 0.3s ease;
+  background:#ffffff;
+  border-bottom:1px solid rgba(15,23,42,0.06);
+  box-shadow:0 1px 3px rgba(15,23,42,0.04);
+  transition:all 0.4s ease;
+}
+.navbar.scrolled{
+  background:#ffffff;
+  box-shadow:0 4px 24px rgba(15,23,42,0.08);
 }
 .navbar-inner{
   max-width:1200px;margin:0 auto;
   display:flex;align-items:center;justify-content:space-between;
-  height:64px;
+  height:72px;
 }
-.nav-logo{
-  display:flex;align-items:center;gap:10px;
-  text-decoration:none;
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-logo-img{
+  height:40px;
+  width:auto;
+  display:block;
+  transition:transform 0.25s ease;
 }
+.nav-logo:hover .nav-logo-img{transform:scale(1.03);}
 .nav-logo-mark{
-  width:36px;height:36px;
-  background:var(--blue);
-  border-radius:10px;
+  width:38px;height:38px;
+  background:linear-gradient(135deg,var(--blue-light) 0%,var(--blue) 100%);
+  border-radius:11px;
   display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-display);font-weight:800;font-size:0.8rem;color:#fff;
-  box-shadow:0 0 20px rgba(11,87,208,0.4);
+  font-family:var(--font-display);font-weight:800;font-size:0.82rem;color:#fff;
+  box-shadow:
+    0 1px 2px rgba(255,255,255,0.25) inset,
+    0 4px 16px rgba(11,87,208,0.4);
 }
 .nav-logo-text{
-  font-family:var(--font-display);font-weight:800;font-size:1.1rem;color:#fff;
+  font-family:var(--font-display);font-weight:800;font-size:1.15rem;color:var(--dark);
   letter-spacing:-0.02em;
 }
-.nav-logo-text span{color:var(--blue-light);}
-
-.nav-links{display:flex;align-items:center;gap:4px;list-style:none;position:relative;}
+.nav-logo-text span{color:var(--blue);}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none;position:relative;}
 .nav-item{position:relative;}
 .nav-item > a{
-  padding:8px 14px;
-  color:rgba(255,255,255,0.75);
+  padding:9px 16px;
+  color:var(--text2);
   text-decoration:none;
-  font-size:0.875rem;font-weight:500;
-  border-radius:8px;
-  transition:color 0.2s,background 0.2s;
+  font-size:0.88rem;font-weight:500;
+  border-radius:10px;
+  transition:all 0.25s ease;
   display:flex;align-items:center;gap:5px;
   white-space:nowrap;
+  letter-spacing:-0.005em;
 }
-.nav-item > a:hover,.nav-item.active > a{color:#fff;background:rgba(255,255,255,0.08);}
+.nav-item > a:hover{
+  color:var(--dark);
+  background:rgba(15,23,42,0.05);
+}
+.nav-item.active > a{
+  color:var(--dark);
+  background:rgba(15,23,42,0.07);
+  font-weight:600;
+}
 .nav-item > a i{font-size:0.65rem;transition:transform 0.2s;}
 .nav-item:hover > a i{transform:rotate(180deg);}
-
 .dropdown{
-  position:absolute;top:calc(100% + 8px);left:0;
-  background:var(--dark);
-  border:1px solid var(--border-dark);
-  border-radius:var(--radius-md);
+  position:absolute;top:calc(100% + 10px);left:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  border:1px solid rgba(15,23,42,0.06);
+  border-radius:16px;
   padding:8px;
-  min-width:200px;
-  box-shadow:var(--shadow-xl);
+  min-width:210px;
+  box-shadow:0 12px 40px rgba(15,23,42,0.12);
   opacity:0;visibility:hidden;
-  transform:translateY(-6px);
-  transition:all 0.2s ease;
+  transform:translateY(-6px) scale(0.98);
+  transition:all 0.25s cubic-bezier(0.2,0.8,0.2,1);
   pointer-events:none;
 }
-.nav-item:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0);pointer-events:all;}
+.nav-item:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0) scale(1);pointer-events:all;}
 .dropdown a{
   display:flex;align-items:center;gap:10px;
   padding:10px 12px;
-  color:rgba(255,255,255,0.7);
+  color:var(--text2);
   text-decoration:none;
   font-size:0.85rem;font-weight:500;
   border-radius:10px;
   transition:all 0.2s;
 }
-.dropdown a:hover{color:#fff;background:rgba(255,255,255,0.08);}
-.dropdown a i{width:16px;text-align:center;color:var(--blue-light);}
-
-.nav-cta{
-  padding:9px 20px;
-  background:var(--red);
-  color:#fff;
-  border:none;cursor:pointer;
-  border-radius:10px;
-  font-family:var(--font-body);font-size:0.85rem;font-weight:600;
-  text-decoration:none;
-  transition:all 0.2s;
-  white-space:nowrap;
-}
-.nav-cta:hover{background:var(--red-dark);transform:translateY(-1px);box-shadow:0 4px 20px rgba(234,67,53,0.4);}
-
+.dropdown a:hover{color:var(--dark);background:rgba(15,23,42,0.05);}
+.dropdown a i{width:16px;text-align:center;color:var(--blue);}
 .nav-toggle{
   display:none;
-  flex-direction:column;gap:5px;cursor:pointer;padding:8px;
-  background:none;border:none;
+  flex-direction:column;gap:5px;cursor:pointer;
+  padding:10px;
+  background:rgba(15,23,42,0.04);
+  border:1px solid rgba(15,23,42,0.08);
+  border-radius:11px;
+  transition:background 0.2s;
 }
-.nav-toggle span{
-  display:block;width:22px;height:2px;
-  background:#fff;border-radius:2px;
-  transition:all 0.3s;
-}
+.nav-toggle:hover{background:rgba(15,23,42,0.08);}
+.nav-toggle span{display:block;width:20px;height:2px;background:var(--dark);border-radius:2px;transition:all 0.3s;}
 .mobile-menu{
   display:none;
-  position:fixed;top:64px;left:0;right:0;bottom:0;
-  background:var(--dark);
+  position:fixed;top:72px;left:0;right:0;bottom:0;
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
   z-index:999;
-  padding:20px;
+  padding:24px 20px;
   overflow-y:auto;
-  flex-direction:column;gap:4px;
+  flex-direction:column;gap:2px;
 }
 .mobile-menu a{
   display:block;padding:14px 16px;
-  color:rgba(255,255,255,0.8);
+  color:var(--text);
   text-decoration:none;
   font-size:1rem;font-weight:500;
   border-radius:12px;
   transition:all 0.2s;
-  border-bottom:1px solid rgba(255,255,255,0.05);
+  border-bottom:1px solid rgba(15,23,42,0.05);
 }
-.mobile-menu a:hover{color:#fff;background:rgba(255,255,255,0.06);}
+.mobile-menu a:hover{color:var(--dark);background:rgba(15,23,42,0.05);}
 .mobile-menu .mobile-cta{
   margin-top:16px;
-  background:var(--red);
+  background:#25D366;
   color:#fff !important;
   text-align:center;
   font-weight:700;
   border-radius:14px;
   padding:16px;
+  border-bottom:none !important;
+  box-shadow:0 4px 16px rgba(37,211,102,0.35);
 }
-
+.mobile-menu .mobile-cta:hover{background:#1FBF5E;}
 @media(max-width:768px){
-  .nav-links,.nav-cta{display:none !important;}
+  .nav-links{display:none !important;}
   .nav-toggle{display:flex;}
+  .navbar-inner{height:64px;}
+  .nav-logo-text{font-size:1.05rem;}
+  .nav-logo-img{height:34px;}
 }
 
-/* ══ HERO — Tam ekran video ══ */
+/* ══ HERO — Sade: orb'lar + arama çubuğu ══ */
 .hero{
   position:relative;
   width:100%;
   height:100vh;
-  min-height:600px;
+  min-height:640px;
   overflow:hidden;
   display:flex;
   align-items:center;
   justify-content:center;
-}
-
-/* Video: 16:9 oranında tam kaplayan arka plan */
-.hero-video{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  min-width:100%;
-  min-height:100%;
-  width:auto;
-  height:auto;
-  /* 16:9 video viewportta tam kaplar */
-  object-fit:cover;
-  object-position:center center;
-  z-index:0;
-}
-
-/* Koyu gren overlay — metin okunabilirliği için */
-.hero-overlay{
-  position:absolute;
-  inset:0;
   background:
-    linear-gradient(to bottom, rgba(15,23,42,0.55) 0%, rgba(15,23,42,0.45) 50%, rgba(15,23,42,0.72) 100%);
+    radial-gradient(ellipse 60% 50% at 20% 30%, rgba(11,87,208,0.25) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 80% 70%, rgba(234,67,53,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(52,168,83,0.10) 0%, transparent 60%),
+    linear-gradient(135deg, #0A0E1A 0%, #0F172A 50%, #111827 100%);
+}
+
+/* Yüzen ışık topları (Google 4 rengi) */
+.orb{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:0.5;
   z-index:1;
-}
-
-/* Hafif renk efektleri */
-.hero-bg{
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(ellipse 55% 55% at 15% 55%, rgba(11,87,208,0.18) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 40% at 85% 25%, rgba(52,168,83,0.09) 0%, transparent 55%);
-  z-index:2;
   pointer-events:none;
 }
+.orb-1{width:500px;height:500px;background:#4285F4;top:-150px;left:-100px;animation:orb-float-1 18s ease-in-out infinite;}
+.orb-2{width:400px;height:400px;background:#EA4335;bottom:-100px;right:-80px;animation:orb-float-2 22s ease-in-out infinite;}
+.orb-3{width:350px;height:350px;background:#34A853;top:40%;right:15%;animation:orb-float-3 25s ease-in-out infinite;opacity:0.35;}
+.orb-4{width:300px;height:300px;background:#FBBC05;bottom:20%;left:10%;animation:orb-float-4 20s ease-in-out infinite;opacity:0.3;}
+@keyframes orb-float-1{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(120px,80px) scale(1.15);}}
+@keyframes orb-float-2{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-100px,-120px) scale(1.1);}}
+@keyframes orb-float-3{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-80px,60px) scale(0.9);}}
+@keyframes orb-float-4{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(90px,-70px) scale(1.2);}}
 
-/* Grid desen */
-.hero-grid{
+/* Google arama çubuğu — klavye animasyonlu */
+.search-typing{
   position:absolute;
-  inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size:64px 64px;
-  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 80%);
+  top:15%;
+  left:50%;
+  transform:translateX(-50%);
   z-index:2;
-  pointer-events:none;
+  width:min(88%, 380px);
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,0.18);
+  border-radius:50px;
+  padding:9px 16px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.3);
+  animation:search-float 6s ease-in-out infinite;
+}
+@keyframes search-float{
+  0%,100%{transform:translateX(-50%) translateY(0);}
+  50%{transform:translateX(-50%) translateY(-8px);}
+}
+.search-typing .g-logo{
+  font-family:var(--font-display);
+  font-size:0.95rem;
+  display:flex;
+  gap:1px;
+  font-weight:700;
+  letter-spacing:-0.02em;
+}
+.search-typing .g-logo .g-b{color:#4285F4;}
+.search-typing .g-logo .g-r{color:#EA4335;}
+.search-typing .g-logo .g-y{color:#FBBC05;}
+.search-typing .g-logo .g-b2{color:#4285F4;}
+.search-typing .g-logo .g-g{color:#34A853;}
+.search-typing .g-logo .g-r2{color:#EA4335;}
+.search-typing .search-wrap{
+  flex:1;
+  min-width:0;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  white-space:nowrap;
+}
+.search-typing .search-text{
+  color:rgba(255,255,255,0.92);
+  font-size:0.85rem;
+  font-weight:500;
+  white-space:nowrap;
+}
+.search-typing .cursor{
+  display:inline-block;
+  width:2px;height:0.9em;
+  background:var(--blue-light);
+  margin-left:2px;
+  flex-shrink:0;
+  animation:cursor-blink 1s step-end infinite;
+}
+@keyframes cursor-blink{50%{opacity:0;}}
+.search-typing .search-icon-right{color:rgba(255,255,255,0.55);font-size:0.8rem;}
+
+@media(max-width:640px){
+  .search-typing{top:13%;padding:8px 14px;width:min(90%, 320px);}
+  .search-typing .search-text{font-size:0.78rem;}
+  .search-typing .g-logo{font-size:0.85rem;}
+  .orb{filter:blur(60px);}
 }
 
-/* İçerik — tam ortalanmış, tek sütun, geniş */
+/* İçerik */
 .hero-inner{
   position:relative;
-  z-index:3;
+  z-index:5;
   width:100%;
   max-width:860px;
   margin:0 auto;
@@ -248,7 +305,6 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   align-items:center;
   text-align:center;
 }
-
 .hero-badge{
   display:inline-flex;align-items:center;gap:8px;
   padding:6px 16px;
@@ -270,7 +326,6 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   0%,100%{box-shadow:0 0 0 0 rgba(52,168,83,0.55);}
   50%{box-shadow:0 0 0 7px rgba(52,168,83,0);}
 }
-
 .hero-title{
   font-family:var(--font-display);
   font-size:clamp(2.6rem,6vw,5rem);
@@ -286,9 +341,22 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
 .hero-title .accent-red{color:var(--red);}
-
+.hero-title .brand-web{color:#fff;}
+.hero-title .brand-four{color:var(--blue-light);}
+.hero-title .title-sub{
+  display:inline-block;
+  font-size:0.55em;
+  font-weight:700;
+  letter-spacing:-0.02em;
+  color:var(--yellow);
+  margin-top:0.3em;
+  white-space:nowrap;
+}
+@media(max-width:520px){
+  .hero-title .title-sub{font-size:0.5em;white-space:normal;}
+}
 .hero-desc{
-  color:rgba(255,255,255,0.78);
+  color:rgba(255,255,255,0.82);
   font-size:1.1rem;font-weight:400;
   line-height:1.75;
   margin-bottom:36px;
@@ -296,66 +364,65 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   text-shadow:0 1px 6px rgba(0,0,0,0.25);
 }
 .hero-desc a{
-  color:rgba(255,255,255,0.92);
+  color:rgba(255,255,255,0.95);
   font-weight:600;
   text-decoration:underline;
   text-underline-offset:4px;
 }
-
 .hero-checks{
   display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
   margin-bottom:40px;
 }
 .hero-check{
   display:flex;align-items:center;gap:8px;
-  color:rgba(255,255,255,0.88);
+  color:rgba(255,255,255,0.9);
   font-size:0.875rem;font-weight:500;
   background:rgba(255,255,255,0.1);
   padding:6px 14px;
   border-radius:50px;
   backdrop-filter:blur(6px);
-  border:1px solid rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.15);
 }
 .hero-check i{color:var(--green);font-size:0.8rem;}
-
-.hero-actions{
-  display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
-}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
 .btn-primary{
   display:inline-flex;align-items:center;gap:10px;
   padding:16px 32px;
-  background:var(--red);color:#fff;
+  background:#25D366;color:#fff;
   border:none;cursor:pointer;
   border-radius:var(--radius-sm);
   font-family:var(--font-body);font-size:0.95rem;font-weight:700;
   text-decoration:none;
   transition:all 0.25s;
   white-space:nowrap;
-  box-shadow:0 4px 24px rgba(234,67,53,0.35);
+  box-shadow:0 4px 24px rgba(37,211,102,0.4);
 }
+.btn-primary i{font-size:1.15rem;}
 .btn-primary:hover{
-  background:var(--red-dark);
+  background:#1FBF5E;
   transform:translateY(-2px);
-  box-shadow:0 10px 36px rgba(234,67,53,0.5);
+  box-shadow:0 10px 36px rgba(37,211,102,0.55);
 }
 .btn-secondary{
   display:inline-flex;align-items:center;gap:10px;
   padding:16px 32px;
-  background:rgba(255,255,255,0.13);
-  color:rgba(255,255,255,0.92);
-  border:1px solid rgba(255,255,255,0.22);
+  background:var(--blue);
+  color:#fff;
+  border:1px solid var(--blue);
   cursor:pointer;
   border-radius:var(--radius-sm);
-  font-family:var(--font-body);font-size:0.95rem;font-weight:600;
+  font-family:var(--font-body);font-size:0.95rem;font-weight:700;
   text-decoration:none;
   transition:all 0.25s;
   white-space:nowrap;
-  backdrop-filter:blur(6px);
+  box-shadow:0 4px 24px rgba(11,87,208,0.35);
 }
 .btn-secondary:hover{
-  background:rgba(255,255,255,0.22);
+  background:#094AB3;
+  border-color:#094AB3;
   color:#fff;
   transform:translateY(-2px);
+  box-shadow:0 10px 36px rgba(11,87,208,0.5);
 }
 
 /* Sayaçlar — alt kısım */
@@ -364,17 +431,15 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   bottom:0;
   left:0;
   right:0;
-  z-index:3;
+  z-index:5;
   padding:24px 5%;
-  background:linear-gradient(to top, rgba(15,23,42,0.85) 0%, transparent 100%);
+  background:linear-gradient(to top, rgba(10,14,26,0.9) 0%, transparent 100%);
   display:flex;
   justify-content:center;
-  gap:0;
 }
 .hero-stats-inner{
   display:flex;
   align-items:center;
-  gap:0;
   max-width:760px;
   width:100%;
   background:rgba(255,255,255,0.06);
@@ -402,7 +467,6 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   color:rgba(255,255,255,0.5);
   text-transform:uppercase;letter-spacing:0.06em;
 }
-
 @media(max-width:640px){
   .hero-title{font-size:clamp(2rem,8vw,2.8rem);}
   .hero-desc{font-size:0.95rem;}
@@ -412,6 +476,10 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   .stat-item:nth-child(even){border-right:none;}
   .stat-item:nth-last-child(-n+2){border-bottom:none;}
 }
+
+@media (prefers-reduced-motion: reduce){
+  .orb,.search-typing,.cursor{animation:none !important;}
+}
 </style>
 </head>
 <body>
@@ -420,72 +488,53 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 <nav class="navbar" id="navbar">
   <div class="navbar-inner">
     <a href="/" class="nav-logo">
-      <div class="nav-logo-mark">W4</div>
-      <span class="nav-logo-text">Web4<span>Medya</span></span>
+      <img src="https://www.web4medya.com/images/web4medya-logo.webp" alt="Web4Medya" class="nav-logo-img"/>
     </a>
     <ul class="nav-links">
-      <li class="nav-item active">
-        <a href="/">Anasayfa</a>
-      </li>
-      <li class="nav-item">
-        <a href="https://www.web4medya.com/google-reklam-vermek/">Google Reklam Vermek <i class="fas fa-chevron-down"></i></a>
-        <div class="dropdown">
-          <a href="https://www.web4medya.com/google-reklam-vermek/"><i class="fas fa-search"></i> Search Ads</a>
-          <a href="https://www.web4medya.com/google-reklam-vermek/"><i class="fas fa-shopping-cart"></i> Shopping Ads</a>
-          <a href="https://www.web4medya.com/google-reklam-vermek/"><i class="fas fa-bullseye"></i> Performance Max</a>
-          <a href="https://www.web4medya.com/google-reklam-vermek/"><i class="fas fa-play-circle"></i> YouTube Ads</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="https://www.web4medya.com/web-site-yaptirmak/">Web Site Yaptırmak</a>
-      </li>
-      <li class="nav-item">
-        <a href="#">Hakkımızda</a>
-      </li>
-      <li class="nav-item">
-        <a href="#iletisim">İletişim</a>
-      </li>
+      <li class="nav-item active"><a href="/">Anasayfa</a></li>
+      <li class="nav-item"><a href="https://www.web4medya.com/google-reklam-vermek/">Google Reklamları</a></li>
+      <li class="nav-item"><a href="https://www.web4medya.com/web-site-yaptirmak/">Web Tasarım</a></li>
+      <li class="nav-item"><a href="#">Hakkımızda</a></li>
+      <li class="nav-item"><a href="#iletisim">İletişim</a></li>
     </ul>
-    <a href="#iletisim" class="nav-cta">Ücretsiz Analiz Al</a>
     <button class="nav-toggle" id="navToggle" aria-label="Menü">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="/">Anasayfa</a>
-  <a href="https://www.web4medya.com/google-reklam-vermek/">Google Reklam Vermek</a>
-  <a href="https://www.web4medya.com/web-site-yaptirmak/">Web Site Yaptırmak</a>
+  <a href="https://www.web4medya.com/google-reklam-vermek/">Google Reklamları</a>
+  <a href="https://www.web4medya.com/web-site-yaptirmak/">Web Tasarım</a>
   <a href="#">Hakkımızda</a>
   <a href="#iletisim">İletişim</a>
-  <a href="#iletisim" class="mobile-cta">🎯 Ücretsiz Analiz Al</a>
+  <a href="https://wa.me/905303158752?text=Merhaba%2C%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum" target="_blank" rel="noopener" class="mobile-cta"><i class="fab fa-whatsapp"></i> WhatsApp İletişim Hattı</a>
 </div>
 
-<!-- ═══ HERO — Tam Ekran Video ═══ -->
+<!-- ═══ HERO — Sade: renkli orb'lar + yazma animasyonu ═══ -->
 <section class="hero" id="hero">
 
-  <!-- 16:9 video, tam ekran object-fit:cover ile kaplar -->
-  <video class="hero-video" autoplay muted loop playsinline preload="auto">
-    <source src="https://www.web4medya.com/videos/web4medya-hero.mp4" type="video/mp4">
-  </video>
+  <!-- Yüzen renkli ışık topları -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="orb orb-4"></div>
 
-  <!-- Overlay katmanları -->
-  <div class="hero-overlay"></div>
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
+  <!-- Google arama çubuğu — klavyeyle yazma animasyonu -->
+  <div class="search-typing">
+    <span class="g-logo">
+      <span class="g-b">G</span><span class="g-r">o</span><span class="g-y">o</span><span class="g-b2">g</span><span class="g-g">l</span><span class="g-r2">e</span>
+    </span>
+    <span class="search-wrap"><span class="search-text" id="searchText"></span><span class="cursor"></span></span>
+    <i class="fas fa-search search-icon-right"></i>
+  </div>
 
   <!-- Merkez içerik -->
   <div class="hero-inner">
-    <div class="hero-badge">
-      <span class="hero-badge-dot"></span>
-      Google Reklam Ajansı · İstanbul
-    </div>
     <h1 class="hero-title">
-      Google Ads ile<br>
-      <span class="accent-blue">Daha Fazla</span><br>
-      Müşteri <span class="accent-red">Kazanın</span>
+      <span class="brand-web">Web<span class="brand-four">4</span>Medya</span><br>
+      <span class="title-sub">Yeni Nesil Reklam Ajansı</span>
     </h1>
     <p class="hero-desc">
       Performans odaklı <a href="https://www.web4medya.com/google-reklam-vermek/">Google reklam stratejilerimizle</a> rakiplerinizin önüne geçin. Ölçülebilir sonuçlar, şeffaf raporlama, gerçek büyüme.
@@ -497,30 +546,8 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
       <div class="hero-check"><i class="fas fa-check-circle"></i> Şeffaf raporlama</div>
     </div>
     <div class="hero-actions">
-      <a href="#iletisim" class="btn-primary"><i class="fas fa-rocket"></i> Ücretsiz Analiz Al</a>
+      <a href="https://wa.me/905303158752?text=Merhaba%2C%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum" target="_blank" rel="noopener" class="btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp İletişim Hattı</a>
       <a href="tel:05303158752" class="btn-secondary"><i class="fas fa-phone-alt"></i> 0530 315 87 52</a>
-    </div>
-  </div>
-
-  <!-- Alt istatistik barı -->
-  <div class="hero-stats">
-    <div class="hero-stats-inner">
-      <div class="stat-item">
-        <div class="stat-value"><span>100+</span></div>
-        <div class="stat-label">Başarılı Kampanya</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-value"><span>%300</span></div>
-        <div class="stat-label">Ortalama Dönüşüm Artışı</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-value"><span>5.4×</span></div>
-        <div class="stat-label">Ortalama ROAS</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-value"><span>4.9 ★</span></div>
-        <div class="stat-label">Müşteri Memnuniyeti</div>
-      </div>
     </div>
   </div>
 
@@ -545,20 +572,57 @@ if(toggle && mobileMenu){
     }
   });
 }
-
-/* Navbar scroll */
 window.addEventListener('scroll',()=>{
   const nb = document.getElementById('navbar');
-  if(nb) nb.style.background = window.scrollY>50 ? 'rgba(15,23,42,0.98)' : 'rgba(15,23,42,0.9)';
+  if(nb){
+    if(window.scrollY>30) nb.classList.add('scrolled');
+    else nb.classList.remove('scrolled');
+  }
 });
-
-/* Smooth scroll */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
     const target = document.querySelector(a.getAttribute('href'));
     if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); if(menuOpen && toggle){toggle.click();} }
   });
 });
+
+/* Klavyeyle yazma animasyonu */
+(function(){
+  const el = document.getElementById('searchText');
+  if(!el) return;
+  const words = [
+    'google reklam ajansı',
+    'google ads yönetimi',
+    'web tasarım',
+    'performans pazarlama',
+    'dijital reklam uzmanı'
+  ];
+  let wi = 0, ci = 0, deleting = false;
+  function tick(){
+    const word = words[wi];
+    if(!deleting){
+      ci++;
+      el.textContent = word.slice(0, ci);
+      if(ci === word.length){
+        deleting = true;
+        setTimeout(tick, 1800);
+        return;
+      }
+      setTimeout(tick, 85 + Math.random()*60);
+    } else {
+      ci--;
+      el.textContent = word.slice(0, ci);
+      if(ci === 0){
+        deleting = false;
+        wi = (wi + 1) % words.length;
+        setTimeout(tick, 400);
+        return;
+      }
+      setTimeout(tick, 40);
+    }
+  }
+  setTimeout(tick, 600);
+})();
 </script>
 </body>
 </html>
