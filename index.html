@@ -1336,10 +1336,11 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   position:relative;
   overflow:hidden;
   width:100%;
-  background:#F8FAFC;
+  background:#ffffff;
   display:flex;
   align-items:center;
   justify-content:center;
+  cursor:zoom-in;
 }
 .tab-visual img{
   width:100%;
@@ -1347,15 +1348,6 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   max-width:1400px;
   display:block;
   object-fit:contain;
-}
-.tab-visual::after{
-  content:"";
-  position:absolute;
-  bottom:0;
-  left:0;right:0;
-  height:80px;
-  background:linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
-  pointer-events:none;
 }
 
 /* Alt: metin içeriği */
@@ -1371,7 +1363,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 .tab-text::before{
   content:"";
   position:absolute;
-  left:5%;top:-30px;
+  left:5%;top:24px;
   width:60px;height:60px;
   background-image:radial-gradient(circle, rgba(11,87,208,0.35) 1.5px, transparent 1.5px);
   background-size:10px 10px;
@@ -1430,6 +1422,76 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   color:var(--text2);
   max-width:720px;
   margin:0 auto;
+}
+
+/* ═══ Lightbox - tam ekran görsel görüntüleyici ═══ */
+.lightbox-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.92);
+  z-index:10000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity 0.3s ease, visibility 0.3s ease;
+  cursor:zoom-out;
+  padding:20px;
+}
+.lightbox-overlay.active{
+  opacity:1;
+  visibility:visible;
+}
+.lightbox-image{
+  max-width:95vw;
+  max-height:92vh;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  border-radius:8px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.5);
+  animation:lightbox-zoom 0.3s cubic-bezier(0.2,0.7,0.3,1);
+}
+@keyframes lightbox-zoom{
+  from{transform:scale(0.92);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+.lightbox-close{
+  position:absolute;
+  top:20px;
+  right:24px;
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.2);
+  color:#ffffff;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  font-size:1.3rem;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background 0.25s, transform 0.25s;
+  z-index:2;
+}
+.lightbox-close:hover{
+  background:rgba(255,255,255,0.2);
+  transform:scale(1.1);
+}
+
+/* ═══ Swipe/drag - tabs-content yatay kaydırma ═══ */
+.tabs-content{
+  width:100%;
+  position:relative;
+}
+.tab-panel{
+  -webkit-tap-highlight-color:transparent;
+}
+.tab-panel.swiping{
+  transition:transform 0.3s cubic-bezier(0.2,0.7,0.3,1);
 }
 
 @media(max-width:900px){
@@ -1680,7 +1742,6 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
         <img src="/images/genisleme.webp" alt="Genişleme - Yeni kitlelere ulaşma" loading="lazy"/>
       </div>
       <div class="tab-text">
-        <div class="tab-icon"><i class="fas fa-globe"></i></div>
         <h3>Genişleme</h3>
         <p class="tab-quote">"Yeni pazarlara açılmak istiyoruz ama nereden başlayacağımızı bilmiyoruz."</p>
         <p class="tab-desc">Henüz ulaşmadığınız kitlelere sizi tanıtıyoruz. Yeni hedef kitle araştırması, pazar fırsatı analizi ve çoklu kanal kampanyalarıyla markanızın erişim alanını büyütüyoruz. Yeni coğrafyalar, yeni demografiler, yeni gelir akışları.</p>
@@ -1693,7 +1754,6 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
         <img src="/images/olcumleme.webp" alt="Ölçümleme - Ne işe yaradığını kanıtlama" loading="lazy"/>
       </div>
       <div class="tab-text">
-        <div class="tab-icon"><i class="fas fa-chart-simple"></i></div>
         <h3>Ölçümleme</h3>
         <p class="tab-quote">"Hangi kampanya gerçekten işe yarıyor bilmiyoruz."</p>
         <p class="tab-desc">Atıf modellemesi, artırımlılık testleri ve pazarlama karma modeli (MMM) ile platform metriklerinin ötesine geçiyoruz. "Kârı gerçekte ne sağlıyor?" sorusuna veriye dayalı, kanıta dayalı yanıtlar veriyoruz. Tahmin değil, bilimsel ölçüm.</p>
@@ -1706,7 +1766,6 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
         <img src="/images/verimlilik.webp" alt="Verimlilik - Bütçeyi doğru kullanma" loading="lazy"/>
       </div>
       <div class="tab-text">
-        <div class="tab-icon"><i class="fas fa-gauge-high"></i></div>
         <h3>Verimlilik</h3>
         <p class="tab-quote">"Reklama harcıyoruz ama artı bir getirisini göremiyoruz."</p>
         <p class="tab-desc">Mevcut reklam harcamanızı platform metrikleri üzerinden değil, gerçek gelir üzerinden denetliyoruz. Optimizasyon fırsatlarını tespit edip, hangi kanalın kâra dönüştüğünü kanıtlıyor ve bütçenizi size getiri sağlayan yerlere yönlendiriyoruz.</p>
@@ -1719,7 +1778,6 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
         <img src="/images/yaratici.webp" alt="Yaratıcı - Dönüşüm sağlayan reklam içerikleri" loading="lazy"/>
       </div>
       <div class="tab-text">
-        <div class="tab-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
         <h3>Yaratıcı</h3>
         <p class="tab-quote">"Reklamlarımız dikkat çekmiyor, kimse tıklamıyor."</p>
         <p class="tab-desc">Dönüşüm için tasarlanan performans kreatifleri üretiyoruz. Video, statik görsel, reels, UGC — platformun diline uyumlu, markanızın sesini taşıyan ve en önemlisi satan içerikler. Estetik ve sonuç aynı anda.</p>
@@ -1732,7 +1790,6 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
         <img src="/images/buyume.webp" alt="Büyüme - Mevcut müşterilerden daha fazla değer" loading="lazy"/>
       </div>
       <div class="tab-text">
-        <div class="tab-icon"><i class="fas fa-arrow-trend-up"></i></div>
         <h3>Büyüme</h3>
         <p class="tab-quote">"Müşterilerimiz var ama tekrar alışveriş yapmıyorlar."</p>
         <p class="tab-desc">Mevcut müşteri tabanınızı tekrar tekrar değer üreten bir varlığa dönüştürüyoruz. Retargeting, CRM segmentasyonu, sadakat kampanyaları ve yaşam boyu değer (LTV) odaklı stratejilerle her müşteriden daha fazla gelir elde etmenizi sağlıyoruz.</p>
@@ -1813,28 +1870,157 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   setTimeout(tick, 600);
 })();
 
-/* Tabs switcher - Neler Sunuyoruz bölümü */
+/* Tabs switcher + Lightbox + Swipe - Neler Sunuyoruz bölümü */
 (function(){
   const buttons = document.querySelectorAll('.tab-button');
   const panels = document.querySelectorAll('.tab-panel');
   if(!buttons.length) return;
 
+  const tabOrder = Array.from(buttons).map(b => b.dataset.tab);
+
+  function activateTab(tabName){
+    buttons.forEach(b => b.classList.toggle('active', b.dataset.tab === tabName));
+    panels.forEach(p => p.classList.toggle('active', p.id === 'tab-' + tabName));
+  }
+
+  // Tab click
   buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = btn.dataset.tab;
+    btn.addEventListener('click', () => activateTab(btn.dataset.tab));
+  });
 
-      // Tüm butonları ve panelleri pasif yap
-      buttons.forEach(b => b.classList.remove('active'));
-      panels.forEach(p => p.classList.remove('active'));
+  // Swipe/drag - aktif panel üzerinde yatay kaydırma
+  let startX = 0, currentX = 0, isDragging = false, startTime = 0;
+  const SWIPE_THRESHOLD = 60; // piksel
+  const SWIPE_VELOCITY = 0.3; // piksel/ms
 
-      // Tıklananı aktif yap
-      btn.classList.add('active');
-      const activePanel = document.getElementById('tab-' + target);
-      if(activePanel) activePanel.classList.add('active');
+  function getActivePanelIndex(){
+    const activeBtn = document.querySelector('.tab-button.active');
+    return tabOrder.indexOf(activeBtn ? activeBtn.dataset.tab : tabOrder[0]);
+  }
+
+  function handleSwipe(deltaX, deltaTime){
+    const velocity = Math.abs(deltaX) / Math.max(deltaTime, 1);
+    if(Math.abs(deltaX) < SWIPE_THRESHOLD && velocity < SWIPE_VELOCITY) return;
+
+    const currentIndex = getActivePanelIndex();
+    let newIndex = currentIndex;
+
+    if(deltaX < 0 && currentIndex < tabOrder.length - 1){
+      newIndex = currentIndex + 1; // sola kaydır → sonraki tab
+    } else if(deltaX > 0 && currentIndex > 0){
+      newIndex = currentIndex - 1; // sağa kaydır → önceki tab
+    }
+
+    if(newIndex !== currentIndex){
+      activateTab(tabOrder[newIndex]);
+    }
+  }
+
+  // Touch events - mobil
+  panels.forEach(panel => {
+    panel.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startTime = Date.now();
+      isDragging = true;
+    }, {passive: true});
+
+    panel.addEventListener('touchmove', (e) => {
+      if(!isDragging) return;
+      currentX = e.touches[0].clientX;
+    }, {passive: true});
+
+    panel.addEventListener('touchend', () => {
+      if(!isDragging) return;
+      const deltaX = currentX - startX;
+      const deltaTime = Date.now() - startTime;
+      if(currentX !== 0) handleSwipe(deltaX, deltaTime);
+      isDragging = false;
+      startX = 0; currentX = 0;
+    }, {passive: true});
+  });
+
+  // Mouse drag - masaüstü
+  let mouseDown = false;
+  panels.forEach(panel => {
+    panel.addEventListener('mousedown', (e) => {
+      // Görsele tıklama lightbox'ı açıyor, drag etkileşimini ondan sonra başlatıyoruz
+      if(e.target.tagName === 'IMG') return;
+      mouseDown = true;
+      startX = e.clientX;
+      startTime = Date.now();
+      panel.style.cursor = 'grabbing';
     });
+
+    panel.addEventListener('mousemove', (e) => {
+      if(!mouseDown) return;
+      currentX = e.clientX;
+    });
+
+    const endDrag = () => {
+      if(!mouseDown) return;
+      const deltaX = currentX - startX;
+      const deltaTime = Date.now() - startTime;
+      if(currentX !== 0) handleSwipe(deltaX, deltaTime);
+      mouseDown = false;
+      panel.style.cursor = '';
+      startX = 0; currentX = 0;
+    };
+
+    panel.addEventListener('mouseup', endDrag);
+    panel.addEventListener('mouseleave', endDrag);
+  });
+})();
+
+/* Lightbox - Neler Sunuyoruz görselleri tam ekran görüntüleme */
+(function(){
+  const lightbox = document.getElementById('lightbox');
+  if(!lightbox) return;
+
+  const lightboxImg = lightbox.querySelector('.lightbox-image');
+  const closeBtn = lightbox.querySelector('.lightbox-close');
+  const tabImages = document.querySelectorAll('.tab-visual img');
+
+  function openLightbox(src, alt){
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightbox.classList.add('active');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox(){
+    lightbox.classList.remove('active');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    setTimeout(() => { lightboxImg.src = ''; }, 300);
+  }
+
+  tabImages.forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openLightbox(img.src, img.alt);
+    });
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if(e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && lightbox.classList.contains('active')){
+      closeLightbox();
+    }
   });
 })();
 </script>
+
+<!-- Lightbox overlay (tam ekran görsel görüntüleyici) -->
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-label="Görsel büyütüldü" aria-hidden="true">
+  <button class="lightbox-close" aria-label="Kapat"><i class="fas fa-times"></i></button>
+  <img class="lightbox-image" src="" alt=""/>
+</div>
 
 <!-- ═══ BİRLİKTE ÇALIŞTIĞIMIZ MARKALAR ═══ -->
 <section class="brands" id="markalar">
