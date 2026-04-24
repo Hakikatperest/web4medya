@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" fill="none" aria-label="BOYA ELİ">
-  <g transform="translate(150, 50)" fill="#000000" font-family="'Helvetica Neue', Arial, sans-serif" text-anchor="middle">
-    <!-- BOYA - üstte -->
-    <text x="0" y="-15" font-size="32" font-weight="900" letter-spacing="6" dominant-baseline="central">BOYA</text>
-    <!-- ELİ - altta -->
-    <text x="0" y="20" font-size="32" font-weight="900" letter-spacing="10" dominant-baseline="central">ELİ</text>
-  </g>
-</svg>
