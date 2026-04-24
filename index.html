@@ -733,8 +733,8 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 
 /* ═══ LOGO BAR ═══ */
 .logo-bar{
-  background:#ffffff;
-  padding:100px 0 90px;
+  background:#F8FAFC;
+  padding:80px 0 80px;
   overflow:hidden;
   position:relative;
   border-bottom:1px solid var(--border);
@@ -746,7 +746,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   font-weight:600;
   letter-spacing:-0.01em;
   color:var(--text2);
-  margin-bottom:64px;
+  margin-bottom:48px;
   padding:0 20px;
   text-transform:none;
 }
@@ -754,8 +754,8 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   position:relative;
   width:100%;
   overflow:hidden;
-  mask-image:linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
-  -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  mask-image:linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+  -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
   transform:translateZ(0);
   -webkit-transform:translateZ(0);
   backface-visibility:hidden;
@@ -767,6 +767,8 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   display:flex;
   align-items:center;
   width:max-content;
+  gap:24px;
+  padding:0 12px;
   animation:logo-scroll 50s linear infinite;
   will-change:transform;
   transform:translate3d(0,0,0);
@@ -774,28 +776,41 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   backface-visibility:hidden;
   -webkit-backface-visibility:hidden;
 }
-/* Masaüstü: hover ile durur */
 @media (hover: hover) and (pointer: fine){
   .logo-track:hover{animation-play-state:paused;}
 }
-/* Mobil: dokunup basılı tutunca durur, çekince devam eder */
 .logo-track.is-touch-paused{animation-play-state:paused;}
+
+/* Kart şeklinde kutular */
 .logo-item{
   flex-shrink:0;
-  padding:0 90px;
+  width:260px;
+  height:180px;
+  background:#ffffff;
+  border:1px solid var(--border);
+  border-radius:16px;
   display:flex;
   align-items:center;
   justify-content:center;
-  height:240px;
+  padding:24px 32px;
+  transition:border-color 0.3s, transform 0.3s, box-shadow 0.3s;
   touch-action:pan-y;
   -webkit-user-select:none;
   user-select:none;
+  box-shadow:0 1px 3px rgba(15,23,42,0.04);
+}
+@media (hover: hover) and (pointer: fine){
+  .logo-item:hover{
+    border-color:var(--blue-light);
+    transform:translateY(-4px);
+    box-shadow:0 12px 24px rgba(15,23,42,0.08);
+  }
 }
 .logo-item img{
-  max-height:200px;
+  max-height:80px;
   width:auto;
-  max-width:560px;
-  opacity:0.7;
+  max-width:100%;
+  opacity:0.75;
   filter:grayscale(100%);
   transition:opacity 0.3s, filter 0.3s;
   pointer-events:none;
@@ -811,22 +826,24 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 }
 @keyframes logo-scroll{
   from {transform:translate3d(0,0,0);}
-  to   {transform:translate3d(-50%,0,0);}
+  to   {transform:translate3d(calc(-50% - 12px),0,0);}
 }
 @media(max-width:1024px){
-  .logo-item{padding:0 70px;height:190px;}
-  .logo-item img{max-height:150px;max-width:420px;}
+  .logo-item{width:230px;height:160px;padding:20px 28px;}
+  .logo-item img{max-height:70px;}
+  .logo-track{gap:20px;}
 }
 @media(max-width:768px){
-  .logo-bar{padding:72px 0 60px;}
-  .logo-bar-title{margin-bottom:44px;}
-  .logo-item{padding:0 50px;height:150px;}
-  .logo-item img{max-height:120px;max-width:320px;opacity:0.8;}
-  .logo-track{animation-duration:40s;}
+  .logo-bar{padding:60px 0 60px;}
+  .logo-bar-title{margin-bottom:36px;}
+  .logo-item{width:200px;height:140px;padding:18px 24px;border-radius:14px;}
+  .logo-item img{max-height:60px;opacity:0.85;}
+  .logo-track{gap:16px;animation-duration:42s;}
 }
 @media(max-width:480px){
-  .logo-item{padding:0 40px;height:120px;}
-  .logo-item img{max-height:90px;max-width:240px;}
+  .logo-item{width:170px;height:120px;padding:16px 20px;border-radius:12px;}
+  .logo-item img{max-height:50px;}
+  .logo-track{gap:14px;}
 }
 @media (prefers-reduced-motion: reduce){
   .logo-track{animation:none;}
