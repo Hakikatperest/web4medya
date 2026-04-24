@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" fill="none" aria-label="Platanusbook Yayınevi">
+  <g transform="translate(150, 50)">
+    <!-- Sol: Çınar yaprağı ikonu (platanus = çınar) -->
+    <g transform="translate(-115, 0)">
+      <!-- Yaprağın gövdesi -->
+      <path d="M 0 -18 C -8 -18, -14 -12, -14 -4 C -14 2, -10 8, -6 12 L -6 16 L 6 16 L 6 12 C 10 8, 14 2, 14 -4 C 14 -12, 8 -18, 0 -18 Z" fill="#000000"/>
+      <!-- Yaprak damarları (beyaz) -->
+      <line x1="0" y1="-15" x2="0" y2="15" stroke="#ffffff" stroke-width="0.8"/>
+      <line x1="0" y1="-8" x2="-7" y2="-1" stroke="#ffffff" stroke-width="0.8"/>
+      <line x1="0" y1="-8" x2="7" y2="-1" stroke="#ffffff" stroke-width="0.8"/>
+      <line x1="0" y1="0" x2="-8" y2="6" stroke="#ffffff" stroke-width="0.8"/>
+      <line x1="0" y1="0" x2="8" y2="6" stroke="#ffffff" stroke-width="0.8"/>
+    </g>
+
+    <!-- Sağ: tipografi -->
+    <g fill="#000000" font-family="Georgia, 'Times New Roman', serif">
+      <!-- platanus - serif italic büyük -->
+      <text x="-88" y="-7" font-size="26" font-weight="400" letter-spacing="1" font-style="italic" dominant-baseline="central">platanus</text>
+      <!-- book - aynı satırda kalın -->
+      <text x="25" y="-7" font-size="26" font-weight="700" letter-spacing="1" dominant-baseline="central">book</text>
+      <!-- İnce ayırıcı çizgi -->
+      <line x1="-88" y1="6" x2="90" y2="6" stroke="#000000" stroke-width="0.5"/>
+      <!-- YAYINEVİ - alt başlık sans -->
+      <text x="0" y="20" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="400" letter-spacing="10" text-anchor="middle" dominant-baseline="central">YAYINEVİ</text>
+    </g>
+  </g>
+</svg>

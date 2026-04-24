@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" fill="none" aria-label="İstanbul Şap Beton">
+  <g transform="translate(150, 50)">
+    <!-- Sol: kalın dikey blok (inşaat kolonu gibi) -->
+    <rect x="-130" y="-24" width="10" height="48" fill="#000000"/>
+
+    <!-- Sağ: aynı kalın dikey blok -->
+    <rect x="120" y="-24" width="10" height="48" fill="#000000"/>
+
+    <!-- İSTANBUL - küçük üstte -->
+    <text x="0" y="-20" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="700" fill="#000000" text-anchor="middle" letter-spacing="8" dominant-baseline="central">İSTANBUL</text>
+
+    <!-- Ana: ŞAP BETON - büyük bold condensed -->
+    <text x="0" y="5" font-family="'Helvetica Neue', Arial Black, sans-serif" font-size="30" font-weight="900" fill="#000000" text-anchor="middle" letter-spacing="4" dominant-baseline="central">ŞAP BETON</text>
+
+    <!-- Alt: yatay kalın çizgi -->
+    <rect x="-90" y="22" width="180" height="3" fill="#000000"/>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" fill="none" aria-label="YILMAZLAR NAKLİYE">
+  <g transform="translate(150, 50)">
+    <!-- Sol üst köşe L şekli -->
+    <path d="M -130 -25 L -110 -25 L -110 -22 L -127 -22 L -127 -10 L -130 -10 Z" fill="#000000"/>
+    <!-- Sol alt köşe L şekli -->
+    <path d="M -130 25 L -110 25 L -110 22 L -127 22 L -127 10 L -130 10 Z" fill="#000000"/>
+
+    <!-- Sağ üst köşe L şekli (ayna) -->
+    <path d="M 130 -25 L 110 -25 L 110 -22 L 127 -22 L 127 -10 L 130 -10 Z" fill="#000000"/>
+    <!-- Sağ alt köşe L şekli (ayna) -->
+    <path d="M 130 25 L 110 25 L 110 22 L 127 22 L 127 10 L 130 10 Z" fill="#000000"/>
+
+    <!-- Ana tipografi -->
+    <g fill="#000000" font-family="'Helvetica Neue', Arial, sans-serif" text-anchor="middle">
+      <!-- YILMAZLAR - büyük bold -->
+      <text x="0" y="-6" font-size="24" font-weight="900" letter-spacing="2" dominant-baseline="central">YILMAZLAR</text>
+      <!-- NAKLİYE - altında ince -->
+      <text x="0" y="20" font-size="11" font-weight="400" letter-spacing="11" dominant-baseline="central">NAKLİYE</text>
+    </g>
+  </g>
+</svg>

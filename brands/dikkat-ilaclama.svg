@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" fill="none" aria-label="Dikkat İlaçlama">
+  <g transform="translate(150, 50)">
+    <!-- Sol: Uyarı üçgeni (içinde ünlem) -->
+    <path d="M -115 20 L -80 20 L -97.5 -15 Z" fill="#000000"/>
+    <!-- Üçgen içinde ünlem çizgisi (beyaz) -->
+    <rect x="-99" y="-5" width="3" height="12" fill="#ffffff"/>
+    <!-- Üçgen içinde ünlem noktası (beyaz) -->
+    <circle cx="-97.5" cy="13" r="1.8" fill="#ffffff"/>
+
+    <!-- Sağ: tipografi -->
+    <g fill="#000000" font-family="'Helvetica Neue', Arial, sans-serif">
+      <!-- DİKKAT - büyük bold -->
+      <text x="-65" y="-7" font-size="26" font-weight="900" letter-spacing="2" dominant-baseline="central">DİKKAT</text>
+      <!-- İnce çizgi ayırıcı -->
+      <line x1="-65" y1="5" x2="115" y2="5" stroke="#000000" stroke-width="0.6"/>
+      <!-- İLAÇLAMA - ince büyük -->
+      <text x="-65" y="20" font-size="14" font-weight="300" letter-spacing="7" dominant-baseline="central">İLAÇLAMA</text>
+    </g>
+  </g>
+</svg>

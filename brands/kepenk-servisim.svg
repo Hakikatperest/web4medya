@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" fill="none" aria-label="Kepenk Servisim">
+  <g transform="translate(150, 50)" fill="#000000" text-anchor="middle">
+    <!-- KEPENK - üstte serif büyük -->
+    <text x="0" y="-14" font-family="'Playfair Display', 'Times New Roman', Georgia, serif" font-size="30" font-weight="700" letter-spacing="4" dominant-baseline="central">KEPENK</text>
+
+    <!-- İki yanlı süsleme çizgisi -->
+    <line x1="-100" y1="6" x2="-50" y2="6" stroke="#000000" stroke-width="0.8"/>
+    <line x1="50" y1="6" x2="100" y2="6" stroke="#000000" stroke-width="0.8"/>
+    <!-- Orta küçük elmas/romboid -->
+    <path d="M 0 3 L 4 6 L 0 9 L -4 6 Z" fill="#000000"/>
+
+    <!-- SERVİSİM - altta ince sans -->
+    <text x="0" y="24" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" letter-spacing="8" dominant-baseline="central">SERVİSİM</text>
+  </g>
+</svg>
