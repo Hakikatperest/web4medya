@@ -2499,6 +2499,181 @@ body.a11y-custom-bg .navbar{background-color:var(--a11y-bg-color) !important;}
   <img class="lightbox-image" src="" alt=""/>
 </div>
 
+<!-- ═══ ERİŞİLEBİLİRLİK WIDGET ═══ -->
+<button class="a11y-trigger" id="a11yTrigger" aria-label="Erişilebilirlik ayarlarını aç">
+  <i class="fas fa-universal-access"></i>
+</button>
+
+<div class="a11y-overlay" id="a11yOverlay"></div>
+
+<aside class="a11y-panel" id="a11yPanel" role="dialog" aria-label="Erişilebilirlik Ayarları">
+
+  <!-- Header -->
+  <div class="a11y-header">
+    <button class="a11y-close" id="a11yClose" aria-label="Kapat"><i class="fas fa-times"></i></button>
+    <h2 class="a11y-title">Erişilebilirlik Ayarları</h2>
+    <div class="a11y-quick-actions">
+      <button class="a11y-quick-btn" id="a11yReset"><i class="fas fa-rotate"></i> Sıfırla</button>
+      <button class="a11y-quick-btn" id="a11yStatement"><i class="fas fa-file-lines"></i> Beyan</button>
+      <button class="a11y-quick-btn" id="a11yHide"><i class="fas fa-eye-slash"></i> Gizle</button>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="a11y-body">
+
+    <!-- Profiller -->
+    <div class="a11y-section">
+      <h3 class="a11y-section-title">Doğru Erişilebilirlik Profilini Seçin</h3>
+
+      <div class="a11y-profile" data-profile="seizure">
+        <div class="a11y-toggle"></div>
+        <div class="a11y-profile-info">
+          <div class="a11y-profile-name">Nöbetlere Karşı Güvenli</div>
+          <div class="a11y-profile-desc">Yanıp sönen içerikleri kaldırır ve rengi azaltır</div>
+        </div>
+        <div class="a11y-profile-icon"><i class="fas fa-bolt"></i></div>
+      </div>
+
+      <div class="a11y-profile" data-profile="vision">
+        <div class="a11y-toggle"></div>
+        <div class="a11y-profile-info">
+          <div class="a11y-profile-name">Görme Engelli Profil</div>
+          <div class="a11y-profile-desc">Yazı boyutunu artırır ve görselleri geliştirir</div>
+        </div>
+        <div class="a11y-profile-icon"><i class="fas fa-eye"></i></div>
+      </div>
+
+      <div class="a11y-profile" data-profile="adhd">
+        <div class="a11y-toggle"></div>
+        <div class="a11y-profile-info">
+          <div class="a11y-profile-name">ADHD Dostu Profil</div>
+          <div class="a11y-profile-desc">Daha fazla odaklanma ve daha az dikkat dağınıklığı</div>
+        </div>
+        <div class="a11y-profile-icon"><i class="fas fa-bullseye"></i></div>
+      </div>
+
+      <div class="a11y-profile" data-profile="cognitive">
+        <div class="a11y-toggle"></div>
+        <div class="a11y-profile-info">
+          <div class="a11y-profile-name">Bilişsel Engelli Profil</div>
+          <div class="a11y-profile-desc">Okumaya ve odaklanmaya yardımcı olur</div>
+        </div>
+        <div class="a11y-profile-icon"><i class="fas fa-brain"></i></div>
+      </div>
+
+      <div class="a11y-profile" data-profile="keyboard">
+        <div class="a11y-toggle"></div>
+        <div class="a11y-profile-info">
+          <div class="a11y-profile-name">Klavye ile Gezinme</div>
+          <div class="a11y-profile-desc">Web sitesini sadece klavye ile kullan</div>
+        </div>
+        <div class="a11y-profile-icon"><i class="fas fa-keyboard"></i></div>
+      </div>
+    </div>
+
+    <!-- Renk Ayarları -->
+    <div class="a11y-section">
+      <h3 class="a11y-section-title">Renk Ayarları</h3>
+
+      <div class="a11y-modes">
+        <button class="a11y-mode-btn" data-mode="dark-contrast">
+          <i class="fas fa-moon"></i>
+          <div class="a11y-mode-btn-label">Koyu Kontrast</div>
+        </button>
+        <button class="a11y-mode-btn" data-mode="light-contrast">
+          <i class="fas fa-sun"></i>
+          <div class="a11y-mode-btn-label">Açık Kontrast</div>
+        </button>
+        <button class="a11y-mode-btn" data-mode="high-contrast">
+          <i class="fas fa-circle-half-stroke"></i>
+          <div class="a11y-mode-btn-label">Yüksek Kontrast</div>
+        </button>
+      </div>
+
+      <div class="a11y-modes">
+        <button class="a11y-sat-btn" data-sat="high-saturation">
+          <i class="fas fa-droplet"></i>
+          <div class="a11y-sat-btn-label">Yüksek Satürasyon</div>
+        </button>
+        <button class="a11y-sat-btn" data-sat="monochrome">
+          <i class="fas fa-circle"></i>
+          <div class="a11y-sat-btn-label">Monokrom</div>
+        </button>
+        <button class="a11y-sat-btn" data-sat="low-saturation">
+          <i class="far fa-circle"></i>
+          <div class="a11y-sat-btn-label">Düşük Satürasyon</div>
+        </button>
+      </div>
+
+      <!-- Renk paletleri -->
+      <div class="a11y-color-row">
+        <div class="a11y-color-row-label">Metin Renklerini Ayarla</div>
+        <div class="a11y-color-swatches" data-target="text">
+          <div class="a11y-swatch" data-color="#0B57D0" style="background:#0B57D0"></div>
+          <div class="a11y-swatch" data-color="#9333EA" style="background:#9333EA"></div>
+          <div class="a11y-swatch" data-color="#DC2626" style="background:#DC2626"></div>
+          <div class="a11y-swatch" data-color="#EA580C" style="background:#EA580C"></div>
+          <div class="a11y-swatch" data-color="#0D9488" style="background:#0D9488"></div>
+          <div class="a11y-swatch" data-color="#16A34A" style="background:#16A34A"></div>
+          <div class="a11y-swatch" data-color="white"></div>
+          <div class="a11y-swatch" data-color="black"></div>
+        </div>
+        <button class="a11y-color-cancel" data-cancel="text">İptal</button>
+      </div>
+
+      <div class="a11y-color-row">
+        <div class="a11y-color-row-label">Başlık Renklerini Ayarla</div>
+        <div class="a11y-color-swatches" data-target="heading">
+          <div class="a11y-swatch" data-color="#0B57D0" style="background:#0B57D0"></div>
+          <div class="a11y-swatch" data-color="#9333EA" style="background:#9333EA"></div>
+          <div class="a11y-swatch" data-color="#DC2626" style="background:#DC2626"></div>
+          <div class="a11y-swatch" data-color="#EA580C" style="background:#EA580C"></div>
+          <div class="a11y-swatch" data-color="#0D9488" style="background:#0D9488"></div>
+          <div class="a11y-swatch" data-color="#16A34A" style="background:#16A34A"></div>
+          <div class="a11y-swatch" data-color="white"></div>
+          <div class="a11y-swatch" data-color="black"></div>
+        </div>
+        <button class="a11y-color-cancel" data-cancel="heading">İptal</button>
+      </div>
+
+      <div class="a11y-color-row">
+        <div class="a11y-color-row-label">Arkaplan Renklerini Ayarla</div>
+        <div class="a11y-color-swatches" data-target="bg">
+          <div class="a11y-swatch" data-color="#0B57D0" style="background:#0B57D0"></div>
+          <div class="a11y-swatch" data-color="#9333EA" style="background:#9333EA"></div>
+          <div class="a11y-swatch" data-color="#DC2626" style="background:#DC2626"></div>
+          <div class="a11y-swatch" data-color="#EA580C" style="background:#EA580C"></div>
+          <div class="a11y-swatch" data-color="#0D9488" style="background:#0D9488"></div>
+          <div class="a11y-swatch" data-color="#16A34A" style="background:#16A34A"></div>
+          <div class="a11y-swatch" data-color="white"></div>
+          <div class="a11y-swatch" data-color="black"></div>
+        </div>
+        <button class="a11y-color-cancel" data-cancel="bg">İptal</button>
+      </div>
+    </div>
+
+    <!-- Yazı boyutu -->
+    <div class="a11y-section">
+      <h3 class="a11y-section-title">Yazı Boyutu</h3>
+      <div class="a11y-size-row">
+        <span class="a11y-size-label">Yazı Boyutu</span>
+        <div class="a11y-size-controls">
+          <button class="a11y-size-btn" id="a11ySizeMinus">−</button>
+          <span class="a11y-size-value" id="a11ySizeValue">100%</span>
+          <button class="a11y-size-btn" id="a11ySizePlus">+</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="a11y-footer">
+    Web4Medya — WCAG 2.1 AA Erişilebilirlik Çözümü
+  </div>
+</aside>
+
 <script>
 /* Mobile menu */
 const toggle = document.getElementById('navToggle');
@@ -3195,180 +3370,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   </a>
 </div>
 
-<!-- ═══ ERİŞİLEBİLİRLİK WIDGET ═══ -->
-<button class="a11y-trigger" id="a11yTrigger" aria-label="Erişilebilirlik ayarlarını aç">
-  <i class="fas fa-universal-access"></i>
-</button>
-
-<div class="a11y-overlay" id="a11yOverlay"></div>
-
-<aside class="a11y-panel" id="a11yPanel" role="dialog" aria-label="Erişilebilirlik Ayarları">
-
-  <!-- Header -->
-  <div class="a11y-header">
-    <button class="a11y-close" id="a11yClose" aria-label="Kapat"><i class="fas fa-times"></i></button>
-    <h2 class="a11y-title">Erişilebilirlik Ayarları</h2>
-    <div class="a11y-quick-actions">
-      <button class="a11y-quick-btn" id="a11yReset"><i class="fas fa-rotate"></i> Sıfırla</button>
-      <button class="a11y-quick-btn" id="a11yStatement"><i class="fas fa-file-lines"></i> Beyan</button>
-      <button class="a11y-quick-btn" id="a11yHide"><i class="fas fa-eye-slash"></i> Gizle</button>
-    </div>
-  </div>
-
-  <!-- Body -->
-  <div class="a11y-body">
-
-    <!-- Profiller -->
-    <div class="a11y-section">
-      <h3 class="a11y-section-title">Doğru Erişilebilirlik Profilini Seçin</h3>
-
-      <div class="a11y-profile" data-profile="seizure">
-        <div class="a11y-toggle"></div>
-        <div class="a11y-profile-info">
-          <div class="a11y-profile-name">Nöbetlere Karşı Güvenli</div>
-          <div class="a11y-profile-desc">Yanıp sönen içerikleri kaldırır ve rengi azaltır</div>
-        </div>
-        <div class="a11y-profile-icon"><i class="fas fa-bolt"></i></div>
-      </div>
-
-      <div class="a11y-profile" data-profile="vision">
-        <div class="a11y-toggle"></div>
-        <div class="a11y-profile-info">
-          <div class="a11y-profile-name">Görme Engelli Profil</div>
-          <div class="a11y-profile-desc">Yazı boyutunu artırır ve görselleri geliştirir</div>
-        </div>
-        <div class="a11y-profile-icon"><i class="fas fa-eye"></i></div>
-      </div>
-
-      <div class="a11y-profile" data-profile="adhd">
-        <div class="a11y-toggle"></div>
-        <div class="a11y-profile-info">
-          <div class="a11y-profile-name">ADHD Dostu Profil</div>
-          <div class="a11y-profile-desc">Daha fazla odaklanma ve daha az dikkat dağınıklığı</div>
-        </div>
-        <div class="a11y-profile-icon"><i class="fas fa-bullseye"></i></div>
-      </div>
-
-      <div class="a11y-profile" data-profile="cognitive">
-        <div class="a11y-toggle"></div>
-        <div class="a11y-profile-info">
-          <div class="a11y-profile-name">Bilişsel Engelli Profil</div>
-          <div class="a11y-profile-desc">Okumaya ve odaklanmaya yardımcı olur</div>
-        </div>
-        <div class="a11y-profile-icon"><i class="fas fa-brain"></i></div>
-      </div>
-
-      <div class="a11y-profile" data-profile="keyboard">
-        <div class="a11y-toggle"></div>
-        <div class="a11y-profile-info">
-          <div class="a11y-profile-name">Klavye ile Gezinme</div>
-          <div class="a11y-profile-desc">Web sitesini sadece klavye ile kullan</div>
-        </div>
-        <div class="a11y-profile-icon"><i class="fas fa-keyboard"></i></div>
-      </div>
-    </div>
-
-    <!-- Renk Ayarları -->
-    <div class="a11y-section">
-      <h3 class="a11y-section-title">Renk Ayarları</h3>
-
-      <div class="a11y-modes">
-        <button class="a11y-mode-btn" data-mode="dark-contrast">
-          <i class="fas fa-moon"></i>
-          <div class="a11y-mode-btn-label">Koyu Kontrast</div>
-        </button>
-        <button class="a11y-mode-btn" data-mode="light-contrast">
-          <i class="fas fa-sun"></i>
-          <div class="a11y-mode-btn-label">Açık Kontrast</div>
-        </button>
-        <button class="a11y-mode-btn" data-mode="high-contrast">
-          <i class="fas fa-circle-half-stroke"></i>
-          <div class="a11y-mode-btn-label">Yüksek Kontrast</div>
-        </button>
-      </div>
-
-      <div class="a11y-modes">
-        <button class="a11y-sat-btn" data-sat="high-saturation">
-          <i class="fas fa-droplet"></i>
-          <div class="a11y-sat-btn-label">Yüksek Satürasyon</div>
-        </button>
-        <button class="a11y-sat-btn" data-sat="monochrome">
-          <i class="fas fa-circle"></i>
-          <div class="a11y-sat-btn-label">Monokrom</div>
-        </button>
-        <button class="a11y-sat-btn" data-sat="low-saturation">
-          <i class="far fa-circle"></i>
-          <div class="a11y-sat-btn-label">Düşük Satürasyon</div>
-        </button>
-      </div>
-
-      <!-- Renk paletleri -->
-      <div class="a11y-color-row">
-        <div class="a11y-color-row-label">Metin Renklerini Ayarla</div>
-        <div class="a11y-color-swatches" data-target="text">
-          <div class="a11y-swatch" data-color="#0B57D0" style="background:#0B57D0"></div>
-          <div class="a11y-swatch" data-color="#9333EA" style="background:#9333EA"></div>
-          <div class="a11y-swatch" data-color="#DC2626" style="background:#DC2626"></div>
-          <div class="a11y-swatch" data-color="#EA580C" style="background:#EA580C"></div>
-          <div class="a11y-swatch" data-color="#0D9488" style="background:#0D9488"></div>
-          <div class="a11y-swatch" data-color="#16A34A" style="background:#16A34A"></div>
-          <div class="a11y-swatch" data-color="white"></div>
-          <div class="a11y-swatch" data-color="black"></div>
-        </div>
-        <button class="a11y-color-cancel" data-cancel="text">İptal</button>
-      </div>
-
-      <div class="a11y-color-row">
-        <div class="a11y-color-row-label">Başlık Renklerini Ayarla</div>
-        <div class="a11y-color-swatches" data-target="heading">
-          <div class="a11y-swatch" data-color="#0B57D0" style="background:#0B57D0"></div>
-          <div class="a11y-swatch" data-color="#9333EA" style="background:#9333EA"></div>
-          <div class="a11y-swatch" data-color="#DC2626" style="background:#DC2626"></div>
-          <div class="a11y-swatch" data-color="#EA580C" style="background:#EA580C"></div>
-          <div class="a11y-swatch" data-color="#0D9488" style="background:#0D9488"></div>
-          <div class="a11y-swatch" data-color="#16A34A" style="background:#16A34A"></div>
-          <div class="a11y-swatch" data-color="white"></div>
-          <div class="a11y-swatch" data-color="black"></div>
-        </div>
-        <button class="a11y-color-cancel" data-cancel="heading">İptal</button>
-      </div>
-
-      <div class="a11y-color-row">
-        <div class="a11y-color-row-label">Arkaplan Renklerini Ayarla</div>
-        <div class="a11y-color-swatches" data-target="bg">
-          <div class="a11y-swatch" data-color="#0B57D0" style="background:#0B57D0"></div>
-          <div class="a11y-swatch" data-color="#9333EA" style="background:#9333EA"></div>
-          <div class="a11y-swatch" data-color="#DC2626" style="background:#DC2626"></div>
-          <div class="a11y-swatch" data-color="#EA580C" style="background:#EA580C"></div>
-          <div class="a11y-swatch" data-color="#0D9488" style="background:#0D9488"></div>
-          <div class="a11y-swatch" data-color="#16A34A" style="background:#16A34A"></div>
-          <div class="a11y-swatch" data-color="white"></div>
-          <div class="a11y-swatch" data-color="black"></div>
-        </div>
-        <button class="a11y-color-cancel" data-cancel="bg">İptal</button>
-      </div>
-    </div>
-
-    <!-- Yazı boyutu -->
-    <div class="a11y-section">
-      <h3 class="a11y-section-title">Yazı Boyutu</h3>
-      <div class="a11y-size-row">
-        <span class="a11y-size-label">Yazı Boyutu</span>
-        <div class="a11y-size-controls">
-          <button class="a11y-size-btn" id="a11ySizeMinus">−</button>
-          <span class="a11y-size-value" id="a11ySizeValue">100%</span>
-          <button class="a11y-size-btn" id="a11ySizePlus">+</button>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Footer -->
-  <div class="a11y-footer">
-    Web4Medya — WCAG 2.1 AA Erişilebilirlik Çözümü
-  </div>
-</aside>
 
 </body>
 </html>
