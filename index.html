@@ -1614,21 +1614,6 @@ body::before{
   opacity:0.5;
   pointer-events:none;
 }
-.tab-icon{
-  width:64px;
-  height:64px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#ffffff;
-  margin:-32px auto 24px;
-  background:linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
-  border-radius:16px;
-  font-size:1.6rem;
-  box-shadow:0 12px 28px rgba(11,87,208,0.35);
-  position:relative;
-  z-index:2;
-}
 .tab-text h3{
   font-family:var(--font-display);
   font-size:clamp(1.8rem, 3.5vw, 2.8rem);
@@ -1745,7 +1730,6 @@ body::before{
   .tabs-nav::-webkit-scrollbar{display:none;}
   .tab-button{flex:0 0 auto;min-width:140px;padding:18px 20px;font-size:0.85rem;border-right:1px solid var(--border);}
   .tab-text{padding:40px 24px 56px;}
-  .tab-icon{width:56px;height:56px;font-size:1.4rem;margin-top:-28px;}
 }
 
 /* ═══ FLOATING BUTTONS ═══ */
@@ -1806,6 +1790,541 @@ body::before{
 @media (prefers-reduced-motion: reduce){
   .float-btn{animation:none !important;}
 }
+
+/* ═══════════════════════════════════════════
+   ERİŞİLEBİLİRLİK WIDGET
+   ═══════════════════════════════════════════ */
+
+/* Tetikleyici buton - sayfada sürekli görünür */
+.a11y-trigger{
+  position:fixed;
+  left:20px;
+  bottom:20px;
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  background:#0B57D0;
+  color:#fff;
+  border:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.5rem;
+  z-index:9998;
+  box-shadow:0 6px 20px rgba(11,87,208,0.45);
+  transition:transform 0.25s, box-shadow 0.25s;
+}
+.a11y-trigger:hover{
+  transform:scale(1.08);
+  box-shadow:0 10px 28px rgba(11,87,208,0.6);
+}
+.a11y-trigger::after{
+  content:"";
+  position:absolute;
+  bottom:-2px;
+  left:-2px;
+  width:18px;
+  height:18px;
+  background:#fff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.a11y-trigger::before{
+  content:"\f00c"; /* fa-check */
+  font-family:"Font Awesome 6 Free";
+  font-weight:900;
+  position:absolute;
+  bottom:-2px;
+  left:-2px;
+  width:18px;
+  height:18px;
+  font-size:0.55rem;
+  color:#0B57D0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:1;
+}
+@media(max-width:768px){
+  .a11y-trigger{width:50px;height:50px;font-size:1.3rem;left:16px;bottom:80px;}
+}
+
+/* Overlay (arka karartma) */
+.a11y-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+  z-index:9999;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity 0.3s, visibility 0.3s;
+}
+.a11y-overlay.active{
+  opacity:1;
+  visibility:visible;
+}
+
+/* Ana panel */
+.a11y-panel{
+  position:fixed;
+  top:0;
+  right:-440px;
+  width:420px;
+  max-width:100vw;
+  height:100vh;
+  background:#ffffff;
+  z-index:10000;
+  overflow-y:auto;
+  transition:right 0.4s cubic-bezier(0.2,0.7,0.2,1);
+  box-shadow:-10px 0 40px rgba(0,0,0,0.2);
+  font-family:var(--font-body);
+  display:flex;
+  flex-direction:column;
+}
+.a11y-panel.active{
+  right:0;
+}
+@media(max-width:480px){
+  .a11y-panel{width:100vw;right:-100vw;}
+  .a11y-panel.active{right:0;}
+}
+
+/* Panel header (mavi gradient) */
+.a11y-header{
+  background:linear-gradient(135deg, #0B57D0 0%, #4285F4 100%);
+  color:#ffffff;
+  padding:20px 24px 28px;
+  position:relative;
+}
+.a11y-close{
+  position:absolute;
+  top:18px;
+  left:18px;
+  background:none;
+  border:none;
+  color:#fff;
+  font-size:1.4rem;
+  cursor:pointer;
+  width:32px;
+  height:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  transition:background 0.2s;
+}
+.a11y-close:hover{background:rgba(255,255,255,0.15);}
+.a11y-title{
+  text-align:center;
+  font-family:var(--font-display);
+  font-size:1.5rem;
+  font-weight:700;
+  letter-spacing:-0.02em;
+  margin-bottom:18px;
+  margin-top:8px;
+}
+.a11y-quick-actions{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:8px;
+}
+.a11y-quick-btn{
+  background:#ffffff;
+  color:#0B57D0;
+  border:none;
+  padding:10px 8px;
+  border-radius:50px;
+  font-size:0.78rem;
+  font-weight:600;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  transition:transform 0.2s, box-shadow 0.2s;
+  font-family:var(--font-body);
+}
+.a11y-quick-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Panel body */
+.a11y-body{
+  padding:20px 20px 40px;
+  flex:1;
+}
+
+/* Bölüm başlığı */
+.a11y-section{
+  margin-bottom:24px;
+}
+.a11y-section-title{
+  font-family:var(--font-display);
+  font-size:1.1rem;
+  font-weight:700;
+  color:var(--dark);
+  margin-bottom:14px;
+  letter-spacing:-0.01em;
+}
+
+/* Profil kartı */
+.a11y-profile{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 12px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  margin-bottom:10px;
+  cursor:pointer;
+  transition:border-color 0.2s, background 0.2s;
+}
+.a11y-profile:hover{
+  background:#F8FAFC;
+  border-color:var(--blue-light);
+}
+.a11y-profile.active{
+  background:#EBF2FF;
+  border-color:var(--blue);
+}
+.a11y-toggle{
+  flex-shrink:0;
+  width:64px;
+  height:32px;
+  background:#E2E8F0;
+  border-radius:50px;
+  position:relative;
+  transition:background 0.25s;
+  display:flex;
+  align-items:center;
+  font-size:0.55rem;
+  font-weight:700;
+  color:#64748B;
+  letter-spacing:0.05em;
+}
+.a11y-toggle::before{
+  content:"KPLI";
+  position:absolute;
+  left:8px;
+  z-index:2;
+  transition:opacity 0.2s;
+}
+.a11y-toggle::after{
+  content:"";
+  position:absolute;
+  top:3px;
+  left:3px;
+  width:26px;
+  height:26px;
+  background:#fff;
+  border-radius:50%;
+  box-shadow:0 2px 4px rgba(0,0,0,0.15);
+  transition:transform 0.25s;
+}
+.a11y-profile.active .a11y-toggle{
+  background:#0B57D0;
+  color:#fff;
+}
+.a11y-profile.active .a11y-toggle::before{
+  content:"AÇIK";
+  left:auto;
+  right:10px;
+}
+.a11y-profile.active .a11y-toggle::after{
+  transform:translateX(32px);
+}
+.a11y-profile-info{
+  flex:1;
+  min-width:0;
+}
+.a11y-profile-name{
+  font-size:0.95rem;
+  font-weight:700;
+  color:var(--dark);
+  margin-bottom:2px;
+}
+.a11y-profile-desc{
+  font-size:0.78rem;
+  color:var(--text2);
+  line-height:1.35;
+}
+.a11y-profile-icon{
+  flex-shrink:0;
+  width:36px;
+  height:36px;
+  background:#F1F5F9;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--blue);
+  font-size:1rem;
+}
+
+/* Kontrast / mod butonları */
+.a11y-modes{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:8px;
+  margin-bottom:14px;
+}
+.a11y-mode-btn{
+  background:#F1F5F9;
+  border:1px solid transparent;
+  border-radius:14px;
+  padding:18px 10px;
+  text-align:center;
+  cursor:pointer;
+  transition:all 0.2s;
+  font-family:var(--font-body);
+}
+.a11y-mode-btn i{
+  display:block;
+  font-size:1.3rem;
+  margin-bottom:8px;
+  color:var(--dark);
+}
+.a11y-mode-btn-label{
+  font-size:0.78rem;
+  font-weight:600;
+  color:var(--dark);
+}
+.a11y-mode-btn:hover{
+  background:#EBF2FF;
+}
+.a11y-mode-btn.active{
+  background:#0B57D0;
+  border-color:#0B57D0;
+}
+.a11y-mode-btn.active i,
+.a11y-mode-btn.active .a11y-mode-btn-label{
+  color:#fff;
+}
+
+/* Saturation buton (büyük) */
+.a11y-sat-btn{
+  background:#F1F5F9;
+  border:1px solid transparent;
+  border-radius:14px;
+  padding:24px 16px;
+  text-align:center;
+  cursor:pointer;
+  transition:all 0.2s;
+  font-family:var(--font-body);
+}
+.a11y-sat-btn i{
+  font-size:1.4rem;
+  display:block;
+  margin-bottom:6px;
+  color:var(--dark);
+}
+.a11y-sat-btn-label{
+  font-size:0.85rem;
+  font-weight:600;
+  color:var(--dark);
+}
+.a11y-sat-btn:hover{background:#EBF2FF;}
+.a11y-sat-btn.active{background:#0B57D0;border-color:#0B57D0;}
+.a11y-sat-btn.active i,
+.a11y-sat-btn.active .a11y-sat-btn-label{color:#fff;}
+
+/* Renk paleti */
+.a11y-color-row{
+  background:#F1F5F9;
+  border-radius:14px;
+  padding:16px;
+  margin-bottom:10px;
+  text-align:center;
+}
+.a11y-color-row-label{
+  font-size:0.85rem;
+  font-weight:600;
+  color:var(--dark);
+  margin-bottom:10px;
+}
+.a11y-color-swatches{
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+.a11y-swatch{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  border:2px solid transparent;
+  cursor:pointer;
+  transition:transform 0.15s, border-color 0.15s;
+}
+.a11y-swatch:hover{transform:scale(1.1);}
+.a11y-swatch.active{border-color:var(--dark);transform:scale(1.1);}
+.a11y-swatch[data-color="white"]{background:#fff;border:2px solid #CBD5E1;}
+.a11y-swatch[data-color="black"]{background:#000;}
+.a11y-color-cancel{
+  background:none;
+  border:none;
+  color:var(--text2);
+  font-size:0.85rem;
+  font-weight:500;
+  cursor:pointer;
+  padding:4px 8px;
+}
+.a11y-color-cancel:hover{color:var(--dark);}
+
+/* Font boyutu kontrol */
+.a11y-size-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  margin-bottom:10px;
+}
+.a11y-size-label{
+  font-weight:600;
+  color:var(--dark);
+}
+.a11y-size-controls{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.a11y-size-btn{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:#fff;
+  cursor:pointer;
+  font-size:1rem;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background 0.2s;
+}
+.a11y-size-btn:hover{background:#F1F5F9;}
+.a11y-size-value{
+  min-width:40px;
+  text-align:center;
+  font-weight:600;
+  color:var(--dark);
+  font-size:0.9rem;
+}
+
+/* Footer */
+.a11y-footer{
+  padding:14px 20px;
+  background:#0B57D0;
+  color:#fff;
+  font-size:0.78rem;
+  text-align:center;
+  font-weight:500;
+}
+
+/* ═══ AKTİF ERİŞİLEBİLİRLİK STİLLERİ (body class'ları) ═══ */
+
+/* Görme engelli profili - büyük yazı, yüksek kontrast */
+body.a11y-vision{font-size:120% !important;}
+body.a11y-vision *{line-height:1.7 !important;}
+body.a11y-vision img{filter:contrast(1.2) saturate(1.1);}
+
+/* Yüksek kontrast */
+body.a11y-high-contrast{
+  filter:contrast(1.4) !important;
+}
+
+/* Koyu kontrast (dark mode) */
+body.a11y-dark-contrast{
+  filter:invert(1) hue-rotate(180deg);
+}
+body.a11y-dark-contrast img,
+body.a11y-dark-contrast video,
+body.a11y-dark-contrast .brand-item img,
+body.a11y-dark-contrast .partner-item img,
+body.a11y-dark-contrast .tab-visual img,
+body.a11y-dark-contrast .nav-logo-img{
+  filter:invert(1) hue-rotate(180deg);
+}
+
+/* Açık kontrast */
+body.a11y-light-contrast{
+  background:#ffffff !important;
+}
+body.a11y-light-contrast *{
+  color:#000 !important;
+  background-color:#fff !important;
+  border-color:#000 !important;
+}
+
+/* Yüksek satürasyon */
+body.a11y-high-saturation{filter:saturate(2);}
+/* Düşük satürasyon */
+body.a11y-low-saturation{filter:saturate(0.5);}
+/* Monokrom */
+body.a11y-monochrome{filter:grayscale(1);}
+
+/* ADHD odaklanma - alt'a doğru gradient overlay */
+body.a11y-adhd::after{
+  content:"";
+  position:fixed;
+  top:0;left:0;right:0;
+  height:100vh;
+  background:linear-gradient(180deg,
+    rgba(0,0,0,0.6) 0%,
+    transparent 35%,
+    transparent 65%,
+    rgba(0,0,0,0.6) 100%
+  );
+  pointer-events:none;
+  z-index:9990;
+}
+
+/* Bilişsel odaklanma - gereksiz animasyonları durdur */
+body.a11y-cognitive *{
+  animation:none !important;
+  transition:none !important;
+}
+body.a11y-cognitive a,
+body.a11y-cognitive button{
+  outline:2px solid #0B57D0 !important;
+  outline-offset:2px !important;
+}
+
+/* Klavye navigasyonu - focus indicator güçlendir */
+body.a11y-keyboard *:focus{
+  outline:3px solid #0B57D0 !important;
+  outline-offset:3px !important;
+  box-shadow:0 0 0 6px rgba(11,87,208,0.3) !important;
+}
+
+/* Nöbet güvenli - tüm animasyonları durdur */
+body.a11y-seizure *,
+body.a11y-seizure *::before,
+body.a11y-seizure *::after{
+  animation-duration:0s !important;
+  transition-duration:0s !important;
+  animation-iteration-count:1 !important;
+}
+
+/* Font boyutu çarpanı */
+body.a11y-font-size{font-size:calc(100% * var(--a11y-font-scale, 1)) !important;}
+
+/* Özel renk değerleri */
+body.a11y-custom-text *{color:var(--a11y-text-color) !important;}
+body.a11y-custom-heading h1,
+body.a11y-custom-heading h2,
+body.a11y-custom-heading h3,
+body.a11y-custom-heading h4{color:var(--a11y-heading-color) !important;}
+body.a11y-custom-bg{background-color:var(--a11y-bg-color) !important;}
+body.a11y-custom-bg section,
+body.a11y-custom-bg .navbar{background-color:var(--a11y-bg-color) !important;}
 </style>
 
 <!-- Neler Sunuyoruz görselleri - kritik olan (ilk aktif tab) preload, diğerleri prefetch -->
@@ -1973,6 +2492,12 @@ body::before{
 
   </div>
 </section>
+
+<!-- Lightbox overlay - script'ten ÖNCE olmalı ki JS null almasın -->
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-label="Görsel büyütüldü" aria-hidden="true">
+  <button class="lightbox-close" aria-label="Kapat"><i class="fas fa-times"></i></button>
+  <img class="lightbox-image" src="" alt=""/>
+</div>
 
 <script>
 /* Mobile menu */
@@ -2215,13 +2740,233 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     }
   });
 })();
-</script>
 
-<!-- Lightbox overlay (tam ekran görsel görüntüleyici) -->
-<div class="lightbox-overlay" id="lightbox" role="dialog" aria-label="Görsel büyütüldü" aria-hidden="true">
-  <button class="lightbox-close" aria-label="Kapat"><i class="fas fa-times"></i></button>
-  <img class="lightbox-image" src="" alt=""/>
-</div>
+/* ═══════════════════════════════════════════
+   ERİŞİLEBİLİRLİK WIDGET JS
+   ═══════════════════════════════════════════ */
+(function(){
+  const trigger = document.getElementById('a11yTrigger');
+  const overlay = document.getElementById('a11yOverlay');
+  const panel = document.getElementById('a11yPanel');
+  const closeBtn = document.getElementById('a11yClose');
+  if(!trigger || !panel) return;
+
+  // Panel aç/kapa
+  function openPanel(){
+    panel.classList.add('active');
+    overlay.classList.add('active');
+  }
+  function closePanel(){
+    panel.classList.remove('active');
+    overlay.classList.remove('active');
+  }
+  trigger.addEventListener('click', openPanel);
+  closeBtn.addEventListener('click', closePanel);
+  overlay.addEventListener('click', closePanel);
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && panel.classList.contains('active')) closePanel();
+  });
+
+  // ═══ Profiller (toggle) ═══
+  const profileMap = {
+    seizure: 'a11y-seizure',
+    vision: 'a11y-vision',
+    adhd: 'a11y-adhd',
+    cognitive: 'a11y-cognitive',
+    keyboard: 'a11y-keyboard'
+  };
+  document.querySelectorAll('.a11y-profile').forEach(p => {
+    p.addEventListener('click', () => {
+      const profile = p.dataset.profile;
+      const className = profileMap[profile];
+      p.classList.toggle('active');
+      document.body.classList.toggle(className);
+      saveSettings();
+    });
+  });
+
+  // ═══ Kontrast modları (mutually exclusive) ═══
+  const modeBtns = document.querySelectorAll('.a11y-mode-btn');
+  const modeClasses = ['a11y-dark-contrast', 'a11y-light-contrast', 'a11y-high-contrast'];
+  modeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetClass = 'a11y-' + btn.dataset.mode;
+      const isActive = btn.classList.contains('active');
+      // Tüm mod butonlarını ve class'ları temizle
+      modeBtns.forEach(b => b.classList.remove('active'));
+      modeClasses.forEach(c => document.body.classList.remove(c));
+      if(!isActive){
+        btn.classList.add('active');
+        document.body.classList.add(targetClass);
+      }
+      saveSettings();
+    });
+  });
+
+  // ═══ Satürasyon modları (mutually exclusive) ═══
+  const satBtns = document.querySelectorAll('.a11y-sat-btn');
+  const satClasses = ['a11y-high-saturation', 'a11y-low-saturation', 'a11y-monochrome'];
+  satBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetClass = 'a11y-' + btn.dataset.sat;
+      const isActive = btn.classList.contains('active');
+      satBtns.forEach(b => b.classList.remove('active'));
+      satClasses.forEach(c => document.body.classList.remove(c));
+      if(!isActive){
+        btn.classList.add('active');
+        document.body.classList.add(targetClass);
+      }
+      saveSettings();
+    });
+  });
+
+  // ═══ Renk paletleri ═══
+  document.querySelectorAll('.a11y-color-swatches').forEach(group => {
+    const target = group.dataset.target;
+    group.querySelectorAll('.a11y-swatch').forEach(sw => {
+      sw.addEventListener('click', () => {
+        let color = sw.dataset.color;
+        if(color === 'white') color = '#ffffff';
+        if(color === 'black') color = '#000000';
+        // Aynı grupta diğer aktifleri kapat
+        group.querySelectorAll('.a11y-swatch').forEach(s => s.classList.remove('active'));
+        sw.classList.add('active');
+        applyColor(target, color);
+        saveSettings();
+      });
+    });
+  });
+  document.querySelectorAll('.a11y-color-cancel').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.cancel;
+      const group = document.querySelector(`.a11y-color-swatches[data-target="${target}"]`);
+      if(group) group.querySelectorAll('.a11y-swatch').forEach(s => s.classList.remove('active'));
+      removeColor(target);
+      saveSettings();
+    });
+  });
+  function applyColor(target, color){
+    const map = {text: ['--a11y-text-color', 'a11y-custom-text'],
+                 heading: ['--a11y-heading-color', 'a11y-custom-heading'],
+                 bg: ['--a11y-bg-color', 'a11y-custom-bg']};
+    const [prop, cls] = map[target];
+    document.documentElement.style.setProperty(prop, color);
+    document.body.classList.add(cls);
+  }
+  function removeColor(target){
+    const map = {text: ['--a11y-text-color', 'a11y-custom-text'],
+                 heading: ['--a11y-heading-color', 'a11y-custom-heading'],
+                 bg: ['--a11y-bg-color', 'a11y-custom-bg']};
+    const [prop, cls] = map[target];
+    document.documentElement.style.removeProperty(prop);
+    document.body.classList.remove(cls);
+  }
+
+  // ═══ Yazı boyutu ═══
+  let fontScale = 1;
+  const sizeValue = document.getElementById('a11ySizeValue');
+  document.getElementById('a11ySizePlus').addEventListener('click', () => {
+    if(fontScale < 1.5) fontScale = Math.min(1.5, fontScale + 0.1);
+    applyFontSize();
+  });
+  document.getElementById('a11ySizeMinus').addEventListener('click', () => {
+    if(fontScale > 0.8) fontScale = Math.max(0.8, fontScale - 0.1);
+    applyFontSize();
+  });
+  function applyFontSize(){
+    document.documentElement.style.setProperty('--a11y-font-scale', fontScale);
+    if(fontScale !== 1){
+      document.body.classList.add('a11y-font-size');
+    } else {
+      document.body.classList.remove('a11y-font-size');
+    }
+    sizeValue.textContent = Math.round(fontScale * 100) + '%';
+    saveSettings();
+  }
+
+  // ═══ Sıfırla ═══
+  document.getElementById('a11yReset').addEventListener('click', () => {
+    // Tüm class'ları kaldır
+    Object.values(profileMap).forEach(c => document.body.classList.remove(c));
+    [...modeClasses, ...satClasses, 'a11y-font-size', 'a11y-custom-text', 'a11y-custom-heading', 'a11y-custom-bg'].forEach(c => document.body.classList.remove(c));
+    // CSS variable'ları kaldır
+    ['--a11y-text-color', '--a11y-heading-color', '--a11y-bg-color', '--a11y-font-scale'].forEach(p => document.documentElement.style.removeProperty(p));
+    // UI temizle
+    document.querySelectorAll('.a11y-profile, .a11y-mode-btn, .a11y-sat-btn, .a11y-swatch').forEach(el => el.classList.remove('active'));
+    fontScale = 1;
+    sizeValue.textContent = '100%';
+    localStorage.removeItem('web4medya-a11y');
+  });
+
+  // ═══ Beyan ═══
+  document.getElementById('a11yStatement').addEventListener('click', () => {
+    alert('Web4Medya, WCAG 2.1 AA standartlarına uyum sağlamayı taahhüt eder. Erişilebilirlik konusundaki geri bildirimleriniz için info@web4medya.com adresinden bize ulaşabilirsiniz.');
+  });
+
+  // ═══ Arayüzü gizle ═══
+  document.getElementById('a11yHide').addEventListener('click', () => {
+    closePanel();
+    trigger.style.display = 'none';
+    setTimeout(() => {
+      if(confirm('Erişilebilirlik butonunu tekrar göstermek ister misiniz?')){
+        trigger.style.display = '';
+      }
+    }, 5000);
+  });
+
+  // ═══ localStorage ile ayarları kaydet/yükle ═══
+  function saveSettings(){
+    const settings = {
+      bodyClasses: Array.from(document.body.classList).filter(c => c.startsWith('a11y-')),
+      fontScale: fontScale,
+      textColor: document.documentElement.style.getPropertyValue('--a11y-text-color') || null,
+      headingColor: document.documentElement.style.getPropertyValue('--a11y-heading-color') || null,
+      bgColor: document.documentElement.style.getPropertyValue('--a11y-bg-color') || null
+    };
+    try{ localStorage.setItem('web4medya-a11y', JSON.stringify(settings)); }catch(e){}
+  }
+  function loadSettings(){
+    try{
+      const raw = localStorage.getItem('web4medya-a11y');
+      if(!raw) return;
+      const settings = JSON.parse(raw);
+      // Body class'larını geri yükle
+      (settings.bodyClasses || []).forEach(c => document.body.classList.add(c));
+      // Aktif UI butonlarını işaretle
+      Object.entries(profileMap).forEach(([key, cls]) => {
+        if(document.body.classList.contains(cls)){
+          const el = document.querySelector(`.a11y-profile[data-profile="${key}"]`);
+          if(el) el.classList.add('active');
+        }
+      });
+      modeClasses.forEach(c => {
+        if(document.body.classList.contains(c)){
+          const mode = c.replace('a11y-', '');
+          const el = document.querySelector(`.a11y-mode-btn[data-mode="${mode}"]`);
+          if(el) el.classList.add('active');
+        }
+      });
+      satClasses.forEach(c => {
+        if(document.body.classList.contains(c)){
+          const sat = c.replace('a11y-', '');
+          const el = document.querySelector(`.a11y-sat-btn[data-sat="${sat}"]`);
+          if(el) el.classList.add('active');
+        }
+      });
+      // Font scale
+      if(settings.fontScale && settings.fontScale !== 1){
+        fontScale = settings.fontScale;
+        applyFontSize();
+      }
+      // Renk değerleri
+      if(settings.textColor) document.documentElement.style.setProperty('--a11y-text-color', settings.textColor);
+      if(settings.headingColor) document.documentElement.style.setProperty('--a11y-heading-color', settings.headingColor);
+      if(settings.bgColor) document.documentElement.style.setProperty('--a11y-bg-color', settings.bgColor);
+    }catch(e){}
+  }
+  loadSettings();
+})();
+</script>
 
 <!-- ═══ HİZMETLERİMİZ ═══ -->
 <section class="services" id="hizmetler">
@@ -2449,6 +3194,181 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     <span class="tooltip">Hemen Ara</span>
   </a>
 </div>
+
+<!-- ═══ ERİŞİLEBİLİRLİK WIDGET ═══ -->
+<button class="a11y-trigger" id="a11yTrigger" aria-label="Erişilebilirlik ayarlarını aç">
+  <i class="fas fa-universal-access"></i>
+</button>
+
+<div class="a11y-overlay" id="a11yOverlay"></div>
+
+<aside class="a11y-panel" id="a11yPanel" role="dialog" aria-label="Erişilebilirlik Ayarları">
+
+  <!-- Header -->
+  <div class="a11y-header">
+    <button class="a11y-close" id="a11yClose" aria-label="Kapat"><i class="fas fa-times"></i></button>
+    <h2 class="a11y-title">Erişilebilirlik Ayarları</h2>
+    <div class="a11y-quick-actions">
+      <button class="a11y-quick-btn" id="a11yReset"><i class="fas fa-rotate"></i> Sıfırla</button>
+      <button class="a11y-quick-btn" id="a11yStatement"><i class="fas fa-file-lines"></i> Beyan</button>
+      <button class="a11y-quick-btn" id="a11yHide"><i class="fas fa-eye-slash"></i> Gizle</button>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="a11y-body">
+
+    <!-- Profiller -->
+    <div class="a11y-section">
+      <h3 class="a11y-section-title">Doğru Erişilebilirlik Profilini Seçin</h3>
+
+      <div class="a11y-profile" data-profile="seizure">
+        <div class="a11y-toggle"></div>
+        <div class="a11y-profile-info">
+          <div class="a11y-profile-name">Nöbetlere Karşı Güvenli</div>
+          <div class="a11y-profile-desc">Yanıp sönen içerikleri kaldırır ve rengi azaltır</div>
+        </div>
+        <div class="a11y-profile-icon"><i class="fas fa-bolt"></i></div>
+      </div>
+
+      <div class="a11y-profile" data-profile="vision">
+        <div class="a11y-toggle"></div>
+        <div class="a11y-profile-info">
+          <div class="a11y-profile-name">Görme Engelli Profil</div>
+          <div class="a11y-profile-desc">Yazı boyutunu artırır ve görselleri geliştirir</div>
+        </div>
+        <div class="a11y-profile-icon"><i class="fas fa-eye"></i></div>
+      </div>
+
+      <div class="a11y-profile" data-profile="adhd">
+        <div class="a11y-toggle"></div>
+        <div class="a11y-profile-info">
+          <div class="a11y-profile-name">ADHD Dostu Profil</div>
+          <div class="a11y-profile-desc">Daha fazla odaklanma ve daha az dikkat dağınıklığı</div>
+        </div>
+        <div class="a11y-profile-icon"><i class="fas fa-bullseye"></i></div>
+      </div>
+
+      <div class="a11y-profile" data-profile="cognitive">
+        <div class="a11y-toggle"></div>
+        <div class="a11y-profile-info">
+          <div class="a11y-profile-name">Bilişsel Engelli Profil</div>
+          <div class="a11y-profile-desc">Okumaya ve odaklanmaya yardımcı olur</div>
+        </div>
+        <div class="a11y-profile-icon"><i class="fas fa-brain"></i></div>
+      </div>
+
+      <div class="a11y-profile" data-profile="keyboard">
+        <div class="a11y-toggle"></div>
+        <div class="a11y-profile-info">
+          <div class="a11y-profile-name">Klavye ile Gezinme</div>
+          <div class="a11y-profile-desc">Web sitesini sadece klavye ile kullan</div>
+        </div>
+        <div class="a11y-profile-icon"><i class="fas fa-keyboard"></i></div>
+      </div>
+    </div>
+
+    <!-- Renk Ayarları -->
+    <div class="a11y-section">
+      <h3 class="a11y-section-title">Renk Ayarları</h3>
+
+      <div class="a11y-modes">
+        <button class="a11y-mode-btn" data-mode="dark-contrast">
+          <i class="fas fa-moon"></i>
+          <div class="a11y-mode-btn-label">Koyu Kontrast</div>
+        </button>
+        <button class="a11y-mode-btn" data-mode="light-contrast">
+          <i class="fas fa-sun"></i>
+          <div class="a11y-mode-btn-label">Açık Kontrast</div>
+        </button>
+        <button class="a11y-mode-btn" data-mode="high-contrast">
+          <i class="fas fa-circle-half-stroke"></i>
+          <div class="a11y-mode-btn-label">Yüksek Kontrast</div>
+        </button>
+      </div>
+
+      <div class="a11y-modes">
+        <button class="a11y-sat-btn" data-sat="high-saturation">
+          <i class="fas fa-droplet"></i>
+          <div class="a11y-sat-btn-label">Yüksek Satürasyon</div>
+        </button>
+        <button class="a11y-sat-btn" data-sat="monochrome">
+          <i class="fas fa-circle"></i>
+          <div class="a11y-sat-btn-label">Monokrom</div>
+        </button>
+        <button class="a11y-sat-btn" data-sat="low-saturation">
+          <i class="far fa-circle"></i>
+          <div class="a11y-sat-btn-label">Düşük Satürasyon</div>
+        </button>
+      </div>
+
+      <!-- Renk paletleri -->
+      <div class="a11y-color-row">
+        <div class="a11y-color-row-label">Metin Renklerini Ayarla</div>
+        <div class="a11y-color-swatches" data-target="text">
+          <div class="a11y-swatch" data-color="#0B57D0" style="background:#0B57D0"></div>
+          <div class="a11y-swatch" data-color="#9333EA" style="background:#9333EA"></div>
+          <div class="a11y-swatch" data-color="#DC2626" style="background:#DC2626"></div>
+          <div class="a11y-swatch" data-color="#EA580C" style="background:#EA580C"></div>
+          <div class="a11y-swatch" data-color="#0D9488" style="background:#0D9488"></div>
+          <div class="a11y-swatch" data-color="#16A34A" style="background:#16A34A"></div>
+          <div class="a11y-swatch" data-color="white"></div>
+          <div class="a11y-swatch" data-color="black"></div>
+        </div>
+        <button class="a11y-color-cancel" data-cancel="text">İptal</button>
+      </div>
+
+      <div class="a11y-color-row">
+        <div class="a11y-color-row-label">Başlık Renklerini Ayarla</div>
+        <div class="a11y-color-swatches" data-target="heading">
+          <div class="a11y-swatch" data-color="#0B57D0" style="background:#0B57D0"></div>
+          <div class="a11y-swatch" data-color="#9333EA" style="background:#9333EA"></div>
+          <div class="a11y-swatch" data-color="#DC2626" style="background:#DC2626"></div>
+          <div class="a11y-swatch" data-color="#EA580C" style="background:#EA580C"></div>
+          <div class="a11y-swatch" data-color="#0D9488" style="background:#0D9488"></div>
+          <div class="a11y-swatch" data-color="#16A34A" style="background:#16A34A"></div>
+          <div class="a11y-swatch" data-color="white"></div>
+          <div class="a11y-swatch" data-color="black"></div>
+        </div>
+        <button class="a11y-color-cancel" data-cancel="heading">İptal</button>
+      </div>
+
+      <div class="a11y-color-row">
+        <div class="a11y-color-row-label">Arkaplan Renklerini Ayarla</div>
+        <div class="a11y-color-swatches" data-target="bg">
+          <div class="a11y-swatch" data-color="#0B57D0" style="background:#0B57D0"></div>
+          <div class="a11y-swatch" data-color="#9333EA" style="background:#9333EA"></div>
+          <div class="a11y-swatch" data-color="#DC2626" style="background:#DC2626"></div>
+          <div class="a11y-swatch" data-color="#EA580C" style="background:#EA580C"></div>
+          <div class="a11y-swatch" data-color="#0D9488" style="background:#0D9488"></div>
+          <div class="a11y-swatch" data-color="#16A34A" style="background:#16A34A"></div>
+          <div class="a11y-swatch" data-color="white"></div>
+          <div class="a11y-swatch" data-color="black"></div>
+        </div>
+        <button class="a11y-color-cancel" data-cancel="bg">İptal</button>
+      </div>
+    </div>
+
+    <!-- Yazı boyutu -->
+    <div class="a11y-section">
+      <h3 class="a11y-section-title">Yazı Boyutu</h3>
+      <div class="a11y-size-row">
+        <span class="a11y-size-label">Yazı Boyutu</span>
+        <div class="a11y-size-controls">
+          <button class="a11y-size-btn" id="a11ySizeMinus">−</button>
+          <span class="a11y-size-value" id="a11ySizeValue">100%</span>
+          <button class="a11y-size-btn" id="a11ySizePlus">+</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="a11y-footer">
+    Web4Medya — WCAG 2.1 AA Erişilebilirlik Çözümü
+  </div>
+</aside>
 
 </body>
 </html>
