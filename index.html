@@ -782,17 +782,17 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   padding:0 5%;
 }
 .partners-header{
-  text-align:left;
+  text-align:center;
   position:relative;
   z-index:2;
 }
 .partners-title{
   font-family:var(--font-display);
-  font-size:clamp(2rem, 5vw, 3.5rem);
-  font-weight:900;
+  font-size:clamp(1.8rem, 4vw, 2.8rem);
+  font-weight:800;
   letter-spacing:-0.03em;
   color:var(--dark);
-  line-height:1.1;
+  line-height:1.15;
   margin:0;
 }
 .partners-title .accent{
@@ -948,7 +948,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 /* ═══ MARKALAR ŞERİT (İKİ BANT MARQUEE) ═══ */
 .brands{
   background:#ffffff;
-  padding:100px 0 90px;
+  padding:60px 0 90px;
   position:relative;
   overflow:hidden;
   border-bottom:1px solid var(--border);
@@ -967,7 +967,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 }
 .brands-inner{
   max-width:1280px;
-  margin:0 auto 80px;
+  margin:0 auto 120px;
   position:relative;
   z-index:1;
   padding:0 5%;
@@ -1043,12 +1043,10 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   -webkit-backface-visibility:hidden;
 }
 .brands-track{
-  display:flex;
+  display:inline-flex;
   align-items:center;
-  width:max-content;
-  gap:18px;
-  padding:0 9px;
-  animation:brands-scroll 60s linear infinite;
+  white-space:nowrap;
+  animation:brands-scroll 90s linear infinite;
   will-change:transform;
   transform:translate3d(0,0,0);
   -webkit-transform:translate3d(0,0,0);
@@ -1056,13 +1054,17 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   -webkit-backface-visibility:hidden;
   contain:layout style paint;
 }
+.brands-track .brand-item{
+  margin:0 9px;
+  flex-shrink:0;
+}
 
 /* Faz farkı - üst sağdan sola, alt soldan sağa (ters yön) */
 .brands-marquee.row-1 .brands-track{
   animation-delay:0s;
 }
 .brands-marquee.row-2 .brands-track{
-  animation-delay:-30s;
+  animation-delay:-45s;
   animation-direction:reverse;
 }
 
@@ -1117,26 +1119,27 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 /* Marquee animasyon */
 @keyframes brands-scroll{
   from{transform:translate3d(0,0,0);}
-  to{transform:translate3d(calc(-50% - 9px), 0, 0);}
+  to{transform:translate3d(-50%,0,0);}
 }
 
 /* Responsive */
 @media(max-width:1024px){
   .brand-item{width:210px;height:118px;}
-  .brands-track{gap:16px;}
+  .brands-track .brand-item{margin:0 8px;}
 }
 @media(max-width:768px){
-  .brands{padding:72px 0 60px;}
-  .brands-inner{margin-bottom:40px;}
+  .brands{padding:50px 0 60px;}
+  .brands-inner{margin-bottom:72px;}
   .brand-item{width:180px;height:101px;border-radius:12px;}
   .brand-item img{opacity:0.85;}
-  .brands-track{gap:14px;animation-duration:50s;}
-  .brands-marquee.row-2 .brands-track{animation-delay:-25s;}
+  .brands-track{animation-duration:70s;}
+  .brands-track .brand-item{margin:0 7px;}
+  .brands-marquee.row-2 .brands-track{animation-delay:-35s;}
   .brands-marquees{gap:14px;}
 }
 @media(max-width:480px){
   .brand-item{width:150px;height:84px;border-radius:10px;}
-  .brands-track{gap:12px;}
+  .brands-track .brand-item{margin:0 6px;}
 }
 @media (prefers-reduced-motion: reduce){
   .brands-track{animation:none;}
@@ -2291,6 +2294,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 <section class="partners" id="partners">
   <div class="partners-inner">
     <div class="partners-header">
+      <span class="brands-eyebrow">İş Ortakları</span>
       <h2 class="partners-title">İş <span class="accent">ortaklarımız</span> kimler?</h2>
     </div>
   </div>
