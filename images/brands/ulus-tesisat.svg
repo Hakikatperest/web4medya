@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" fill="none" aria-label="Ulus Tesisat">
+  <g transform="translate(150, 50)">
+    <!-- Sol: İngiliz anahtarı (wrench) ikonu - eğik -->
+    <g transform="translate(-115, 0) rotate(-35)">
+      <!-- Anahtarın gövdesi/sapı -->
+      <rect x="-4" y="-3" width="28" height="6" fill="#000000"/>
+
+      <!-- Sol taraftaki kafa (açık ağız) -->
+      <path d="M -4 -10 L -4 -3 L 2 -3 L 2 3 L -4 3 L -4 10 L -14 10 L -14 5 L -9 5 L -9 -5 L -14 -5 L -14 -10 Z" fill="#000000"/>
+
+      <!-- Sağ taraftaki kafa - hafif eğimli -->
+      <path d="M 24 -10 L 24 -3 L 18 -3 L 18 3 L 24 3 L 24 10 L 34 10 L 34 5 L 29 5 L 29 -5 L 34 -5 L 34 -10 Z" fill="#000000"/>
+    </g>
+
+    <!-- Sağ: tipografi -->
+    <g fill="#000000" font-family="'Helvetica Neue', Arial, sans-serif" dominant-baseline="central">
+      <!-- ULUS - büyük bold -->
+      <text x="-80" y="-10" font-size="26" font-weight="900" letter-spacing="4">ULUS</text>
+      <!-- İnce ayırıcı çizgi -->
+      <line x1="-80" y1="3" x2="120" y2="3" stroke="#000000" stroke-width="0.6"/>
+      <!-- TESİSAT - ince geniş spacing -->
+      <text x="-80" y="16" font-size="13" font-weight="400" letter-spacing="9">TESİSAT</text>
+    </g>
+  </g>
+</svg>

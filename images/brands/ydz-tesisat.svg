@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" fill="none" aria-label="YDZ Tesisat">
+  <!-- Sol: güçlü kare blok monogram -->
+  <rect x="40" y="22" width="56" height="56" fill="#000000"/>
+
+  <!-- YDZ beyaz olarak kare içinde - tam merkezli -->
+  <text x="68" y="50" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" dominant-baseline="central" letter-spacing="-1">YDZ</text>
+
+  <!-- Sağ: ana tipografi - dikey merkezlenmiş -->
+  <text x="108" y="50" font-family="'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="900" fill="#000000" dominant-baseline="central" letter-spacing="2">TESİSAT</text>
+</svg>
