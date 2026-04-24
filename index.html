@@ -1387,6 +1387,11 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   max-width:1400px;
   display:block;
   object-fit:contain;
+  transform:translateZ(0);
+  -webkit-transform:translateZ(0);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  image-rendering:-webkit-optimize-contrast;
 }
 
 /* Alt: metin içeriği */
@@ -1606,6 +1611,13 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   .float-btn{animation:none !important;}
 }
 </style>
+
+<!-- Neler Sunuyoruz görselleri - kritik olan (ilk aktif tab) preload, diğerleri prefetch -->
+<link rel="preload" as="image" href="/images/yaratici.webp" type="image/webp" fetchpriority="high"/>
+<link rel="prefetch" as="image" href="/images/olcumleme.webp" type="image/webp"/>
+<link rel="prefetch" as="image" href="/images/genisleme.webp" type="image/webp"/>
+<link rel="prefetch" as="image" href="/images/verimlilik.webp" type="image/webp"/>
+<link rel="prefetch" as="image" href="/images/buyume.webp" type="image/webp"/>
 </head>
 <body>
 
@@ -1706,7 +1718,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
     <!-- Genişleme -->
     <div class="tab-panel" id="tab-genisleme">
       <div class="tab-visual">
-        <img src="/images/genisleme.webp" alt="Genişleme - Yeni kitlelere ulaşma" loading="lazy"/>
+        <img src="/images/genisleme.webp" alt="Genişleme - Yeni kitlelere ulaşma" width="1400" height="600" loading="lazy" decoding="async"/>
       </div>
       <div class="tab-text">
         <h3>Genişleme</h3>
@@ -1718,7 +1730,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
     <!-- Ölçümleme -->
     <div class="tab-panel" id="tab-olcumleme">
       <div class="tab-visual">
-        <img src="/images/olcumleme.webp" alt="Ölçümleme - Ne işe yaradığını kanıtlama" loading="lazy"/>
+        <img src="/images/olcumleme.webp" alt="Ölçümleme - Ne işe yaradığını kanıtlama" width="1400" height="600" loading="lazy" decoding="async"/>
       </div>
       <div class="tab-text">
         <h3>Ölçümleme</h3>
@@ -1730,7 +1742,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
     <!-- Verimlilik -->
     <div class="tab-panel" id="tab-verimlilik">
       <div class="tab-visual">
-        <img src="/images/verimlilik.webp" alt="Verimlilik - Bütçeyi doğru kullanma" loading="lazy"/>
+        <img src="/images/verimlilik.webp" alt="Verimlilik - Bütçeyi doğru kullanma" width="1400" height="600" loading="lazy" decoding="async"/>
       </div>
       <div class="tab-text">
         <h3>Verimlilik Artışı</h3>
@@ -1742,7 +1754,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
     <!-- Yaratıcı -->
     <div class="tab-panel active" id="tab-yaratici">
       <div class="tab-visual">
-        <img src="/images/yaratici.webp" alt="Yaratıcı - Dönüşüm sağlayan reklam içerikleri" loading="lazy"/>
+        <img src="/images/yaratici.webp" alt="Yaratıcı - Dönüşüm sağlayan reklam içerikleri" width="1400" height="600" loading="eager" fetchpriority="high" decoding="async"/>
       </div>
       <div class="tab-text">
         <h3>Yaratıcı Reklamlar</h3>
@@ -1754,7 +1766,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
     <!-- Büyüme -->
     <div class="tab-panel" id="tab-buyume">
       <div class="tab-visual">
-        <img src="/images/buyume.webp" alt="Büyüme - Mevcut müşterilerden daha fazla değer" loading="lazy"/>
+        <img src="/images/buyume.webp" alt="Büyüme - Mevcut müşterilerden daha fazla değer" width="1400" height="600" loading="lazy" decoding="async"/>
       </div>
       <div class="tab-text">
         <h3>Büyüme</h3>
@@ -1845,6 +1857,24 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 
   const tabOrder = Array.from(buttons).map(b => b.dataset.tab);
 
+  // Akıllı görsel prefetch - yan tab'ların görsellerini önceden yükle
+  function prefetchImage(src){
+    const img = new Image();
+    img.src = src;
+  }
+
+  function prefetchNeighbors(activeTab){
+    const activeIndex = tabOrder.indexOf(activeTab);
+    const neighbors = [activeIndex - 1, activeIndex + 1].filter(i => i >= 0 && i < tabOrder.length);
+    neighbors.forEach(i => {
+      const panel = document.getElementById('tab-' + tabOrder[i]);
+      if(panel){
+        const img = panel.querySelector('img');
+        if(img && img.src) prefetchImage(img.src);
+      }
+    });
+  }
+
   function activateTab(tabName){
     buttons.forEach(b => b.classList.toggle('active', b.dataset.tab === tabName));
     panels.forEach(p => p.classList.toggle('active', p.id === 'tab-' + tabName));
@@ -1859,6 +1889,15 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
         activeBtn.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'center'});
       }
     }
+
+    // Yan tabların görsellerini önceden yükle
+    prefetchNeighbors(tabName);
+  }
+
+  // İlk yüklenmede aktif tab'ın yan görsellerini ön yükle
+  if(tabOrder.length > 0){
+    const activeBtn = document.querySelector('.tab-button.active');
+    if(activeBtn) prefetchNeighbors(activeBtn.dataset.tab);
   }
 
   // Tab click
