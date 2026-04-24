@@ -1218,6 +1218,213 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   .services-footer{margin-top:44px;padding:36px 24px;}
 }
 
+/* ═══ NELER SUNUYORUZ - TABS SECTION ═══ */
+.offerings{
+  background:#ffffff;
+  padding:100px 0 0;
+  position:relative;
+  overflow:hidden;
+}
+.offerings-inner{
+  max-width:1400px;
+  margin:0 auto;
+  padding:0 5%;
+}
+.offerings-header{
+  text-align:center;
+  margin-bottom:56px;
+}
+.offerings-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-body);
+  font-size:0.78rem;
+  font-weight:700;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--blue);
+  padding:8px 18px;
+  background:linear-gradient(135deg, rgba(11,87,208,0.1) 0%, rgba(66,133,244,0.05) 100%);
+  border:1px solid rgba(11,87,208,0.15);
+  border-radius:50px;
+  margin-bottom:22px;
+}
+.offerings-eyebrow::before{
+  content:"";
+  width:6px;height:6px;
+  background:var(--blue);
+  border-radius:50%;
+  box-shadow:0 0 0 3px rgba(11,87,208,0.2);
+}
+.offerings-title{
+  font-family:var(--font-display);
+  font-size:clamp(1.8rem, 4vw, 2.8rem);
+  font-weight:800;
+  letter-spacing:-0.03em;
+  color:var(--dark);
+  line-height:1.15;
+  margin-bottom:14px;
+}
+.offerings-title .accent{
+  background:linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.offerings-subtitle{
+  font-family:var(--font-body);
+  font-size:clamp(0.95rem, 1.4vw, 1.1rem);
+  color:var(--text2);
+  max-width:680px;
+  margin:0 auto;
+  line-height:1.6;
+}
+
+/* Tab nav - üst yatay sekme çubuğu */
+.tabs-nav{
+  display:grid;
+  grid-template-columns:repeat(5, 1fr);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  max-width:100vw;
+  margin-left:calc(-5vw);
+  margin-right:calc(-5vw);
+}
+.tab-button{
+  padding:26px 20px;
+  font-family:var(--font-display);
+  font-size:clamp(0.95rem, 1.4vw, 1.2rem);
+  font-weight:500;
+  color:var(--text3);
+  background:#ffffff;
+  border:none;
+  border-right:1px solid var(--border);
+  cursor:pointer;
+  transition:all 0.3s ease;
+  text-align:center;
+  position:relative;
+  letter-spacing:-0.01em;
+}
+.tab-button:last-child{border-right:none;}
+.tab-button:hover{color:var(--dark);background:#FAFBFC;}
+.tab-button.active{
+  color:var(--dark);
+  font-weight:700;
+  background:linear-gradient(180deg, rgba(66,133,244,0.15) 0%, rgba(66,133,244,0.08) 100%);
+}
+.tab-button.active::before{
+  content:"";
+  position:absolute;
+  top:-1px;left:0;right:0;
+  height:3px;
+  background:var(--blue);
+}
+
+/* Tab content - 2 sütunlu içerik */
+.tabs-content{
+  max-width:100vw;
+  margin-left:calc(-5vw);
+  margin-right:calc(-5vw);
+}
+.tab-panel{
+  display:none;
+  grid-template-columns:1fr 1fr;
+  min-height:480px;
+  position:relative;
+}
+.tab-panel.active{display:grid;}
+
+/* Sol: metin içeriği */
+.tab-text{
+  padding:80px 5% 80px 8%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  position:relative;
+  background:#ffffff;
+}
+.tab-text::before{
+  content:"";
+  position:absolute;
+  left:24px;top:24px;
+  width:60px;height:60px;
+  background-image:radial-gradient(circle, rgba(11,87,208,0.35) 1.5px, transparent 1.5px);
+  background-size:10px 10px;
+  opacity:0.5;
+  pointer-events:none;
+}
+.tab-icon{
+  width:56px;
+  height:56px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--blue);
+  margin-bottom:28px;
+  background:rgba(11,87,208,0.08);
+  border-radius:14px;
+  font-size:1.5rem;
+}
+.tab-text h3{
+  font-family:var(--font-display);
+  font-size:clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight:800;
+  letter-spacing:-0.03em;
+  color:var(--dark);
+  line-height:1.15;
+  margin-bottom:16px;
+}
+.tab-quote{
+  font-family:var(--font-body);
+  font-size:1.05rem;
+  font-style:italic;
+  color:var(--text2);
+  margin-bottom:20px;
+  padding-left:16px;
+  border-left:2px solid var(--blue);
+}
+.tab-text p.tab-desc{
+  font-family:var(--font-body);
+  font-size:1rem;
+  line-height:1.75;
+  color:var(--text2);
+  max-width:480px;
+}
+
+/* Sağ: görsel alanı */
+.tab-visual{
+  position:relative;
+  overflow:hidden;
+  min-height:480px;
+  background:#0F172A;
+}
+.tab-visual img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+@media(max-width:900px){
+  .tab-panel{grid-template-columns:1fr;}
+  .tab-visual{min-height:260px;}
+  .tab-text{padding:48px 5% 48px 8%;}
+  .offerings{padding:72px 0 0;}
+  .tabs-nav{grid-template-columns:repeat(5, 1fr);}
+  .tab-button{padding:18px 8px;font-size:0.78rem;}
+}
+@media(max-width:640px){
+  .tabs-nav{display:flex;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;}
+  .tabs-nav::-webkit-scrollbar{display:none;}
+  .tab-button{flex:0 0 auto;min-width:140px;padding:18px 20px;font-size:0.85rem;border-right:1px solid var(--border);}
+  .tab-text{padding:40px 24px;}
+  .tab-visual{min-height:220px;}
+  .tab-visual-icon{font-size:3.5rem;}
+}
+
 /* ═══ FLOATING BUTTONS ═══ */
 .floating-buttons{
   position:fixed;bottom:24px;right:24px;z-index:998;
@@ -1475,6 +1682,96 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   </div>
 </section>
 
+<!-- ═══ NELER SUNUYORUZ - TABS SECTION ═══ -->
+<section class="offerings" id="neler-sunuyoruz">
+  <div class="offerings-inner">
+    <div class="offerings-header">
+      <span class="offerings-eyebrow">Neler Sunuyoruz</span>
+      <h2 class="offerings-title">Size <span class="accent">Ne Katkı</span> Sağlıyoruz?</h2>
+      <p class="offerings-subtitle">İşletmenizi büyüten 5 temel alanda uçtan uca çözümler. Her biri ölçülebilir sonuçlar, şeffaf raporlama ve gerçek iş sonuçlarıyla.</p>
+    </div>
+  </div>
+
+  <!-- Tab navigasyonu (tam genişlik) -->
+  <div class="tabs-nav">
+    <button class="tab-button active" data-tab="genisleme">Genişleme</button>
+    <button class="tab-button" data-tab="olcumleme">Ölçümleme</button>
+    <button class="tab-button" data-tab="verimlilik">Verimlilik</button>
+    <button class="tab-button" data-tab="yaratici">Yaratıcı</button>
+    <button class="tab-button" data-tab="buyume">Büyüme</button>
+  </div>
+
+  <!-- Tab içerikleri -->
+  <div class="tabs-content">
+
+    <!-- 1. Genişleme -->
+    <div class="tab-panel active" id="tab-genisleme">
+      <div class="tab-text">
+        <div class="tab-icon"><i class="fas fa-globe"></i></div>
+        <h3>Genişleme</h3>
+        <p class="tab-quote">"Yeni pazarlara açılmak istiyoruz ama nereden başlayacağımızı bilmiyoruz."</p>
+        <p class="tab-desc">Henüz ulaşmadığınız kitlelere sizi tanıtıyoruz. Yeni hedef kitle araştırması, pazar fırsatı analizi ve çoklu kanal kampanyalarıyla markanızın erişim alanını büyütüyoruz. Yeni coğrafyalar, yeni demografiler, yeni gelir akışları.</p>
+      </div>
+      <div class="tab-visual">
+        <img src="/images/genisleme.webp" alt="Genişleme - Yeni kitlelere ulaşma" loading="lazy"/>
+      </div>
+    </div>
+
+    <!-- 2. Ölçümleme -->
+    <div class="tab-panel" id="tab-olcumleme">
+      <div class="tab-text">
+        <div class="tab-icon"><i class="fas fa-chart-simple"></i></div>
+        <h3>Ölçümleme</h3>
+        <p class="tab-quote">"Hangi kampanya gerçekten işe yarıyor bilmiyoruz."</p>
+        <p class="tab-desc">Atıf modellemesi, artırımlılık testleri ve pazarlama karma modeli (MMM) ile platform metriklerinin ötesine geçiyoruz. "Kârı gerçekte ne sağlıyor?" sorusuna veriye dayalı, kanıta dayalı yanıtlar veriyoruz. Tahmin değil, bilimsel ölçüm.</p>
+      </div>
+      <div class="tab-visual">
+        <img src="/images/olcumleme.webp" alt="Ölçümleme - Ne işe yaradığını kanıtlama" loading="lazy"/>
+      </div>
+    </div>
+
+    <!-- 3. Verimlilik -->
+    <div class="tab-panel" id="tab-verimlilik">
+      <div class="tab-text">
+        <div class="tab-icon"><i class="fas fa-gauge-high"></i></div>
+        <h3>Verimlilik</h3>
+        <p class="tab-quote">"Reklama harcıyoruz ama artı bir getirisini göremiyoruz."</p>
+        <p class="tab-desc">Mevcut reklam harcamanızı platform metrikleri üzerinden değil, gerçek gelir üzerinden denetliyoruz. Optimizasyon fırsatlarını tespit edip, hangi kanalın kâra dönüştüğünü kanıtlıyor ve bütçenizi size getiri sağlayan yerlere yönlendiriyoruz.</p>
+      </div>
+      <div class="tab-visual">
+        <img src="/images/verimlilik.webp" alt="Verimlilik - Bütçeyi doğru kullanma" loading="lazy"/>
+      </div>
+    </div>
+
+    <!-- 4. Yaratıcı -->
+    <div class="tab-panel" id="tab-yaratici">
+      <div class="tab-text">
+        <div class="tab-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+        <h3>Yaratıcı</h3>
+        <p class="tab-quote">"Reklamlarımız dikkat çekmiyor, kimse tıklamıyor."</p>
+        <p class="tab-desc">Dönüşüm için tasarlanan performans kreatifleri üretiyoruz. Video, statik görsel, reels, UGC — platformun diline uyumlu, markanızın sesini taşıyan ve en önemlisi satan içerikler. Estetik ve sonuç aynı anda.</p>
+      </div>
+      <div class="tab-visual">
+        <img src="/images/yaratici.webp" alt="Yaratıcı - Dönüşüm sağlayan reklam içerikleri" loading="lazy"/>
+      </div>
+    </div>
+
+    <!-- 5. Büyüme -->
+    <div class="tab-panel" id="tab-buyume">
+      <div class="tab-text">
+        <div class="tab-icon"><i class="fas fa-arrow-trend-up"></i></div>
+        <h3>Büyüme</h3>
+        <p class="tab-quote">"Müşterilerimiz var ama tekrar alışveriş yapmıyorlar."</p>
+        <p class="tab-desc">Mevcut müşteri tabanınızı tekrar tekrar değer üreten bir varlığa dönüştürüyoruz. Retargeting, CRM segmentasyonu, sadakat kampanyaları ve yaşam boyu değer (LTV) odaklı stratejilerle her müşteriden daha fazla gelir elde etmenizi sağlıyoruz.</p>
+      </div>
+      <div class="tab-visual">
+        <img src="/images/buyume.webp" alt="Büyüme - Mevcut müşterilerden daha fazla değer" loading="lazy"/>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <script>
 /* Mobile menu */
 const toggle = document.getElementById('navToggle');
@@ -1544,6 +1841,28 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     }
   }
   setTimeout(tick, 600);
+})();
+
+/* Tabs switcher - Neler Sunuyoruz bölümü */
+(function(){
+  const buttons = document.querySelectorAll('.tab-button');
+  const panels = document.querySelectorAll('.tab-panel');
+  if(!buttons.length) return;
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+
+      // Tüm butonları ve panelleri pasif yap
+      buttons.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+
+      // Tıklananı aktif yap
+      btn.classList.add('active');
+      const activePanel = document.getElementById('tab-' + target);
+      if(activePanel) activePanel.classList.add('active');
+    });
+  });
 })();
 </script>
 
