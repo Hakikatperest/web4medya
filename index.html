@@ -1223,7 +1223,8 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   background:#ffffff;
   padding:100px 0 0;
   position:relative;
-  overflow:hidden;
+  overflow-x:hidden;
+  width:100%;
 }
 .offerings-inner{
   max-width:1400px;
@@ -1287,9 +1288,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   grid-template-columns:repeat(5, 1fr);
   border-top:1px solid var(--border);
   border-bottom:1px solid var(--border);
-  max-width:100vw;
-  margin-left:calc(-5vw);
-  margin-right:calc(-5vw);
+  width:100%;
 }
 .tab-button{
   padding:26px 20px;
@@ -1323,9 +1322,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 
 /* Tab content - görsel üstte, metin altta */
 .tabs-content{
-  max-width:100vw;
-  margin-left:calc(-5vw);
-  margin-right:calc(-5vw);
+  width:100%;
 }
 .tab-panel{
   display:none;
@@ -1334,27 +1331,30 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 }
 .tab-panel.active{display:grid;}
 
-/* Üst: görsel alanı */
+/* Üst: görsel alanı - tam boy orantılı */
 .tab-visual{
   position:relative;
   overflow:hidden;
   width:100%;
-  height:clamp(280px, 40vh, 440px);
-  background:#0F172A;
+  background:#F8FAFC;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 .tab-visual img{
-  position:absolute;
-  inset:0;
   width:100%;
-  height:100%;
-  object-fit:cover;
+  height:auto;
+  max-width:1400px;
   display:block;
+  object-fit:contain;
 }
 .tab-visual::after{
   content:"";
   position:absolute;
-  inset:0;
-  background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 70%, rgba(255,255,255,1) 100%);
+  bottom:0;
+  left:0;right:0;
+  height:80px;
+  background:linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
   pointer-events:none;
 }
 
@@ -1433,7 +1433,6 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 }
 
 @media(max-width:900px){
-  .tab-visual{height:clamp(220px, 32vh, 340px);}
   .tab-text{padding:48px 5% 60px;}
   .offerings{padding:72px 0 0;}
   .tabs-nav{grid-template-columns:repeat(5, 1fr);}
@@ -1443,7 +1442,6 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   .tabs-nav{display:flex;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;}
   .tabs-nav::-webkit-scrollbar{display:none;}
   .tab-button{flex:0 0 auto;min-width:140px;padding:18px 20px;font-size:0.85rem;border-right:1px solid var(--border);}
-  .tab-visual{height:220px;}
   .tab-text{padding:40px 24px 56px;}
   .tab-icon{width:56px;height:56px;font-size:1.4rem;margin-top:-28px;}
 }
@@ -1582,57 +1580,6 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   </a>
 </section>
 
-<!-- ═══ BİRLİKTE ÇALIŞTIĞIMIZ MARKALAR ═══ -->
-<section class="brands" id="markalar">
-  <div class="brands-inner">
-    <div class="brands-header">
-      <span class="brands-eyebrow">Referanslar</span>
-      <h2 class="brands-title">Birlikte <span class="accent">Çalıştığımız</span> Markalar</h2>
-      <p class="brands-subtitle">Çalışmalarımızı örneklemek için birlikte iş birliği yaptığımız markalardan bazılarını sizin için derledik.</p>
-    </div>
-
-    <div class="brands-grid">
-
-      <!-- Satır 1: Taksi + Nakliye -->
-      <div class="brand-item"><img src="/images/brands/vezirkopru-meydan-taksi.svg" alt="Vezirköprü Meydan Taksi" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/samsun-taksici.svg" alt="Samsun Taksici" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/siirt-kent-taksi.svg" alt="Siirt Kent Taksi" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/kahta-taksi.svg" alt="Kahta Taksi" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/birlik-nakliye.svg" alt="Birlik Nakliye" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/mercan-nakliye.svg" alt="Mercan Nakliye" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/yilmazlar-nakliye.svg" alt="Yılmazlar Nakliye" loading="lazy"/></div>
-
-      <!-- Satır 2: Tesisat/Isı -->
-      <div class="brand-item"><img src="/images/brands/ydz-tesisat.svg" alt="YDZ Tesisat" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/armin-tesisat.svg" alt="Armin Tesisat" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/ulus-tesisat.svg" alt="Ulus Tesisat" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/aydin-ada-isi-teknik.svg" alt="Aydın Ada Isı Teknik" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/novaklimasistemleri.svg" alt="Nova Klima Sistemleri" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/altancompany.svg" alt="Altan Company Havalandırma" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/ugurlu-cam-balkon.svg" alt="Uğurlu Cam Balkon" loading="lazy"/></div>
-
-      <!-- Satır 3: İnşaat/Teknik Servis -->
-      <div class="brand-item"><img src="/images/brands/istanbul-sap-beton.svg" alt="İstanbul Şap Beton" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/boya-eli.svg" alt="Boya Eli" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/kepenk-servisim.svg" alt="Kepenk Servisim" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/kamanroof.svg" alt="Kaman Roof Çatı Tamircisi" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/kurtarici-kemal.svg" alt="Kurtarıcı Kemal Vinç Kiralama" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/izmirhurdacim.svg" alt="İzmir Hurdacım" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/solarcleaning.svg" alt="SolarCleaning" loading="lazy"/></div>
-
-      <!-- Satır 4: Temizlik + İlaçlama + Özel Sektörler -->
-      <div class="brand-item"><img src="/images/brands/trabzon-kardelen-temizlik.svg" alt="Trabzon Kardelen Temizlik" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/alyailaclama.svg" alt="Alya İlaçlama" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/dikkat-ilaclama.svg" alt="Dikkat İlaçlama" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/diyetisyen-tugba-seker.svg" alt="Diyetisyen Tuğba Şeker" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/u7-studio-fashion.svg" alt="U7 Studio Fashion" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/dia-flowers.svg" alt="DİA Flowers" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/platanusbook.svg" alt="Platanusbook Yayınevi" loading="lazy"/></div>
-
-    </div>
-  </div>
-</section>
-
 <!-- ═══ HİZMETLERİMİZ ═══ -->
 <section class="services" id="hizmetler">
   <div class="services-inner">
@@ -1717,18 +1664,18 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 
   <!-- Tab navigasyonu (tam genişlik) -->
   <div class="tabs-nav">
-    <button class="tab-button active" data-tab="genisleme">Genişleme</button>
+    <button class="tab-button active" data-tab="buyume">Büyüme</button>
     <button class="tab-button" data-tab="olcumleme">Ölçümleme</button>
-    <button class="tab-button" data-tab="verimlilik">Verimlilik</button>
+    <button class="tab-button" data-tab="genisleme">Genişleme</button>
     <button class="tab-button" data-tab="yaratici">Yaratıcı</button>
-    <button class="tab-button" data-tab="buyume">Büyüme</button>
+    <button class="tab-button" data-tab="verimlilik">Verimlilik</button>
   </div>
 
   <!-- Tab içerikleri -->
   <div class="tabs-content">
 
-    <!-- 1. Genişleme -->
-    <div class="tab-panel active" id="tab-genisleme">
+    <!-- Genişleme -->
+    <div class="tab-panel" id="tab-genisleme">
       <div class="tab-visual">
         <img src="/images/genisleme.webp" alt="Genişleme - Yeni kitlelere ulaşma" loading="lazy"/>
       </div>
@@ -1740,7 +1687,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
       </div>
     </div>
 
-    <!-- 2. Ölçümleme -->
+    <!-- Ölçümleme -->
     <div class="tab-panel" id="tab-olcumleme">
       <div class="tab-visual">
         <img src="/images/olcumleme.webp" alt="Ölçümleme - Ne işe yaradığını kanıtlama" loading="lazy"/>
@@ -1753,7 +1700,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
       </div>
     </div>
 
-    <!-- 3. Verimlilik -->
+    <!-- Verimlilik -->
     <div class="tab-panel" id="tab-verimlilik">
       <div class="tab-visual">
         <img src="/images/verimlilik.webp" alt="Verimlilik - Bütçeyi doğru kullanma" loading="lazy"/>
@@ -1766,7 +1713,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
       </div>
     </div>
 
-    <!-- 4. Yaratıcı -->
+    <!-- Yaratıcı -->
     <div class="tab-panel" id="tab-yaratici">
       <div class="tab-visual">
         <img src="/images/yaratici.webp" alt="Yaratıcı - Dönüşüm sağlayan reklam içerikleri" loading="lazy"/>
@@ -1779,8 +1726,8 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
       </div>
     </div>
 
-    <!-- 5. Büyüme -->
-    <div class="tab-panel" id="tab-buyume">
+    <!-- Büyüme -->
+    <div class="tab-panel active" id="tab-buyume">
       <div class="tab-visual">
         <img src="/images/buyume.webp" alt="Büyüme - Mevcut müşterilerden daha fazla değer" loading="lazy"/>
       </div>
@@ -1888,6 +1835,57 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 })();
 </script>
+
+<!-- ═══ BİRLİKTE ÇALIŞTIĞIMIZ MARKALAR ═══ -->
+<section class="brands" id="markalar">
+  <div class="brands-inner">
+    <div class="brands-header">
+      <span class="brands-eyebrow">Referanslar</span>
+      <h2 class="brands-title">Birlikte <span class="accent">Çalıştığımız</span> Markalar</h2>
+      <p class="brands-subtitle">Çalışmalarımızı örneklemek için birlikte iş birliği yaptığımız markalardan bazılarını sizin için derledik.</p>
+    </div>
+
+    <div class="brands-grid">
+
+      <!-- Satır 1: Taksi + Nakliye -->
+      <div class="brand-item"><img src="/images/brands/vezirkopru-meydan-taksi.svg" alt="Vezirköprü Meydan Taksi" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/samsun-taksici.svg" alt="Samsun Taksici" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/siirt-kent-taksi.svg" alt="Siirt Kent Taksi" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/kahta-taksi.svg" alt="Kahta Taksi" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/birlik-nakliye.svg" alt="Birlik Nakliye" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/mercan-nakliye.svg" alt="Mercan Nakliye" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/yilmazlar-nakliye.svg" alt="Yılmazlar Nakliye" loading="lazy"/></div>
+
+      <!-- Satır 2: Tesisat/Isı -->
+      <div class="brand-item"><img src="/images/brands/ydz-tesisat.svg" alt="YDZ Tesisat" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/armin-tesisat.svg" alt="Armin Tesisat" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/ulus-tesisat.svg" alt="Ulus Tesisat" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/aydin-ada-isi-teknik.svg" alt="Aydın Ada Isı Teknik" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/novaklimasistemleri.svg" alt="Nova Klima Sistemleri" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/altancompany.svg" alt="Altan Company Havalandırma" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/ugurlu-cam-balkon.svg" alt="Uğurlu Cam Balkon" loading="lazy"/></div>
+
+      <!-- Satır 3: İnşaat/Teknik Servis -->
+      <div class="brand-item"><img src="/images/brands/istanbul-sap-beton.svg" alt="İstanbul Şap Beton" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/boya-eli.svg" alt="Boya Eli" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/kepenk-servisim.svg" alt="Kepenk Servisim" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/kamanroof.svg" alt="Kaman Roof Çatı Tamircisi" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/kurtarici-kemal.svg" alt="Kurtarıcı Kemal Vinç Kiralama" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/izmirhurdacim.svg" alt="İzmir Hurdacım" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/solarcleaning.svg" alt="SolarCleaning" loading="lazy"/></div>
+
+      <!-- Satır 4: Temizlik + İlaçlama + Özel Sektörler -->
+      <div class="brand-item"><img src="/images/brands/trabzon-kardelen-temizlik.svg" alt="Trabzon Kardelen Temizlik" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/alyailaclama.svg" alt="Alya İlaçlama" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/dikkat-ilaclama.svg" alt="Dikkat İlaçlama" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/diyetisyen-tugba-seker.svg" alt="Diyetisyen Tuğba Şeker" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/u7-studio-fashion.svg" alt="U7 Studio Fashion" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/dia-flowers.svg" alt="DİA Flowers" loading="lazy"/></div>
+      <div class="brand-item"><img src="/images/brands/platanusbook.svg" alt="Platanusbook Yayınevi" loading="lazy"/></div>
+
+    </div>
+  </div>
+</section>
 
 <!-- ═══ FLOATING BUTTONS ═══ -->
 <div class="floating-buttons">
