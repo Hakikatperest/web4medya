@@ -757,15 +757,14 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   .scroll-indicator .scroll-text{font-size:0.65rem;}
 }
 
-/* ═══ MARKALAR GRID ═══ */
+/* ═══ MARKALAR ŞERİT (İKİ BANT MARQUEE) ═══ */
 .brands{
   background:#ffffff;
-  padding:100px 5% 90px;
+  padding:100px 0 90px;
   position:relative;
   overflow:hidden;
   border-bottom:1px solid var(--border);
 }
-/* Hafif grid pattern arka plan */
 .brands::before{
   content:"";
   position:absolute;
@@ -780,13 +779,13 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 }
 .brands-inner{
   max-width:1280px;
-  margin:0 auto;
+  margin:0 auto 48px;
   position:relative;
   z-index:1;
+  padding:0 5%;
 }
 .brands-header{
   text-align:center;
-  margin-bottom:56px;
 }
 .brands-eyebrow{
   display:inline-flex;
@@ -834,44 +833,77 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   margin:0 auto;
   line-height:1.6;
 }
-.brands-grid{
-  display:grid;
-  grid-template-columns:repeat(7, 1fr);
-  gap:0;
-  border-top:1px solid rgba(15,23,42,0.06);
-  border-left:1px solid rgba(15,23,42,0.06);
-  border-radius:16px;
-  overflow:hidden;
-}
-.brand-item{
+
+/* İki şerit konteyner */
+.brands-marquees{
   position:relative;
-  aspect-ratio:16/9;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  z-index:1;
+}
+.brands-marquee{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  mask-image:linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  transform:translateZ(0);
+  -webkit-transform:translateZ(0);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+}
+.brands-track{
+  display:flex;
+  align-items:center;
+  width:max-content;
+  gap:18px;
+  padding:0 9px;
+  animation:brands-scroll 60s linear infinite;
+  will-change:transform;
+  transform:translate3d(0,0,0);
+  -webkit-transform:translate3d(0,0,0);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+}
+
+/* Faz farkı - üst normal başlar, alt yolun yarısından başlar (yarım kaymış görünüm) */
+.brands-marquee.row-1 .brands-track{
+  animation-delay:0s;
+}
+.brands-marquee.row-2 .brands-track{
+  animation-delay:-30s;
+}
+
+@media (hover: hover) and (pointer: fine){
+  .brands-track:hover{animation-play-state:paused;}
+}
+
+/* Her marka kutusu */
+.brand-item{
+  flex-shrink:0;
+  width:240px;
+  height:135px;
+  background:#ffffff;
+  border:1px solid rgba(15,23,42,0.08);
+  border-radius:14px;
   display:flex;
   align-items:center;
   justify-content:center;
   padding:0;
-  border-right:1px solid rgba(15,23,42,0.06);
-  border-bottom:1px solid rgba(15,23,42,0.06);
-  background:#ffffff;
-  transition:background 0.3s;
+  transition:border-color 0.3s, transform 0.3s, box-shadow 0.3s;
   -webkit-user-select:none;
   user-select:none;
+  box-shadow:0 1px 3px rgba(15,23,42,0.04);
   overflow:hidden;
 }
-.brand-item::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(135deg, rgba(11,87,208,0.03) 0%, rgba(66,133,244,0.01) 100%);
-  opacity:0;
-  transition:opacity 0.3s;
-  pointer-events:none;
-}
-.brand-item:hover{
-  background:#FAFBFC;
-}
-.brand-item:hover::before{
-  opacity:1;
+@media (hover: hover) and (pointer: fine){
+  .brand-item:hover{
+    border-color:var(--blue-light);
+    transform:translateY(-3px);
+    box-shadow:0 12px 24px rgba(15,23,42,0.08);
+  }
 }
 .brand-item img{
   width:95%;
@@ -879,38 +911,45 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   max-width:95%;
   max-height:85%;
   object-fit:contain;
-  opacity:0.7;
+  opacity:0.55;
   filter:grayscale(100%);
-  transition:opacity 0.35s ease, filter 0.35s ease, transform 0.35s ease;
+  transition:opacity 0.35s ease, filter 0.35s ease;
   pointer-events:none;
   -webkit-user-drag:none;
 }
-.brand-item:hover img{
-  opacity:1;
-  filter:grayscale(0%);
-  transform:scale(1.05);
+@media (hover: hover) and (pointer: fine){
+  .brand-item:hover img{
+    opacity:1;
+    filter:grayscale(0%);
+  }
+}
+
+/* Marquee animasyon */
+@keyframes brands-scroll{
+  from{transform:translate3d(0,0,0);}
+  to{transform:translate3d(calc(-50% - 9px), 0, 0);}
 }
 
 /* Responsive */
-@media(max-width:1280px){
-  .brands-grid{grid-template-columns:repeat(5, 1fr);}
-}
 @media(max-width:1024px){
-  .brands-grid{grid-template-columns:repeat(4, 1fr);}
+  .brand-item{width:210px;height:118px;}
+  .brands-track{gap:16px;}
 }
 @media(max-width:768px){
-  .brands{padding:72px 5% 60px;}
-  .brands::before{background-size:40px 40px;}
-  .brands-header{margin-bottom:40px;}
-  .brands-grid{grid-template-columns:repeat(3, 1fr);}
-  .brand-item{padding:0;}
-  .brand-item img{width:95%;height:85%;max-width:95%;max-height:85%;opacity:0.85;}
+  .brands{padding:72px 0 60px;}
+  .brands-inner{margin-bottom:40px;}
+  .brand-item{width:180px;height:101px;border-radius:12px;}
+  .brand-item img{opacity:0.85;}
+  .brands-track{gap:14px;animation-duration:50s;}
+  .brands-marquee.row-2 .brands-track{animation-delay:-25s;}
+  .brands-marquees{gap:14px;}
 }
 @media(max-width:480px){
-  .brands-grid{grid-template-columns:repeat(2, 1fr);}
-  .brand-item{padding:0;}
+  .brand-item{width:150px;height:84px;border-radius:10px;}
+  .brands-track{gap:12px;}
 }
 @media (prefers-reduced-motion: reduce){
+  .brands-track{animation:none;}
   .scroll-indicator,.scroll-indicator .scroll-mouse::before{animation:none !important;}
 }
 
@@ -2043,43 +2082,81 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
       <p class="brands-subtitle">Çalışmalarımızı örneklemek için birlikte iş birliği yaptığımız markalardan bazılarını sizin için derledik.</p>
     </div>
 
-    <div class="brands-grid">
+    <div class="brands-marquees">
 
-      <!-- Satır 1: Taksi + Nakliye -->
-      <div class="brand-item"><img src="/images/brands/vezirkopru-meydan-taksi.svg" alt="Vezirköprü Meydan Taksi" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/samsun-taksici.svg" alt="Samsun Taksici" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/siirt-kent-taksi.svg" alt="Siirt Kent Taksi" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/kahta-taksi.svg" alt="Kahta Taksi" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/birlik-nakliye.svg" alt="Birlik Nakliye" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/mercan-nakliye.svg" alt="Mercan Nakliye" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/yilmazlar-nakliye.svg" alt="Yılmazlar Nakliye" loading="lazy"/></div>
+      <!-- Üst şerit - 14 marka (2x tekrar = kesintisiz loop) -->
+      <div class="brands-marquee row-1">
+        <div class="brands-track">
+          <!-- 1. set -->
+          <div class="brand-item"><img src="/images/brands/vezirkopru-meydan-taksi.svg" alt="Vezirköprü Meydan Taksi" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/samsun-taksici.svg" alt="Samsun Taksici" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/siirt-kent-taksi.svg" alt="Siirt Kent Taksi" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/kahta-taksi.svg" alt="Kahta Taksi" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/birlik-nakliye.svg" alt="Birlik Nakliye" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/mercan-nakliye.svg" alt="Mercan Nakliye" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/yilmazlar-nakliye.svg" alt="Yılmazlar Nakliye" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/ydz-tesisat.svg" alt="YDZ Tesisat" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/armin-tesisat.svg" alt="Armin Tesisat" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/ulus-tesisat.svg" alt="Ulus Tesisat" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/aydin-ada-isi-teknik.svg" alt="Aydın Ada Isı Teknik" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/novaklimasistemleri.svg" alt="Nova Klima Sistemleri" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/altancompany.svg" alt="Altan Company Havalandırma" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/ugurlu-cam-balkon.svg" alt="Uğurlu Cam Balkon" loading="lazy"/></div>
 
-      <!-- Satır 2: Tesisat/Isı -->
-      <div class="brand-item"><img src="/images/brands/ydz-tesisat.svg" alt="YDZ Tesisat" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/armin-tesisat.svg" alt="Armin Tesisat" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/ulus-tesisat.svg" alt="Ulus Tesisat" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/aydin-ada-isi-teknik.svg" alt="Aydın Ada Isı Teknik" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/novaklimasistemleri.svg" alt="Nova Klima Sistemleri" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/altancompany.svg" alt="Altan Company Havalandırma" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/ugurlu-cam-balkon.svg" alt="Uğurlu Cam Balkon" loading="lazy"/></div>
+          <!-- 2. set (kesintisiz loop için tekrar) -->
+          <div class="brand-item"><img src="/images/brands/vezirkopru-meydan-taksi.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/samsun-taksici.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/siirt-kent-taksi.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/kahta-taksi.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/birlik-nakliye.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/mercan-nakliye.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/yilmazlar-nakliye.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/ydz-tesisat.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/armin-tesisat.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/ulus-tesisat.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/aydin-ada-isi-teknik.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/novaklimasistemleri.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/altancompany.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/ugurlu-cam-balkon.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+        </div>
+      </div>
 
-      <!-- Satır 3: İnşaat/Teknik Servis -->
-      <div class="brand-item"><img src="/images/brands/istanbul-sap-beton.svg" alt="İstanbul Şap Beton" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/boya-eli.svg" alt="Boya Eli" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/kepenk-servisim.svg" alt="Kepenk Servisim" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/kamanroof.svg" alt="Kaman Roof Çatı Tamircisi" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/kurtarici-kemal.svg" alt="Kurtarıcı Kemal Vinç Kiralama" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/izmirhurdacim.svg" alt="İzmir Hurdacım" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/solarcleaning.svg" alt="SolarCleaning" loading="lazy"/></div>
+      <!-- Alt şerit - 14 marka (faz farklı) -->
+      <div class="brands-marquee row-2">
+        <div class="brands-track">
+          <!-- 1. set -->
+          <div class="brand-item"><img src="/images/brands/istanbul-sap-beton.svg" alt="İstanbul Şap Beton" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/boya-eli.svg" alt="Boya Eli" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/kepenk-servisim.svg" alt="Kepenk Servisim" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/kamanroof.svg" alt="Kaman Roof Çatı Tamircisi" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/kurtarici-kemal.svg" alt="Kurtarıcı Kemal Vinç Kiralama" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/izmirhurdacim.svg" alt="İzmir Hurdacım" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/solarcleaning.svg" alt="SolarCleaning" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/trabzon-kardelen-temizlik.svg" alt="Trabzon Kardelen Temizlik" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/alyailaclama.svg" alt="Alya İlaçlama" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/dikkat-ilaclama.svg" alt="Dikkat İlaçlama" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/diyetisyen-tugba-seker.svg" alt="Diyetisyen Tuğba Şeker" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/u7-studio-fashion.svg" alt="U7 Studio Fashion" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/dia-flowers.svg" alt="DİA Flowers" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/platanusbook.svg" alt="Platanusbook Yayınevi" loading="lazy"/></div>
 
-      <!-- Satır 4: Temizlik + İlaçlama + Özel Sektörler -->
-      <div class="brand-item"><img src="/images/brands/trabzon-kardelen-temizlik.svg" alt="Trabzon Kardelen Temizlik" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/alyailaclama.svg" alt="Alya İlaçlama" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/dikkat-ilaclama.svg" alt="Dikkat İlaçlama" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/diyetisyen-tugba-seker.svg" alt="Diyetisyen Tuğba Şeker" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/u7-studio-fashion.svg" alt="U7 Studio Fashion" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/dia-flowers.svg" alt="DİA Flowers" loading="lazy"/></div>
-      <div class="brand-item"><img src="/images/brands/platanusbook.svg" alt="Platanusbook Yayınevi" loading="lazy"/></div>
+          <!-- 2. set (kesintisiz loop için tekrar) -->
+          <div class="brand-item"><img src="/images/brands/istanbul-sap-beton.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/boya-eli.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/kepenk-servisim.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/kamanroof.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/kurtarici-kemal.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/izmirhurdacim.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/solarcleaning.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/trabzon-kardelen-temizlik.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/alyailaclama.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/dikkat-ilaclama.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/diyetisyen-tugba-seker.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/u7-studio-fashion.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/dia-flowers.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+          <div class="brand-item"><img src="/images/brands/platanusbook.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+        </div>
+      </div>
 
     </div>
   </div>
