@@ -757,6 +757,160 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   .scroll-indicator .scroll-text{font-size:0.65rem;}
 }
 
+/* ═══ PARTNERS - İŞ ORTAKLARIMIZ ═══ */
+.partners{
+  background:#ffffff;
+  padding:100px 0 90px;
+  position:relative;
+  overflow:hidden;
+}
+.partners-inner{
+  max-width:1280px;
+  margin:0 auto 56px;
+  padding:0 5%;
+}
+.partners-header{
+  text-align:left;
+  position:relative;
+  z-index:2;
+}
+.partners-title{
+  font-family:var(--font-display);
+  font-size:clamp(2rem, 5vw, 3.5rem);
+  font-weight:900;
+  letter-spacing:-0.03em;
+  color:var(--dark);
+  line-height:1.1;
+  margin:0;
+}
+.partners-title .accent{
+  background:linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+/* Arka plan pattern - laboratuvar şişesi benzeri marka sembolü */
+.partners::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(11,87,208,0.08) 2px, transparent 2.5px),
+    radial-gradient(circle at 45% 75%, rgba(11,87,208,0.05) 2px, transparent 2.5px),
+    radial-gradient(circle at 80% 35%, rgba(11,87,208,0.06) 2px, transparent 2.5px);
+  background-size:80px 80px, 120px 120px, 100px 100px;
+  pointer-events:none;
+  z-index:1;
+}
+
+/* İçerik konteyner */
+.partners-content{
+  max-width:1400px;
+  margin:0 auto;
+  position:relative;
+  z-index:2;
+}
+
+/* Her grup - Platform ve Tech */
+.partners-group{
+  position:relative;
+  width:100%;
+  margin-bottom:24px;
+}
+.partners-group:last-child{margin-bottom:0;}
+
+/* Üst etiket bandı (tekrarlayan kategori) */
+.partners-label-strip{
+  overflow:hidden;
+  border-top:1px solid rgba(15,23,42,0.08);
+  border-bottom:1px solid rgba(15,23,42,0.08);
+  padding:10px 0;
+  background:#FFF9E5;
+}
+.partners-group.tech .partners-label-strip{
+  background:#E8F1FE;
+}
+.partners-label-track{
+  display:flex;
+  white-space:nowrap;
+  animation:label-scroll 40s linear infinite;
+  font-family:var(--font-display);
+  font-size:0.95rem;
+  font-weight:500;
+  color:var(--text2);
+  gap:40px;
+  padding-left:40px;
+}
+.partners-group.tech .partners-label-track{
+  animation-direction:reverse;
+}
+@keyframes label-scroll{
+  from{transform:translate3d(0,0,0);}
+  to{transform:translate3d(-50%,0,0);}
+}
+
+/* Logo grid */
+.partners-grid{
+  display:grid;
+  grid-template-columns:repeat(7, 1fr);
+  border-left:1px solid rgba(15,23,42,0.08);
+}
+.partners-group.tech .partners-grid{
+  grid-template-columns:repeat(4, 1fr);
+}
+.partner-item{
+  aspect-ratio:16/9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px 16px;
+  border-right:1px solid rgba(15,23,42,0.08);
+  border-bottom:1px solid rgba(15,23,42,0.08);
+  background:#ffffff;
+  transition:background 0.25s;
+  position:relative;
+}
+.partners-group.tech .partner-item{
+  aspect-ratio:16/7;
+  padding:28px 24px;
+}
+.partner-item:hover{
+  background:#FAFBFC;
+}
+.partner-item img{
+  max-width:90%;
+  max-height:80%;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  opacity:0.95;
+  transition:opacity 0.25s, transform 0.25s;
+}
+.partner-item:hover img{
+  opacity:1;
+  transform:scale(1.04);
+}
+
+/* Responsive */
+@media(max-width:1024px){
+  .partners-grid{grid-template-columns:repeat(4, 1fr);}
+  .partners-group.tech .partners-grid{grid-template-columns:repeat(2, 1fr);}
+}
+@media(max-width:768px){
+  .partners{padding:72px 0 60px;}
+  .partners-inner{margin-bottom:40px;}
+  .partners-grid{grid-template-columns:repeat(3, 1fr);}
+  .partners-group.tech .partners-grid{grid-template-columns:repeat(2, 1fr);}
+  .partner-item{padding:18px 12px;}
+  .partners-group.tech .partner-item{padding:20px 16px;}
+  .partners-label-track{font-size:0.85rem;gap:32px;}
+}
+@media(max-width:480px){
+  .partners-grid{grid-template-columns:repeat(2, 1fr);}
+  .partners-group.tech .partners-grid{grid-template-columns:repeat(2, 1fr);}
+}
+
 /* ═══ MARKALAR ŞERİT (İKİ BANT MARQUEE) ═══ */
 .brands{
   background:#ffffff;
@@ -779,7 +933,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 }
 .brands-inner{
   max-width:1280px;
-  margin:0 auto 48px;
+  margin:0 auto 80px;
   position:relative;
   z-index:1;
   padding:0 5%;
@@ -868,12 +1022,13 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   -webkit-backface-visibility:hidden;
 }
 
-/* Faz farkı - üst normal başlar, alt yolun yarısından başlar (yarım kaymış görünüm) */
+/* Faz farkı - üst sağdan sola, alt soldan sağa (ters yön) */
 .brands-marquee.row-1 .brands-track{
   animation-delay:0s;
 }
 .brands-marquee.row-2 .brands-track{
   animation-delay:-30s;
+  animation-direction:reverse;
 }
 
 @media (hover: hover) and (pointer: fine){
@@ -2111,6 +2266,56 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   </div>
 </section>
 
+
+<!-- ═══ İŞ ORTAKLARIMIZ (PARTNERS) ═══ -->
+<section class="partners" id="partners">
+  <div class="partners-inner">
+    <div class="partners-header">
+      <h2 class="partners-title">İş <span class="accent">ortaklarımız</span> kimler?</h2>
+    </div>
+  </div>
+
+  <div class="partners-content">
+
+    <!-- Platform Partners - reklam verilen platformlar -->
+    <div class="partners-group platform">
+      <div class="partners-label-strip">
+        <div class="partners-label-track">
+          <span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span>
+          <!-- tekrar (sonsuz loop için) -->
+          <span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span>
+        </div>
+      </div>
+      <div class="partners-grid">
+        <div class="partner-item"><img src="/svg/google.svg" alt="Google Ads Partner" loading="lazy"/></div>
+        <div class="partner-item"><img src="/svg/microsoft.svg" alt="Microsoft Advertising Partner" loading="lazy"/></div>
+        <div class="partner-item"><img src="/svg/meta.svg" alt="Meta Business Partner" loading="lazy"/></div>
+        <div class="partner-item"><img src="/svg/tiktok.svg" alt="TikTok Business Partner" loading="lazy"/></div>
+        <div class="partner-item"><img src="/svg/reddit.svg" alt="Reddit Ads Partner" loading="lazy"/></div>
+        <div class="partner-item"><img src="/svg/linkedin.svg" alt="LinkedIn Marketing Partner" loading="lazy"/></div>
+        <div class="partner-item"><img src="/svg/thetradedesk.svg" alt="The Trade Desk Partner" loading="lazy"/></div>
+      </div>
+    </div>
+
+    <!-- Tech Partners - teknoloji iş birlikleri -->
+    <div class="partners-group tech">
+      <div class="partners-label-strip">
+        <div class="partners-label-track">
+          <span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span>
+          <!-- tekrar -->
+          <span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span>
+        </div>
+      </div>
+      <div class="partners-grid">
+        <div class="partner-item"><img src="/svg/shopify.svg" alt="Shopify Partner" loading="lazy"/></div>
+        <div class="partner-item"><img src="/svg/bigcommerce.svg" alt="BigCommerce Partner" loading="lazy"/></div>
+        <div class="partner-item"><img src="/svg/attentive.svg" alt="Attentive Partner" loading="lazy"/></div>
+        <div class="partner-item"><img src="/svg/funnel.svg" alt="Funnel Partner" loading="lazy"/></div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- ═══ BİRLİKTE ÇALIŞTIĞIMIZ MARKALAR ═══ -->
 <section class="brands" id="markalar">
