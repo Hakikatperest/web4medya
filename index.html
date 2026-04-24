@@ -839,22 +839,41 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   border-bottom:1px solid rgba(15,23,42,0.08);
   padding:10px 0;
   background:#FFF9E5;
+  position:relative;
 }
 .partners-group.tech .partners-label-strip{
   background:#E8F1FE;
 }
 .partners-label-track{
-  display:flex;
+  display:inline-flex;
   white-space:nowrap;
   animation:label-scroll 40s linear infinite;
   font-family:var(--font-display);
   font-size:0.95rem;
   font-weight:500;
   color:var(--text2);
-  gap:40px;
-  padding-left:40px;
   will-change:transform;
   contain:layout style paint;
+  transform:translate3d(0,0,0);
+  -webkit-transform:translate3d(0,0,0);
+}
+.partners-label-track span{
+  padding:0 24px;
+  flex-shrink:0;
+  position:relative;
+}
+/* Her span arasına ayırıcı nokta */
+.partners-label-track span::after{
+  content:"•";
+  position:absolute;
+  right:-4px;
+  top:50%;
+  transform:translateY(-50%);
+  color:rgba(15,23,42,0.25);
+  font-size:0.8rem;
+}
+.partners-label-track span:last-child::after{
+  display:none;
 }
 .partners-group.tech .partners-label-track{
   animation-direction:reverse;
@@ -918,7 +937,8 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   .partners-group.tech .partners-grid{grid-template-columns:repeat(2, 1fr);}
   .partner-item{padding:18px 12px;}
   .partners-group.tech .partner-item{padding:20px 16px;}
-  .partners-label-track{font-size:0.85rem;gap:32px;}
+  .partners-label-track{font-size:0.85rem;}
+  .partners-label-track span{padding:0 18px;}
 }
 @media(max-width:480px){
   .partners-grid{grid-template-columns:repeat(2, 1fr);}
@@ -2281,9 +2301,10 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     <div class="partners-group platform">
       <div class="partners-label-strip">
         <div class="partners-label-track">
-          <span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span>
-          <!-- tekrar (sonsuz loop için) -->
-          <span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span>
+          <!-- Grup 1 (12 adet) -->
+          <span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span>
+          <!-- Grup 2 - birebir tekrar (kesintisiz loop) -->
+          <span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span>
         </div>
       </div>
       <div class="partners-grid">
@@ -2301,9 +2322,10 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     <div class="partners-group tech">
       <div class="partners-label-strip">
         <div class="partners-label-track">
-          <span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span>
-          <!-- tekrar -->
-          <span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span>
+          <!-- Grup 1 (14 adet) -->
+          <span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span>
+          <!-- Grup 2 - birebir tekrar -->
+          <span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span>
         </div>
       </div>
       <div class="partners-grid">
