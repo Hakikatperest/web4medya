@@ -734,7 +734,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 /* ═══ LOGO BAR ═══ */
 .logo-bar{
   background:#ffffff;
-  padding:72px 0 64px;
+  padding:100px 0 90px;
   overflow:hidden;
   position:relative;
   border-bottom:1px solid var(--border);
@@ -742,11 +742,11 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
 .logo-bar-title{
   text-align:center;
   font-family:var(--font-display);
-  font-size:clamp(1rem, 2vw, 1.25rem);
+  font-size:clamp(1.1rem, 2.2vw, 1.5rem);
   font-weight:600;
   letter-spacing:-0.01em;
   color:var(--text2);
-  margin-bottom:48px;
+  margin-bottom:64px;
   padding:0 20px;
   text-transform:none;
 }
@@ -754,9 +754,8 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   position:relative;
   width:100%;
   overflow:hidden;
-  mask-image:linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
-  -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
-  /* GPU acceleration - mobilde takılmayı önler */
+  mask-image:linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
   transform:translateZ(0);
   -webkit-transform:translateZ(0);
   backface-visibility:hidden;
@@ -768,34 +767,34 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   display:flex;
   align-items:center;
   width:max-content;
-  animation:logo-scroll 40s linear infinite;
-  /* GPU acceleration */
+  animation:logo-scroll 50s linear infinite;
   will-change:transform;
   transform:translate3d(0,0,0);
   -webkit-transform:translate3d(0,0,0);
   backface-visibility:hidden;
   -webkit-backface-visibility:hidden;
 }
-/* Sadece masaüstünde hover ile pause */
+/* Masaüstü: hover ile durur */
 @media (hover: hover) and (pointer: fine){
   .logo-track:hover{animation-play-state:paused;}
 }
+/* Mobil: dokunup basılı tutunca durur, çekince devam eder */
+.logo-track.is-touch-paused{animation-play-state:paused;}
 .logo-item{
   flex-shrink:0;
-  padding:0 60px;
+  padding:0 90px;
   display:flex;
   align-items:center;
   justify-content:center;
-  height:100px;
-  /* Scroll event'leri engelle - mobilde takılmayı önler */
+  height:240px;
   touch-action:pan-y;
   -webkit-user-select:none;
   user-select:none;
 }
 .logo-item img{
-  max-height:80px;
+  max-height:200px;
   width:auto;
-  max-width:260px;
+  max-width:560px;
   opacity:0.7;
   filter:grayscale(100%);
   transition:opacity 0.3s, filter 0.3s;
@@ -814,12 +813,20 @@ body{font-family:var(--font-body);color:var(--text);background:var(--light);over
   from {transform:translate3d(0,0,0);}
   to   {transform:translate3d(-50%,0,0);}
 }
+@media(max-width:1024px){
+  .logo-item{padding:0 70px;height:190px;}
+  .logo-item img{max-height:150px;max-width:420px;}
+}
 @media(max-width:768px){
-  .logo-bar{padding:52px 0 44px;}
-  .logo-bar-title{margin-bottom:32px;}
-  .logo-item{padding:0 40px;height:80px;}
-  .logo-item img{max-height:60px;max-width:200px;opacity:0.8;}
-  .logo-track{animation-duration:32s;}
+  .logo-bar{padding:72px 0 60px;}
+  .logo-bar-title{margin-bottom:44px;}
+  .logo-item{padding:0 50px;height:150px;}
+  .logo-item img{max-height:120px;max-width:320px;opacity:0.8;}
+  .logo-track{animation-duration:40s;}
+}
+@media(max-width:480px){
+  .logo-item{padding:0 40px;height:120px;}
+  .logo-item img{max-height:90px;max-width:240px;}
 }
 @media (prefers-reduced-motion: reduce){
   .logo-track{animation:none;}
@@ -1054,6 +1061,30 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     }
   }
   setTimeout(tick, 600);
+})();
+
+/* Mobilde logo şeridine dokununca durma/bırakınca devam etme */
+(function(){
+  const track = document.querySelector('.logo-track');
+  if(!track) return;
+
+  let pauseTimer = null;
+
+  const pause = () => {
+    clearTimeout(pauseTimer);
+    track.classList.add('is-touch-paused');
+  };
+
+  const resume = () => {
+    clearTimeout(pauseTimer);
+    pauseTimer = setTimeout(() => {
+      track.classList.remove('is-touch-paused');
+    }, 100);
+  };
+
+  track.addEventListener('touchstart', pause, {passive: true});
+  track.addEventListener('touchend', resume, {passive: true});
+  track.addEventListener('touchcancel', resume, {passive: true});
 })();
 </script>
 
