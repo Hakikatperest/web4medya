@@ -317,12 +317,12 @@
   "@context": "https://schema.org",
   "@type": "VideoObject",
   "name": "Web4Medya Google Reklam Ajansı Tanıtım Videosu",
-  "description": "Google'da üst sıralarda olmak ister misiniz? Web4Medya Google Partner reklam ajansı olarak performans odaklı kampanyalar, sertifikalı uzman ekip ve şeffaf raporlama ile işletmenizi büyütüyoruz. 8 yıllık tecrübe, 500+ başarılı kampanya, Bartın merkezli Türkiye geneli hizmet.",
+  "description": "Web4Medya olarak işletmelerinizi en uygun maliyetlerle Google'da üst sıralara taşıyoruz. Türkiye'nin yeni nesil dijital pazarlama ajansı olarak Google Ads kampanya yönetimi, SEO ve dijital pazarlama hizmetleri sunuyoruz.",
   "thumbnailUrl": "https://www.web4medya.com/images/web4medya-video-poster.webp",
   "uploadDate": "2026-04-25",
   "contentUrl": "https://www.web4medya.com/videos/web4medya-reklam-tanitim.webm",
   "embedUrl": "https://www.web4medya.com/#tanitim-video",
-  "duration": "PT30S",
+  "duration": "PT10S",
   "encoding": [
     {
       "@type": "MediaObject",
@@ -439,13 +439,39 @@ body::before{
   flex-shrink:0;
   height:68px;
   overflow:visible;
+  position:relative;
 }
+.nav-logo-placeholder{
+  position:absolute;
+  left:0;top:50%;
+  transform:translateY(-50%);
+  font-family:var(--font-display);
+  font-size:2.4rem;
+  font-weight:800;
+  letter-spacing:-0.04em;
+  line-height:1;
+  display:flex;
+  align-items:center;
+  pointer-events:none;
+  user-select:none;
+  z-index:1;
+  /* Anında görünür - hiçbir bekleme yok */
+}
+.nav-logo-placeholder .lp-w{color:#0F172A;}
+.nav-logo-placeholder .lp-4{color:#4285F4;}
 .nav-logo-img{
   height:60px;
-  width:auto;
+  width:180px;
+  max-width:180px;
   display:block;
-  transition:transform 0.3s cubic-bezier(0.2,0.8,0.2,1);
+  transition:opacity 0.2s ease, transform 0.3s cubic-bezier(0.2,0.8,0.2,1);
   margin:-1px 0;
+  position:relative;
+  z-index:2;
+  opacity:0;
+}
+.nav-logo-img[src]{
+  opacity:1;
 }
 .nav-logo:hover .nav-logo-img{transform:scale(1.03);}
 .nav-links{
@@ -530,6 +556,7 @@ body::before{
   .navbar-inner{height:60px;gap:12px;}
   .nav-logo{height:60px;}
   .nav-logo-img{height:52px;margin:-1px 0;}
+  .nav-logo-placeholder{font-size:2rem;}
   .mobile-menu{top:60px;}
 }
 
@@ -2076,16 +2103,12 @@ body::before{
   border-top:1px solid var(--border);
 }
 .ai-ask-top{
-  display:grid;
-  grid-template-columns:1.6fr 1fr;
-  align-items:stretch;
+  padding:80px 5% 60px;
 }
 .ai-ask-text{
-  background:#ffffff;
-  padding:80px 6% 80px 8%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+  max-width:780px;
+  margin:0 auto;
+  text-align:center;
 }
 .ai-ask-eyebrow{
   display:inline-flex;
@@ -2101,8 +2124,7 @@ body::before{
   background:linear-gradient(135deg, rgba(11,87,208,0.1) 0%, rgba(66,133,244,0.05) 100%);
   border:1px solid rgba(11,87,208,0.15);
   border-radius:50px;
-  margin-bottom:20px;
-  width:fit-content;
+  margin-bottom:22px;
 }
 .ai-ask-eyebrow::before{
   content:"";
@@ -2131,15 +2153,11 @@ body::before{
   font-size:clamp(0.95rem, 1.3vw, 1.05rem);
   color:var(--text2);
   line-height:1.65;
-  max-width:580px;
+  max-width:680px;
+  margin:0 auto;
 }
 .ai-ask-icon{
-  background:#FFF9E5;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:40px;
-  position:relative;
+  display:none;
 }
 .ai-ask-icon svg{
   width:140px;
@@ -2202,9 +2220,7 @@ body::before{
 .ai-ask-btn.perplexity{background:#20B8CD;color:#fff;}   /* Perplexity teal */
 
 @media(max-width:900px){
-  .ai-ask-top{grid-template-columns:1fr;}
-  .ai-ask-text{padding:60px 6% 40px;}
-  .ai-ask-icon{display:none;}
+  .ai-ask-top{padding:60px 5% 40px;}
   .ai-ask-buttons{grid-template-columns:repeat(2, 1fr);}
   .ai-ask-btn{padding:22px 12px;font-size:0.95rem;}
   .ai-ask-btn:nth-child(2){border-right:none;}
@@ -3048,6 +3064,58 @@ body::before{
   }
 }
 
+/* ═══════════════════════════════════════════
+   GOOGLE RENKLİ EYEBROW SİSTEMİ
+   Her bölüm farklı Google brand renginde
+   ═══════════════════════════════════════════ */
+
+/* MAVİ varyant (default) */
+.eb-blue{
+  color:var(--blue) !important;
+  background:linear-gradient(135deg, rgba(11,87,208,0.1) 0%, rgba(66,133,244,0.05) 100%) !important;
+  border-color:rgba(11,87,208,0.15) !important;
+}
+.eb-blue::before{
+  background:var(--blue) !important;
+  box-shadow:0 0 0 3px rgba(11,87,208,0.2) !important;
+}
+
+/* SARI varyant (Google yellow) */
+.eb-yellow{
+  color:#B58A00 !important;
+  background:linear-gradient(135deg, rgba(251,188,5,0.15) 0%, rgba(251,188,5,0.06) 100%) !important;
+  border-color:rgba(251,188,5,0.3) !important;
+}
+.eb-yellow::before{
+  background:var(--yellow) !important;
+  box-shadow:0 0 0 3px rgba(251,188,5,0.25) !important;
+}
+
+/* YEŞİL varyant (Google green) */
+.eb-green{
+  color:var(--green) !important;
+  background:linear-gradient(135deg, rgba(52,168,83,0.1) 0%, rgba(52,168,83,0.05) 100%) !important;
+  border-color:rgba(52,168,83,0.15) !important;
+}
+.eb-green::before{
+  background:var(--green) !important;
+  box-shadow:0 0 0 3px rgba(52,168,83,0.2) !important;
+}
+
+/* H2 accent renkleri - Sarı, Yeşil, Mavi */
+h2 .accent-yellow{
+  background:linear-gradient(135deg, #E0A100 0%, var(--yellow) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+h2 .accent-green{
+  background:linear-gradient(135deg, var(--green) 0%, #5BC481 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
 /* === Sayaç animasyonu (about-stats için) === */
 .about-stat-number{
   display:inline-block;
@@ -3637,6 +3705,9 @@ body::before{
 
 </style>
 
+<!-- Logo preload - LCP & navbar için kritik kaynak -->
+<link rel="preload" as="image" href="/images/web4medya-logo.png" type="image/png" fetchpriority="high"/>
+
 <!-- Neler Sunuyoruz görselleri - kritik olan (ilk aktif tab) preload, diğerleri prefetch -->
 <link rel="preload" as="image" href="/images/yaratici.webp" type="image/webp" fetchpriority="high"/>
 <link rel="prefetch" as="image" href="/images/olcumleme.webp" type="image/webp"/>
@@ -3650,7 +3721,11 @@ body::before{
 <nav class="navbar" id="navbar">
   <div class="navbar-inner">
     <a href="/" class="nav-logo">
-      <img src="/images/web4medya-logo.png" alt="Web4Medya Google Reklam Ajansı Logo" class="nav-logo-img" width="180" height="60" loading="eager" fetchpriority="high"/>
+      <!-- Inline SVG placeholder - Logo yüklenmeden önce anında görünür -->
+      <span class="nav-logo-placeholder" aria-hidden="true">
+        <span class="lp-w">W</span><span class="lp-4">4</span>
+      </span>
+      <img src="/images/web4medya-logo.png" alt="Web4Medya Google Reklam Ajansı Logo" class="nav-logo-img" width="180" height="60" loading="eager" fetchpriority="high" decoding="sync" onload="this.previousElementSibling.style.display='none';this.style.opacity='1'"/>
     </a>
     <ul class="nav-links">
       <li class="nav-item active"><a href="/">Anasayfa</a></li>
@@ -3724,9 +3799,9 @@ body::before{
 <section class="video-section" id="tanitim-video">
   <div class="video-inner">
     <div class="video-header" data-reveal="up">
-      <span class="video-eyebrow">Tanıtım Videosu</span>
+      <span class="video-eyebrow eb-yellow">Tanıtım Videosu</span>
       <h2 class="video-title">Google'da Üst Sıralarda Olmak <span class="accent">Hayal Değil</span></h2>
-      <p class="video-subtitle">Müşterileriniz Google'da arama yapınca karşılarına ilk Web4Medya çıkıyor. Sertifikalı Google Partner reklam ajansı olarak işletmenizi nasıl büyüttüğümüzü 30 saniyede izleyin.</p>
+      <p class="video-subtitle">Web4Medya olarak işletmelerinizi en uygun maliyetlerle Google'da üst sıralara taşıyoruz. Türkiye'nin yeni nesil dijital pazarlama ajansı ile sizde internet üzerinde yerinizi alın!</p>
     </div>
 
     <div class="video-wrapper" data-reveal="scale">
@@ -3766,8 +3841,8 @@ body::before{
 <section class="offerings" id="neler-sunuyoruz">
   <div class="offerings-inner">
     <div class="offerings-header" data-reveal="up">
-      <span class="offerings-eyebrow">Neler Sunuyoruz</span>
-      <h2 class="offerings-title">Google Reklam Ajansı Olarak <span class="accent">Size Ne Katkı</span> Sağlıyoruz?</h2>
+      <span class="offerings-eyebrow eb-green">Neler Sunuyoruz</span>
+      <h2 class="offerings-title">Google Reklam Ajansı Olarak <span class="accent accent-green">Size Ne Katkı</span> Sağlıyoruz?</h2>
       <p class="offerings-subtitle">İşletmenizi büyüten 5 temel alanda uçtan uca dijital pazarlama çözümleri. Her biri ölçülebilir sonuçlar, şeffaf raporlama ve gerçek iş sonuçlarıyla.</p>
     </div>
   </div>
@@ -4100,7 +4175,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 <section class="partners" id="partners">
   <div class="partners-inner">
     <div class="partners-header" data-reveal="up">
-      <span class="brands-eyebrow">İş Ortakları</span>
+      <span class="brands-eyebrow eb-blue">İş Ortakları</span>
       <h2 class="partners-title">İş <span class="accent">ortaklarımız</span> kimler?</h2>
     </div>
   </div>
@@ -4153,7 +4228,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 <section class="about" id="hakkimizda">
   <div class="about-inner">
     <div class="about-header" data-reveal="up">
-      <span class="about-eyebrow">Neden Web4Medya?</span>
+      <span class="about-eyebrow eb-yellow">Neden Web4Medya?</span>
       <h2 class="about-title">8 Yıllık Tecrübeyle <span class="accent">Türkiye'nin Yeni Nesil</span> Google Reklam Ajansı</h2>
       <p class="about-subtitle">
         Web4Medya; <strong>sertifikalı sahibi</strong>, tecrübeli <strong>Google Ads uzmanları</strong>, <strong>sosyal medya yöneticileri</strong>, <strong>grafik tasarımcıları</strong> ve <strong>web tasarım uzmanlarından</strong> oluşan, sadece Google üzerinde değil Meta, TikTok, LinkedIn, X gibi tüm dijital platformlarda da reklam hizmeti veren <strong>2026 yılının en etkili dijital pazarlama ajanslarından</strong> birisidir. <strong>8 yıllık dijital pazarlama tecrübesi</strong> olan ve <strong>Bartın merkezli</strong> tüm Türkiye geneli hizmet veren şirketimiz, aktif olarak yüzlerce reklam kampanyası yönetir. Çalışanlarımız sürekli kendilerini geliştirir ve sektörün en güncel sertifikalarına sahiptir. <a href="/google-reklam-vermek-istiyorum/">Google reklam vermek istiyorum</a> diyenler için hesap kurulumundan optimizasyona kadar tüm süreci profesyonel olarak yönetiriz.
@@ -4233,8 +4308,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 <section class="services" id="hizmetler">
   <div class="services-inner">
     <div class="services-header" data-reveal="up">
-      <span class="services-eyebrow">Hizmetlerimiz</span>
-      <h2 class="services-title">Uçtan Uca <span class="accent">Dijital Pazarlama Hizmetleri</span></h2>
+      <span class="services-eyebrow eb-green">Hizmetlerimiz</span>
+      <h2 class="services-title">Uçtan Uca <span class="accent accent-green">Dijital Pazarlama Hizmetleri</span></h2>
       <p class="services-subtitle">Google Reklam Ajansı olarak dijital pazarlamanın her basamağında uçtan uca stratejiler sunuyoruz — Google Ads kampanya yönetiminden web tasarıma, SEO'dan sosyal medyaya kadar markanıza değer katıyoruz.</p>
     </div>
 
@@ -4306,29 +4381,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 <section class="brands" id="markalar">
   <div class="brands-inner">
     <div class="brands-header" data-reveal="up">
-      <span class="brands-eyebrow">Referanslar</span>
+      <span class="brands-eyebrow eb-blue">Referanslar</span>
       <h2 class="brands-title">Birlikte <span class="accent">Çalıştığımız</span> Markalar</h2>
       <p class="brands-subtitle">8 yılı aşkın sürede 12 farklı sektörde 62'den fazla marka ile başarıyla çalıştık. Sizin de markanız için aynı başarıyı sağlamaya hazırız.</p>
-
-      <!-- 2026 İstatistik Rozetleri -->
-      <div class="brands-stats">
-        <div class="brands-stat">
-          <span class="brands-stat-number">62+</span>
-          <span class="brands-stat-label">Aktif Marka</span>
-        </div>
-        <div class="brands-stat">
-          <span class="brands-stat-number">12</span>
-          <span class="brands-stat-label">Farklı Sektör</span>
-        </div>
-        <div class="brands-stat">
-          <span class="brands-stat-number">81</span>
-          <span class="brands-stat-label">İl Kapsama</span>
-        </div>
-        <div class="brands-stat">
-          <span class="brands-stat-number">500+</span>
-          <span class="brands-stat-label">Kampanya</span>
-        </div>
-      </div>
     </div>
 
     <div class="brands-marquees">
@@ -4429,7 +4484,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 <section class="knowledge" id="bilgi">
   <div class="knowledge-inner">
     <div class="knowledge-header" data-reveal="up">
-      <span class="knowledge-eyebrow">Bilgi Merkezi</span>
+      <span class="knowledge-eyebrow eb-yellow">Bilgi Merkezi</span>
       <h2 class="knowledge-title">Google Reklam Vermeden Önce <span class="accent">Bilmeniz Gerekenler</span></h2>
       <p class="knowledge-subtitle">Google reklam yönetimi, Google Ads bütçesi, ajans seçimi ve reklam stratejileri hakkında bilmeniz gereken her şey. 8 yıllık tecrübemizle hazırladığımız rehber, doğru kararı vermenize yardımcı olacak.</p>
     </div>
@@ -4535,8 +4590,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 <section class="cases" id="vaka-analizleri">
   <div class="cases-inner">
     <div class="cases-header" data-reveal="up">
-      <span class="cases-eyebrow">Başarı Hikayeleri</span>
-      <h2 class="cases-title">Müşterilerimizin <span class="accent">Gerçek Sonuçları</span></h2>
+      <span class="cases-eyebrow eb-green">Başarı Hikayeleri</span>
+      <h2 class="cases-title">Müşterilerimizin <span class="accent accent-green">Gerçek Sonuçları</span></h2>
       <p class="cases-subtitle">Web4Medya'nın yönettiği Google reklam kampanyalarının gerçek müşterilere sağladığı somut sonuçlar. Sektör, bütçe ve süre detayları ile birlikte.</p>
     </div>
 
@@ -4629,7 +4684,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 <section class="sectors" id="sektorler">
   <div class="sectors-inner">
     <div class="sectors-header" data-reveal="up">
-      <span class="sectors-eyebrow">Sektörler</span>
+      <span class="sectors-eyebrow eb-blue">Sektörler</span>
       <h2 class="sectors-title">Hizmet <span class="accent">Verdiğimiz Sektörler</span></h2>
       <p class="sectors-subtitle">Web4Medya olarak yerel işletmelerden e-ticaret devlerine, sağlık kurumlarından eğitim platformlarına kadar 12 farklı sektörde uzmanlaşmış Google Ads ve dijital pazarlama hizmetleri sunuyoruz. Her sektörün dinamiklerine, hedef kitlesine ve dönüşüm yolculuğuna özel stratejiler geliştiriyoruz.</p>
     </div>
@@ -4716,7 +4771,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 <section class="faq" id="sss">
   <div class="faq-inner">
     <div class="faq-header" data-reveal="up">
-      <span class="faq-eyebrow">SSS</span>
+      <span class="faq-eyebrow eb-yellow">SSS</span>
       <h2 class="faq-title"><span class="accent">Sıkça Sorulan</span> Sorular</h2>
       <p class="faq-subtitle">Müşterilerimizin Google reklam yönetimi, web tasarım ve dijital pazarlama hizmetlerimiz hakkında en çok sorduğu soruları sizin için derledik.</p>
     </div>
@@ -4806,22 +4861,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 <section class="ai-ask" id="ai-ask">
   <div class="ai-ask-top" data-reveal="up">
     <div class="ai-ask-text">
-      <span class="ai-ask-eyebrow">Yapay Zekaya Sor</span>
-      <h2 class="ai-ask-title">Web4Medya size <span class="accent">uygun mu</span> hala emin değil misiniz?</h2>
+      <span class="ai-ask-eyebrow eb-green">Yapay Zekaya Sor</span>
+      <h2 class="ai-ask-title">Web4Medya size <span class="accent accent-green">uygun mu</span> hala emin değil misiniz?</h2>
       <p class="ai-ask-desc">Düşünmeyi ChatGPT, Claude, Gemini veya Perplexity'ye bırakın. Bir butona tıklayın ve favori yapay zekanızın Web4Medya hakkında ne söylediğini görün.</p>
-    </div>
-    <div class="ai-ask-icon" aria-hidden="true">
-      <!-- Lab şişesi içinde beyin ikonu -->
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <!-- Şişe boynu -->
-        <path d="M40 12 L40 28 L25 70 Q22 78 28 82 L72 82 Q78 78 75 70 L60 28 L60 12 Z" stroke-linejoin="round" stroke-linecap="round"/>
-        <!-- Şişe ağzı çubuk -->
-        <line x1="36" y1="12" x2="64" y2="12" stroke-linecap="round"/>
-        <!-- Beyin (içinde) -->
-        <path d="M38 55 Q34 52 36 47 Q34 42 39 41 Q40 36 46 38 Q50 34 54 38 Q60 36 61 41 Q66 42 64 47 Q66 52 62 55 Q60 60 54 58 Q50 62 46 58 Q40 60 38 55 Z" stroke-linejoin="round"/>
-        <!-- Beyin orta çizgisi -->
-        <line x1="50" y1="38" x2="50" y2="58" stroke-linecap="round"/>
-      </svg>
     </div>
   </div>
   <div class="ai-ask-buttons" data-stagger>
