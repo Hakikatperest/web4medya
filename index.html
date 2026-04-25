@@ -2745,6 +2745,110 @@ body::before{
   .faq-answer-inner{padding:0 20px 20px;font-size:0.9rem;}
 }
 
+/* ═══════════════════════════════════════════
+   2026 PREMIUM SCROLL ANIMATIONS
+   ═══════════════════════════════════════════ */
+
+/* === Reveal animasyonları - default state === */
+[data-reveal]{
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change:opacity, transform;
+}
+
+/* Aktif olduğunda */
+[data-reveal].in-view{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* === Farklı yön varyantları === */
+[data-reveal="up"]{transform:translateY(50px);}
+[data-reveal="down"]{transform:translateY(-40px);}
+[data-reveal="left"]{transform:translateX(-50px);}
+[data-reveal="right"]{transform:translateX(50px);}
+[data-reveal="scale"]{transform:scale(0.92);}
+[data-reveal="blur"]{filter:blur(12px);transform:translateY(20px);}
+
+/* Aktif state - hepsi sıfırlanır */
+[data-reveal="up"].in-view,
+[data-reveal="down"].in-view,
+[data-reveal="left"].in-view,
+[data-reveal="right"].in-view{
+  transform:translate(0, 0);
+}
+[data-reveal="scale"].in-view{
+  transform:scale(1);
+}
+[data-reveal="blur"].in-view{
+  transform:translateY(0);
+  filter:blur(0);
+}
+
+/* === Stagger - art arda kartlar (her biri 100ms gecikmeli) === */
+[data-stagger] > *{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+[data-stagger].in-view > *{
+  opacity:1;
+  transform:translateY(0);
+}
+/* Her bir çocuğun gecikmesi */
+[data-stagger].in-view > *:nth-child(1){transition-delay:0.05s;}
+[data-stagger].in-view > *:nth-child(2){transition-delay:0.15s;}
+[data-stagger].in-view > *:nth-child(3){transition-delay:0.25s;}
+[data-stagger].in-view > *:nth-child(4){transition-delay:0.35s;}
+[data-stagger].in-view > *:nth-child(5){transition-delay:0.45s;}
+[data-stagger].in-view > *:nth-child(6){transition-delay:0.55s;}
+[data-stagger].in-view > *:nth-child(7){transition-delay:0.65s;}
+[data-stagger].in-view > *:nth-child(8){transition-delay:0.7s;}
+[data-stagger].in-view > *:nth-child(9){transition-delay:0.75s;}
+[data-stagger].in-view > *:nth-child(10){transition-delay:0.8s;}
+[data-stagger].in-view > *:nth-child(11){transition-delay:0.85s;}
+[data-stagger].in-view > *:nth-child(12){transition-delay:0.9s;}
+
+/* === Sayaç animasyonu (about-stats için) === */
+.about-stat-number{
+  display:inline-block;
+}
+[data-counter]{
+  opacity:0;
+  animation:none;
+}
+[data-counter].counting{
+  opacity:1;
+  animation:counter-glow 0.6s ease-out;
+}
+@keyframes counter-glow{
+  0%{text-shadow:0 0 0 rgba(11,87,208,0);transform:scale(0.9);}
+  50%{text-shadow:0 0 20px rgba(11,87,208,0.4);transform:scale(1.05);}
+  100%{text-shadow:0 0 0 rgba(11,87,208,0);transform:scale(1);}
+}
+
+/* === Reduced motion - erişilebilirlik === */
+@media (prefers-reduced-motion: reduce){
+  [data-reveal],
+  [data-reveal="up"],
+  [data-reveal="down"],
+  [data-reveal="left"],
+  [data-reveal="right"],
+  [data-reveal="scale"],
+  [data-reveal="blur"],
+  [data-stagger] > *{
+    opacity:1 !important;
+    transform:none !important;
+    filter:none !important;
+    transition:none !important;
+  }
+  [data-counter]{
+    opacity:1 !important;
+    animation:none !important;
+  }
+}
+
 </style>
 
 <!-- Neler Sunuyoruz görselleri - kritik olan (ilk aktif tab) preload, diğerleri prefetch -->
@@ -2824,96 +2928,16 @@ body::before{
   </div>
 
   <!-- Scroll indicator -->
-  <a href="#markalar" class="scroll-indicator" aria-label="Aşağı kaydır">
+  <a href="#neler-sunuyoruz" class="scroll-indicator" aria-label="Aşağı kaydır">
     <span class="scroll-text">Keşfet</span>
     <div class="scroll-mouse"></div>
   </a>
 </section>
 
-<!-- ═══ HAKKIMIZDA / NEDEN BİZ ═══ -->
-<section class="about" id="hakkimizda">
-  <div class="about-inner">
-    <div class="about-header">
-      <span class="about-eyebrow">Neden Web4Medya?</span>
-      <h2 class="about-title">8 Yıllık Tecrübeyle <span class="accent">Türkiye'nin Yeni Nesil</span> Google Reklam Ajansı</h2>
-      <p class="about-subtitle">
-        Web4Medya; <strong>sertifikalı sahibi</strong>, tecrübeli <strong>Google Ads uzmanları</strong>, <strong>sosyal medya yöneticileri</strong>, <strong>grafik tasarımcıları</strong> ve <strong>web tasarım uzmanlarından</strong> oluşan, sadece Google üzerinde değil Meta, TikTok, LinkedIn, X gibi tüm dijital platformlarda da reklam hizmeti veren <strong>2026 yılının en etkili dijital pazarlama ajanslarından</strong> birisidir. <strong>8 yıllık dijital pazarlama tecrübesi</strong> olan ve <strong>Bartın merkezli</strong> tüm Türkiye geneli hizmet veren şirketimiz, aktif olarak yüzlerce reklam kampanyası yönetir. Çalışanlarımız sürekli kendilerini geliştirir ve sektörün en güncel sertifikalarına sahiptir. <a href="/google-reklam-vermek-istiyorum/">Google reklam vermek istiyorum</a> diyenler için hesap kurulumundan optimizasyona kadar tüm süreci profesyonel olarak yönetiriz.
-      </p>
-    </div>
-
-    <!-- İstatistikler -->
-    <div class="about-stats">
-      <div class="about-stat">
-        <div class="about-stat-number">8+</div>
-        <div class="about-stat-label">Yıl Tecrübe</div>
-      </div>
-      <div class="about-stat">
-        <div class="about-stat-number">100+</div>
-        <div class="about-stat-label">Başarılı Kampanya</div>
-      </div>
-      <div class="about-stat">
-        <div class="about-stat-number">28+</div>
-        <div class="about-stat-label">Aktif Marka</div>
-      </div>
-      <div class="about-stat">
-        <div class="about-stat-number">81</div>
-        <div class="about-stat-label">İlde Hizmet</div>
-      </div>
-    </div>
-
-    <!-- Avantaj kartları -->
-    <div class="about-features">
-      <div class="about-feature">
-        <div class="about-feature-icon"><i class="fas fa-certificate"></i></div>
-        <div>
-          <h3>Sertifikalı Google Ads Uzmanları</h3>
-          <p>Ekibimiz Google Ads, Google Analytics, Meta Blueprint sertifikalarına sahiptir ve her yıl güncellenir. Kampanyalarınız uzman ellerde.</p>
-        </div>
-      </div>
-      <div class="about-feature">
-        <div class="about-feature-icon"><i class="fas fa-chart-line"></i></div>
-        <div>
-          <h3>Performans ve ROAS Odaklı Yaklaşım</h3>
-          <p>Reklamlarınızı sadece tıklama değil, <strong>gerçek satış ve müşteri kazanımı</strong> üzerinden ölçüyor, ROAS'ınızı sürekli artırıyoruz.</p>
-        </div>
-      </div>
-      <div class="about-feature">
-        <div class="about-feature-icon"><i class="fas fa-users-gear"></i></div>
-        <div>
-          <h3>Multidisipliner Uzman Ekip</h3>
-          <p>Google Ads, sosyal medya, grafik tasarım, web geliştirme ve içerik üretimi alanlarında uzmanlardan oluşan tam donanımlı ekip.</p>
-        </div>
-      </div>
-      <div class="about-feature">
-        <div class="about-feature-icon"><i class="fas fa-handshake"></i></div>
-        <div>
-          <h3>Şeffaf Raporlama ve İletişim</h3>
-          <p>Aylık detaylı raporlar, haftalık e-posta güncellemeleri ve gerektiğinde anında WhatsApp iletişimi. Hesabınızda neyin nasıl çalıştığını her zaman bilirsiniz.</p>
-        </div>
-      </div>
-      <div class="about-feature">
-        <div class="about-feature-icon"><i class="fas fa-shield-halved"></i></div>
-        <div>
-          <h3>ISO 27001 & 27701 Uyumlu</h3>
-          <p>Müşteri verileriniz, reklam hesaplarınız ve kampanya stratejileriniz <strong>uluslararası bilgi güvenliği standartlarında</strong> korunur. KVKK ve GDPR uyumlu süreçler.</p>
-        </div>
-      </div>
-      <div class="about-feature">
-        <div class="about-feature-icon"><i class="fas fa-rocket"></i></div>
-        <div>
-          <h3>Türkiye Geneli Uzaktan Hizmet</h3>
-          <p>Bartın merkezli olmamız sayesinde rekabetçi fiyatlar, ama hizmet kapsamımız tüm 81 il. İstanbul, Ankara, İzmir gibi büyük şehirlerdeki müşterilerimize aynı kalitede hizmet sunuyoruz.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 <!-- ═══ NELER SUNUYORUZ - TABS SECTION ═══ -->
 <section class="offerings" id="neler-sunuyoruz">
   <div class="offerings-inner">
-    <div class="offerings-header">
+    <div class="offerings-header" data-reveal="up">
       <span class="offerings-eyebrow">Neler Sunuyoruz</span>
       <h2 class="offerings-title">Google Reklam Ajansı Olarak <span class="accent">Size Ne Katkı</span> Sağlıyoruz?</h2>
       <p class="offerings-subtitle">İşletmenizi büyüten 5 temel alanda uçtan uca dijital pazarlama çözümleri. Her biri ölçülebilir sonuçlar, şeffaf raporlama ve gerçek iş sonuçlarıyla.</p>
@@ -3244,16 +3268,96 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 
 </script>
 
+<!-- ═══ HAKKIMIZDA / NEDEN BİZ ═══ -->
+<section class="about" id="hakkimizda">
+  <div class="about-inner">
+    <div class="about-header" data-reveal="up">
+      <span class="about-eyebrow">Neden Web4Medya?</span>
+      <h2 class="about-title">8 Yıllık Tecrübeyle <span class="accent">Türkiye'nin Yeni Nesil</span> Google Reklam Ajansı</h2>
+      <p class="about-subtitle">
+        Web4Medya; <strong>sertifikalı sahibi</strong>, tecrübeli <strong>Google Ads uzmanları</strong>, <strong>sosyal medya yöneticileri</strong>, <strong>grafik tasarımcıları</strong> ve <strong>web tasarım uzmanlarından</strong> oluşan, sadece Google üzerinde değil Meta, TikTok, LinkedIn, X gibi tüm dijital platformlarda da reklam hizmeti veren <strong>2026 yılının en etkili dijital pazarlama ajanslarından</strong> birisidir. <strong>8 yıllık dijital pazarlama tecrübesi</strong> olan ve <strong>Bartın merkezli</strong> tüm Türkiye geneli hizmet veren şirketimiz, aktif olarak yüzlerce reklam kampanyası yönetir. Çalışanlarımız sürekli kendilerini geliştirir ve sektörün en güncel sertifikalarına sahiptir. <a href="/google-reklam-vermek-istiyorum/">Google reklam vermek istiyorum</a> diyenler için hesap kurulumundan optimizasyona kadar tüm süreci profesyonel olarak yönetiriz.
+      </p>
+    </div>
+
+    <!-- İstatistikler -->
+    <div class="about-stats" data-stagger>
+      <div class="about-stat">
+        <div class="about-stat-number" data-counter data-target="8" data-suffix="+">0</div>
+        <div class="about-stat-label">Yıl Tecrübe</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-number" data-counter data-target="100" data-suffix="+">0</div>
+        <div class="about-stat-label">Başarılı Kampanya</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-number" data-counter data-target="28" data-suffix="+">0</div>
+        <div class="about-stat-label">Aktif Marka</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-number" data-counter data-target="81" data-suffix="">0</div>
+        <div class="about-stat-label">İlde Hizmet</div>
+      </div>
+    </div>
+
+    <!-- Avantaj kartları -->
+    <div class="about-features" data-stagger>
+      <div class="about-feature">
+        <div class="about-feature-icon"><i class="fas fa-certificate"></i></div>
+        <div>
+          <h3>Sertifikalı Google Ads Uzmanları</h3>
+          <p>Ekibimiz Google Ads, Google Analytics, Meta Blueprint sertifikalarına sahiptir ve her yıl güncellenir. Kampanyalarınız uzman ellerde.</p>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon"><i class="fas fa-chart-line"></i></div>
+        <div>
+          <h3>Performans ve ROAS Odaklı Yaklaşım</h3>
+          <p>Reklamlarınızı sadece tıklama değil, <strong>gerçek satış ve müşteri kazanımı</strong> üzerinden ölçüyor, ROAS'ınızı sürekli artırıyoruz.</p>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon"><i class="fas fa-users-gear"></i></div>
+        <div>
+          <h3>Multidisipliner Uzman Ekip</h3>
+          <p>Google Ads, sosyal medya, grafik tasarım, web geliştirme ve içerik üretimi alanlarında uzmanlardan oluşan tam donanımlı ekip.</p>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon"><i class="fas fa-handshake"></i></div>
+        <div>
+          <h3>Şeffaf Raporlama ve İletişim</h3>
+          <p>Aylık detaylı raporlar, haftalık e-posta güncellemeleri ve gerektiğinde anında WhatsApp iletişimi. Hesabınızda neyin nasıl çalıştığını her zaman bilirsiniz.</p>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon"><i class="fas fa-shield-halved"></i></div>
+        <div>
+          <h3>ISO 27001 & 27701 Uyumlu</h3>
+          <p>Müşteri verileriniz, reklam hesaplarınız ve kampanya stratejileriniz <strong>uluslararası bilgi güvenliği standartlarında</strong> korunur. KVKK ve GDPR uyumlu süreçler.</p>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon"><i class="fas fa-rocket"></i></div>
+        <div>
+          <h3>Türkiye Geneli Uzaktan Hizmet</h3>
+          <p>Bartın merkezli olmamız sayesinde rekabetçi fiyatlar, ama hizmet kapsamımız tüm 81 il. İstanbul, Ankara, İzmir gibi büyük şehirlerdeki müşterilerimize aynı kalitede hizmet sunuyoruz.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ═══ HİZMETLERİMİZ ═══ -->
 <section class="services" id="hizmetler">
   <div class="services-inner">
-    <div class="services-header">
+    <div class="services-header" data-reveal="up">
       <span class="services-eyebrow">Hizmetlerimiz</span>
-      <h2 class="services-title">Google Reklam Ajansı Olarak Sunduğumuz <span class="accent">Dijital Pazarlama Hizmetleri</span></h2>
-      <p class="services-subtitle">Dijital pazarlamanın her basamağında uçtan uca stratejiler sunuyoruz — Google Ads kampanya yönetiminden web tasarıma, SEO'dan sosyal medyaya kadar markanıza değer katıyoruz.</p>
+      <h2 class="services-title">Uçtan Uca <span class="accent">Dijital Pazarlama Hizmetleri</span></h2>
+      <p class="services-subtitle">Google Reklam Ajansı olarak dijital pazarlamanın her basamağında uçtan uca stratejiler sunuyoruz — Google Ads kampanya yönetiminden web tasarıma, SEO'dan sosyal medyaya kadar markanıza değer katıyoruz.</p>
     </div>
 
-    <div class="services-grid">
+    <div class="services-grid" data-stagger>
 
       <!-- 1. Google Ads & Meta Ads -->
       <article class="service-card">
@@ -3306,7 +3410,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     </div>
 
     <!-- Alt CTA -->
-    <div class="services-footer">
+    <div class="services-footer" data-reveal="scale">
       <p>Web4Medya olarak <span class="highlight-year">2026</span> yılının önde gelen dijital pazarlama ajanslarından biriyiz.</p>
       <a href="https://wa.me/905303158752?text=Merhaba%2C%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum" target="_blank" rel="noopener" class="services-footer-btn">
         <i class="fab fa-whatsapp"></i> Ücretsiz Ön Görüşme Alın
@@ -3317,16 +3421,69 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 </section>
 
 
+<!-- ═══ İŞ ORTAKLARIMIZ (PARTNERS) ═══ -->
+<section class="partners" id="partners">
+  <div class="partners-inner">
+    <div class="partners-header" data-reveal="up">
+      <span class="brands-eyebrow">İş Ortakları</span>
+      <h2 class="partners-title">İş <span class="accent">ortaklarımız</span> kimler?</h2>
+    </div>
+  </div>
+
+  <div class="partners-content" data-reveal="blur">
+
+    <!-- Platform Partners - reklam verilen platformlar -->
+    <div class="partners-group platform">
+      <div class="partners-label-strip">
+        <div class="partners-label-track">
+          <!-- Grup 1 (12 adet) -->
+          <span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span>
+          <!-- Grup 2 - birebir tekrar (kesintisiz loop) -->
+          <span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span>
+        </div>
+      </div>
+      <div class="partners-grid">
+        <div class="partner-item"><img src="/svg/google.svg" alt="Google Ads Partner" loading="lazy"/></div>
+        <div class="partner-item"><img src="/svg/microsoft.svg" alt="Microsoft Advertising Partner" loading="lazy"/></div>
+        <div class="partner-item"><img src="/svg/meta.svg" alt="Meta Business Partner" loading="lazy"/></div>
+        <div class="partner-item"><img src="/svg/tiktok.svg" alt="TikTok Business Partner" loading="lazy"/></div>
+        <div class="partner-item"><img src="/svg/reddit.svg" alt="Reddit Ads Partner" loading="lazy"/></div>
+        <div class="partner-item"><img src="/svg/linkedin.svg" alt="LinkedIn Marketing Partner" loading="lazy"/></div>
+        <div class="partner-item"><img src="/svg/thetradedesk.svg" alt="The Trade Desk Partner" loading="lazy"/></div>
+      </div>
+    </div>
+
+    <!-- Tech Partners - teknoloji iş birlikleri -->
+    <div class="partners-group tech">
+      <div class="partners-label-strip">
+        <div class="partners-label-track">
+          <!-- Grup 1 (14 adet) -->
+          <span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span>
+          <!-- Grup 2 - birebir tekrar -->
+          <span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span>
+        </div>
+      </div>
+      <div class="partners-grid">
+        <div class="partner-item"><img src="/svg/shopify.svg" alt="Shopify Partner" loading="lazy"/></div>
+        <div class="partner-item"><img src="/svg/bigcommerce.svg" alt="BigCommerce Partner" loading="lazy"/></div>
+        <div class="partner-item"><img src="/svg/attentive.svg" alt="Attentive Partner" loading="lazy"/></div>
+        <div class="partner-item"><img src="/svg/funnel.svg" alt="Funnel Partner" loading="lazy"/></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ═══ HİZMET VERDİĞİMİZ SEKTÖRLER ═══ -->
 <section class="sectors" id="sektorler">
   <div class="sectors-inner">
-    <div class="sectors-header">
+    <div class="sectors-header" data-reveal="up">
       <span class="sectors-eyebrow">Sektörler</span>
-      <h2 class="sectors-title">Google Reklam Hizmeti <span class="accent">Verdiğimiz Sektörler</span></h2>
+      <h2 class="sectors-title">Hizmet <span class="accent">Verdiğimiz Sektörler</span></h2>
       <p class="sectors-subtitle">Web4Medya olarak yerel işletmelerden e-ticaret devlerine, sağlık kurumlarından eğitim platformlarına kadar 12 farklı sektörde uzmanlaşmış Google Ads ve dijital pazarlama hizmetleri sunuyoruz. Her sektörün dinamiklerine, hedef kitlesine ve dönüşüm yolculuğuna özel stratejiler geliştiriyoruz.</p>
     </div>
 
-    <div class="sectors-grid">
+    <div class="sectors-grid" data-stagger>
       <article class="sector-card">
         <div class="sector-icon"><i class="fas fa-cart-shopping"></i></div>
         <h3>E-ticaret &amp; Online Satış</h3>
@@ -3404,63 +3561,10 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 </section>
 
 
-<!-- ═══ İŞ ORTAKLARIMIZ (PARTNERS) ═══ -->
-<section class="partners" id="partners">
-  <div class="partners-inner">
-    <div class="partners-header">
-      <span class="brands-eyebrow">İş Ortakları</span>
-      <h2 class="partners-title">İş <span class="accent">ortaklarımız</span> kimler?</h2>
-    </div>
-  </div>
-
-  <div class="partners-content">
-
-    <!-- Platform Partners - reklam verilen platformlar -->
-    <div class="partners-group platform">
-      <div class="partners-label-strip">
-        <div class="partners-label-track">
-          <!-- Grup 1 (12 adet) -->
-          <span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span>
-          <!-- Grup 2 - birebir tekrar (kesintisiz loop) -->
-          <span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span><span>Platform Partners</span>
-        </div>
-      </div>
-      <div class="partners-grid">
-        <div class="partner-item"><img src="/svg/google.svg" alt="Google Ads Partner" loading="lazy"/></div>
-        <div class="partner-item"><img src="/svg/microsoft.svg" alt="Microsoft Advertising Partner" loading="lazy"/></div>
-        <div class="partner-item"><img src="/svg/meta.svg" alt="Meta Business Partner" loading="lazy"/></div>
-        <div class="partner-item"><img src="/svg/tiktok.svg" alt="TikTok Business Partner" loading="lazy"/></div>
-        <div class="partner-item"><img src="/svg/reddit.svg" alt="Reddit Ads Partner" loading="lazy"/></div>
-        <div class="partner-item"><img src="/svg/linkedin.svg" alt="LinkedIn Marketing Partner" loading="lazy"/></div>
-        <div class="partner-item"><img src="/svg/thetradedesk.svg" alt="The Trade Desk Partner" loading="lazy"/></div>
-      </div>
-    </div>
-
-    <!-- Tech Partners - teknoloji iş birlikleri -->
-    <div class="partners-group tech">
-      <div class="partners-label-strip">
-        <div class="partners-label-track">
-          <!-- Grup 1 (14 adet) -->
-          <span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span>
-          <!-- Grup 2 - birebir tekrar -->
-          <span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span><span>Tech Partners</span>
-        </div>
-      </div>
-      <div class="partners-grid">
-        <div class="partner-item"><img src="/svg/shopify.svg" alt="Shopify Partner" loading="lazy"/></div>
-        <div class="partner-item"><img src="/svg/bigcommerce.svg" alt="BigCommerce Partner" loading="lazy"/></div>
-        <div class="partner-item"><img src="/svg/attentive.svg" alt="Attentive Partner" loading="lazy"/></div>
-        <div class="partner-item"><img src="/svg/funnel.svg" alt="Funnel Partner" loading="lazy"/></div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 <!-- ═══ BİRLİKTE ÇALIŞTIĞIMIZ MARKALAR ═══ -->
 <section class="brands" id="markalar">
   <div class="brands-inner">
-    <div class="brands-header">
+    <div class="brands-header" data-reveal="up">
       <span class="brands-eyebrow">Referanslar</span>
       <h2 class="brands-title">Birlikte <span class="accent">Çalıştığımız</span> Markalar</h2>
       <p class="brands-subtitle">Çalışmalarımızı örneklemek için birlikte iş birliği yaptığımız markalardan bazılarını sizin için derledik.</p>
@@ -3549,13 +3653,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 <!-- ═══ SIKÇA SORULAN SORULAR (FAQ) ═══ -->
 <section class="faq" id="sss">
   <div class="faq-inner">
-    <div class="faq-header">
+    <div class="faq-header" data-reveal="up">
       <span class="faq-eyebrow">SSS</span>
-      <h2 class="faq-title">Google Reklam Ajansı Hakkında <span class="accent">Sıkça Sorulan Sorular</span></h2>
-      <p class="faq-subtitle">Müşterilerimizin Google Ads, web tasarım ve dijital pazarlama hizmetlerimiz hakkında en çok sorduğu soruları sizin için derledik.</p>
+      <h2 class="faq-title"><span class="accent">Sıkça Sorulan</span> Sorular</h2>
+      <p class="faq-subtitle">Müşterilerimizin Google reklam yönetimi, web tasarım ve dijital pazarlama hizmetlerimiz hakkında en çok sorduğu soruları sizin için derledik.</p>
     </div>
 
-    <div class="faq-list">
+    <div class="faq-list" data-stagger>
 
       <div class="faq-item">
         <button class="faq-question">
@@ -3638,7 +3742,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 
 <!-- ═══ YAPAY ZEKAYA SOR (GEO/SEO) ═══ -->
 <section class="ai-ask" id="ai-ask">
-  <div class="ai-ask-top">
+  <div class="ai-ask-top" data-reveal="up">
     <div class="ai-ask-text">
       <span class="ai-ask-eyebrow">Yapay Zekaya Sor</span>
       <h2 class="ai-ask-title">Web4Medya size <span class="accent">uygun mu</span> hala emin değil misiniz?</h2>
@@ -3658,7 +3762,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
       </svg>
     </div>
   </div>
-  <div class="ai-ask-buttons">
+  <div class="ai-ask-buttons" data-stagger>
     <a href="https://claude.ai/new" target="_blank" rel="noopener" class="ai-ask-btn claude" data-ai="claude" data-prompt="Web4Medya Google Reklam Ajansı hakkında bilgi verir misin? Site: https://www.web4medya.com/">
       <span class="ai-ask-btn-icon">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -3754,7 +3858,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
           <li><a href="tel:+905303158752"><i class="fas fa-phone-alt"></i> 0530 315 87 52</a></li>
           <li><a href="mailto:info@web4medya.com"><i class="fas fa-envelope"></i> info@web4medya.com</a></li>
           <li><a href="https://wa.me/905303158752" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp Hattı</a></li>
-          <li><a href="/iletisim/"><i class="fas fa-location-dot"></i> İstanbul, Türkiye</a></li>
+          <li><a href="/iletisim/"><i class="fas fa-location-dot"></i> Bartın, Türkiye</a></li>
         </ul>
       </div>
 
@@ -3828,6 +3932,71 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
         answer.style.maxHeight = answer.scrollHeight + 'px';
       }
     });
+  });
+})();
+
+/* ═══════════════════════════════════════════
+   2026 PREMIUM SCROLL REVEAL ANIMATIONS
+   ═══════════════════════════════════════════ */
+(function(){
+  // Reduced motion kullanıcısı için skip
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.querySelectorAll('[data-reveal], [data-stagger]').forEach(el => {
+      el.classList.add('in-view');
+    });
+    return;
+  }
+
+  // Counter animation function
+  function animateCounter(el){
+    const target = parseInt(el.dataset.target, 10);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800; // ms
+    const startTime = performance.now();
+    el.classList.add('counting');
+
+    function update(now){
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // EaseOutExpo - hızlı başla yavaş bit
+      const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      const value = Math.floor(eased * target);
+      el.textContent = value + suffix;
+      if(progress < 1){
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = target + suffix;
+      }
+    }
+    requestAnimationFrame(update);
+  }
+
+  // Tek seferlik observer - 1 kez animasyon yapsın, sonra unobserve
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+
+        // Counter varsa onu da tetikle
+        const counters = entry.target.querySelectorAll('[data-counter]');
+        counters.forEach(c => {
+          if(!c.classList.contains('counting')){
+            animateCounter(c);
+          }
+        });
+
+        // Observe etmeyi durdur (perf)
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15,           // %15 görünür olunca tetikle
+    rootMargin: '0px 0px -80px 0px' // Aşağıdan 80px geç görünsün (daha doğal)
+  });
+
+  // Tüm reveal/stagger elementlerini observe et
+  document.querySelectorAll('[data-reveal], [data-stagger]').forEach(el => {
+    observer.observe(el);
   });
 })();
 
