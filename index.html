@@ -45,7 +45,7 @@
 ═══════════════════════════════════════════════════════ -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Google Reklam Ajansı | Web4Medya"/>
-<meta name="twitter:description" content="Performans odaklı Google Ads kampanyaları ile işletmenizi büyütün. Ölçülebilir sonuçlar, şeffaf raporlama."/>
+<meta name="twitter:description" content="Sertifikalı Google Ads uzmanları, 500+ başarılı kampanya, 8 yıllık tecrübe. Bartın merkezli, 81 il geneli profesyonel Google reklam ajansı."/>
 <meta name="twitter:image" content="https://www.web4medya.com/images/web4medya-og.jpg"/>
 <meta name="twitter:image:alt" content="Web4Medya Google Reklam Ajansı"/>
 
@@ -122,7 +122,7 @@
   },
   "knowsAbout": ["Google Ads Reklamları", "Meta Ads Reklamları", "Web Tasarım", "Sosyal Medya Yönetimi", "İşletme Harita Konum", "Google Business Profile", "Yerel SEO", "Dijital Pazarlama", "Performance Marketing", "E-ticaret Pazarlaması"],
   "slogan": "Yeni Nesil Dijital Pazarlama",
-  "award": ["Google Partner", "Meta Business Partner"],
+  "award": ["Meta Business Partner"],
   "sameAs": [
     "https://www.linkedin.com/company/web4medya",
     "https://www.instagram.com/web4medya",
@@ -364,33 +364,37 @@
 :root{
   --blue:#0B57D0;
   --blue-light:#4285F4;
-  --blue-soft:#EBF2FF;
-  --red:#EA4335;
-  --red-dark:#C5221F;
   --yellow:#FBBC05;
   --green:#34A853;
   --dark:#0F172A;
-  --dark2:#1E293B;
-  --dark3:#334155;
   --light:#F8FAFC;
-  --white:#FFFFFF;
   --text:#0F172A;
   --text2:#475569;
-  --text3:#94A3B8;
   --border:#E2E8F0;
-  --border-dark:rgba(255,255,255,0.1);
   --font-display:'Bricolage Grotesque',sans-serif;
   --font-body:'Plus Jakarta Sans',sans-serif;
-  --shadow-sm:0 1px 3px rgba(0,0,0,0.08);
-  --shadow-md:0 4px 24px rgba(0,0,0,0.1);
-  --shadow-lg:0 8px 48px rgba(0,0,0,0.14);
-  --shadow-xl:0 20px 80px rgba(0,0,0,0.2);
-  --radius-sm:8px;
-  --radius-md:16px;
-  --radius-lg:24px;
-  --radius-xl:32px;
 }
 html{scroll-behavior:smooth;overflow-x:hidden;}
+
+/* Skip to content - erişilebilirlik (focus'ta görünür) */
+.skip-link{
+  position:absolute;
+  top:-100px;
+  left:8px;
+  background:var(--blue);
+  color:#fff;
+  padding:12px 20px;
+  text-decoration:none;
+  font-family:var(--font-body);
+  font-weight:600;
+  font-size:0.9rem;
+  border-radius:8px;
+  z-index:10000;
+  transition:top 0.2s ease;
+}
+.skip-link:focus{
+  top:8px;
+}
 body{
   font-family:var(--font-body);
   color:var(--text);
@@ -556,7 +560,7 @@ body::before{
   align-items:center;
   gap:12px;
   padding:11px 14px;
-  color:var(--text1);
+  color:var(--text);
   text-decoration:none;
   font-size:0.88rem;
   font-weight:500;
@@ -604,7 +608,7 @@ body::before{
   gap:12px;
   font-size:0.95rem !important;
   padding:11px 18px 11px 26px !important;
-  color:var(--text1) !important;
+  color:var(--text) !important;
 }
 .mobile-menu-sub i{
   font-size:0.95rem;
@@ -937,7 +941,7 @@ body::before{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
   padding:16px 32px;
   min-width:260px;
-  border-radius:var(--radius-sm);
+  border-radius:8px;
   font-family:var(--font-body);font-size:0.95rem;font-weight:700;
   text-decoration:none;
   transition:all 0.25s;
@@ -1296,51 +1300,6 @@ body::before{
   line-height:1.6;
 }
 
-/* ═══ İSTATİSTİK ROZETLER (2026 modern) ═══ */
-.brands-stats{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:14px;
-  margin-top:32px;
-}
-.brands-stat{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 20px;
-  background:rgba(255,255,255,0.7);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  border:1px solid rgba(15,23,42,0.08);
-  border-radius:50px;
-  transition:transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-}
-.brands-stat:hover{
-  transform:translateY(-3px);
-  border-color:var(--blue-light);
-  box-shadow:0 12px 32px rgba(11,87,208,0.12);
-}
-.brands-stat-number{
-  font-family:var(--font-display);
-  font-size:1.3rem;
-  font-weight:800;
-  background:linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-  line-height:1;
-  letter-spacing:-0.02em;
-}
-.brands-stat-label{
-  font-family:var(--font-body);
-  font-size:0.8rem;
-  font-weight:600;
-  color:var(--text2);
-  text-transform:uppercase;
-  letter-spacing:0.05em;
-}
-
 /* İki şerit konteyner */
 .brands-marquees{
   position:relative;
@@ -1540,10 +1499,6 @@ body::before{
   .brands-track .brand-item{margin:0 7px;}
   .brands-marquee.row-2 .brands-track{animation-delay:-35s;}
   .brands-marquees{gap:14px;}
-  .brands-stats{gap:10px;}
-  .brands-stat{padding:8px 14px;}
-  .brands-stat-number{font-size:1.1rem;}
-  .brands-stat-label{font-size:0.7rem;}
   .brands-trust{margin-top:40px;}
 }
 @media(max-width:480px){
@@ -2031,7 +1986,7 @@ body::before{
   font-family:var(--font-display);
   font-size:clamp(0.95rem, 1.4vw, 1.2rem);
   font-weight:500;
-  color:var(--text3);
+  color:var(--text2);
   background:#ffffff;
   border:none;
   border-right:1px solid var(--border);
@@ -2065,6 +2020,7 @@ body::before{
   display:none;
   grid-template-columns:1fr;
   position:relative;
+  -webkit-tap-highlight-color:transparent;
 }
 .tab-panel.active{display:grid;}
 
@@ -2210,9 +2166,6 @@ body::before{
 }
 
 /* ═══ Swipe/drag - tabs-content yatay kaydırma ═══ */
-.tab-panel{
-  -webkit-tap-highlight-color:transparent;
-}
 .tab-panel.swiping{
   transition:transform 0.3s cubic-bezier(0.2,0.7,0.3,1);
 }
@@ -2352,16 +2305,6 @@ body::before{
   line-height:1.65;
   max-width:680px;
   margin:0 auto;
-}
-.ai-ask-icon{
-  display:none;
-}
-.ai-ask-icon svg{
-  width:140px;
-  height:140px;
-  stroke:var(--dark);
-  stroke-width:2.5;
-  fill:none;
 }
 
 /* Alt buton şeridi - 4 sütun eşit */
@@ -2626,7 +2569,7 @@ body::before{
   margin-right:8px;
   width:14px;
   font-size:0.85rem;
-  color:var(--text3);
+  color:var(--text2);
 }
 .footer-col a:hover i{
   color:var(--blue);
@@ -2876,6 +2819,7 @@ body::before{
   line-height:1;
   margin-bottom:8px;
   letter-spacing:-0.03em;
+  display:inline-block;
 }
 .about-stat-label{
   font-family:var(--font-body);
@@ -3350,13 +3294,19 @@ body::before{
   box-shadow:0 0 0 3px rgba(52,168,83,0.2) !important;
 }
 
-/* H2 accent renkleri - Sarı, Yeşil, Mavi */
-h2 .accent-yellow{
-  background:linear-gradient(135deg, #E0A100 0%, var(--yellow) 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
+/* Service card içi link */
+.service-card-link{
+  color:var(--blue);
+  font-weight:600;
+  text-decoration:none;
+  border-bottom:1px solid rgba(11,87,208,0.3);
+  transition:border-color 0.2s ease;
 }
+.service-card-link:hover{
+  border-bottom-color:var(--blue);
+}
+
+/* H2 accent renkleri - Yeşil & Sarı (sayfada kullanılan) */
 h2 .accent-green{
   background:linear-gradient(135deg, var(--green) 0%, #5BC481 100%);
   -webkit-background-clip:text;
@@ -3364,10 +3314,7 @@ h2 .accent-green{
   color:transparent;
 }
 
-/* === Sayaç animasyonu (about-stats için) === */
-.about-stat-number{
-  display:inline-block;
-}
+/* === Sayaç animasyonu (counter glow) === */
 [data-counter]{
   opacity:0;
   animation:none;
@@ -3965,6 +3912,9 @@ h2 .accent-green{
 </head>
 <body>
 
+<!-- Skip to main content - erişilebilirlik için -->
+<a href="#main-content" class="skip-link">İçeriğe atla</a>
+
 <!-- ═══ NAVBAR ═══ -->
 <nav class="navbar" id="navbar">
   <div class="navbar-inner">
@@ -4012,6 +3962,9 @@ h2 .accent-green{
   <a href="/iletisim/">İletişim</a>
   <a href="https://wa.me/905303158752?text=Merhaba%2C%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum" target="_blank" rel="noopener" class="mobile-cta"><i class="fab fa-whatsapp"></i> WhatsApp İletişim Hattı</a>
 </div>
+
+<!-- ═══ ANA İÇERİK ═══ -->
+<main id="main-content">
 
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="hero">
@@ -4063,7 +4016,7 @@ h2 .accent-green{
     <div class="video-header" data-reveal="up">
       <span class="video-eyebrow eb-yellow">Tanıtım Videosu</span>
       <h2 class="video-title">Google'da Üst Sıralarda Olmak <span class="accent">Hayal Değil</span></h2>
-      <p class="video-subtitle">Web4Medya olarak işletmelerinizi en uygun maliyetlerle Google'da üst sıralara taşıyoruz. Türkiye'nin yeni nesil dijital pazarlama ajansı ile sizde internet üzerinde yerinizi alın!</p>
+      <p class="video-subtitle">Web4Medya olarak işletmelerinizi en uygun maliyetlerle Google'da üst sıralara taşıyoruz. Türkiye'nin yeni nesil dijital pazarlama ajansı ile siz de internet üzerinde yerinizi alın!</p>
     </div>
 
     <div class="video-wrapper" data-reveal="scale">
@@ -4187,7 +4140,7 @@ h2 .accent-green{
 <!-- Lightbox overlay - script'ten ÖNCE olmalı ki JS null almasın -->
 <div class="lightbox-overlay" id="lightbox" role="dialog" aria-label="Görsel büyütüldü" aria-hidden="true">
   <button class="lightbox-close" aria-label="Kapat"><i class="fas fa-times"></i></button>
-  <img class="lightbox-image" src="" alt=""/>
+  <img class="lightbox-image" src="" alt="" aria-hidden="true"/>
 </div>
 <script>
 /* Mobile menu */
@@ -4216,10 +4169,10 @@ if(toggle && mobileMenu){
   logo.addEventListener('click', (e) => {
     // Ctrl/Cmd + click (yeni sekme), middle click, sağ tık → bırak normal davransın
     if(e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
-    
+
     // Anasayfada zaten miyiz? (path === "/" veya "" veya hash var)
     const isHome = window.location.pathname === '/' || window.location.pathname === '' || window.location.pathname.endsWith('/index.html');
-    
+
     if(isHome){
       e.preventDefault();
       window.scrollTo({
@@ -4611,7 +4564,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
       <article class="service-card">
         <div class="service-icon"><i class="fab fa-google"></i></div>
         <h3>Google Ads Reklamları</h3>
-        <p><strong>Google Ads reklam yönetimi</strong> alanında uzmanlaşmış ekibimiz; Google Arama, YouTube, Display Network, Shopping ve Performance Max kampanyalarını gelir odaklı yönetir. Sertifikalı kadromuz anahtar kelime araştırması, dönüşüm takibi (GA4, Conversions API), bidding stratejisi, A/B testleri ve sürekli optimizasyon yapar. <a href="/google-ads-reklamlari/" style="color:var(--blue);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(11,87,208,0.3);"><strong>Google Ads reklam vermek istiyorum</strong></a> diyorsanız, hesap kurulumundan kampanya optimizasyonuna kadar tüm süreci profesyonel olarak yönetiyoruz.</p>
+        <p><strong>Google Ads reklam yönetimi</strong> alanında uzmanlaşmış ekibimiz; Google Arama, YouTube, Display Network, Shopping ve Performance Max kampanyalarını gelir odaklı yönetir. Sertifikalı kadromuz anahtar kelime araştırması, dönüşüm takibi (GA4, Conversions API), bidding stratejisi, A/B testleri ve sürekli optimizasyon yapar. <a href="/google-ads-reklamlari/" class="service-card-link"><strong>Google Ads reklam vermek istiyorum</strong></a> diyorsanız, hesap kurulumundan kampanya optimizasyonuna kadar tüm süreci profesyonel olarak yönetiyoruz.</p>
         <span class="service-tag">Search &amp; Display</span>
       </article>
 
@@ -4619,7 +4572,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
       <article class="service-card">
         <div class="service-icon"><i class="fab fa-meta"></i></div>
         <h3>Meta Ads Reklamları</h3>
-        <p><strong>Meta Ads (Facebook ve Instagram reklamları)</strong> yönetimi ile markanızı milyonlara ulaştırıyoruz. Facebook Ads Manager, Meta Pixel kurulumu, Conversions API, Advantage+ kampanyaları, retargeting ve lookalike kitleler ile dönüşüm odaklı reklam stratejileri uyguluyoruz. <a href="/meta-ads-reklamlari/" style="color:var(--blue);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(11,87,208,0.3);"><strong>Meta Ads reklam vermek istiyorum</strong></a> diyenler için Instagram Reels reklamları, Facebook video kampanyaları ve marka bilinirliği odaklı stratejiler sunuyoruz.</p>
+        <p><strong>Meta Ads (Facebook ve Instagram reklamları)</strong> yönetimi ile markanızı milyonlara ulaştırıyoruz. Facebook Ads Manager, Meta Pixel kurulumu, Conversions API, Advantage+ kampanyaları, retargeting ve lookalike kitleler ile dönüşüm odaklı reklam stratejileri uyguluyoruz. <a href="/meta-ads-reklamlari/" class="service-card-link"><strong>Meta Ads reklam vermek istiyorum</strong></a> diyenler için Instagram Reels reklamları, Facebook video kampanyaları ve marka bilinirliği odaklı stratejiler sunuyoruz.</p>
         <span class="service-tag">Facebook &amp; Instagram</span>
       </article>
 
@@ -4627,7 +4580,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
       <article class="service-card">
         <div class="service-icon"><i class="fas fa-code"></i></div>
         <h3>Web Tasarım</h3>
-        <p>Hızlı yüklenen, mobil uyumlu, SEO dostu modern <strong>web tasarım</strong> hizmeti sunuyoruz. <strong>Kurumsal web sitesi, e-ticaret platformu</strong> (WooCommerce, Shopify), <strong>landing page</strong> (açılış sayfası) ve özel CRM çözümleri tasarlıyoruz. Tüm sitelerde Core Web Vitals (LCP, CLS, INP) optimizasyonu, Schema markup, hreflang, canonical URL ve sitemap.xml yapılandırması dahildir. <a href="/web-tasarim/" style="color:var(--blue);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(11,87,208,0.3);"><strong>Web tasarım yaptırmak istiyorum</strong></a> diyenler için ücretsiz site analizi ve teklif sunuyoruz.</p>
+        <p>Hızlı yüklenen, mobil uyumlu, SEO dostu modern <strong>web tasarım</strong> hizmeti sunuyoruz. <strong>Kurumsal web sitesi, e-ticaret platformu</strong> (WooCommerce, Shopify), <strong>landing page</strong> (açılış sayfası) ve özel CRM çözümleri tasarlıyoruz. Tüm sitelerde Core Web Vitals (LCP, CLS, INP) optimizasyonu, Schema markup, hreflang, canonical URL ve sitemap.xml yapılandırması dahildir. <a href="/web-tasarim/" class="service-card-link"><strong>Web tasarım yaptırmak istiyorum</strong></a> diyenler için ücretsiz site analizi ve teklif sunuyoruz.</p>
         <span class="service-tag">Web Design</span>
       </article>
 
@@ -4635,7 +4588,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
       <article class="service-card">
         <div class="service-icon"><i class="fas fa-share-nodes"></i></div>
         <h3>Sosyal Medya Yönetimi</h3>
-        <p>Instagram, Facebook, LinkedIn, TikTok, YouTube ve X (Twitter) hesaplarınızda profesyonel <strong>sosyal medya yönetimi</strong> hizmeti veriyoruz. İçerik üretimi, topluluk yönetimi (community management), influencer iş birlikleri ve marka bilinirliğini artıran sürdürülebilir içerik stratejileri geliştiriyoruz. <a href="/sosyal-medya-yonetimi/" style="color:var(--blue);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(11,87,208,0.3);"><strong>Sosyal medya yönetimi hizmeti almak istiyorum</strong></a> diyenler için aylık içerik takvimi, görsel-video üretimi, copywriting ve etkileşim analizleri sunuyoruz.</p>
+        <p>Instagram, Facebook, LinkedIn, TikTok, YouTube ve X (Twitter) hesaplarınızda profesyonel <strong>sosyal medya yönetimi</strong> hizmeti veriyoruz. İçerik üretimi, topluluk yönetimi (community management), influencer iş birlikleri ve marka bilinirliğini artıran sürdürülebilir içerik stratejileri geliştiriyoruz. <a href="/sosyal-medya-yonetimi/" class="service-card-link"><strong>Sosyal medya yönetimi hizmeti almak istiyorum</strong></a> diyenler için aylık içerik takvimi, görsel-video üretimi, copywriting ve etkileşim analizleri sunuyoruz.</p>
         <span class="service-tag">Social Media</span>
       </article>
 
@@ -4643,7 +4596,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
       <article class="service-card">
         <div class="service-icon"><i class="fas fa-map-location-dot"></i></div>
         <h3>İşletme Harita Konum</h3>
-        <p><strong>Google Haritalar (Google Maps) işletme kaydı</strong> ve <strong>Google İşletme Profili (Google Business Profile)</strong> optimizasyonu ile yerel aramalarda ilk sırada görünmenizi sağlıyoruz. Konum kaydı, kategori seçimi, fotoğraf yükleme, müşteri yorumları yönetimi, soru-cevap optimizasyonu ve yerel SEO çalışmaları yapıyoruz. <a href="/isletme-harita-konum/" style="color:var(--blue);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(11,87,208,0.3);"><strong>İşletmemi haritalara eklemek istiyorum</strong></a> diyenler için tam kapsamlı yerel görünürlük çözümleri sunuyoruz. Restoran, kuaför, klinik gibi yerel işletmeler için kritik bir hizmettir.</p>
+        <p><strong>Google Haritalar (Google Maps) işletme kaydı</strong> ve <strong>Google İşletme Profili (Google Business Profile)</strong> optimizasyonu ile yerel aramalarda ilk sırada görünmenizi sağlıyoruz. Konum kaydı, kategori seçimi, fotoğraf yükleme, müşteri yorumları yönetimi, soru-cevap optimizasyonu ve yerel SEO çalışmaları yapıyoruz. <a href="/isletme-harita-konum/" class="service-card-link"><strong>İşletmemi haritalara eklemek istiyorum</strong></a> diyenler için tam kapsamlı yerel görünürlük çözümleri sunuyoruz. Restoran, kuaför, klinik gibi yerel işletmeler için kritik bir hizmettir.</p>
         <span class="service-tag">Local SEO</span>
       </article>
 
@@ -5194,6 +5147,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     <div class="ai-toast-desc">AI sayfasında <strong>Ctrl+V</strong> ile yapıştırın</div>
   </div>
 </div>
+
+</main>
+<!-- ═══ /ANA İÇERİK ═══ -->
 
 <!-- ═══ FOOTER ═══ -->
 <footer class="site-footer">
