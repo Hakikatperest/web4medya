@@ -2893,6 +2893,17 @@ body::before{
 [data-stagger].in-view > *:nth-child(11){transition-delay:0.85s;}
 [data-stagger].in-view > *:nth-child(12){transition-delay:0.9s;}
 
+/* ⚠️ Mobilde stagger animasyonu devre dışı - içerik her zaman görünür olsun */
+@media(max-width:768px){
+  [data-stagger] > *,
+  [data-reveal]{
+    opacity:1 !important;
+    transform:none !important;
+    filter:none !important;
+    transition:none !important;
+  }
+}
+
 /* === Sayaç animasyonu (about-stats için) === */
 .about-stat-number{
   display:inline-block;
@@ -4879,6 +4890,24 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   document.querySelectorAll('[data-reveal], [data-stagger]').forEach(el => {
     observer.observe(el);
   });
+
+  // 🛡️ FAILSAFE - 3 saniye sonra hala in-view almamış elementleri zorla göster
+  // Mobilde IntersectionObserver bazen wonky, bu hiçbir şey görünmez kalmasını önler
+  setTimeout(() => {
+    document.querySelectorAll('[data-reveal]:not(.in-view), [data-stagger]:not(.in-view)').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      // Eğer element viewport'a girmiş veya geçmişse direkt göster
+      if(rect.top < window.innerHeight + 200){
+        el.classList.add('in-view');
+        const counters = el.querySelectorAll('[data-counter]');
+        counters.forEach(c => {
+          if(!c.classList.contains('counting') && typeof animateCounter === 'function'){
+            animateCounter(c);
+          }
+        });
+      }
+    });
+  }, 3000);
 })();
 
 /* ═══ AI Ask - Clipboard kopyala + toast + AI sayfası aç ═══ */
