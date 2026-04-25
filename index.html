@@ -297,6 +297,41 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Web4Medya Google Reklam Ajansı Tanıtım Videosu",
+  "description": "Google'da üst sıralarda olmak ister misiniz? Web4Medya Google Partner reklam ajansı olarak performans odaklı kampanyalar, sertifikalı uzman ekip ve şeffaf raporlama ile işletmenizi büyütüyoruz. 8 yıllık tecrübe, 100+ başarılı kampanya, Bartın merkezli Türkiye geneli hizmet.",
+  "thumbnailUrl": "https://www.web4medya.com/images/web4medya-video-poster.jpg",
+  "uploadDate": "2026-04-25",
+  "contentUrl": "https://www.web4medya.com/videos/web4medya-reklam-tanitim.webm",
+  "embedUrl": "https://www.web4medya.com/#tanitim-video",
+  "duration": "PT30S",
+  "encoding": [
+    {
+      "@type": "MediaObject",
+      "contentUrl": "https://www.web4medya.com/videos/web4medya-reklam-tanitim.webm",
+      "encodingFormat": "video/webm"
+    },
+    {
+      "@type": "MediaObject",
+      "contentUrl": "https://www.web4medya.com/videos/web4medya-reklam-tanitim.mp4",
+      "encodingFormat": "video/mp4"
+    }
+  ],
+  "publisher": {
+    "@id": "https://www.web4medya.com/#organization"
+  },
+  "potentialAction": {
+    "@type": "SeekToAction",
+    "target": "https://www.web4medya.com/#tanitim-video?t={seek_to_second_number}",
+    "startOffset-input": "required name=seek_to_second_number"
+  },
+  "inLanguage": "tr-TR"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {
@@ -2849,6 +2884,202 @@ body::before{
   }
 }
 
+/* ═══════════════════════════════════════════
+   TANITIM VİDEO BÖLÜMÜ
+   ═══════════════════════════════════════════ */
+.video-section{
+  background:transparent;
+  padding:80px 5% 60px;
+  position:relative;
+  overflow:hidden;
+}
+.video-inner{
+  max-width:1200px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+.video-header{
+  text-align:center;
+  margin-bottom:48px;
+}
+.video-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-body);
+  font-size:0.78rem;
+  font-weight:700;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--blue);
+  padding:8px 18px;
+  background:linear-gradient(135deg, rgba(11,87,208,0.1) 0%, rgba(66,133,244,0.05) 100%);
+  border:1px solid rgba(11,87,208,0.15);
+  border-radius:50px;
+  margin-bottom:22px;
+}
+.video-eyebrow::before{
+  content:"";
+  width:6px;height:6px;
+  background:var(--blue);
+  border-radius:50%;
+  box-shadow:0 0 0 3px rgba(11,87,208,0.2);
+}
+.video-title{
+  font-family:var(--font-display);
+  font-size:clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight:800;
+  letter-spacing:-0.025em;
+  color:var(--dark);
+  line-height:1.2;
+  margin-bottom:14px;
+}
+.video-title .accent{
+  background:linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.video-subtitle{
+  font-family:var(--font-body);
+  font-size:clamp(0.95rem, 1.3vw, 1.05rem);
+  color:var(--text2);
+  max-width:680px;
+  margin:0 auto;
+  line-height:1.6;
+}
+
+/* Video container */
+.video-wrapper{
+  position:relative;
+  max-width:1100px;
+  margin:0 auto;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 30px 80px rgba(11,87,208,0.18), 0 12px 32px rgba(15,23,42,0.1);
+  background:#0F172A;
+  aspect-ratio:16/9;
+}
+.video-wrapper::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 50%, var(--blue) 100%);
+  border-radius:26px;
+  z-index:-1;
+  opacity:0;
+  transition:opacity 0.4s;
+}
+.video-wrapper:hover::before{opacity:0.5;}
+.video-wrapper video{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  border-radius:24px;
+}
+
+/* Custom play overlay - sadece video oynatılmıyorsa */
+.video-play-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg, rgba(10,14,26,0.4) 0%, rgba(11,87,208,0.3) 100%);
+  cursor:pointer;
+  transition:opacity 0.3s, background 0.3s;
+  z-index:2;
+}
+.video-play-overlay.hidden{
+  opacity:0;
+  pointer-events:none;
+}
+.video-play-overlay:hover{
+  background:linear-gradient(135deg, rgba(10,14,26,0.5) 0%, rgba(11,87,208,0.4) 100%);
+}
+.video-play-button{
+  width:96px;
+  height:96px;
+  border-radius:50%;
+  background:#ffffff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2rem;
+  color:var(--blue);
+  padding-left:8px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.3);
+  transition:transform 0.3s, box-shadow 0.3s;
+  position:relative;
+}
+.video-play-button::before{
+  content:"";
+  position:absolute;
+  inset:-12px;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,0.4);
+  animation:play-pulse 2s ease-in-out infinite;
+}
+.video-play-button::after{
+  content:"";
+  position:absolute;
+  inset:-24px;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,0.2);
+  animation:play-pulse 2s ease-in-out infinite 0.5s;
+}
+@keyframes play-pulse{
+  0%,100%{transform:scale(1);opacity:0.7;}
+  50%{transform:scale(1.1);opacity:0;}
+}
+.video-play-overlay:hover .video-play-button{
+  transform:scale(1.08);
+  box-shadow:0 12px 40px rgba(0,0,0,0.4);
+}
+
+/* Video CTA altı */
+.video-cta{
+  text-align:center;
+  margin-top:36px;
+}
+.video-cta p{
+  font-family:var(--font-body);
+  font-size:1rem;
+  color:var(--text2);
+  margin-bottom:20px;
+  font-weight:500;
+}
+.video-cta-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 28px;
+  background:#25D366;
+  color:#fff !important;
+  border-radius:12px;
+  font-family:var(--font-body);
+  font-weight:700;
+  font-size:0.95rem;
+  text-decoration:none !important;
+  transition:transform 0.25s, box-shadow 0.25s, background 0.25s;
+  box-shadow:0 6px 24px rgba(37,211,102,0.4);
+}
+.video-cta-btn:hover{
+  background:#1FBF5E;
+  transform:translateY(-3px);
+  box-shadow:0 14px 36px rgba(37,211,102,0.55);
+}
+
+@media(max-width:768px){
+  .video-section{padding:60px 5% 40px;}
+  .video-header{margin-bottom:32px;}
+  .video-wrapper{border-radius:16px;}
+  .video-wrapper video{border-radius:16px;}
+  .video-play-button{width:72px;height:72px;font-size:1.5rem;}
+}
+
 </style>
 
 <!-- Neler Sunuyoruz görselleri - kritik olan (ilk aktif tab) preload, diğerleri prefetch -->
@@ -2928,10 +3159,52 @@ body::before{
   </div>
 
   <!-- Scroll indicator -->
-  <a href="#neler-sunuyoruz" class="scroll-indicator" aria-label="Aşağı kaydır">
-    <span class="scroll-text">Keşfet</span>
+  <a href="#tanitim-video" class="scroll-indicator" aria-label="Tanıtım videosunu izle">
+    <span class="scroll-text">Videoyu İzle</span>
     <div class="scroll-mouse"></div>
   </a>
+</section>
+
+<!-- ═══ TANITIM VİDEOSU ═══ -->
+<section class="video-section" id="tanitim-video">
+  <div class="video-inner">
+    <div class="video-header" data-reveal="up">
+      <span class="video-eyebrow">Tanıtım Videosu</span>
+      <h2 class="video-title">Google'da Üst Sıralarda Olmak <span class="accent">Hayal Değil</span></h2>
+      <p class="video-subtitle">Müşterileriniz Google'da arama yapınca karşılarına ilk Web4Medya çıkıyor. Sertifikalı Google Partner reklam ajansı olarak işletmenizi nasıl büyüttüğümüzü 30 saniyede izleyin.</p>
+    </div>
+
+    <div class="video-wrapper" data-reveal="scale">
+      <video
+        id="tanitimVideo"
+        preload="metadata"
+        playsinline
+        controls
+        poster="/images/web4medya-video-poster.jpg"
+        aria-label="Web4Medya Google Reklam Ajansı Tanıtım Videosu"
+        itemprop="video"
+        itemscope
+        itemtype="https://schema.org/VideoObject">
+        <source src="/videos/web4medya-reklam-tanitim.webm" type="video/webm"/>
+        <source src="/videos/web4medya-reklam-tanitim.mp4" type="video/mp4"/>
+        <p>Tarayıcınız HTML5 video oynatmayı desteklemiyor. <a href="/videos/web4medya-reklam-tanitim.mp4">Videoyu indirmek için tıklayın</a>.</p>
+      </video>
+
+      <!-- Custom play overlay - tıklayınca videoyu başlatır -->
+      <div class="video-play-overlay" id="videoPlayOverlay" role="button" tabindex="0" aria-label="Videoyu oynat">
+        <div class="video-play-button">
+          <i class="fas fa-play"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="video-cta" data-reveal="up">
+      <p>Siz de Google'da üst sıralara çıkmak ister misiniz?</p>
+      <a href="https://wa.me/905303158752?text=Merhaba%2C%20Google%27da%20%C3%BCst%20s%C4%B1ralarda%20olmak%20i%C3%A7in%20bilgi%20almak%20istiyorum" target="_blank" rel="noopener" class="video-cta-btn">
+        <i class="fab fa-whatsapp"></i> Hemen Ücretsiz Görüşme Alın
+      </a>
+    </div>
+  </div>
 </section>
 
 <!-- ═══ NELER SUNUYORUZ - TABS SECTION ═══ -->
@@ -4063,6 +4336,48 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
         window.open(url, '_blank', 'noopener');
       });
     });
+  });
+})();
+
+/* ═══ Tanıtım Video - Custom Play Overlay ═══ */
+(function(){
+  const video = document.getElementById('tanitimVideo');
+  const overlay = document.getElementById('videoPlayOverlay');
+  if(!video || !overlay) return;
+
+  function playVideo(){
+    overlay.classList.add('hidden');
+    video.play().catch(() => {
+      // Otomatik oynatma engellenirse overlay tekrar göster
+      overlay.classList.remove('hidden');
+    });
+  }
+
+  // Overlay tıklayınca oynat
+  overlay.addEventListener('click', playVideo);
+  overlay.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter' || e.key === ' '){
+      e.preventDefault();
+      playVideo();
+    }
+  });
+
+  // Video bittiğinde overlay'i geri göster
+  video.addEventListener('ended', () => {
+    overlay.classList.remove('hidden');
+  });
+
+  // Pause'da overlay göster (kullanıcı tekrar oynatabilsin)
+  video.addEventListener('pause', () => {
+    if(video.currentTime > 0 && !video.ended){
+      // Pause sırasında overlay göstermeyelim, native control kullansın
+      return;
+    }
+  });
+
+  // Play başlayınca overlay'i gizle
+  video.addEventListener('play', () => {
+    overlay.classList.add('hidden');
   });
 })();
 </script>
