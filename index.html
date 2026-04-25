@@ -3080,6 +3080,358 @@ body::before{
   .video-play-button{width:72px;height:72px;font-size:1.5rem;}
 }
 
+/* ═══════════════════════════════════════════
+   GOOGLE REKLAM HAKKINDA BİLMENİZ GEREKENLER
+   (SEO Pillar Content)
+   ═══════════════════════════════════════════ */
+.knowledge{
+  background:transparent;
+  padding:100px 5% 80px;
+  position:relative;
+}
+.knowledge-inner{
+  max-width:1200px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+.knowledge-header{
+  text-align:center;
+  margin-bottom:56px;
+}
+.knowledge-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-body);
+  font-size:0.78rem;
+  font-weight:700;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--blue);
+  padding:8px 18px;
+  background:linear-gradient(135deg, rgba(11,87,208,0.1) 0%, rgba(66,133,244,0.05) 100%);
+  border:1px solid rgba(11,87,208,0.15);
+  border-radius:50px;
+  margin-bottom:22px;
+}
+.knowledge-eyebrow::before{
+  content:"";
+  width:6px;height:6px;
+  background:var(--blue);
+  border-radius:50%;
+  box-shadow:0 0 0 3px rgba(11,87,208,0.2);
+}
+.knowledge-title{
+  font-family:var(--font-display);
+  font-size:clamp(1.8rem, 4vw, 2.8rem);
+  font-weight:800;
+  letter-spacing:-0.03em;
+  color:var(--dark);
+  line-height:1.15;
+  margin-bottom:16px;
+}
+.knowledge-title .accent{
+  background:linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.knowledge-subtitle{
+  font-family:var(--font-body);
+  font-size:clamp(0.95rem, 1.4vw, 1.1rem);
+  color:var(--text2);
+  max-width:760px;
+  margin:0 auto;
+  line-height:1.65;
+}
+.knowledge-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:24px;
+}
+.knowledge-card{
+  background:#ffffff;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:36px 40px;
+  position:relative;
+  overflow:hidden;
+  transition:transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.knowledge-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--blue-light);
+  box-shadow:0 16px 40px rgba(11,87,208,0.08);
+}
+.knowledge-card-header{
+  display:flex;
+  align-items:flex-start;
+  gap:20px;
+  margin-bottom:18px;
+}
+.knowledge-card-num{
+  flex-shrink:0;
+  width:48px;
+  height:48px;
+  border-radius:12px;
+  background:linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--font-display);
+  font-size:1.3rem;
+  font-weight:800;
+  box-shadow:0 6px 16px rgba(11,87,208,0.25);
+}
+.knowledge-card h3{
+  flex:1;
+  font-family:var(--font-display);
+  font-size:clamp(1.2rem, 2vw, 1.4rem);
+  font-weight:700;
+  letter-spacing:-0.02em;
+  color:var(--dark);
+  line-height:1.3;
+  padding-top:6px;
+}
+.knowledge-card p{
+  font-family:var(--font-body);
+  font-size:0.95rem;
+  line-height:1.75;
+  color:var(--text2);
+  margin-bottom:14px;
+}
+.knowledge-card p:last-of-type{margin-bottom:0;}
+.knowledge-card strong{color:var(--dark);font-weight:700;}
+.knowledge-card a{
+  color:var(--blue);
+  font-weight:600;
+  text-decoration:none;
+  border-bottom:2px solid rgba(11,87,208,0.25);
+  transition:border-color 0.2s;
+}
+.knowledge-card a:hover{border-bottom-color:var(--blue);}
+.knowledge-card-list{
+  list-style:none;
+  padding:0;
+  margin:14px 0;
+}
+.knowledge-card-list li{
+  padding:8px 0 8px 28px;
+  position:relative;
+  color:var(--text2);
+  font-size:0.95rem;
+  line-height:1.6;
+}
+.knowledge-card-list li::before{
+  content:"✓";
+  position:absolute;
+  left:0;top:8px;
+  color:var(--green);
+  font-weight:700;
+  font-size:1rem;
+}
+.knowledge-card-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:14px;
+  color:var(--blue);
+  font-family:var(--font-body);
+  font-weight:700;
+  font-size:0.9rem;
+  text-decoration:none;
+  border-bottom:none !important;
+  transition:gap 0.2s;
+}
+.knowledge-card-cta:hover{
+  gap:12px;
+}
+.knowledge-card-cta::after{
+  content:"→";
+  font-size:1.1rem;
+  transition:transform 0.2s;
+}
+
+@media(max-width:768px){
+  .knowledge{padding:72px 5% 60px;}
+  .knowledge-card{padding:28px 24px;}
+  .knowledge-card-header{gap:14px;margin-bottom:14px;}
+  .knowledge-card-num{width:40px;height:40px;font-size:1.1rem;}
+  .knowledge-card h3{font-size:1.15rem;padding-top:4px;}
+}
+
+/* ═══════════════════════════════════════════
+   VAKA ANALİZLERİ (CASE STUDIES)
+   ═══════════════════════════════════════════ */
+.cases{
+  background:transparent;
+  padding:80px 5% 80px;
+  position:relative;
+}
+.cases-inner{
+  max-width:1200px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+.cases-header{
+  text-align:center;
+  margin-bottom:56px;
+}
+.cases-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-body);
+  font-size:0.78rem;
+  font-weight:700;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--blue);
+  padding:8px 18px;
+  background:linear-gradient(135deg, rgba(11,87,208,0.1) 0%, rgba(66,133,244,0.05) 100%);
+  border:1px solid rgba(11,87,208,0.15);
+  border-radius:50px;
+  margin-bottom:22px;
+}
+.cases-eyebrow::before{
+  content:"";
+  width:6px;height:6px;
+  background:var(--blue);
+  border-radius:50%;
+  box-shadow:0 0 0 3px rgba(11,87,208,0.2);
+}
+.cases-title{
+  font-family:var(--font-display);
+  font-size:clamp(1.8rem, 4vw, 2.8rem);
+  font-weight:800;
+  letter-spacing:-0.03em;
+  color:var(--dark);
+  line-height:1.15;
+  margin-bottom:16px;
+}
+.cases-title .accent{
+  background:linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.cases-subtitle{
+  font-family:var(--font-body);
+  font-size:clamp(0.95rem, 1.3vw, 1.05rem);
+  color:var(--text2);
+  max-width:680px;
+  margin:0 auto;
+  line-height:1.6;
+}
+.cases-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:20px;
+}
+.case-card{
+  background:#ffffff;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:32px 28px;
+  position:relative;
+  overflow:hidden;
+  transition:transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.case-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--blue-light);
+  box-shadow:0 20px 48px rgba(11,87,208,0.1);
+}
+.case-card::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:4px;
+  background:linear-gradient(90deg, var(--blue) 0%, var(--blue-light) 100%);
+}
+.case-sector{
+  display:inline-block;
+  font-family:var(--font-body);
+  font-size:0.72rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:var(--blue);
+  padding:5px 12px;
+  background:rgba(11,87,208,0.08);
+  border-radius:6px;
+  margin-bottom:18px;
+}
+.case-card h3{
+  font-family:var(--font-display);
+  font-size:1.2rem;
+  font-weight:700;
+  letter-spacing:-0.02em;
+  color:var(--dark);
+  line-height:1.3;
+  margin-bottom:8px;
+}
+.case-challenge{
+  font-family:var(--font-body);
+  font-size:0.85rem;
+  color:var(--text3);
+  font-style:italic;
+  margin-bottom:20px;
+  line-height:1.5;
+}
+.case-results{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-bottom:20px;
+}
+.case-result{
+  text-align:center;
+  padding:14px 8px;
+  background:linear-gradient(135deg, rgba(11,87,208,0.05) 0%, rgba(66,133,244,0.02) 100%);
+  border-radius:12px;
+}
+.case-result-number{
+  font-family:var(--font-display);
+  font-size:1.5rem;
+  font-weight:800;
+  background:linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  line-height:1;
+  margin-bottom:4px;
+  letter-spacing:-0.02em;
+}
+.case-result-label{
+  font-family:var(--font-body);
+  font-size:0.7rem;
+  font-weight:600;
+  color:var(--text2);
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+}
+.case-summary{
+  font-family:var(--font-body);
+  font-size:0.85rem;
+  color:var(--text2);
+  line-height:1.6;
+  padding-top:18px;
+  border-top:1px solid var(--border);
+}
+.case-summary strong{color:var(--dark);}
+
+@media(max-width:1024px){
+  .cases-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+  .cases-grid{grid-template-columns:1fr;}
+  .case-card{padding:26px 22px;}
+}
+
 </style>
 
 <!-- Neler Sunuyoruz görselleri - kritik olan (ilk aktif tab) preload, diğerleri prefetch -->
@@ -3636,47 +3988,47 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
       <article class="service-card">
         <div class="service-icon"><i class="fas fa-bullseye"></i></div>
         <h3>Google Ads &amp; Meta Ads Reklam Yönetimi</h3>
-        <p>Google Arama, YouTube, Display, Shopping, Performance Max, Instagram, Facebook ve TikTok'ta gelir odaklı kampanya yönetimi. <a href="/google-reklam-vermek-istiyorum/" style="color:var(--blue);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(11,87,208,0.3);"><strong>Google reklam vermek istiyorum</strong></a> diyorsanız, doğru kitleye doğru zamanda ulaşmanız için profesyonel kampanya yönetimi sunuyoruz.</p>
+        <p><strong>Google reklam yönetimi</strong> alanında uzmanlaşmış ekibimiz, Google Arama, YouTube, Display Network, Shopping, Performance Max kampanyalarını ve Meta (Instagram, Facebook), TikTok, LinkedIn platformlarını gelir odaklı yönetir. <strong>Google Ads uzmanı</strong> sertifikalı kadromuz; anahtar kelime araştırması, dönüşüm takibi (GA4, Conversions API), bidding stratejisi, A/B testleri ve sürekli optimizasyon yapar. <a href="/google-reklam-vermek-istiyorum/" style="color:var(--blue);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(11,87,208,0.3);"><strong>Google reklam vermek istiyorum</strong></a> diyorsanız, hesap kurulumundan reklam metni yazımına, kampanya yapılandırmasından raporlamaya kadar tüm süreci profesyonel olarak yönetiyoruz.</p>
         <span class="service-tag">Ücretli Medya</span>
       </article>
 
       <!-- 2. SEO & Yapay Zeka Görünürlüğü -->
       <article class="service-card">
         <div class="service-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
-        <h3>SEO &amp; Yapay Zeka Görünürlüğü</h3>
-        <p>Teknik SEO, dijital PR ve içerik stratejisi ile markanızı Google'da ve ChatGPT, Gemini gibi büyük dil modellerinde öne çıkarıyoruz. 2026'nın yeni kuralları.</p>
+        <h3>SEO &amp; Yapay Zeka Görünürlüğü (GEO)</h3>
+        <p>Teknik SEO denetimi, Core Web Vitals optimizasyonu, içerik stratejisi, on-page SEO, schema markup ve dijital PR ile markanızı Google'da öne çıkarıyoruz. 2026'nın yeni trendi <strong>GEO (Generative Engine Optimization)</strong> ile ChatGPT, Claude, Gemini ve Perplexity gibi yapay zeka motorlarında da görünür olmanızı sağlıyoruz. Backlink stratejisi, anahtar kelime kümeleri ve E-E-A-T uyumlu içerik üretimi dahildir.</p>
         <span class="service-tag">SEO + GEO</span>
       </article>
 
       <!-- 3. Web Tasarım -->
       <article class="service-card">
         <div class="service-icon"><i class="fas fa-code"></i></div>
-        <h3>Kurumsal Web Site Tasarımı</h3>
-        <p>Hızlı yüklenen, mobil uyumlu, SEO dostu modern web siteleri. Kurumsal site, e-ticaret ve landing page çözümleriyle dönüşüm odaklı dijital vitrin. <a href="/web-tasarim-yaptirmak-istiyorum/" style="color:var(--blue);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(11,87,208,0.3);"><strong>Web tasarım yaptırmak istiyorum</strong></a> diyenler için ücretsiz analiz ve teklif sunuyoruz.</p>
+        <h3>Kurumsal Web Sitesi ve E-ticaret Tasarımı</h3>
+        <p>Hızlı yüklenen, mobil uyumlu, SEO dostu modern web siteleri tasarlıyoruz. <strong>Kurumsal site, e-ticaret platformu</strong> (WooCommerce, Shopify), <strong>landing page</strong> (açılış sayfası) ve özel CRM çözümleri sunuyoruz. Tüm sitelerde Core Web Vitals (LCP, CLS, INP) optimizasyonu, <strong>Schema markup</strong>, hreflang, canonical URL, sitemap.xml ve robots.txt yapılandırması dahildir. <a href="/web-tasarim-yaptirmak-istiyorum/" style="color:var(--blue);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(11,87,208,0.3);"><strong>Web tasarım yaptırmak istiyorum</strong></a> diyenler için ücretsiz site analizi ve teklif sunuyoruz.</p>
         <span class="service-tag">Web Design</span>
       </article>
 
       <!-- 4. Analitik & Ölçümleme -->
       <article class="service-card">
         <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>Analitik ve Ölçümleme</h3>
-        <p>Atıf modellemesi, artırımlılık testleri ve pazarlama karma modeli (MMM) ile "kârı gerçekte ne sağlıyor?" sorusuna veriye dayalı yanıtlar veriyoruz.</p>
+        <h3>Analitik, Ölçümleme ve Raporlama</h3>
+        <p>Google Analytics 4 (GA4) kurulumu, Google Tag Manager (GTM), Meta Pixel, Conversions API, Looker Studio dashboard'ları ve özel atıf modellemesi ile her reklam kuruşunuzun nereye gittiğini görmenizi sağlıyoruz. <strong>ROAS</strong> (Return on Ad Spend), <strong>CAC</strong> (müşteri edinme maliyeti), <strong>LTV</strong> (yaşam boyu değer), <strong>artırımlılık testleri</strong> ve <strong>pazarlama karma modeli (MMM)</strong> ile platform metriklerinin ötesine geçiyor, "kârı gerçekte ne sağlıyor?" sorusuna veriye dayalı yanıtlar veriyoruz.</p>
         <span class="service-tag">Analytics</span>
       </article>
 
       <!-- 5. Sosyal Medya Yönetimi -->
       <article class="service-card">
         <div class="service-icon"><i class="fas fa-hashtag"></i></div>
-        <h3>Sosyal Medya Yönetimi</h3>
-        <p>Instagram, Facebook, LinkedIn ve TikTok'ta profesyonel içerik üretimi, topluluk yönetimi ve marka bilinirliğini artıran sürdürülebilir stratejiler.</p>
+        <h3>Sosyal Medya Yönetimi ve İçerik Üretimi</h3>
+        <p>Instagram, Facebook, LinkedIn, TikTok, YouTube ve X (Twitter) hesaplarınızda profesyonel içerik üretimi, topluluk yönetimi (community management), influencer iş birlikleri ve marka bilinirliğini artıran sürdürülebilir içerik stratejileri geliştiriyoruz. Aylık içerik takvimi, görsel-video üretimi, copywriting, hashtag stratejisi ve etkileşim analizleri dahildir. Hem organik (ücretsiz) hem ücretli içerik kombinasyonu ile maksimum erişim sağlıyoruz.</p>
         <span class="service-tag">Social Media</span>
       </article>
 
       <!-- 6. Yaratıcı & Influencer -->
       <article class="service-card">
         <div class="service-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
-        <h3>Yaratıcı &amp; Influencer Pazarlama</h3>
-        <p>Dönüşüm odaklı performans kreatifleri, video üretimi ve sektörünüzle örtüşen doğru influencer iş birlikleri ile marka hikayenizi güçlendirin.</p>
+        <h3>Yaratıcı Üretim ve Influencer Pazarlama</h3>
+        <p>Dönüşüm odaklı performans kreatifleri, profesyonel video üretimi, motion graphics, UGC (kullanıcı türevi içerik) ve sektörünüzle örtüşen mikro-makro influencer iş birlikleri ile marka hikayenizi güçlendirin. Reklam görselleri, ürün videosu, animasyon, podcast prodüksiyonu ve influencer kampanya yönetimi tek elden. Tüm içerikler Google Ads, Meta Ads ve TikTok Ads platformlarına optimize edilir.</p>
         <span class="service-tag">Creative</span>
       </article>
 
@@ -3690,6 +4042,206 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
       </a>
     </div>
 
+  </div>
+</section>
+
+
+<!-- ═══ GOOGLE REKLAM HAKKINDA BİLMENİZ GEREKENLER (PILLAR CONTENT) ═══ -->
+<section class="knowledge" id="bilgi">
+  <div class="knowledge-inner">
+    <div class="knowledge-header" data-reveal="up">
+      <span class="knowledge-eyebrow">Bilgi Merkezi</span>
+      <h2 class="knowledge-title">Google Reklam Vermeden Önce <span class="accent">Bilmeniz Gerekenler</span></h2>
+      <p class="knowledge-subtitle">Google reklam yönetimi, Google Ads bütçesi, ajans seçimi ve reklam stratejileri hakkında bilmeniz gereken her şey. 8 yıllık tecrübemizle hazırladığımız rehber, doğru kararı vermenize yardımcı olacak.</p>
+    </div>
+
+    <div class="knowledge-grid" data-stagger>
+
+      <!-- 1. Google Reklam Nasıl Çalışır -->
+      <article class="knowledge-card">
+        <div class="knowledge-card-header">
+          <div class="knowledge-card-num">1</div>
+          <h3>Google Reklam Nasıl Çalışır? Google Ads Sistemi 2026</h3>
+        </div>
+        <p><strong>Google reklam</strong>, kullanıcıların Google'da arama yaptığı anda işletmenizin sonuçların en üstünde görünmesini sağlayan ücretli bir reklam modelidir. <strong>Google Ads sistemi</strong>, her arama için saniyede yapılan bir açık artırma (auction) ile çalışır. Bu açık artırmada üç temel faktör belirleyicidir:</p>
+        <ul class="knowledge-card-list">
+          <li><strong>Teklif (Bid):</strong> Bir tıklama için ödemeye razı olduğunuz maksimum tutar</li>
+          <li><strong>Kalite Skoru:</strong> Reklamınızın, anahtar kelimenizin ve açılış sayfanızın kalitesi (1-10 arası puan)</li>
+          <li><strong>Reklam Sıralama Etkisi:</strong> Genişletmeler, site bağlantıları ve diğer reklam formatları</li>
+        </ul>
+        <p><strong>Google Ads</strong>'ta sadece tıklandığında ödeme yaparsınız (PPC - Pay Per Click). Görüntülenmeler ücretsizdir. <strong>Google reklam yönetimi</strong> uzmanları, bu üç faktörü optimize ederek aynı bütçeyle daha yüksek konumda görünmenizi sağlar. Web4Medya olarak hesabınızın kalite skorunu artırarak <strong>tıklama maliyetinizi (CPC)</strong> ortalama %30-50 düşürüyoruz.</p>
+        <a href="/google-reklam-vermek-istiyorum/" class="knowledge-card-cta">Google reklam vermek istiyorum, detaylı bilgi al</a>
+      </article>
+
+      <!-- 2. Google Ads Bütçesi -->
+      <article class="knowledge-card">
+        <div class="knowledge-card-header">
+          <div class="knowledge-card-num">2</div>
+          <h3>Google Ads Fiyatları ve Bütçesi 2026: Ne Kadar Harcamalısınız?</h3>
+        </div>
+        <p><strong>Google reklam fiyatları</strong> sektör, hedef kitle, rekabet seviyesi ve coğrafi bölgeye göre büyük farklılık gösterir. 2026 verilerine göre Türkiye'de ortalama <strong>tıklama maliyeti (CPC)</strong>:</p>
+        <ul class="knowledge-card-list">
+          <li><strong>Yerel işletmeler</strong> (berber, kuaför, restoran): 0,80 - 3 TL arası tıklama, aylık 3.000 - 10.000 TL bütçe</li>
+          <li><strong>Hizmet sektörü</strong> (avukat, doktor, danışman): 5 - 25 TL tıklama, aylık 10.000 - 30.000 TL</li>
+          <li><strong>E-ticaret siteleri</strong>: 1,50 - 8 TL tıklama, aylık 15.000 - 50.000 TL bütçe</li>
+          <li><strong>Kurumsal markalar ve B2B</strong>: 10 - 50 TL tıklama, aylık 50.000 TL ve üzeri</li>
+          <li><strong>Yüksek rekabetli sektörler</strong> (sigorta, finans, hukuk): 30 - 100 TL tıklama olabilir</li>
+        </ul>
+        <p><strong>Google Ads bütçesi</strong> belirlenirken müşteri edinme maliyetiniz (CAC), müşteri yaşam boyu değeri (LTV) ve hedef ROAS oranınız dikkate alınmalıdır. Web4Medya olarak ücretsiz <strong>bütçe analizi</strong> yapıp, sektörünüze ve hedeflerinize uygun aylık reklam bütçesi öneriyoruz.</p>
+        <a href="https://wa.me/905303158752?text=Google%20Ads%20b%C3%BCt%C3%A7e%20analizi%20istiyorum" target="_blank" rel="noopener" class="knowledge-card-cta">Ücretsiz bütçe analizi al</a>
+      </article>
+
+      <!-- 3. Ajans Seçimi -->
+      <article class="knowledge-card">
+        <div class="knowledge-card-header">
+          <div class="knowledge-card-num">3</div>
+          <h3>Google Ads Ajansı Seçerken Nelere Dikkat Edilir?</h3>
+        </div>
+        <p>Doğru <strong>Google reklam ajansı</strong> seçimi, reklam başarınızın yarısıdır. Yanlış ajans bütçenizi tüketir, sonuç vermez ve markanıza zarar verir. <strong>Google Ads ajansı</strong> seçerken kontrol etmeniz gereken kritik noktalar:</p>
+        <ul class="knowledge-card-list">
+          <li><strong>Sertifikalar:</strong> Google Ads, Google Analytics ve Meta Blueprint sertifikalı uzmanlar var mı? Sertifikaları her yıl yenileniyor mu?</li>
+          <li><strong>Şeffaflık:</strong> Reklam hesabı sahipliği size ait mi? Ajans hesabı kapatırsa veriler kalıyor mu? Aylık detaylı rapor veriliyor mu?</li>
+          <li><strong>Vaka analizleri:</strong> Daha önce çalıştığı sektörlerde ölçülebilir başarı hikayeleri var mı? ROAS, dönüşüm artışı gibi gerçek rakamlar paylaşıyor mu?</li>
+          <li><strong>İletişim ve destek:</strong> Sorununuza ne kadar sürede dönüş yapılıyor? Sadece e-posta mı, telefon ve WhatsApp da var mı?</li>
+          <li><strong>Sözleşme ve ücretlendirme:</strong> Asgari süre zorunluluğu var mı? Yönetim ücreti sabit mi yoksa reklam harcamasının yüzdesi mi?</li>
+          <li><strong>Multidisipliner ekip:</strong> Sadece reklamcı mı, yoksa SEO, web tasarım, içerik üretimi de tek elden mi?</li>
+        </ul>
+        <p>Web4Medya olarak 8 yıllık <strong>Google Ads danışmanlık</strong> tecrübemiz, sertifikalı ekibimiz ve şeffaf raporlamamızla bu kriterlerin tamamını karşılıyoruz. Hesap sahipliği her zaman sizdedir, asgari süre yoktur, raporlama ücretsizdir.</p>
+        <a href="/hakkimizda/" class="knowledge-card-cta">Web4Medya hakkında daha fazla bilgi</a>
+      </article>
+
+      <!-- 4. Google Ads vs SEO -->
+      <article class="knowledge-card">
+        <div class="knowledge-card-header">
+          <div class="knowledge-card-num">4</div>
+          <h3>Google Ads mi SEO mu? Hangisi Daha Karlı?</h3>
+        </div>
+        <p>Bu soru tek cevaplı değildir. <strong>Google Ads (ücretli reklam)</strong> ve <strong>SEO (organik arama)</strong> birbirinin alternatifi değil, tamamlayıcısıdır. İkisinin de güçlü ve zayıf yanları vardır:</p>
+        <ul class="knowledge-card-list">
+          <li><strong>Google Ads avantajları:</strong> Anında sonuç (saatler içinde trafik), tam kontrol (bütçe, hedef kitle), hızlı test (hangi ürün/hizmet satıyor görülür), mevsimsel kampanyalar için ideal</li>
+          <li><strong>Google Ads dezavantajları:</strong> Sürekli ödeme gerektirir, durduğunda trafik biter, rekabetçi sektörlerde maliyetli</li>
+          <li><strong>SEO avantajları:</strong> Uzun vadede ücretsiz trafik, marka otoritesi inşa eder, organik sonuçlar daha çok güven verir</li>
+          <li><strong>SEO dezavantajları:</strong> Sonuç 6-12 ay sürer, Google algoritma değişiklikleri etkiler, sürekli içerik üretimi gerektirir</li>
+        </ul>
+        <p>Profesyonel öneri: <strong>İkisini birlikte kullanın</strong>. Google Ads ile hemen trafik alın, satışları başlatın. Aynı anda SEO çalışmasıyla 6-12 ay sonra ücretsiz organik trafiğinizi büyütün. Web4Medya olarak hem <strong>Google Ads reklam yönetimi</strong> hem <strong>SEO hizmeti</strong> sunduğumuz için, ikisi arasında veri akışı ve strateji entegrasyonu sağlıyoruz.</p>
+        <a href="/google-reklam-vermek-istiyorum/" class="knowledge-card-cta">Hibrit strateji hakkında bilgi al</a>
+      </article>
+
+      <!-- 5. En İyi Reklam Stratejileri -->
+      <article class="knowledge-card">
+        <div class="knowledge-card-header">
+          <div class="knowledge-card-num">5</div>
+          <h3>2026'nın En İyi Google Reklam Stratejileri</h3>
+        </div>
+        <p>Google Ads ekosistemi 2024-2026 arası büyük değişim geçirdi. Yapay zeka destekli kampanyalar, otomatik teklif stratejileri ve birinci taraf veri (first-party data) öne çıktı. 2026'da işletmenizi büyütecek <strong>Google reklam stratejileri</strong>:</p>
+        <ul class="knowledge-card-list">
+          <li><strong>Performance Max kampanyaları:</strong> Google'ın AI'ı tüm yerleştirmelerde (Arama, YouTube, Display, Shopping, Maps) otomatik optimize eder</li>
+          <li><strong>Değer odaklı teklif (Value-based bidding):</strong> Sadece tıklama değil, müşterinin LTV değerine göre optimize eder</li>
+          <li><strong>Conversions API ve sunucu taraflı izleme:</strong> Çerez sınırlamalarına rağmen doğru veri</li>
+          <li><strong>Customer Match ve Lookalike:</strong> CRM verinizle benzer kitleler bulma</li>
+          <li><strong>Demand Gen kampanyaları:</strong> YouTube ve Discover'da görsel-merkezli kampanyalar</li>
+          <li><strong>YouTube Shorts reklamcılığı:</strong> Z kuşağı için kritik</li>
+          <li><strong>Yapay Zeka Görünürlüğü (GEO):</strong> ChatGPT, Gemini, Claude'da markanızın bahsedilmesi</li>
+        </ul>
+        <p>Bu stratejilerin tümünü Web4Medya bünyesinde uyguluyoruz. <strong>Google ads uzmanı</strong> ekibimiz, hesabınıza özel yol haritası çıkarıp her stratejinin ne zaman ve nasıl uygulanacağını planlar.</p>
+        <a href="https://wa.me/905303158752?text=2026%20reklam%20stratejisi%20hakk%C4%B1nda%20bilgi%20istiyorum" target="_blank" rel="noopener" class="knowledge-card-cta">2026 strateji görüşmesi planla</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ VAKA ANALİZLERİ (CASE STUDIES) ═══ -->
+<section class="cases" id="vaka-analizleri">
+  <div class="cases-inner">
+    <div class="cases-header" data-reveal="up">
+      <span class="cases-eyebrow">Başarı Hikayeleri</span>
+      <h2 class="cases-title">Müşterilerimizin <span class="accent">Gerçek Sonuçları</span></h2>
+      <p class="cases-subtitle">Web4Medya'nın yönettiği Google reklam kampanyalarının gerçek müşterilere sağladığı somut sonuçlar. Sektör, bütçe ve süre detayları ile birlikte.</p>
+    </div>
+
+    <div class="cases-grid" data-stagger>
+
+      <!-- Case 1 -->
+      <article class="case-card">
+        <span class="case-sector">E-ticaret</span>
+        <h3>Online Çiçek Satış Sitesi</h3>
+        <p class="case-challenge">"Reklamlara harcıyorduk ama satışlar dönmüyordu. ROAS ölçemiyorduk."</p>
+        <div class="case-results">
+          <div class="case-result">
+            <div class="case-result-number">+%340</div>
+            <div class="case-result-label">ROAS Artışı</div>
+          </div>
+          <div class="case-result">
+            <div class="case-result-number">-%52</div>
+            <div class="case-result-label">CPC Düşüşü</div>
+          </div>
+          <div class="case-result">
+            <div class="case-result-number">+%180</div>
+            <div class="case-result-label">Aylık Sipariş</div>
+          </div>
+          <div class="case-result">
+            <div class="case-result-number">3 Ay</div>
+            <div class="case-result-label">Optimizasyon</div>
+          </div>
+        </div>
+        <p class="case-summary">Performance Max + Shopping kampanyası ile <strong>aylık 25.000 TL bütçeyi</strong> 85.000 TL geliri çevirdik. GA4 ve Conversions API kurularak ölçümleme tam sağlandı.</p>
+      </article>
+
+      <!-- Case 2 -->
+      <article class="case-card">
+        <span class="case-sector">Yerel Hizmet</span>
+        <h3>Şehirler Arası Nakliyat Firması</h3>
+        <p class="case-challenge">"Google Maps'te görünmüyorduk. Müşteri rakiplerden alıyordu."</p>
+        <div class="case-results">
+          <div class="case-result">
+            <div class="case-result-number">+450</div>
+            <div class="case-result-label">Aylık Aranma</div>
+          </div>
+          <div class="case-result">
+            <div class="case-result-number">+%220</div>
+            <div class="case-result-label">Lead Artışı</div>
+          </div>
+          <div class="case-result">
+            <div class="case-result-number">-%38</div>
+            <div class="case-result-label">CAC Düşüşü</div>
+          </div>
+          <div class="case-result">
+            <div class="case-result-number">2 Ay</div>
+            <div class="case-result-label">İlk Sonuç</div>
+          </div>
+        </div>
+        <p class="case-summary">Local SEO + Google Maps + arama reklamı kombinasyonu ile <strong>5 büyük şehirde</strong> ilk 3 sıraya yerleştik. Aylık 150 yeni müşteri kazandı.</p>
+      </article>
+
+      <!-- Case 3 -->
+      <article class="case-card">
+        <span class="case-sector">Sağlık &amp; Estetik</span>
+        <h3>Estetik Cerrahi Kliniği</h3>
+        <p class="case-challenge">"Pahalı tıklamalar geliyordu, hiç randevu dönüşü olmuyordu."</p>
+        <div class="case-results">
+          <div class="case-result">
+            <div class="case-result-number">+%280</div>
+            <div class="case-result-label">Randevu Sayısı</div>
+          </div>
+          <div class="case-result">
+            <div class="case-result-number">7,2x</div>
+            <div class="case-result-label">ROAS</div>
+          </div>
+          <div class="case-result">
+            <div class="case-result-number">-%45</div>
+            <div class="case-result-label">CPL Düşüşü</div>
+          </div>
+          <div class="case-result">
+            <div class="case-result-number">4 Ay</div>
+            <div class="case-result-label">Süreç</div>
+          </div>
+        </div>
+        <p class="case-summary">Yasal mevzuata uygun reklam metinleri + landing page optimizasyonu ile aylık <strong>40.000 TL bütçeyi 290.000 TL gelire</strong> çevirdik.</p>
+      </article>
+
+    </div>
   </div>
 </section>
 
