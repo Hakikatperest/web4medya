@@ -914,14 +914,92 @@ body::before{
   .browser-grid{grid-template-columns:1fr;}
 }
 @media(max-width:640px){
-  .legal-content{padding:28px 22px;}
+  .legal-content{padding:28px 18px;}
   .legal-section-title{font-size:1.3rem;gap:10px;}
   .legal-section-num{width:30px;height:30px;font-size:0.85rem;}
   .legal-section h3{font-size:1.05rem;}
-  .cookie-table{font-size:0.78rem;}
+  .legal-section p,
+  .legal-section ul li,
+  .legal-section ol li{
+    word-wrap:break-word;
+    overflow-wrap:break-word;
+  }
+  .legal-hero-meta span{
+    display:block;
+    margin:6px 0;
+  }
+  .cookie-table-wrapper{
+    margin-left:-18px;
+    margin-right:-18px;
+    border-radius:0;
+    border-left:none;
+    border-right:none;
+  }
+  .cookie-table{font-size:0.78rem;min-width:520px;}
   .cookie-table th,.cookie-table td{padding:10px 12px;}
   .legal-footer-cta{flex-direction:column;align-items:flex-start;padding:22px;}
   .legal-footer-cta-btn{width:100%;justify-content:center;}
+  .cookie-type-card{padding:22px;}
+  .browser-card{padding:18px;}
+  .browser-card-link{
+    word-break:break-all;
+    overflow-wrap:anywhere;
+    font-size:0.8rem;
+  }
+}
+
+/* ═══ MOBİL OVERFLOW GÜVENLİK AĞI ═══ */
+@media(max-width:768px){
+  html,body{
+    max-width:100vw;
+    overflow-x:hidden;
+    position:relative;
+  }
+  main,
+  .legal-wrapper,
+  .legal-content,
+  .legal-sidebar,
+  .legal-section,
+  .legal-hero,
+  .legal-hero-inner,
+  .footer-top,
+  .footer-dark,
+  .navbar,
+  .navbar-inner{
+    max-width:100%;
+    overflow-x:hidden;
+  }
+  .browser-card,
+  .browser-card-text,
+  .cookie-type-card,
+  .legal-footer-cta-text,
+  .legal-warning{
+    min-width:0;
+  }
+  img{
+    max-width:100%;
+    height:auto;
+  }
+  pre,code{
+    white-space:pre-wrap;
+    word-wrap:break-word;
+    overflow-wrap:break-word;
+    max-width:100%;
+  }
+  .legal-content{
+    overflow-wrap:break-word;
+    word-wrap:break-word;
+  }
+  .cookie-table-wrapper{
+    max-width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .browser-card-link{
+    max-width:100%;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+  }
 }
 
 /* ═══ FLOATING BUTTONS ═══ */
