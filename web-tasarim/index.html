@@ -408,7 +408,7 @@ body::before{
   .type-card{padding:28px 24px;}
 }
 
-/* ═══ INSTAGRAM PORTFÖY ═══ */
+/* ═══ PORTFÖY ═══ */
 .portfolio{padding:60px 5% 80px;position:relative;z-index:1;
   background:linear-gradient(180deg, transparent 0%, rgba(124,58,237,0.03) 50%, transparent 100%);}
 .portfolio-inner{max-width:1280px;margin:0 auto;}
@@ -438,38 +438,46 @@ body::before{
 }
 
 /* Portföy ızgarası */
-.portfolio-grid{display:grid;grid-template-columns:repeat(4, 1fr);gap:20px;}
+.portfolio-grid{display:grid;grid-template-columns:repeat(4, 1fr);gap:22px;}
 .portfolio-item{position:relative;background:#ffffff;border:1px solid var(--border);
-  border-radius:20px;overflow:hidden;transition:transform 0.35s, border-color 0.35s, box-shadow 0.35s;
+  border-radius:18px;overflow:hidden;transition:transform 0.35s, border-color 0.35s, box-shadow 0.35s;
   display:flex;flex-direction:column;}
-.portfolio-item:hover{transform:translateY(-6px);border-color:rgba(124,58,237,0.25);
-  box-shadow:0 20px 48px rgba(124,58,237,0.12);}
+.portfolio-item:hover{transform:translateY(-8px);border-color:rgba(124,58,237,0.25);
+  box-shadow:0 24px 56px rgba(124,58,237,0.15);}
 .portfolio-item::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
   background:linear-gradient(90deg, var(--purple) 0%, var(--cyan) 100%);
   transform:scaleX(0);transform-origin:left;
   transition:transform 0.4s cubic-bezier(0.2,0.7,0.2,1);z-index:5;}
 .portfolio-item:hover::before{transform:scaleX(1);}
 
-/* Instagram embed kapsayıcısı */
-.ig-embed-wrap{padding:18px 18px 0;flex:1;display:flex;flex-direction:column;}
-.ig-embed-wrap .instagram-media{
-  margin:0 auto !important;min-width:auto !important;width:100% !important;
-  max-width:100% !important;border:1px solid var(--border) !important;
-  border-radius:12px !important;box-shadow:none !important;}
-.ig-embed-loading{position:relative;width:100%;aspect-ratio:1;
-  background:linear-gradient(135deg, rgba(124,58,237,0.08) 0%, rgba(6,182,212,0.04) 100%);
-  border-radius:12px;display:flex;align-items:center;justify-content:center;
-  color:var(--purple);font-family:var(--font-mono);font-size:0.78rem;font-weight:500;
-  letter-spacing:0.05em;animation:loading-pulse 1.6s ease-in-out infinite;}
-.ig-embed-loading i{margin-right:8px;}
-@keyframes loading-pulse{
-  0%,100%{opacity:0.6;}
-  50%{opacity:1;}
-}
+/* Resim kapsayıcısı - 2848x1568 görsel oranı (~1.816:1) */
+.portfolio-image{position:relative;width:100%;aspect-ratio:2848 / 1568;overflow:hidden;
+  background:linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);}
+.portfolio-image img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);}
+.portfolio-item:hover .portfolio-image img{transform:scale(1.06);}
+.portfolio-image::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, transparent 60%, rgba(15,23,42,0.45) 100%);
+  opacity:0;transition:opacity 0.35s;pointer-events:none;}
+.portfolio-item:hover .portfolio-image::after{opacity:1;}
+
+/* Kategori etiketi - sektör bilgisi (resmin sol üstünde) */
+.portfolio-category{position:absolute;top:12px;left:12px;z-index:3;
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 12px;background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-radius:50px;
+  font-family:var(--font-body);font-size:0.72rem;font-weight:700;
+  letter-spacing:0.02em;color:var(--purple);
+  box-shadow:0 4px 12px rgba(15,23,42,0.1);
+  transition:transform 0.3s, background 0.3s;}
+.portfolio-category i{font-size:0.7rem;}
+.portfolio-item:hover .portfolio-category{transform:translateY(-2px);
+  background:linear-gradient(135deg, var(--purple) 0%, var(--cyan) 100%);color:#fff;}
 
 /* Site Bilgisi - portfolio kartı footer */
-.portfolio-footer{padding:18px 20px 22px;border-top:1px solid var(--border);margin-top:14px;}
-.portfolio-site{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.portfolio-footer{padding:18px 20px 22px;}
+.portfolio-site{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
 .portfolio-site-icon{flex-shrink:0;width:32px;height:32px;border-radius:8px;
   background:linear-gradient(135deg, rgba(124,58,237,0.12) 0%, rgba(6,182,212,0.05) 100%);
   display:flex;align-items:center;justify-content:center;color:var(--purple);font-size:0.85rem;}
@@ -479,7 +487,7 @@ body::before{
 .portfolio-site-url{font-family:var(--font-mono);font-size:0.82rem;font-weight:600;
   color:var(--dark);word-break:break-all;line-height:1.3;}
 .portfolio-visit{display:inline-flex;align-items:center;justify-content:center;gap:6px;
-  width:100%;padding:10px 14px;background:linear-gradient(135deg, var(--purple) 0%, var(--cyan) 100%);
+  width:100%;padding:11px 14px;background:linear-gradient(135deg, var(--purple) 0%, var(--cyan) 100%);
   color:#fff !important;border-radius:8px;font-family:var(--font-body);font-size:0.82rem;
   font-weight:700;text-decoration:none !important;
   transition:transform 0.25s, box-shadow 0.25s, filter 0.25s;
@@ -490,7 +498,7 @@ body::before{
 
 @media(max-width:1100px){.portfolio-grid{grid-template-columns:repeat(3, 1fr);}}
 @media(max-width:768px){.portfolio-grid{grid-template-columns:repeat(2, 1fr);gap:16px;}}
-@media(max-width:520px){.portfolio-grid{grid-template-columns:1fr;}}
+@media(max-width:480px){.portfolio-grid{grid-template-columns:1fr;}}
 
 /* Portföy alt notu */
 .portfolio-note{margin-top:40px;padding:20px 24px;background:#FAFBFC;
@@ -956,14 +964,14 @@ body::before{
   </div>
 </section>
 
-<!-- ═══ INSTAGRAM PORTFÖY ═══ -->
+<!-- ═══ PORTFÖY ═══ -->
 <section class="portfolio" id="portfolio">
   <div class="portfolio-inner">
 
     <div class="section-header" data-reveal>
       <span class="content-eyebrow eb-pink">Referanslarımız</span>
       <h2 class="content-title">Yaptığımız <span class="accent accent-pink">Web Sitesi Projeleri</span></h2>
-      <p class="content-subtitle">Instagram'da paylaştığımız son projelerimizden bir seçki. Her bir projeye tıklayarak Instagram gönderimizi inceleyebilir, sitenin canlı haline ulaşabilirsiniz.</p>
+      <p class="content-subtitle">Farklı sektörlerden 200+ aktif referansımızdan bir seçki. Her bir projeye tıklayarak sitenin canlı haline ulaşabilir, tasarımımızı yakından inceleyebilirsiniz.</p>
     </div>
 
     <!-- Instagram bağlantı bandı -->
@@ -971,7 +979,7 @@ body::before{
       <div class="ig-banner-avatar"><i class="fab fa-instagram"></i></div>
       <div class="ig-banner-text">
         <strong>@web4medya</strong>
-        <p>Instagram'da tüm projelerimizi takip edebilirsiniz</p>
+        <p>Tüm projelerimizi ve güncel paylaşımlarımızı Instagram'da takip edebilirsiniz</p>
       </div>
       <a href="https://www.instagram.com/web4medya" target="_blank" rel="noopener" class="ig-banner-link">
         <i class="fab fa-instagram"></i> Profili Takip Et
@@ -983,8 +991,9 @@ body::before{
 
       <!-- 1. fztbeyzaargin.com -->
       <article class="portfolio-item">
-        <div class="ig-embed-wrap">
-          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DWetUhOjB1Y/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"><div style="padding:16px;"><a href="https://www.instagram.com/p/DWetUhOjB1Y/?utm_source=ig_embed&amp;utm_campaign=loading" style="background:#FFFFFF;line-height:0;padding:0 0;text-align:center;text-decoration:none;width:100%;" target="_blank"><div class="ig-embed-loading"><i class="fab fa-instagram"></i> Yükleniyor...</div></a></div></blockquote>
+        <div class="portfolio-image">
+          <span class="portfolio-category"><i class="fas fa-hand-holding-medical"></i> Fizyoterapist Web Sitesi</span>
+          <img src="/images/fzt-beyzaergin.webp" alt="Fizyoterapist Web Sitesi - fztbeyzaargin.com" loading="lazy" width="2848" height="1568"/>
         </div>
         <div class="portfolio-footer">
           <div class="portfolio-site">
@@ -994,73 +1003,17 @@ body::before{
               <div class="portfolio-site-url">fztbeyzaargin.com</div>
             </div>
           </div>
-          <a href="https://www.fztbeyzaargin.com" target="_blank" rel="noopener" class="portfolio-visit">
+          <a href="https://www.fztbeyzaargin.com/" target="_blank" rel="noopener" class="portfolio-visit">
             <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
           </a>
         </div>
       </article>
 
-      <!-- 2. kepenkservisim.com -->
+      <!-- 2. altancompany.com -->
       <article class="portfolio-item">
-        <div class="ig-embed-wrap">
-          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DXdAbOziKDX/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"><div style="padding:16px;"><a href="https://www.instagram.com/p/DXdAbOziKDX/?utm_source=ig_embed&amp;utm_campaign=loading" style="background:#FFFFFF;line-height:0;padding:0 0;text-align:center;text-decoration:none;width:100%;" target="_blank"><div class="ig-embed-loading"><i class="fab fa-instagram"></i> Yükleniyor...</div></a></div></blockquote>
-        </div>
-        <div class="portfolio-footer">
-          <div class="portfolio-site">
-            <div class="portfolio-site-icon"><i class="fas fa-globe"></i></div>
-            <div class="portfolio-site-text">
-              <div class="portfolio-site-label">Web Sitesi</div>
-              <div class="portfolio-site-url">kepenkservisim.com</div>
-            </div>
-          </div>
-          <a href="https://www.kepenkservisim.com" target="_blank" rel="noopener" class="portfolio-visit">
-            <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
-          </a>
-        </div>
-      </article>
-
-      <!-- 3. izmirhurdacim.com -->
-      <article class="portfolio-item">
-        <div class="ig-embed-wrap">
-          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DXb1sahDGiU/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"><div style="padding:16px;"><a href="https://www.instagram.com/p/DXb1sahDGiU/?utm_source=ig_embed&amp;utm_campaign=loading" style="background:#FFFFFF;line-height:0;padding:0 0;text-align:center;text-decoration:none;width:100%;" target="_blank"><div class="ig-embed-loading"><i class="fab fa-instagram"></i> Yükleniyor...</div></a></div></blockquote>
-        </div>
-        <div class="portfolio-footer">
-          <div class="portfolio-site">
-            <div class="portfolio-site-icon"><i class="fas fa-globe"></i></div>
-            <div class="portfolio-site-text">
-              <div class="portfolio-site-label">Web Sitesi</div>
-              <div class="portfolio-site-url">izmirhurdacim.com</div>
-            </div>
-          </div>
-          <a href="https://www.izmirhurdacim.com" target="_blank" rel="noopener" class="portfolio-visit">
-            <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
-          </a>
-        </div>
-      </article>
-
-      <!-- 4. kurtaricikemal.com -->
-      <article class="portfolio-item">
-        <div class="ig-embed-wrap">
-          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DXNhWRqjNy-/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"><div style="padding:16px;"><a href="https://www.instagram.com/p/DXNhWRqjNy-/?utm_source=ig_embed&amp;utm_campaign=loading" style="background:#FFFFFF;line-height:0;padding:0 0;text-align:center;text-decoration:none;width:100%;" target="_blank"><div class="ig-embed-loading"><i class="fab fa-instagram"></i> Yükleniyor...</div></a></div></blockquote>
-        </div>
-        <div class="portfolio-footer">
-          <div class="portfolio-site">
-            <div class="portfolio-site-icon"><i class="fas fa-globe"></i></div>
-            <div class="portfolio-site-text">
-              <div class="portfolio-site-label">Web Sitesi</div>
-              <div class="portfolio-site-url">kurtaricikemal.com</div>
-            </div>
-          </div>
-          <a href="https://www.kurtaricikemal.com" target="_blank" rel="noopener" class="portfolio-visit">
-            <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
-          </a>
-        </div>
-      </article>
-
-      <!-- 5. altancompany.com -->
-      <article class="portfolio-item">
-        <div class="ig-embed-wrap">
-          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DW9oFjBDIQW/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"><div style="padding:16px;"><a href="https://www.instagram.com/p/DW9oFjBDIQW/?utm_source=ig_embed&amp;utm_campaign=loading" style="background:#FFFFFF;line-height:0;padding:0 0;text-align:center;text-decoration:none;width:100%;" target="_blank"><div class="ig-embed-loading"><i class="fab fa-instagram"></i> Yükleniyor...</div></a></div></blockquote>
+        <div class="portfolio-image">
+          <span class="portfolio-category"><i class="fas fa-fan"></i> Endüstriyel Havalandırma Sitesi</span>
+          <img src="/images/altancompany.webp" alt="Endüstriyel Havalandırma Sitesi - altancompany.com" loading="lazy" width="2848" height="1568"/>
         </div>
         <div class="portfolio-footer">
           <div class="portfolio-site">
@@ -1070,54 +1023,37 @@ body::before{
               <div class="portfolio-site-url">altancompany.com</div>
             </div>
           </div>
-          <a href="https://www.altancompany.com" target="_blank" rel="noopener" class="portfolio-visit">
+          <a href="https://www.altancompany.com/" target="_blank" rel="noopener" class="portfolio-visit">
             <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
           </a>
         </div>
       </article>
 
-      <!-- 6. solarcleaning.com.tr -->
+      <!-- 3. robotservisim.net -->
       <article class="portfolio-item">
-        <div class="ig-embed-wrap">
-          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DWqHc-DjBvj/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"><div style="padding:16px;"><a href="https://www.instagram.com/p/DWqHc-DjBvj/?utm_source=ig_embed&amp;utm_campaign=loading" style="background:#FFFFFF;line-height:0;padding:0 0;text-align:center;text-decoration:none;width:100%;" target="_blank"><div class="ig-embed-loading"><i class="fab fa-instagram"></i> Yükleniyor...</div></a></div></blockquote>
+        <div class="portfolio-image">
+          <span class="portfolio-category"><i class="fas fa-robot"></i> Robot Süpürge Servisi Sitesi</span>
+          <img src="/images/robotservisim.webp" alt="Robot Süpürge Servisi Sitesi - robotservisim.net" loading="lazy" width="2848" height="1568"/>
         </div>
         <div class="portfolio-footer">
           <div class="portfolio-site">
             <div class="portfolio-site-icon"><i class="fas fa-globe"></i></div>
             <div class="portfolio-site-text">
               <div class="portfolio-site-label">Web Sitesi</div>
-              <div class="portfolio-site-url">solarcleaning.com.tr</div>
+              <div class="portfolio-site-url">robotservisim.net</div>
             </div>
           </div>
-          <a href="https://www.solarcleaning.com.tr" target="_blank" rel="noopener" class="portfolio-visit">
+          <a href="https://www.robotservisim.net/" target="_blank" rel="noopener" class="portfolio-visit">
             <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
           </a>
         </div>
       </article>
 
-      <!-- 7. diyetisyentugba.com -->
+      <!-- 4. novaklimasistemleri.com -->
       <article class="portfolio-item">
-        <div class="ig-embed-wrap">
-          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DWfY67NCDCA/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"><div style="padding:16px;"><a href="https://www.instagram.com/p/DWfY67NCDCA/?utm_source=ig_embed&amp;utm_campaign=loading" style="background:#FFFFFF;line-height:0;padding:0 0;text-align:center;text-decoration:none;width:100%;" target="_blank"><div class="ig-embed-loading"><i class="fab fa-instagram"></i> Yükleniyor...</div></a></div></blockquote>
-        </div>
-        <div class="portfolio-footer">
-          <div class="portfolio-site">
-            <div class="portfolio-site-icon"><i class="fas fa-globe"></i></div>
-            <div class="portfolio-site-text">
-              <div class="portfolio-site-label">Web Sitesi</div>
-              <div class="portfolio-site-url">diyetisyentugba.com</div>
-            </div>
-          </div>
-          <a href="https://www.diyetisyentugba.com" target="_blank" rel="noopener" class="portfolio-visit">
-            <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
-          </a>
-        </div>
-      </article>
-
-      <!-- 8. novaklimasistemleri.com -->
-      <article class="portfolio-item">
-        <div class="ig-embed-wrap">
-          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DWfZ9LjiJVC/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"><div style="padding:16px;"><a href="https://www.instagram.com/p/DWfZ9LjiJVC/?utm_source=ig_embed&amp;utm_campaign=loading" style="background:#FFFFFF;line-height:0;padding:0 0;text-align:center;text-decoration:none;width:100%;" target="_blank"><div class="ig-embed-loading"><i class="fab fa-instagram"></i> Yükleniyor...</div></a></div></blockquote>
+        <div class="portfolio-image">
+          <span class="portfolio-category"><i class="fas fa-snowflake"></i> Klimacı Web Sitesi</span>
+          <img src="/images/novaklimasistemleri.webp" alt="Klimacı Web Sitesi - novaklimasistemleri.com" loading="lazy" width="2848" height="1568"/>
         </div>
         <div class="portfolio-footer">
           <div class="portfolio-site">
@@ -1127,73 +1063,57 @@ body::before{
               <div class="portfolio-site-url">novaklimasistemleri.com</div>
             </div>
           </div>
-          <a href="https://www.novaklimasistemleri.com" target="_blank" rel="noopener" class="portfolio-visit">
+          <a href="https://www.novaklimasistemleri.com/" target="_blank" rel="noopener" class="portfolio-visit">
             <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
           </a>
         </div>
       </article>
 
-      <!-- 9. istanbulsapbeton.com -->
+      <!-- 5. alyailaclama.com -->
       <article class="portfolio-item">
-        <div class="ig-embed-wrap">
-          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DWfTPMtCMRj/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"><div style="padding:16px;"><a href="https://www.instagram.com/p/DWfTPMtCMRj/?utm_source=ig_embed&amp;utm_campaign=loading" style="background:#FFFFFF;line-height:0;padding:0 0;text-align:center;text-decoration:none;width:100%;" target="_blank"><div class="ig-embed-loading"><i class="fab fa-instagram"></i> Yükleniyor...</div></a></div></blockquote>
+        <div class="portfolio-image">
+          <span class="portfolio-category"><i class="fas fa-bug"></i> Böcek İlaçlama Web Sitesi</span>
+          <img src="/images/alyailaclama.webp" alt="Böcek İlaçlama Web Sitesi - alyailaclama.com" loading="lazy" width="2848" height="1568"/>
         </div>
         <div class="portfolio-footer">
           <div class="portfolio-site">
             <div class="portfolio-site-icon"><i class="fas fa-globe"></i></div>
             <div class="portfolio-site-text">
               <div class="portfolio-site-label">Web Sitesi</div>
-              <div class="portfolio-site-url">istanbulsapbeton.com</div>
+              <div class="portfolio-site-url">alyailaclama.com</div>
             </div>
           </div>
-          <a href="https://www.istanbulsapbeton.com" target="_blank" rel="noopener" class="portfolio-visit">
+          <a href="https://www.alyailaclama.com/" target="_blank" rel="noopener" class="portfolio-visit">
             <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
           </a>
         </div>
       </article>
 
-      <!-- 10. kamanroof.com -->
+      <!-- 6. kurtaricikemal.com -->
       <article class="portfolio-item">
-        <div class="ig-embed-wrap">
-          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DWfOkPViC9N/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"><div style="padding:16px;"><a href="https://www.instagram.com/p/DWfOkPViC9N/?utm_source=ig_embed&amp;utm_campaign=loading" style="background:#FFFFFF;line-height:0;padding:0 0;text-align:center;text-decoration:none;width:100%;" target="_blank"><div class="ig-embed-loading"><i class="fab fa-instagram"></i> Yükleniyor...</div></a></div></blockquote>
+        <div class="portfolio-image">
+          <span class="portfolio-category"><i class="fas fa-truck-pickup"></i> Vinç Kiralama Web Sitesi</span>
+          <img src="/images/kurtarici-kemal.webp" alt="Vinç Kiralama Web Sitesi - kurtaricikemal.com" loading="lazy" width="2848" height="1568"/>
         </div>
         <div class="portfolio-footer">
           <div class="portfolio-site">
             <div class="portfolio-site-icon"><i class="fas fa-globe"></i></div>
             <div class="portfolio-site-text">
               <div class="portfolio-site-label">Web Sitesi</div>
-              <div class="portfolio-site-url">kamanroof.com</div>
+              <div class="portfolio-site-url">kurtaricikemal.com</div>
             </div>
           </div>
-          <a href="https://www.kamanroof.com" target="_blank" rel="noopener" class="portfolio-visit">
+          <a href="https://www.kurtaricikemal.com/" target="_blank" rel="noopener" class="portfolio-visit">
             <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
           </a>
         </div>
       </article>
 
-      <!-- 11. trabzonkardelentemizlim.com -->
+      <!-- 7. samsuntaksinumarasi.com -->
       <article class="portfolio-item">
-        <div class="ig-embed-wrap">
-          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DWe-ANfDJVr/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"><div style="padding:16px;"><a href="https://www.instagram.com/p/DWe-ANfDJVr/?utm_source=ig_embed&amp;utm_campaign=loading" style="background:#FFFFFF;line-height:0;padding:0 0;text-align:center;text-decoration:none;width:100%;" target="_blank"><div class="ig-embed-loading"><i class="fab fa-instagram"></i> Yükleniyor...</div></a></div></blockquote>
-        </div>
-        <div class="portfolio-footer">
-          <div class="portfolio-site">
-            <div class="portfolio-site-icon"><i class="fas fa-globe"></i></div>
-            <div class="portfolio-site-text">
-              <div class="portfolio-site-label">Web Sitesi</div>
-              <div class="portfolio-site-url">trabzonkardelentemizlim.com</div>
-            </div>
-          </div>
-          <a href="https://www.trabzonkardelentemizlim.com" target="_blank" rel="noopener" class="portfolio-visit">
-            <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
-          </a>
-        </div>
-      </article>
-
-      <!-- 12. samsuntaksinumarasi.com -->
-      <article class="portfolio-item">
-        <div class="ig-embed-wrap">
-          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DWevXPjjFFg/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"><div style="padding:16px;"><a href="https://www.instagram.com/p/DWevXPjjFFg/?utm_source=ig_embed&amp;utm_campaign=loading" style="background:#FFFFFF;line-height:0;padding:0 0;text-align:center;text-decoration:none;width:100%;" target="_blank"><div class="ig-embed-loading"><i class="fab fa-instagram"></i> Yükleniyor...</div></a></div></blockquote>
+        <div class="portfolio-image">
+          <span class="portfolio-category"><i class="fas fa-taxi"></i> Taksici Web Sitesi</span>
+          <img src="/images/samsuntaksinumarasi.webp" alt="Taksici Web Sitesi - samsuntaksinumarasi.com" loading="lazy" width="2848" height="1568"/>
         </div>
         <div class="portfolio-footer">
           <div class="portfolio-site">
@@ -1203,7 +1123,187 @@ body::before{
               <div class="portfolio-site-url">samsuntaksinumarasi.com</div>
             </div>
           </div>
-          <a href="https://www.samsuntaksinumarasi.com" target="_blank" rel="noopener" class="portfolio-visit">
+          <a href="https://www.samsuntaksinumarasi.com/" target="_blank" rel="noopener" class="portfolio-visit">
+            <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
+          </a>
+        </div>
+      </article>
+
+      <!-- 8. diaflowers.com -->
+      <article class="portfolio-item">
+        <div class="portfolio-image">
+          <span class="portfolio-category"><i class="fas fa-spa"></i> Çiçekçi Web Sitesi</span>
+          <img src="/images/diaflowers.webp" alt="Çiçekçi Web Sitesi - diaflowers.com" loading="lazy" width="2848" height="1568"/>
+        </div>
+        <div class="portfolio-footer">
+          <div class="portfolio-site">
+            <div class="portfolio-site-icon"><i class="fas fa-globe"></i></div>
+            <div class="portfolio-site-text">
+              <div class="portfolio-site-label">Web Sitesi</div>
+              <div class="portfolio-site-url">diaflowers.com</div>
+            </div>
+          </div>
+          <a href="https://www.diaflowers.com/" target="_blank" rel="noopener" class="portfolio-visit">
+            <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
+          </a>
+        </div>
+      </article>
+
+      <!-- 9. kepenkservisim.com -->
+      <article class="portfolio-item">
+        <div class="portfolio-image">
+          <span class="portfolio-category"><i class="fas fa-shop-lock"></i> Kepenk Tamircisi Web Sitesi</span>
+          <img src="/images/kepenk-servisim.webp" alt="Kepenk Tamircisi Web Sitesi - kepenkservisim.com" loading="lazy" width="2848" height="1568"/>
+        </div>
+        <div class="portfolio-footer">
+          <div class="portfolio-site">
+            <div class="portfolio-site-icon"><i class="fas fa-globe"></i></div>
+            <div class="portfolio-site-text">
+              <div class="portfolio-site-label">Web Sitesi</div>
+              <div class="portfolio-site-url">kepenkservisim.com</div>
+            </div>
+          </div>
+          <a href="https://www.kepenkservisim.com/" target="_blank" rel="noopener" class="portfolio-visit">
+            <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
+          </a>
+        </div>
+      </article>
+
+      <!-- 10. trabzonkardelentemizlik.com -->
+      <article class="portfolio-item">
+        <div class="portfolio-image">
+          <span class="portfolio-category"><i class="fas fa-broom"></i> Temizlik Şirketi Web Sitesi</span>
+          <img src="/images/trabzonkardelentemizlik.webp" alt="Temizlik Şirketi Web Sitesi - trabzonkardelentemizlik.com" loading="lazy" width="2848" height="1568"/>
+        </div>
+        <div class="portfolio-footer">
+          <div class="portfolio-site">
+            <div class="portfolio-site-icon"><i class="fas fa-globe"></i></div>
+            <div class="portfolio-site-text">
+              <div class="portfolio-site-label">Web Sitesi</div>
+              <div class="portfolio-site-url">trabzonkardelentemizlik.com</div>
+            </div>
+          </div>
+          <a href="https://www.trabzonkardelentemizlik.com/" target="_blank" rel="noopener" class="portfolio-visit">
+            <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
+          </a>
+        </div>
+      </article>
+
+      <!-- 11. diyetisyentugba.com -->
+      <article class="portfolio-item">
+        <div class="portfolio-image">
+          <span class="portfolio-category"><i class="fas fa-apple-whole"></i> Diyetisyen Web Sitesi</span>
+          <img src="/images/diyetisyen-tugba.webp" alt="Diyetisyen Web Sitesi - diyetisyentugba.com" loading="lazy" width="2848" height="1568"/>
+        </div>
+        <div class="portfolio-footer">
+          <div class="portfolio-site">
+            <div class="portfolio-site-icon"><i class="fas fa-globe"></i></div>
+            <div class="portfolio-site-text">
+              <div class="portfolio-site-label">Web Sitesi</div>
+              <div class="portfolio-site-url">diyetisyentugba.com</div>
+            </div>
+          </div>
+          <a href="https://www.diyetisyentugba.com/" target="_blank" rel="noopener" class="portfolio-visit">
+            <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
+          </a>
+        </div>
+      </article>
+
+      <!-- 12. solarcleaning.com.tr -->
+      <article class="portfolio-item">
+        <div class="portfolio-image">
+          <span class="portfolio-category"><i class="fas fa-solar-panel"></i> Güneş Paneli Servisi Sitesi</span>
+          <img src="/images/solarcleaning.webp" alt="Güneş Paneli Servisi Sitesi - solarcleaning.com.tr" loading="lazy" width="2848" height="1568"/>
+        </div>
+        <div class="portfolio-footer">
+          <div class="portfolio-site">
+            <div class="portfolio-site-icon"><i class="fas fa-globe"></i></div>
+            <div class="portfolio-site-text">
+              <div class="portfolio-site-label">Web Sitesi</div>
+              <div class="portfolio-site-url">solarcleaning.com.tr</div>
+            </div>
+          </div>
+          <a href="https://www.solarcleaning.com.tr/" target="_blank" rel="noopener" class="portfolio-visit">
+            <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
+          </a>
+        </div>
+      </article>
+
+      <!-- 13. ydztesisat.com -->
+      <article class="portfolio-item">
+        <div class="portfolio-image">
+          <span class="portfolio-category"><i class="fas fa-faucet"></i> Tesisatçı Web Sitesi</span>
+          <img src="/images/ydztesisat.webp" alt="Tesisatçı Web Sitesi - ydztesisat.com" loading="lazy" width="2848" height="1568"/>
+        </div>
+        <div class="portfolio-footer">
+          <div class="portfolio-site">
+            <div class="portfolio-site-icon"><i class="fas fa-globe"></i></div>
+            <div class="portfolio-site-text">
+              <div class="portfolio-site-label">Web Sitesi</div>
+              <div class="portfolio-site-url">ydztesisat.com</div>
+            </div>
+          </div>
+          <a href="https://www.ydztesisat.com/" target="_blank" rel="noopener" class="portfolio-visit">
+            <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
+          </a>
+        </div>
+      </article>
+
+      <!-- 14. istanbulsapbeton.com -->
+      <article class="portfolio-item">
+        <div class="portfolio-image">
+          <span class="portfolio-category"><i class="fas fa-trowel-bricks"></i> Şap & Betoncu Web Sitesi</span>
+          <img src="/images/istanbulsapbeton.webp" alt="Şap & Betoncu Web Sitesi - istanbulsapbeton.com" loading="lazy" width="2848" height="1568"/>
+        </div>
+        <div class="portfolio-footer">
+          <div class="portfolio-site">
+            <div class="portfolio-site-icon"><i class="fas fa-globe"></i></div>
+            <div class="portfolio-site-text">
+              <div class="portfolio-site-label">Web Sitesi</div>
+              <div class="portfolio-site-url">istanbulsapbeton.com</div>
+            </div>
+          </div>
+          <a href="https://www.istanbulsapbeton.com/" target="_blank" rel="noopener" class="portfolio-visit">
+            <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
+          </a>
+        </div>
+      </article>
+
+      <!-- 15. izmirhurdacim.com -->
+      <article class="portfolio-item">
+        <div class="portfolio-image">
+          <span class="portfolio-category"><i class="fas fa-recycle"></i> Hurdacı Web Sitesi</span>
+          <img src="/images/izmir-hurdacim.webp" alt="Hurdacı Web Sitesi - izmirhurdacim.com" loading="lazy" width="2848" height="1568"/>
+        </div>
+        <div class="portfolio-footer">
+          <div class="portfolio-site">
+            <div class="portfolio-site-icon"><i class="fas fa-globe"></i></div>
+            <div class="portfolio-site-text">
+              <div class="portfolio-site-label">Web Sitesi</div>
+              <div class="portfolio-site-url">izmirhurdacim.com</div>
+            </div>
+          </div>
+          <a href="https://www.izmirhurdacim.com/" target="_blank" rel="noopener" class="portfolio-visit">
+            <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
+          </a>
+        </div>
+      </article>
+
+      <!-- 16. kamanroof.com -->
+      <article class="portfolio-item">
+        <div class="portfolio-image">
+          <span class="portfolio-category"><i class="fas fa-house-chimney"></i> Çatı Tamircisi Web Sitesi</span>
+          <img src="/images/kamanroof.webp" alt="Çatı Tamircisi Web Sitesi - kamanroof.com" loading="lazy" width="2848" height="1568"/>
+        </div>
+        <div class="portfolio-footer">
+          <div class="portfolio-site">
+            <div class="portfolio-site-icon"><i class="fas fa-globe"></i></div>
+            <div class="portfolio-site-text">
+              <div class="portfolio-site-label">Web Sitesi</div>
+              <div class="portfolio-site-url">kamanroof.com</div>
+            </div>
+          </div>
+          <a href="https://www.kamanroof.com/" target="_blank" rel="noopener" class="portfolio-visit">
             <i class="fas fa-arrow-up-right-from-square"></i> Siteyi Ziyaret Et
           </a>
         </div>
@@ -1219,9 +1319,6 @@ body::before{
 
   </div>
 </section>
-
-<!-- Instagram Embed Script -->
-<script async src="//www.instagram.com/embed.js"></script>
 
 <!-- ═══ SÜREÇ ═══ -->
 <section class="process">
