@@ -807,12 +807,83 @@ body::before{
   .legal-content{padding:36px 28px;}
 }
 @media(max-width:640px){
-  .legal-content{padding:28px 22px;}
+  .legal-content{padding:28px 18px;}
   .legal-section-title{font-size:1.3rem;gap:10px;}
   .legal-section-num{width:30px;height:30px;font-size:0.85rem;}
   .legal-section h3{font-size:1.05rem;}
+  .legal-section p,
+  .legal-section ul li,
+  .legal-section ol li{
+    word-wrap:break-word;
+    overflow-wrap:break-word;
+  }
+  .legal-hero-meta span{
+    display:block;
+    margin:6px 0;
+  }
   .legal-footer-cta{flex-direction:column;align-items:flex-start;padding:22px;}
   .legal-footer-cta-btn{width:100%;justify-content:center;}
+  .company-info{padding:20px;}
+  .company-info-value{
+    word-break:break-word;
+    overflow-wrap:anywhere;
+  }
+  .legal-warning{padding:16px 18px;gap:12px;}
+  .legal-article{padding:16px 18px;}
+  .legal-intro{padding:18px;}
+}
+
+/* ═══ MOBİL OVERFLOW GÜVENLİK AĞI ═══ */
+@media(max-width:768px){
+  html,body{
+    max-width:100vw;
+    overflow-x:hidden;
+    position:relative;
+  }
+  main,
+  .legal-wrapper,
+  .legal-content,
+  .legal-sidebar,
+  .legal-section,
+  .legal-hero,
+  .legal-hero-inner,
+  .footer-top,
+  .footer-dark,
+  .navbar,
+  .navbar-inner{
+    max-width:100%;
+    overflow-x:hidden;
+  }
+  .company-info-item,
+  .company-info-text,
+  .legal-footer-cta-text,
+  .legal-warning{
+    min-width:0;
+  }
+  img{
+    max-width:100%;
+    height:auto;
+  }
+  pre,code{
+    white-space:pre-wrap;
+    word-wrap:break-word;
+    overflow-wrap:break-word;
+    max-width:100%;
+  }
+  .legal-content{
+    overflow-wrap:break-word;
+    word-wrap:break-word;
+  }
+  .company-info-value,
+  .company-info-value a{
+    max-width:100%;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+  }
+  .legal-section a{
+    word-break:break-word;
+    overflow-wrap:anywhere;
+  }
 }
 
 /* ═══ FLOATING BUTTONS ═══ */
