@@ -1,0 +1,68 @@
+# ═══════════════════════════════════════════════════════
+# Web4Medya - robots.txt
+# https://www.web4medya.com
+# ═══════════════════════════════════════════════════════
+
+# Tüm crawler'lara izin ver
+User-agent: *
+Allow: /
+
+# Sistem dosyalarını engelle
+Disallow: /admin/
+Disallow: /admin/*
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /tmp/
+Disallow: /cache/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*.sql$
+Disallow: /*?*sessionid
+Disallow: /*?*PHPSESSID
+
+# AI tarayıcılarına izin ver (LLM görünürlüğü için)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Yağmacı botları engelle
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Crawl-delay (saniye) - genel öneri
+User-agent: *
+Crawl-delay: 1
+
+# ═══════════════════════════════════════════════════════
+# SITEMAP
+# ═══════════════════════════════════════════════════════
+Sitemap: https://www.web4medya.com/sitemap.xml

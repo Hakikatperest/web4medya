@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ANASAYFA -->
+  <url>
+    <loc>https://www.web4medya.com/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.web4medya.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.web4medya.com/"/>
+  </url>
+
+  <!-- HİZMET SAYFALARI -->
+  <url>
+    <loc>https://www.web4medya.com/google-ads-reklamlari/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.web4medya.com/google-ads-reklamlari/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.web4medya.com/google-ads-reklamlari/"/>
+  </url>
+
+  <url>
+    <loc>https://www.web4medya.com/meta-ads-reklamlari/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.web4medya.com/meta-ads-reklamlari/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.web4medya.com/meta-ads-reklamlari/"/>
+  </url>
+
+  <url>
+    <loc>https://www.web4medya.com/web-tasarim/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.web4medya.com/web-tasarim/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.web4medya.com/web-tasarim/"/>
+  </url>
+
+  <url>
+    <loc>https://www.web4medya.com/sosyal-medya-yonetimi/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.web4medya.com/sosyal-medya-yonetimi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.web4medya.com/sosyal-medya-yonetimi/"/>
+  </url>
+
+  <url>
+    <loc>https://www.web4medya.com/isletme-harita-konum/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.web4medya.com/isletme-harita-konum/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.web4medya.com/isletme-harita-konum/"/>
+  </url>
+
+  <!-- KURUMSAL SAYFALAR -->
+  <url>
+    <loc>https://www.web4medya.com/hakkimizda/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.web4medya.com/hakkimizda/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.web4medya.com/hakkimizda/"/>
+  </url>
+
+  <url>
+    <loc>https://www.web4medya.com/iletisim/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.web4medya.com/iletisim/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.web4medya.com/iletisim/"/>
+  </url>
+
+  <!-- YASAL SAYFALAR -->
+  <url>
+    <loc>https://www.web4medya.com/kvkk/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.web4medya.com/kvkk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.web4medya.com/kvkk/"/>
+  </url>
+
+  <url>
+    <loc>https://www.web4medya.com/gizlilik-politikasi/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.web4medya.com/gizlilik-politikasi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.web4medya.com/gizlilik-politikasi/"/>
+  </url>
+
+  <url>
+    <loc>https://www.web4medya.com/kullanim-sartlari/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.web4medya.com/kullanim-sartlari/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.web4medya.com/kullanim-sartlari/"/>
+  </url>
+
+  <url>
+    <loc>https://www.web4medya.com/cerez-politikasi/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.web4medya.com/cerez-politikasi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.web4medya.com/cerez-politikasi/"/>
+  </url>
+
+</urlset>
