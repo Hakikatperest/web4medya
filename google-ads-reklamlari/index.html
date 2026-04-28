@@ -1600,6 +1600,10 @@ body::before{
     transition:none !important;
   }
 }
+     @keyframes shine {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
 </style>
 
 <!-- Logo preload -->
@@ -1675,8 +1679,8 @@ body::before{
       <span class="current">Google Ads Reklamları</span>
     </nav>
 
-   <h1 class="page-hero-title">
-  <span style="background: linear-gradient(135deg, #4285F4 0%, #FFFFFF 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">Google Ads</span>
+  <h1 class="page-hero-title">
+  <span style="background: linear-gradient(135deg, #FFFFFF 0%, #4285F4 40%, #0B57D0 70%, #FFFFFF 100%); -webkit-background-clip: text; background-clip: text; color: transparent; background-size: 200% auto; animation: shine 3s ease infinite;">Google Ads</span>
   <span style="color: #ffffff;">Reklamları</span>
 </h1>
     <p class="page-hero-desc">
