@@ -556,22 +556,41 @@ body::before{
   white-space:nowrap;cursor:pointer;box-sizing:border-box;
 }
 .btn-primary{
+  background:linear-gradient(135deg, #1E293B 0%, #334155 50%, #475569 100%);
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.12);
+  box-shadow:
+    0 4px 24px rgba(15,23,42,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  position:relative;overflow:hidden;isolation:isolate;
+}
+.btn-primary::before{
+  content:"";position:absolute;top:0;left:-100%;
+  width:50%;height:100%;
+  background:linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%);
+  transition:left 0.6s ease;pointer-events:none;
+  z-index:1;
+}
+.btn-primary > *{position:relative;z-index:2;}
+.btn-primary i{font-size:1.05rem;color:var(--yellow);}
+.btn-primary:hover{
+  background:linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%);
+  border-color:rgba(251,188,5,0.35);
+  transform:translateY(-2px);
+  box-shadow:
+    0 10px 36px rgba(15,23,42,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    0 0 0 1px rgba(251,188,5,0.15);
+}
+.btn-primary:hover::before{left:120%;}
+.btn-secondary{
   background:#25D366;color:#fff;border:2px solid #25D366;
   box-shadow:0 4px 24px rgba(37,211,102,0.4);
 }
-.btn-primary i{font-size:1.15rem;}
-.btn-primary:hover{
-  background:#1FBF5E;border-color:#1FBF5E;
-  transform:translateY(-2px);
-  box-shadow:0 10px 36px rgba(37,211,102,0.55);
-}
-.btn-secondary{
-  background:var(--blue);color:#fff;border:2px solid var(--blue);
-  box-shadow:0 4px 24px rgba(11,87,208,0.35);
-}
+.btn-secondary i{font-size:1.15rem;}
 .btn-secondary:hover{
-  background:#094AB3;border-color:#094AB3;color:#fff;
-  transform:translateY(-2px);box-shadow:0 10px 36px rgba(11,87,208,0.5);
+  background:#1FBF5E;border-color:#1FBF5E;color:#fff;
+  transform:translateY(-2px);box-shadow:0 10px 36px rgba(37,211,102,0.55);
 }
 
 @media(max-width:640px){
@@ -986,6 +1005,286 @@ body::before{
   .step-image-wrapper.dual figure{border-right:none;border-bottom:1px solid var(--border);padding:18px;}
   .step-image-wrapper.dual figure:last-child{border-bottom:none;}
   .promo-grid{grid-template-columns:1fr;}
+}
+
+/* ═══ LIGHTBOX (RESİM BÜYÜTME) ═══ */
+.step-image-wrapper img,
+.step-image-wrapper.dual figure img{
+  cursor:zoom-in;
+  transition:transform 0.3s ease, opacity 0.2s ease;
+}
+.step-image-wrapper img:hover,
+.step-image-wrapper.dual figure img:hover{
+  opacity:0.92;
+}
+
+.lightbox-overlay{
+  position:fixed;inset:0;z-index:9999;
+  background:rgba(8,12,22,0.92);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  padding:40px 20px;
+  opacity:0;visibility:hidden;
+  transition:opacity 0.3s ease, visibility 0.3s ease;
+  cursor:zoom-out;
+}
+.lightbox-overlay.open{
+  opacity:1;visibility:visible;
+}
+.lightbox-content{
+  position:relative;
+  max-width:95vw;max-height:90vh;
+  display:flex;align-items:center;justify-content:center;
+  cursor:default;
+  transform:scale(0.92);
+  transition:transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.lightbox-overlay.open .lightbox-content{
+  transform:scale(1);
+}
+.lightbox-content img{
+  max-width:100%;max-height:90vh;
+  width:auto;height:auto;
+  display:block;border-radius:12px;
+  box-shadow:0 24px 60px rgba(0,0,0,0.6);
+  background:#fff;
+}
+.lightbox-close{
+  position:absolute;top:-18px;right:-18px;
+  width:44px;height:44px;border-radius:50%;
+  background:#fff;color:#0F172A;
+  border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;
+  box-shadow:0 8px 24px rgba(0,0,0,0.3);
+  transition:transform 0.2s ease, background 0.2s ease;
+  z-index:2;
+}
+.lightbox-close:hover{
+  background:#EA4335;color:#fff;
+  transform:rotate(90deg) scale(1.05);
+}
+.lightbox-caption{
+  position:absolute;bottom:-44px;left:0;right:0;
+  text-align:center;color:rgba(255,255,255,0.85);
+  font-family:var(--font-body);
+  font-size:0.85rem;font-weight:500;
+  padding:0 20px;
+  pointer-events:none;
+}
+body.lightbox-open{
+  overflow:hidden;
+}
+@media(max-width:640px){
+  .lightbox-overlay{padding:20px 12px;}
+  .lightbox-close{
+    top:-14px;right:-4px;
+    width:38px;height:38px;font-size:1rem;
+  }
+  .lightbox-caption{
+    font-size:0.78rem;bottom:-38px;
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  .lightbox-overlay,
+  .lightbox-content{transition:none;}
+}
+
+/* ═══════════════════════════════════════════
+   TANITIM VİDEO BÖLÜMÜ
+   ═══════════════════════════════════════════ */
+.video-section{
+  background:transparent;
+  padding:80px 5% 60px;
+  position:relative;
+  overflow:hidden;
+}
+.video-inner{
+  max-width:1200px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+.video-header{
+  text-align:center;
+  margin-bottom:48px;
+}
+.video-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-body);
+  font-size:0.78rem;
+  font-weight:700;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--blue);
+  padding:8px 18px;
+  background:linear-gradient(135deg, rgba(11,87,208,0.1) 0%, rgba(66,133,244,0.05) 100%);
+  border:1px solid rgba(11,87,208,0.15);
+  border-radius:50px;
+  margin-bottom:22px;
+}
+.video-eyebrow::before{
+  content:"";
+  width:6px;height:6px;
+  background:var(--blue);
+  border-radius:50%;
+  box-shadow:0 0 0 3px rgba(11,87,208,0.2);
+}
+.video-title{
+  font-family:var(--font-display);
+  font-size:clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight:800;
+  letter-spacing:-0.025em;
+  color:var(--dark);
+  line-height:1.2;
+  margin-bottom:14px;
+}
+.video-title .accent{
+  background:linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.video-subtitle{
+  font-family:var(--font-body);
+  font-size:clamp(0.95rem, 1.3vw, 1.05rem);
+  color:var(--text2);
+  max-width:680px;
+  margin:0 auto;
+  line-height:1.6;
+}
+
+/* Video container */
+.video-wrapper{
+  position:relative;
+  max-width:1100px;
+  margin:0 auto;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 30px 80px rgba(11,87,208,0.18), 0 12px 32px rgba(15,23,42,0.1);
+  background:#0F172A;
+  aspect-ratio:16/9;
+}
+.video-wrapper::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 50%, var(--blue) 100%);
+  border-radius:26px;
+  z-index:-1;
+  opacity:0;
+  transition:opacity 0.4s;
+}
+.video-wrapper:hover::before{opacity:0.5;}
+.video-wrapper video{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  border-radius:24px;
+}
+
+/* Custom play overlay - sadece video oynatılmıyorsa */
+.video-play-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg, rgba(10,14,26,0.4) 0%, rgba(11,87,208,0.3) 100%);
+  cursor:pointer;
+  transition:opacity 0.3s, background 0.3s;
+  z-index:2;
+}
+.video-play-overlay.hidden{
+  opacity:0;
+  pointer-events:none;
+}
+.video-play-overlay:hover{
+  background:linear-gradient(135deg, rgba(10,14,26,0.5) 0%, rgba(11,87,208,0.4) 100%);
+}
+.video-play-button{
+  width:96px;
+  height:96px;
+  border-radius:50%;
+  background:#ffffff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2rem;
+  color:var(--blue);
+  padding-left:8px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.3);
+  transition:transform 0.3s, box-shadow 0.3s;
+  position:relative;
+}
+.video-play-button::before{
+  content:"";
+  position:absolute;
+  inset:-12px;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,0.4);
+  animation:play-pulse 2s ease-in-out infinite;
+}
+.video-play-button::after{
+  content:"";
+  position:absolute;
+  inset:-24px;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,0.2);
+  animation:play-pulse 2s ease-in-out infinite 0.5s;
+}
+@keyframes play-pulse{
+  0%,100%{transform:scale(1);opacity:0.7;}
+  50%{transform:scale(1.1);opacity:0;}
+}
+.video-play-overlay:hover .video-play-button{
+  transform:scale(1.08);
+  box-shadow:0 12px 40px rgba(0,0,0,0.4);
+}
+
+/* Video CTA altı */
+.video-cta{
+  text-align:center;
+  margin-top:36px;
+}
+.video-cta p{
+  font-family:var(--font-body);
+  font-size:1rem;
+  color:var(--text2);
+  margin-bottom:20px;
+  font-weight:500;
+}
+.video-cta-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 28px;
+  background:#25D366;
+  color:#fff !important;
+  border-radius:12px;
+  font-family:var(--font-body);
+  font-weight:700;
+  font-size:0.95rem;
+  text-decoration:none !important;
+  transition:transform 0.25s, box-shadow 0.25s, background 0.25s;
+  box-shadow:0 6px 24px rgba(37,211,102,0.4);
+}
+.video-cta-btn:hover{
+  background:#1FBF5E;
+  transform:translateY(-3px);
+  box-shadow:0 14px 36px rgba(37,211,102,0.55);
+}
+
+@media(max-width:768px){
+  .video-section{padding:60px 5% 40px;}
+  .video-header{margin-bottom:32px;}
+  .video-wrapper{border-radius:16px;}
+  .video-wrapper video{border-radius:16px;}
+  .video-play-button{width:72px;height:72px;font-size:1.5rem;}
 }
 
 /* ═══ AUTHOR / YAZAR KARTI ═══ */
@@ -2129,7 +2428,7 @@ body::before{
     <div class="author-info">
       <span class="author-label">Bu Rehberin Yazarı</span>
       <h3>Umut Yanardağ · Google Ads Uzmanı</h3>
-      <p>Bu makalede sizlere <strong>20 aşamada Google Ads Arama Ağı kampanyası kurmayı</strong> anlattım. Umarım faydalı olabilmişimdir. Daha fazla rehber, ileri seviye kampanya kurulumu, dönüşüm izleme ve optimizasyon teknikleri için <a href="/blog/">blog sayfamızı</a> takip edebilir, profesyonel destek için <a href="/iletisim/">iletişime geçebilirsiniz</a>. Web4Medya olarak sizin gibi işletme sahiplerine 8 yıldır profesyonel Google Ads yönetim hizmeti sunuyoruz.</p>
+      <p>Bu makalede sizlere <strong>20 aşamada Google Ads Arama Ağı kampanyası kurmayı</strong> anlattım. Umarım faydalı olabilmişimdir. Daha fazla rehber, ileri seviye kampanya kurulumu, dönüşüm izleme ve optimizasyon teknikleri için <strong>bizi takip etmeye devam edebilirsiniz</strong>. Profesyonel destek için <a href="/iletisim/">iletişime geçebilirsiniz</a>. Web4Medya olarak sizin gibi işletme sahiplerine profesyonel Google Ads yönetim hizmeti sunuyoruz.</p>
     </div>
   </div>
 </section>
@@ -2246,6 +2545,49 @@ body::before{
 </main>
 
 
+<!-- ═══ TANITIM VİDEOSU ═══ -->
+<section class="video-section" id="tanitim-video">
+  <div class="video-inner">
+    <div class="video-header" data-reveal="up">
+      <span class="video-eyebrow">Tanıtım Videosu</span>
+      <h2 class="video-title">Google'da Üst Sıralarda Olmak <span class="accent">Hayal Değil</span></h2>
+      <p class="video-subtitle">Web4Medya olarak işletmelerinizi en uygun maliyetlerle Google'da üst sıralara taşıyoruz. Türkiye'nin yeni nesil dijital pazarlama ajansı ile siz de internet üzerinde yerinizi alın!</p>
+    </div>
+
+    <div class="video-wrapper" data-reveal="scale">
+      <video
+        id="tanitimVideo"
+        preload="metadata"
+        playsinline
+        controls
+        poster="/images/web4medya-video-poster.webp"
+        aria-label="Web4Medya Google Reklam Ajansı Tanıtım Videosu"
+        itemprop="video"
+        itemscope
+        itemtype="https://schema.org/VideoObject">
+        <source src="/videos/web4medya-reklam-tanitim.webm" type="video/webm"/>
+        <source src="/videos/web4medya-reklam-tanitim.mp4" type="video/mp4"/>
+        <p>Tarayıcınız HTML5 video oynatmayı desteklemiyor. <a href="/videos/web4medya-reklam-tanitim.mp4">Videoyu indirmek için tıklayın</a>.</p>
+      </video>
+
+      <!-- Custom play overlay - tıklayınca videoyu başlatır -->
+      <div class="video-play-overlay" id="videoPlayOverlay" role="button" tabindex="0" aria-label="Videoyu oynat">
+        <div class="video-play-button">
+          <i class="fas fa-play"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="video-cta" data-reveal="up">
+      <p>Siz de Google'da üst sıralara çıkmak ister misiniz?</p>
+      <a href="https://wa.me/905303158752?text=Merhaba%2C%20Google%27da%20%C3%BCst%20s%C4%B1ralarda%20olmak%20i%C3%A7in%20bilgi%20almak%20istiyorum" target="_blank" rel="noopener" class="video-cta-btn">
+        <i class="fab fa-whatsapp"></i> Hemen Ücretsiz Görüşme Alın
+      </a>
+    </div>
+  </div>
+</section>
+
+
 <!-- ═══ FOOTER ═══ -->
 <footer class="site-footer">
   <div class="footer-top">
@@ -2283,7 +2625,6 @@ body::before{
             <li><a href="/google-reklam-vermek-istiyorum/">Google Reklam Vermek İstiyorum</a></li>
             <li><a href="/bartin-google-reklamci/">Bartın Google Reklamcı</a></li>
             <li><a href="/iletisim/">İletişim</a></li>
-            <li><a href="/blog/">Blog</a></li>
           </ul>
         </div>
 
@@ -2327,6 +2668,18 @@ body::before{
     <i class="fas fa-phone-alt"></i>
     <span class="tooltip">Hemen Ara</span>
   </a>
+</div>
+
+
+<!-- ═══ LIGHTBOX OVERLAY ═══ -->
+<div class="lightbox-overlay" id="lightboxOverlay" role="dialog" aria-modal="true" aria-label="Resim büyütme görünümü" aria-hidden="true">
+  <div class="lightbox-content">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Kapat">
+      <i class="fas fa-times"></i>
+    </button>
+    <img id="lightboxImage" src="" alt=""/>
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
 </div>
 
 
@@ -2448,6 +2801,98 @@ body::before{
     } else {
       document.querySelectorAll('[data-reveal], [data-stagger]').forEach(function(el){
         el.classList.add('in-view');
+      });
+    }
+
+    /* ═══ LIGHTBOX (RESİM BÜYÜTME) ═══ */
+    var lightboxOverlay = document.getElementById('lightboxOverlay');
+    var lightboxImage = document.getElementById('lightboxImage');
+    var lightboxCaption = document.getElementById('lightboxCaption');
+    var lightboxClose = document.getElementById('lightboxClose');
+
+    function openLightbox(src, alt){
+      if(!lightboxOverlay || !lightboxImage) return;
+      lightboxImage.src = src;
+      lightboxImage.alt = alt || '';
+      if(lightboxCaption){
+        lightboxCaption.textContent = alt || '';
+      }
+      lightboxOverlay.classList.add('open');
+      lightboxOverlay.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lightbox-open');
+    }
+
+    function closeLightbox(){
+      if(!lightboxOverlay) return;
+      lightboxOverlay.classList.remove('open');
+      lightboxOverlay.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lightbox-open');
+      // src'i biraz gecikmeyle temizle ki kapanma animasyonu görünür kalsın
+      setTimeout(function(){
+        if(!lightboxOverlay.classList.contains('open')){
+          lightboxImage.src = '';
+        }
+      }, 350);
+    }
+
+    // Tüm step image'larına click event ekle
+    document.querySelectorAll('.step-image-wrapper img').forEach(function(img){
+      img.addEventListener('click', function(){
+        openLightbox(this.src, this.alt);
+      });
+    });
+
+    // Çarpı butonu
+    if(lightboxClose){
+      lightboxClose.addEventListener('click', function(e){
+        e.stopPropagation();
+        closeLightbox();
+      });
+    }
+
+    // Overlay'in dışına (boşluğa) tıklayınca kapansın
+    if(lightboxOverlay){
+      lightboxOverlay.addEventListener('click', function(e){
+        // Sadece overlay'in kendisine veya content'in dışına tıklanırsa kapansın
+        // Resmin kendisine tıklanınca kapanmasın
+        if(e.target === lightboxOverlay || e.target.classList.contains('lightbox-content')){
+          closeLightbox();
+        }
+      });
+    }
+
+    // ESC tuşu ile kapatma
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && lightboxOverlay && lightboxOverlay.classList.contains('open')){
+        closeLightbox();
+      }
+    });
+
+    /* ═══ Tanıtım Video - Custom Play Overlay ═══ */
+    var video = document.getElementById('tanitimVideo');
+    var videoOverlay = document.getElementById('videoPlayOverlay');
+    if(video && videoOverlay){
+      function playVideo(){
+        videoOverlay.classList.add('hidden');
+        video.play().catch(function(){
+          videoOverlay.classList.remove('hidden');
+        });
+      }
+
+      videoOverlay.addEventListener('click', playVideo);
+      videoOverlay.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          playVideo();
+        }
+      });
+
+      video.addEventListener('ended', function(){
+        videoOverlay.classList.remove('hidden');
+      });
+
+      video.addEventListener('play', function(){
+        videoOverlay.classList.add('hidden');
       });
     }
 
